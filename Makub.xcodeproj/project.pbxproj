@@ -54,14 +54,70 @@
 		C44D60AE205529C100A5C50F /* Makub */ = {
 			isa = PBXGroup;
 			children = (
+				C44D60C2205538BD00A5C50F /* Classes */,
+				C44D60C4205538F300A5C50F /* Supporting files */,
+				C44D60C3205538E900A5C50F /* Resources */,
 				C44D60AF205529C100A5C50F /* AppDelegate.swift */,
-				C44D60B1205529C200A5C50F /* ViewController.swift */,
-				C44D60B3205529C200A5C50F /* Main.storyboard */,
-				C44D60B6205529C200A5C50F /* Assets.xcassets */,
-				C44D60B8205529C200A5C50F /* LaunchScreen.storyboard */,
-				C44D60BB205529C200A5C50F /* Info.plist */,
 			);
 			path = Makub;
+			sourceTree = "<group>";
+		};
+		C44D60C2205538BD00A5C50F /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				C44D60C72055391400A5C50F /* Business logic */,
+				C44D60C62055390F00A5C50F /* Presentation */,
+				C44D60C52055390300A5C50F /* Model */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		C44D60C3205538E900A5C50F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C44D60B6205529C200A5C50F /* Assets.xcassets */,
+				C44D60B8205529C200A5C50F /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		C44D60C4205538F300A5C50F /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				C44D60BB205529C200A5C50F /* Info.plist */,
+			);
+			path = "Supporting files";
+			sourceTree = "<group>";
+		};
+		C44D60C52055390300A5C50F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		C44D60C62055390F00A5C50F /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				C44D60B3205529C200A5C50F /* Main.storyboard */,
+				C44D60C82055394900A5C50F /* Auth */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		C44D60C72055391400A5C50F /* Business logic */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Business logic";
+			sourceTree = "<group>";
+		};
+		C44D60C82055394900A5C50F /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				C44D60B1205529C200A5C50F /* ViewController.swift */,
+			);
+			path = Auth;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
