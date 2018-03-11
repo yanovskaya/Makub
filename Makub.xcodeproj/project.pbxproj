@@ -8,20 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		C44D60B0205529C100A5C50F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44D60AF205529C100A5C50F /* AppDelegate.swift */; };
-		C44D60B2205529C200A5C50F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44D60B1205529C200A5C50F /* ViewController.swift */; };
-		C44D60B5205529C200A5C50F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C44D60B3205529C200A5C50F /* Main.storyboard */; };
+		C44D60B2205529C200A5C50F /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44D60B1205529C200A5C50F /* AuthViewController.swift */; };
+		C44D60B5205529C200A5C50F /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C44D60B3205529C200A5C50F /* Auth.storyboard */; };
 		C44D60B7205529C200A5C50F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C44D60B6205529C200A5C50F /* Assets.xcassets */; };
 		C44D60BA205529C200A5C50F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C44D60B8205529C200A5C50F /* LaunchScreen.storyboard */; };
+		C44D60CA20553B0100A5C50F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44D60C920553B0100A5C50F /* User.swift */; };
+		C44D60CC20553B2400A5C50F /* ServiceLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44D60CB20553B2400A5C50F /* ServiceLayer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C44D60AC205529C100A5C50F /* Makub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Makub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C44D60AF205529C100A5C50F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C44D60B1205529C200A5C50F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		C44D60B4205529C200A5C50F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C44D60B1205529C200A5C50F /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		C44D60B4205529C200A5C50F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Auth.storyboard; sourceTree = "<group>"; };
 		C44D60B6205529C200A5C50F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C44D60B9205529C200A5C50F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C44D60BB205529C200A5C50F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C44D60C920553B0100A5C50F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		C44D60CB20553B2400A5C50F /* ServiceLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLayer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +96,7 @@
 		C44D60C52055390300A5C50F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C44D60C920553B0100A5C50F /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -99,7 +104,7 @@
 		C44D60C62055390F00A5C50F /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				C44D60B3205529C200A5C50F /* Main.storyboard */,
+				C44D60B3205529C200A5C50F /* Auth.storyboard */,
 				C44D60C82055394900A5C50F /* Auth */,
 			);
 			path = Presentation;
@@ -108,6 +113,7 @@
 		C44D60C72055391400A5C50F /* Business logic */ = {
 			isa = PBXGroup;
 			children = (
+				C44D60CB20553B2400A5C50F /* ServiceLayer.swift */,
 			);
 			path = "Business logic";
 			sourceTree = "<group>";
@@ -115,7 +121,7 @@
 		C44D60C82055394900A5C50F /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				C44D60B1205529C200A5C50F /* ViewController.swift */,
+				C44D60B1205529C200A5C50F /* AuthViewController.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -181,7 +187,7 @@
 			files = (
 				C44D60BA205529C200A5C50F /* LaunchScreen.storyboard in Resources */,
 				C44D60B7205529C200A5C50F /* Assets.xcassets in Resources */,
-				C44D60B5205529C200A5C50F /* Main.storyboard in Resources */,
+				C44D60B5205529C200A5C50F /* Auth.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -192,20 +198,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C44D60B2205529C200A5C50F /* ViewController.swift in Sources */,
+				C44D60B2205529C200A5C50F /* AuthViewController.swift in Sources */,
 				C44D60B0205529C100A5C50F /* AppDelegate.swift in Sources */,
+				C44D60CA20553B0100A5C50F /* User.swift in Sources */,
+				C44D60CC20553B2400A5C50F /* ServiceLayer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		C44D60B3205529C200A5C50F /* Main.storyboard */ = {
+		C44D60B3205529C200A5C50F /* Auth.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				C44D60B4205529C200A5C50F /* Base */,
 			);
-			name = Main.storyboard;
+			name = Auth.storyboard;
 			sourceTree = "<group>";
 		};
 		C44D60B8205529C200A5C50F /* LaunchScreen.storyboard */ = {
