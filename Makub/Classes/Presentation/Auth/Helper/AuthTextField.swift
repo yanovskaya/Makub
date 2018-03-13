@@ -9,13 +9,6 @@
 import UIKit
 
 final class AuthTextField: UITextField {
-    
-    // MARK: - Constants
-    
-    private enum Constants {
-        static let usernamePlaceholder = NSLocalizedString("username_placeholder", comment: "")
-        static let passwordPlaceholder = NSLocalizedString("password_placeholder", comment: "")
-    }
 
     // MARK: - Initialization
     
@@ -39,7 +32,7 @@ final class AuthTextField: UITextField {
     }
     
     private func configureShadow() {
-        layer.shadowOpacity = 0.1
+        layer.shadowOpacity = 0.16
         layer.shadowOffset = CGSize(width: 0, height: 3)
         layer.shadowColor = UIColor.gray.cgColor
         layer.shadowRadius = 6
@@ -48,16 +41,7 @@ final class AuthTextField: UITextField {
     private func configureText() {
         font = UIFont.customFont(.robotoLightFont(size: 16))
         textColor = UIColor.white
-        
-        guard let text = text else { return }
-        let textShadow = NSShadow()
-        textShadow.shadowBlurRadius = 6
-        textShadow.shadowOffset = CGSize(width: 0, height: 3)
-        textShadow.shadowColor = UIColor.gray
-        
-        let textAttribute = [NSAttributedStringKey.shadow: textShadow]
-        let shadowString = NSAttributedString(string: text, attributes: textAttribute)
-        attributedText = shadowString
+        textAlignment = .center
     }
     
     private func clearBachground() {

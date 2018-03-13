@@ -15,6 +15,8 @@ final class AuthViewController: UIViewController {
     private enum Constants {
         static let authBackgroundImage = "auth_background"
         static let logoImage = "logo"
+        static let usernamePlaceholder = NSLocalizedString("username_placeholder", comment: "")
+        static let passwordPlaceholder = NSLocalizedString("password_placeholder", comment: "")
     }
     
     // MARK: - IBOutlets
@@ -22,12 +24,16 @@ final class AuthViewController: UIViewController {
     @IBOutlet private var logoImageView: UIImageView!
     @IBOutlet private var backgoundImageView: UIImageView!
     
+    @IBOutlet private var usernameTextField: AuthTextField!
+    @IBOutlet private var passwordTextField: AuthTextField!
+    
     // MARK: - ViewController lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configureBackgroundImage()
         configureImageView()
+        configureTextFields()
     }
     
     // MARK: - Private Methods
@@ -50,7 +56,14 @@ final class AuthViewController: UIViewController {
     }
 
     private func configureTextFields() {
+        usernameTextField.placeholder = Constants.usernamePlaceholder
+        passwordTextField.placeholder = Constants.passwordPlaceholder
         
+        guard let usernamePlaceholder = usernameTextField.placeholder,
+            let passwordPlaceholder = passwordTextField.placeholder else { return }
+        let color = UIColor.white
+        usernameTextField.attributedPlaceholder = NSAttributedString(string: usernamePlaceholder, attributes: [NSAttributedStringKey.foregroundColor: color])
+        passwordTextField.attributedPlaceholder = NSAttributedString(string: passwordPlaceholder, attributes: [NSAttributedStringKey.foregroundColor: color])
     }
 }
 
