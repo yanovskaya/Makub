@@ -14,6 +14,7 @@ final class AuthViewController: UIViewController {
     
     private enum Constants {
         static let authBackgroundImage = "auth_background"
+        static let logoImage = "logo"
     }
     
     // MARK: - IBOutlets
@@ -26,6 +27,7 @@ final class AuthViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureBackgroundImage()
+        configureImageView()
     }
     
     // MARK: - Private Methods
@@ -36,7 +38,15 @@ final class AuthViewController: UIViewController {
     }
     
     private func configureImageView() {
+        logoImageView.contentMode = .scaleAspectFit
+        ;logoImageView.tintColor = UIColor.white
+        logoImageView.image = UIImage(named: Constants.logoImage)?.withRenderingMode(.alwaysTemplate)
+        logoImageView.layer.opacity = 0.95
         
+        logoImageView.layer.shadowOpacity = 0.16
+        logoImageView.layer.shadowOffset = CGSize(width: 0, height: 3)
+        logoImageView.layer.shadowColor = PaleteColors.grayShadow.cgColor
+        logoImageView.layer.shadowRadius = 6
     }
 
 }

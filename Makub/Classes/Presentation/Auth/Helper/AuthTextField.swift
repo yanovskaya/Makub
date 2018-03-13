@@ -32,7 +32,7 @@ final class AuthTextField: UITextField {
     private func configureShadow() {
         layer.shadowOpacity = 0.1
         layer.shadowOffset = CGSize(width: 0, height: 3)
-        layer.shadowColor = PaleteColors.shadowAuthTextField.cgColor
+        layer.shadowColor = PaleteColors.grayShadow.cgColor
         layer.shadowRadius = 6
     }
     
