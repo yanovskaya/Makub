@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  Makub
+
+  Created by Елена Яновская on 13.03.2018.
+  Copyright © 2018 Elena Yanovskaya. All rights reserved.
+*/
+
+"username_placeholder" = "Имя пользователя";
+"password_placeholder" = "Пароль";

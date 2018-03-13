@@ -45,9 +45,12 @@ final class AuthViewController: UIViewController {
         
         logoImageView.layer.shadowOpacity = 0.16
         logoImageView.layer.shadowOffset = CGSize(width: 0, height: 3)
-        logoImageView.layer.shadowColor = PaleteColors.grayShadow.cgColor
+        logoImageView.layer.shadowColor = UIColor.gray.cgColor
         logoImageView.layer.shadowRadius = 6
     }
 
+    private func configureTextFields() {
+        
+    }
 }
 

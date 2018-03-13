@@ -11,5 +11,4 @@ import UIKit.UIColor
 struct PaleteColors {
     
     static var borderAuthTextField = UIColor(hex: "E2E2E2")
-    static var grayShadow = UIColor(hex: "000000")
 }
