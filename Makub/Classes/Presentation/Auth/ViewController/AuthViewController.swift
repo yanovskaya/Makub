@@ -15,8 +15,8 @@ final class AuthViewController: UIViewController {
     private enum Constants {
         static let authBackgroundImage = "auth_background"
         static let logoImage = "logo"
-        static let usernamePlaceholder = NSLocalizedString("username_placeholder", comment: "")
-        static let passwordPlaceholder = NSLocalizedString("password_placeholder", comment: "")
+        static let usernamePlaceholder = "Имя пользователя"
+        static let passwordPlaceholder = "Пароль"
     }
     
     // MARK: - IBOutlets

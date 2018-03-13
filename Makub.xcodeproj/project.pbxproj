@@ -17,7 +17,6 @@
 		C44D60D22058061100A5C50F /* AuthTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44D60D12058061100A5C50F /* AuthTextField.swift */; };
 		C44D60D5205806BB00A5C50F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44D60D4205806BB00A5C50F /* Colors.swift */; };
 		C44D60D7205807F500A5C50F /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44D60D6205807F500A5C50F /* UIColor+Hex.swift */; };
-		C44D60DB2058545000A5C50F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C44D60DD2058545000A5C50F /* Localizable.strings */; };
 		C44D60E12058561C00A5C50F /* roboto.bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C44D60E02058561C00A5C50F /* roboto.bold.ttf */; };
 		C44D60E32058564A00A5C50F /* roboto.medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C44D60E22058564A00A5C50F /* roboto.medium.ttf */; };
 		C44D60E52058568A00A5C50F /* roboto.light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C44D60E42058568A00A5C50F /* roboto.light.ttf */; };
@@ -38,13 +37,11 @@
 		C44D60D12058061100A5C50F /* AuthTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTextField.swift; sourceTree = "<group>"; };
 		C44D60D4205806BB00A5C50F /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		C44D60D6205807F500A5C50F /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
-		C44D60DC2058545000A5C50F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C44D60E02058561C00A5C50F /* roboto.bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = roboto.bold.ttf; sourceTree = "<group>"; };
 		C44D60E22058564A00A5C50F /* roboto.medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = roboto.medium.ttf; sourceTree = "<group>"; };
 		C44D60E42058568A00A5C50F /* roboto.light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = roboto.light.ttf; sourceTree = "<group>"; };
 		C44D60E6205856AC00A5C50F /* roboto.regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = roboto.regular.ttf; sourceTree = "<group>"; };
 		C44D60E92058573D00A5C50F /* UIFont+CustomFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+CustomFont.swift"; sourceTree = "<group>"; };
-		C44D60EE205859B600A5C50F /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,7 +99,6 @@
 				C44D60B6205529C200A5C50F /* Assets.xcassets */,
 				C44D60B8205529C200A5C50F /* LaunchScreen.storyboard */,
 				C44D60D4205806BB00A5C50F /* Colors.swift */,
-				C44D60DD2058545000A5C50F /* Localizable.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -237,7 +233,6 @@
 			knownRegions = (
 				en,
 				Base,
-				ru,
 			);
 			mainGroup = C44D60A3205529C100A5C50F;
 			productRefGroup = C44D60AD205529C100A5C50F /* Products */;
@@ -256,7 +251,6 @@
 			files = (
 				C44D60E52058568A00A5C50F /* roboto.light.ttf in Resources */,
 				C44D60BA205529C200A5C50F /* LaunchScreen.storyboard in Resources */,
-				C44D60DB2058545000A5C50F /* Localizable.strings in Resources */,
 				C44D60E7205856AC00A5C50F /* roboto.regular.ttf in Resources */,
 				C44D60E12058561C00A5C50F /* roboto.bold.ttf in Resources */,
 				C44D60B7205529C200A5C50F /* Assets.xcassets in Resources */,
@@ -300,15 +294,6 @@
 				C44D60B9205529C200A5C50F /* Base */,
 			);
 			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-		C44D60DD2058545000A5C50F /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C44D60DC2058545000A5C50F /* en */,
-				C44D60EE205859B600A5C50F /* ru */,
-			);
-			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
