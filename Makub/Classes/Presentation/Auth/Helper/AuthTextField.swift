@@ -33,6 +33,12 @@ final class AuthTextField: UITextField {
         return UIEdgeInsetsInsetRect(bounds, padding)
     }
     
+    func attributePlaceholder() {
+        guard let placeholder = placeholder else { return }
+        let color = UIColor.white
+        attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedStringKey.foregroundColor: color])
+    }
+    
     // MARK: - Private Methods
     
     private func configureBorder() {

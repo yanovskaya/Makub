@@ -58,12 +58,9 @@ final class AuthViewController: UIViewController {
     private func configureTextFields() {
         usernameTextField.placeholder = Constants.usernamePlaceholder
         passwordTextField.placeholder = Constants.passwordPlaceholder
-        
-        guard let usernamePlaceholder = usernameTextField.placeholder,
-            let passwordPlaceholder = passwordTextField.placeholder else { return }
-        let color = UIColor.white
-        usernameTextField.attributedPlaceholder = NSAttributedString(string: usernamePlaceholder, attributes: [NSAttributedStringKey.foregroundColor: color])
-        passwordTextField.attributedPlaceholder = NSAttributedString(string: passwordPlaceholder, attributes: [NSAttributedStringKey.foregroundColor: color])
+    
+        usernameTextField.attributePlaceholder()
+        passwordTextField.attributePlaceholder()
     }
 }
 
