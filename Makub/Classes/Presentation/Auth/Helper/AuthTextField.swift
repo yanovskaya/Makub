@@ -20,7 +20,18 @@ final class AuthTextField: UITextField {
         configureText()
         configureBorder()
     }
-
+    
+    // MARK: - Public Methods
+    
+    override func textRect(forBounds bounds: CGRect) -> CGRect {
+        let padding = UIEdgeInsets(top: 0, left: frame.height/2, bottom: 0, right: frame.height/2)
+        return UIEdgeInsetsInsetRect(bounds, padding)
+    }
+    
+    override func editingRect(forBounds bounds: CGRect) -> CGRect {
+        let padding = UIEdgeInsets(top: 0, left: frame.height/2, bottom: 0, right: frame.height/2)
+        return UIEdgeInsetsInsetRect(bounds, padding)
+    }
     
     // MARK: - Private Methods
     
@@ -28,7 +39,7 @@ final class AuthTextField: UITextField {
         layer.opacity = 0.6
         layer.borderWidth = 1
         layer.borderColor = PaleteColors.borderAuthTextField.cgColor
-        layer.cornerRadius = frame.height / 2
+        layer.cornerRadius = frame.height/2
     }
     
     private func configureShadow() {
