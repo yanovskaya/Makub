@@ -8,18 +8,32 @@
 
 import UIKit
 
-class AuthViewController: UIViewController {
+final class AuthViewController: UIViewController {
+    
+    
+    // MARK: - Constants
+    
+    private enum Constants {
+        static let authBackgroundImage = "auth_background"
+    }
+    
+    // MARK: - IBOutlets
+    
+    @IBOutlet private var backgoundImageView: UIImageView!
+    
+    // MARK: - ViewController lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        configureBackgroundImage()
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    // MARK: - Private Methods
+    
+    private func configureBackgroundImage() {
+        backgoundImageView.image = UIImage(named: Constants.authBackgroundImage)
+        backgoundImageView.contentMode = .scaleAspectFill
     }
-
 
 }
 
