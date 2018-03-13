@@ -10,7 +10,6 @@ import UIKit
 
 final class AuthViewController: UIViewController {
     
-    
     // MARK: - Constants
     
     private enum Constants {
@@ -19,6 +18,7 @@ final class AuthViewController: UIViewController {
     
     // MARK: - IBOutlets
     
+    @IBOutlet private var logoImageView: UIImageView!
     @IBOutlet private var backgoundImageView: UIImageView!
     
     // MARK: - ViewController lifecycle
@@ -33,6 +33,10 @@ final class AuthViewController: UIViewController {
     private func configureBackgroundImage() {
         backgoundImageView.image = UIImage(named: Constants.authBackgroundImage)
         backgoundImageView.contentMode = .scaleAspectFill
+    }
+    
+    private func configureImageView() {
+        
     }
 
 }
