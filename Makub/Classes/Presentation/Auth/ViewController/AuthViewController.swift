@@ -45,7 +45,7 @@ final class AuthViewController: UIViewController {
     
     private func configureImageView() {
         logoImageView.contentMode = .scaleAspectFit
-        ;logoImageView.tintColor = UIColor.white
+        logoImageView.tintColor = UIColor.white
         logoImageView.image = UIImage(named: Constants.logoImage)?.withRenderingMode(.alwaysTemplate)
         logoImageView.layer.opacity = 0.95
         
@@ -61,6 +61,8 @@ final class AuthViewController: UIViewController {
     
         usernameTextField.attributePlaceholder()
         passwordTextField.attributePlaceholder()
+        
+        usernameTextField.addImage(Constants.logoImage)
     }
 }
 
