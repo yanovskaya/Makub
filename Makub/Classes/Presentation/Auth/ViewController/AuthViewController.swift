@@ -15,6 +15,9 @@ final class AuthViewController: UIViewController {
     private enum Constants {
         static let authBackgroundImage = "auth_background"
         static let logoImage = "logo"
+        static let userImage = "user"
+        static let lockImage = "lock"
+        
         static let usernamePlaceholder = "Имя пользователя"
         static let passwordPlaceholder = "Пароль"
     }
@@ -28,7 +31,7 @@ final class AuthViewController: UIViewController {
     @IBOutlet private var passwordTextField: AuthTextField!
     
     // MARK: - ViewController lifecycle
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureBackgroundImage()
@@ -54,15 +57,15 @@ final class AuthViewController: UIViewController {
         logoImageView.layer.shadowColor = UIColor.gray.cgColor
         logoImageView.layer.shadowRadius = 6
     }
-
+    
     private func configureTextFields() {
         usernameTextField.placeholder = Constants.usernamePlaceholder
         passwordTextField.placeholder = Constants.passwordPlaceholder
-    
+        
         usernameTextField.attributePlaceholder()
         passwordTextField.attributePlaceholder()
         
-        usernameTextField.addImage(Constants.logoImage)
+        usernameTextField.addImage(Constants.userImage)
+        passwordTextField.addImage(Constants.lockImage)
     }
 }
-
