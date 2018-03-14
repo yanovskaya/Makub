@@ -50,7 +50,7 @@ final class AuthViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        print(usernameTextField.frame.width)
+        fixTextFieldWidth()
     }
     // MARK: - Private Methods
     
@@ -80,8 +80,6 @@ final class AuthViewController: UIViewController {
         
         usernameTextField.addImage(Constants.userImage)
         passwordTextField.addImage(Constants.lockImage)
-        
-        fixTextFieldWidth()
     }
     
     private func configurePassButton() {
