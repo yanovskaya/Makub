@@ -20,6 +20,7 @@ final class AuthViewController: UIViewController {
         
         static let usernamePlaceholder = "Имя пользователя"
         static let passwordPlaceholder = "Пароль"
+        static let passButton = "Войти"
     }
     
     // MARK: - IBOutlets
@@ -30,6 +31,8 @@ final class AuthViewController: UIViewController {
     @IBOutlet private var usernameTextField: AuthTextField!
     @IBOutlet private var passwordTextField: AuthTextField!
     
+    @IBOutlet private var passButton: UIButton!
+    
     // MARK: - ViewController lifecycle
     
     override func viewDidLoad() {
@@ -37,6 +40,7 @@ final class AuthViewController: UIViewController {
         configureBackgroundImage()
         configureImageView()
         configureTextFields()
+        configurePassButton()
     }
     
     // MARK: - Private Methods
@@ -67,5 +71,20 @@ final class AuthViewController: UIViewController {
         
         usernameTextField.addImage(Constants.userImage)
         passwordTextField.addImage(Constants.lockImage)
+    }
+    
+    private func configurePassButton() {
+        passButton.backgroundColor = PaleteColors.passButtonBackground
+        passButton.tintColor = UIColor.white
+        
+        passButton.layer.shadowOpacity = 0.16
+        passButton.layer.shadowOffset = CGSize(width: 0, height: 3)
+        passButton.layer.shadowColor = UIColor.gray.cgColor
+        passButton.layer.shadowRadius = 6
+        passButton.layer.cornerRadius = passButton.frame.height/2
+        passButton.layer.opacity = 0.9
+        
+        passButton.titleLabel?.font = UIFont.customFont(.robotoBoldFont(size: 18))
+        passButton.setTitle(Constants.passButton, for: .normal)
     }
 }

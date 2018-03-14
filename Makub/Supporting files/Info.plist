@@ -4,10 +4,10 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
-		<string>roboto.medium.ttf</string>
-		<string>roboto.regular.ttf</string>
-		<string>roboto.bold.ttf</string>
-		<string>roboto.light.ttf</string>
+		<string>Roboto-Bold.otf</string>
+		<string>Roboto-Medium.otf</string>
+		<string>Roboto-Regular.otf</string>
+		<string>Roboto-Light.otf</string>
 	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
