@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -22,52 +23,54 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3aY-A9-Ipn" customClass="AuthTextField" customModule="Makub" customModuleProvider="target">
-                                <rect key="frame" x="47" y="391" width="320" height="40"/>
+                                <rect key="frame" x="47" y="349" width="320" height="40"/>
                                 <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="ICE-O7-Dpf"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="270" id="IVQ-pP-PRP"/>
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress" returnKeyType="next"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next" textContentType="username"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="feX-yF-5j2" customClass="AuthTextField" customModule="Makub" customModuleProvider="target">
-                                <rect key="frame" x="46.666666666666657" y="446" width="320" height="40"/>
+                                <rect key="frame" x="46.666666666666657" y="404" width="320" height="40"/>
                                 <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done" secureTextEntry="YES"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aUR-cu-b4f">
-                                <rect key="frame" x="122" y="195" width="169" height="138"/>
+                                <rect key="frame" x="122.66666666666667" y="153" width="168.66666666666663" height="138"/>
                                 <color key="tintColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="138" id="QeD-HT-QoG"/>
-                                    <constraint firstAttribute="width" constant="169" id="ofv-3a-Kfu"/>
+                                    <constraint firstAttribute="width" relation="lessThanOrEqual" constant="169" id="8SS-9B-AmE"/>
+                                    <constraint firstAttribute="width" secondItem="aUR-cu-b4f" secondAttribute="height" multiplier="169:138" id="b96-mN-2cC"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="rua-yR-Lgn"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cz0-gt-Zxb">
-                                <rect key="frame" x="46.666666666666657" y="556" width="320" height="40"/>
+                                <rect key="frame" x="46.666666666666657" y="514" width="320" height="40"/>
                                 <color key="backgroundColor" red="0.55634254220000001" green="0.97934550050000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="cz0-gt-Zxb" secondAttribute="bottom" constant="140" id="22K-ln-kls"/>
                             <constraint firstItem="WnN-DC-hds" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="8xw-Md-LZw"/>
                             <constraint firstItem="cz0-gt-Zxb" firstAttribute="top" secondItem="feX-yF-5j2" secondAttribute="bottom" constant="70" id="ETT-DJ-kr5"/>
                             <constraint firstAttribute="bottom" secondItem="WnN-DC-hds" secondAttribute="bottom" id="FxZ-Gt-Yut"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3aY-A9-Ipn" secondAttribute="trailing" constant="47" id="Hur-bR-yKf"/>
+                            <constraint firstItem="aUR-cu-b4f" firstAttribute="top" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="G6b-3M-LSI"/>
+                            <constraint firstItem="aUR-cu-b4f" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" priority="249" constant="133" id="JA2-Ye-0hn"/>
                             <constraint firstItem="feX-yF-5j2" firstAttribute="height" secondItem="3aY-A9-Ipn" secondAttribute="height" id="RbF-qE-Hb4"/>
                             <constraint firstItem="cz0-gt-Zxb" firstAttribute="width" secondItem="feX-yF-5j2" secondAttribute="width" id="SN5-CP-asW"/>
                             <constraint firstItem="cz0-gt-Zxb" firstAttribute="height" secondItem="feX-yF-5j2" secondAttribute="height" id="TXV-j1-8d6"/>
-                            <constraint firstItem="3aY-A9-Ipn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="47" id="bX3-me-Ra4"/>
+                            <constraint firstItem="3aY-A9-Ipn" firstAttribute="leading" relation="lessThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="47" id="bX3-me-Ra4"/>
                             <constraint firstItem="feX-yF-5j2" firstAttribute="width" secondItem="3aY-A9-Ipn" secondAttribute="width" id="e72-VZ-jqj"/>
                             <constraint firstItem="3aY-A9-Ipn" firstAttribute="top" secondItem="aUR-cu-b4f" secondAttribute="bottom" constant="58" id="ePx-oa-60v"/>
                             <constraint firstItem="WnN-DC-hds" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="fKX-me-Hzc"/>
-                            <constraint firstItem="aUR-cu-b4f" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" priority="249" constant="133" id="hcd-8N-Kib"/>
                             <constraint firstItem="feX-yF-5j2" firstAttribute="centerX" secondItem="3aY-A9-Ipn" secondAttribute="centerX" id="mh9-5F-Fm7"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="cz0-gt-Zxb" secondAttribute="bottom" priority="250" constant="182" id="oC1-5A-oe6"/>
                             <constraint firstItem="cz0-gt-Zxb" firstAttribute="centerX" secondItem="feX-yF-5j2" secondAttribute="centerX" id="okJ-HA-fg8"/>
                             <constraint firstItem="feX-yF-5j2" firstAttribute="top" secondItem="3aY-A9-Ipn" secondAttribute="bottom" constant="15" id="qlc-Ud-DUA"/>
                             <constraint firstItem="3aY-A9-Ipn" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="sVP-x8-TZP"/>
