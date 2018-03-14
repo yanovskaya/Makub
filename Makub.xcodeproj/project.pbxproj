@@ -112,9 +112,9 @@
 		C44D60C2205538BD00A5C50F /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				C44D60C52055390300A5C50F /* Model */,
 				C44D60C72055391400A5C50F /* Business logic */,
 				C44D60C62055390F00A5C50F /* Presentation */,
-				C44D60C52055390300A5C50F /* Model */,
 			);
 			path = Classes;
 			sourceTree = "<group>";

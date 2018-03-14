@@ -48,6 +48,10 @@ final class AuthViewController: UIViewController {
         enablePassButton()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        print(usernameTextField.frame.width)
+    }
     // MARK: - Private Methods
     
     private func configureBackgroundImage() {
@@ -76,6 +80,8 @@ final class AuthViewController: UIViewController {
         
         usernameTextField.addImage(Constants.userImage)
         passwordTextField.addImage(Constants.lockImage)
+        
+        fixTextFieldWidth()
     }
     
     private func configurePassButton() {
@@ -86,7 +92,7 @@ final class AuthViewController: UIViewController {
         passButton.layer.shadowOffset = CGSize(width: 0, height: 3)
         passButton.layer.shadowColor = UIColor.gray.cgColor
         passButton.layer.shadowRadius = 6
-        passButton.layer.cornerRadius = passButton.frame.height/2
+        passButton.layer.cornerRadius = passButton.frame.height / 2
         passButton.layer.opacity = 0.9
         
         passButton.titleLabel?.font = UIFont.customFont(.robotoBoldFont(size: 18))
@@ -97,6 +103,11 @@ final class AuthViewController: UIViewController {
         passButton.isEnabled = false
         usernameTextField.addTarget(self, action: #selector(editingChanged), for: .editingChanged)
         passwordTextField.addTarget(self, action: #selector(editingChanged), for: .editingChanged)
+    }
+    
+    private func fixTextFieldWidth() {
+        let width = usernameTextField.frame.width
+        usernameTextField.widthAnchor.constraint(equalToConstant: width).isActive = true
     }
     
 }
