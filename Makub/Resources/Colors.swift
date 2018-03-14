@@ -11,4 +11,5 @@ import UIKit.UIColor
 struct PaleteColors {
     
     static var borderAuthTextField = UIColor(hex: "E2E2E2")
+    static var passButtonBackground = UIColor(hex: "6BF26B")
 }

@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0133FA4162EDEEAA9FE3135C /* Pods_Makub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD91280B983360A8DBD4BDFC /* Pods_Makub.framework */; };
+		C414F0D520596DE8001961EC /* Roboto-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = C414F0D120596DE7001961EC /* Roboto-Medium.otf */; };
+		C414F0D620596DE8001961EC /* Roboto-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = C414F0D220596DE8001961EC /* Roboto-Light.otf */; };
+		C414F0D720596DE8001961EC /* Roboto-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C414F0D320596DE8001961EC /* Roboto-Bold.otf */; };
+		C414F0D820596DE8001961EC /* Roboto-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C414F0D420596DE8001961EC /* Roboto-Regular.otf */; };
+		C414F0DB2059A261001961EC /* UIViewController+HideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C414F0DA2059A261001961EC /* UIViewController+HideKeyboard.swift */; };
 		C44D60B0205529C100A5C50F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44D60AF205529C100A5C50F /* AppDelegate.swift */; };
 		C44D60B2205529C200A5C50F /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44D60B1205529C200A5C50F /* AuthViewController.swift */; };
 		C44D60B5205529C200A5C50F /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C44D60B3205529C200A5C50F /* Auth.storyboard */; };
@@ -17,14 +23,17 @@
 		C44D60D22058061100A5C50F /* AuthTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44D60D12058061100A5C50F /* AuthTextField.swift */; };
 		C44D60D5205806BB00A5C50F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44D60D4205806BB00A5C50F /* Colors.swift */; };
 		C44D60D7205807F500A5C50F /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44D60D6205807F500A5C50F /* UIColor+Hex.swift */; };
-		C44D60E12058561C00A5C50F /* roboto.bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C44D60E02058561C00A5C50F /* roboto.bold.ttf */; };
-		C44D60E32058564A00A5C50F /* roboto.medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C44D60E22058564A00A5C50F /* roboto.medium.ttf */; };
-		C44D60E52058568A00A5C50F /* roboto.light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C44D60E42058568A00A5C50F /* roboto.light.ttf */; };
-		C44D60E7205856AC00A5C50F /* roboto.regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C44D60E6205856AC00A5C50F /* roboto.regular.ttf */; };
 		C44D60EA2058573D00A5C50F /* UIFont+CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44D60E92058573D00A5C50F /* UIFont+CustomFont.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		25B33F5602AEBC76325DB113 /* Pods-Makub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Makub.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Makub/Pods-Makub.debug.xcconfig"; sourceTree = "<group>"; };
+		AD3835C1372474B08AEF32EE /* Pods-Makub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Makub.release.xcconfig"; path = "Pods/Target Support Files/Pods-Makub/Pods-Makub.release.xcconfig"; sourceTree = "<group>"; };
+		C414F0D120596DE7001961EC /* Roboto-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.otf"; sourceTree = "<group>"; };
+		C414F0D220596DE8001961EC /* Roboto-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.otf"; sourceTree = "<group>"; };
+		C414F0D320596DE8001961EC /* Roboto-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.otf"; sourceTree = "<group>"; };
+		C414F0D420596DE8001961EC /* Roboto-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.otf"; sourceTree = "<group>"; };
+		C414F0DA2059A261001961EC /* UIViewController+HideKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+HideKeyboard.swift"; sourceTree = "<group>"; };
 		C44D60AC205529C100A5C50F /* Makub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Makub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C44D60AF205529C100A5C50F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C44D60B1205529C200A5C50F /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
@@ -37,11 +46,8 @@
 		C44D60D12058061100A5C50F /* AuthTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTextField.swift; sourceTree = "<group>"; };
 		C44D60D4205806BB00A5C50F /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		C44D60D6205807F500A5C50F /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
-		C44D60E02058561C00A5C50F /* roboto.bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = roboto.bold.ttf; sourceTree = "<group>"; };
-		C44D60E22058564A00A5C50F /* roboto.medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = roboto.medium.ttf; sourceTree = "<group>"; };
-		C44D60E42058568A00A5C50F /* roboto.light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = roboto.light.ttf; sourceTree = "<group>"; };
-		C44D60E6205856AC00A5C50F /* roboto.regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = roboto.regular.ttf; sourceTree = "<group>"; };
 		C44D60E92058573D00A5C50F /* UIFont+CustomFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+CustomFont.swift"; sourceTree = "<group>"; };
+		FD91280B983360A8DBD4BDFC /* Pods_Makub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Makub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,17 +55,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0133FA4162EDEEAA9FE3135C /* Pods_Makub.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		098B841B262CEA2D15B352A5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				25B33F5602AEBC76325DB113 /* Pods-Makub.debug.xcconfig */,
+				AD3835C1372474B08AEF32EE /* Pods-Makub.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C414F0D92059A23D001961EC /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				C44D60E92058573D00A5C50F /* UIFont+CustomFont.swift */,
+				C414F0DA2059A261001961EC /* UIViewController+HideKeyboard.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 		C44D60A3205529C100A5C50F = {
 			isa = PBXGroup;
 			children = (
 				C44D60AE205529C100A5C50F /* Makub */,
 				C44D60AD205529C100A5C50F /* Products */,
+				098B841B262CEA2D15B352A5 /* Pods */,
+				C8FE19675A729A68973D7EBE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -174,10 +201,10 @@
 		C44D60DF205855EB00A5C50F /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				C44D60E22058564A00A5C50F /* roboto.medium.ttf */,
-				C44D60E6205856AC00A5C50F /* roboto.regular.ttf */,
-				C44D60E02058561C00A5C50F /* roboto.bold.ttf */,
-				C44D60E42058568A00A5C50F /* roboto.light.ttf */,
+				C414F0D320596DE8001961EC /* Roboto-Bold.otf */,
+				C414F0D220596DE8001961EC /* Roboto-Light.otf */,
+				C414F0D120596DE7001961EC /* Roboto-Medium.otf */,
+				C414F0D420596DE8001961EC /* Roboto-Regular.otf */,
 			);
 			path = Fonts;
 			sourceTree = "<group>";
@@ -185,9 +212,17 @@
 		C44D60E82058571800A5C50F /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				C44D60E92058573D00A5C50F /* UIFont+CustomFont.swift */,
+				C414F0D92059A23D001961EC /* Helper */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		C8FE19675A729A68973D7EBE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FD91280B983360A8DBD4BDFC /* Pods_Makub.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,9 +232,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C44D60BE205529C200A5C50F /* Build configuration list for PBXNativeTarget "Makub" */;
 			buildPhases = (
+				CD72571B3962AE75D14A1E75 /* [CP] Check Pods Manifest.lock */,
 				C44D60A8205529C100A5C50F /* Sources */,
 				C44D60A9205529C100A5C50F /* Frameworks */,
 				C44D60AA205529C100A5C50F /* Resources */,
+				4969C7D6DC60B9B862F4CC52 /* [CP] Embed Pods Frameworks */,
+				3B91DFCF6D4FC27ABCC4765A /* [CP] Copy Pods Resources */,
+				C4F242032059DCBC007E8A16 /* Swiftlint */,
 			);
 			buildRules = (
 			);
@@ -249,23 +288,89 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C44D60E52058568A00A5C50F /* roboto.light.ttf in Resources */,
 				C44D60BA205529C200A5C50F /* LaunchScreen.storyboard in Resources */,
-				C44D60E7205856AC00A5C50F /* roboto.regular.ttf in Resources */,
-				C44D60E12058561C00A5C50F /* roboto.bold.ttf in Resources */,
 				C44D60B7205529C200A5C50F /* Assets.xcassets in Resources */,
+				C414F0D620596DE8001961EC /* Roboto-Light.otf in Resources */,
+				C414F0D820596DE8001961EC /* Roboto-Regular.otf in Resources */,
 				C44D60B5205529C200A5C50F /* Auth.storyboard in Resources */,
-				C44D60E32058564A00A5C50F /* roboto.medium.ttf in Resources */,
+				C414F0D520596DE8001961EC /* Roboto-Medium.otf in Resources */,
+				C414F0D720596DE8001961EC /* Roboto-Bold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3B91DFCF6D4FC27ABCC4765A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Makub/Pods-Makub-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4969C7D6DC60B9B862F4CC52 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Makub/Pods-Makub-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C4F242032059DCBC007E8A16 /* Swiftlint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Swiftlint;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\"";
+		};
+		CD72571B3962AE75D14A1E75 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Makub-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C44D60A8205529C100A5C50F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C414F0DB2059A261001961EC /* UIViewController+HideKeyboard.swift in Sources */,
 				C44D60D7205807F500A5C50F /* UIColor+Hex.swift in Sources */,
 				C44D60B2205529C200A5C50F /* AuthViewController.swift in Sources */,
 				C44D60D5205806BB00A5C50F /* Colors.swift in Sources */,
@@ -410,6 +515,7 @@
 		};
 		C44D60BF205529C200A5C50F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 25B33F5602AEBC76325DB113 /* Pods-Makub.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -419,12 +525,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "-.Makub";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		C44D60C0205529C200A5C50F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AD3835C1372474B08AEF32EE /* Pods-Makub.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -434,7 +541,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "-.Makub";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
