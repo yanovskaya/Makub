@@ -45,6 +45,7 @@ final class AuthViewController: UIViewController {
         configureImageView()
         configureTextFields()
         configurePassButton()
+        enablePassButton()
     }
     
     // MARK: - Private Methods
@@ -91,7 +92,16 @@ final class AuthViewController: UIViewController {
         passButton.titleLabel?.font = UIFont.customFont(.robotoBoldFont(size: 18))
         passButton.setTitle(Constants.passButton, for: .normal)
     }
+    
+    private func enablePassButton() {
+        passButton.isEnabled = false
+        usernameTextField.addTarget(self, action: #selector(editingChanged), for: .editingChanged)
+        passwordTextField.addTarget(self, action: #selector(editingChanged), for: .editingChanged)
+    }
+    
 }
+
+// MARK: - UITextFieldDelegate
 
 extension AuthViewController: UITextFieldDelegate {
     
@@ -101,5 +111,16 @@ extension AuthViewController: UITextFieldDelegate {
             passwordTextField.becomeFirstResponder()
         }
         return true
+    }
+    
+    @objc private func editingChanged(_ textField: UITextField) {
+        guard
+            let username = usernameTextField.text, username.count > 2,
+            let password = passwordTextField.text, password.count > 2
+            else {
+                passButton.isEnabled = false
+                return
+        }
+        passButton.isEnabled = true
     }
 }
