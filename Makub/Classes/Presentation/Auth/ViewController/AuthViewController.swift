@@ -37,6 +37,10 @@ final class AuthViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        hideKeyboardWhenTappedAround()
+        usernameTextField.delegate = self
+        passwordTextField.delegate = self
+        
         configureBackgroundImage()
         configureImageView()
         configureTextFields()
@@ -86,5 +90,16 @@ final class AuthViewController: UIViewController {
         
         passButton.titleLabel?.font = UIFont.customFont(.robotoBoldFont(size: 18))
         passButton.setTitle(Constants.passButton, for: .normal)
+    }
+}
+
+extension AuthViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        if textField == usernameTextField {
+            passwordTextField.becomeFirstResponder()
+        }
+        return true
     }
 }
