@@ -24,6 +24,13 @@
 		C44D60D5205806BB00A5C50F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44D60D4205806BB00A5C50F /* Colors.swift */; };
 		C44D60D7205807F500A5C50F /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44D60D6205807F500A5C50F /* UIColor+Hex.swift */; };
 		C44D60EA2058573D00A5C50F /* UIFont+CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44D60E92058573D00A5C50F /* UIFont+CustomFont.swift */; };
+		C472A6AC205AF5DB00768585 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472A6AB205AF5DA00768585 /* Parser.swift */; };
+		C472A6AE205AF5F300768585 /* Transport.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472A6AD205AF5F300768585 /* Transport.swift */; };
+		C472A6B2205AF79400768585 /* CallResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472A6B1205AF79400768585 /* CallResults.swift */; };
+		C472A6B4205AF93500768585 /* Serializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472A6B3205AF93500768585 /* Serializer.swift */; };
+		C472A6B8205AFAA400768585 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472A6B7205AFAA400768585 /* AuthService.swift */; };
+		C472A6BA205AFBA400768585 /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472A6B9205AFBA400768585 /* AuthResponse.swift */; };
+		C472A6BC205AFC6700768585 /* AuthServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472A6BB205AFC6700768585 /* AuthServiceImpl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +54,13 @@
 		C44D60D4205806BB00A5C50F /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		C44D60D6205807F500A5C50F /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		C44D60E92058573D00A5C50F /* UIFont+CustomFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+CustomFont.swift"; sourceTree = "<group>"; };
+		C472A6AB205AF5DA00768585 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		C472A6AD205AF5F300768585 /* Transport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transport.swift; sourceTree = "<group>"; };
+		C472A6B1205AF79400768585 /* CallResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallResults.swift; sourceTree = "<group>"; };
+		C472A6B3205AF93500768585 /* Serializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Serializer.swift; sourceTree = "<group>"; };
+		C472A6B7205AFAA400768585 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		C472A6B9205AFBA400768585 /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
+		C472A6BB205AFC6700768585 /* AuthServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceImpl.swift; sourceTree = "<group>"; };
 		FD91280B983360A8DBD4BDFC /* Pods_Makub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Makub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -76,6 +90,7 @@
 			children = (
 				C44D60E92058573D00A5C50F /* UIFont+CustomFont.swift */,
 				C414F0DA2059A261001961EC /* UIViewController+HideKeyboard.swift */,
+				C44D60D6205807F500A5C50F /* UIColor+Hex.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -159,6 +174,8 @@
 			isa = PBXGroup;
 			children = (
 				C44D60CB20553B2400A5C50F /* ServiceLayer.swift */,
+				C472A6AF205AF69E00768585 /* Service */,
+				C472A6A9205AB9A000768585 /* Core Components */,
 			);
 			path = "Business logic";
 			sourceTree = "<group>";
@@ -184,18 +201,9 @@
 		C44D60D0205805E300A5C50F /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				C44D60D82058080200A5C50F /* Extensions */,
 				C44D60D12058061100A5C50F /* AuthTextField.swift */,
 			);
 			path = Helper;
-			sourceTree = "<group>";
-		};
-		C44D60D82058080200A5C50F /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				C44D60D6205807F500A5C50F /* UIColor+Hex.swift */,
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		C44D60DF205855EB00A5C50F /* Fonts */ = {
@@ -215,6 +223,51 @@
 				C414F0D92059A23D001961EC /* Helper */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		C472A6A9205AB9A000768585 /* Core Components */ = {
+			isa = PBXGroup;
+			children = (
+				C472A6AB205AF5DA00768585 /* Parser.swift */,
+				C472A6AD205AF5F300768585 /* Transport.swift */,
+				C472A6B3205AF93500768585 /* Serializer.swift */,
+			);
+			path = "Core Components";
+			sourceTree = "<group>";
+		};
+		C472A6AF205AF69E00768585 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				C472A6B0205AF6AD00768585 /* Common */,
+				C472A6B5205AFA7B00768585 /* Auth */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		C472A6B0205AF6AD00768585 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				C472A6B1205AF79400768585 /* CallResults.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		C472A6B5205AFA7B00768585 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				C472A6B6205AFA8300768585 /* Protocol */,
+				C472A6B9205AFBA400768585 /* AuthResponse.swift */,
+				C472A6BB205AFC6700768585 /* AuthServiceImpl.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		C472A6B6205AFA8300768585 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				C472A6B7205AFAA400768585 /* AuthService.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 		C8FE19675A729A68973D7EBE /* Frameworks */ = {
@@ -375,13 +428,20 @@
 			files = (
 				C414F0DB2059A261001961EC /* UIViewController+HideKeyboard.swift in Sources */,
 				C44D60D7205807F500A5C50F /* UIColor+Hex.swift in Sources */,
+				C472A6AC205AF5DB00768585 /* Parser.swift in Sources */,
+				C472A6B4205AF93500768585 /* Serializer.swift in Sources */,
 				C44D60B2205529C200A5C50F /* AuthViewController.swift in Sources */,
+				C472A6BC205AFC6700768585 /* AuthServiceImpl.swift in Sources */,
+				C472A6AE205AF5F300768585 /* Transport.swift in Sources */,
 				C44D60D5205806BB00A5C50F /* Colors.swift in Sources */,
 				C44D60D22058061100A5C50F /* AuthTextField.swift in Sources */,
 				C44D60EA2058573D00A5C50F /* UIFont+CustomFont.swift in Sources */,
 				C44D60B0205529C100A5C50F /* AppDelegate.swift in Sources */,
 				C44D60CA20553B0100A5C50F /* User.swift in Sources */,
+				C472A6B2205AF79400768585 /* CallResults.swift in Sources */,
 				C44D60CC20553B2400A5C50F /* ServiceLayer.swift in Sources */,
+				C472A6BA205AFBA400768585 /* AuthResponse.swift in Sources */,
+				C472A6B8205AFAA400768585 /* AuthService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

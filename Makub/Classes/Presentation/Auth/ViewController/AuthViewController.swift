@@ -52,6 +52,7 @@ final class AuthViewController: UIViewController {
         super.viewDidAppear(true)
         fixTextFieldWidth()
     }
+    
     // MARK: - Private Methods
     
     private func configureBackgroundImage() {
@@ -108,6 +109,21 @@ final class AuthViewController: UIViewController {
         usernameTextField.widthAnchor.constraint(equalToConstant: width).isActive = true
     }
     
+    // MARK: - IBAction
+    
+    @IBAction func passButtonTapped(_ sender: Any) {
+        let authService = ServiceLayer.shared.authService
+        
+        authService.authorizeUser(inputValues: ["ddd", "dddd"]) { result in
+            switch result {
+            case .serviceSuccess(let model):
+                print(model)
+            case .serviceFailure(let error):
+                print("er")
+            }
+        }
+    }
+    
 }
 
 // MARK: - UITextFieldDelegate
@@ -132,4 +148,6 @@ extension AuthViewController: UITextFieldDelegate {
         }
         passButton.isEnabled = true
     }
+    
+    
 }
