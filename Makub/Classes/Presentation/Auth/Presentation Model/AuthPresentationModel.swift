@@ -29,7 +29,7 @@ final class AuthPresentationModel: PresentationModel {
                 self.state = .rich
                 completion()
             case .serviceFailure(let error):
-                self.state = .error(message: error.localizedDescription)
+                self.state = .error(message: error.localizedDescription, code: error.code)
             }
         }
     }

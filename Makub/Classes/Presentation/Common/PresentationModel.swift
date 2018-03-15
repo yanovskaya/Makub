@@ -24,7 +24,7 @@ class PresentationModel {
     enum State {
         case rich
         case loading
-        case error(message: String)
+        case error(message: String?, code: Int)
     }
     
     typealias ChangeStateHandler = (State) -> Void

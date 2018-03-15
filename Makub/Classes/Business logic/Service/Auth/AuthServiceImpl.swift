@@ -17,8 +17,6 @@ final class AuthServiceImpl: AuthService {
         static let baseURL = "https://makub.ru/api"
         static let usernameParameter = "login"
         static let passwordParameter = "pass"
-        
-        static let authError = "Логин или пароль введены неправильно."
     }
     
     private enum EndPoint {
@@ -55,7 +53,7 @@ final class AuthServiceImpl: AuthService {
                     if model.error == 0 {
                         completion?(ServiceCallResult.serviceSuccess(payload: model))
                     } else {
-                        let error = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: Constants.authError])
+                        let error = NSError(domain: "", code: 1)
                         completion?(ServiceCallResult.serviceFailure(error: error))
                     }
                 case .parserFailure(let error):

@@ -122,8 +122,9 @@ final class AuthViewController: UIViewController {
                 print("loading")
             case .rich:
                 print("rich")
-            case .error (let message):
+            case .error (let message, let code):
                 print("error")
+                print(code)
                 print(message)
             }
         }
