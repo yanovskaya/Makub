@@ -33,10 +33,16 @@ final class AuthViewController: UIViewController {
     
     @IBOutlet private var passButton: UIButton!
     
+    // MARK: - Public Properties
+    
+    let presentationModel = AuthPresentationModel()
+    
     // MARK: - ViewController lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        bindEvents()
+        
         hideKeyboardWhenTappedAround()
         usernameTextField.delegate = self
         passwordTextField.delegate = self
@@ -109,18 +115,30 @@ final class AuthViewController: UIViewController {
         usernameTextField.widthAnchor.constraint(equalToConstant: width).isActive = true
     }
     
+    private func bindEvents() {
+        presentationModel.changeStateHandler = { [unowned self] status in
+            switch status {
+            case .loading:
+                print("loading")
+            case .rich:
+                print("rich")
+            case .error (let message):
+                print("error")
+                print(message)
+            }
+        }
+    }
+    
     // MARK: - IBAction
     
-    @IBAction func passButtonTapped(_ sender: Any) {
-        let authService = ServiceLayer.shared.authService
-        
-        authService.authorizeUser(inputValues: ["ddd", "dddd"]) { result in
-            switch result {
-            case .serviceSuccess(let model):
-                print(model)
-            case .serviceFailure(let error):
-                print("er")
-            }
+    @IBAction private func passButtonTapped(_ sender: Any) {
+        guard let username = usernameTextField.text,
+            let password = passwordTextField.text else { return }
+        presentationModel.authorizeUser(inputValues: [username, password]) {
+            [unowned self] in
+            print("ready!")
+            print(self.presentationModel.viewModel.token)
+            //self.router.showPincodeSet(source: self)
         }
     }
     

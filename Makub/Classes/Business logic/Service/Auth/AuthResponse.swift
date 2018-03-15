@@ -10,7 +10,7 @@ import Foundation
 
 struct AuthResponse: Decodable {
     let error: Int
-    let token: String?
+    let token: String!
     
     private enum CodingKeys: String, CodingKey {
         case error

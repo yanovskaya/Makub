@@ -31,6 +31,9 @@
 		C472A6B8205AFAA400768585 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472A6B7205AFAA400768585 /* AuthService.swift */; };
 		C472A6BA205AFBA400768585 /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472A6B9205AFBA400768585 /* AuthResponse.swift */; };
 		C472A6BC205AFC6700768585 /* AuthServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472A6BB205AFC6700768585 /* AuthServiceImpl.swift */; };
+		C472A6BF205B16D500768585 /* PresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472A6BE205B16D500768585 /* PresentationModel.swift */; };
+		C472A6C3205B174000768585 /* AuthPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472A6C2205B174000768585 /* AuthPresentationModel.swift */; };
+		C472A6C6205B17EA00768585 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472A6C5205B17EA00768585 /* AuthViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +64,9 @@
 		C472A6B7205AFAA400768585 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		C472A6B9205AFBA400768585 /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
 		C472A6BB205AFC6700768585 /* AuthServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceImpl.swift; sourceTree = "<group>"; };
+		C472A6BE205B16D500768585 /* PresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationModel.swift; sourceTree = "<group>"; };
+		C472A6C2205B174000768585 /* AuthPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPresentationModel.swift; sourceTree = "<group>"; };
+		C472A6C5205B17EA00768585 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		FD91280B983360A8DBD4BDFC /* Pods_Makub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Makub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -183,9 +189,11 @@
 		C44D60C82055394900A5C50F /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				C44D60B3205529C200A5C50F /* Auth.storyboard */,
-				C44D60D0205805E300A5C50F /* Helper */,
 				C44D60CF205805CF00A5C50F /* ViewController */,
+				C472A6C0205B170E00768585 /* Presentation Model */,
+				C44D60B3205529C200A5C50F /* Auth.storyboard */,
+				C472A6C4205B17B700768585 /* View Model */,
+				C44D60D0205805E300A5C50F /* Helper */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -220,6 +228,7 @@
 		C44D60E82058571800A5C50F /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				C472A6BE205B16D500768585 /* PresentationModel.swift */,
 				C414F0D92059A23D001961EC /* Helper */,
 			);
 			path = Common;
@@ -268,6 +277,22 @@
 				C472A6B7205AFAA400768585 /* AuthService.swift */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		C472A6C0205B170E00768585 /* Presentation Model */ = {
+			isa = PBXGroup;
+			children = (
+				C472A6C2205B174000768585 /* AuthPresentationModel.swift */,
+			);
+			path = "Presentation Model";
+			sourceTree = "<group>";
+		};
+		C472A6C4205B17B700768585 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				C472A6C5205B17EA00768585 /* AuthViewModel.swift */,
+			);
+			path = "View Model";
 			sourceTree = "<group>";
 		};
 		C8FE19675A729A68973D7EBE /* Frameworks */ = {
@@ -431,7 +456,10 @@
 				C472A6AC205AF5DB00768585 /* Parser.swift in Sources */,
 				C472A6B4205AF93500768585 /* Serializer.swift in Sources */,
 				C44D60B2205529C200A5C50F /* AuthViewController.swift in Sources */,
+				C472A6BF205B16D500768585 /* PresentationModel.swift in Sources */,
+				C472A6C6205B17EA00768585 /* AuthViewModel.swift in Sources */,
 				C472A6BC205AFC6700768585 /* AuthServiceImpl.swift in Sources */,
+				C472A6C3205B174000768585 /* AuthPresentationModel.swift in Sources */,
 				C472A6AE205AF5F300768585 /* Transport.swift in Sources */,
 				C44D60D5205806BB00A5C50F /* Colors.swift in Sources */,
 				C44D60D22058061100A5C50F /* AuthTextField.swift in Sources */,

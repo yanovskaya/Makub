@@ -17,6 +17,8 @@ final class AuthServiceImpl: AuthService {
         static let baseURL = "https://makub.ru/api"
         static let usernameParameter = "login"
         static let passwordParameter = "pass"
+        
+        static let authError = "Логин или пароль введены неправильно."
     }
     
     private enum EndPoint {
@@ -46,21 +48,20 @@ final class AuthServiceImpl: AuthService {
         transport.request(method: HTTPMethod.post.rawValue, url: Constants.baseURL + EndPoint.login, parameters: bodyParameters) { [unowned self] transportResult in
             switch transportResult {
             case .transportSuccess(let payload):
-                print("tr success")
                 let resultBody = payload.resultBody
                 let parseResult = self.parser.parse(from: resultBody)
                 switch parseResult {
                 case .parserSuccess(let model):
-                    print(model)
-                    print()
-                    print(model.error)
-                    completion?(ServiceCallResult.serviceSuccess(payload: model))
+                    if model.error == 0 {
+                        completion?(ServiceCallResult.serviceSuccess(payload: model))
+                    } else {
+                        let error = NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: Constants.authError])
+                        completion?(ServiceCallResult.serviceFailure(error: error))
+                    }
                 case .parserFailure(let error):
-                    print("parse error")
                     completion?(ServiceCallResult.serviceFailure(error: error as NSError))
                 }
             case .transportFailure(let error):
-                print("tr error")
                 completion?(ServiceCallResult.serviceFailure(error: error as NSError))
             }
         }
