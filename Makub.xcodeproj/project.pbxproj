@@ -13,6 +13,7 @@
 		C414F0D720596DE8001961EC /* Roboto-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C414F0D320596DE8001961EC /* Roboto-Bold.otf */; };
 		C414F0D820596DE8001961EC /* Roboto-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C414F0D420596DE8001961EC /* Roboto-Regular.otf */; };
 		C414F0DB2059A261001961EC /* UIViewController+HideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C414F0DA2059A261001961EC /* UIViewController+HideKeyboard.swift */; };
+		C42924B0205C81E700E6D568 /* PassHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42924AF205C81E700E6D568 /* PassHelpViewController.swift */; };
 		C44D60B0205529C100A5C50F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44D60AF205529C100A5C50F /* AppDelegate.swift */; };
 		C44D60B2205529C200A5C50F /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44D60B1205529C200A5C50F /* AuthViewController.swift */; };
 		C44D60B5205529C200A5C50F /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C44D60B3205529C200A5C50F /* Auth.storyboard */; };
@@ -36,6 +37,8 @@
 		C472A6C8205C4D5300768585 /* String+RemoveSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472A6C7205C4D5300768585 /* String+RemoveSpace.swift */; };
 		C472A6CA205C4F8100768585 /* ErrorDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472A6C9205C4F8100768585 /* ErrorDescription.swift */; };
 		C472A6CF205C647C00768585 /* KeychainKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472A6CE205C647C00768585 /* KeychainKeys.swift */; };
+		C472A6D1205C7E5900768585 /* Storyboard+GetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472A6D0205C7E5900768585 /* Storyboard+GetViewController.swift */; };
+		C472A6D3205C7E8000768585 /* StoryboardTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472A6D2205C7E8000768585 /* StoryboardTitle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +49,7 @@
 		C414F0D320596DE8001961EC /* Roboto-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.otf"; sourceTree = "<group>"; };
 		C414F0D420596DE8001961EC /* Roboto-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.otf"; sourceTree = "<group>"; };
 		C414F0DA2059A261001961EC /* UIViewController+HideKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+HideKeyboard.swift"; sourceTree = "<group>"; };
+		C42924AF205C81E700E6D568 /* PassHelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassHelpViewController.swift; sourceTree = "<group>"; };
 		C44D60AC205529C100A5C50F /* Makub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Makub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C44D60AF205529C100A5C50F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C44D60B1205529C200A5C50F /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
@@ -71,6 +75,8 @@
 		C472A6C7205C4D5300768585 /* String+RemoveSpace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+RemoveSpace.swift"; sourceTree = "<group>"; };
 		C472A6C9205C4F8100768585 /* ErrorDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorDescription.swift; sourceTree = "<group>"; };
 		C472A6CE205C647C00768585 /* KeychainKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainKeys.swift; sourceTree = "<group>"; };
+		C472A6D0205C7E5900768585 /* Storyboard+GetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Storyboard+GetViewController.swift"; sourceTree = "<group>"; };
+		C472A6D2205C7E8000768585 /* StoryboardTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardTitle.swift; sourceTree = "<group>"; };
 		FD91280B983360A8DBD4BDFC /* Pods_Makub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Makub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -102,6 +108,8 @@
 				C414F0DA2059A261001961EC /* UIViewController+HideKeyboard.swift */,
 				C44D60D6205807F500A5C50F /* UIColor+Hex.swift */,
 				C472A6C9205C4F8100768585 /* ErrorDescription.swift */,
+				C472A6D0205C7E5900768585 /* Storyboard+GetViewController.swift */,
+				C472A6D2205C7E8000768585 /* StoryboardTitle.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -207,6 +215,7 @@
 			isa = PBXGroup;
 			children = (
 				C44D60B1205529C200A5C50F /* AuthViewController.swift */,
+				C42924AF205C81E700E6D568 /* PassHelpViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -473,11 +482,14 @@
 				C472A6AE205AF5F300768585 /* Transport.swift in Sources */,
 				C44D60D5205806BB00A5C50F /* Colors.swift in Sources */,
 				C472A6CA205C4F8100768585 /* ErrorDescription.swift in Sources */,
+				C472A6D1205C7E5900768585 /* Storyboard+GetViewController.swift in Sources */,
 				C472A6C8205C4D5300768585 /* String+RemoveSpace.swift in Sources */,
+				C42924B0205C81E700E6D568 /* PassHelpViewController.swift in Sources */,
 				C44D60D22058061100A5C50F /* AuthTextField.swift in Sources */,
 				C44D60EA2058573D00A5C50F /* UIFont+CustomFont.swift in Sources */,
 				C44D60B0205529C100A5C50F /* AppDelegate.swift in Sources */,
 				C44D60CA20553B0100A5C50F /* User.swift in Sources */,
+				C472A6D3205C7E8000768585 /* StoryboardTitle.swift in Sources */,
 				C472A6B2205AF79400768585 /* CallResults.swift in Sources */,
 				C44D60CC20553B2400A5C50F /* ServiceLayer.swift in Sources */,
 				C472A6BA205AFBA400768585 /* AuthResponse.swift in Sources */,

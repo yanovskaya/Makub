@@ -42,6 +42,7 @@ final class AuthViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.isNavigationBarHidden = true
         bindEvents()
         
         hideKeyboardWhenTappedAround()
