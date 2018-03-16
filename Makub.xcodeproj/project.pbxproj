@@ -189,9 +189,9 @@
 		C44D60C82055394900A5C50F /* Auth */ = {
 			isa = PBXGroup;
 			children = (
+				C44D60B3205529C200A5C50F /* Auth.storyboard */,
 				C44D60CF205805CF00A5C50F /* ViewController */,
 				C472A6C0205B170E00768585 /* Presentation Model */,
-				C44D60B3205529C200A5C50F /* Auth.storyboard */,
 				C472A6C4205B17B700768585 /* View Model */,
 				C44D60D0205805E300A5C50F /* Helper */,
 			);

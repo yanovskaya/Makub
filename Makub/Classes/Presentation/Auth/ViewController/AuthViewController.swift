@@ -6,6 +6,7 @@
 //  Copyright © 2018 Elena Yanovskaya. All rights reserved.
 //
 
+import PKHUD
 import UIKit
 
 final class AuthViewController: UIViewController {
@@ -61,6 +62,21 @@ final class AuthViewController: UIViewController {
     
     // MARK: - Private Methods
     
+    private func bindEvents() {
+        presentationModel.changeStateHandler = { [unowned self] status in
+            switch status {
+            case .loading:
+                HUD.show(.progress)
+            case .rich:
+                HUD.hide()
+            case .error (let message, let code):
+                HUD.hide()
+                print(code)
+                print(message)
+            }
+        }
+    }
+    
     private func configureBackgroundImage() {
         backgoundImageView.image = UIImage(named: Constants.authBackgroundImage)
         backgoundImageView.contentMode = .scaleAspectFill
@@ -113,21 +129,6 @@ final class AuthViewController: UIViewController {
     private func fixTextFieldWidth() {
         let width = usernameTextField.frame.width
         usernameTextField.widthAnchor.constraint(equalToConstant: width).isActive = true
-    }
-    
-    private func bindEvents() {
-        presentationModel.changeStateHandler = { [unowned self] status in
-            switch status {
-            case .loading:
-                print("loading")
-            case .rich:
-                print("rich")
-            case .error (let message, let code):
-                print("error")
-                print(code)
-                print(message)
-            }
-        }
     }
     
     // MARK: - IBAction
