@@ -53,7 +53,7 @@ final class AuthServiceImpl: AuthService {
                     if model.error == 0 {
                         completion?(ServiceCallResult.serviceSuccess(payload: model))
                     } else {
-                        let error = NSError(domain: "", code: 1)
+                        let error = NSError(domain: "", code: model.error)
                         completion?(ServiceCallResult.serviceFailure(error: error))
                     }
                 case .parserFailure(let error):
