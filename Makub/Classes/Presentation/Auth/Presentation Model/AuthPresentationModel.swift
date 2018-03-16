@@ -7,12 +7,9 @@
 //
 
 import Foundation
+import SwiftKeychainWrapper
 
 final class AuthPresentationModel: PresentationModel {
-    
-    // MARK: - Public Properties
-    
-    var viewModel: AuthViewModel!
     
     // MARK: - Private Properties
     
@@ -25,7 +22,7 @@ final class AuthPresentationModel: PresentationModel {
         authorizationService.authorizeUser(inputValues: inputValues) { result in
             switch result {
             case .serviceSuccess(let model):
-                self.viewModel = AuthViewModel(token: model.token)
+               KeychainWrapper.standard.set(model.token, forKey: KeychainKey.token)
                 self.state = .rich
                 completion()
             case .serviceFailure(let error):

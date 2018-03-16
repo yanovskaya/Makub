@@ -33,9 +33,9 @@
 		C472A6BC205AFC6700768585 /* AuthServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472A6BB205AFC6700768585 /* AuthServiceImpl.swift */; };
 		C472A6BF205B16D500768585 /* PresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472A6BE205B16D500768585 /* PresentationModel.swift */; };
 		C472A6C3205B174000768585 /* AuthPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472A6C2205B174000768585 /* AuthPresentationModel.swift */; };
-		C472A6C6205B17EA00768585 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472A6C5205B17EA00768585 /* AuthViewModel.swift */; };
 		C472A6C8205C4D5300768585 /* String+RemoveSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472A6C7205C4D5300768585 /* String+RemoveSpace.swift */; };
 		C472A6CA205C4F8100768585 /* ErrorDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472A6C9205C4F8100768585 /* ErrorDescription.swift */; };
+		C472A6CF205C647C00768585 /* KeychainKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472A6CE205C647C00768585 /* KeychainKeys.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,9 +68,9 @@
 		C472A6BB205AFC6700768585 /* AuthServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceImpl.swift; sourceTree = "<group>"; };
 		C472A6BE205B16D500768585 /* PresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationModel.swift; sourceTree = "<group>"; };
 		C472A6C2205B174000768585 /* AuthPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPresentationModel.swift; sourceTree = "<group>"; };
-		C472A6C5205B17EA00768585 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		C472A6C7205C4D5300768585 /* String+RemoveSpace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+RemoveSpace.swift"; sourceTree = "<group>"; };
 		C472A6C9205C4F8100768585 /* ErrorDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorDescription.swift; sourceTree = "<group>"; };
+		C472A6CE205C647C00768585 /* KeychainKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainKeys.swift; sourceTree = "<group>"; };
 		FD91280B983360A8DBD4BDFC /* Pods_Makub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Makub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -148,6 +148,7 @@
 		C44D60C3205538E900A5C50F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				C472A6CD205C646F00768585 /* Keys */,
 				C44D60DF205855EB00A5C50F /* Fonts */,
 				C44D60B6205529C200A5C50F /* Assets.xcassets */,
 				C44D60B8205529C200A5C50F /* LaunchScreen.storyboard */,
@@ -197,7 +198,6 @@
 				C44D60B3205529C200A5C50F /* Auth.storyboard */,
 				C44D60CF205805CF00A5C50F /* ViewController */,
 				C472A6C0205B170E00768585 /* Presentation Model */,
-				C472A6C4205B17B700768585 /* View Model */,
 				C44D60D0205805E300A5C50F /* Helper */,
 			);
 			path = Auth;
@@ -293,12 +293,12 @@
 			path = "Presentation Model";
 			sourceTree = "<group>";
 		};
-		C472A6C4205B17B700768585 /* View Model */ = {
+		C472A6CD205C646F00768585 /* Keys */ = {
 			isa = PBXGroup;
 			children = (
-				C472A6C5205B17EA00768585 /* AuthViewModel.swift */,
+				C472A6CE205C647C00768585 /* KeychainKeys.swift */,
 			);
-			path = "View Model";
+			path = Keys;
 			sourceTree = "<group>";
 		};
 		C8FE19675A729A68973D7EBE /* Frameworks */ = {
@@ -409,11 +409,13 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Makub/Pods-Makub-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/PKHUD/PKHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PKHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -465,7 +467,7 @@
 				C472A6B4205AF93500768585 /* Serializer.swift in Sources */,
 				C44D60B2205529C200A5C50F /* AuthViewController.swift in Sources */,
 				C472A6BF205B16D500768585 /* PresentationModel.swift in Sources */,
-				C472A6C6205B17EA00768585 /* AuthViewModel.swift in Sources */,
+				C472A6CF205C647C00768585 /* KeychainKeys.swift in Sources */,
 				C472A6BC205AFC6700768585 /* AuthServiceImpl.swift in Sources */,
 				C472A6C3205B174000768585 /* AuthPresentationModel.swift in Sources */,
 				C472A6AE205AF5F300768585 /* Transport.swift in Sources */,

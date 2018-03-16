@@ -1,18 +1,21 @@
 PODS:
   - Alamofire (4.7.0)
   - PKHUD (5.0.0)
+  - SwiftKeychainWrapper (3.0.1)
   - SwiftLint (0.25.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
   - PKHUD (~> 5.0)
+  - SwiftKeychainWrapper
   - SwiftLint
 
 SPEC CHECKSUMS:
   Alamofire: 907e0a98eb68cdb7f9d1f541a563d6ac5dc77b25
   PKHUD: 3c001512c6e002091184197a8de7a20420786e3b
+  SwiftKeychainWrapper: 38952a3636320ae61bad3513cadd870929de7a4a
   SwiftLint: e14651157288e9e01d6e1a71db7014fb5744a8ea
 
-PODFILE CHECKSUM: a5a6b2ee3c53785a41a246d844c8e57e0456f07b
+PODFILE CHECKSUM: b52325a5129cae46a7afebd5782a97221b7c6d3d
 
 COCOAPODS: 1.4.0
