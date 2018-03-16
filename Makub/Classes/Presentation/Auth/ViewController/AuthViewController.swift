@@ -69,10 +69,16 @@ final class AuthViewController: UIViewController {
                 HUD.show(.progress)
             case .rich:
                 HUD.hide()
-            case .error (let message, let code):
-                HUD.hide()
-                print(code)
-                print(message)
+            case .error (let code):
+                switch code {
+                case -1009, -1001:
+                    HUD.show(.labeledError(title: ErrorDescription.title.rawValue, subtitle: ErrorDescription.network.rawValue))
+                case 1:
+                    HUD.show(.labeledError(title: ErrorDescription.title.rawValue, subtitle: ErrorDescription.input.rawValue))
+                default:
+                    HUD.show(.labeledError(title: ErrorDescription.title.rawValue, subtitle: ErrorDescription.server.rawValue))
+                }
+                HUD.hide(afterDelay: 2.0)
             }
         }
     }
