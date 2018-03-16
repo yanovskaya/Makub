@@ -134,11 +134,10 @@ final class AuthViewController: UIViewController {
     // MARK: - IBAction
     
     @IBAction private func passButtonTapped(_ sender: Any) {
-        guard let username = usernameTextField.text,
+        guard let username = usernameTextField.text?.removeWhitespaces(),
             let password = passwordTextField.text else { return }
         presentationModel.authorizeUser(inputValues: [username, password]) {
             [unowned self] in
-            print("ready!")
             print(self.presentationModel.viewModel.token)
             //self.router.showPincodeSet(source: self)
         }

@@ -34,6 +34,7 @@
 		C472A6BF205B16D500768585 /* PresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472A6BE205B16D500768585 /* PresentationModel.swift */; };
 		C472A6C3205B174000768585 /* AuthPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472A6C2205B174000768585 /* AuthPresentationModel.swift */; };
 		C472A6C6205B17EA00768585 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472A6C5205B17EA00768585 /* AuthViewModel.swift */; };
+		C472A6C8205C4D5300768585 /* String+RemoveSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472A6C7205C4D5300768585 /* String+RemoveSpace.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +68,7 @@
 		C472A6BE205B16D500768585 /* PresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationModel.swift; sourceTree = "<group>"; };
 		C472A6C2205B174000768585 /* AuthPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPresentationModel.swift; sourceTree = "<group>"; };
 		C472A6C5205B17EA00768585 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		C472A6C7205C4D5300768585 /* String+RemoveSpace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+RemoveSpace.swift"; sourceTree = "<group>"; };
 		FD91280B983360A8DBD4BDFC /* Pods_Makub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Makub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -210,6 +212,7 @@
 			isa = PBXGroup;
 			children = (
 				C44D60D12058061100A5C50F /* AuthTextField.swift */,
+				C472A6C7205C4D5300768585 /* String+RemoveSpace.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -464,6 +467,7 @@
 				C472A6C3205B174000768585 /* AuthPresentationModel.swift in Sources */,
 				C472A6AE205AF5F300768585 /* Transport.swift in Sources */,
 				C44D60D5205806BB00A5C50F /* Colors.swift in Sources */,
+				C472A6C8205C4D5300768585 /* String+RemoveSpace.swift in Sources */,
 				C44D60D22058061100A5C50F /* AuthTextField.swift in Sources */,
 				C44D60EA2058573D00A5C50F /* UIFont+CustomFont.swift in Sources */,
 				C44D60B0205529C100A5C50F /* AppDelegate.swift in Sources */,
