@@ -13,7 +13,7 @@ final class AuthTextField: UITextField {
     // MARK: - Private Properties
     
     private let imageView = UIImageView()
-
+    
     // MARK: - Initialization
     
     required init(coder aDecoder: NSCoder) {
@@ -28,7 +28,7 @@ final class AuthTextField: UITextField {
     // MARK: - Public Methods
     
     override func textRect(forBounds bounds: CGRect) -> CGRect {
-        let offset = 16 + imageView.frame.width
+        let offset = 8 + 10 + imageView.frame.width
         let padding = UIEdgeInsets(top: 0, left: offset, bottom: 0, right: offset)
         return UIEdgeInsetsInsetRect(bounds, padding)
     }
@@ -81,7 +81,7 @@ final class AuthTextField: UITextField {
         let widthConstraint = imageView.widthAnchor.constraint(equalToConstant: 22)
         let heightConstraint = imageView.heightAnchor.constraint(equalToConstant: 22)
         let centerYConstraint = imageView.centerYAnchor.constraint(equalTo: centerYAnchor)
-        let leadingConstraint = imageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8)
+        let leadingConstraint = imageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10)
         
         NSLayoutConstraint.activate([widthConstraint, heightConstraint, centerYConstraint, leadingConstraint])
     }

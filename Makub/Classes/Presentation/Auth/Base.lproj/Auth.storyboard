@@ -54,7 +54,6 @@
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="passButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ubA-EE-qUa"/>
-                                    <segue destination="Huz-0W-3qi" kind="show" id="Xqi-j1-lYw"/>
                                 </connections>
                             </button>
                         </subviews>
