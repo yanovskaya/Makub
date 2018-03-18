@@ -50,7 +50,7 @@
 		C414F0D420596DE8001961EC /* Roboto-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.otf"; sourceTree = "<group>"; };
 		C414F0DA2059A261001961EC /* UIViewController+HideKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+HideKeyboard.swift"; sourceTree = "<group>"; };
 		C42924AF205C81E700E6D568 /* PassHelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassHelpViewController.swift; sourceTree = "<group>"; };
-		C44D60AC205529C100A5C50F /* Makub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Makub.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C44D60AC205529C100A5C50F /* Макуб.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Макуб.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C44D60AF205529C100A5C50F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C44D60B1205529C200A5C50F /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		C44D60B4205529C200A5C50F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Auth.storyboard; sourceTree = "<group>"; };
@@ -127,7 +127,7 @@
 		C44D60AD205529C100A5C50F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C44D60AC205529C100A5C50F /* Makub.app */,
+				C44D60AC205529C100A5C50F /* Макуб.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -339,7 +339,7 @@
 			);
 			name = Makub;
 			productName = Makub;
-			productReference = C44D60AC205529C100A5C50F /* Makub.app */;
+			productReference = C44D60AC205529C100A5C50F /* Макуб.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -638,7 +638,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Makub/Supporting files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "-.Makub";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Макуб";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -654,7 +654,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/Makub/Supporting files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "-.Makub";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Макуб";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

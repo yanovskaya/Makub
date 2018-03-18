@@ -133,8 +133,8 @@ final class AuthViewController: UIViewController {
     }
     
     private func configureForgotButton() {
-        forgotButton.tintColor = UIColor.white
-        forgotButton.titleLabel?.font = UIFont.customFont(.robotoLightFont(size: 12))
+        forgotButton.tintColor = UIColor.white.withAlphaComponent(0.8)
+        forgotButton.titleLabel?.font = UIFont.customFont(.robotoLightFont(size: 13))
         forgotButton.setTitle(Constants.forgotButton, for: .normal)
     }
     
