@@ -53,8 +53,12 @@
                                 <color key="backgroundColor" red="0.55634254220000001" green="0.97934550050000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <action selector="passButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ubA-EE-qUa"/>
+                                    <action selector="loginButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ubA-EE-qUa"/>
                                 </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0cH-Vd-9xZ">
+                                <rect key="frame" x="184" y="423" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -65,10 +69,12 @@
                             <constraint firstItem="aUR-cu-b4f" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" priority="250" constant="45" id="G6b-3M-LSI"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="cz0-gt-Zxb" secondAttribute="bottom" priority="249" constant="210" id="Gkd-pZ-hWi"/>
                             <constraint firstItem="aUR-cu-b4f" firstAttribute="top" relation="lessThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="114" id="JA2-Ye-0hn"/>
+                            <constraint firstItem="0cH-Vd-9xZ" firstAttribute="centerX" secondItem="feX-yF-5j2" secondAttribute="centerX" id="QCk-16-yXL"/>
                             <constraint firstItem="feX-yF-5j2" firstAttribute="height" secondItem="3aY-A9-Ipn" secondAttribute="height" id="RbF-qE-Hb4"/>
                             <constraint firstItem="cz0-gt-Zxb" firstAttribute="width" secondItem="feX-yF-5j2" secondAttribute="width" id="SN5-CP-asW"/>
                             <constraint firstItem="cz0-gt-Zxb" firstAttribute="height" secondItem="feX-yF-5j2" secondAttribute="height" id="TXV-j1-8d6"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="cz0-gt-Zxb" secondAttribute="bottom" constant="211" id="Xxp-2n-Ia7"/>
+                            <constraint firstItem="0cH-Vd-9xZ" firstAttribute="top" secondItem="feX-yF-5j2" secondAttribute="bottom" constant="8" id="apT-Sm-Kf4"/>
                             <constraint firstItem="3aY-A9-Ipn" firstAttribute="leading" relation="lessThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="47" id="bX3-me-Ra4"/>
                             <constraint firstItem="feX-yF-5j2" firstAttribute="width" secondItem="3aY-A9-Ipn" secondAttribute="width" id="e72-VZ-jqj"/>
                             <constraint firstItem="3aY-A9-Ipn" firstAttribute="top" secondItem="aUR-cu-b4f" secondAttribute="bottom" constant="48" id="ePx-oa-60v"/>
@@ -84,8 +90,9 @@
                     </view>
                     <connections>
                         <outlet property="backgoundImageView" destination="WnN-DC-hds" id="lZU-Ce-A9W"/>
+                        <outlet property="forgotButton" destination="0cH-Vd-9xZ" id="GKL-tf-EsX"/>
+                        <outlet property="loginButton" destination="cz0-gt-Zxb" id="ZPc-Xa-m9r"/>
                         <outlet property="logoImageView" destination="aUR-cu-b4f" id="L5z-jr-Iqg"/>
-                        <outlet property="passButton" destination="cz0-gt-Zxb" id="ZPc-Xa-m9r"/>
                         <outlet property="passwordTextField" destination="feX-yF-5j2" id="OWf-wQ-F5c"/>
                         <outlet property="usernameTextField" destination="3aY-A9-Ipn" id="1In-fj-6mJ"/>
                     </connections>

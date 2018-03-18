@@ -22,6 +22,7 @@ final class AuthViewController: UIViewController {
         static let usernamePlaceholder = "Имя пользователя"
         static let passwordPlaceholder = "Пароль"
         static let passButton = "Войти"
+        static let forgotButton = "Забыли пароль?"
     }
     
     // MARK: - IBOutlets
@@ -32,7 +33,8 @@ final class AuthViewController: UIViewController {
     @IBOutlet private var usernameTextField: AuthTextField!
     @IBOutlet private var passwordTextField: AuthTextField!
     
-    @IBOutlet private var passButton: UIButton!
+    @IBOutlet private var forgotButton: UIButton!
+    @IBOutlet private var loginButton: UIButton!
     
     // MARK: - Public Properties
     
@@ -52,8 +54,9 @@ final class AuthViewController: UIViewController {
         configureBackgroundImage()
         configureImageView()
         configureTextFields()
-        configurePassButton()
-        enablePassButton()
+        configureLoginButton()
+        enableLoginButton()
+        configureForgotButton()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -112,23 +115,29 @@ final class AuthViewController: UIViewController {
         passwordTextField.addImage(Constants.lockImage)
     }
     
-    private func configurePassButton() {
-        passButton.backgroundColor = PaleteColors.passButtonBackground
-        passButton.tintColor = UIColor.white
+    private func configureLoginButton() {
+        loginButton.backgroundColor = PaleteColors.passButtonBackground
+        loginButton.tintColor = UIColor.white
         
-        passButton.layer.shadowOpacity = 0.16
-        passButton.layer.shadowOffset = CGSize(width: 0, height: 3)
-        passButton.layer.shadowColor = UIColor.gray.cgColor
-        passButton.layer.shadowRadius = 6
-        passButton.layer.cornerRadius = passButton.frame.height / 2
-        passButton.layer.opacity = 0.9
+        loginButton.layer.shadowOpacity = 0.16
+        loginButton.layer.shadowOffset = CGSize(width: 0, height: 3)
+        loginButton.layer.shadowColor = UIColor.gray.cgColor
+        loginButton.layer.shadowRadius = 6
+        loginButton.layer.cornerRadius = loginButton.frame.height / 2
+        loginButton.layer.opacity = 0.9
         
-        passButton.titleLabel?.font = UIFont.customFont(.robotoBoldFont(size: 18))
-        passButton.setTitle(Constants.passButton, for: .normal)
+        loginButton.titleLabel?.font = UIFont.customFont(.robotoBoldFont(size: 18))
+        loginButton.setTitle(Constants.passButton, for: .normal)
     }
     
-    private func enablePassButton() {
-        passButton.isEnabled = false
+    private func configureForgotButton() {
+        forgotButton.tintColor = UIColor.white.withAlphaComponent(0.6)
+        forgotButton.titleLabel?.font = UIFont.customFont(.robotoLightFont(size: 12))
+        forgotButton.setTitle(Constants.forgotButton, for: .normal)
+    }
+    
+    private func enableLoginButton() {
+        loginButton.isEnabled = false
         usernameTextField.addTarget(self, action: #selector(editingChanged), for: .editingChanged)
         passwordTextField.addTarget(self, action: #selector(editingChanged), for: .editingChanged)
     }
@@ -140,7 +149,7 @@ final class AuthViewController: UIViewController {
     
     // MARK: - IBAction
     
-    @IBAction private func passButtonTapped(_ sender: Any) {
+    @IBAction private func loginButtonTapped(_ sender: Any) {
         guard let username = usernameTextField.text?.removeWhitespaces(),
             let password = passwordTextField.text else { return }
         presentationModel.authorizeUser(inputValues: [username, password]) {
@@ -168,10 +177,10 @@ extension AuthViewController: UITextFieldDelegate {
             let username = usernameTextField.text, username.count > 2,
             let password = passwordTextField.text, password.count > 2
             else {
-                passButton.isEnabled = false
+                loginButton.isEnabled = false
                 return
         }
-        passButton.isEnabled = true
+        loginButton.isEnabled = true
     }
     
     
