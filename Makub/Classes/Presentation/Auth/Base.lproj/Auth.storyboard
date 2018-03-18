@@ -102,12 +102,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="513" y="34"/>
+            <point key="canvasLocation" x="818.84057971014499" y="33.423913043478265"/>
         </scene>
         <!--Pass Help View Controller-->
         <scene sceneID="Pk8-hI-Tes">
             <objects>
-                <viewController storyboardIdentifier="PassHelpViewController" id="Huz-0W-3qi" customClass="PassHelpViewController" customModule="Makub" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PassHelpViewController" id="Huz-0W-3qi" userLabel="Pass Help View Controller" customClass="PassHelpViewController" customModule="Makub" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZmL-n2-lnS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -144,6 +144,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VOF-av-Glo"/>
                     </view>
+                    <navigationItem key="navigationItem" id="qKN-JL-X2d">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="b0l-Bd-0kB"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="descriptionLabel" destination="3eR-0I-u5e" id="6g8-Ei-EdR"/>
                         <outlet property="manImageView" destination="j1m-h4-tPz" id="aLE-yp-AOc"/>
@@ -152,7 +155,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ehE-IS-xRc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1309" y="33"/>
+            <point key="canvasLocation" x="1615.9420289855075" y="32.608695652173914"/>
         </scene>
     </scenes>
 </document>

@@ -14,7 +14,7 @@ class PassHelpViewController: UIViewController {
     
     private enum Constants {
         static let manImage = "sad_man"
-        static let backButton = "back_button"
+        static let backButton = "arrow_left"
         
         static let titleLabel = "Не можете войти?"
         static let descriptionLabel = "Мы отправим тебе письмо на указанную почту с инструкциями для восстановленения доступа."
@@ -34,6 +34,7 @@ class PassHelpViewController: UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: true)
         navigationItem.setHidesBackButton(true, animated: true)
         setBackButton()
+        navigationItem.hidesBackButton = true
         
         configureImage()
         configureTitleLabel()
@@ -42,7 +43,7 @@ class PassHelpViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        navigationItem.setHidesBackButton(true, animated: true)
+        navigationItem.hidesBackButton = true
     }
     
     // MARK: - Private Methods
@@ -72,22 +73,13 @@ class PassHelpViewController: UIViewController {
     }
     
     private func setBackButton() {
-//        let yourBackImage = UIImage(named: "back_button")
-//        self.navigationController?.navigationBar.backIndicatorImage = yourBackImage
-//        self.navigationController?.navigationBar.backIndicatorTransitionMaskImage = yourBackImage
-//        self.navigationController?.navigationBar.backItem?.title = ""
-//        var backButtonImage = UIImage(named: "back_button")
-//        backButtonImage = backButtonImage?.stretchableImage(withLeftCapWidth: 0, topCapHeight: 0)
-//        UIBarButtonItem.appearance().setBackButtonBackgroundImage(backButtonImage, for: .normal, barMetrics: .default)
-//        UINavigationBar.appearance().shadowImage = UIImage()
-//        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
-//        var backButtonImage = UIImage(named: Constants.backButton)
-//        backButtonImage = backButtonImage?.stretchableImage(withLeftCapWidth: 28, topCapHeight: 22)
-//        UIBarButtonItem.appearance().setBackButtonBackgroundImage(backButtonImage, for: .normal, barMetrics: .default)
-//        
-//        let backItem = UIBarButtonItem()
-//        backItem.title = ""
-//        navigationItem.backBarButtonItem = backItem
+        let yourBackImage = UIImage(named: Constants.backButton)
+        let newBtn = UIBarButtonItem(image: yourBackImage, style: .plain, target: self, action: #selector(backButtonPressed))
+        self.navigationItem.leftBarButtonItem = newBtn
     }
     
+    @objc private func backButtonPressed() {
+        navigationController?.popViewController(animated: true)
+    }
+
 }

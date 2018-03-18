@@ -45,6 +45,7 @@ final class AuthViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.hidesBackButton = true
         bindEvents()
         navigationController?.setNavigationBarHidden(true, animated: false)
         navigationController?.navigationBar.isTranslucent = false
@@ -152,9 +153,11 @@ final class AuthViewController: UIViewController {
     }
     
     private func setBackButton() {
+//        let button = UIButton()
+//        navigationItem.backBarButtonItem = UIBarButtonItem(image: UIImage(named: Constants.lockImage), style: .plain, target: nil, action: nil)
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         navigationController?.navigationBar.tintColor = PaleteColors.passHelp
-        
+//
         UINavigationBar.appearance().shadowImage = UIImage()
         UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
     }
