@@ -26,6 +26,10 @@ final class AuthViewController: UIViewController {
         static let forgotButton = "Забыли пароль?"
     }
     
+    private enum LayoutConstants {
+        static let standard: CGFloat = 8
+    }
+    
     // MARK: - IBOutlets
     
     @IBOutlet private var logoImageView: UIImageView!
@@ -142,7 +146,9 @@ final class AuthViewController: UIViewController {
         navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.tintColor = PaleteColors.passHelp
         
-        let backButtonImage = UIImage(named: Constants.backButtonImage)
+        var backButtonImage = UIImage(named: Constants.backButtonImage)
+        let inset = LayoutConstants.standard
+        backButtonImage = backButtonImage?.imageWithInsets(insets: UIEdgeInsets(top: inset, left: inset, bottom: 0, right: 0))
         navigationController?.navigationBar.topItem?.title = " "
         navigationController?.navigationBar.backIndicatorImage = backButtonImage
         navigationController?.navigationBar.backIndicatorTransitionMaskImage = backButtonImage

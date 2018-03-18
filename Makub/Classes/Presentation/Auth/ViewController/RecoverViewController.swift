@@ -1,5 +1,5 @@
 //
-//  PassHelpViewController.swift
+//  RecoverViewController.swift
 //  Makub
 //
 //  Created by Елена Яновская on 17.03.2018.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PassHelpViewController: UIViewController {
+class RecoverViewController: UIViewController {
     
     // MARK: - Constants
     
@@ -16,8 +16,12 @@ class PassHelpViewController: UIViewController {
         static let manImage = "sad_man"
         static let backButton = "arrow_left"
         
-        static let titleLabel = "Не можете войти?"
-        static let descriptionLabel = "Мы отправим тебе письмо на указанную почту с инструкциями для восстановленения доступа."
+        static let helpTitleLabel = "Не можете войти?"
+        static let helpDescriptionLabel = "Мы отправим тебе письмо на указанную почту с инструкциями для восстановленения доступа."
+    }
+    
+    private enum LayoutConstants {
+        static let minimumLineHeight: CGFloat = 20
     }
     
     // MARK: - IBOutlets
@@ -53,20 +57,20 @@ class PassHelpViewController: UIViewController {
     private func configureTitleLabel() {
         titleLabel.textColor = PaleteColors.passHelp
         titleLabel.font = UIFont.customFont(.robotoBoldFont(size: 18))
-        titleLabel.text = Constants.titleLabel
+        titleLabel.text = Constants.helpTitleLabel
     }
     
     private func configureDescriptionLabel() {
-        let text = Constants.descriptionLabel
+        let text = Constants.helpDescriptionLabel
         let attributedText = NSMutableAttributedString(string: text)
         let style = NSMutableParagraphStyle()
-        style.minimumLineHeight = 20
+        style.minimumLineHeight = LayoutConstants.minimumLineHeight
         style.alignment = .center
         attributedText.addAttribute(.paragraphStyle, value: style, range: NSRange(location: 0, length: text.count))
         descriptionLabel.attributedText = attributedText
         descriptionLabel.textColor = PaleteColors.passHelp.withAlphaComponent(0.8)
         descriptionLabel.font = UIFont.customFont(.robotoRegularFont(size: 16))
-        descriptionLabel.text = Constants.descriptionLabel
+        descriptionLabel.text = Constants.helpDescriptionLabel
     }
     
     @IBAction func recoverButtonTapped(_ sender: Any) {

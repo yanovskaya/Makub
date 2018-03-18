@@ -10,6 +10,13 @@ import UIKit
 
 final class AuthTextField: UITextField {
     
+    // MARK: - Constants
+    
+    private enum LayoutConstants {
+        static let imageWidth: CGFloat = 22
+        static let leadingDistance: CGFloat = 10
+        static let standard: CGFloat = 8
+    }
     // MARK: - Private Properties
     
     private let imageView = UIImageView()
@@ -28,7 +35,7 @@ final class AuthTextField: UITextField {
     // MARK: - Public Methods
     
     override func textRect(forBounds bounds: CGRect) -> CGRect {
-        let offset = 8 + 10 + imageView.frame.width
+        let offset = LayoutConstants.standard + LayoutConstants.leadingDistance + imageView.frame.width
         let padding = UIEdgeInsets(top: 0, left: offset, bottom: 0, right: offset)
         return UIEdgeInsetsInsetRect(bounds, padding)
     }
@@ -78,10 +85,10 @@ final class AuthTextField: UITextField {
     
     private func configureImageViewConstraints() {
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        let widthConstraint = imageView.widthAnchor.constraint(equalToConstant: 22)
-        let heightConstraint = imageView.heightAnchor.constraint(equalToConstant: 22)
+        let widthConstraint = imageView.widthAnchor.constraint(equalToConstant: LayoutConstants.imageWidth)
+        let heightConstraint = imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor)
         let centerYConstraint = imageView.centerYAnchor.constraint(equalTo: centerYAnchor)
-        let leadingConstraint = imageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10)
+        let leadingConstraint = imageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: LayoutConstants.leadingDistance)
         
         NSLayoutConstraint.activate([widthConstraint, heightConstraint, centerYConstraint, leadingConstraint])
     }
