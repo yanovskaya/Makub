@@ -133,7 +133,7 @@ final class AuthViewController: UIViewController {
     }
     
     private func configureForgotButton() {
-        forgotButton.tintColor = UIColor.white.withAlphaComponent(0.6)
+        forgotButton.tintColor = UIColor.white
         forgotButton.titleLabel?.font = UIFont.customFont(.robotoLightFont(size: 12))
         forgotButton.setTitle(Constants.forgotButton, for: .normal)
     }
@@ -143,7 +143,7 @@ final class AuthViewController: UIViewController {
         navigationController?.navigationBar.tintColor = PaleteColors.passHelp
         
         let backButtonImage = UIImage(named: Constants.backButtonImage)
-        //navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         navigationController?.navigationBar.backIndicatorImage = backButtonImage
         navigationController?.navigationBar.backIndicatorTransitionMaskImage = backButtonImage
         UINavigationBar.appearance().shadowImage = UIImage()

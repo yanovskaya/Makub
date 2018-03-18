@@ -70,7 +70,6 @@
                             <constraint firstItem="cz0-gt-Zxb" firstAttribute="top" secondItem="feX-yF-5j2" secondAttribute="bottom" constant="70" id="ETT-DJ-kr5"/>
                             <constraint firstAttribute="bottom" secondItem="WnN-DC-hds" secondAttribute="bottom" id="FxZ-Gt-Yut"/>
                             <constraint firstItem="aUR-cu-b4f" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" priority="250" constant="45" id="G6b-3M-LSI"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="cz0-gt-Zxb" secondAttribute="bottom" priority="249" constant="210" id="Gkd-pZ-hWi"/>
                             <constraint firstItem="aUR-cu-b4f" firstAttribute="top" relation="lessThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="114" id="JA2-Ye-0hn"/>
                             <constraint firstItem="0cH-Vd-9xZ" firstAttribute="centerX" secondItem="feX-yF-5j2" secondAttribute="centerX" id="QCk-16-yXL"/>
                             <constraint firstItem="feX-yF-5j2" firstAttribute="height" secondItem="3aY-A9-Ipn" secondAttribute="height" id="RbF-qE-Hb4"/>
@@ -79,6 +78,7 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="lessThanOrEqual" secondItem="cz0-gt-Zxb" secondAttribute="bottom" constant="211" id="Xxp-2n-Ia7"/>
                             <constraint firstItem="0cH-Vd-9xZ" firstAttribute="top" secondItem="feX-yF-5j2" secondAttribute="bottom" constant="8" id="apT-Sm-Kf4"/>
                             <constraint firstItem="3aY-A9-Ipn" firstAttribute="leading" relation="lessThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="47" id="bX3-me-Ra4"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="cz0-gt-Zxb" secondAttribute="bottom" constant="150" id="bZr-PY-gE4"/>
                             <constraint firstItem="feX-yF-5j2" firstAttribute="width" secondItem="3aY-A9-Ipn" secondAttribute="width" id="e72-VZ-jqj"/>
                             <constraint firstItem="3aY-A9-Ipn" firstAttribute="top" secondItem="aUR-cu-b4f" secondAttribute="bottom" constant="48" id="ePx-oa-60v"/>
                             <constraint firstItem="WnN-DC-hds" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="fKX-me-Hzc"/>
