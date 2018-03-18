@@ -142,7 +142,6 @@ final class AuthViewController: UIViewController {
         navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.tintColor = PaleteColors.passHelp
         UINavigationBar.appearance().shadowImage = UIImage()
-        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
     }
     
     private func enableLoginButton() {

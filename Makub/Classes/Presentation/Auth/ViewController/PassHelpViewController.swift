@@ -73,7 +73,8 @@ class PassHelpViewController: UIViewController {
     private func setBackButton() {
         let backButtonImage = UIImage(named: Constants.backButton)
         let leftBarButton = UIBarButtonItem(image: backButtonImage, style: .plain, target: self, action: #selector(backButtonPressed))
-        self.navigationItem.leftBarButtonItem = leftBarButton
+        navigationItem.title = ""
+        navigationItem.leftBarButtonItem = leftBarButton
     }
     
     @objc private func backButtonPressed() {

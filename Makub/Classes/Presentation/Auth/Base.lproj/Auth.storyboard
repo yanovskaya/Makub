@@ -144,7 +144,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VOF-av-Glo"/>
                     </view>
-                    <navigationItem key="navigationItem" id="qKN-JL-X2d">
+                    <navigationItem key="navigationItem" title="Title" id="qKN-JL-X2d">
                         <barButtonItem key="leftBarButtonItem" title="Item" id="b0l-Bd-0kB"/>
                     </navigationItem>
                     <connections>
