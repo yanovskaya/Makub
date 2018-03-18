@@ -45,10 +45,7 @@ final class AuthViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.hidesBackButton = true
         bindEvents()
-        navigationController?.setNavigationBarHidden(true, animated: false)
-        navigationController?.navigationBar.isTranslucent = false
         
         hideKeyboardWhenTappedAround()
         usernameTextField.delegate = self
@@ -61,7 +58,7 @@ final class AuthViewController: UIViewController {
         enableLoginButton()
         configureForgotButton()
         
-        setBackButton()
+        confivagureNavigationBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -141,6 +138,13 @@ final class AuthViewController: UIViewController {
         forgotButton.setTitle(Constants.forgotButton, for: .normal)
     }
     
+    private func confivagureNavigationBar() {
+        navigationController?.navigationBar.isTranslucent = false
+        navigationController?.navigationBar.tintColor = PaleteColors.passHelp
+        UINavigationBar.appearance().shadowImage = UIImage()
+        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
+    }
+    
     private func enableLoginButton() {
         loginButton.isEnabled = false
         usernameTextField.addTarget(self, action: #selector(editingChanged), for: .editingChanged)
@@ -150,16 +154,6 @@ final class AuthViewController: UIViewController {
     private func fixTextFieldWidth() {
         let width = usernameTextField.frame.width
         usernameTextField.widthAnchor.constraint(equalToConstant: width).isActive = true
-    }
-    
-    private func setBackButton() {
-//        let button = UIButton()
-//        navigationItem.backBarButtonItem = UIBarButtonItem(image: UIImage(named: Constants.lockImage), style: .plain, target: nil, action: nil)
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        navigationController?.navigationBar.tintColor = PaleteColors.passHelp
-//
-        UINavigationBar.appearance().shadowImage = UIImage()
-        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
     }
     
     // MARK: - IBAction

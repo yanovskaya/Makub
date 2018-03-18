@@ -32,9 +32,7 @@ class PassHelpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(false, animated: true)
-        navigationItem.setHidesBackButton(true, animated: true)
         setBackButton()
-        navigationItem.hidesBackButton = true
         
         configureImage()
         configureTitleLabel()
@@ -73,9 +71,9 @@ class PassHelpViewController: UIViewController {
     }
     
     private func setBackButton() {
-        let yourBackImage = UIImage(named: Constants.backButton)
-        let newBtn = UIBarButtonItem(image: yourBackImage, style: .plain, target: self, action: #selector(backButtonPressed))
-        self.navigationItem.leftBarButtonItem = newBtn
+        let backButtonImage = UIImage(named: Constants.backButton)
+        let leftBarButton = UIBarButtonItem(image: backButtonImage, style: .plain, target: self, action: #selector(backButtonPressed))
+        self.navigationItem.leftBarButtonItem = leftBarButton
     }
     
     @objc private func backButtonPressed() {
