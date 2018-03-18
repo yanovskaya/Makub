@@ -32,7 +32,6 @@ class PassHelpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(false, animated: true)
-        setBackButton()
         
         configureImage()
         configureTitleLabel()
@@ -41,7 +40,6 @@ class PassHelpViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        navigationItem.hidesBackButton = true
     }
     
     // MARK: - Private Methods
@@ -68,17 +66,6 @@ class PassHelpViewController: UIViewController {
         descriptionLabel.textColor = PaleteColors.passHelp.withAlphaComponent(0.8)
         descriptionLabel.font = UIFont.customFont(.robotoRegularFont(size: 16))
         descriptionLabel.text = Constants.descriptionLabel
-    }
-    
-    private func setBackButton() {
-        let backButtonImage = UIImage(named: Constants.backButton)
-        let leftBarButton = UIBarButtonItem(image: backButtonImage, style: .plain, target: self, action: #selector(backButtonPressed))
-        navigationItem.title = ""
-        navigationItem.leftBarButtonItem = leftBarButton
-    }
-    
-    @objc private func backButtonPressed() {
-        navigationController?.popViewController(animated: true)
     }
 
 }

@@ -15,7 +15,7 @@ final class AuthViewController: UIViewController {
     
     private enum Constants {
         static let authBackgroundImage = "auth_background"
-        static let backButton = "arrow_left"
+        static let backButtonImage = "arrow_left"
         static let logoImage = "logo"
         static let userImage = "user"
         static let lockImage = "lock"
@@ -141,6 +141,11 @@ final class AuthViewController: UIViewController {
     private func confivagureNavigationBar() {
         navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.tintColor = PaleteColors.passHelp
+        
+        let backButtonImage = UIImage(named: Constants.backButtonImage)
+        //navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationController?.navigationBar.backIndicatorImage = backButtonImage
+        navigationController?.navigationBar.backIndicatorTransitionMaskImage = backButtonImage
         UINavigationBar.appearance().shadowImage = UIImage()
     }
     

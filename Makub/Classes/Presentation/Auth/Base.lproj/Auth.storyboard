@@ -91,6 +91,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <navigationItem key="navigationItem" id="SdB-zR-VkK"/>
                     <connections>
                         <outlet property="backgoundImageView" destination="WnN-DC-hds" id="lZU-Ce-A9W"/>
                         <outlet property="forgotButton" destination="0cH-Vd-9xZ" id="GKL-tf-EsX"/>
@@ -102,7 +103,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="818.84057971014499" y="33.423913043478265"/>
+            <point key="canvasLocation" x="1126.0869565217392" y="33.423913043478265"/>
         </scene>
         <!--Pass Help View Controller-->
         <scene sceneID="Pk8-hI-Tes">
@@ -125,7 +126,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3eR-0I-u5e">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3eR-0I-u5e">
                                 <rect key="frame" x="60" y="252" width="294" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -144,9 +145,6 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VOF-av-Glo"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="qKN-JL-X2d">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="b0l-Bd-0kB"/>
-                    </navigationItem>
                     <connections>
                         <outlet property="descriptionLabel" destination="3eR-0I-u5e" id="6g8-Ei-EdR"/>
                         <outlet property="manImageView" destination="j1m-h4-tPz" id="aLE-yp-AOc"/>
@@ -155,7 +153,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ehE-IS-xRc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1615.9420289855075" y="32.608695652173914"/>
+            <point key="canvasLocation" x="1923.1884057971015" y="32.608695652173914"/>
         </scene>
     </scenes>
 </document>
