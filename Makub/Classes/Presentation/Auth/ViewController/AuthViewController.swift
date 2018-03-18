@@ -15,6 +15,7 @@ final class AuthViewController: UIViewController {
     
     private enum Constants {
         static let authBackgroundImage = "auth_background"
+        static let backButton = "arrow_left"
         static let logoImage = "logo"
         static let userImage = "user"
         static let lockImage = "lock"
@@ -60,6 +61,11 @@ final class AuthViewController: UIViewController {
         configureForgotButton()
         
         setBackButton()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     // MARK: - Private Methods
@@ -146,22 +152,11 @@ final class AuthViewController: UIViewController {
     }
     
     private func setBackButton() {
-        var backButtonImage = UIImage(named: "back_button")
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationController?.navigationBar.tintColor = PaleteColors.passHelp
         
-        backButtonImage = backButtonImage?.stretchableImage(withLeftCapWidth: 0, topCapHeight: 0)
-        UIBarButtonItem.appearance().setBackButtonBackgroundImage(backButtonImage, for: .normal, barMetrics: .default)
-        //        var backButtonImage = UIImage(named: "back_button")
-        //        backButtonImage = backButtonImage?.stretchableImage(withLeftCapWidth: 0, topCapHeight: 0)
-        //        UIBarButtonItem.appearance().setBackButtonBackgroundImage(backButtonImage, for: .normal, barMetrics: .default)
-        //        UINavigationBar.appearance().shadowImage = UIImage()
-        //        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
-        //        var backButtonImage = UIImage(named: Constants.backButton)
-        //        backButtonImage = backButtonImage?.stretchableImage(withLeftCapWidth: 28, topCapHeight: 22)
-        //        UIBarButtonItem.appearance().setBackButtonBackgroundImage(backButtonImage, for: .normal, barMetrics: .default)
-        //
-        //        let backItem = UIBarButtonItem()
-        //        backItem.title = ""
-        //        navigationItem.backBarButtonItem = backItem
+        UINavigationBar.appearance().shadowImage = UIImage()
+        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
     }
     
     // MARK: - IBAction

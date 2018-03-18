@@ -31,7 +31,8 @@ class PassHelpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.setNavigationBarHidden(false, animated: false)
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        navigationItem.setHidesBackButton(true, animated: true)
         setBackButton()
         
         configureImage()
@@ -39,9 +40,9 @@ class PassHelpViewController: UIViewController {
         configureDescriptionLabel()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(true)
-        navigationController?.setNavigationBarHidden(true, animated: true)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        navigationItem.setHidesBackButton(true, animated: true)
     }
     
     // MARK: - Private Methods
