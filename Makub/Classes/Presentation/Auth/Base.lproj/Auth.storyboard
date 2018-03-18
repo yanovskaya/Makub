@@ -41,7 +41,7 @@
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aUR-cu-b4f">
-                                <rect key="frame" x="80.666666666666671" y="65" width="253.66666666666663" height="207"/>
+                                <rect key="frame" x="122.66666666666667" y="134" width="169.66666666666663" height="138"/>
                                 <color key="tintColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="aUR-cu-b4f" secondAttribute="height" multiplier="169:138" id="Utf-Be-5rw"/>
@@ -69,7 +69,7 @@
                             <constraint firstItem="WnN-DC-hds" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="8xw-Md-LZw"/>
                             <constraint firstItem="cz0-gt-Zxb" firstAttribute="top" secondItem="feX-yF-5j2" secondAttribute="bottom" constant="70" id="ETT-DJ-kr5"/>
                             <constraint firstAttribute="bottom" secondItem="WnN-DC-hds" secondAttribute="bottom" id="FxZ-Gt-Yut"/>
-                            <constraint firstItem="aUR-cu-b4f" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" priority="250" constant="45" id="G6b-3M-LSI"/>
+                            <constraint firstItem="aUR-cu-b4f" firstAttribute="top" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="40" id="G6b-3M-LSI"/>
                             <constraint firstItem="aUR-cu-b4f" firstAttribute="top" relation="lessThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="114" id="JA2-Ye-0hn"/>
                             <constraint firstItem="0cH-Vd-9xZ" firstAttribute="centerX" secondItem="feX-yF-5j2" secondAttribute="centerX" id="QCk-16-yXL"/>
                             <constraint firstItem="feX-yF-5j2" firstAttribute="height" secondItem="3aY-A9-Ipn" secondAttribute="height" id="RbF-qE-Hb4"/>
@@ -139,6 +139,13 @@
                                     <segue destination="0NU-FI-ToR" kind="show" id="pTV-I0-kb9"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TnJ-vK-P03">
+                                <rect key="frame" x="229" y="20" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="recoverButtonTapped:" destination="Huz-0W-3qi" eventType="touchUpInside" id="vnw-ob-b5V"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -146,10 +153,12 @@
                             <constraint firstItem="alf-8m-hYg" firstAttribute="centerX" secondItem="j1m-h4-tPz" secondAttribute="centerX" id="2ih-7r-Mhw"/>
                             <constraint firstItem="j1m-h4-tPz" firstAttribute="top" secondItem="VOF-av-Glo" secondAttribute="top" constant="74" id="FGe-5o-mir"/>
                             <constraint firstItem="j1m-h4-tPz" firstAttribute="centerX" secondItem="VOF-av-Glo" secondAttribute="centerX" id="LBq-7O-DCg"/>
+                            <constraint firstItem="VOF-av-Glo" firstAttribute="trailing" secondItem="TnJ-vK-P03" secondAttribute="trailing" constant="139" id="P9b-8o-hgV"/>
                             <constraint firstItem="alf-8m-hYg" firstAttribute="top" secondItem="j1m-h4-tPz" secondAttribute="bottom" constant="26" id="YG6-V6-Nya"/>
                             <constraint firstItem="TKj-cT-gAP" firstAttribute="centerX" secondItem="VOF-av-Glo" secondAttribute="centerX" id="aJd-Th-Nh9"/>
                             <constraint firstItem="j1m-h4-tPz" firstAttribute="top" secondItem="TKj-cT-gAP" secondAttribute="bottom" constant="8" id="m8j-3K-tQA"/>
                             <constraint firstItem="3eR-0I-u5e" firstAttribute="centerX" secondItem="alf-8m-hYg" secondAttribute="centerX" id="mlt-Fk-PVC"/>
+                            <constraint firstItem="TKj-cT-gAP" firstAttribute="top" secondItem="TnJ-vK-P03" secondAttribute="bottom" constant="6" id="weP-pP-igZ"/>
                             <constraint firstItem="3eR-0I-u5e" firstAttribute="leading" secondItem="VOF-av-Glo" secondAttribute="leading" constant="60" id="zTd-5E-y3k"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VOF-av-Glo"/>

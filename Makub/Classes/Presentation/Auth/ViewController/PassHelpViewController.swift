@@ -68,5 +68,11 @@ class PassHelpViewController: UIViewController {
         descriptionLabel.font = UIFont.customFont(.robotoRegularFont(size: 16))
         descriptionLabel.text = Constants.descriptionLabel
     }
+    
+    @IBAction func recoverButtonTapped(_ sender: Any) {
+        titleLabel.text = "fdddfg"
+        manImageView.image = UIImage(named: Constants.backButton)
+    }
+    
 
 }

@@ -223,8 +223,8 @@
 		C44D60D0205805E300A5C50F /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				C44D60D12058061100A5C50F /* AuthTextField.swift */,
 				C472A6C7205C4D5300768585 /* String+RemoveSpace.swift */,
+				C44D60D12058061100A5C50F /* AuthTextField.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
