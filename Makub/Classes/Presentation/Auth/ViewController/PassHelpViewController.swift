@@ -32,6 +32,7 @@ class PassHelpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(false, animated: true)
+        navigationController?.navigationBar.topItem?.title = " "
         
         configureImage()
         configureTitleLabel()

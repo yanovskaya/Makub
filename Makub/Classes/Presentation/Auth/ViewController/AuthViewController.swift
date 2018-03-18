@@ -143,7 +143,7 @@ final class AuthViewController: UIViewController {
         navigationController?.navigationBar.tintColor = PaleteColors.passHelp
         
         let backButtonImage = UIImage(named: Constants.backButtonImage)
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        navigationController?.navigationBar.topItem?.title = " "
         navigationController?.navigationBar.backIndicatorImage = backButtonImage
         navigationController?.navigationBar.backIndicatorTransitionMaskImage = backButtonImage
         UINavigationBar.appearance().shadowImage = UIImage()
