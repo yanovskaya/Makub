@@ -44,8 +44,9 @@ final class AuthViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.isNavigationBarHidden = true
         bindEvents()
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        navigationController?.navigationBar.isTranslucent = false
         
         hideKeyboardWhenTappedAround()
         usernameTextField.delegate = self
@@ -57,11 +58,8 @@ final class AuthViewController: UIViewController {
         configureLoginButton()
         enableLoginButton()
         configureForgotButton()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
-        fixTextFieldWidth()
+        
+        setBackButton()
     }
     
     // MARK: - Private Methods
@@ -94,7 +92,7 @@ final class AuthViewController: UIViewController {
     
     private func configureImageView() {
         logoImageView.contentMode = .scaleAspectFit
-        logoImageView.tintColor = UIColor.white
+        logoImageView.tintColor = .white
         logoImageView.image = UIImage(named: Constants.logoImage)?.withRenderingMode(.alwaysTemplate)
         logoImageView.layer.opacity = 0.95
         
@@ -117,7 +115,7 @@ final class AuthViewController: UIViewController {
     
     private func configureLoginButton() {
         loginButton.backgroundColor = PaleteColors.passButtonBackground
-        loginButton.tintColor = UIColor.white
+        loginButton.tintColor = .white
         
         loginButton.layer.shadowOpacity = 0.16
         loginButton.layer.shadowOffset = CGSize(width: 0, height: 3)
@@ -145,6 +143,25 @@ final class AuthViewController: UIViewController {
     private func fixTextFieldWidth() {
         let width = usernameTextField.frame.width
         usernameTextField.widthAnchor.constraint(equalToConstant: width).isActive = true
+    }
+    
+    private func setBackButton() {
+        var backButtonImage = UIImage(named: "back_button")
+        
+        backButtonImage = backButtonImage?.stretchableImage(withLeftCapWidth: 0, topCapHeight: 0)
+        UIBarButtonItem.appearance().setBackButtonBackgroundImage(backButtonImage, for: .normal, barMetrics: .default)
+        //        var backButtonImage = UIImage(named: "back_button")
+        //        backButtonImage = backButtonImage?.stretchableImage(withLeftCapWidth: 0, topCapHeight: 0)
+        //        UIBarButtonItem.appearance().setBackButtonBackgroundImage(backButtonImage, for: .normal, barMetrics: .default)
+        //        UINavigationBar.appearance().shadowImage = UIImage()
+        //        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
+        //        var backButtonImage = UIImage(named: Constants.backButton)
+        //        backButtonImage = backButtonImage?.stretchableImage(withLeftCapWidth: 28, topCapHeight: 22)
+        //        UIBarButtonItem.appearance().setBackButtonBackgroundImage(backButtonImage, for: .normal, barMetrics: .default)
+        //
+        //        let backItem = UIBarButtonItem()
+        //        backItem.title = ""
+        //        navigationItem.backBarButtonItem = backItem
     }
     
     // MARK: - IBAction

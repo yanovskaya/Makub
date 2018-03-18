@@ -10,6 +10,12 @@ import UIKit.UIColor
 
 struct PaleteColors {
     
+    // MARK: - AuthViewController
+    
     static var borderAuthTextField = UIColor(hex: "E2E2E2")
     static var passButtonBackground = UIColor(hex: "6BF26B")
+    
+    // MARK: - PassHelpViewController
+    
+    static var passHelp = UIColor(hex: "303030")
 }

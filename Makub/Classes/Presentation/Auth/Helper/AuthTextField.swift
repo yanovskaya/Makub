@@ -49,7 +49,7 @@ final class AuthTextField: UITextField {
         let image = UIImage(named: imageName)?.withRenderingMode(.alwaysTemplate)
         imageView.image = image
         imageView.contentMode = .scaleAspectFit
-        imageView.tintColor = UIColor.white
+        imageView.tintColor = .white
         addSubview(imageView)
         
         configureImageViewConstraints()
@@ -72,7 +72,7 @@ final class AuthTextField: UITextField {
     
     private func configureText() {
         font = UIFont.customFont(.robotoLightFont(size: 16))
-        textColor = UIColor.white
+        textColor = .white
         textAlignment = .center
     }
     
@@ -87,7 +87,7 @@ final class AuthTextField: UITextField {
     }
     
     private func clearBachground() {
-        backgroundColor = UIColor.clear
+        backgroundColor = .clear
     }
     
 }
