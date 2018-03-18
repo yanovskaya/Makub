@@ -19,6 +19,8 @@ protocol ViewModelConfigurable {
     func configure(for viewModel: ViewModelType)
 }
 
+// MARK: - PresentationModel
+
 class PresentationModel {
     
     enum State {

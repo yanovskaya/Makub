@@ -150,7 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				C44D60C52055390300A5C50F /* Model */,
-				C44D60C72055391400A5C50F /* Business logic */,
+				C44D60C72055391400A5C50F /* Business Logic */,
 				C44D60C62055390F00A5C50F /* Presentation */,
 			);
 			path = Classes;
@@ -193,14 +193,14 @@
 			path = Presentation;
 			sourceTree = "<group>";
 		};
-		C44D60C72055391400A5C50F /* Business logic */ = {
+		C44D60C72055391400A5C50F /* Business Logic */ = {
 			isa = PBXGroup;
 			children = (
 				C44D60CB20553B2400A5C50F /* ServiceLayer.swift */,
 				C472A6AF205AF69E00768585 /* Service */,
 				C472A6A9205AB9A000768585 /* Core Components */,
 			);
-			path = "Business logic";
+			path = "Business Logic";
 			sourceTree = "<group>";
 		};
 		C44D60C82055394900A5C50F /* Auth */ = {

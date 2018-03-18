@@ -9,9 +9,8 @@
 import Foundation
 
 enum ErrorDescription: String {
+    case title = "Ошибка"
     case network = "Проблемы с сетью"
     case input = "Неверные данные"
     case server = "Ошибка сервера"
-    
-    case title = "Ошибка"
 }

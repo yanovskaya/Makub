@@ -68,6 +68,8 @@ final class AuthViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         navigationController?.setNavigationBarHidden(true, animated: true)
+        usernameTextField.text = ""
+        passwordTextField.text = ""
     }
     
     // MARK: - Private Methods
@@ -88,7 +90,7 @@ final class AuthViewController: UIViewController {
                 default:
                     HUD.show(.labeledError(title: ErrorDescription.title.rawValue, subtitle: ErrorDescription.server.rawValue))
                 }
-                HUD.hide(afterDelay: 2.0)
+                HUD.hide(afterDelay: 1.0)
             }
         }
     }
