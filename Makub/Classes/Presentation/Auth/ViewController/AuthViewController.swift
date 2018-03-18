@@ -122,7 +122,7 @@ final class AuthViewController: UIViewController {
     }
     
     private func configureLoginButton() {
-        loginButton.backgroundColor = PaleteColors.passButtonBackground
+        loginButton.backgroundColor = PaletteColors.passButtonBackground
         loginButton.tintColor = .white
         
         loginButton.layer.shadowOpacity = 0.16
@@ -144,7 +144,7 @@ final class AuthViewController: UIViewController {
     
     private func confivagureNavigationBar() {
         navigationController?.navigationBar.isTranslucent = false
-        navigationController?.navigationBar.tintColor = PaleteColors.passHelp
+        navigationController?.navigationBar.tintColor = PaletteColors.passHelp
         
         var backButtonImage = UIImage(named: Constants.backButtonImage)
         let inset = LayoutConstants.standard

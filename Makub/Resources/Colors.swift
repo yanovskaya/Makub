@@ -8,7 +8,7 @@
 
 import UIKit.UIColor
 
-struct PaleteColors {
+struct PaletteColors {
     
     // MARK: - AuthViewController
     

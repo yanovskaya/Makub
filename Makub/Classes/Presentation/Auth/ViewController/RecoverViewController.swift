@@ -51,11 +51,11 @@ class RecoverViewController: UIViewController {
     
     private func configureImage() {
         manImageView.image = UIImage(named: Constants.manImage)
-        manImageView.tintColor = PaleteColors.passHelp
+        manImageView.tintColor = PaletteColors.passHelp
     }
     
     private func configureTitleLabel() {
-        titleLabel.textColor = PaleteColors.passHelp
+        titleLabel.textColor = PaletteColors.passHelp
         titleLabel.font = UIFont.customFont(.robotoBoldFont(size: 18))
         titleLabel.text = Constants.helpTitleLabel
     }
@@ -68,7 +68,7 @@ class RecoverViewController: UIViewController {
         style.alignment = .center
         attributedText.addAttribute(.paragraphStyle, value: style, range: NSRange(location: 0, length: text.count))
         descriptionLabel.attributedText = attributedText
-        descriptionLabel.textColor = PaleteColors.passHelp.withAlphaComponent(0.8)
+        descriptionLabel.textColor = PaletteColors.passHelp.withAlphaComponent(0.8)
         descriptionLabel.font = UIFont.customFont(.robotoRegularFont(size: 16))
         descriptionLabel.text = Constants.helpDescriptionLabel
     }

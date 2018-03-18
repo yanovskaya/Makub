@@ -66,7 +66,7 @@ final class AuthTextField: UITextField {
     
     private func configureBorder() {
         layer.borderWidth = 1
-        layer.borderColor = PaleteColors.borderAuthTextField.withAlphaComponent(0.6).cgColor
+        layer.borderColor = PaletteColors.borderAuthTextField.withAlphaComponent(0.6).cgColor
         layer.cornerRadius = frame.height / 2
     }
     
