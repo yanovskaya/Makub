@@ -20,6 +20,10 @@ final class RecoverViewController: UIViewController {
         static let helpDescriptionLabel = "Мы отправим тебе письмо на указанную почту с инструкциями для восстановленения доступа."
         static let emailPlaceholder = "mitchelle53@example.com"
         static let recoverButton = "Отправить"
+        
+        static let doneTitleLabel = "Готово!"
+        static let doneDescriptionLabel = "Письмо с подробными инструкциями отправлено. Не забудь проверить раздел спам."
+        static let repeatButton = "Повторить запрос"
     }
     
     private enum LayoutConstants {
@@ -96,8 +100,8 @@ final class RecoverViewController: UIViewController {
         emailTextField.placeholder = Constants.emailPlaceholder
         emailTextField.attributedPlaceholder = NSAttributedString(string: emailTextField.placeholder!, attributes: [NSAttributedStringKey.foregroundColor: gray])
         
-        emailTextField.textColor = PaletteColors.darkGray
         emailTextField.addImage(Constants.mailImage, color: darkGray, opacity: 0.8)
+        emailTextField.textColor = PaletteColors.darkGray
         emailTextField.layer.borderColor = PaletteColors.darkGray.withAlphaComponent(0.6).cgColor
     }
     
