@@ -51,6 +51,8 @@ final class RecoverViewController: UIViewController {
         configureDescriptionLabel()
         configureRecoverButton()
         configureTextField()
+        
+        enableRecoverButton()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -99,6 +101,11 @@ final class RecoverViewController: UIViewController {
         emailTextField.layer.borderColor = PaletteColors.darkGray.withAlphaComponent(0.6).cgColor
     }
     
+    private func enableRecoverButton() {
+        recoverButton.isEnabled = false
+        emailTextField.addTarget(self, action: #selector(editingChanged), for: .editingChanged)
+    }
+    
     @IBAction func recoverButtonTapped(_ sender: Any) {
         titleLabel.text = "fdddfg"
     }
@@ -112,5 +119,15 @@ extension RecoverViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+    
+    @objc private func editingChanged(_ textField: UITextField) {
+        guard let email = emailTextField.text, email.count > 7,
+            email.range(of: "@") != nil, email.range(of: ".") != nil
+            else {
+                recoverButton.isEnabled = false
+                return
+        }
+        recoverButton.isEnabled = true
     }
 }
