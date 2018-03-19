@@ -6,6 +6,7 @@
 //  Copyright © 2018 Elena Yanovskaya. All rights reserved.
 //
 
+import PKHUD
 import UIKit
 
 final class RecoverViewController: UIViewController {
@@ -15,6 +16,7 @@ final class RecoverViewController: UIViewController {
     private enum Constants {
         static let manImage = "sad_man"
         static let mailImage = "mail"
+        static let letterImage = "letter"
         
         static let helpTitleLabel = "Не можете войти?"
         static let helpDescriptionLabel = "Мы отправим тебе письмо на указанную почту с инструкциями для восстановленения доступа."
@@ -32,7 +34,7 @@ final class RecoverViewController: UIViewController {
     
     // MARK: - IBOutlets
     
-    @IBOutlet private var manImageView: UIImageView!
+    @IBOutlet private var imageView: UIImageView!
     
     @IBOutlet private var titleLabel: UILabel!
     @IBOutlet private var descriptionLabel: UILabel!
@@ -40,12 +42,18 @@ final class RecoverViewController: UIViewController {
     @IBOutlet private var emailTextField: AuthTextField!
     @IBOutlet private var recoverButton: AuthPassButton!
     
+    // MARK: - Public Properties
+    
+    let presentationModel = RecoverPresentationModel()
+    
     // MARK: - ViewController lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.setNavigationBarHidden(false, animated: true)
         navigationController?.navigationBar.topItem?.title = " "
+        
+        bindEvents()
         
         hideKeyboardWhenTappedAround()
         emailTextField.delegate = self
@@ -65,9 +73,31 @@ final class RecoverViewController: UIViewController {
     
     // MARK: - Private Methods
     
+    private func bindEvents() {
+        presentationModel.changeStateHandler = { [unowned self] status in
+            switch status {
+            case .loading:
+                HUD.show(.progress)
+            case .rich:
+                HUD.show(.success)
+                HUD.hide(afterDelay: 0.4)
+            case .error (let code):
+                switch code {
+                case -1009, -1001:
+                    HUD.show(.labeledError(title: ErrorDescription.title.rawValue, subtitle: ErrorDescription.network.rawValue))
+                case 2:
+                    HUD.show(.labeledError(title: ErrorDescription.title.rawValue, subtitle: ErrorDescription.recover.rawValue))
+                default:
+                    HUD.show(.labeledError(title: ErrorDescription.title.rawValue, subtitle: ErrorDescription.server.rawValue))
+                }
+                HUD.hide(afterDelay: 1.0)
+            }
+        }
+    }
+    
     private func configureImage() {
-        manImageView.image = UIImage(named: Constants.manImage)
-        manImageView.tintColor = PaletteColors.darkGray
+        imageView.image = UIImage(named: Constants.manImage)
+        imageView.tintColor = PaletteColors.darkGray
     }
     
     private func configureTitleLabel() {
@@ -110,8 +140,19 @@ final class RecoverViewController: UIViewController {
         emailTextField.addTarget(self, action: #selector(editingChanged), for: .editingChanged)
     }
     
+    private func updateContent() {
+        titleLabel.text = Constants.doneTitleLabel
+        descriptionLabel.text = Constants.doneDescriptionLabel
+        recoverButton.setTitle(Constants.repeatButton, for: .normal)
+        imageView.image = UIImage(named: Constants.letterImage)
+    }
+    
     @IBAction func recoverButtonTapped(_ sender: Any) {
-        titleLabel.text = "fdddfg"
+        guard let email = emailTextField.text?.removeWhitespaces() else { return }
+        presentationModel.recoverPassword(email: email) {
+            [unowned self] in
+            self.updateContent()
+        }
     }
     
 }

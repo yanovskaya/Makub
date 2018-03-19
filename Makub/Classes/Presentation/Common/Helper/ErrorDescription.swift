@@ -13,4 +13,5 @@ enum ErrorDescription: String {
     case network = "Проблемы с сетью"
     case input = "Неверные данные"
     case server = "Ошибка сервера"
+    case recover = "Почта не найдена"
 }

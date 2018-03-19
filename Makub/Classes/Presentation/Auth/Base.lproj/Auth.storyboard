@@ -149,6 +149,9 @@
                                     <constraint firstAttribute="height" constant="44" id="Yb4-pP-bpL"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="recoverButtonTapped:" destination="Huz-0W-3qi" eventType="touchUpInside" id="uaN-LR-gIl"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -172,7 +175,7 @@
                     <connections>
                         <outlet property="descriptionLabel" destination="3eR-0I-u5e" id="6g8-Ei-EdR"/>
                         <outlet property="emailTextField" destination="u9E-UY-CeE" id="beP-vt-vio"/>
-                        <outlet property="manImageView" destination="j1m-h4-tPz" id="aLE-yp-AOc"/>
+                        <outlet property="imageView" destination="j1m-h4-tPz" id="aLE-yp-AOc"/>
                         <outlet property="recoverButton" destination="JbV-WW-9IU" id="IjJ-oy-EVs"/>
                         <outlet property="titleLabel" destination="alf-8m-hYg" id="zd4-3A-nGC"/>
                     </connections>

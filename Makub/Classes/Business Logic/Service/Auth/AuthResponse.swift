@@ -17,3 +17,11 @@ struct AuthResponse: Decodable {
         case token
     }
 }
+
+struct RecoverResponse: Decodable {
+    let error: Int
+    
+    private enum CodingKeys: String, CodingKey {
+        case error
+    }
+}
