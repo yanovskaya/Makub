@@ -2,14 +2,14 @@
 //  CallResults.swift
 //  Makub
 //
-//  Created by Елена Яновская on 15.03.2018.
+//  Created by Елена Яновская on 20.03.2018.
 //  Copyright © 2018 Elena Yanovskaya. All rights reserved.
 //
 
 import Foundation
 
 enum ServiceCallResult<Payload> {
-    case serviceSuccess(payload: Payload)
+    case serviceSuccess(payload: Payload?)
     case serviceFailure(error: NSError)
 }
 
