@@ -40,6 +40,7 @@
 		C472A6CF205C647C00768585 /* KeychainKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472A6CE205C647C00768585 /* KeychainKeys.swift */; };
 		C472A6D1205C7E5900768585 /* Storyboard+GetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472A6D0205C7E5900768585 /* Storyboard+GetViewController.swift */; };
 		C472A6D3205C7E8000768585 /* StoryboardTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472A6D2205C7E8000768585 /* StoryboardTitle.swift */; };
+		C4BC7104205F2BEA00332D7E /* AuthPassButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BC7103205F2BEA00332D7E /* AuthPassButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +80,7 @@
 		C472A6CE205C647C00768585 /* KeychainKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainKeys.swift; sourceTree = "<group>"; };
 		C472A6D0205C7E5900768585 /* Storyboard+GetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Storyboard+GetViewController.swift"; sourceTree = "<group>"; };
 		C472A6D2205C7E8000768585 /* StoryboardTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardTitle.swift; sourceTree = "<group>"; };
+		C4BC7103205F2BEA00332D7E /* AuthPassButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPassButton.swift; sourceTree = "<group>"; };
 		FD91280B983360A8DBD4BDFC /* Pods_Makub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Makub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -228,6 +230,7 @@
 			children = (
 				C472A6C7205C4D5300768585 /* String+RemoveSpace.swift */,
 				C44D60D12058061100A5C50F /* AuthTextField.swift */,
+				C4BC7103205F2BEA00332D7E /* AuthPassButton.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -475,6 +478,7 @@
 			files = (
 				C414F0DB2059A261001961EC /* UIViewController+HideKeyboard.swift in Sources */,
 				C44D60D7205807F500A5C50F /* UIColor+Hex.swift in Sources */,
+				C4BC7104205F2BEA00332D7E /* AuthPassButton.swift in Sources */,
 				C472A6AC205AF5DB00768585 /* Parser.swift in Sources */,
 				C472A6B4205AF93500768585 /* Serializer.swift in Sources */,
 				C44D60B2205529C200A5C50F /* AuthViewController.swift in Sources */,

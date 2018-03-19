@@ -52,11 +52,12 @@ final class AuthTextField: UITextField {
         attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedStringKey.foregroundColor: color])
     }
     
-    func addImage(_ imageName: String) {
+    func addImage(_ imageName: String, color: UIColor = .white, opacity: Float = 1) {
         let image = UIImage(named: imageName)?.withRenderingMode(.alwaysTemplate)
         imageView.image = image
+        imageView.layer.opacity = opacity
         imageView.contentMode = .scaleAspectFit
-        imageView.tintColor = .white
+        imageView.tintColor = color
         addSubview(imageView)
         
         configureImageViewConstraints()

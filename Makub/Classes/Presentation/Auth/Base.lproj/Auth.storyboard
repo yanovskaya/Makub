@@ -48,7 +48,7 @@
                                     <constraint firstAttribute="width" priority="249" constant="169" id="i9o-ia-mUc"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cz0-gt-Zxb">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cz0-gt-Zxb" customClass="AuthPassButton" customModule="Макуб" customModuleProvider="target">
                                 <rect key="frame" x="47" y="485" width="320" height="40"/>
                                 <color key="backgroundColor" red="0.55634254220000001" green="0.97934550050000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
@@ -132,22 +132,48 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u9E-UY-CeE" customClass="AuthTextField" customModule="Макуб" customModuleProvider="target">
+                                <rect key="frame" x="47" y="305" width="320" height="40"/>
+                                <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="veT-lS-1Bu"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done" textContentType="email"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JbV-WW-9IU" customClass="AuthPassButton" customModule="Макуб" customModuleProvider="target">
+                                <rect key="frame" x="47" y="369" width="320" height="44"/>
+                                <color key="backgroundColor" red="0.24313725490196078" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Yb4-pP-bpL"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="3eR-0I-u5e" firstAttribute="top" secondItem="alf-8m-hYg" secondAttribute="bottom" constant="11" id="1IN-vq-NyZ"/>
                             <constraint firstItem="alf-8m-hYg" firstAttribute="centerX" secondItem="j1m-h4-tPz" secondAttribute="centerX" id="2ih-7r-Mhw"/>
                             <constraint firstItem="j1m-h4-tPz" firstAttribute="top" secondItem="VOF-av-Glo" secondAttribute="top" constant="74" id="FGe-5o-mir"/>
+                            <constraint firstItem="JbV-WW-9IU" firstAttribute="width" secondItem="u9E-UY-CeE" secondAttribute="width" id="Flr-12-dz9"/>
+                            <constraint firstItem="u9E-UY-CeE" firstAttribute="leading" secondItem="VOF-av-Glo" secondAttribute="leading" constant="47" id="GQ9-F5-7Mm"/>
                             <constraint firstItem="j1m-h4-tPz" firstAttribute="centerX" secondItem="VOF-av-Glo" secondAttribute="centerX" id="LBq-7O-DCg"/>
+                            <constraint firstItem="JbV-WW-9IU" firstAttribute="centerX" secondItem="u9E-UY-CeE" secondAttribute="centerX" id="Ny3-lU-iIE"/>
                             <constraint firstItem="alf-8m-hYg" firstAttribute="top" secondItem="j1m-h4-tPz" secondAttribute="bottom" constant="26" id="YG6-V6-Nya"/>
                             <constraint firstItem="3eR-0I-u5e" firstAttribute="centerX" secondItem="alf-8m-hYg" secondAttribute="centerX" id="mlt-Fk-PVC"/>
+                            <constraint firstItem="u9E-UY-CeE" firstAttribute="top" secondItem="3eR-0I-u5e" secondAttribute="bottom" constant="32" id="oZM-kS-kRs"/>
+                            <constraint firstItem="JbV-WW-9IU" firstAttribute="top" secondItem="u9E-UY-CeE" secondAttribute="bottom" constant="24" id="u2y-K2-rO5"/>
+                            <constraint firstItem="u9E-UY-CeE" firstAttribute="centerX" secondItem="3eR-0I-u5e" secondAttribute="centerX" id="zBj-Mq-SIQ"/>
                             <constraint firstItem="3eR-0I-u5e" firstAttribute="leading" secondItem="VOF-av-Glo" secondAttribute="leading" constant="60" id="zTd-5E-y3k"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VOF-av-Glo"/>
                     </view>
                     <connections>
                         <outlet property="descriptionLabel" destination="3eR-0I-u5e" id="6g8-Ei-EdR"/>
+                        <outlet property="emailTextField" destination="u9E-UY-CeE" id="beP-vt-vio"/>
                         <outlet property="manImageView" destination="j1m-h4-tPz" id="aLE-yp-AOc"/>
+                        <outlet property="recoverButton" destination="JbV-WW-9IU" id="IjJ-oy-EVs"/>
                         <outlet property="titleLabel" destination="alf-8m-hYg" id="zd4-3A-nGC"/>
                     </connections>
                 </viewController>

@@ -8,16 +8,18 @@
 
 import UIKit
 
-class RecoverViewController: UIViewController {
+final class RecoverViewController: UIViewController {
     
     // MARK: - Constants
     
     private enum Constants {
         static let manImage = "sad_man"
-        static let backButton = "arrow_left"
+        static let mailImage = "mail"
         
         static let helpTitleLabel = "Не можете войти?"
         static let helpDescriptionLabel = "Мы отправим тебе письмо на указанную почту с инструкциями для восстановленения доступа."
+        static let emailPlaceholder = "mitchelle53@example.com"
+        static let recoverButton = "Отправить"
     }
     
     private enum LayoutConstants {
@@ -26,10 +28,13 @@ class RecoverViewController: UIViewController {
     
     // MARK: - IBOutlets
     
-    @IBOutlet var manImageView: UIImageView!
+    @IBOutlet private var manImageView: UIImageView!
     
-    @IBOutlet var titleLabel: UILabel!
-    @IBOutlet var descriptionLabel: UILabel!
+    @IBOutlet private var titleLabel: UILabel!
+    @IBOutlet private var descriptionLabel: UILabel!
+    
+    @IBOutlet private var emailTextField: AuthTextField!
+    @IBOutlet private var recoverButton: AuthPassButton!
     
     // MARK: - ViewController lifecycle
     
@@ -38,9 +43,14 @@ class RecoverViewController: UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: true)
         navigationController?.navigationBar.topItem?.title = " "
         
+        hideKeyboardWhenTappedAround()
+        emailTextField.delegate = self
+        
         configureImage()
         configureTitleLabel()
         configureDescriptionLabel()
+        configureRecoverButton()
+        configureTextField()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,11 +61,11 @@ class RecoverViewController: UIViewController {
     
     private func configureImage() {
         manImageView.image = UIImage(named: Constants.manImage)
-        manImageView.tintColor = PaletteColors.passHelp
+        manImageView.tintColor = PaletteColors.darkGray
     }
     
     private func configureTitleLabel() {
-        titleLabel.textColor = PaletteColors.passHelp
+        titleLabel.textColor = PaletteColors.darkGray
         titleLabel.font = UIFont.customFont(.robotoBoldFont(size: 18))
         titleLabel.text = Constants.helpTitleLabel
     }
@@ -68,15 +78,39 @@ class RecoverViewController: UIViewController {
         style.alignment = .center
         attributedText.addAttribute(.paragraphStyle, value: style, range: NSRange(location: 0, length: text.count))
         descriptionLabel.attributedText = attributedText
-        descriptionLabel.textColor = PaletteColors.passHelp.withAlphaComponent(0.8)
+        descriptionLabel.textColor = PaletteColors.darkGray.withAlphaComponent(0.8)
         descriptionLabel.font = UIFont.customFont(.robotoRegularFont(size: 16))
         descriptionLabel.text = Constants.helpDescriptionLabel
     }
     
-    @IBAction func recoverButtonTapped(_ sender: Any) {
-        titleLabel.text = "fdddfg"
-        manImageView.image = UIImage(named: Constants.backButton)
+    private func configureRecoverButton() {
+        recoverButton.setTitle(Constants.recoverButton, for: .normal)
     }
     
+    private func configureTextField() {
+        let gray = UIColor.gray
+        let darkGray = PaletteColors.darkGray
+        
+        emailTextField.placeholder = Constants.emailPlaceholder
+        emailTextField.attributedPlaceholder = NSAttributedString(string: emailTextField.placeholder!, attributes: [NSAttributedStringKey.foregroundColor: gray])
+        
+        emailTextField.textColor = PaletteColors.darkGray
+        emailTextField.addImage(Constants.mailImage, color: darkGray, opacity: 0.8)
+        emailTextField.layer.borderColor = PaletteColors.darkGray.withAlphaComponent(0.6).cgColor
+    }
+    
+    @IBAction func recoverButtonTapped(_ sender: Any) {
+        titleLabel.text = "fdddfg"
+    }
+    
+}
 
+// MARK: - UITextFieldDelegate
+
+extension RecoverViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 }

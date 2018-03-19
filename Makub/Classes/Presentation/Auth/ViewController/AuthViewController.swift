@@ -22,7 +22,7 @@ final class AuthViewController: UIViewController {
         
         static let usernamePlaceholder = "Имя пользователя"
         static let passwordPlaceholder = "Пароль"
-        static let passButton = "Войти"
+        static let loginButton = "Войти"
         static let forgotButton = "Забыли пароль?"
     }
     
@@ -39,7 +39,7 @@ final class AuthViewController: UIViewController {
     @IBOutlet private var passwordTextField: AuthTextField!
     
     @IBOutlet private var forgotButton: UIButton!
-    @IBOutlet private var loginButton: UIButton!
+    @IBOutlet private var loginButton: AuthPassButton!
     
     // MARK: - Public Properties
     
@@ -124,18 +124,7 @@ final class AuthViewController: UIViewController {
     }
     
     private func configureLoginButton() {
-        loginButton.backgroundColor = PaletteColors.passButtonBackground
-        loginButton.tintColor = .white
-        
-        loginButton.layer.shadowOpacity = 0.16
-        loginButton.layer.shadowOffset = CGSize(width: 0, height: 3)
-        loginButton.layer.shadowColor = UIColor.gray.cgColor
-        loginButton.layer.shadowRadius = 6
-        loginButton.layer.cornerRadius = loginButton.frame.height / 2
-        loginButton.layer.opacity = 0.9
-        
-        loginButton.titleLabel?.font = UIFont.customFont(.robotoBoldFont(size: 18))
-        loginButton.setTitle(Constants.passButton, for: .normal)
+        loginButton.setTitle(Constants.loginButton, for: .normal)
     }
     
     private func configureForgotButton() {
@@ -146,7 +135,7 @@ final class AuthViewController: UIViewController {
     
     private func confivagureNavigationBar() {
         navigationController?.navigationBar.isTranslucent = false
-        navigationController?.navigationBar.tintColor = PaletteColors.passHelp
+        navigationController?.navigationBar.tintColor = PaletteColors.darkGray
         
         var backButtonImage = UIImage(named: Constants.backButtonImage)
         let inset = LayoutConstants.standard
@@ -203,6 +192,5 @@ extension AuthViewController: UITextFieldDelegate {
         }
         loginButton.isEnabled = true
     }
-    
     
 }

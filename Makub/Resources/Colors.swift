@@ -17,5 +17,5 @@ struct PaletteColors {
     
     // MARK: - PassHelpViewController
     
-    static var passHelp = UIColor(hex: "303030")
+    static var darkGray = UIColor(hex: "303030")
 }
