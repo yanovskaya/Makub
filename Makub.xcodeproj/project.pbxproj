@@ -33,6 +33,17 @@
 		C472A6D1205C7E5900768585 /* Storyboard+GetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472A6D0205C7E5900768585 /* Storyboard+GetViewController.swift */; };
 		C472A6D3205C7E8000768585 /* StoryboardTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472A6D2205C7E8000768585 /* StoryboardTitle.swift */; };
 		C4BC7104205F2BEA00332D7E /* AuthPassButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BC7103205F2BEA00332D7E /* AuthPassButton.swift */; };
+		C4D4E4D920606ED0000A9216 /* CallResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D4E4D820606ED0000A9216 /* CallResults.swift */; };
+		C4D4E4DD20606EE5000A9216 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D4E4DA20606EE4000A9216 /* Parser.swift */; };
+		C4D4E4DE20606EE5000A9216 /* Serializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D4E4DB20606EE4000A9216 /* Serializer.swift */; };
+		C4D4E4DF20606EE5000A9216 /* Transport.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D4E4DC20606EE5000A9216 /* Transport.swift */; };
+		C4D4E4E220606F08000A9216 /* RecoverServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D4E4E020606F08000A9216 /* RecoverServiceImpl.swift */; };
+		C4D4E4E320606F08000A9216 /* AuthServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D4E4E120606F08000A9216 /* AuthServiceImpl.swift */; };
+		C4D4E4E620606F2D000A9216 /* RecoverService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D4E4E420606F2C000A9216 /* RecoverService.swift */; };
+		C4D4E4E720606F2D000A9216 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D4E4E520606F2D000A9216 /* AuthService.swift */; };
+		C4D4E4E920606F45000A9216 /* ServiceLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D4E4E820606F45000A9216 /* ServiceLayer.swift */; };
+		C4D4E4EB20606FA1000A9216 /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D4E4EA20606FA1000A9216 /* AuthResponse.swift */; };
+		C4D4E4ED20606FAD000A9216 /* RecoverResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D4E4EC20606FAD000A9216 /* RecoverResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -65,6 +76,17 @@
 		C472A6D0205C7E5900768585 /* Storyboard+GetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Storyboard+GetViewController.swift"; sourceTree = "<group>"; };
 		C472A6D2205C7E8000768585 /* StoryboardTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardTitle.swift; sourceTree = "<group>"; };
 		C4BC7103205F2BEA00332D7E /* AuthPassButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPassButton.swift; sourceTree = "<group>"; };
+		C4D4E4D820606ED0000A9216 /* CallResults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallResults.swift; sourceTree = "<group>"; };
+		C4D4E4DA20606EE4000A9216 /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
+		C4D4E4DB20606EE4000A9216 /* Serializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Serializer.swift; sourceTree = "<group>"; };
+		C4D4E4DC20606EE5000A9216 /* Transport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transport.swift; sourceTree = "<group>"; };
+		C4D4E4E020606F08000A9216 /* RecoverServiceImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecoverServiceImpl.swift; sourceTree = "<group>"; };
+		C4D4E4E120606F08000A9216 /* AuthServiceImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthServiceImpl.swift; sourceTree = "<group>"; };
+		C4D4E4E420606F2C000A9216 /* RecoverService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecoverService.swift; sourceTree = "<group>"; };
+		C4D4E4E520606F2D000A9216 /* AuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		C4D4E4E820606F45000A9216 /* ServiceLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceLayer.swift; sourceTree = "<group>"; };
+		C4D4E4EA20606FA1000A9216 /* AuthResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
+		C4D4E4EC20606FAD000A9216 /* RecoverResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecoverResponse.swift; sourceTree = "<group>"; };
 		FD91280B983360A8DBD4BDFC /* Pods_Makub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Makub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -135,6 +157,7 @@
 		C44D60C2205538BD00A5C50F /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				C4D4E4D220606E61000A9216 /* Business Logic */,
 				C44D60C52055390300A5C50F /* Model */,
 				C44D60C62055390F00A5C50F /* Presentation */,
 			);
@@ -242,6 +265,64 @@
 				C472A6CE205C647C00768585 /* KeychainKeys.swift */,
 			);
 			path = Keys;
+			sourceTree = "<group>";
+		};
+		C4D4E4D220606E61000A9216 /* Business Logic */ = {
+			isa = PBXGroup;
+			children = (
+				C4D4E4D420606E7B000A9216 /* Service */,
+				C4D4E4D320606E79000A9216 /* Core Components */,
+			);
+			path = "Business Logic";
+			sourceTree = "<group>";
+		};
+		C4D4E4D320606E79000A9216 /* Core Components */ = {
+			isa = PBXGroup;
+			children = (
+				C4D4E4DB20606EE4000A9216 /* Serializer.swift */,
+				C4D4E4DC20606EE5000A9216 /* Transport.swift */,
+				C4D4E4DA20606EE4000A9216 /* Parser.swift */,
+			);
+			path = "Core Components";
+			sourceTree = "<group>";
+		};
+		C4D4E4D420606E7B000A9216 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				C4D4E4E820606F45000A9216 /* ServiceLayer.swift */,
+				C4D4E4D620606E9F000A9216 /* Auth */,
+				C4D4E4D520606E9C000A9216 /* Common */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		C4D4E4D520606E9C000A9216 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				C4D4E4D820606ED0000A9216 /* CallResults.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		C4D4E4D620606E9F000A9216 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				C4D4E4D720606EA9000A9216 /* Protocol */,
+				C4D4E4E120606F08000A9216 /* AuthServiceImpl.swift */,
+				C4D4E4EA20606FA1000A9216 /* AuthResponse.swift */,
+				C4D4E4EC20606FAD000A9216 /* RecoverResponse.swift */,
+				C4D4E4E020606F08000A9216 /* RecoverServiceImpl.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		C4D4E4D720606EA9000A9216 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				C4D4E4E520606F2D000A9216 /* AuthService.swift */,
+				C4D4E4E420606F2C000A9216 /* RecoverService.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 		C8FE19675A729A68973D7EBE /* Frameworks */ = {
@@ -414,11 +495,22 @@
 				C4556B95205EC04D00D65DBD /* UIImage+ImageWithInsets.swift in Sources */,
 				C44D60D5205806BB00A5C50F /* Colors.swift in Sources */,
 				C472A6CA205C4F8100768585 /* ErrorDescription.swift in Sources */,
+				C4D4E4DE20606EE5000A9216 /* Serializer.swift in Sources */,
 				C472A6D1205C7E5900768585 /* Storyboard+GetViewController.swift in Sources */,
+				C4D4E4D920606ED0000A9216 /* CallResults.swift in Sources */,
+				C4D4E4E320606F08000A9216 /* AuthServiceImpl.swift in Sources */,
+				C4D4E4DD20606EE5000A9216 /* Parser.swift in Sources */,
+				C4D4E4E220606F08000A9216 /* RecoverServiceImpl.swift in Sources */,
+				C4D4E4E920606F45000A9216 /* ServiceLayer.swift in Sources */,
 				C472A6C8205C4D5300768585 /* String+RemoveSpace.swift in Sources */,
+				C4D4E4EB20606FA1000A9216 /* AuthResponse.swift in Sources */,
+				C4D4E4E620606F2D000A9216 /* RecoverService.swift in Sources */,
+				C4D4E4DF20606EE5000A9216 /* Transport.swift in Sources */,
+				C4D4E4E720606F2D000A9216 /* AuthService.swift in Sources */,
 				C42924B0205C81E700E6D568 /* RecoverViewController.swift in Sources */,
 				C44D60D22058061100A5C50F /* AuthTextField.swift in Sources */,
 				C44D60EA2058573D00A5C50F /* UIFont+CustomFont.swift in Sources */,
+				C4D4E4ED20606FAD000A9216 /* RecoverResponse.swift in Sources */,
 				C44D60B0205529C100A5C50F /* AppDelegate.swift in Sources */,
 				C44D60CA20553B0100A5C50F /* User.swift in Sources */,
 				C472A6D3205C7E8000768585 /* StoryboardTitle.swift in Sources */,
