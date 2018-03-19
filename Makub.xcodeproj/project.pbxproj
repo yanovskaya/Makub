@@ -14,25 +14,17 @@
 		C414F0D820596DE8001961EC /* Roboto-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C414F0D420596DE8001961EC /* Roboto-Regular.otf */; };
 		C414F0DB2059A261001961EC /* UIViewController+HideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C414F0DA2059A261001961EC /* UIViewController+HideKeyboard.swift */; };
 		C42924B0205C81E700E6D568 /* RecoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42924AF205C81E700E6D568 /* RecoverViewController.swift */; };
-		C44675882060686E00AF94E4 /* AuthServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44675872060686D00AF94E4 /* AuthServiceImpl.swift */; };
-		C4467590206069DE00AF94E4 /* CallResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = C446758F206069DE00AF94E4 /* CallResults.swift */; };
 		C44D60B0205529C100A5C50F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44D60AF205529C100A5C50F /* AppDelegate.swift */; };
 		C44D60B2205529C200A5C50F /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44D60B1205529C200A5C50F /* AuthViewController.swift */; };
 		C44D60B5205529C200A5C50F /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C44D60B3205529C200A5C50F /* Auth.storyboard */; };
 		C44D60B7205529C200A5C50F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C44D60B6205529C200A5C50F /* Assets.xcassets */; };
 		C44D60BA205529C200A5C50F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C44D60B8205529C200A5C50F /* LaunchScreen.storyboard */; };
 		C44D60CA20553B0100A5C50F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44D60C920553B0100A5C50F /* User.swift */; };
-		C44D60CC20553B2400A5C50F /* ServiceLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44D60CB20553B2400A5C50F /* ServiceLayer.swift */; };
 		C44D60D22058061100A5C50F /* AuthTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44D60D12058061100A5C50F /* AuthTextField.swift */; };
 		C44D60D5205806BB00A5C50F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44D60D4205806BB00A5C50F /* Colors.swift */; };
 		C44D60D7205807F500A5C50F /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44D60D6205807F500A5C50F /* UIColor+Hex.swift */; };
 		C44D60EA2058573D00A5C50F /* UIFont+CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44D60E92058573D00A5C50F /* UIFont+CustomFont.swift */; };
 		C4556B95205EC04D00D65DBD /* UIImage+ImageWithInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4556B94205EC04D00D65DBD /* UIImage+ImageWithInsets.swift */; };
-		C472A6AC205AF5DB00768585 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472A6AB205AF5DA00768585 /* Parser.swift */; };
-		C472A6AE205AF5F300768585 /* Transport.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472A6AD205AF5F300768585 /* Transport.swift */; };
-		C472A6B4205AF93500768585 /* Serializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472A6B3205AF93500768585 /* Serializer.swift */; };
-		C472A6B8205AFAA400768585 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472A6B7205AFAA400768585 /* AuthService.swift */; };
-		C472A6BA205AFBA400768585 /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472A6B9205AFBA400768585 /* AuthResponse.swift */; };
 		C472A6BF205B16D500768585 /* PresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472A6BE205B16D500768585 /* PresentationModel.swift */; };
 		C472A6C3205B174000768585 /* AuthPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472A6C2205B174000768585 /* AuthPresentationModel.swift */; };
 		C472A6C8205C4D5300768585 /* String+RemoveSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472A6C7205C4D5300768585 /* String+RemoveSpace.swift */; };
@@ -52,8 +44,6 @@
 		C414F0D420596DE8001961EC /* Roboto-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.otf"; sourceTree = "<group>"; };
 		C414F0DA2059A261001961EC /* UIViewController+HideKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+HideKeyboard.swift"; sourceTree = "<group>"; };
 		C42924AF205C81E700E6D568 /* RecoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverViewController.swift; sourceTree = "<group>"; };
-		C44675872060686D00AF94E4 /* AuthServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthServiceImpl.swift; sourceTree = "<group>"; };
-		C446758F206069DE00AF94E4 /* CallResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallResults.swift; sourceTree = "<group>"; };
 		C44D60AC205529C100A5C50F /* Макуб.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Макуб.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C44D60AF205529C100A5C50F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C44D60B1205529C200A5C50F /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
@@ -62,17 +52,11 @@
 		C44D60B9205529C200A5C50F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C44D60BB205529C200A5C50F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C44D60C920553B0100A5C50F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		C44D60CB20553B2400A5C50F /* ServiceLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLayer.swift; sourceTree = "<group>"; };
 		C44D60D12058061100A5C50F /* AuthTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTextField.swift; sourceTree = "<group>"; };
 		C44D60D4205806BB00A5C50F /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		C44D60D6205807F500A5C50F /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		C44D60E92058573D00A5C50F /* UIFont+CustomFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+CustomFont.swift"; sourceTree = "<group>"; };
 		C4556B94205EC04D00D65DBD /* UIImage+ImageWithInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+ImageWithInsets.swift"; sourceTree = "<group>"; };
-		C472A6AB205AF5DA00768585 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
-		C472A6AD205AF5F300768585 /* Transport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transport.swift; sourceTree = "<group>"; };
-		C472A6B3205AF93500768585 /* Serializer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Serializer.swift; sourceTree = "<group>"; };
-		C472A6B7205AFAA400768585 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
-		C472A6B9205AFBA400768585 /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
 		C472A6BE205B16D500768585 /* PresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationModel.swift; sourceTree = "<group>"; };
 		C472A6C2205B174000768585 /* AuthPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPresentationModel.swift; sourceTree = "<group>"; };
 		C472A6C7205C4D5300768585 /* String+RemoveSpace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+RemoveSpace.swift"; sourceTree = "<group>"; };
@@ -152,7 +136,6 @@
 			isa = PBXGroup;
 			children = (
 				C44D60C52055390300A5C50F /* Model */,
-				C44D60C72055391400A5C50F /* Business Logic */,
 				C44D60C62055390F00A5C50F /* Presentation */,
 			);
 			path = Classes;
@@ -193,16 +176,6 @@
 				C44D60C82055394900A5C50F /* Auth */,
 			);
 			path = Presentation;
-			sourceTree = "<group>";
-		};
-		C44D60C72055391400A5C50F /* Business Logic */ = {
-			isa = PBXGroup;
-			children = (
-				C44D60CB20553B2400A5C50F /* ServiceLayer.swift */,
-				C472A6AF205AF69E00768585 /* Service */,
-				C472A6A9205AB9A000768585 /* Core Components */,
-			);
-			path = "Business Logic";
 			sourceTree = "<group>";
 		};
 		C44D60C82055394900A5C50F /* Auth */ = {
@@ -253,51 +226,6 @@
 				C414F0D92059A23D001961EC /* Helper */,
 			);
 			path = Common;
-			sourceTree = "<group>";
-		};
-		C472A6A9205AB9A000768585 /* Core Components */ = {
-			isa = PBXGroup;
-			children = (
-				C472A6AB205AF5DA00768585 /* Parser.swift */,
-				C472A6AD205AF5F300768585 /* Transport.swift */,
-				C472A6B3205AF93500768585 /* Serializer.swift */,
-			);
-			path = "Core Components";
-			sourceTree = "<group>";
-		};
-		C472A6AF205AF69E00768585 /* Service */ = {
-			isa = PBXGroup;
-			children = (
-				C472A6B0205AF6AD00768585 /* Common */,
-				C472A6B5205AFA7B00768585 /* Auth */,
-			);
-			path = Service;
-			sourceTree = "<group>";
-		};
-		C472A6B0205AF6AD00768585 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				C446758F206069DE00AF94E4 /* CallResults.swift */,
-			);
-			path = Common;
-			sourceTree = "<group>";
-		};
-		C472A6B5205AFA7B00768585 /* Auth */ = {
-			isa = PBXGroup;
-			children = (
-				C472A6B6205AFA8300768585 /* Protocol */,
-				C472A6B9205AFBA400768585 /* AuthResponse.swift */,
-				C44675872060686D00AF94E4 /* AuthServiceImpl.swift */,
-			);
-			path = Auth;
-			sourceTree = "<group>";
-		};
-		C472A6B6205AFA8300768585 /* Protocol */ = {
-			isa = PBXGroup;
-			children = (
-				C472A6B7205AFAA400768585 /* AuthService.swift */,
-			);
-			path = Protocol;
 			sourceTree = "<group>";
 		};
 		C472A6C0205B170E00768585 /* Presentation Model */ = {
@@ -479,17 +407,13 @@
 				C414F0DB2059A261001961EC /* UIViewController+HideKeyboard.swift in Sources */,
 				C44D60D7205807F500A5C50F /* UIColor+Hex.swift in Sources */,
 				C4BC7104205F2BEA00332D7E /* AuthPassButton.swift in Sources */,
-				C472A6AC205AF5DB00768585 /* Parser.swift in Sources */,
-				C472A6B4205AF93500768585 /* Serializer.swift in Sources */,
 				C44D60B2205529C200A5C50F /* AuthViewController.swift in Sources */,
 				C472A6BF205B16D500768585 /* PresentationModel.swift in Sources */,
 				C472A6CF205C647C00768585 /* KeychainKeys.swift in Sources */,
 				C472A6C3205B174000768585 /* AuthPresentationModel.swift in Sources */,
-				C472A6AE205AF5F300768585 /* Transport.swift in Sources */,
 				C4556B95205EC04D00D65DBD /* UIImage+ImageWithInsets.swift in Sources */,
 				C44D60D5205806BB00A5C50F /* Colors.swift in Sources */,
 				C472A6CA205C4F8100768585 /* ErrorDescription.swift in Sources */,
-				C44675882060686E00AF94E4 /* AuthServiceImpl.swift in Sources */,
 				C472A6D1205C7E5900768585 /* Storyboard+GetViewController.swift in Sources */,
 				C472A6C8205C4D5300768585 /* String+RemoveSpace.swift in Sources */,
 				C42924B0205C81E700E6D568 /* RecoverViewController.swift in Sources */,
@@ -498,10 +422,6 @@
 				C44D60B0205529C100A5C50F /* AppDelegate.swift in Sources */,
 				C44D60CA20553B0100A5C50F /* User.swift in Sources */,
 				C472A6D3205C7E8000768585 /* StoryboardTitle.swift in Sources */,
-				C44D60CC20553B2400A5C50F /* ServiceLayer.swift in Sources */,
-				C472A6BA205AFBA400768585 /* AuthResponse.swift in Sources */,
-				C4467590206069DE00AF94E4 /* CallResults.swift in Sources */,
-				C472A6B8205AFAA400768585 /* AuthService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
