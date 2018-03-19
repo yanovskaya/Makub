@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import SwiftKeychainWrapper
 
 final class AuthPresentationModel: PresentationModel {
     
@@ -21,8 +20,7 @@ final class AuthPresentationModel: PresentationModel {
         state = .loading
         authorizationService.authorizeUser(inputValues: inputValues) { result in
             switch result {
-            case .serviceSuccess(let model):
-               KeychainWrapper.standard.set(model.token, forKey: KeychainKey.token)
+            case .serviceSuccess:
                 self.state = .rich
                 completion()
             case .serviceFailure(let error):

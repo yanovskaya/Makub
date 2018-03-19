@@ -2,12 +2,13 @@
 //  AuthServiceImpl.swift
 //  Makub
 //
-//  Created by Елена Яновская on 15.03.2018.
+//  Created by Елена Яновская on 20.03.2018.
 //  Copyright © 2018 Elena Yanovskaya. All rights reserved.
 //
 
 import Alamofire
 import Foundation
+import SwiftKeychainWrapper
 
 final class AuthServiceImpl: AuthService {
     
@@ -51,6 +52,7 @@ final class AuthServiceImpl: AuthService {
                 switch parseResult {
                 case .parserSuccess(let model):
                     if model.error == 0 {
+                        self.storeToken(model.token)
                         completion?(ServiceCallResult.serviceSuccess(payload: model))
                     } else {
                         let error = NSError(domain: "", code: model.error)
@@ -63,6 +65,12 @@ final class AuthServiceImpl: AuthService {
                 completion?(ServiceCallResult.serviceFailure(error: error as NSError))
             }
         }
+    }
+    
+    // MARK: - Private Methods
+    
+    private func storeToken(_ token: String) {
+        KeychainWrapper.standard.set(token, forKey: KeychainKey.token)
     }
     
 }
