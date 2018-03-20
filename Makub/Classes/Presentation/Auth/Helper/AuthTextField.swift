@@ -10,10 +10,17 @@ import UIKit
 
 final class AuthTextField: UITextField {
     
+    // MARK: - Constants
+    
+    private enum LayoutConstants {
+        static let imageWidth: CGFloat = 25
+        static let leadingDistance: CGFloat = 10
+        static let standard: CGFloat = 8
+    }
     // MARK: - Private Properties
     
     private let imageView = UIImageView()
-
+    
     // MARK: - Initialization
     
     required init(coder aDecoder: NSCoder) {
@@ -28,7 +35,7 @@ final class AuthTextField: UITextField {
     // MARK: - Public Methods
     
     override func textRect(forBounds bounds: CGRect) -> CGRect {
-        let offset = 16 + imageView.frame.width
+        let offset = LayoutConstants.standard + LayoutConstants.leadingDistance + imageView.frame.width
         let padding = UIEdgeInsets(top: 0, left: offset, bottom: 0, right: offset)
         return UIEdgeInsetsInsetRect(bounds, padding)
     }
@@ -45,11 +52,12 @@ final class AuthTextField: UITextField {
         attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedStringKey.foregroundColor: color])
     }
     
-    func addImage(_ imageName: String) {
+    func addImage(_ imageName: String, color: UIColor = .white, opacity: Float = 1) {
         let image = UIImage(named: imageName)?.withRenderingMode(.alwaysTemplate)
         imageView.image = image
+        imageView.layer.opacity = opacity
         imageView.contentMode = .scaleAspectFit
-        imageView.tintColor = UIColor.white
+        imageView.tintColor = color
         addSubview(imageView)
         
         configureImageViewConstraints()
@@ -59,8 +67,8 @@ final class AuthTextField: UITextField {
     
     private func configureBorder() {
         layer.borderWidth = 1
-        layer.borderColor = PaleteColors.borderAuthTextField.withAlphaComponent(0.6).cgColor
-        layer.cornerRadius = frame.height/2
+        layer.borderColor = PaletteColors.borderAuthTextField.withAlphaComponent(0.6).cgColor
+        layer.cornerRadius = frame.height / 2
     }
     
     private func configureShadow() {
@@ -72,22 +80,22 @@ final class AuthTextField: UITextField {
     
     private func configureText() {
         font = UIFont.customFont(.robotoLightFont(size: 16))
-        textColor = UIColor.white
+        textColor = .white
         textAlignment = .center
     }
     
     private func configureImageViewConstraints() {
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        let widthConstraint = imageView.widthAnchor.constraint(equalToConstant: 22)
-        let heightConstraint = imageView.heightAnchor.constraint(equalToConstant: 22)
+        let widthConstraint = imageView.widthAnchor.constraint(equalToConstant: LayoutConstants.imageWidth)
+        let heightConstraint = imageView.heightAnchor.constraint(equalTo: imageView.widthAnchor)
         let centerYConstraint = imageView.centerYAnchor.constraint(equalTo: centerYAnchor)
-        let leadingConstraint = imageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 8)
+        let leadingConstraint = imageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: LayoutConstants.leadingDistance)
         
         NSLayoutConstraint.activate([widthConstraint, heightConstraint, centerYConstraint, leadingConstraint])
     }
     
     private func clearBachground() {
-        backgroundColor = UIColor.clear
+        backgroundColor = .clear
     }
     
 }

@@ -6,6 +6,7 @@
 //  Copyright © 2018 Elena Yanovskaya. All rights reserved.
 //
 
+import PKHUD
 import UIKit
 
 final class AuthViewController: UIViewController {
@@ -14,13 +15,19 @@ final class AuthViewController: UIViewController {
     
     private enum Constants {
         static let authBackgroundImage = "auth_background"
+        static let backButtonImage = "arrow_left"
         static let logoImage = "logo"
         static let userImage = "user"
         static let lockImage = "lock"
         
         static let usernamePlaceholder = "Имя пользователя"
         static let passwordPlaceholder = "Пароль"
-        static let passButton = "Войти"
+        static let loginButton = "Войти"
+        static let forgotButton = "Забыли пароль?"
+    }
+    
+    private enum LayoutConstants {
+        static let standard: CGFloat = 8
     }
     
     // MARK: - IBOutlets
@@ -31,12 +38,21 @@ final class AuthViewController: UIViewController {
     @IBOutlet private var usernameTextField: AuthTextField!
     @IBOutlet private var passwordTextField: AuthTextField!
     
-    @IBOutlet private var passButton: UIButton!
+    @IBOutlet private var forgotButton: UIButton!
+    @IBOutlet private var loginButton: AuthPassButton!
+    
+    // MARK: - Private Properties
+    
+    private let presentationModel = AuthPresentationModel()
+    
+    private let router = AuthRouter()
     
     // MARK: - ViewController lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        bindEvents()
+        
         hideKeyboardWhenTappedAround()
         usernameTextField.delegate = self
         passwordTextField.delegate = self
@@ -44,11 +60,42 @@ final class AuthViewController: UIViewController {
         configureBackgroundImage()
         configureImageView()
         configureTextFields()
-        configurePassButton()
-        enablePassButton()
+        configureLoginButton()
+        enableLoginButton()
+        configureForgotButton()
+        
+        confivagureNavigationBar()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        navigationController?.setNavigationBarHidden(true, animated: true)
+        usernameTextField.text = ""
+        passwordTextField.text = ""
     }
     
     // MARK: - Private Methods
+    
+    private func bindEvents() {
+        presentationModel.changeStateHandler = { status in
+            switch status {
+            case .loading:
+                HUD.show(.progress)
+            case .rich:
+                HUD.hide()
+            case .error (let code):
+                switch code {
+                case -1009, -1001:
+                    HUD.show(.labeledError(title: ErrorDescription.title.rawValue, subtitle: ErrorDescription.network.rawValue))
+                case 1:
+                    HUD.show(.labeledError(title: ErrorDescription.title.rawValue, subtitle: ErrorDescription.input.rawValue))
+                default:
+                    HUD.show(.labeledError(title: ErrorDescription.title.rawValue, subtitle: ErrorDescription.server.rawValue))
+                }
+                HUD.hide(afterDelay: 1.0)
+            }
+        }
+    }
     
     private func configureBackgroundImage() {
         backgoundImageView.image = UIImage(named: Constants.authBackgroundImage)
@@ -57,7 +104,7 @@ final class AuthViewController: UIViewController {
     
     private func configureImageView() {
         logoImageView.contentMode = .scaleAspectFit
-        logoImageView.tintColor = UIColor.white
+        logoImageView.tintColor = .white
         logoImageView.image = UIImage(named: Constants.logoImage)?.withRenderingMode(.alwaysTemplate)
         logoImageView.layer.opacity = 0.95
         
@@ -78,25 +125,53 @@ final class AuthViewController: UIViewController {
         passwordTextField.addImage(Constants.lockImage)
     }
     
-    private func configurePassButton() {
-        passButton.backgroundColor = PaleteColors.passButtonBackground
-        passButton.tintColor = UIColor.white
-        
-        passButton.layer.shadowOpacity = 0.16
-        passButton.layer.shadowOffset = CGSize(width: 0, height: 3)
-        passButton.layer.shadowColor = UIColor.gray.cgColor
-        passButton.layer.shadowRadius = 6
-        passButton.layer.cornerRadius = passButton.frame.height/2
-        passButton.layer.opacity = 0.9
-        
-        passButton.titleLabel?.font = UIFont.customFont(.robotoBoldFont(size: 18))
-        passButton.setTitle(Constants.passButton, for: .normal)
+    private func configureLoginButton() {
+        loginButton.setTitle(Constants.loginButton, for: .normal)
     }
     
-    private func enablePassButton() {
-        passButton.isEnabled = false
+    private func configureForgotButton() {
+        forgotButton.tintColor = UIColor.white.withAlphaComponent(0.8)
+        forgotButton.titleLabel?.font = UIFont.customFont(.robotoLightFont(size: 13))
+        forgotButton.setTitle(Constants.forgotButton, for: .normal)
+    }
+    
+    private func confivagureNavigationBar() {
+        navigationController?.navigationBar.isTranslucent = false
+        navigationController?.navigationBar.tintColor = PaletteColors.darkGray
+        
+        var backButtonImage = UIImage(named: Constants.backButtonImage)
+        let inset = LayoutConstants.standard
+        backButtonImage = backButtonImage?.imageWithInsets(insets: UIEdgeInsets(top: inset, left: inset, bottom: 0, right: 0))
+        navigationController?.navigationBar.topItem?.title = " "
+        navigationController?.navigationBar.backIndicatorImage = backButtonImage
+        navigationController?.navigationBar.backIndicatorTransitionMaskImage = backButtonImage
+        UINavigationBar.appearance().shadowImage = UIImage()
+    }
+    
+    private func enableLoginButton() {
+        loginButton.isEnabled = false
         usernameTextField.addTarget(self, action: #selector(editingChanged), for: .editingChanged)
         passwordTextField.addTarget(self, action: #selector(editingChanged), for: .editingChanged)
+    }
+    
+    private func fixTextFieldWidth() {
+        let width = usernameTextField.frame.width
+        usernameTextField.widthAnchor.constraint(equalToConstant: width).isActive = true
+    }
+    
+    // MARK: - IBAction
+    
+    @IBAction private func loginButtonTapped(_ sender: Any) {
+        guard let username = usernameTextField.text?.removeWhitespaces(),
+            let password = passwordTextField.text else { return }
+        presentationModel.authorizeUser(inputValues: [username, password]) {
+            [unowned self] in
+            //self.router.showPincodeSet(source: self)
+        }
+    }
+    
+    @IBAction func forgotButtonTapped(_ sender: Any) {
+        router.showRecoverVC(source: self)
     }
     
 }
@@ -118,9 +193,10 @@ extension AuthViewController: UITextFieldDelegate {
             let username = usernameTextField.text, username.count > 2,
             let password = passwordTextField.text, password.count > 2
             else {
-                passButton.isEnabled = false
+                loginButton.isEnabled = false
                 return
         }
-        passButton.isEnabled = true
+        loginButton.isEnabled = true
     }
+    
 }
