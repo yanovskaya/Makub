@@ -18,4 +18,12 @@ struct PaletteColors {
     // MARK: - PassHelpViewController
     
     static var darkGray = UIColor(hex: "303030")
+    
+    // MARK: VCs in TabBarController
+    
+    static let lightBlue = UIColor(hex: "5BABFF")
+    
+    // MARK: NewsViewController
+    
+    static let searchBar = UIColor(hex: "EBEBEB")
 }

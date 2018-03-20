@@ -12,8 +12,10 @@ class NewsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        print("news")
+        var searchBar = UISearchBar()
+        searchBar.sizeToFit()
+        var leftNavBarButton = UIBarButtonItem(customView:searchBar)
+        self.navigationItem.leftBarButtonItem = leftNavBarButton
     }
     
 }
