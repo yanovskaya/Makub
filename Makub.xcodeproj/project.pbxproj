@@ -42,6 +42,7 @@
 		C4D4E4E920606F45000A9216 /* ServiceLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D4E4E820606F45000A9216 /* ServiceLayer.swift */; };
 		C4D4E4EB20606FA1000A9216 /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D4E4EA20606FA1000A9216 /* AuthResponse.swift */; };
 		C4D4E4EF20606FEF000A9216 /* RecoverPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D4E4EE20606FEF000A9216 /* RecoverPresentationModel.swift */; };
+		C4D4E4F22060860F000A9216 /* AuthRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D4E4F12060860F000A9216 /* AuthRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,6 +84,7 @@
 		C4D4E4E820606F45000A9216 /* ServiceLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceLayer.swift; sourceTree = "<group>"; };
 		C4D4E4EA20606FA1000A9216 /* AuthResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
 		C4D4E4EE20606FEF000A9216 /* RecoverPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPresentationModel.swift; sourceTree = "<group>"; };
+		C4D4E4F12060860F000A9216 /* AuthRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRouter.swift; sourceTree = "<group>"; };
 		FD91280B983360A8DBD4BDFC /* Pods_Makub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Makub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -201,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				C44D60B3205529C200A5C50F /* Auth.storyboard */,
+				C4D4E4F0206085BD000A9216 /* Router */,
 				C44D60CF205805CF00A5C50F /* ViewController */,
 				C472A6C0205B170E00768585 /* Presentation Model */,
 				C44D60D0205805E300A5C50F /* Helper */,
@@ -317,6 +320,14 @@
 				C4D4E4E520606F2D000A9216 /* AuthService.swift */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		C4D4E4F0206085BD000A9216 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				C4D4E4F12060860F000A9216 /* AuthRouter.swift */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 		C8FE19675A729A68973D7EBE /* Frameworks */ = {
@@ -493,6 +504,7 @@
 				C472A6D1205C7E5900768585 /* Storyboard+GetViewController.swift in Sources */,
 				C4D4E4D920606ED0000A9216 /* CallResults.swift in Sources */,
 				C4D4E4E320606F08000A9216 /* AuthServiceImpl.swift in Sources */,
+				C4D4E4F22060860F000A9216 /* AuthRouter.swift in Sources */,
 				C4D4E4EF20606FEF000A9216 /* RecoverPresentationModel.swift in Sources */,
 				C4D4E4DD20606EE5000A9216 /* Parser.swift in Sources */,
 				C4D4E4E920606F45000A9216 /* ServiceLayer.swift in Sources */,

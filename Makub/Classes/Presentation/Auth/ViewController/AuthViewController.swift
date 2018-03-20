@@ -41,9 +41,11 @@ final class AuthViewController: UIViewController {
     @IBOutlet private var forgotButton: UIButton!
     @IBOutlet private var loginButton: AuthPassButton!
     
-    // MARK: - Public Properties
+    // MARK: - Private Properties
     
-    let presentationModel = AuthPresentationModel()
+    private let presentationModel = AuthPresentationModel()
+    
+    private let router = AuthRouter()
     
     // MARK: - ViewController lifecycle
     
@@ -75,7 +77,7 @@ final class AuthViewController: UIViewController {
     // MARK: - Private Methods
     
     private func bindEvents() {
-        presentationModel.changeStateHandler = { [unowned self] status in
+        presentationModel.changeStateHandler = { status in
             switch status {
             case .loading:
                 HUD.show(.progress)
@@ -166,6 +168,10 @@ final class AuthViewController: UIViewController {
             [unowned self] in
             //self.router.showPincodeSet(source: self)
         }
+    }
+    
+    @IBAction func forgotButtonTapped(_ sender: Any) {
+        router.showRecoverVC(source: self)
     }
     
 }

@@ -42,9 +42,9 @@ final class RecoverViewController: UIViewController {
     @IBOutlet private var emailTextField: AuthTextField!
     @IBOutlet private var recoverButton: AuthPassButton!
     
-    // MARK: - Public Properties
+    // MARK: - Private Properties
     
-    let presentationModel = RecoverPresentationModel()
+    private let presentationModel = RecoverPresentationModel()
     
     // MARK: - ViewController lifecycle
     

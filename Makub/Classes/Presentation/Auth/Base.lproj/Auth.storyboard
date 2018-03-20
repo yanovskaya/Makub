@@ -60,7 +60,7 @@
                                 <rect key="frame" x="184" y="423" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
-                                    <segue destination="Huz-0W-3qi" kind="show" id="haj-3M-vo8"/>
+                                    <action selector="forgotButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ivF-ez-Vea"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -105,10 +105,10 @@
             </objects>
             <point key="canvasLocation" x="1126.0869565217392" y="33.423913043478265"/>
         </scene>
-        <!--Pass Help View Controller-->
+        <!--Recover View Controller-->
         <scene sceneID="Pk8-hI-Tes">
             <objects>
-                <viewController storyboardIdentifier="PassHelpViewController" id="Huz-0W-3qi" userLabel="Pass Help View Controller" customClass="RecoverViewController" customModule="Макуб" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RecoverViewController" id="Huz-0W-3qi" customClass="RecoverViewController" customModule="Макуб" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZmL-n2-lnS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
