@@ -32,7 +32,7 @@ final class TabBarController: UITabBarController {
         let firstVc = newsStoryboard.viewController(NewsViewController.self)
         firstVc.tabBarItem = UITabBarItem(title: nil, image: im, tag: 0)
         
-        var im2 = UIImage(named: Constants.ratingImage)?.imageWithInsets(insets: UIEdgeInsetsMake(4, 0, -4, 0))
+        var im2 = UIImage(named: Constants.ratingImage)?.imageWithInsets(insets: UIEdgeInsetsMake(10, 0, 0, 0))
         let secondVc = ratingStoryboard.viewController(RatingViewController.self)
         secondVc.tabBarItem = UITabBarItem(title: nil, image: im2, tag: 1)
         
