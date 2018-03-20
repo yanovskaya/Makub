@@ -153,16 +153,24 @@
                                     <action selector="recoverButtonTapped:" destination="Huz-0W-3qi" eventType="touchUpInside" id="uaN-LR-gIl"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cb6-0t-WJc">
+                                <rect key="frame" x="186" y="695" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="3eR-0I-u5e" firstAttribute="top" secondItem="alf-8m-hYg" secondAttribute="bottom" constant="11" id="1IN-vq-NyZ"/>
                             <constraint firstItem="alf-8m-hYg" firstAttribute="centerX" secondItem="j1m-h4-tPz" secondAttribute="centerX" id="2ih-7r-Mhw"/>
+                            <constraint firstItem="VOF-av-Glo" firstAttribute="bottom" secondItem="cb6-0t-WJc" secondAttribute="bottom" constant="20" id="4a8-O3-Sjl"/>
                             <constraint firstItem="j1m-h4-tPz" firstAttribute="top" secondItem="VOF-av-Glo" secondAttribute="top" constant="74" id="FGe-5o-mir"/>
                             <constraint firstItem="JbV-WW-9IU" firstAttribute="width" secondItem="u9E-UY-CeE" secondAttribute="width" id="Flr-12-dz9"/>
                             <constraint firstItem="u9E-UY-CeE" firstAttribute="leading" secondItem="VOF-av-Glo" secondAttribute="leading" constant="47" id="GQ9-F5-7Mm"/>
                             <constraint firstItem="j1m-h4-tPz" firstAttribute="centerX" secondItem="VOF-av-Glo" secondAttribute="centerX" id="LBq-7O-DCg"/>
                             <constraint firstItem="JbV-WW-9IU" firstAttribute="centerX" secondItem="u9E-UY-CeE" secondAttribute="centerX" id="Ny3-lU-iIE"/>
+                            <constraint firstItem="cb6-0t-WJc" firstAttribute="centerX" secondItem="VOF-av-Glo" secondAttribute="centerX" id="SFO-ye-T1U"/>
                             <constraint firstItem="alf-8m-hYg" firstAttribute="top" secondItem="j1m-h4-tPz" secondAttribute="bottom" constant="26" id="YG6-V6-Nya"/>
                             <constraint firstItem="3eR-0I-u5e" firstAttribute="centerX" secondItem="alf-8m-hYg" secondAttribute="centerX" id="mlt-Fk-PVC"/>
                             <constraint firstItem="u9E-UY-CeE" firstAttribute="top" secondItem="3eR-0I-u5e" secondAttribute="bottom" constant="32" id="oZM-kS-kRs"/>
@@ -177,6 +185,7 @@
                         <outlet property="emailTextField" destination="u9E-UY-CeE" id="beP-vt-vio"/>
                         <outlet property="imageView" destination="j1m-h4-tPz" id="aLE-yp-AOc"/>
                         <outlet property="recoverButton" destination="JbV-WW-9IU" id="IjJ-oy-EVs"/>
+                        <outlet property="supportLabel" destination="cb6-0t-WJc" id="SaO-VV-9J2"/>
                         <outlet property="titleLabel" destination="alf-8m-hYg" id="zd4-3A-nGC"/>
                     </connections>
                 </viewController>

@@ -20,6 +20,7 @@ final class RecoverViewController: UIViewController {
         
         static let helpTitleLabel = "Не можете войти?"
         static let helpDescriptionLabel = "Мы отправим тебе письмо на указанную почту с инструкциями для восстановленения доступа."
+        static let supportLabel = "Поддержка МАКУБ"
         static let emailPlaceholder = "mitchelle53@example.com"
         static let recoverButton = "Отправить"
         
@@ -38,6 +39,7 @@ final class RecoverViewController: UIViewController {
     
     @IBOutlet private var titleLabel: UILabel!
     @IBOutlet private var descriptionLabel: UILabel!
+    @IBOutlet private var supportLabel: UILabel!
     
     @IBOutlet private var emailTextField: AuthTextField!
     @IBOutlet private var recoverButton: AuthPassButton!
@@ -61,6 +63,7 @@ final class RecoverViewController: UIViewController {
         configureImage()
         configureTitleLabel()
         configureDescriptionLabel()
+        configureSupportLabel()
         configureRecoverButton()
         configureTextField()
         
@@ -74,7 +77,7 @@ final class RecoverViewController: UIViewController {
     // MARK: - Private Methods
     
     private func bindEvents() {
-        presentationModel.changeStateHandler = { [unowned self] status in
+        presentationModel.changeStateHandler = { status in
             switch status {
             case .loading:
                 HUD.show(.progress)
@@ -117,6 +120,12 @@ final class RecoverViewController: UIViewController {
         descriptionLabel.textColor = PaletteColors.darkGray.withAlphaComponent(0.8)
         descriptionLabel.font = UIFont.customFont(.robotoRegularFont(size: 16))
         descriptionLabel.text = Constants.helpDescriptionLabel
+    }
+    
+    private func configureSupportLabel() {
+        supportLabel.textColor = PaletteColors.darkGray.withAlphaComponent(0.6)
+        supportLabel.font = UIFont.customFont(.robotoRegularFont(size: 14))
+        supportLabel.text = Constants.supportLabel
     }
     
     private func configureRecoverButton() {
