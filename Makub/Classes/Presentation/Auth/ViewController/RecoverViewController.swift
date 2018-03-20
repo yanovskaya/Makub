@@ -156,6 +156,12 @@ final class RecoverViewController: UIViewController {
         imageView.image = UIImage(named: Constants.letterImage)
     }
     
+    private func isValidEmail(_ testStr: String) -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"
+        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailTest.evaluate(with: testStr)
+    }
+    
     @IBAction func recoverButtonTapped(_ sender: Any) {
         guard let email = emailTextField.text?.removeWhitespaces() else { return }
         presentationModel.recoverPassword(email: email) {
@@ -176,8 +182,7 @@ extension RecoverViewController: UITextFieldDelegate {
     }
     
     @objc private func editingChanged(_ textField: UITextField) {
-        guard let email = emailTextField.text, email.count > 7,
-            email.range(of: "@") != nil, email.range(of: ".") != nil
+        guard let email = emailTextField.text, isValidEmail(email)
             else {
                 recoverButton.isEnabled = false
                 return
