@@ -13,7 +13,7 @@ final class AuthTextField: UITextField {
     // MARK: - Constants
     
     private enum LayoutConstants {
-        static let imageWidth: CGFloat = 22
+        static let imageWidth: CGFloat = 25
         static let leadingDistance: CGFloat = 10
         static let standard: CGFloat = 8
     }
