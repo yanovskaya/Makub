@@ -166,7 +166,7 @@ final class AuthViewController: UIViewController {
             let password = passwordTextField.text else { return }
         presentationModel.authorizeUser(inputValues: [username, password]) {
             [unowned self] in
-            //self.router.showPincodeSet(source: self)
+            self.router.showTabBar()
         }
     }
     

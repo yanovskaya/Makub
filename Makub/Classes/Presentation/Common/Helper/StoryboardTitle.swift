@@ -10,4 +10,6 @@ import Foundation
 
 enum StoryboardTitle: String {
     case auth = "Auth"
+    case rating = "Rating"
+    case news = "News"
 }

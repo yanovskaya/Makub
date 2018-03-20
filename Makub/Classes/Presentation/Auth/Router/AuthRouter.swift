@@ -12,7 +12,7 @@ final class AuthRouter {
     
     // MARK: - Private Properties
     
-    private let authStoryboard = UIStoryboard.init(with: StoryboardTitle.auth)
+    private let authStoryboard = UIStoryboard(with: StoryboardTitle.auth)
     
     // MARK: - Public Methods
     
@@ -22,4 +22,10 @@ final class AuthRouter {
         authViewController.navigationController?.show(recoverViewController, sender: self)
     }
     
+    /// Auth -> TabBar.
+    func showTabBar() {
+        UIView.transition(with: UIApplication.shared.keyWindow!, duration: 0.5, options: .transitionFlipFromRight, animations: {
+            UIApplication.shared.keyWindow?.rootViewController = TabBarController()
+        })
+    }
 }

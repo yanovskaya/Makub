@@ -43,6 +43,11 @@
 		C4D4E4EB20606FA1000A9216 /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D4E4EA20606FA1000A9216 /* AuthResponse.swift */; };
 		C4D4E4EF20606FEF000A9216 /* RecoverPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D4E4EE20606FEF000A9216 /* RecoverPresentationModel.swift */; };
 		C4D4E4F22060860F000A9216 /* AuthRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D4E4F12060860F000A9216 /* AuthRouter.swift */; };
+		C4D4E4FA20618E63000A9216 /* RatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D4E4F920618E63000A9216 /* RatingViewController.swift */; };
+		C4D4E4FC20618E8F000A9216 /* NewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D4E4FB20618E8F000A9216 /* NewsViewController.swift */; };
+		C4D4E4FE20618FA9000A9216 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D4E4FD20618FA9000A9216 /* TabBarController.swift */; };
+		C4D4E50020619339000A9216 /* Rating.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4D4E4FF20619339000A9216 /* Rating.storyboard */; };
+		C4D4E5022061934F000A9216 /* News.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4D4E5012061934F000A9216 /* News.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -85,6 +90,11 @@
 		C4D4E4EA20606FA1000A9216 /* AuthResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
 		C4D4E4EE20606FEF000A9216 /* RecoverPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPresentationModel.swift; sourceTree = "<group>"; };
 		C4D4E4F12060860F000A9216 /* AuthRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRouter.swift; sourceTree = "<group>"; };
+		C4D4E4F920618E63000A9216 /* RatingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingViewController.swift; sourceTree = "<group>"; };
+		C4D4E4FB20618E8F000A9216 /* NewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewController.swift; sourceTree = "<group>"; };
+		C4D4E4FD20618FA9000A9216 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		C4D4E4FF20619339000A9216 /* Rating.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Rating.storyboard; sourceTree = "<group>"; };
+		C4D4E5012061934F000A9216 /* News.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = News.storyboard; sourceTree = "<group>"; };
 		FD91280B983360A8DBD4BDFC /* Pods_Makub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Makub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -194,6 +204,8 @@
 			isa = PBXGroup;
 			children = (
 				C44D60E82058571800A5C50F /* Common */,
+				C4D4E4F820618E47000A9216 /* Rating */,
+				C4D4E4F720618E42000A9216 /* News */,
 				C44D60C82055394900A5C50F /* Auth */,
 			);
 			path = Presentation;
@@ -245,6 +257,7 @@
 			isa = PBXGroup;
 			children = (
 				C472A6BE205B16D500768585 /* PresentationModel.swift */,
+				C4D4E4FD20618FA9000A9216 /* TabBarController.swift */,
 				C414F0D92059A23D001961EC /* Helper */,
 			);
 			path = Common;
@@ -330,6 +343,24 @@
 			path = Router;
 			sourceTree = "<group>";
 		};
+		C4D4E4F720618E42000A9216 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				C4D4E5012061934F000A9216 /* News.storyboard */,
+				C4D4E4FB20618E8F000A9216 /* NewsViewController.swift */,
+			);
+			path = News;
+			sourceTree = "<group>";
+		};
+		C4D4E4F820618E47000A9216 /* Rating */ = {
+			isa = PBXGroup;
+			children = (
+				C4D4E4FF20619339000A9216 /* Rating.storyboard */,
+				C4D4E4F920618E63000A9216 /* RatingViewController.swift */,
+			);
+			path = Rating;
+			sourceTree = "<group>";
+		};
 		C8FE19675A729A68973D7EBE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -405,7 +436,9 @@
 				C44D60B7205529C200A5C50F /* Assets.xcassets in Resources */,
 				C414F0D620596DE8001961EC /* Roboto-Light.otf in Resources */,
 				C414F0D820596DE8001961EC /* Roboto-Regular.otf in Resources */,
+				C4D4E5022061934F000A9216 /* News.storyboard in Resources */,
 				C44D60B5205529C200A5C50F /* Auth.storyboard in Resources */,
+				C4D4E50020619339000A9216 /* Rating.storyboard in Resources */,
 				C414F0D520596DE8001961EC /* Roboto-Medium.otf in Resources */,
 				C414F0D720596DE8001961EC /* Roboto-Bold.otf in Resources */,
 			);
@@ -505,12 +538,14 @@
 				C4D4E4D920606ED0000A9216 /* CallResults.swift in Sources */,
 				C4D4E4E320606F08000A9216 /* AuthServiceImpl.swift in Sources */,
 				C4D4E4F22060860F000A9216 /* AuthRouter.swift in Sources */,
+				C4D4E4FE20618FA9000A9216 /* TabBarController.swift in Sources */,
 				C4D4E4EF20606FEF000A9216 /* RecoverPresentationModel.swift in Sources */,
 				C4D4E4DD20606EE5000A9216 /* Parser.swift in Sources */,
 				C4D4E4E920606F45000A9216 /* ServiceLayer.swift in Sources */,
 				C472A6C8205C4D5300768585 /* String+RemoveSpace.swift in Sources */,
 				C4D4E4EB20606FA1000A9216 /* AuthResponse.swift in Sources */,
 				C4D4E4DF20606EE5000A9216 /* Transport.swift in Sources */,
+				C4D4E4FA20618E63000A9216 /* RatingViewController.swift in Sources */,
 				C4D4E4E720606F2D000A9216 /* AuthService.swift in Sources */,
 				C42924B0205C81E700E6D568 /* RecoverViewController.swift in Sources */,
 				C44D60D22058061100A5C50F /* AuthTextField.swift in Sources */,
@@ -518,6 +553,7 @@
 				C44D60B0205529C100A5C50F /* AppDelegate.swift in Sources */,
 				C44D60CA20553B0100A5C50F /* User.swift in Sources */,
 				C472A6D3205C7E8000768585 /* StoryboardTitle.swift in Sources */,
+				C4D4E4FC20618E8F000A9216 /* NewsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

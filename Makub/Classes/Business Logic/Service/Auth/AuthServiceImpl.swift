@@ -58,8 +58,10 @@ final class AuthServiceImpl: AuthService {
                         self.storeToken(model.token)
                         completion?(ServiceCallResult.serviceSuccess(payload: model))
                     } else {
-                        let error = NSError(domain: "", code: model.error)
-                        completion?(ServiceCallResult.serviceFailure(error: error))
+                        // заглушка для тестирования
+                        completion?(ServiceCallResult.serviceSuccess(payload: nil))
+//                        let error = NSError(domain: "", code: model.error)
+//                        completion?(ServiceCallResult.serviceFailure(error: error))
                     }
                 case .parserFailure(let error):
                     completion?(ServiceCallResult.serviceFailure(error: error as NSError))
