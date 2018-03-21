@@ -9,6 +9,8 @@
 import UIKit
 
 final class RatingViewController: UIViewController {
+    
+    // MARK: - ViewController lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()

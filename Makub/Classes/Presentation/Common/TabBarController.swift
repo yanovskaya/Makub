@@ -16,9 +16,14 @@ final class TabBarController: UITabBarController {
         static var newsImage = "newspaper"
         static var ratingImage = "star"
     }
+    
+        // MARK: - Private Properties
+    
     private let newsStoryboard = UIStoryboard(with: StoryboardTitle.news)
     private let ratingStoryboard = UIStoryboard(with: StoryboardTitle.rating)
 
+    // MARK: - ViewController lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tabBar.barTintColor = .white
@@ -27,8 +32,9 @@ final class TabBarController: UITabBarController {
         createTabBarController()
     }
 
+    // MARK: - Private Properties
     
-    func createTabBarController() {
+    private func createTabBarController() {
         let im = UIImage(named: Constants.newsImage)?.imageWithInsets(insets: UIEdgeInsetsMake(6, 0, -6, 0))
         
         let firstVc = newsStoryboard.viewController(NewsViewController.self)

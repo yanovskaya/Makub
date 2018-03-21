@@ -8,8 +8,10 @@
 
 import UIKit
 
-class NewsViewController: UIViewController {
+final class NewsViewController: UIViewController {
 
+    // MARK: - ViewController lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         var searchBar = UISearchBar()
