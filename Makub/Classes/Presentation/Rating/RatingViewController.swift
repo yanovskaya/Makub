@@ -14,7 +14,7 @@ final class RatingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        view.backgroundColor = PaletteColors.blueBackground
         print("rating")
     }
 }

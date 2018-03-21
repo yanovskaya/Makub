@@ -21,7 +21,8 @@ struct PaletteColors {
     
     // MARK: VCs in TabBarController
     
-    static let lightBlue = UIColor(hex: "5BABFF")
+    static let blueBackground = UIColor(hex: "F7F9FC")
+    static let blueTint = UIColor(hex: "5BABFF")
     
     // MARK: NewsViewController
     
