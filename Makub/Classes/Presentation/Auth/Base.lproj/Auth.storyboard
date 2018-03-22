@@ -159,6 +159,20 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qQh-l9-obg">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X5o-fv-wpx">
+                                        <rect key="frame" x="16" y="5" width="46" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button"/>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="KWL-RH-EdF"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -168,10 +182,13 @@
                             <constraint firstItem="j1m-h4-tPz" firstAttribute="top" secondItem="VOF-av-Glo" secondAttribute="top" constant="74" id="FGe-5o-mir"/>
                             <constraint firstItem="JbV-WW-9IU" firstAttribute="width" secondItem="u9E-UY-CeE" secondAttribute="width" id="Flr-12-dz9"/>
                             <constraint firstItem="u9E-UY-CeE" firstAttribute="leading" secondItem="VOF-av-Glo" secondAttribute="leading" constant="47" id="GQ9-F5-7Mm"/>
+                            <constraint firstItem="qQh-l9-obg" firstAttribute="leading" secondItem="VOF-av-Glo" secondAttribute="leading" id="KoU-zD-VFJ"/>
                             <constraint firstItem="j1m-h4-tPz" firstAttribute="centerX" secondItem="VOF-av-Glo" secondAttribute="centerX" id="LBq-7O-DCg"/>
                             <constraint firstItem="JbV-WW-9IU" firstAttribute="centerX" secondItem="u9E-UY-CeE" secondAttribute="centerX" id="Ny3-lU-iIE"/>
                             <constraint firstItem="cb6-0t-WJc" firstAttribute="centerX" secondItem="VOF-av-Glo" secondAttribute="centerX" id="SFO-ye-T1U"/>
+                            <constraint firstItem="VOF-av-Glo" firstAttribute="trailing" secondItem="qQh-l9-obg" secondAttribute="trailing" id="SLX-bX-5x5"/>
                             <constraint firstItem="alf-8m-hYg" firstAttribute="top" secondItem="j1m-h4-tPz" secondAttribute="bottom" constant="26" id="YG6-V6-Nya"/>
+                            <constraint firstItem="qQh-l9-obg" firstAttribute="top" secondItem="ZmL-n2-lnS" secondAttribute="top" id="f4J-o6-RsD"/>
                             <constraint firstItem="3eR-0I-u5e" firstAttribute="centerX" secondItem="alf-8m-hYg" secondAttribute="centerX" id="mlt-Fk-PVC"/>
                             <constraint firstItem="u9E-UY-CeE" firstAttribute="top" secondItem="3eR-0I-u5e" secondAttribute="bottom" constant="32" id="oZM-kS-kRs"/>
                             <constraint firstItem="JbV-WW-9IU" firstAttribute="top" secondItem="u9E-UY-CeE" secondAttribute="bottom" constant="24" id="u2y-K2-rO5"/>

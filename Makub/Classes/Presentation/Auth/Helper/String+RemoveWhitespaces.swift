@@ -1,5 +1,5 @@
 //
-//  String+RemoveSpace.swift
+//  String+RemoveWhitespaces.swift
 //  Makub
 //
 //  Created by Елена Яновская on 16.03.2018.

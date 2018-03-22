@@ -52,9 +52,10 @@ final class RecoverViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.setNavigationBarHidden(false, animated: true)
-        navigationController?.navigationBar.topItem?.title = " "
         
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        navigationController?.navigationBar.topItem?.title = " "
+        navigationController?.interactivePopGestureRecognizer?.delegate = nil
         bindEvents()
         
         hideKeyboardWhenTappedAround()

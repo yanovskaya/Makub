@@ -27,7 +27,7 @@
 		C4556B95205EC04D00D65DBD /* UIImage+ImageWithInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4556B94205EC04D00D65DBD /* UIImage+ImageWithInsets.swift */; };
 		C472A6BF205B16D500768585 /* PresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472A6BE205B16D500768585 /* PresentationModel.swift */; };
 		C472A6C3205B174000768585 /* AuthPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472A6C2205B174000768585 /* AuthPresentationModel.swift */; };
-		C472A6C8205C4D5300768585 /* String+RemoveSpace.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472A6C7205C4D5300768585 /* String+RemoveSpace.swift */; };
+		C472A6C8205C4D5300768585 /* String+RemoveWhitespaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472A6C7205C4D5300768585 /* String+RemoveWhitespaces.swift */; };
 		C472A6CA205C4F8100768585 /* ErrorDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472A6C9205C4F8100768585 /* ErrorDescription.swift */; };
 		C472A6CF205C647C00768585 /* KeychainKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472A6CE205C647C00768585 /* KeychainKeys.swift */; };
 		C472A6D1205C7E5900768585 /* Storyboard+GetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472A6D0205C7E5900768585 /* Storyboard+GetViewController.swift */; };
@@ -74,7 +74,7 @@
 		C4556B94205EC04D00D65DBD /* UIImage+ImageWithInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+ImageWithInsets.swift"; sourceTree = "<group>"; };
 		C472A6BE205B16D500768585 /* PresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationModel.swift; sourceTree = "<group>"; };
 		C472A6C2205B174000768585 /* AuthPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPresentationModel.swift; sourceTree = "<group>"; };
-		C472A6C7205C4D5300768585 /* String+RemoveSpace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+RemoveSpace.swift"; sourceTree = "<group>"; };
+		C472A6C7205C4D5300768585 /* String+RemoveWhitespaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+RemoveWhitespaces.swift"; sourceTree = "<group>"; };
 		C472A6C9205C4F8100768585 /* ErrorDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorDescription.swift; sourceTree = "<group>"; };
 		C472A6CE205C647C00768585 /* KeychainKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainKeys.swift; sourceTree = "<group>"; };
 		C472A6D0205C7E5900768585 /* Storyboard+GetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Storyboard+GetViewController.swift"; sourceTree = "<group>"; };
@@ -242,7 +242,7 @@
 		C44D60D0205805E300A5C50F /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				C472A6C7205C4D5300768585 /* String+RemoveSpace.swift */,
+				C472A6C7205C4D5300768585 /* String+RemoveWhitespaces.swift */,
 				C44D60D12058061100A5C50F /* AuthTextField.swift */,
 				C4BC7103205F2BEA00332D7E /* AuthPassButton.swift */,
 			);
@@ -550,7 +550,7 @@
 				C4D4E4EF20606FEF000A9216 /* RecoverPresentationModel.swift in Sources */,
 				C4D4E4DD20606EE5000A9216 /* Parser.swift in Sources */,
 				C4D4E4E920606F45000A9216 /* ServiceLayer.swift in Sources */,
-				C472A6C8205C4D5300768585 /* String+RemoveSpace.swift in Sources */,
+				C472A6C8205C4D5300768585 /* String+RemoveWhitespaces.swift in Sources */,
 				C4D4E4EB20606FA1000A9216 /* AuthResponse.swift in Sources */,
 				C4D4E4DF20606EE5000A9216 /* Transport.swift in Sources */,
 				C4D4E4FA20618E63000A9216 /* RatingViewController.swift in Sources */,

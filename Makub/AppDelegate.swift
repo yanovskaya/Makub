@@ -31,7 +31,9 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
             navigationController.viewControllers = [authViewController]
             window?.rootViewController = navigationController
         } else {
-            window?.rootViewController = TabBarController()
+            navigationController.viewControllers = [authViewController]
+            window?.rootViewController = navigationController
+            //window?.rootViewController = TabBarController()
         }
         window?.makeKeyAndVisible()
         return true
