@@ -14,6 +14,8 @@ final class RatingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.isNavigationBarHidden = true
+        
         view.backgroundColor = PaletteColors.blueBackground
         print("rating")
     }

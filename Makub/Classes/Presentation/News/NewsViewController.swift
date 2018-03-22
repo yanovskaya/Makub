@@ -9,27 +9,25 @@
 import UIKit
 
 final class NewsViewController: UIViewController {
-
+    @IBOutlet var fakeNavigationBar: UIView!
+    @IBOutlet var navigationSearchBar: UISearchBar!
+    
     // MARK: - ViewController lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        UINavigationBar.appearance().backgroundColor = .red
-
+        navigationController?.isNavigationBarHidden = true
+        fakeNavigationBar.backgroundColor = .green
+        navigationSearchBar.backgroundImage = imageFromColor(.clear)
         view.backgroundColor = PaletteColors.blueBackground
-        var searchBar = UISearchBar()
-        searchBar.searchBarStyle = .default
-        searchBar.sizeToFit()
-        let textFieldInsideSearchBar = searchBar.value(forKey: "searchField") as? UITextField
-        textFieldInsideSearchBar?.backgroundColor = UIColor.red
-        var leftNavBarButton = UIBarButtonItem(customView: searchBar)
-        self.navigationItem.leftBarButtonItem = leftNavBarButton
+        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).backgroundColor = .red
+
     }
     
 
     
     func imageFromColor(_ color: UIColor) -> UIImage {
-        let rect = CGRect(x: 0, y: 0, width: 0, height: 0)
+        let rect = CGRect(x: 0, y: 0, width: 1, height: 1)
         UIGraphicsBeginImageContext(rect.size)
         let context = UIGraphicsGetCurrentContext()
         

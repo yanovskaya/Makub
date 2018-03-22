@@ -17,9 +17,34 @@
                     <view key="view" contentMode="scaleToFill" id="Aby-3z-Kci">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LGm-WH-jvH">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="68"/>
+                                <subviews>
+                                    <searchBar contentMode="redraw" fixedFrame="YES" searchBarStyle="prominent" translatesAutoresizingMaskIntoConstraints="NO" id="KaF-jd-CPL">
+                                        <rect key="frame" x="0.0" y="12" width="375" height="56"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </searchBar>
+                                </subviews>
+                                <color key="backgroundColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="68" id="9fW-20-yW4"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="LGm-WH-jvH" secondAttribute="trailing" id="Wdo-F9-bJu"/>
+                            <constraint firstItem="LGm-WH-jvH" firstAttribute="top" secondItem="Aby-3z-Kci" secondAttribute="top" id="ofw-Rt-mZY"/>
+                            <constraint firstItem="LGm-WH-jvH" firstAttribute="leading" secondItem="Aby-3z-Kci" secondAttribute="leading" id="zkd-Fu-MY4"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="gUe-FZ-ngV"/>
                     </view>
+                    <connections>
+                        <outlet property="fakeNavigationBar" destination="LGm-WH-jvH" id="5FK-0J-hgB"/>
+                        <outlet property="navigationSearchBar" destination="KaF-jd-CPL" id="ZeU-er-gzP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iJZ-5W-xyG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
