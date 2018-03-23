@@ -26,8 +26,6 @@
 		C44D60D7205807F500A5C50F /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44D60D6205807F500A5C50F /* UIColor+Hex.swift */; };
 		C44D60EA2058573D00A5C50F /* UIFont+CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44D60E92058573D00A5C50F /* UIFont+CustomFont.swift */; };
 		C4556B95205EC04D00D65DBD /* UIImage+ImageWithInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4556B94205EC04D00D65DBD /* UIImage+ImageWithInsets.swift */; };
-		C4691C43206521C000991C19 /* UserServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4691C42206521C000991C19 /* UserServiceImpl.swift */; };
-		C4691C45206521E000991C19 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4691C44206521E000991C19 /* UserService.swift */; };
 		C472A6BF205B16D500768585 /* PresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472A6BE205B16D500768585 /* PresentationModel.swift */; };
 		C472A6C3205B174000768585 /* AuthPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472A6C2205B174000768585 /* AuthPresentationModel.swift */; };
 		C472A6C8205C4D5300768585 /* String+RemoveWhitespaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472A6C7205C4D5300768585 /* String+RemoveWhitespaces.swift */; };
@@ -76,8 +74,6 @@
 		C44D60D6205807F500A5C50F /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		C44D60E92058573D00A5C50F /* UIFont+CustomFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+CustomFont.swift"; sourceTree = "<group>"; };
 		C4556B94205EC04D00D65DBD /* UIImage+ImageWithInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+ImageWithInsets.swift"; sourceTree = "<group>"; };
-		C4691C42206521C000991C19 /* UserServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserServiceImpl.swift; path = "Makub/Classes/Business logic/Service/User/UserServiceImpl.swift"; sourceTree = SOURCE_ROOT; };
-		C4691C44206521E000991C19 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserService.swift; path = "Makub/Classes/Business logic/Service/User/Protocol/UserService.swift"; sourceTree = SOURCE_ROOT; };
 		C472A6BE205B16D500768585 /* PresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationModel.swift; sourceTree = "<group>"; };
 		C472A6C2205B174000768585 /* AuthPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPresentationModel.swift; sourceTree = "<group>"; };
 		C472A6C7205C4D5300768585 /* String+RemoveWhitespaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+RemoveWhitespaces.swift"; sourceTree = "<group>"; };
@@ -195,8 +191,8 @@
 		C44D60C2205538BD00A5C50F /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				C4D4E4D220606E61000A9216 /* Business Logic */,
 				C44D60C52055390300A5C50F /* Model */,
+				C4D4E4D220606E61000A9216 /* Business Logic */,
 				C44D60C62055390F00A5C50F /* Presentation */,
 			);
 			path = Classes;
@@ -293,23 +289,6 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
-		C4691C402065216600991C19 /* User */ = {
-			isa = PBXGroup;
-			children = (
-				C4691C412065217A00991C19 /* Protocol */,
-				C4691C42206521C000991C19 /* UserServiceImpl.swift */,
-			);
-			path = User;
-			sourceTree = "<group>";
-		};
-		C4691C412065217A00991C19 /* Protocol */ = {
-			isa = PBXGroup;
-			children = (
-				C4691C44206521E000991C19 /* UserService.swift */,
-			);
-			path = Protocol;
-			sourceTree = "<group>";
-		};
 		C472A6C0205B170E00768585 /* Presentation Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -351,7 +330,6 @@
 			children = (
 				C4D4E4E820606F45000A9216 /* ServiceLayer.swift */,
 				C4D4E4D620606E9F000A9216 /* Auth */,
-				C4691C402065216600991C19 /* User */,
 				C4D4E4D520606E9C000A9216 /* Common */,
 			);
 			path = Service;
@@ -578,7 +556,6 @@
 				C44D60B2205529C200A5C50F /* AuthViewController.swift in Sources */,
 				C472A6BF205B16D500768585 /* PresentationModel.swift in Sources */,
 				C472A6CF205C647C00768585 /* KeychainKeys.swift in Sources */,
-				C4691C45206521E000991C19 /* UserService.swift in Sources */,
 				C472A6C3205B174000768585 /* AuthPresentationModel.swift in Sources */,
 				C4556B95205EC04D00D65DBD /* UIImage+ImageWithInsets.swift in Sources */,
 				C44D60D5205806BB00A5C50F /* Colors.swift in Sources */,
@@ -602,7 +579,6 @@
 				C44D60D22058061100A5C50F /* AuthTextField.swift in Sources */,
 				C44D60EA2058573D00A5C50F /* UIFont+CustomFont.swift in Sources */,
 				C44D60B0205529C100A5C50F /* AppDelegate.swift in Sources */,
-				C4691C43206521C000991C19 /* UserServiceImpl.swift in Sources */,
 				C44D60CA20553B0100A5C50F /* User.swift in Sources */,
 				C472A6D3205C7E8000768585 /* StoryboardTitle.swift in Sources */,
 				C4D4E4FC20618E8F000A9216 /* NewsViewController.swift in Sources */,
