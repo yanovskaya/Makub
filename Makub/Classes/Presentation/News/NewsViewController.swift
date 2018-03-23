@@ -10,6 +10,12 @@ import UIKit
 
 final class NewsViewController: UIViewController {
     
+    // MARK: - Constants
+    
+    private enum Constants {
+        static let searchBarPlaceholder = "Поиск"
+    }
+    
     // MARK: - IBOutlets
     
     @IBOutlet var fakeNavigationView: UIView!
@@ -20,8 +26,12 @@ final class NewsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = true
+        view.backgroundColor = PaletteColors.blueBackground
         configureFakeNavigationBar()
-
+        
+        navigationSearchBar.delegate = self
+        navigationSearchBar.tintColor = PaletteColors.blueTint
+        hideKeyboardWhenTappedAround()
     }
     
     // MARK: - Private Methods
@@ -29,8 +39,31 @@ final class NewsViewController: UIViewController {
     private func configureFakeNavigationBar() {
         fakeNavigationView.backgroundColor = .white
         navigationSearchBar.backgroundImage = UIImage(color: .clear)
-        view.backgroundColor = PaletteColors.blueBackground
-        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).backgroundColor = PaletteColors.searchBar
+        navigationSearchBar.searchBarStyle = .minimal
+        navigationSearchBar.placeholder = Constants.searchBarPlaceholder
     }
+    
+    private func configureSearchBar() {
+        navigationSearchBar.delegate = self
+        navigationSearchBar.tintColor = PaletteColors.blueTint
+    }
+}
 
+// MARK: - UISearchBarDelegate
+
+extension NewsViewController: UISearchBarDelegate {
+    
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(true, animated: true)
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
+        searchBar.setShowsCancelButton(false, animated: true)
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.setShowsCancelButton(false, animated: true)
+        searchBar.resignFirstResponder()
+    }
 }

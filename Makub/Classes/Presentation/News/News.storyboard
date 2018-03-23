@@ -22,16 +22,16 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="77"/>
                                 <subviews>
                                     <searchBar contentMode="redraw" searchBarStyle="prominent" translatesAutoresizingMaskIntoConstraints="NO" id="KaF-jd-CPL">
-                                        <rect key="frame" x="0.0" y="21" width="375" height="56"/>
+                                        <rect key="frame" x="8" y="21" width="359" height="56"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </searchBar>
                                 </subviews>
                                 <color key="backgroundColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstItem="KaF-jd-CPL" firstAttribute="centerX" secondItem="LGm-WH-jvH" secondAttribute="centerX" id="0hz-D6-Va1"/>
                                     <constraint firstAttribute="height" constant="77" id="9fW-20-yW4"/>
-                                    <constraint firstAttribute="trailing" secondItem="KaF-jd-CPL" secondAttribute="trailing" id="SiN-P1-sT5"/>
+                                    <constraint firstAttribute="trailing" secondItem="KaF-jd-CPL" secondAttribute="trailing" constant="8" id="SiN-P1-sT5"/>
                                     <constraint firstAttribute="bottom" secondItem="KaF-jd-CPL" secondAttribute="bottom" id="oFz-ke-UV8"/>
-                                    <constraint firstItem="KaF-jd-CPL" firstAttribute="leading" secondItem="LGm-WH-jvH" secondAttribute="leading" id="uFp-V8-d2n"/>
                                 </constraints>
                             </view>
                         </subviews>
