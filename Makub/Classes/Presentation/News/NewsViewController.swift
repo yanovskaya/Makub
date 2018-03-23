@@ -27,11 +27,11 @@ final class NewsViewController: UIViewController {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = true
         view.backgroundColor = PaletteColors.blueBackground
-        configureFakeNavigationBar()
         
-        navigationSearchBar.delegate = self
-        navigationSearchBar.tintColor = PaletteColors.blueTint
-        hideKeyboardWhenTappedAround()
+        configureFakeNavigationBar()
+        configureSearchBar()
+        
+        hideSearchKeyboardWhenTappedAround()
     }
     
     // MARK: - Private Methods
@@ -47,6 +47,17 @@ final class NewsViewController: UIViewController {
         navigationSearchBar.delegate = self
         navigationSearchBar.tintColor = PaletteColors.blueTint
     }
+    
+    private func hideSearchKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissSearchKeyboard))
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc private func dismissSearchKeyboard() {
+        navigationSearchBar.setShowsCancelButton(false, animated: true)
+        navigationSearchBar.resignFirstResponder()
+    }
+    
 }
 
 // MARK: - UISearchBarDelegate
