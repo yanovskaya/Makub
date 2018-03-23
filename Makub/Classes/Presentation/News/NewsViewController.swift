@@ -21,6 +21,8 @@ final class NewsViewController: UIViewController {
     @IBOutlet var fakeNavigationView: UIView!
     @IBOutlet var navigationSearchBar: UISearchBar!
     
+    @IBOutlet var userImageView: UIImageView!
+    
     // MARK: - ViewController lifecycle
     
     override func viewDidLoad() {
@@ -71,6 +73,7 @@ extension NewsViewController: UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = ""
         searchBar.setShowsCancelButton(false, animated: true)
+        searchBar.resignFirstResponder()
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {

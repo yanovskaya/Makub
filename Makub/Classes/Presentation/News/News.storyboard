@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -34,10 +35,31 @@
                                     <constraint firstAttribute="bottom" secondItem="KaF-jd-CPL" secondAttribute="bottom" id="oFz-ke-UV8"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zuc-90-ORo">
+                                <rect key="frame" x="0.0" y="87" width="375" height="70"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="E4X-dX-Xxp">
+                                        <rect key="frame" x="16" y="12.5" width="45" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="45" id="H6p-ZW-RDU"/>
+                                            <constraint firstAttribute="width" secondItem="E4X-dX-Xxp" secondAttribute="height" multiplier="1:1" id="arh-fc-iiD"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="E4X-dX-Xxp" firstAttribute="centerY" secondItem="Zuc-90-ORo" secondAttribute="centerY" id="7T6-vn-V5P"/>
+                                    <constraint firstItem="E4X-dX-Xxp" firstAttribute="leading" secondItem="Zuc-90-ORo" secondAttribute="leading" constant="16" id="ofd-kt-aXt"/>
+                                    <constraint firstAttribute="height" constant="70" id="tfL-Ct-tjK"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="Zuc-90-ORo" firstAttribute="leading" secondItem="gUe-FZ-ngV" secondAttribute="leading" id="ON1-EZ-P5Z"/>
                             <constraint firstAttribute="trailing" secondItem="LGm-WH-jvH" secondAttribute="trailing" id="Wdo-F9-bJu"/>
+                            <constraint firstItem="Zuc-90-ORo" firstAttribute="top" secondItem="LGm-WH-jvH" secondAttribute="bottom" constant="10" id="d1v-nm-oBC"/>
+                            <constraint firstItem="gUe-FZ-ngV" firstAttribute="trailing" secondItem="Zuc-90-ORo" secondAttribute="trailing" id="nQ4-ks-0o8"/>
                             <constraint firstItem="LGm-WH-jvH" firstAttribute="top" secondItem="Aby-3z-Kci" secondAttribute="top" id="ofw-Rt-mZY"/>
                             <constraint firstItem="LGm-WH-jvH" firstAttribute="leading" secondItem="Aby-3z-Kci" secondAttribute="leading" id="zkd-Fu-MY4"/>
                         </constraints>
@@ -46,6 +68,7 @@
                     <connections>
                         <outlet property="fakeNavigationView" destination="LGm-WH-jvH" id="5FK-0J-hgB"/>
                         <outlet property="navigationSearchBar" destination="KaF-jd-CPL" id="ZeU-er-gzP"/>
+                        <outlet property="userImageView" destination="E4X-dX-Xxp" id="C4p-TR-3jp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iJZ-5W-xyG" userLabel="First Responder" sceneMemberID="firstResponder"/>
