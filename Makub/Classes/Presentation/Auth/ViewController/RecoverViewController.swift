@@ -178,11 +178,11 @@ final class RecoverViewController: UIViewController {
     
     // MARK: - IBActions
     
-    @IBAction func backButtonTapped(_ sender: Any) {
+    @IBAction private func backButtonTapped(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
     
-    @IBAction func recoverButtonTapped(_ sender: Any) {
+    @IBAction private func recoverButtonTapped(_ sender: Any) {
         guard let email = emailTextField.text?.removeWhitespaces() else { return }
         presentationModel.recoverPassword(email: email) {
             [unowned self] in

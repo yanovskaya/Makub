@@ -154,7 +154,7 @@ final class AuthViewController: UIViewController {
         }
     }
     
-    @IBAction func forgotButtonTapped(_ sender: Any) {
+    @IBAction private func forgotButtonTapped(_ sender: Any) {
         router.showRecoverVC(source: self)
     }
     

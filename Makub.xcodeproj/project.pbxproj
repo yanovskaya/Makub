@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0133FA4162EDEEAA9FE3135C /* Pods_Makub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD91280B983360A8DBD4BDFC /* Pods_Makub.framework */; };
+		C40EDD7420648EF000338300 /* UIImage+FromColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40EDD7320648EF000338300 /* UIImage+FromColor.swift */; };
 		C414F0D520596DE8001961EC /* Roboto-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = C414F0D120596DE7001961EC /* Roboto-Medium.otf */; };
 		C414F0D620596DE8001961EC /* Roboto-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = C414F0D220596DE8001961EC /* Roboto-Light.otf */; };
 		C414F0D720596DE8001961EC /* Roboto-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C414F0D320596DE8001961EC /* Roboto-Bold.otf */; };
@@ -53,6 +54,7 @@
 /* Begin PBXFileReference section */
 		25B33F5602AEBC76325DB113 /* Pods-Makub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Makub.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Makub/Pods-Makub.debug.xcconfig"; sourceTree = "<group>"; };
 		AD3835C1372474B08AEF32EE /* Pods-Makub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Makub.release.xcconfig"; path = "Pods/Target Support Files/Pods-Makub/Pods-Makub.release.xcconfig"; sourceTree = "<group>"; };
+		C40EDD7320648EF000338300 /* UIImage+FromColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+FromColor.swift"; sourceTree = "<group>"; };
 		C414F0D120596DE7001961EC /* Roboto-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.otf"; sourceTree = "<group>"; };
 		C414F0D220596DE8001961EC /* Roboto-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.otf"; sourceTree = "<group>"; };
 		C414F0D320596DE8001961EC /* Roboto-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.otf"; sourceTree = "<group>"; };
@@ -126,16 +128,33 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
-		C414F0D92059A23D001961EC /* Helper */ = {
+		C40EDD7520648F0F00338300 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				C44D60E92058573D00A5C50F /* UIFont+CustomFont.swift */,
 				C414F0DA2059A261001961EC /* UIViewController+HideKeyboard.swift */,
 				C44D60D6205807F500A5C50F /* UIColor+Hex.swift */,
-				C472A6C9205C4F8100768585 /* ErrorDescription.swift */,
 				C472A6D0205C7E5900768585 /* Storyboard+GetViewController.swift */,
-				C472A6D2205C7E8000768585 /* StoryboardTitle.swift */,
 				C4556B94205EC04D00D65DBD /* UIImage+ImageWithInsets.swift */,
+				C40EDD7320648EF000338300 /* UIImage+FromColor.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C40EDD7620648F1700338300 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				C472A6C9205C4F8100768585 /* ErrorDescription.swift */,
+				C472A6D2205C7E8000768585 /* StoryboardTitle.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		C414F0D92059A23D001961EC /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				C40EDD7620648F1700338300 /* Enums */,
+				C40EDD7520648F0F00338300 /* Extensions */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -353,9 +372,9 @@
 		C4D4E4F720618E42000A9216 /* News */ = {
 			isa = PBXGroup;
 			children = (
-				C40EDD6E2061CEE200338300 /* Helper */,
 				C4D4E5012061934F000A9216 /* News.storyboard */,
 				C4D4E4FB20618E8F000A9216 /* NewsViewController.swift */,
+				C40EDD6E2061CEE200338300 /* Helper */,
 			);
 			path = News;
 			sourceTree = "<group>";
@@ -548,6 +567,7 @@
 				C4D4E4F22060860F000A9216 /* AuthRouter.swift in Sources */,
 				C4D4E4FE20618FA9000A9216 /* TabBarController.swift in Sources */,
 				C4D4E4EF20606FEF000A9216 /* RecoverPresentationModel.swift in Sources */,
+				C40EDD7420648EF000338300 /* UIImage+FromColor.swift in Sources */,
 				C4D4E4DD20606EE5000A9216 /* Parser.swift in Sources */,
 				C4D4E4E920606F45000A9216 /* ServiceLayer.swift in Sources */,
 				C472A6C8205C4D5300768585 /* String+RemoveWhitespaces.swift in Sources */,
