@@ -15,7 +15,6 @@ final class AuthViewController: UIViewController {
     
     private enum Constants {
         static let authBackgroundImage = "auth_background"
-        static let backButtonImage = "arrow_left"
         static let logoImage = "logo"
         static let userImage = "user"
         static let lockImage = "lock"
@@ -63,8 +62,6 @@ final class AuthViewController: UIViewController {
         configureLoginButton()
         enableLoginButton()
         configureForgotButton()
-        
-        confivagureNavigationBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -133,19 +130,6 @@ final class AuthViewController: UIViewController {
         forgotButton.tintColor = UIColor.white.withAlphaComponent(0.8)
         forgotButton.titleLabel?.font = UIFont.customFont(.robotoLightFont(size: 13))
         forgotButton.setTitle(Constants.forgotButton, for: .normal)
-    }
-    
-    private func confivagureNavigationBar() {
-        navigationController?.navigationBar.isTranslucent = false
-        navigationController?.navigationBar.tintColor = PaletteColors.darkGray
-        
-        var backButtonImage = UIImage(named: Constants.backButtonImage)
-        let inset = LayoutConstants.standard
-        backButtonImage = backButtonImage?.imageWithInsets(insets: UIEdgeInsets(top: inset, left: inset, bottom: 0, right: 0))
-        navigationController?.navigationBar.topItem?.title = " "
-        navigationController?.navigationBar.backIndicatorImage = backButtonImage
-        navigationController?.navigationBar.backIndicatorTransitionMaskImage = backButtonImage
-        UINavigationBar.appearance().shadowImage = UIImage()
     }
     
     private func enableLoginButton() {
