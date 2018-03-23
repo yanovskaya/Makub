@@ -1,5 +1,5 @@
 //
-//  UserServiceImpl.swift
+//  UserService.swift
 //  Makub
 //
 //  Created by Елена Яновская on 23.03.2018.
@@ -7,3 +7,7 @@
 //
 
 import Foundation
+
+protocol UserService: class {
+    
+}

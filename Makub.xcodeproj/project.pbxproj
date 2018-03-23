@@ -299,7 +299,8 @@
 				C4691C4F206527DD00991C19 /* UserService.swift */,
 				C4691C51206527EE00991C19 /* UserServiceImpl.swift */,
 			);
-			path = User;
+			name = User;
+			path = ../User;
 			sourceTree = "<group>";
 		};
 		C472A6C0205B170E00768585 /* Presentation Model */ = {
@@ -322,7 +323,6 @@
 		C4D4E4D220606E61000A9216 /* Business Logic */ = {
 			isa = PBXGroup;
 			children = (
-				C4691C4E206527CE00991C19 /* User */,
 				C4D4E4D420606E7B000A9216 /* Service */,
 				C4D4E4D320606E79000A9216 /* Core Components */,
 			);
@@ -344,6 +344,7 @@
 			children = (
 				C4D4E4E820606F45000A9216 /* ServiceLayer.swift */,
 				C4D4E4D620606E9F000A9216 /* Auth */,
+				C4691C4E206527CE00991C19 /* User */,
 				C4D4E4D520606E9C000A9216 /* Common */,
 			);
 			path = Service;
