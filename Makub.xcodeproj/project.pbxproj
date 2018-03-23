@@ -26,6 +26,8 @@
 		C44D60D7205807F500A5C50F /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44D60D6205807F500A5C50F /* UIColor+Hex.swift */; };
 		C44D60EA2058573D00A5C50F /* UIFont+CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44D60E92058573D00A5C50F /* UIFont+CustomFont.swift */; };
 		C4556B95205EC04D00D65DBD /* UIImage+ImageWithInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4556B94205EC04D00D65DBD /* UIImage+ImageWithInsets.swift */; };
+		C4691C50206527DD00991C19 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4691C4F206527DD00991C19 /* UserService.swift */; };
+		C4691C52206527EE00991C19 /* UserServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4691C51206527EE00991C19 /* UserServiceImpl.swift */; };
 		C472A6BF205B16D500768585 /* PresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472A6BE205B16D500768585 /* PresentationModel.swift */; };
 		C472A6C3205B174000768585 /* AuthPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472A6C2205B174000768585 /* AuthPresentationModel.swift */; };
 		C472A6C8205C4D5300768585 /* String+RemoveWhitespaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472A6C7205C4D5300768585 /* String+RemoveWhitespaces.swift */; };
@@ -74,6 +76,8 @@
 		C44D60D6205807F500A5C50F /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		C44D60E92058573D00A5C50F /* UIFont+CustomFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+CustomFont.swift"; sourceTree = "<group>"; };
 		C4556B94205EC04D00D65DBD /* UIImage+ImageWithInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+ImageWithInsets.swift"; sourceTree = "<group>"; };
+		C4691C4F206527DD00991C19 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserService.swift; path = "Makub/Classes/Business logic/User/UserService.swift"; sourceTree = SOURCE_ROOT; };
+		C4691C51206527EE00991C19 /* UserServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserServiceImpl.swift; sourceTree = "<group>"; };
 		C472A6BE205B16D500768585 /* PresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationModel.swift; sourceTree = "<group>"; };
 		C472A6C2205B174000768585 /* AuthPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPresentationModel.swift; sourceTree = "<group>"; };
 		C472A6C7205C4D5300768585 /* String+RemoveWhitespaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+RemoveWhitespaces.swift"; sourceTree = "<group>"; };
@@ -289,6 +293,15 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
+		C4691C4E206527CE00991C19 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				C4691C4F206527DD00991C19 /* UserService.swift */,
+				C4691C51206527EE00991C19 /* UserServiceImpl.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
 		C472A6C0205B170E00768585 /* Presentation Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -309,6 +322,7 @@
 		C4D4E4D220606E61000A9216 /* Business Logic */ = {
 			isa = PBXGroup;
 			children = (
+				C4691C4E206527CE00991C19 /* User */,
 				C4D4E4D420606E7B000A9216 /* Service */,
 				C4D4E4D320606E79000A9216 /* Core Components */,
 			);
@@ -567,6 +581,8 @@
 				C4D4E4F22060860F000A9216 /* AuthRouter.swift in Sources */,
 				C4D4E4FE20618FA9000A9216 /* TabBarController.swift in Sources */,
 				C4D4E4EF20606FEF000A9216 /* RecoverPresentationModel.swift in Sources */,
+				C4691C50206527DD00991C19 /* UserService.swift in Sources */,
+				C4691C52206527EE00991C19 /* UserServiceImpl.swift in Sources */,
 				C40EDD7420648EF000338300 /* UIImage+FromColor.swift in Sources */,
 				C4D4E4DD20606EE5000A9216 /* Parser.swift in Sources */,
 				C4D4E4E920606F45000A9216 /* ServiceLayer.swift in Sources */,
