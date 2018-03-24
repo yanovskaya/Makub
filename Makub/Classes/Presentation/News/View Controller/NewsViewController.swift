@@ -6,6 +6,7 @@
 //  Copyright © 2018 Elena Yanovskaya. All rights reserved.
 //
 
+import PKHUD
 import UIKit
 
 final class NewsViewController: UIViewController {
@@ -23,6 +24,10 @@ final class NewsViewController: UIViewController {
     
     @IBOutlet var userImageView: UIImageView!
     
+    // MARK: - Private Properties
+    
+    private let presentationModel = NewsPresentationModel()
+    
     // MARK: - ViewController lifecycle
     
     override func viewDidLoad() {
@@ -33,10 +38,37 @@ final class NewsViewController: UIViewController {
         configureSearchBar()
         
         hideSearchKeyboardWhenTappedAround()
+        bindEvents()
+        presentationModel.getInfo {
+            print(self.presentationModel.userViewModel?.photo)
+        }
     }
     
     // MARK: - Private Methods
     
+    private func bindEvents() {
+        presentationModel.changeStateHandler = { status in
+            switch status {
+            case .loading:
+                HUD.show(.progress)
+            case .rich:
+                print("here")
+                HUD.show(.success)
+                HUD.hide(afterDelay: 0.4)
+            case .error (let code):
+                switch code {
+                case -1009, -1001:
+                    HUD.show(.labeledError(title: ErrorDescription.title.rawValue, subtitle: ErrorDescription.network.rawValue))
+                case 2:
+                    HUD.show(.labeledError(title: ErrorDescription.title.rawValue, subtitle: ErrorDescription.recover.rawValue))
+                default:
+                    HUD.show(.labeledError(title: ErrorDescription.title.rawValue, subtitle: ErrorDescription.server.rawValue))
+                }
+                print("err")
+                HUD.hide(afterDelay: 1.0)
+            }
+        }
+    }
     private func configureFakeNavigationBar() {
         fakeNavigationView.backgroundColor = .white
         navigationSearchBar.backgroundImage = UIImage(color: .clear)

@@ -26,7 +26,8 @@
 		C44D60D7205807F500A5C50F /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44D60D6205807F500A5C50F /* UIColor+Hex.swift */; };
 		C44D60EA2058573D00A5C50F /* UIFont+CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44D60E92058573D00A5C50F /* UIFont+CustomFont.swift */; };
 		C4556B95205EC04D00D65DBD /* UIImage+ImageWithInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4556B94205EC04D00D65DBD /* UIImage+ImageWithInsets.swift */; };
-		C45AC95F206617F300F9947F /* TabBarPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45AC95E206617F300F9947F /* TabBarPresentationModel.swift */; };
+		C45AC9622066656100F9947F /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45AC9612066656100F9947F /* UserViewModel.swift */; };
+		C45AC967206671AF00F9947F /* NewsPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45AC966206671AF00F9947F /* NewsPresentationModel.swift */; };
 		C4691C50206527DD00991C19 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4691C4F206527DD00991C19 /* UserService.swift */; };
 		C4691C52206527EE00991C19 /* UserServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4691C51206527EE00991C19 /* UserServiceImpl.swift */; };
 		C472A6BF205B16D500768585 /* PresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472A6BE205B16D500768585 /* PresentationModel.swift */; };
@@ -77,7 +78,8 @@
 		C44D60D6205807F500A5C50F /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		C44D60E92058573D00A5C50F /* UIFont+CustomFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+CustomFont.swift"; sourceTree = "<group>"; };
 		C4556B94205EC04D00D65DBD /* UIImage+ImageWithInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+ImageWithInsets.swift"; sourceTree = "<group>"; };
-		C45AC95E206617F300F9947F /* TabBarPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarPresentationModel.swift; sourceTree = "<group>"; };
+		C45AC9612066656100F9947F /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		C45AC966206671AF00F9947F /* NewsPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsPresentationModel.swift; sourceTree = "<group>"; };
 		C4691C4F206527DD00991C19 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserService.swift; path = "Makub/Classes/Business logic/User/Protocol/UserService.swift"; sourceTree = SOURCE_ROOT; };
 		C4691C51206527EE00991C19 /* UserServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserServiceImpl.swift; path = "../../Business logic/User/UserServiceImpl.swift"; sourceTree = "<group>"; };
 		C472A6BE205B16D500768585 /* PresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationModel.swift; sourceTree = "<group>"; };
@@ -307,8 +309,8 @@
 		C45AC95B2066179D00F9947F /* Tab Bar */ = {
 			isa = PBXGroup;
 			children = (
-				C45AC95D206617C600F9947F /* Presentation Model */,
 				C45AC95C206617B200F9947F /* View Controller */,
+				C45AC9602066654A00F9947F /* View Model */,
 			);
 			path = "Tab Bar";
 			sourceTree = "<group>";
@@ -321,10 +323,18 @@
 			path = "View Controller";
 			sourceTree = "<group>";
 		};
-		C45AC95D206617C600F9947F /* Presentation Model */ = {
+		C45AC9602066654A00F9947F /* View Model */ = {
 			isa = PBXGroup;
 			children = (
-				C45AC95E206617F300F9947F /* TabBarPresentationModel.swift */,
+				C45AC9612066656100F9947F /* UserViewModel.swift */,
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
+		C45AC9652066710B00F9947F /* Presentation Model */ = {
+			isa = PBXGroup;
+			children = (
+				C45AC966206671AF00F9947F /* NewsPresentationModel.swift */,
 			);
 			path = "Presentation Model";
 			sourceTree = "<group>";
@@ -423,6 +433,7 @@
 		C4D4E4F720618E42000A9216 /* News */ = {
 			isa = PBXGroup;
 			children = (
+				C45AC9652066710B00F9947F /* Presentation Model */,
 				C4D4E5012061934F000A9216 /* News.storyboard */,
 				C45AC9572066171C00F9947F /* View Controller */,
 			);
@@ -603,7 +614,6 @@
 				C414F0DB2059A261001961EC /* UIViewController+HideKeyboard.swift in Sources */,
 				C44D60D7205807F500A5C50F /* UIColor+Hex.swift in Sources */,
 				C4BC7104205F2BEA00332D7E /* AuthPassButton.swift in Sources */,
-				C45AC95F206617F300F9947F /* TabBarPresentationModel.swift in Sources */,
 				C44D60B2205529C200A5C50F /* AuthViewController.swift in Sources */,
 				C472A6BF205B16D500768585 /* PresentationModel.swift in Sources */,
 				C472A6CF205C647C00768585 /* KeychainKeys.swift in Sources */,
@@ -611,7 +621,9 @@
 				C4556B95205EC04D00D65DBD /* UIImage+ImageWithInsets.swift in Sources */,
 				C44D60D5205806BB00A5C50F /* Colors.swift in Sources */,
 				C472A6CA205C4F8100768585 /* ErrorDescription.swift in Sources */,
+				C45AC9622066656100F9947F /* UserViewModel.swift in Sources */,
 				C4D4E4DE20606EE5000A9216 /* Serializer.swift in Sources */,
+				C45AC967206671AF00F9947F /* NewsPresentationModel.swift in Sources */,
 				C472A6D1205C7E5900768585 /* Storyboard+GetViewController.swift in Sources */,
 				C4D4E4D920606ED0000A9216 /* CallResults.swift in Sources */,
 				C4D4E4E320606F08000A9216 /* AuthServiceImpl.swift in Sources */,
