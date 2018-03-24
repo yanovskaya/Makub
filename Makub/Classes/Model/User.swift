@@ -7,11 +7,12 @@
 //
 
 import Foundation
+import RealmSwift
 
 /// Модельный объект пользователя.
-struct User: Decodable {
-    var error: Int
-    var photo: String!
+final class User: Object, Decodable {
+    @objc dynamic var error: Int = 0
+    @objc dynamic var photo: String!
     
     private enum CodingKeys: String, CodingKey {
         case error

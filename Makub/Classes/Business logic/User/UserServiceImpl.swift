@@ -8,6 +8,7 @@
 
 import Alamofire
 import Foundation
+import RealmSwift
 import SwiftKeychainWrapper
 
 final class UserServiceImpl: UserService {
@@ -29,6 +30,7 @@ final class UserServiceImpl: UserService {
     private let transport: Transport
     private let serializer = Serializer()
     private let parser = Parser<User>()
+    private let realmCache = RealmCache<User>()
     
     // MARK: - Initialization
     
@@ -51,17 +53,27 @@ final class UserServiceImpl: UserService {
                 switch parseResult {
                 case .parserSuccess(let model):
                     if model.error == 0 {
+                        self.realmCache.refreshCache(model)
                         completion?(ServiceCallResult.serviceSuccess(payload: model))
                     } else {
                         let error = NSError(domain: "", code: model.error)
                         completion?(ServiceCallResult.serviceFailure(error: error))
                     }
                 case .parserFailure(let error):
-                    completion?(ServiceCallResult.serviceFailure(error: error as NSError))
+                    self.obtainRealmCache(error: error, completion: completion)
                 }
             case .transportFailure(let error):
-                completion?(ServiceCallResult.serviceFailure(error: error as NSError))
+                self.obtainRealmCache(error: error, completion: completion)
             }
         }
     }
+    
+    func obtainRealmCache(error: NSError? = nil, completion: ((ServiceCallResult<User>) -> Void)?) {
+        if let userCache = self.realmCache.getCachedObject() {
+            completion?(ServiceCallResult.serviceSuccess(payload: userCache))
+        } else {
+            completion?(ServiceCallResult.serviceFailure(error: NSError()))
+        }
+    }
+    
 }

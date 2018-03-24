@@ -33,6 +33,7 @@ final class NewsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = true
+        view.backgroundColor = PaletteColors.blueBackground
         
         configureFakeNavigationBar()
         configureSearchBar()
@@ -40,6 +41,7 @@ final class NewsViewController: UIViewController {
         hideSearchKeyboardWhenTappedAround()
         bindEvents()
         presentationModel.obtainNews {
+            print("result")
             print(self.presentationModel.viewModel?.photo)
         }
     }
@@ -53,8 +55,7 @@ final class NewsViewController: UIViewController {
                 HUD.show(.progress)
             case .rich:
                 print("here")
-                HUD.show(.success)
-                HUD.hide(afterDelay: 0.4)
+                HUD.hide()
             case .error (let code):
                 switch code {
                 case -1009, -1001:
