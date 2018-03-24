@@ -24,6 +24,7 @@ final class NewsPresentationModel: PresentationModel {
     
     private let userService = ServiceLayer.shared.userService
     private let newsService = ServiceLayer.shared.newsService
+    
     private var userCacheIsObtained = false
     private var newsCacheIsObtained = false
 
@@ -53,7 +54,7 @@ final class NewsPresentationModel: PresentationModel {
         
         group.enter()
         obtainNewsCache()
-        if !userCacheIsObtained { state = .loading }
+        if !newsCacheIsObtained { state = .loading }
         newsService.obtainNews { result in
             switch result {
             case .serviceSuccess(let model):
