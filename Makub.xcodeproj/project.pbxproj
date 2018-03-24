@@ -38,6 +38,10 @@
 		C472A6D1205C7E5900768585 /* Storyboard+GetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472A6D0205C7E5900768585 /* Storyboard+GetViewController.swift */; };
 		C472A6D3205C7E8000768585 /* StoryboardTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472A6D2205C7E8000768585 /* StoryboardTitle.swift */; };
 		C4A303EE2066C1EB008BFE5E /* RealmCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A303ED2066C1EB008BFE5E /* RealmCache.swift */; };
+		C4A303F12066EA53008BFE5E /* NewsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A303F02066EA53008BFE5E /* NewsService.swift */; };
+		C4A303F52066EA6C008BFE5E /* NewsServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A303F42066EA6C008BFE5E /* NewsServiceImpl.swift */; };
+		C4A303F72066EAA4008BFE5E /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A303F62066EAA4008BFE5E /* News.swift */; };
+		C4A303FA2066EC5A008BFE5E /* NewsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A303F92066EC5A008BFE5E /* NewsResponse.swift */; };
 		C4BC7104205F2BEA00332D7E /* AuthPassButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BC7103205F2BEA00332D7E /* AuthPassButton.swift */; };
 		C4D4E4D920606ED0000A9216 /* CallResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D4E4D820606ED0000A9216 /* CallResults.swift */; };
 		C4D4E4DD20606EE5000A9216 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D4E4DA20606EE4000A9216 /* Parser.swift */; };
@@ -91,6 +95,10 @@
 		C472A6D0205C7E5900768585 /* Storyboard+GetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Storyboard+GetViewController.swift"; sourceTree = "<group>"; };
 		C472A6D2205C7E8000768585 /* StoryboardTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardTitle.swift; sourceTree = "<group>"; };
 		C4A303ED2066C1EB008BFE5E /* RealmCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RealmCache.swift; path = "Makub/Classes/Business logic/Core Components/RealmCache.swift"; sourceTree = SOURCE_ROOT; };
+		C4A303F02066EA53008BFE5E /* NewsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NewsService.swift; path = "Makub/Classes/Business logic/Service/News/Protocol/NewsService.swift"; sourceTree = SOURCE_ROOT; };
+		C4A303F42066EA6C008BFE5E /* NewsServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsServiceImpl.swift; sourceTree = "<group>"; };
+		C4A303F62066EAA4008BFE5E /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
+		C4A303F92066EC5A008BFE5E /* NewsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NewsResponse.swift; path = "Makub/Classes/Business logic/Service/News/Parser/NewsResponse.swift"; sourceTree = SOURCE_ROOT; };
 		C4BC7103205F2BEA00332D7E /* AuthPassButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPassButton.swift; sourceTree = "<group>"; };
 		C4D4E4D820606ED0000A9216 /* CallResults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallResults.swift; sourceTree = "<group>"; };
 		C4D4E4DA20606EE4000A9216 /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
@@ -225,6 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				C44D60C920553B0100A5C50F /* User.swift */,
+				C4A303F62066EAA4008BFE5E /* News.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -368,6 +377,33 @@
 			path = Keys;
 			sourceTree = "<group>";
 		};
+		C4A303EF2066EA3F008BFE5E /* News */ = {
+			isa = PBXGroup;
+			children = (
+				C4A303F22066EA57008BFE5E /* Protocol */,
+				C4A303F82066EC3A008BFE5E /* Parser */,
+				C4A303F42066EA6C008BFE5E /* NewsServiceImpl.swift */,
+			);
+			name = News;
+			path = "../../Business logic/Service/News";
+			sourceTree = "<group>";
+		};
+		C4A303F22066EA57008BFE5E /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				C4A303F02066EA53008BFE5E /* NewsService.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		C4A303F82066EC3A008BFE5E /* Parser */ = {
+			isa = PBXGroup;
+			children = (
+				C4A303F92066EC5A008BFE5E /* NewsResponse.swift */,
+			);
+			path = Parser;
+			sourceTree = "<group>";
+		};
 		C4D4E4D220606E61000A9216 /* Business Logic */ = {
 			isa = PBXGroup;
 			children = (
@@ -393,6 +429,7 @@
 			children = (
 				C4D4E4E820606F45000A9216 /* ServiceLayer.swift */,
 				C4D4E4D620606E9F000A9216 /* Auth */,
+				C4A303EF2066EA3F008BFE5E /* News */,
 				C4691C4E206527CE00991C19 /* User */,
 				C4D4E4D520606E9C000A9216 /* Common */,
 			);
@@ -622,6 +659,7 @@
 				C44D60D7205807F500A5C50F /* UIColor+Hex.swift in Sources */,
 				C4BC7104205F2BEA00332D7E /* AuthPassButton.swift in Sources */,
 				C44D60B2205529C200A5C50F /* AuthViewController.swift in Sources */,
+				C4A303F52066EA6C008BFE5E /* NewsServiceImpl.swift in Sources */,
 				C472A6BF205B16D500768585 /* PresentationModel.swift in Sources */,
 				C472A6CF205C647C00768585 /* KeychainKeys.swift in Sources */,
 				C472A6C3205B174000768585 /* AuthPresentationModel.swift in Sources */,
@@ -635,13 +673,16 @@
 				C4D4E4D920606ED0000A9216 /* CallResults.swift in Sources */,
 				C4D4E4E320606F08000A9216 /* AuthServiceImpl.swift in Sources */,
 				C4D4E4F22060860F000A9216 /* AuthRouter.swift in Sources */,
+				C4A303F72066EAA4008BFE5E /* News.swift in Sources */,
 				C4D4E4FE20618FA9000A9216 /* TabBarController.swift in Sources */,
 				C4D4E4EF20606FEF000A9216 /* RecoverPresentationModel.swift in Sources */,
 				C4691C50206527DD00991C19 /* UserService.swift in Sources */,
 				C4691C52206527EE00991C19 /* UserServiceImpl.swift in Sources */,
 				C40EDD7420648EF000338300 /* UIImage+FromColor.swift in Sources */,
 				C4D4E4DD20606EE5000A9216 /* Parser.swift in Sources */,
+				C4A303FA2066EC5A008BFE5E /* NewsResponse.swift in Sources */,
 				C4D4E4E920606F45000A9216 /* ServiceLayer.swift in Sources */,
+				C4A303F12066EA53008BFE5E /* NewsService.swift in Sources */,
 				C472A6C8205C4D5300768585 /* String+RemoveWhitespaces.swift in Sources */,
 				C4D4E4EB20606FA1000A9216 /* AuthResponse.swift in Sources */,
 				C4D4E4DF20606EE5000A9216 /* Transport.swift in Sources */,

@@ -32,7 +32,20 @@ final class NewsPresentationModel: PresentationModel {
     func obtainNews(completion: @escaping () -> Void) {
         showRealmCache()
         if !cacheIsShown { state = .loading }
-//        if viewModel == nil {
+        if viewModel == nil {
+            userService.obtainUserInfo { result in
+                switch result {
+                case .serviceSuccess(let model):
+                    guard let model = model else { return }
+                    self.viewModel = UserViewModel(model)
+                    self.group.leave()
+                case .serviceFailure(let error):
+                    self.error = error.code
+                    self.group.leave()
+                }
+            }
+            
+            
 //            state = .loading
 //            group.enter()
 //            userService.obtainUserInfo { result in
@@ -48,7 +61,7 @@ final class NewsPresentationModel: PresentationModel {
 //                    self.group.leave()
 //                }
 //            }
-//        }
+        }
         group.enter()
         userService.obtainUserInfo { result in
             switch result {

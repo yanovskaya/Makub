@@ -25,6 +25,11 @@ final class RealmCache<T> where T: Object {
         return Array(realm.objects(T.self)).first
     }
     
+    func getCachedArray() -> [T]? {
+        guard let realm = realm, !realm.objects(T.self).isEmpty else { return nil }
+        return Array(realm.objects(T.self))
+    }
+    
     func refreshCache(_ object: T) {
         do {
             print("refresh")
@@ -35,7 +40,20 @@ final class RealmCache<T> where T: Object {
         }
     }
     
-    func cleanCache() {
+    func refreshCache(_ array: [T]) {
+        let cacheList = List<T>()
+        do {
+            try? realm?.write {
+                cleanCache()
+                cacheList.append(objectsIn: array)
+                realm?.add(cacheList)
+            }
+        }
+    }
+    
+    // MARK: - Private Methods
+    
+    private func cleanCache() {
         print("clean")
         guard let realm = realm, !realm.objects(T.self).isEmpty else { return }
         let objects = realm.objects(T.self)

@@ -18,6 +18,7 @@ final class ServiceLayer {
     
     let authService: AuthService
     let userService: UserService
+    let newsService: NewsService
     
     private init() {
         sessionDelegate = SessionDelegate()
@@ -27,6 +28,7 @@ final class ServiceLayer {
         
         authService = AuthServiceImpl(sessionManager: sessionManager)
         userService = UserServiceImpl(sessionManager: sessionManager)
+        newsService = NewsServiceImpl(sessionManager: sessionManager)
     }
     
 }
