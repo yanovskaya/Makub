@@ -28,7 +28,6 @@ final class NewsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = true
-        view.backgroundColor = PaletteColors.blueBackground
         
         configureFakeNavigationBar()
         configureSearchBar()

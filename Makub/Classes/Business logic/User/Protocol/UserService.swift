@@ -10,4 +10,5 @@ import Foundation
 
 protocol UserService: class {
     
+    func obtainUserInfo(completion: ((ServiceCallResult<User>) -> Void)?)
 }
