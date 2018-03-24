@@ -39,8 +39,8 @@ final class NewsViewController: UIViewController {
         
         hideSearchKeyboardWhenTappedAround()
         bindEvents()
-        presentationModel.getInfo {
-            print(self.presentationModel.userViewModel?.photo)
+        presentationModel.obtainNews {
+            print(self.presentationModel.viewModel?.photo)
         }
     }
     
