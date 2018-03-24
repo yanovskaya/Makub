@@ -52,6 +52,7 @@ final class NewsServiceImpl: NewsService {
                 let parseResult = self.parser.parse(from: resultBody)
                 switch parseResult {
                 case .parserSuccess(let model):
+                    print("pars suc")
                     if model.error == 0 {
                         self.realmCache.refreshCache(model.news)
                         completion?(ServiceCallResult.serviceSuccess(payload: model))
@@ -60,6 +61,7 @@ final class NewsServiceImpl: NewsService {
                         completion?(ServiceCallResult.serviceFailure(error: error))
                     }
                 case .parserFailure(let error):
+                    print("pars errrrr")
                     self.obtainRealmCache(error: error, completion: completion)
                 }
             case .transportFailure(let error):

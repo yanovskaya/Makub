@@ -42,7 +42,7 @@ final class NewsViewController: UIViewController {
         bindEvents()
         presentationModel.obtainNews {
             print("result")
-            print(self.presentationModel.viewModel?.photo)
+            print(self.presentationModel.tabBarViewModel?.photo)
         }
     }
     
