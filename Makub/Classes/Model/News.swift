@@ -14,8 +14,8 @@ final class News: Object, Decodable {
     @objc dynamic var text: String = ""
     @objc dynamic var tag: String = ""
     @objc dynamic var date: String = ""
-    @objc dynamic var image: String = ""
+    @objc dynamic var image: String! = nil
+    @objc dynamic var photo: String! = nil
     @objc dynamic var name: String! = nil
     @objc dynamic var surname: String! = nil
-    @objc dynamic var photo: String! = nil
 }

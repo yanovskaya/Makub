@@ -44,8 +44,7 @@
 		C4A303FA2066EC5A008BFE5E /* NewsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A303F92066EC5A008BFE5E /* NewsResponse.swift */; };
 		C4A303FD2066F53C008BFE5E /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A303FC2066F53C008BFE5E /* NewsViewModel.swift */; };
 		C4A304002067085D008BFE5E /* AddNewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4A303FF2067085D008BFE5E /* AddNewsCell.xib */; };
-		C4A3040220670988008BFE5E /* News.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4A3040120670988008BFE5E /* News.xib */; };
-		C4A30404206709DF008BFE5E /* NewsWithImage.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4A30403206709DF008BFE5E /* NewsWithImage.xib */; };
+		C4A30404206709DF008BFE5E /* NewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4A30403206709DF008BFE5E /* NewsCell.xib */; };
 		C4BC7104205F2BEA00332D7E /* AuthPassButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BC7103205F2BEA00332D7E /* AuthPassButton.swift */; };
 		C4D4E4D920606ED0000A9216 /* CallResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D4E4D820606ED0000A9216 /* CallResults.swift */; };
 		C4D4E4DD20606EE5000A9216 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D4E4DA20606EE4000A9216 /* Parser.swift */; };
@@ -62,6 +61,8 @@
 		C4D4E4FE20618FA9000A9216 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D4E4FD20618FA9000A9216 /* TabBarController.swift */; };
 		C4D4E50020619339000A9216 /* Rating.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4D4E4FF20619339000A9216 /* Rating.storyboard */; };
 		C4D4E5022061934F000A9216 /* News.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4D4E5012061934F000A9216 /* News.storyboard */; };
+		C4D9099520680F1800DC3D6C /* AddNewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D9099420680F1800DC3D6C /* AddNewsCell.swift */; };
+		C4D909972068196900DC3D6C /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D909962068196900DC3D6C /* NewsCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -105,8 +106,7 @@
 		C4A303F92066EC5A008BFE5E /* NewsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NewsResponse.swift; path = "Makub/Classes/Business logic/Service/News/Parser/NewsResponse.swift"; sourceTree = SOURCE_ROOT; };
 		C4A303FC2066F53C008BFE5E /* NewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
 		C4A303FF2067085D008BFE5E /* AddNewsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddNewsCell.xib; sourceTree = "<group>"; };
-		C4A3040120670988008BFE5E /* News.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = News.xib; sourceTree = "<group>"; };
-		C4A30403206709DF008BFE5E /* NewsWithImage.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsWithImage.xib; sourceTree = "<group>"; };
+		C4A30403206709DF008BFE5E /* NewsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsCell.xib; sourceTree = "<group>"; };
 		C4BC7103205F2BEA00332D7E /* AuthPassButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPassButton.swift; sourceTree = "<group>"; };
 		C4D4E4D820606ED0000A9216 /* CallResults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallResults.swift; sourceTree = "<group>"; };
 		C4D4E4DA20606EE4000A9216 /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
@@ -123,6 +123,8 @@
 		C4D4E4FD20618FA9000A9216 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		C4D4E4FF20619339000A9216 /* Rating.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Rating.storyboard; sourceTree = "<group>"; };
 		C4D4E5012061934F000A9216 /* News.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = News.storyboard; sourceTree = "<group>"; };
+		C4D9099420680F1800DC3D6C /* AddNewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewsCell.swift; sourceTree = "<group>"; };
+		C4D909962068196900DC3D6C /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
 		FD91280B983360A8DBD4BDFC /* Pods_Makub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Makub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -424,8 +426,9 @@
 			isa = PBXGroup;
 			children = (
 				C4A303FF2067085D008BFE5E /* AddNewsCell.xib */,
-				C4A3040120670988008BFE5E /* News.xib */,
-				C4A30403206709DF008BFE5E /* NewsWithImage.xib */,
+				C4A30403206709DF008BFE5E /* NewsCell.xib */,
+				C4D9099420680F1800DC3D6C /* AddNewsCell.swift */,
+				C4D909962068196900DC3D6C /* NewsCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -594,10 +597,9 @@
 				C414F0D620596DE8001961EC /* Roboto-Light.otf in Resources */,
 				C414F0D820596DE8001961EC /* Roboto-Regular.otf in Resources */,
 				C4D4E5022061934F000A9216 /* News.storyboard in Resources */,
-				C4A30404206709DF008BFE5E /* NewsWithImage.xib in Resources */,
+				C4A30404206709DF008BFE5E /* NewsCell.xib in Resources */,
 				C44D60B5205529C200A5C50F /* Auth.storyboard in Resources */,
 				C4D4E50020619339000A9216 /* Rating.storyboard in Resources */,
-				C4A3040220670988008BFE5E /* News.xib in Resources */,
 				C414F0D520596DE8001961EC /* Roboto-Medium.otf in Resources */,
 				C414F0D720596DE8001961EC /* Roboto-Bold.otf in Resources */,
 			);
@@ -696,6 +698,7 @@
 				C472A6C3205B174000768585 /* AuthPresentationModel.swift in Sources */,
 				C4556B95205EC04D00D65DBD /* UIImage+ImageWithInsets.swift in Sources */,
 				C44D60D5205806BB00A5C50F /* Colors.swift in Sources */,
+				C4D909972068196900DC3D6C /* NewsCell.swift in Sources */,
 				C472A6CA205C4F8100768585 /* ErrorDescription.swift in Sources */,
 				C45AC9622066656100F9947F /* UserViewModel.swift in Sources */,
 				C4D4E4DE20606EE5000A9216 /* Serializer.swift in Sources */,
@@ -710,6 +713,7 @@
 				C4691C50206527DD00991C19 /* UserService.swift in Sources */,
 				C4691C52206527EE00991C19 /* UserServiceImpl.swift in Sources */,
 				C40EDD7420648EF000338300 /* UIImage+FromColor.swift in Sources */,
+				C4D9099520680F1800DC3D6C /* AddNewsCell.swift in Sources */,
 				C4D4E4DD20606EE5000A9216 /* Parser.swift in Sources */,
 				C4A303FD2066F53C008BFE5E /* NewsViewModel.swift in Sources */,
 				C4A303FA2066EC5A008BFE5E /* NewsResponse.swift in Sources */,

@@ -70,6 +70,7 @@
                     <connections>
                         <outlet property="fakeNavigationView" destination="LGm-WH-jvH" id="5FK-0J-hgB"/>
                         <outlet property="navigationSearchBar" destination="KaF-jd-CPL" id="ZeU-er-gzP"/>
+                        <outlet property="newsCollectionView" destination="QxD-fG-A70" id="oHk-8b-QP3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iJZ-5W-xyG" userLabel="First Responder" sceneMemberID="firstResponder"/>

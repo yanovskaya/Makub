@@ -18,15 +18,15 @@ struct UserViewModel {
     
     // MARK: - Public Properties
     
-    let photo: String!
+    let photoURL: String!
     
     // MARK: - Initialization
     
     init(_ user: User) {
-        guard let photo = user.photo else {
-            self.photo = nil
+        guard let photo = user.photo, photo != "" else {
+            self.photoURL = nil
             return
         }
-        self.photo = Constants.baseURL + photo
+        self.photoURL = Constants.baseURL + photo
     }
 }

@@ -15,6 +15,8 @@ final class NewsViewController: UIViewController {
     
     private enum Constants {
         static let searchBarPlaceholder = "Поиск"
+        static let addNewsCellId = String(describing: AddNewsCell.self)
+        static let newsCellId = String(describing: NewsCell.self)
     }
     
     // MARK: - IBOutlets
@@ -22,7 +24,8 @@ final class NewsViewController: UIViewController {
     @IBOutlet var fakeNavigationView: UIView!
     @IBOutlet var navigationSearchBar: UISearchBar!
     
-    @IBOutlet var userImageView: UIImageView!
+    @IBOutlet var newsCollectionView: UICollectionView!
+    
     
     // MARK: - Private Properties
     
@@ -35,6 +38,14 @@ final class NewsViewController: UIViewController {
         navigationController?.isNavigationBarHidden = true
         view.backgroundColor = PaletteColors.blueBackground
         
+        if let layout = newsCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            layout.scrollDirection = .horizontal
+        }
+        newsCollectionView.register(UINib(nibName: Constants.addNewsCellId, bundle: nil), forCellWithReuseIdentifier: Constants.addNewsCellId)
+        newsCollectionView.register(UINib(nibName: Constants.newsCellId, bundle: nil), forCellWithReuseIdentifier: Constants.newsCellId)
+       // newsCollectionView.backgroundColor = .white
+        newsCollectionView.dataSource = self
+        
         configureFakeNavigationBar()
         configureSearchBar()
         
@@ -42,7 +53,7 @@ final class NewsViewController: UIViewController {
         bindEvents()
         presentationModel.obtainNews {
             print("result")
-            print(self.presentationModel.tabBarViewModel?.photo)
+            print(self.presentationModel.tabBarViewModel?.photoURL)
         }
     }
     
@@ -54,7 +65,8 @@ final class NewsViewController: UIViewController {
             case .loading:
                 HUD.show(.progress)
             case .rich:
-                print("here")
+                self.newsCollectionView.reloadData()
+                print("RELOAD")
                 HUD.hide()
             case .error (let code):
                 switch code {
@@ -94,6 +106,7 @@ final class NewsViewController: UIViewController {
     
 }
 
+
 // MARK: - UISearchBarDelegate
 
 extension NewsViewController: UISearchBarDelegate {
@@ -112,4 +125,43 @@ extension NewsViewController: UISearchBarDelegate {
         searchBar.setShowsCancelButton(false, animated: true)
         searchBar.resignFirstResponder()
     }
+}
+
+
+// MARK: - UITableViewDataSource
+
+extension NewsViewController: UICollectionViewDataSource {
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 2
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if section == 0 {
+            return 1
+        } else {
+            return presentationModel.newsViewModels.count
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+     //   let newsViewModel = presentationModel.newsViewModels[indexPath.row]
+        let section = indexPath.section
+        let addNewsCellId = Constants.addNewsCellId
+        let newsCellId = Constants.newsCellId
+        
+        let addNewsCell =
+            newsCollectionView.dequeueReusableCell(withReuseIdentifier: addNewsCellId, for: indexPath) as! AddNewsCell
+        let newsCell =
+            newsCollectionView.dequeueReusableCell(withReuseIdentifier: newsCellId, for: indexPath) as! NewsCell
+
+        if section == 0 {
+            addNewsCell.layoutIfNeeded()
+            return addNewsCell
+        } else {
+            newsCell.layoutIfNeeded()
+            return newsCell
+        }
+    }
+    
 }

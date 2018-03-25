@@ -25,7 +25,7 @@ final class TabBarController: UITabBarController {
     static var userViewModel: UserViewModel! {
         didSet {
             print("didset")
-            print(userViewModel.photo)
+            print(userViewModel.photoURL)
         }
     }
 

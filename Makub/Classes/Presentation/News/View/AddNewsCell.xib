@@ -13,7 +13,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB">
+        <view contentMode="scaleToFill" restorationIdentifier="AddNewsCell" id="iN0-l3-epB" customClass="AddNewsCell" customModule="Макуб" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="437" height="70"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -24,11 +24,19 @@
                         <constraint firstAttribute="width" constant="45" id="sTN-We-qd9"/>
                     </constraints>
                 </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ngp-7j-nJx">
+                    <rect key="frame" x="81" y="25" width="42" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="ngp-7j-nJx" firstAttribute="leading" secondItem="Vp6-RU-7T9" secondAttribute="trailing" constant="20" id="0bf-0P-Wmr"/>
                 <constraint firstItem="Vp6-RU-7T9" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="1Fj-TW-Ske"/>
                 <constraint firstItem="Vp6-RU-7T9" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="SHy-29-2ID"/>
+                <constraint firstItem="ngp-7j-nJx" firstAttribute="centerY" secondItem="Vp6-RU-7T9" secondAttribute="centerY" id="hJx-gg-UbX"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
