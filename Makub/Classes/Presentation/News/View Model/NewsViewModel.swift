@@ -14,11 +14,15 @@ final class NewsViewModel {
     
     private enum Constants {
         static let baseURL = "https://makub.ru"
+        static let yurasName = "Юрий Клименко"
+        static let defaultTitle = "Новость"
     }
     
     // MARK: - Public Properties
     
+    let title: String
     let text: String
+    let date: String
     let fullName: String!
     let imageURL: String!
     let photoURL: String!
@@ -27,13 +31,20 @@ final class NewsViewModel {
     
     init(_ news: News) {
         self.text = news.text
+        self.date = news.date
         
         if let name = news.name,
             let surname = news.surname {
             self.fullName = name + " " + surname
+            self.title = news.title
+        } else if news.title == Constants.yurasName {
+            self.fullName = Constants.yurasName
+            self.title = Constants.defaultTitle
         } else {
+            self.title = news.title
             self.fullName = nil
         }
+        
         if let photo = news.photo, photo != "" {
             self.photoURL = Constants.baseURL + photo
         } else {
@@ -45,5 +56,7 @@ final class NewsViewModel {
         } else {
             self.imageURL = nil
         }
+        
+        
     }
 }
