@@ -10,6 +10,14 @@ import UIKit
 
 final class AddNewsCell: UICollectionViewCell, ViewModelConfigurable {
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+        self.contentView.translatesAutoresizingMaskIntoConstraints = false
+        let screenWidth = UIScreen.main.bounds.size.width
+        widthAnchor.constraint(equalToConstant: screenWidth).isActive = true
+    }
+    
     func configure(for viewModel: NewsViewModel) {
         
     }

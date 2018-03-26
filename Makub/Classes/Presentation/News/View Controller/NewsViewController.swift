@@ -38,12 +38,14 @@ final class NewsViewController: UIViewController {
         navigationController?.isNavigationBarHidden = true
         view.backgroundColor = PaletteColors.blueBackground
         
-        if let layout = newsCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            layout.scrollDirection = .horizontal
-        }
+
         newsCollectionView.register(UINib(nibName: Constants.addNewsCellId, bundle: nil), forCellWithReuseIdentifier: Constants.addNewsCellId)
         newsCollectionView.register(UINib(nibName: Constants.newsCellId, bundle: nil), forCellWithReuseIdentifier: Constants.newsCellId)
-       // newsCollectionView.backgroundColor = .white
+        if let flowLayout = newsCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 10, right: 0)
+            flowLayout.estimatedItemSize = CGSize(width: 1, height: 1)
+        }
+       newsCollectionView.backgroundColor = .clear
         newsCollectionView.dataSource = self
         
         configureFakeNavigationBar()
@@ -156,10 +158,10 @@ extension NewsViewController: UICollectionViewDataSource {
             newsCollectionView.dequeueReusableCell(withReuseIdentifier: newsCellId, for: indexPath) as! NewsCell
 
         if section == 0 {
-            addNewsCell.layoutIfNeeded()
+         //   addNewsCell.layoutIfNeeded()
             return addNewsCell
         } else {
-            newsCell.layoutIfNeeded()
+        //    newsCell.layoutIfNeeded()
             return newsCell
         }
     }
