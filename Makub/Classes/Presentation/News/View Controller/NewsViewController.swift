@@ -168,9 +168,9 @@ extension NewsViewController: UICollectionViewDataSource {
             
             let viewModel = presentationModel.newsViewModels[indexPath.row]
             newsCell.configure(for: viewModel)
-            let arr = ["https://makub.ru/uploads/1510250517.jpg", "https://makub.ru/uploads/1510250517.jpg"]
-            guard let u = URL(string: arr[indexPath.row]) else { return newsCell }
-            let url = ImageResource(downloadURL: u, cacheKey: arr[indexPath.row])
+            guard let ur = presentationModel.newsViewModels[indexPath.row].photoURL else { return newsCell }
+            guard let u = URL(string: ur) else { return newsCell }
+            let url = ImageResource(downloadURL: u, cacheKey: ur)
             newsCell.authorPhoto.kf.setImage(with: url)
             newsCell.authorPhoto.kf.indicatorType = .activity
         //    newsCell.layoutIfNeeded()
