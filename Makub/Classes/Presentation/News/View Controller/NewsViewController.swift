@@ -166,6 +166,8 @@ extension NewsViewController: UICollectionViewDataSource {
             newsCollectionView.dequeueReusableCell(withReuseIdentifier: newsCellId, for: indexPath) as! NewsCell
 
         if section == 0 {
+            let viewModel = presentationModel.tabBarViewModel
+            addNewsCell.configure(for: viewModel!)
             return addNewsCell
         } else {
             let viewModel = presentationModel.newsViewModels[indexPath.row]

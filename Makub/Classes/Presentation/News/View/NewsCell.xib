@@ -17,7 +17,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="351"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DaZ-Vj-aNW">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DaZ-Vj-aNW">
                     <rect key="frame" x="20" y="10" width="50" height="50"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="DaZ-Vj-aNW" secondAttribute="height" multiplier="1:1" id="SDS-33-KQJ"/>
