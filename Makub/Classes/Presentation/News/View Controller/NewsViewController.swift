@@ -29,6 +29,8 @@ final class NewsViewController: UIViewController {
     
     // MARK: - Private Properties
     
+    let refreshControl = UIRefreshControl()
+    
     private let presentationModel = NewsPresentationModel()
     
     // MARK: - ViewController lifecycle
@@ -38,11 +40,12 @@ final class NewsViewController: UIViewController {
         navigationController?.isNavigationBarHidden = true
         view.backgroundColor = PaletteColors.blueBackground
         
-
+        newsCollectionView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
         newsCollectionView.register(UINib(nibName: Constants.addNewsCellId, bundle: nil), forCellWithReuseIdentifier: Constants.addNewsCellId)
         newsCollectionView.register(UINib(nibName: Constants.newsCellId, bundle: nil), forCellWithReuseIdentifier: Constants.newsCellId)
         if let flowLayout = newsCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 10, right: 0)
+            flowLayout.sectionInset = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
             flowLayout.estimatedItemSize = CGSize(width: 1, height: 1)
         }
        newsCollectionView.backgroundColor = .clear
@@ -55,13 +58,15 @@ final class NewsViewController: UIViewController {
         
         hideSearchKeyboardWhenTappedAround()
         bindEvents()
-        presentationModel.obtainNews {
-            print("result")
-            print(self.presentationModel.tabBarViewModel?.photoURL)
-        }
+        presentationModel.obtainNews()
     }
     
     // MARK: - Private Methods
+    
+    /// Обновление данных
+    @objc func refresh(_ refreshControl: UIRefreshControl) {
+        presentationModel.obtainNews()
+    }
     
     private func bindEvents() {
         presentationModel.changeStateHandler = { status in
@@ -84,6 +89,7 @@ final class NewsViewController: UIViewController {
                 print("err")
                 HUD.hide(afterDelay: 1.0)
             }
+            self.refreshControl.endRefreshing()
         }
     }
     private func configureFakeNavigationBar() {

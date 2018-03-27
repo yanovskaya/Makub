@@ -34,21 +34,19 @@ final class NewsPresentationModel: PresentationModel {
     
     // MARK: - Public Methods
     
-    func obtainNews(completion: @escaping () -> Void) {
+    func obtainNews() {
         group.enter()
         obtainUserCache()
         if !userCacheIsObtained { state = .loading }
-        if tabBarViewModel == nil {
-            userService.obtainUserInfo { result in
-                switch result {
-                case .serviceSuccess(let model):
-                    guard let model = model else { return }
-                    self.tabBarViewModel = UserViewModel(model)
-                    self.group.leave()
-                case .serviceFailure(let error):
-                    self.error = error.code
-                    self.group.leave()
-                }
+        userService.obtainUserInfo { result in
+            switch result {
+            case .serviceSuccess(let model):
+                guard let model = model else { return }
+                self.tabBarViewModel = UserViewModel(model)
+                self.group.leave()
+            case .serviceFailure(let error):
+                self.error = error.code
+                self.group.leave()
             }
         }
         
@@ -73,7 +71,6 @@ final class NewsPresentationModel: PresentationModel {
             } else {
                 self.state = .rich
             }
-            completion()
         }
         
     }
