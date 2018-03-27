@@ -6,6 +6,7 @@
 //  Copyright © 2018 Elena Yanovskaya. All rights reserved.
 //
 
+import Kingfisher
 import PKHUD
 import UIKit
 
@@ -46,7 +47,9 @@ final class NewsViewController: UIViewController {
             flowLayout.estimatedItemSize = CGSize(width: 1, height: 1)
         }
        newsCollectionView.backgroundColor = .clear
-        newsCollectionView.dataSource = self
+        
+        
+        newsCollectionView.dataSource = self //!
         
         configureFakeNavigationBar()
         configureSearchBar()
@@ -158,16 +161,20 @@ extension NewsViewController: UICollectionViewDataSource {
             newsCollectionView.dequeueReusableCell(withReuseIdentifier: newsCellId, for: indexPath) as! NewsCell
 
         if section == 0 {
-            addNewsCell.widthAnchor.constraint(equalToConstant: view.frame.width).isActive = true
+            
          //   addNewsCell.layoutIfNeeded()
             return addNewsCell
         } else {
-            newsCell.widthAnchor.constraint(equalToConstant: view.frame.width).isActive = true
+            
             let viewModel = presentationModel.newsViewModels[indexPath.row]
             newsCell.configure(for: viewModel)
+            let arr = ["https://makub.ru/uploads/1510250517.jpg", "https://makub.ru/uploads/1510250517.jpg"]
+            guard let u = URL(string: arr[indexPath.row]) else { return newsCell }
+            let url = ImageResource(downloadURL: u, cacheKey: arr[indexPath.row])
+            newsCell.authorPhoto.kf.setImage(with: url)
+            newsCell.authorPhoto.kf.indicatorType = .activity
         //    newsCell.layoutIfNeeded()
             return newsCell
         }
     }
-    
 }

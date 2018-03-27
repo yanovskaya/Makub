@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.7.0)
+  - Kingfisher (4.6.4)
   - PKHUD (5.0.0)
   - Realm (3.1.1):
     - Realm/Headers (= 3.1.1)
@@ -11,6 +12,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
+  - Kingfisher (~> 4.0)
   - PKHUD (~> 5.0)
   - RealmSwift
   - SwiftKeychainWrapper
@@ -18,12 +20,13 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Alamofire: 907e0a98eb68cdb7f9d1f541a563d6ac5dc77b25
+  Kingfisher: 68498a706e46c2a050b0c9572f100e5db407f6e0
   PKHUD: 3c001512c6e002091184197a8de7a20420786e3b
   Realm: 42d1c38a5b1bbcc828b48a7ce702cb86fc68adf4
   RealmSwift: d31937ca6a6ee54acde64ec839523c0a3c04924b
   SwiftKeychainWrapper: 38952a3636320ae61bad3513cadd870929de7a4a
   SwiftLint: e14651157288e9e01d6e1a71db7014fb5744a8ea
 
-PODFILE CHECKSUM: 3d1b5aeddf5cb473df82673629be27c75d393073
+PODFILE CHECKSUM: f813fcdebd57edb78cec54464f96dfc04bfc46fb
 
 COCOAPODS: 1.4.0

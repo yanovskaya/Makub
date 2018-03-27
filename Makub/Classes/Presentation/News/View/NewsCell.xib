@@ -90,6 +90,7 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
                 <outlet property="author" destination="AVk-Oz-JVB" id="Fy7-Dz-D2H"/>
+                <outlet property="authorPhoto" destination="DaZ-Vj-aNW" id="N8Q-kc-Yop"/>
                 <outlet property="date" destination="z9J-lG-4TZ" id="bTX-IO-nmr"/>
                 <outlet property="descriptionText" destination="cRY-bw-V5q" id="jWA-y3-ARN"/>
                 <outlet property="illustration" destination="IQI-5u-zQB" id="Fr4-eq-cZd"/>

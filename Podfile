@@ -8,4 +8,5 @@ target 'Makub' do
   pod 'PKHUD', '~> 5.0'
   pod 'SwiftKeychainWrapper'
   pod 'RealmSwift'
+  pod 'Kingfisher', '~> 4.0'
 end

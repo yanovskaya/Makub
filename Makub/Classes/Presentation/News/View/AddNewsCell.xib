@@ -35,8 +35,8 @@
             <constraints>
                 <constraint firstItem="ngp-7j-nJx" firstAttribute="leading" secondItem="Vp6-RU-7T9" secondAttribute="trailing" constant="20" id="0bf-0P-Wmr"/>
                 <constraint firstItem="Vp6-RU-7T9" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="1Fj-TW-Ske"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Vp6-RU-7T9" secondAttribute="bottom" constant="12.5" id="Ags-Ar-UWP"/>
                 <constraint firstItem="Vp6-RU-7T9" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="12.5" id="RDs-fK-OVi"/>
-                <constraint firstItem="Vp6-RU-7T9" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="SHy-29-2ID"/>
                 <constraint firstItem="ngp-7j-nJx" firstAttribute="centerY" secondItem="Vp6-RU-7T9" secondAttribute="centerY" id="hJx-gg-UbX"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

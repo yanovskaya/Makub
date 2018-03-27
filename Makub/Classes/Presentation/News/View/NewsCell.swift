@@ -13,6 +13,7 @@ class NewsCell: UICollectionViewCell, ViewModelConfigurable {
     // MARK: - IBOutlets
     
     @IBOutlet private var author: UILabel!
+    @IBOutlet var authorPhoto: UIImageView!
     @IBOutlet private var date: UILabel!
     @IBOutlet private var illustration: UIImageView!
     @IBOutlet private var title: UILabel!
@@ -22,6 +23,8 @@ class NewsCell: UICollectionViewCell, ViewModelConfigurable {
         super.awakeFromNib()
         // Initialization code
         self.contentView.translatesAutoresizingMaskIntoConstraints = false
+        let screenWidth = UIScreen.main.bounds.size.width
+        widthAnchor.constraint(equalToConstant: screenWidth).isActive = true
     }
     
     func configure(for viewModel: NewsViewModel) {
