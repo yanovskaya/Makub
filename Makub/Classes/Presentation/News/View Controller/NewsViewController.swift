@@ -6,7 +6,6 @@
 //  Copyright © 2018 Elena Yanovskaya. All rights reserved.
 //
 
-import Kingfisher
 import PKHUD
 import UIKit
 
@@ -161,11 +160,8 @@ extension NewsViewController: UICollectionViewDataSource {
             newsCollectionView.dequeueReusableCell(withReuseIdentifier: newsCellId, for: indexPath) as! NewsCell
 
         if section == 0 {
-            
-         //   addNewsCell.layoutIfNeeded()
             return addNewsCell
         } else {
-            
             let viewModel = presentationModel.newsViewModels[indexPath.row]
             newsCell.configure(for: viewModel)
             return newsCell

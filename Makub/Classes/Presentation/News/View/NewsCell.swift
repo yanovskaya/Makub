@@ -34,14 +34,21 @@ class NewsCell: UICollectionViewCell, ViewModelConfigurable {
         widthAnchor.constraint(equalToConstant: screenWidth).isActive = true
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        authorPhoto.layer.cornerRadius = authorPhoto.frame.width/2
+        authorPhoto.clipsToBounds = true
+    }
+    
     func configure(for viewModel: NewsViewModel) {
         if let fullname = viewModel.fullName {
             author.text = fullname
         } else {
             author.removeFromSuperview()
         }
-        if let imageURL = viewModel.imageURL{
-            //author.text = fullname
+        if let imageURL = viewModel.imageURL {
+            illustration.kf.indicatorType = .activity
+            illustration.kf.setImage(with: URL(string: imageURL))
         } else {
             illustration.heightAnchor.constraint(equalToConstant: 0).isActive = true
         }
