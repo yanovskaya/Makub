@@ -65,7 +65,8 @@ final class NewsViewController: UIViewController {
     
     /// Обновление данных
     @objc func refresh(_ refreshControl: UIRefreshControl) {
-        presentationModel.obtainNews()
+        HUD.hide()
+        presentationModel.refreshNews()
     }
     
     private func bindEvents() {
@@ -166,8 +167,8 @@ extension NewsViewController: UICollectionViewDataSource {
             newsCollectionView.dequeueReusableCell(withReuseIdentifier: newsCellId, for: indexPath) as! NewsCell
 
         if section == 0 {
-            let viewModel = presentationModel.tabBarViewModel
-            addNewsCell.configure(for: viewModel!)
+            let viewModel = presentationModel.userViewModel
+            addNewsCell.configure(for: viewModel)
             return addNewsCell
         } else {
             let viewModel = presentationModel.newsViewModels[indexPath.row]

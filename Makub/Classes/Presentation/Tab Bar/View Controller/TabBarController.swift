@@ -21,13 +21,6 @@ final class TabBarController: UITabBarController {
     
     private let newsStoryboard = UIStoryboard(with: StoryboardTitle.news)
     private let ratingStoryboard = UIStoryboard(with: StoryboardTitle.rating)
-    
-    static var userViewModel: UserViewModel! {
-        didSet {
-            print("didset")
-            print(userViewModel.photoURL)
-        }
-    }
 
     // MARK: - ViewController lifecycle
     

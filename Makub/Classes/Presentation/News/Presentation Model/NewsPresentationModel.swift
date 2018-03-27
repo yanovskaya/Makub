@@ -12,11 +12,7 @@ final class NewsPresentationModel: PresentationModel {
     
     // MARK: - Public Properties
     
-    var tabBarViewModel = TabBarController.userViewModel {
-        didSet {
-            TabBarController.userViewModel = tabBarViewModel
-        }
-    }
+    var userViewModel: UserViewModel!
     
     var newsViewModels = [NewsViewModel]()
     
@@ -42,7 +38,7 @@ final class NewsPresentationModel: PresentationModel {
             switch result {
             case .serviceSuccess(let model):
                 guard let model = model else { return }
-                self.tabBarViewModel = UserViewModel(model)
+                self.userViewModel = UserViewModel(model)
                 self.group.leave()
             case .serviceFailure(let error):
                 self.error = error.code
@@ -51,7 +47,7 @@ final class NewsPresentationModel: PresentationModel {
         }
         
         group.enter()
-        obtainNewsCache()
+        //obtainNewsCache()
         if !newsCacheIsObtained { state = .loading }
         newsService.obtainNews { result in
             switch result {
@@ -75,6 +71,46 @@ final class NewsPresentationModel: PresentationModel {
         
     }
     
+    func refreshNews() {
+        group.enter()
+        obtainUserCache()
+        userService.obtainUserInfo { result in
+            switch result {
+            case .serviceSuccess(let model):
+                guard let model = model else { return }
+                self.userViewModel = UserViewModel(model)
+                self.group.leave()
+            case .serviceFailure(let error):
+                self.error = error.code
+                self.group.leave()
+            }
+        }
+        
+        group.enter()
+        //obtainNewsCache()
+        newsService.obtainNews { result in
+            switch result {
+            case .serviceSuccess(let model):
+                guard let model = model else { return }
+                self.newsViewModels = model.news.flatMap { NewsViewModel($0) }
+                self.group.leave()
+            case .serviceFailure(let error):
+                self.error = error.code
+                self.group.leave()
+            }
+        }
+        
+        group.notify(queue: DispatchQueue.main) {
+            if self.error != nil {
+                self.state = .error(code: self.error)
+            } else {
+                self.state = .rich
+            }
+        }
+        
+    }
+    
+    
     // MARK: - Private Methods
     
     private func obtainUserCache() {
@@ -82,7 +118,7 @@ final class NewsPresentationModel: PresentationModel {
             switch result {
             case .serviceSuccess(let model):
                 guard let model = model else { return }
-                self?.tabBarViewModel = UserViewModel(model)
+                self?.userViewModel = UserViewModel(model)
                 self?.state = .rich
                 self?.userCacheIsObtained = true
             case .serviceFailure:

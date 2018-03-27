@@ -11,6 +11,12 @@ import UIKit
 
 final class AddNewsCell: UICollectionViewCell, ViewModelConfigurable {
     
+    // MARK: - Constants
+    
+    private enum Constants {
+        static let userImage = "user"
+    }
+    
     @IBOutlet private var userPhoto: UIImageView!
     
     
@@ -29,7 +35,11 @@ final class AddNewsCell: UICollectionViewCell, ViewModelConfigurable {
         userPhoto.clipsToBounds = true
     }
     
-    func configure(for viewModel: UserViewModel) {
+    func configure(for viewModel: UserViewModel?) {
+        guard let viewModel = viewModel else {
+            userPhoto.image = UIImage(named: Constants.userImage)
+            return
+        }
         userPhoto.kf.indicatorType = .activity
         userPhoto.kf.setImage(with: URL(string: viewModel.photoURL))
     }
