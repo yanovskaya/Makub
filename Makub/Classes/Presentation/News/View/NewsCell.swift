@@ -6,14 +6,21 @@
 //  Copyright © 2018 Elena Yanovskaya. All rights reserved.
 //
 
+import Kingfisher
 import UIKit
 
 class NewsCell: UICollectionViewCell, ViewModelConfigurable {
     
+    // MARK: - Constants
+    
+    private enum Constants {
+        static let userImage = "user"
+    }
+    
     // MARK: - IBOutlets
     
     @IBOutlet private var author: UILabel!
-    @IBOutlet var authorPhoto: UIImageView!
+    @IBOutlet private var authorPhoto: UIImageView!
     @IBOutlet private var date: UILabel!
     @IBOutlet private var illustration: UIImageView!
     @IBOutlet private var title: UILabel!
@@ -33,10 +40,16 @@ class NewsCell: UICollectionViewCell, ViewModelConfigurable {
         } else {
             author.removeFromSuperview()
         }
-        if let image = viewModel.imageURL{
+        if let imageURL = viewModel.imageURL{
             //author.text = fullname
         } else {
             illustration.heightAnchor.constraint(equalToConstant: 0).isActive = true
+        }
+        if let photoURL = viewModel.photoURL {
+            authorPhoto.kf.indicatorType = .activity
+            authorPhoto.kf.setImage(with: URL(string: photoURL))
+        } else {
+            authorPhoto.image = UIImage(named: Constants.userImage)
         }
         date.text = viewModel.date
         title.text = viewModel.title

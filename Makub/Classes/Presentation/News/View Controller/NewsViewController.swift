@@ -168,12 +168,6 @@ extension NewsViewController: UICollectionViewDataSource {
             
             let viewModel = presentationModel.newsViewModels[indexPath.row]
             newsCell.configure(for: viewModel)
-            guard let ur = presentationModel.newsViewModels[indexPath.row].photoURL else { return newsCell }
-            guard let u = URL(string: ur) else { return newsCell }
-            let url = ImageResource(downloadURL: u, cacheKey: ur)
-            newsCell.authorPhoto.kf.setImage(with: url)
-            newsCell.authorPhoto.kf.indicatorType = .activity
-        //    newsCell.layoutIfNeeded()
             return newsCell
         }
     }
