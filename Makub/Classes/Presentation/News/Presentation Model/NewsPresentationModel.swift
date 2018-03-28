@@ -13,7 +13,6 @@ final class NewsPresentationModel: PresentationModel {
     // MARK: - Public Properties
     
     var userViewModel: UserViewModel!
-    
     var newsViewModels = [NewsViewModel]()
     
     // MARK: - Private Properties
@@ -47,8 +46,7 @@ final class NewsPresentationModel: PresentationModel {
         }
         
         group.enter()
-        //obtainNewsCache()
-        if !newsCacheIsObtained { state = .loading }
+        state = .loading
         newsService.obtainNews { result in
             switch result {
             case .serviceSuccess(let model):
@@ -121,20 +119,6 @@ final class NewsPresentationModel: PresentationModel {
                 self?.userViewModel = UserViewModel(model)
                 self?.state = .rich
                 self?.userCacheIsObtained = true
-            case .serviceFailure:
-                break
-            }
-        }
-    }
-    
-    private func obtainNewsCache() {
-        newsService.obtainRealmCache(error: nil) { [weak self] result in
-            switch result {
-            case .serviceSuccess(let model):
-                guard let model = model else { return }
-                self?.newsViewModels = model.news.flatMap { NewsViewModel($0) }
-                self?.state = .rich
-                self?.newsCacheIsObtained = true
             case .serviceFailure:
                 break
             }
