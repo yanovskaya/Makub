@@ -14,7 +14,6 @@ final class NewsViewModel {
     
     private enum Constants {
         static let baseURL = "https://makub.ru"
-        static let yurasName = "Юрий Клименко"
         static let defaultTitle = "Новость"
     }
     
@@ -32,16 +31,12 @@ final class NewsViewModel {
     init(_ news: News) {
         self.text = news.text
         self.date = news.date
+        self.title = news.title
         
         if let name = news.name,
             let surname = news.surname {
             self.fullName = name + " " + surname
-            self.title = news.title
-        } else if news.title == Constants.yurasName {
-            self.fullName = Constants.yurasName
-            self.title = Constants.defaultTitle
         } else {
-            self.title = news.title
             self.fullName = nil
         }
         
@@ -56,7 +51,5 @@ final class NewsViewModel {
         } else {
             self.imageURL = nil
         }
-        
-        
     }
 }
