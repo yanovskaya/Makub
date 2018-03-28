@@ -17,16 +17,15 @@ final class AddNewsCell: UICollectionViewCell, ViewModelConfigurable {
         static let userImage = "user"
     }
     
+    // MARK: - IBOutlets
+    
     @IBOutlet private var userPhoto: UIImageView!
     
+    // MARK: - View lifecycle
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        self.contentView.translatesAutoresizingMaskIntoConstraints = false
-        let screenWidth = UIScreen.main.bounds.size.width
-        widthAnchor.constraint(equalToConstant: screenWidth).isActive = true
-
+        configureLayout()
     }
     
     override func layoutSubviews() {
@@ -35,6 +34,8 @@ final class AddNewsCell: UICollectionViewCell, ViewModelConfigurable {
         userPhoto.clipsToBounds = true
     }
     
+    // MARK: - Public Methods
+    
     func configure(for viewModel: UserViewModel?) {
         guard let viewModel = viewModel else {
             userPhoto.image = UIImage(named: Constants.userImage)
@@ -42,6 +43,14 @@ final class AddNewsCell: UICollectionViewCell, ViewModelConfigurable {
         }
         userPhoto.kf.indicatorType = .activity
         userPhoto.kf.setImage(with: URL(string: viewModel.photoURL))
+    }
+    
+    // MARK: - Private Methods
+    
+    private func configureLayout() {
+        self.contentView.translatesAutoresizingMaskIntoConstraints = false
+        let screenWidth = UIScreen.main.bounds.size.width
+        widthAnchor.constraint(equalToConstant: screenWidth).isActive = true
     }
     
 }

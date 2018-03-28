@@ -17,11 +17,11 @@ final class TabBarController: UITabBarController {
         static var ratingImage = "star"
     }
     
-        // MARK: - Private Properties
+    // MARK: - Private Properties
     
     private let newsStoryboard = UIStoryboard(with: StoryboardTitle.news)
     private let ratingStoryboard = UIStoryboard(with: StoryboardTitle.rating)
-
+    
     // MARK: - ViewController lifecycle
     
     override func viewDidLoad() {
@@ -34,16 +34,15 @@ final class TabBarController: UITabBarController {
     // MARK: - Private Properties
     
     private func createTabBarController() {
-        let im = UIImage(named: Constants.newsImage)?.imageWithInsets(insets: UIEdgeInsetsMake(6, 0, -6, 0))
+        let newsItem = UIImage(named: Constants.newsImage)?.imageWithInsets(insets: UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0))
+        let newsVC = newsStoryboard.viewController(NewsViewController.self)
+        newsVC.tabBarItem = UITabBarItem(title: nil, image: newsItem, tag: 0)
         
-        let firstVc = newsStoryboard.viewController(NewsViewController.self)
-        firstVc.tabBarItem = UITabBarItem(title: nil, image: im, tag: 0)
+        let ratingItem = UIImage(named: Constants.ratingImage)?.imageWithInsets(insets: UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0))
+        let ratingVC = ratingStoryboard.viewController(RatingViewController.self)
+        ratingVC.tabBarItem = UITabBarItem(title: nil, image: ratingItem, tag: 1)
         
-        var im2 = UIImage(named: Constants.ratingImage)?.imageWithInsets(insets: UIEdgeInsetsMake(10, 0, 0, 0))
-        let secondVc = ratingStoryboard.viewController(RatingViewController.self)
-        secondVc.tabBarItem = UITabBarItem(title: nil, image: im2, tag: 1)
-        
-        let controllerArray = [firstVc, secondVc]
+        let controllerArray = [newsVC, ratingVC]
         viewControllers = controllerArray.map { UINavigationController(rootViewController: $0) }
     }
 

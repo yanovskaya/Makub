@@ -9,7 +9,7 @@
 import Kingfisher
 import UIKit
 
-class NewsCell: UICollectionViewCell, ViewModelConfigurable {
+final class NewsCell: UICollectionViewCell, ViewModelConfigurable {
     
     // MARK: - Constants
     
@@ -26,12 +26,11 @@ class NewsCell: UICollectionViewCell, ViewModelConfigurable {
     @IBOutlet private var title: UILabel!
     @IBOutlet private var descriptionText: UILabel!
     
+    // MARK: - View lifecycle
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
-        self.contentView.translatesAutoresizingMaskIntoConstraints = false
-        let screenWidth = UIScreen.main.bounds.size.width
-        widthAnchor.constraint(equalToConstant: screenWidth).isActive = true
+        configureLayout()
     }
     
     override func layoutSubviews() {
@@ -40,7 +39,13 @@ class NewsCell: UICollectionViewCell, ViewModelConfigurable {
         authorPhoto.clipsToBounds = true
     }
     
+    // MARK: - Public Methods
+    
     func configure(for viewModel: NewsViewModel) {
+        date.text = viewModel.date
+        title.text = viewModel.title
+        descriptionText.text = viewModel.text
+        
         if let fullname = viewModel.fullName {
             author.text = fullname
         } else {
@@ -58,10 +63,13 @@ class NewsCell: UICollectionViewCell, ViewModelConfigurable {
         } else {
             authorPhoto.image = UIImage(named: Constants.userImage)
         }
-        date.text = viewModel.date
-        title.text = viewModel.title
-        descriptionText.text = viewModel.text
-        
     }
     
+    // MARK: - Private Methods
+    
+    private func configureLayout() {
+        self.contentView.translatesAutoresizingMaskIntoConstraints = false
+        let screenWidth = UIScreen.main.bounds.size.width
+        widthAnchor.constraint(equalToConstant: screenWidth).isActive = true
+    }
 }
