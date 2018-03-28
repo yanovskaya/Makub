@@ -21,16 +21,14 @@ final class NewsViewController: UIViewController {
     
     // MARK: - IBOutlets
     
-    @IBOutlet var fakeNavigationView: UIView!
-    @IBOutlet var navigationSearchBar: UISearchBar!
-    
-    @IBOutlet var newsCollectionView: UICollectionView!
+    @IBOutlet private var fakeNavigationView: UIView!
+    @IBOutlet private var navigationSearchBar: UISearchBar!
+    @IBOutlet private var newsCollectionView: UICollectionView!
     
     
     // MARK: - Private Properties
     
-    let refreshControl = UIRefreshControl()
-    
+    private let refreshControl = UIRefreshControl()
     private let presentationModel = NewsPresentationModel()
     
     // MARK: - ViewController lifecycle
@@ -40,19 +38,7 @@ final class NewsViewController: UIViewController {
         navigationController?.isNavigationBarHidden = true
         view.backgroundColor = PaletteColors.blueBackground
         
-        newsCollectionView.refreshControl = refreshControl
-        refreshControl.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
-        newsCollectionView.register(UINib(nibName: Constants.addNewsCellId, bundle: nil), forCellWithReuseIdentifier: Constants.addNewsCellId)
-        newsCollectionView.register(UINib(nibName: Constants.newsCellId, bundle: nil), forCellWithReuseIdentifier: Constants.newsCellId)
-        if let flowLayout = newsCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            flowLayout.sectionInset = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
-            flowLayout.estimatedItemSize = CGSize(width: 1, height: 1)
-        }
-       newsCollectionView.backgroundColor = .clear
-        
-        
-        newsCollectionView.dataSource = self //!
-        
+        configureCollectionView()
         configureFakeNavigationBar()
         configureSearchBar()
         
@@ -62,12 +48,6 @@ final class NewsViewController: UIViewController {
     }
     
     // MARK: - Private Methods
-    
-    /// Обновление данных
-    @objc func refresh(_ refreshControl: UIRefreshControl) {
-        HUD.hide()
-        presentationModel.refreshNews()
-    }
     
     private func bindEvents() {
         presentationModel.changeStateHandler = { status in
@@ -90,7 +70,8 @@ final class NewsViewController: UIViewController {
                 print("err")
                 HUD.hide(afterDelay: 1.0)
             }
-            self.refreshControl.endRefreshing()
+             self.refreshControl.endRefreshing()
+            
         }
     }
     private func configureFakeNavigationBar() {
@@ -105,6 +86,21 @@ final class NewsViewController: UIViewController {
         navigationSearchBar.tintColor = PaletteColors.blueTint
     }
     
+    private func configureCollectionView() {
+        newsCollectionView.dataSource = self
+        newsCollectionView.backgroundColor = .clear
+        
+        newsCollectionView.register(UINib(nibName: Constants.addNewsCellId, bundle: nil), forCellWithReuseIdentifier: Constants.addNewsCellId)
+        newsCollectionView.register(UINib(nibName: Constants.newsCellId, bundle: nil), forCellWithReuseIdentifier: Constants.newsCellId)
+        
+        newsCollectionView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
+        
+        guard let flowLayout = newsCollectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
+        flowLayout.sectionInset = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
+        flowLayout.estimatedItemSize = CGSize(width: 1, height: 1)
+    }
+    
     private func hideSearchKeyboardWhenTappedAround() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissSearchKeyboard))
         view.addGestureRecognizer(tap)
@@ -115,6 +111,9 @@ final class NewsViewController: UIViewController {
         navigationSearchBar.resignFirstResponder()
     }
     
+    @objc func refresh(_ refreshControl: UIRefreshControl) {
+        presentationModel.refreshNews()
+    }
 }
 
 
@@ -156,24 +155,22 @@ extension NewsViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-     //   let newsViewModel = presentationModel.newsViewModels[indexPath.row]
         let section = indexPath.section
-        let addNewsCellId = Constants.addNewsCellId
-        let newsCellId = Constants.newsCellId
-        
-        let addNewsCell =
-            newsCollectionView.dequeueReusableCell(withReuseIdentifier: addNewsCellId, for: indexPath) as! AddNewsCell
-        let newsCell =
-            newsCollectionView.dequeueReusableCell(withReuseIdentifier: newsCellId, for: indexPath) as! NewsCell
-
         if section == 0 {
+            let addNewsCellId = Constants.addNewsCellId
+            guard let addNewsCell =
+                newsCollectionView.dequeueReusableCell(withReuseIdentifier: addNewsCellId, for: indexPath) as? AddNewsCell else { return UICollectionViewCell() }
             let viewModel = presentationModel.userViewModel
             addNewsCell.configure(for: viewModel)
             return addNewsCell
         } else {
+            let newsCellId = Constants.newsCellId
+            guard let newsCell =
+                newsCollectionView.dequeueReusableCell(withReuseIdentifier: newsCellId, for: indexPath) as? NewsCell else { return UICollectionViewCell() }
             let viewModel = presentationModel.newsViewModels[indexPath.row]
             newsCell.configure(for: viewModel)
             return newsCell
         }
     }
+    
 }
