@@ -30,7 +30,7 @@ final class AddNewsCell: UICollectionViewCell, ViewModelConfigurable {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        userPhoto.layer.cornerRadius = userPhoto.frame.width/2
+        userPhoto.layer.cornerRadius = userPhoto.frame.width / 2
         userPhoto.clipsToBounds = true
     }
     

@@ -26,6 +26,8 @@ final class NewsCell: UICollectionViewCell, ViewModelConfigurable {
     @IBOutlet private var title: UILabel!
     @IBOutlet private var descriptionText: UILabel!
     
+    @IBOutlet private var lineView: UIView!
+    
     // MARK: - View lifecycle
     
     override func awakeFromNib() {
@@ -35,7 +37,7 @@ final class NewsCell: UICollectionViewCell, ViewModelConfigurable {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        authorPhoto.layer.cornerRadius = authorPhoto.frame.width/2
+        authorPhoto.layer.cornerRadius = authorPhoto.frame.width / 2
         authorPhoto.clipsToBounds = true
     }
     
@@ -71,5 +73,7 @@ final class NewsCell: UICollectionViewCell, ViewModelConfigurable {
         self.contentView.translatesAutoresizingMaskIntoConstraints = false
         let screenWidth = UIScreen.main.bounds.size.width
         widthAnchor.constraint(equalToConstant: screenWidth).isActive = true
+        
+        lineView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.4)
     }
 }
