@@ -32,10 +32,14 @@ final class NewsViewController: UIViewController {
     private let presentationModel = NewsPresentationModel()
     private let router = NewsRouter()
     
+    private var filteredNews = [NewsViewModel]()
+    
     // MARK: - ViewController lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        filteredNews = presentationModel.newsViewModels
+        
         navigationController?.isNavigationBarHidden = true
         view.backgroundColor = PaletteColors.blueBackground
         
@@ -108,6 +112,20 @@ final class NewsViewController: UIViewController {
         view.addGestureRecognizer(tap)
     }
     
+    private func filterContentForSearchText(searchText: String) {
+        if searchText != "" {
+            
+            filteredNews = presentationModel.newsViewModels.filter { news in
+    
+                return (news.tag.contains(searchText.lowercased())
+                    || news.title.lowercased().contains(searchText.lowercased())
+                    || news.text.lowercased().contains(searchText.lowercased())
+                )
+                
+            }
+        } else { filteredNews = presentationModel.newsViewModels }
+    }
+    
     @objc private func dismissSearchKeyboard() {
         navigationSearchBar.setShowsCancelButton(false, animated: true)
         navigationSearchBar.resignFirstResponder()
@@ -136,6 +154,10 @@ extension NewsViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.setShowsCancelButton(false, animated: true)
         searchBar.resignFirstResponder()
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        filterContentForSearchText(searchText: searchText)
     }
 }
 

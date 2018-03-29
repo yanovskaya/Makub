@@ -22,6 +22,7 @@ final class NewsViewModel {
     let title: String
     let text: String
     let date: String
+    let tag: String
     let fullName: String!
     let imageURL: String!
     let photoURL: String!
@@ -32,6 +33,7 @@ final class NewsViewModel {
         self.text = news.text
         self.date = news.date
         self.title = news.title
+        self.tag = news.tag
         
         if let name = news.name,
             let surname = news.surname {

@@ -29,6 +29,8 @@ final class AddNewsCell: UICollectionViewCell, ViewModelConfigurable {
         super.awakeFromNib()
         configureLayout()
         configureLabel()
+        
+        userPhoto.image = UIImage(named: Constants.userImage)
     }
     
     override func layoutSubviews() {
@@ -40,10 +42,7 @@ final class AddNewsCell: UICollectionViewCell, ViewModelConfigurable {
     // MARK: - Public Methods
     
     func configure(for viewModel: UserViewModel?) {
-        guard let viewModel = viewModel else {
-            userPhoto.image = UIImage(named: Constants.userImage)
-            return
-        }
+        guard let viewModel = viewModel else { return }
         userPhoto.kf.indicatorType = .activity
         userPhoto.kf.setImage(with: URL(string: viewModel.photoURL))
     }
@@ -57,7 +56,7 @@ final class AddNewsCell: UICollectionViewCell, ViewModelConfigurable {
     }
     
     private func configureLabel() {
-        addNewsLabel.font = UIFont.customFont(.robotoMediumFont(size: 18))
+        addNewsLabel.font = UIFont.customFont(.robotoRegularFont(size: 18))
         addNewsLabel.text = Constants.addNewsLabel
         addNewsLabel.textColor = PaletteColors.textGray
     }
