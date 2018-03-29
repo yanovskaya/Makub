@@ -85,7 +85,6 @@ final class NewsPresentationModel: PresentationModel {
         }
         
         group.enter()
-        //obtainNewsCache()
         newsService.obtainNews { result in
             switch result {
             case .serviceSuccess(let model):

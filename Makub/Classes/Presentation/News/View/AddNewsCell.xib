@@ -14,18 +14,18 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" restorationIdentifier="AddNewsCell" id="iN0-l3-epB" customClass="AddNewsCell" customModule="Макуб" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="437" height="70"/>
+            <rect key="frame" x="0.0" y="0.0" width="481" height="80"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Vp6-RU-7T9">
-                    <rect key="frame" x="16" y="12.5" width="45" height="45"/>
+                    <rect key="frame" x="16" y="12.5" width="55" height="55"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="Vp6-RU-7T9" secondAttribute="height" multiplier="1:1" id="k0d-p1-5Nk"/>
-                        <constraint firstAttribute="width" constant="45" id="sTN-We-qd9"/>
+                        <constraint firstAttribute="width" constant="55" id="sTN-We-qd9"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ngp-7j-nJx">
-                    <rect key="frame" x="81" y="25" width="348" height="21"/>
+                    <rect key="frame" x="91" y="30" width="382" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -35,17 +35,18 @@
             <constraints>
                 <constraint firstItem="ngp-7j-nJx" firstAttribute="leading" secondItem="Vp6-RU-7T9" secondAttribute="trailing" constant="20" id="0bf-0P-Wmr"/>
                 <constraint firstItem="Vp6-RU-7T9" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="1Fj-TW-Ske"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Vp6-RU-7T9" secondAttribute="bottom" constant="12.5" id="Ags-Ar-UWP"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="ngp-7j-nJx" secondAttribute="trailing" constant="8" id="NSB-rR-HvB"/>
                 <constraint firstItem="Vp6-RU-7T9" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="12.5" id="RDs-fK-OVi"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Vp6-RU-7T9" secondAttribute="bottom" constant="12.5" id="dtV-ug-wSa"/>
                 <constraint firstItem="ngp-7j-nJx" firstAttribute="centerY" secondItem="Vp6-RU-7T9" secondAttribute="centerY" id="hJx-gg-UbX"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
+                <outlet property="addNewsLabel" destination="ngp-7j-nJx" id="iJ4-W4-Gc0"/>
                 <outlet property="userPhoto" destination="Vp6-RU-7T9" id="sCq-fA-Sd1"/>
             </connections>
-            <point key="canvasLocation" x="70.5" y="331"/>
+            <point key="canvasLocation" x="108.5" y="336"/>
         </view>
     </objects>
 </document>

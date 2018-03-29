@@ -19,12 +19,12 @@ final class NewsCell: UICollectionViewCell, ViewModelConfigurable {
     
     // MARK: - IBOutlets
     
-    @IBOutlet private var author: UILabel!
-    @IBOutlet private var authorPhoto: UIImageView!
-    @IBOutlet private var date: UILabel!
-    @IBOutlet private var illustration: UIImageView!
-    @IBOutlet private var title: UILabel!
-    @IBOutlet private var descriptionText: UILabel!
+    @IBOutlet private var authorLabel: UILabel!
+    @IBOutlet private var authorImageView: UIImageView!
+    @IBOutlet private var dateLabel: UILabel!
+    @IBOutlet private var illustrationImageView: UIImageView!
+    @IBOutlet private var titleLabel: UILabel!
+    @IBOutlet private var descriptionLabel: UILabel!
     
     @IBOutlet private var lineView: UIView!
     
@@ -33,37 +33,39 @@ final class NewsCell: UICollectionViewCell, ViewModelConfigurable {
     override func awakeFromNib() {
         super.awakeFromNib()
         configureLayout()
+        configureFont()
+        configureColor()
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        authorPhoto.layer.cornerRadius = authorPhoto.frame.width / 2
-        authorPhoto.clipsToBounds = true
+        authorImageView.layer.cornerRadius = authorImageView.frame.width / 2
+        authorImageView.clipsToBounds = true
     }
     
     // MARK: - Public Methods
     
     func configure(for viewModel: NewsViewModel) {
-        date.text = viewModel.date
-        title.text = viewModel.title
-        descriptionText.text = viewModel.text
+        dateLabel.text = viewModel.date
+        titleLabel.text = viewModel.title
+        descriptionLabel.text = viewModel.text
         
         if let fullname = viewModel.fullName {
-            author.text = fullname
+            authorLabel.text = fullname
         } else {
-            author.removeFromSuperview()
+            authorLabel.removeFromSuperview()
         }
         if let imageURL = viewModel.imageURL {
-            illustration.kf.indicatorType = .activity
-            illustration.kf.setImage(with: URL(string: imageURL))
+            illustrationImageView.kf.indicatorType = .activity
+            illustrationImageView.kf.setImage(with: URL(string: imageURL))
         } else {
-            illustration.heightAnchor.constraint(equalToConstant: 0).isActive = true
+            illustrationImageView.heightAnchor.constraint(equalToConstant: 0).isActive = true
         }
         if let photoURL = viewModel.photoURL {
-            authorPhoto.kf.indicatorType = .activity
-            authorPhoto.kf.setImage(with: URL(string: photoURL))
+            authorImageView.kf.indicatorType = .activity
+            authorImageView.kf.setImage(with: URL(string: photoURL))
         } else {
-            authorPhoto.image = UIImage(named: Constants.userImage)
+            authorImageView.image = UIImage(named: Constants.userImage)
         }
     }
     
@@ -73,7 +75,20 @@ final class NewsCell: UICollectionViewCell, ViewModelConfigurable {
         self.contentView.translatesAutoresizingMaskIntoConstraints = false
         let screenWidth = UIScreen.main.bounds.size.width
         widthAnchor.constraint(equalToConstant: screenWidth).isActive = true
-        
-        lineView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.4)
+    }
+    
+    private func configureFont() {
+        authorLabel.font = UIFont.customFont(.robotoMediumFont(size: 16))
+        dateLabel.font = UIFont.customFont(.robotoRegularFont(size: 14))
+        titleLabel.font = UIFont.customFont(.robotoBoldFont(size: 18))
+        descriptionLabel.font = UIFont.customFont(.robotoRegularFont(size: 16))
+    }
+    
+    private func configureColor() {
+        authorLabel.textColor = PaletteColors.darkGray
+        dateLabel.textColor = PaletteColors.textGray
+        titleLabel.textColor = PaletteColors.darkGray
+        descriptionLabel.textColor = PaletteColors.textGray
+        lineView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.2)
     }
 }

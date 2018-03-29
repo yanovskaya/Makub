@@ -27,4 +27,5 @@ struct PaletteColors {
     // MARK: NewsViewController
     
     static let searchBar = UIColor(hex: "EBEBEB")
+    static let textGray = UIColor(hex: "72757F")
 }

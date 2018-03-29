@@ -149,6 +149,13 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		C408C8CC206D19D30053F057 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 		C40EDD7520648F0F00338300 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -504,6 +511,7 @@
 		C4D4E4F720618E42000A9216 /* News */ = {
 			isa = PBXGroup;
 			children = (
+				C408C8CC206D19D30053F057 /* Helper */,
 				C4D4E5012061934F000A9216 /* News.storyboard */,
 				C4A303FE20670818008BFE5E /* View */,
 				C4A303FB2066F50C008BFE5E /* View Model */,

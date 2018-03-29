@@ -15,17 +15,20 @@ final class AddNewsCell: UICollectionViewCell, ViewModelConfigurable {
     
     private enum Constants {
         static let userImage = "user"
+        static let addNewsLabel = "Создать новую запись"
     }
     
     // MARK: - IBOutlets
     
     @IBOutlet private var userPhoto: UIImageView!
+    @IBOutlet private var addNewsLabel: UILabel!
     
     // MARK: - View lifecycle
     
     override func awakeFromNib() {
         super.awakeFromNib()
         configureLayout()
+        configureLabel()
     }
     
     override func layoutSubviews() {
@@ -51,6 +54,12 @@ final class AddNewsCell: UICollectionViewCell, ViewModelConfigurable {
         self.contentView.translatesAutoresizingMaskIntoConstraints = false
         let screenWidth = UIScreen.main.bounds.size.width
         widthAnchor.constraint(equalToConstant: screenWidth).isActive = true
+    }
+    
+    private func configureLabel() {
+        addNewsLabel.font = UIFont.customFont(.robotoMediumFont(size: 18))
+        addNewsLabel.text = Constants.addNewsLabel
+        addNewsLabel.textColor = PaletteColors.textGray
     }
     
 }
