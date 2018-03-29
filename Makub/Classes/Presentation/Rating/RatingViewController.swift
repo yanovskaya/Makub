@@ -17,6 +17,5 @@ final class RatingViewController: UIViewController {
         navigationController?.isNavigationBarHidden = true
         
         view.backgroundColor = PaletteColors.blueBackground
-        print("rating")
     }
 }

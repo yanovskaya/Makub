@@ -56,7 +56,6 @@ final class NewsViewController: UIViewController {
                 HUD.show(.progress)
             case .rich:
                 self.newsCollectionView.reloadData()
-                print("RELOAD")
                 HUD.hide()
             case .error (let code):
                 switch code {
@@ -67,7 +66,6 @@ final class NewsViewController: UIViewController {
                 default:
                     HUD.show(.labeledError(title: ErrorDescription.title.rawValue, subtitle: ErrorDescription.server.rawValue))
                 }
-                print("err")
                 HUD.hide(afterDelay: 1.0)
             }
              self.refreshControl.endRefreshing()
