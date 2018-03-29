@@ -68,5 +68,20 @@
             </objects>
             <point key="canvasLocation" x="184.80000000000001" y="178.56071964017991"/>
         </scene>
+        <!--Add News View Controller-->
+        <scene sceneID="kMH-8q-6U6">
+            <objects>
+                <viewController storyboardIdentifier="AddNewsViewController" id="CJn-v0-QGP" customClass="AddNewsViewController" customModule="Макуб" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="K3G-Es-8FB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="tZv-yI-LYh"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e5Y-CX-92p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="943" y="175"/>
+        </scene>
     </scenes>
 </document>

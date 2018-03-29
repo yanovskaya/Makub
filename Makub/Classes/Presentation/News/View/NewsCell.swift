@@ -17,6 +17,13 @@ final class NewsCell: UICollectionViewCell, ViewModelConfigurable {
         static let userImage = "user"
     }
     
+    private enum LayoutConstants {
+        static let imageHeight: CGFloat = 167
+        static let bottomImageDistance: CGFloat = 198
+        static let bottomDistance: CGFloat = 20
+        
+    }
+    
     // MARK: - IBOutlets
     
     @IBOutlet private var authorLabel: UILabel!
@@ -27,6 +34,10 @@ final class NewsCell: UICollectionViewCell, ViewModelConfigurable {
     @IBOutlet private var descriptionLabel: UILabel!
     
     @IBOutlet private var lineView: UIView!
+    
+    @IBOutlet private var imageHeight: NSLayoutConstraint!
+    @IBOutlet private var bottomDistance: NSLayoutConstraint!
+    
     
     // MARK: - View lifecycle
     
@@ -53,13 +64,16 @@ final class NewsCell: UICollectionViewCell, ViewModelConfigurable {
         if let fullname = viewModel.fullName {
             authorLabel.text = fullname
         } else {
-            authorLabel.removeFromSuperview()
+            authorLabel.text = ""
         }
         if let imageURL = viewModel.imageURL {
+           imageHeight.constant = LayoutConstants.imageHeight
+            bottomDistance.constant = LayoutConstants.bottomImageDistance
             illustrationImageView.kf.indicatorType = .activity
             illustrationImageView.kf.setImage(with: URL(string: imageURL))
         } else {
-            illustrationImageView.heightAnchor.constraint(equalToConstant: 0).isActive = true
+            bottomDistance.constant = LayoutConstants.bottomDistance
+           imageHeight.constant = 0
         }
         if let photoURL = viewModel.photoURL {
             authorImageView.kf.indicatorType = .activity

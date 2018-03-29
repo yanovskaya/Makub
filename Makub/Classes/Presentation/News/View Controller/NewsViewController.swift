@@ -30,6 +30,7 @@ final class NewsViewController: UIViewController {
     
     private let refreshControl = UIRefreshControl()
     private let presentationModel = NewsPresentationModel()
+    private let router = NewsRouter()
     
     // MARK: - ViewController lifecycle
     
@@ -68,8 +69,9 @@ final class NewsViewController: UIViewController {
                 }
                 HUD.hide(afterDelay: 1.0)
             }
-             self.refreshControl.endRefreshing()
-            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                self.refreshControl.endRefreshing()
+            }
         }
     }
     private func configureFakeNavigationBar() {
@@ -86,6 +88,7 @@ final class NewsViewController: UIViewController {
     
     private func configureCollectionView() {
         newsCollectionView.dataSource = self
+        newsCollectionView.delegate = self
         newsCollectionView.backgroundColor = .clear
         
         newsCollectionView.register(UINib(nibName: Constants.addNewsCellId, bundle: nil), forCellWithReuseIdentifier: Constants.addNewsCellId)
@@ -101,6 +104,7 @@ final class NewsViewController: UIViewController {
     
     private func hideSearchKeyboardWhenTappedAround() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissSearchKeyboard))
+        tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
     }
     
@@ -171,4 +175,12 @@ extension NewsViewController: UICollectionViewDataSource {
         }
     }
     
+}
+
+extension NewsViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.section == 0 {
+            router.presentAddNewsVC(source: self)
+        }
+    }
 }

@@ -32,6 +32,7 @@
                 </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <gestureRecognizers/>
             <constraints>
                 <constraint firstItem="ngp-7j-nJx" firstAttribute="leading" secondItem="Vp6-RU-7T9" secondAttribute="trailing" constant="20" id="0bf-0P-Wmr"/>
                 <constraint firstItem="Vp6-RU-7T9" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="1Fj-TW-Ske"/>

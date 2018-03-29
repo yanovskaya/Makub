@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0133FA4162EDEEAA9FE3135C /* Pods_Makub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD91280B983360A8DBD4BDFC /* Pods_Makub.framework */; };
+		C408C8CF206D3E7A0053F057 /* AddNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C408C8CE206D3E7A0053F057 /* AddNewsViewController.swift */; };
+		C408C8D1206D3F660053F057 /* NewsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C408C8D0206D3F660053F057 /* NewsRouter.swift */; };
 		C40EDD7420648EF000338300 /* UIImage+FromColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40EDD7320648EF000338300 /* UIImage+FromColor.swift */; };
 		C414F0D520596DE8001961EC /* Roboto-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = C414F0D120596DE7001961EC /* Roboto-Medium.otf */; };
 		C414F0D620596DE8001961EC /* Roboto-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = C414F0D220596DE8001961EC /* Roboto-Light.otf */; };
@@ -68,6 +70,8 @@
 /* Begin PBXFileReference section */
 		25B33F5602AEBC76325DB113 /* Pods-Makub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Makub.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Makub/Pods-Makub.debug.xcconfig"; sourceTree = "<group>"; };
 		AD3835C1372474B08AEF32EE /* Pods-Makub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Makub.release.xcconfig"; path = "Pods/Target Support Files/Pods-Makub/Pods-Makub.release.xcconfig"; sourceTree = "<group>"; };
+		C408C8CE206D3E7A0053F057 /* AddNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewsViewController.swift; sourceTree = "<group>"; };
+		C408C8D0206D3F660053F057 /* NewsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsRouter.swift; sourceTree = "<group>"; };
 		C40EDD7320648EF000338300 /* UIImage+FromColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+FromColor.swift"; sourceTree = "<group>"; };
 		C414F0D120596DE7001961EC /* Roboto-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.otf"; sourceTree = "<group>"; };
 		C414F0D220596DE8001961EC /* Roboto-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.otf"; sourceTree = "<group>"; };
@@ -154,6 +158,14 @@
 			children = (
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		C408C8CD206D3E590053F057 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				C408C8D0206D3F660053F057 /* NewsRouter.swift */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 		C40EDD7520648F0F00338300 /* Extensions */ = {
@@ -331,6 +343,7 @@
 			isa = PBXGroup;
 			children = (
 				C4D4E4FB20618E8F000A9216 /* NewsViewController.swift */,
+				C408C8CE206D3E7A0053F057 /* AddNewsViewController.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -512,6 +525,7 @@
 		C4D4E4F720618E42000A9216 /* News */ = {
 			isa = PBXGroup;
 			children = (
+				C408C8CD206D3E590053F057 /* Router */,
 				C408C8CC206D19D30053F057 /* Helper */,
 				C4D4E5012061934F000A9216 /* News.storyboard */,
 				C4A303FE20670818008BFE5E /* View */,
@@ -708,6 +722,7 @@
 				C4A303F52066EA6C008BFE5E /* NewsServiceImpl.swift in Sources */,
 				C472A6BF205B16D500768585 /* PresentationModel.swift in Sources */,
 				C472A6CF205C647C00768585 /* KeychainKeys.swift in Sources */,
+				C408C8D1206D3F660053F057 /* NewsRouter.swift in Sources */,
 				C472A6C3205B174000768585 /* AuthPresentationModel.swift in Sources */,
 				C4556B95205EC04D00D65DBD /* UIImage+ImageWithInsets.swift in Sources */,
 				C44D60D5205806BB00A5C50F /* Colors.swift in Sources */,
@@ -733,6 +748,7 @@
 				C4D4E4E920606F45000A9216 /* ServiceLayer.swift in Sources */,
 				C4A303F12066EA53008BFE5E /* NewsService.swift in Sources */,
 				C472A6C8205C4D5300768585 /* String+RemoveWhitespaces.swift in Sources */,
+				C408C8CF206D3E7A0053F057 /* AddNewsViewController.swift in Sources */,
 				C4D4E4EB20606FA1000A9216 /* AuthResponse.swift in Sources */,
 				C4D4E4DF20606EE5000A9216 /* Transport.swift in Sources */,
 				C4D4E4FA20618E63000A9216 /* RatingViewController.swift in Sources */,
