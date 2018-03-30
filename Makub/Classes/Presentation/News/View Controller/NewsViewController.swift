@@ -39,7 +39,6 @@ final class NewsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         filteredNews = presentationModel.newsViewModels
-        
         navigationController?.isNavigationBarHidden = true
         view.backgroundColor = PaletteColors.blueBackground
         
@@ -60,6 +59,10 @@ final class NewsViewController: UIViewController {
             case .loading:
                 HUD.show(.progress)
             case .rich:
+                self.filteredNews = self.presentationModel.newsViewModels
+                if let searchText = self.navigationSearchBar.text {
+                    self.filterNewsForSearchText(searchText: searchText)
+                }
                 self.newsCollectionView.reloadData()
                 HUD.hide()
             case .error (let code):
@@ -102,8 +105,7 @@ final class NewsViewController: UIViewController {
         refreshControl.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
         
         guard let flowLayout = newsCollectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
-        flowLayout.sectionInset = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
-        flowLayout.estimatedItemSize = CGSize(width: 1, height: 1)
+        flowLayout.estimatedItemSize = UICollectionViewFlowLayoutAutomaticSize
     }
     
     private func hideSearchKeyboardWhenTappedAround() {
@@ -112,11 +114,9 @@ final class NewsViewController: UIViewController {
         view.addGestureRecognizer(tap)
     }
     
-    private func filterContentForSearchText(searchText: String) {
+    private func filterNewsForSearchText(searchText: String) {
         if searchText != "" {
-            
             filteredNews = presentationModel.newsViewModels.filter { news in
-    
                 return (news.tag.contains(searchText.lowercased())
                     || news.title.lowercased().contains(searchText.lowercased())
                     || news.text.lowercased().contains(searchText.lowercased())
@@ -124,6 +124,7 @@ final class NewsViewController: UIViewController {
                 
             }
         } else { filteredNews = presentationModel.newsViewModels }
+        newsCollectionView.reloadData()
     }
     
     @objc private func dismissSearchKeyboard() {
@@ -149,6 +150,9 @@ extension NewsViewController: UISearchBarDelegate {
         searchBar.text = ""
         searchBar.setShowsCancelButton(false, animated: true)
         searchBar.resignFirstResponder()
+        
+        filteredNews = presentationModel.newsViewModels
+        newsCollectionView.reloadData()
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -157,12 +161,12 @@ extension NewsViewController: UISearchBarDelegate {
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        filterContentForSearchText(searchText: searchText)
+        filterNewsForSearchText(searchText: searchText)
     }
 }
 
 
-// MARK: - UITableViewDataSource
+// MARK: - UICollectionViewDataSource
 
 extension NewsViewController: UICollectionViewDataSource {
     
@@ -174,7 +178,7 @@ extension NewsViewController: UICollectionViewDataSource {
         if section == 0 {
             return 1
         } else {
-            return presentationModel.newsViewModels.count
+            return filteredNews.count
         }
     }
     
@@ -191,7 +195,7 @@ extension NewsViewController: UICollectionViewDataSource {
             let newsCellId = Constants.newsCellId
             guard let newsCell =
                 newsCollectionView.dequeueReusableCell(withReuseIdentifier: newsCellId, for: indexPath) as? NewsCell else { return UICollectionViewCell() }
-            let viewModel = presentationModel.newsViewModels[indexPath.row]
+            let viewModel = filteredNews[indexPath.row]
             newsCell.configure(for: viewModel)
             return newsCell
         }
@@ -199,10 +203,25 @@ extension NewsViewController: UICollectionViewDataSource {
     
 }
 
+// MARK: - UICollectionViewDelegate
+
 extension NewsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.section == 0 {
             router.presentAddNewsVC(source: self)
+        }
+    }
+}
+
+// MARK: - UICollectionViewDelegateFlowLayout
+
+extension NewsViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        if section == 0 {
+            return UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
+        } else {
+            return UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
         }
     }
 }
