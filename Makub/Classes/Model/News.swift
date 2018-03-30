@@ -11,10 +11,10 @@ import RealmSwift
 
 final class News: Object, Decodable {
     
-    @objc dynamic var title: String = ""
-    @objc dynamic var text: String = ""
-    @objc dynamic var tag: String = ""
-    @objc dynamic var date: String = ""
+    @objc dynamic var title: String! = nil
+    @objc dynamic var text: String! = nil
+    @objc dynamic var tag: String! = nil
+    @objc dynamic var date: String! = nil
     @objc dynamic var image: String! = nil
     @objc dynamic var photo: String! = nil
     @objc dynamic var name: String! = nil

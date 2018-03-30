@@ -95,7 +95,7 @@
 		C45AC9612066656100F9947F /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		C45AC966206671AF00F9947F /* NewsPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsPresentationModel.swift; sourceTree = "<group>"; };
 		C4691C4F206527DD00991C19 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserService.swift; path = "Makub/Classes/Business logic/Service/User/Protocol/UserService.swift"; sourceTree = SOURCE_ROOT; };
-		C4691C51206527EE00991C19 /* UserServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserServiceImpl.swift; path = ../Service/User/UserServiceImpl.swift; sourceTree = "<group>"; };
+		C4691C51206527EE00991C19 /* UserServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserServiceImpl.swift; sourceTree = "<group>"; };
 		C472A6BE205B16D500768585 /* PresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationModel.swift; sourceTree = "<group>"; };
 		C472A6C2205B174000768585 /* AuthPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPresentationModel.swift; sourceTree = "<group>"; };
 		C472A6C7205C4D5300768585 /* String+RemoveWhitespaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+RemoveWhitespaces.swift"; sourceTree = "<group>"; };
@@ -335,8 +335,7 @@
 			children = (
 				C4691C4F206527DD00991C19 /* UserService.swift */,
 			);
-			name = Protocol;
-			path = ../Service/User/Protocol;
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 		C45AC9572066171C00F9947F /* View Controller */ = {
@@ -387,8 +386,7 @@
 				C45AC9562066166500F9947F /* Protocol */,
 				C4691C51206527EE00991C19 /* UserServiceImpl.swift */,
 			);
-			name = User;
-			path = "../../Business logic/User";
+			path = User;
 			sourceTree = "<group>";
 		};
 		C472A6C0205B170E00768585 /* Presentation Model */ = {

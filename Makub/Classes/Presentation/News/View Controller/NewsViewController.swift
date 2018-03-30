@@ -117,6 +117,10 @@ final class NewsViewController: UIViewController {
     private func filterNewsForSearchText(searchText: String) {
         if searchText != "" {
             filteredNews = presentationModel.newsViewModels.filter { news in
+                var criteria = [Bool]()
+                if let fullname = news.fullName {
+                    criteria.append(fullname.lowercased().contains(searchText.lowercased()))
+                } 
                 if let fullname = news.fullName {
                     return (news.tag.contains(searchText.lowercased())
                         || news.title.lowercased().contains(searchText.lowercased())

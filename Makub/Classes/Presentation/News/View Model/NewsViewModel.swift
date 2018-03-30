@@ -30,10 +30,29 @@ final class NewsViewModel {
     // MARK: - Initialization
     
     init(_ news: News) {
-        self.text = news.text
-        self.date = news.date
-        self.title = news.title
-        self.tag = news.tag
+        if let text = news.text {
+            self.text = text
+        } else {
+            self.text = ""
+        }
+        
+        if let date = news.date {
+            self.date = date
+        } else {
+            self.date = ""
+        }
+        
+        if let title = news.title {
+            self.title = title
+        } else {
+            self.title = ""
+        }
+        
+        if let tag = news.tag {
+            self.tag = tag
+        } else {
+            self.tag = ""
+        }
         
         if let name = news.name,
             let surname = news.surname {
