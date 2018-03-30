@@ -40,13 +40,10 @@ final class NewsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         filteredNews = presentationModel.newsViewModels
-        navigationItem.titleView = navigationSearchBar
-        navigationController?.navigationBar.shadowImage = UIImage(color: UIColor.white)
-        navigationController?.navigationBar.setBackgroundImage(UIImage(color: UIColor.white), for: .default)
-        
         
         view.backgroundColor = PaletteColors.blueBackground
         
+        configureNavigationController()
         configureCollectionView()
         configureNavigationSearchBar()
         configureSearchBar()
@@ -54,8 +51,6 @@ final class NewsViewController: UIViewController {
         hideSearchKeyboardWhenTappedAround()
         bindEvents()
         presentationModel.obtainNews()
-        
-        hidingNavBarManager = HidingNavigationBarManager(viewController: self, scrollView: newsCollectionView)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -101,6 +96,16 @@ final class NewsViewController: UIViewController {
             }
         }
     }
+    
+    private func configureNavigationController() {
+        navigationItem.titleView = navigationSearchBar
+        navigationController?.navigationBar.shadowImage = UIImage(color: UIColor.white)
+        navigationController?.navigationBar.setBackgroundImage(UIImage(color: UIColor.white), for: .default)
+        
+        hidingNavBarManager = HidingNavigationBarManager(viewController: self, scrollView: newsCollectionView)
+        hidingNavBarManager?.refreshControl = refreshControl
+    }
+    
     private func configureNavigationSearchBar() {
         navigationSearchBar.backgroundImage = UIImage(color: .clear)
         navigationSearchBar.searchBarStyle = .minimal
