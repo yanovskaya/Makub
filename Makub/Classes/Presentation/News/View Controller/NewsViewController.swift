@@ -117,11 +117,16 @@ final class NewsViewController: UIViewController {
     private func filterNewsForSearchText(searchText: String) {
         if searchText != "" {
             filteredNews = presentationModel.newsViewModels.filter { news in
-                return (news.tag.contains(searchText.lowercased())
-                    || news.title.lowercased().contains(searchText.lowercased())
-                    || news.text.lowercased().contains(searchText.lowercased())
-                )
-                
+                if let fullname = news.fullName {
+                    return (news.tag.contains(searchText.lowercased())
+                        || news.title.lowercased().contains(searchText.lowercased())
+                        || news.text.lowercased().contains(searchText.lowercased())
+                        || fullname.lowercased().contains(searchText.lowercased()))
+                } else {
+                    return (news.tag.contains(searchText.lowercased())
+                        || news.title.lowercased().contains(searchText.lowercased())
+                        || news.text.lowercased().contains(searchText.lowercased()))
+                }
             }
         } else { filteredNews = presentationModel.newsViewModels }
         newsCollectionView.reloadData()
