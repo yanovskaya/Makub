@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.7.0)
+  - HidingNavigationBar (2.0.1)
   - Kingfisher (4.6.4)
   - PKHUD (5.0.0)
   - Realm (3.1.1):
@@ -12,6 +13,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
+  - HidingNavigationBar (~> 2.0)
   - Kingfisher (~> 4.0)
   - PKHUD (~> 5.0)
   - RealmSwift
@@ -20,6 +22,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Alamofire: 907e0a98eb68cdb7f9d1f541a563d6ac5dc77b25
+  HidingNavigationBar: 82c06978041080f0e4d97095563414a4367b71c6
   Kingfisher: 68498a706e46c2a050b0c9572f100e5db407f6e0
   PKHUD: 3c001512c6e002091184197a8de7a20420786e3b
   Realm: 42d1c38a5b1bbcc828b48a7ce702cb86fc68adf4
@@ -27,6 +30,6 @@ SPEC CHECKSUMS:
   SwiftKeychainWrapper: 38952a3636320ae61bad3513cadd870929de7a4a
   SwiftLint: e14651157288e9e01d6e1a71db7014fb5744a8ea
 
-PODFILE CHECKSUM: f813fcdebd57edb78cec54464f96dfc04bfc46fb
+PODFILE CHECKSUM: 88bfee36d0cdaf9e9741673430438ae8ad8d80fa
 
 COCOAPODS: 1.4.0

@@ -9,4 +9,5 @@ target 'Makub' do
   pod 'SwiftKeychainWrapper'
   pod 'RealmSwift'
   pod 'Kingfisher', '~> 4.0'
+  pod 'HidingNavigationBar', '~> 2.0'
 end

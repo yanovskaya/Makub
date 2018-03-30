@@ -6,6 +6,7 @@
 //  Copyright © 2018 Elena Yanovskaya. All rights reserved.
 //
 
+import HidingNavigationBar
 import PKHUD
 import UIKit
 
@@ -21,12 +22,12 @@ final class NewsViewController: UIViewController {
     
     // MARK: - IBOutlets
     
-    @IBOutlet private var fakeNavigationView: UIView!
-    @IBOutlet private var navigationSearchBar: UISearchBar!
     @IBOutlet private var newsCollectionView: UICollectionView!
     
-    
     // MARK: - Private Properties
+    
+    private var navigationSearchBar = UISearchBar()
+    private var hidingNavBarManager: HidingNavigationBarManager?
     
     private let refreshControl = UIRefreshControl()
     private let presentationModel = NewsPresentationModel()
@@ -39,17 +40,36 @@ final class NewsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         filteredNews = presentationModel.newsViewModels
-        navigationController?.isNavigationBarHidden = true
+        navigationItem.titleView = navigationSearchBar
+        navigationController?.navigationBar.shadowImage = UIImage(color: UIColor.white)
+        navigationController?.navigationBar.setBackgroundImage(UIImage(color: UIColor.white), for: .default)
+        
+        
         view.backgroundColor = PaletteColors.blueBackground
         
         configureCollectionView()
-        configureFakeNavigationBar()
+        configureNavigationSearchBar()
         configureSearchBar()
         
         hideSearchKeyboardWhenTappedAround()
         bindEvents()
         presentationModel.obtainNews()
+        
+        hidingNavBarManager = HidingNavigationBarManager(viewController: self, scrollView: newsCollectionView)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        hidingNavBarManager?.viewWillAppear(animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        hidingNavBarManager?.viewWillDisappear(animated)
+    }
+
     
     // MARK: - Private Methods
     
@@ -81,8 +101,7 @@ final class NewsViewController: UIViewController {
             }
         }
     }
-    private func configureFakeNavigationBar() {
-        fakeNavigationView.backgroundColor = .white
+    private func configureNavigationSearchBar() {
         navigationSearchBar.backgroundImage = UIImage(color: .clear)
         navigationSearchBar.searchBarStyle = .minimal
         navigationSearchBar.placeholder = Constants.searchBarPlaceholder
@@ -103,9 +122,9 @@ final class NewsViewController: UIViewController {
         
         newsCollectionView.refreshControl = refreshControl
         refreshControl.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
-        
+        print(view.frame.width)
         guard let flowLayout = newsCollectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
-        flowLayout.estimatedItemSize = UICollectionViewFlowLayoutAutomaticSize
+        flowLayout.estimatedItemSize.width = view.frame.width
     }
     
     private func hideSearchKeyboardWhenTappedAround() {
@@ -222,5 +241,10 @@ extension NewsViewController: UICollectionViewDelegateFlowLayout {
         } else {
             return UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
         }
+    }
+    
+    func scrollViewShouldScrollToTop(scrollView: UIScrollView) -> Bool {
+        hidingNavBarManager?.shouldScrollToTop()
+        return true
     }
 }

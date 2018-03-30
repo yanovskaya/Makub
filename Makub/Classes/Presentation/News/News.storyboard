@@ -19,24 +19,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LGm-WH-jvH">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="77"/>
-                                <subviews>
-                                    <searchBar contentMode="redraw" searchBarStyle="prominent" translatesAutoresizingMaskIntoConstraints="NO" id="KaF-jd-CPL">
-                                        <rect key="frame" x="8" y="21" width="359" height="56"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </searchBar>
-                                </subviews>
-                                <color key="backgroundColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstItem="KaF-jd-CPL" firstAttribute="centerX" secondItem="LGm-WH-jvH" secondAttribute="centerX" id="0hz-D6-Va1"/>
-                                    <constraint firstAttribute="height" constant="77" id="9fW-20-yW4"/>
-                                    <constraint firstAttribute="trailing" secondItem="KaF-jd-CPL" secondAttribute="trailing" constant="8" id="SiN-P1-sT5"/>
-                                    <constraint firstAttribute="bottom" secondItem="KaF-jd-CPL" secondAttribute="bottom" id="oFz-ke-UV8"/>
-                                </constraints>
-                            </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="QxD-fG-A70">
-                                <rect key="frame" x="0.0" y="77" width="375" height="590"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="0.35999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xEz-es-aBO">
                                     <size key="itemSize" width="50" height="50"/>
@@ -49,19 +33,14 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="LGm-WH-jvH" secondAttribute="trailing" id="Wdo-F9-bJu"/>
                             <constraint firstItem="gUe-FZ-ngV" firstAttribute="bottom" secondItem="QxD-fG-A70" secondAttribute="bottom" id="ccD-WP-XlS"/>
-                            <constraint firstItem="LGm-WH-jvH" firstAttribute="top" secondItem="Aby-3z-Kci" secondAttribute="top" id="ofw-Rt-mZY"/>
+                            <constraint firstItem="QxD-fG-A70" firstAttribute="top" secondItem="Aby-3z-Kci" secondAttribute="top" id="k5A-Vv-VV8"/>
                             <constraint firstItem="QxD-fG-A70" firstAttribute="leading" secondItem="gUe-FZ-ngV" secondAttribute="leading" id="q7c-k2-JSe"/>
-                            <constraint firstItem="QxD-fG-A70" firstAttribute="top" secondItem="LGm-WH-jvH" secondAttribute="bottom" id="rEL-Gt-PLU"/>
                             <constraint firstItem="gUe-FZ-ngV" firstAttribute="trailing" secondItem="QxD-fG-A70" secondAttribute="trailing" id="w8c-WZ-0eO"/>
-                            <constraint firstItem="LGm-WH-jvH" firstAttribute="leading" secondItem="Aby-3z-Kci" secondAttribute="leading" id="zkd-Fu-MY4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gUe-FZ-ngV"/>
                     </view>
                     <connections>
-                        <outlet property="fakeNavigationView" destination="LGm-WH-jvH" id="5FK-0J-hgB"/>
-                        <outlet property="navigationSearchBar" destination="KaF-jd-CPL" id="ZeU-er-gzP"/>
                         <outlet property="newsCollectionView" destination="QxD-fG-A70" id="oHk-8b-QP3"/>
                     </connections>
                 </viewController>
