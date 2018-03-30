@@ -31,7 +31,7 @@ final class NewsViewModel {
     
     init(_ news: News) {
         if let text = news.text {
-            self.text = text
+            self.text = text.removeTags()
         } else {
             self.text = ""
         }

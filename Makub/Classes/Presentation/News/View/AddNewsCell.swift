@@ -55,7 +55,7 @@ final class AddNewsCell: UICollectionViewCell, ViewModelConfigurable {
     }
     
     private func configureLabel() {
-        addNewsLabel.font = UIFont.customFont(.robotoRegularFont(size: 18))
+        addNewsLabel.font = UIFont.customFont(.robotoRegularFont(size: 16))
         addNewsLabel.text = Constants.addNewsLabel
         addNewsLabel.textColor = PaletteColors.textGray
     }

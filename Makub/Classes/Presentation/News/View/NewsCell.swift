@@ -88,10 +88,10 @@ final class NewsCell: UICollectionViewCell, ViewModelConfigurable {
     }
     
     private func configureFont() {
-        authorLabel.font = UIFont.customFont(.robotoMediumFont(size: 16))
-        dateLabel.font = UIFont.customFont(.robotoRegularFont(size: 14))
-        titleLabel.font = UIFont.customFont(.robotoBoldFont(size: 18))
-        descriptionLabel.font = UIFont.customFont(.robotoRegularFont(size: 16))
+        authorLabel.font = UIFont.customFont(.robotoMediumFont(size: 14))
+        dateLabel.font = UIFont.customFont(.robotoRegularFont(size: 12))
+        titleLabel.font = UIFont.customFont(.robotoBoldFont(size: 16))
+        descriptionLabel.font = UIFont.customFont(.robotoRegularFont(size: 14))
     }
     
     private func configureColor() {
