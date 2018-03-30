@@ -23,7 +23,7 @@ final class NewsViewModel {
     let text: String
     let date: String
     let tag: String
-    let fullName: String!
+    let fullName: String
     let imageURL: String!
     let photoURL: String!
     
@@ -58,7 +58,7 @@ final class NewsViewModel {
             let surname = news.surname {
             self.fullName = name + " " + surname
         } else {
-            self.fullName = nil
+            self.fullName = ""
         }
         
         if let photo = news.photo, photo != "" {

@@ -60,12 +60,8 @@ final class NewsCell: UICollectionViewCell, ViewModelConfigurable {
         dateLabel.text = viewModel.date
         titleLabel.text = viewModel.title
         descriptionLabel.text = viewModel.text
+        authorLabel.text = viewModel.fullName
         
-        if let fullname = viewModel.fullName {
-            authorLabel.text = fullname
-        } else {
-            authorLabel.text = ""
-        }
         if let imageURL = viewModel.imageURL {
            imageHeight.constant = LayoutConstants.imageHeight
             bottomDistance.constant = LayoutConstants.bottomImageDistance
