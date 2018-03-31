@@ -59,9 +59,9 @@ final class AuthServiceImpl: AuthService {
                         completion?(ServiceCallResult.serviceSuccess(payload: model))
                     } else {
                         // заглушка для тестирования
-                        completion?(ServiceCallResult.serviceSuccess(payload: nil))
-//                        let error = NSError(domain: "", code: model.error)
-//                        completion?(ServiceCallResult.serviceFailure(error: error))
+//                        completion?(ServiceCallResult.serviceSuccess(payload: nil))
+                        let error = NSError(domain: "", code: model.error)
+                        completion?(ServiceCallResult.serviceFailure(error: error))
                     }
                 case .parserFailure(let error):
                     completion?(ServiceCallResult.serviceFailure(error: error as NSError))

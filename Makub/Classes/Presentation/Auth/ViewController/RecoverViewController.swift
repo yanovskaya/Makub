@@ -176,6 +176,15 @@ final class RecoverViewController: UIViewController {
         return emailTest.evaluate(with: testStr)
     }
     
+    @objc private func editingChanged() {
+        guard let email = emailTextField.text, isValidEmail(email)
+            else {
+                recoverButton.isEnabled = false
+                return
+        }
+        recoverButton.isEnabled = true
+    }
+    
     // MARK: - IBActions
     
     @IBAction private func backButtonTapped(_ sender: Any) {
@@ -199,14 +208,5 @@ extension RecoverViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
-    }
-    
-    @objc private func editingChanged(_ textField: UITextField) {
-        guard let email = emailTextField.text, isValidEmail(email)
-            else {
-                recoverButton.isEnabled = false
-                return
-        }
-        recoverButton.isEnabled = true
     }
 }

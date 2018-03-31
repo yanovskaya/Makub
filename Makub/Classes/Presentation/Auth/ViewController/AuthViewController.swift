@@ -143,6 +143,17 @@ final class AuthViewController: UIViewController {
         usernameTextField.widthAnchor.constraint(equalToConstant: width).isActive = true
     }
     
+    @objc private func editingChanged() {
+        guard
+            let username = usernameTextField.text, username.count > 2,
+            let password = passwordTextField.text, password.count > 2
+            else {
+                loginButton.isEnabled = false
+                return
+        }
+        loginButton.isEnabled = true
+    }
+    
     // MARK: - IBAction
     
     @IBAction private func loginButtonTapped(_ sender: Any) {
@@ -170,17 +181,6 @@ extension AuthViewController: UITextFieldDelegate {
             passwordTextField.becomeFirstResponder()
         }
         return true
-    }
-    
-    @objc private func editingChanged(_ textField: UITextField) {
-        guard
-            let username = usernameTextField.text, username.count > 2,
-            let password = passwordTextField.text, password.count > 2
-            else {
-                loginButton.isEnabled = false
-                return
-        }
-        loginButton.isEnabled = true
     }
     
 }

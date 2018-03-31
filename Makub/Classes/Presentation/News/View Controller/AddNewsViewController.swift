@@ -39,8 +39,10 @@ final class AddNewsViewController: UIViewController {
         configureNavigationItems()
         titleTextField.delegate = self
         titleTextField.backgroundColor = .clear
-        titleTextField.placeholder = "Название ..."
+        titleTextField.placeholder = "Название..."
         configureTextView()
+        
+        newsTextView.target(forAction: #selector(editingChanged), withSender: self)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -64,8 +66,11 @@ final class AddNewsViewController: UIViewController {
                                              NSAttributedStringKey.font: UIFont.customFont(.robotoMediumFont(size: 17))]
         leftButtonItem.setTitleTextAttributes([NSAttributedStringKey.foregroundColor: PaletteColors.blueTint,
                                                NSAttributedStringKey.font: UIFont.customFont(.robotoRegularFont(size: 17))], for: .normal)
+        
         rightButtonItem.setTitleTextAttributes([NSAttributedStringKey.foregroundColor: PaletteColors.blueTint,
-                                                NSAttributedStringKey.font: UIFont.customFont(.robotoRegularFont(size: 17))], for: .normal)
+                                               NSAttributedStringKey.font: UIFont.customFont(.robotoBoldFont(size: 17))], for: .normal)
+        
+        rightButtonItem.setTitleTextAttributes([NSAttributedStringKey.font: UIFont.customFont(.robotoBoldFont(size: 17))], for: .disabled)
         
         rightButtonItem.isEnabled = false
     }
@@ -74,9 +79,11 @@ final class AddNewsViewController: UIViewController {
         let indentView = UIView(frame: CGRect(x: 0, y: 0, width: 25, height: 0))
         titleTextField.leftView = indentView
         titleTextField.leftViewMode = .always
-        newsTextView.textContainerInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
-        newsTextView.font = UIFont.customFont(.robotoRegularFont(size: 16))
+        newsTextView.textContainerInset = UIEdgeInsets(top: 10, left: 20, bottom: 20, right: 20)
+        titleTextField.font = UIFont.customFont(.robotoBoldFont(size: 18))
+        newsTextView.font = UIFont.customFont(.robotoRegularFont(size: 17))
         newsTextView.becomeFirstResponder()
+        newsTextView.delegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
     }
     
@@ -88,6 +95,15 @@ final class AddNewsViewController: UIViewController {
         }
     }
     
+    @objc private func editingChanged() {
+        guard let text = newsTextView.text, text.count > 2
+            else {
+                rightButtonItem.isEnabled = false
+                return
+        }
+        rightButtonItem.isEnabled = true
+    }
+    
     // MARK: - IBActions
     
     @IBAction private func leftButtonItemTapped(_ sender: Any) {
@@ -96,6 +112,8 @@ final class AddNewsViewController: UIViewController {
     
 }
 
+// MARK: - UITextFieldDelegate
+
 extension AddNewsViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -103,5 +121,18 @@ extension AddNewsViewController: UITextFieldDelegate {
         textField.resignFirstResponder()
         newsTextView.becomeFirstResponder()
         return false
+    }
+}
+
+// MARK: - UITextViewDelegate
+
+extension AddNewsViewController: UITextViewDelegate {
+    
+    func textViewDidChange(_ textView: UITextView) {
+        guard let text = textView.text else {
+            rightButtonItem.isEnabled = false
+            return
+        }
+        rightButtonItem.isEnabled = !text.removeBlankText().isEmpty
     }
 }

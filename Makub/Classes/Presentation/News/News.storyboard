@@ -70,7 +70,7 @@
                                 </items>
                             </navigationBar>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1ZE-bU-PcY">
-                                <rect key="frame" x="0.0" y="72" width="313" height="30"/>
+                                <rect key="frame" x="0.0" y="76" width="301" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="UQm-j2-fPa"/>
@@ -80,11 +80,11 @@
                                 <textInputTraits key="textInputTraits" returnKeyType="next"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qoZ-9u-y5Z">
-                                <rect key="frame" x="321" y="72" width="46" height="30"/>
+                                <rect key="frame" x="309" y="72" width="46" height="34"/>
                                 <state key="normal" title="Button"/>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="SzL-A4-rQC">
-                                <rect key="frame" x="0.0" y="102" width="375" height="300"/>
+                                <rect key="frame" x="0.0" y="106" width="375" height="300"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="4jE-AP-UDw"/>
@@ -98,10 +98,10 @@
                             <constraint firstItem="SzL-A4-rQC" firstAttribute="top" secondItem="1ZE-bU-PcY" secondAttribute="bottom" id="2Ll-nB-zah"/>
                             <constraint firstItem="QhZ-JX-VEt" firstAttribute="top" secondItem="K3G-Es-8FB" secondAttribute="topMargin" id="CY4-Im-HXn"/>
                             <constraint firstItem="QhZ-JX-VEt" firstAttribute="trailing" secondItem="tZv-yI-LYh" secondAttribute="trailing" id="PdB-Zd-EUR"/>
-                            <constraint firstItem="1ZE-bU-PcY" firstAttribute="top" secondItem="QhZ-JX-VEt" secondAttribute="bottom" constant="8" id="VDU-8l-wlh"/>
+                            <constraint firstItem="1ZE-bU-PcY" firstAttribute="top" secondItem="QhZ-JX-VEt" secondAttribute="bottom" constant="12" id="VDU-8l-wlh"/>
                             <constraint firstItem="SzL-A4-rQC" firstAttribute="top" secondItem="qoZ-9u-y5Z" secondAttribute="bottom" id="aAo-Tq-INO"/>
                             <constraint firstItem="qoZ-9u-y5Z" firstAttribute="leading" secondItem="1ZE-bU-PcY" secondAttribute="trailing" constant="8" id="cN1-Oz-CUF"/>
-                            <constraint firstItem="tZv-yI-LYh" firstAttribute="trailing" secondItem="qoZ-9u-y5Z" secondAttribute="trailing" constant="8" id="iHH-Um-cUR"/>
+                            <constraint firstItem="tZv-yI-LYh" firstAttribute="trailing" secondItem="qoZ-9u-y5Z" secondAttribute="trailing" constant="20" id="foC-lC-tx3"/>
                             <constraint firstItem="qoZ-9u-y5Z" firstAttribute="top" secondItem="QhZ-JX-VEt" secondAttribute="bottom" constant="8" id="nUm-lA-kbA"/>
                             <constraint firstItem="SzL-A4-rQC" firstAttribute="leading" secondItem="tZv-yI-LYh" secondAttribute="leading" id="oJL-4e-vbA"/>
                             <constraint firstItem="tZv-yI-LYh" firstAttribute="trailing" secondItem="SzL-A4-rQC" secondAttribute="trailing" id="p6X-iF-8Ch"/>
