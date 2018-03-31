@@ -7,6 +7,7 @@
 //
 
 import FDTake
+import Photos
 import UIKit
 
 final class AddNewsViewController: UIViewController {
@@ -17,6 +18,7 @@ final class AddNewsViewController: UIViewController {
         static let title = "Новости"
         static let leftButtonItem = "Отмена"
         static let rigthButtonItem = "Готово"
+        static let titleTextField = "Название..."
         
         static let attachButton = "paperclip"
     }
@@ -35,34 +37,23 @@ final class AddNewsViewController: UIViewController {
     
     @IBOutlet private var heightTextView: NSLayoutConstraint!
     
-    var fdTakeController = FDTakeController()
-    var imageToAttach: UIImage!
+    // MARK: - Private Properties
+    
+    private var fdTakeController = FDTakeController()
+    private var imageToAttach: UIImage!
     
     // MARK: - ViewController lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        fdTakeController.didGetPhoto = {
-            (photo: UIImage, _) in
-            print("GET")
-            self.imageToAttach = photo
-        }
-        fdTakeController.allowsVideo = false
-        
         title = Constants.title
         view.backgroundColor = .white
         
         configureNavigationItems()
-        
-        attachButton.setImage(UIImage(named: Constants.attachButton), for: .normal)
-        attachButton.setTitle("", for: .normal)
-        titleTextField.delegate = self
-        titleTextField.backgroundColor = .clear
-        titleTextField.placeholder = "Название..."
+        configureFdTakeController()
+        configureAttachButton()
         configureTextView()
-        
-        newsTextView.target(forAction: #selector(editingChanged), withSender: self)
+        configureTextField()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -91,15 +82,33 @@ final class AddNewsViewController: UIViewController {
     }
     
     private func configureTextView() {
-        let indentView = UIView(frame: CGRect(x: 0, y: 0, width: 25, height: 0))
-        titleTextField.leftView = indentView
-        titleTextField.leftViewMode = .always
         newsTextView.textContainerInset = UIEdgeInsets(top: 10, left: 20, bottom: 20, right: 20)
-        titleTextField.font = UIFont.customFont(.robotoBoldFont(size: 18))
         newsTextView.font = UIFont.customFont(.robotoRegularFont(size: 17))
         newsTextView.becomeFirstResponder()
         newsTextView.delegate = self
+        newsTextView.target(forAction: #selector(editingChanged), withSender: self)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
+    }
+    
+    private func configureTextField() {
+        titleTextField.delegate = self
+        titleTextField.backgroundColor = .clear
+        titleTextField.placeholder = Constants.titleTextField
+        titleTextField.font = UIFont.customFont(.robotoBoldFont(size: 18))
+    }
+    
+    private func configureAttachButton() {
+        attachButton.setImage(UIImage(named: Constants.attachButton), for: .normal)
+        attachButton.setTitle("", for: .normal)
+    }
+    
+    private func configureFdTakeController() {
+        fdTakeController.didGetPhoto = {
+            (photo, _) in
+            self.imageToAttach = photo
+            self.attachButton.tintColor = .green
+        }
+        fdTakeController.allowsVideo = false
     }
     
     @objc private func keyboardWillShow(_ notification: Notification) {
@@ -123,8 +132,15 @@ final class AddNewsViewController: UIViewController {
     
     @IBAction private func leftButtonItemTapped(_ sender: Any) {
         dismiss(animated: true)
+        titleTextField.resignFirstResponder()
         newsTextView.resignFirstResponder()
     }
+    
+    @IBAction func rightButtonItemTapped(_ sender: Any) {
+//        titleTextField.resignFirstResponder()
+//        newsTextView.resignFirstResponder()
+    }
+    
     
     @IBAction func attachButtonTapped(_ sender: Any) {
         fdTakeController.present()

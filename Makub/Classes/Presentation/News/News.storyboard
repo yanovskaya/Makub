@@ -65,12 +65,16 @@
                                                 <action selector="leftButtonItemTapped:" destination="CJn-v0-QGP" id="c75-9S-oBq"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="Item" id="hsF-I0-xzE"/>
+                                        <barButtonItem key="rightBarButtonItem" title="Item" id="hsF-I0-xzE">
+                                            <connections>
+                                                <action selector="rightButtonItemTapped:" destination="CJn-v0-QGP" id="0Lo-EO-6jL"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1ZE-bU-PcY">
-                                <rect key="frame" x="0.0" y="79" width="291" height="30"/>
+                                <rect key="frame" x="25" y="79" width="266" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="UQm-j2-fPa"/>
@@ -107,7 +111,7 @@
                             <constraint firstItem="SzL-A4-rQC" firstAttribute="leading" secondItem="tZv-yI-LYh" secondAttribute="leading" id="oJL-4e-vbA"/>
                             <constraint firstItem="tZv-yI-LYh" firstAttribute="trailing" secondItem="SzL-A4-rQC" secondAttribute="trailing" id="p6X-iF-8Ch"/>
                             <constraint firstItem="QhZ-JX-VEt" firstAttribute="leading" secondItem="tZv-yI-LYh" secondAttribute="leading" id="tQ9-Qz-Suh"/>
-                            <constraint firstItem="1ZE-bU-PcY" firstAttribute="leading" secondItem="tZv-yI-LYh" secondAttribute="leading" id="uVU-jB-AcS"/>
+                            <constraint firstItem="1ZE-bU-PcY" firstAttribute="leading" secondItem="tZv-yI-LYh" secondAttribute="leading" constant="25" id="uVU-jB-AcS"/>
                             <constraint firstItem="SzL-A4-rQC" firstAttribute="top" secondItem="qoZ-9u-y5Z" secondAttribute="bottom" id="wbr-sM-Ju6"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tZv-yI-LYh"/>
