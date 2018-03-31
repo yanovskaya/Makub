@@ -24,12 +24,43 @@ final class AddNewsViewController: UIViewController {
     @IBOutlet private var leftButtonItem: UIBarButtonItem!
     @IBOutlet private var rightButtonItem: UIBarButtonItem!
     
+    @IBOutlet private var newsTextView: UITextView!
+    @IBOutlet private var heightTextField: NSLayoutConstraint!
+    
     // MARK: - ViewController lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        newsTextView.textContainerInset = UIEdgeInsets(top: 20, left: 30, bottom: 20, right: 30)
+        newsTextView.font = UIFont.customFont(.robotoRegularFont(size: 16))
         title = Constants.title
         configureNavigationItems()
+        newsTextView.becomeFirstResponder()
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        viewWillAppear(animated)
+        newsTextView.resignFirstResponder()
+        
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        newsTextView.text = ""
+    }
+    
+    @objc func keyboardWillShow(_ notification: Notification) {
+        if let keyboardFrame: NSValue = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue {
+            let keyboardRectangle = keyboardFrame.cgRectValue
+            let keyboardHeight = keyboardRectangle.minY
+            heightTextField.constant = keyboardHeight - newsTextView.frame.minY
+        }
     }
     
     // MARK: - Private Methods
