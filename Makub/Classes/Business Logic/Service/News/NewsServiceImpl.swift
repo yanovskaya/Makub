@@ -111,7 +111,7 @@ final class NewsServiceImpl: NewsService {
                           Constants.titleParameter: title,
                           Constants.textParameter: text]
         let imageData = UIImageJPEGRepresentation(image, 1)
-        let randomName = String(length: 8)
+        let randomName = String(length: 5)
         print("WITH IMAGE")
         transport.upload(method: .post, url: Constants.baseURL + EndPoint.addNews, parameters: parameters, data: imageData!, name: "image", fileName: randomName + Constants.jpgExtension) { transportResult in
             switch transportResult {

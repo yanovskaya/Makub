@@ -83,7 +83,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="next"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qoZ-9u-y5Z">
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qoZ-9u-y5Z">
                                 <rect key="frame" x="316" y="79" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
@@ -99,7 +99,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ejT-jY-MAj">
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ejT-jY-MAj">
                                 <rect key="frame" x="367" y="76" width="0.0" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" id="YB2-Lh-1lU"/>
@@ -110,7 +110,7 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="G8u-Ez-7vj">
-                                <rect key="frame" x="25" y="519" width="324" height="128"/>
+                                <rect key="frame" x="25" y="514" width="324" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="2Nd-MV-9fw"/>
                                 </constraints>
@@ -123,7 +123,7 @@
                             <constraint firstItem="SzL-A4-rQC" firstAttribute="top" secondItem="ejT-jY-MAj" secondAttribute="bottom" constant="3" id="4oi-Fr-BEo"/>
                             <constraint firstItem="G8u-Ez-7vj" firstAttribute="leading" secondItem="tZv-yI-LYh" secondAttribute="leading" constant="25" id="5mV-Ab-4yU"/>
                             <constraint firstItem="QhZ-JX-VEt" firstAttribute="top" secondItem="K3G-Es-8FB" secondAttribute="topMargin" id="CY4-Im-HXn"/>
-                            <constraint firstItem="tZv-yI-LYh" firstAttribute="bottom" secondItem="G8u-Ez-7vj" secondAttribute="bottom" constant="20" id="KOk-FG-Kxe"/>
+                            <constraint firstItem="tZv-yI-LYh" firstAttribute="bottom" secondItem="G8u-Ez-7vj" secondAttribute="bottom" constant="25" id="KOk-FG-Kxe"/>
                             <constraint firstItem="QhZ-JX-VEt" firstAttribute="trailing" secondItem="tZv-yI-LYh" secondAttribute="trailing" id="PdB-Zd-EUR"/>
                             <constraint firstItem="ejT-jY-MAj" firstAttribute="leading" secondItem="qoZ-9u-y5Z" secondAttribute="trailing" constant="5" id="U6e-lt-SXg"/>
                             <constraint firstItem="1ZE-bU-PcY" firstAttribute="top" secondItem="QhZ-JX-VEt" secondAttribute="bottom" constant="15" id="VDU-8l-wlh"/>

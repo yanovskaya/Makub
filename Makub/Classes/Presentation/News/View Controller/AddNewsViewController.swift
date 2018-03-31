@@ -23,6 +23,11 @@ final class AddNewsViewController: UIViewController {
         static let pkhudTitle = "Подождите"
         static let pkhudSubtitle = "Публикуем новость"
         
+        static let cancel = "Отмена"
+        static let noSources = "Нет доступных источников для выбора фото"
+        static let chooseFromLibrary = "Выбрать из библиотеки"
+        static let takePhoto = "Сфотографировать"
+        
         static let attachButton = "paperclip"
         static let removeButton = "close"
     }
@@ -137,7 +142,7 @@ final class AddNewsViewController: UIViewController {
     }
     
     private func configureTextView() {
-        newsTextView.textContainerInset = UIEdgeInsets(top: 10, left: 20, bottom: 20, right: 20)
+        newsTextView.textContainerInset = UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)
         newsTextView.font = UIFont.customFont(.robotoRegularFont(size: 17))
         newsTextView.textColor = PaletteColors.darkGray
         newsTextView.becomeFirstResponder()
@@ -166,6 +171,9 @@ final class AddNewsViewController: UIViewController {
     }
     
     private func configureFdTakeController() {
+        fdTakeController.cancelText = Constants.cancel
+        fdTakeController.takePhotoText = Constants.takePhoto
+        fdTakeController.chooseFromLibraryText = Constants.chooseFromLibrary
         fdTakeController.allowsVideo = false
         fdTakeController.didGetPhoto = { [unowned self] (image, _) in
             self.imageToAttach = image
@@ -177,8 +185,9 @@ final class AddNewsViewController: UIViewController {
             let keyboardRectangle = keyboardFrame.cgRectValue
             let keyboardTopPoint = keyboardRectangle.minY
             heightTextView.constant = keyboardTopPoint - newsTextView.frame.minY
-            heightImageView.constant = previewImageView.frame.maxY - keyboardTopPoint
+            heightImageView.constant = previewImageView.frame.maxY - newsTextView.frame.maxY - 10
         }
+        NotificationCenter.default.removeObserver(self)
     }
     
     @objc private func editingChanged() {
@@ -249,7 +258,7 @@ extension AddNewsViewController: UITextFieldDelegate {
 extension AddNewsViewController: UITextViewDelegate {
     
     func textViewDidChange(_ textView: UITextView) {
-        guard let text = textView.text else {
+        guard let text = textView.text, text.count > 7 else {
             rightButtonItem.isEnabled = false
             return
         }
