@@ -58,7 +58,7 @@ final class Transport {
                 parameters: [String: String]? = nil,
                 headers: [String: String] = [:],
                 data: Data,
-                name: String = "fileset",
+                name: String = "image",
                 fileName: String = "file.jpg",
                 mimeType: String = "image/jpg",
                 completion: ((TransportCallResult) -> Void)?) {
@@ -86,7 +86,7 @@ final class Transport {
                             guard let statusCode = response.response?.statusCode,
                                 let allHeaderFields = response.response?.allHeaderFields else { return }
                             switch statusCode {
-                            case 200:
+                            case 200, 404:
                                 let payload = TransportResponseResult(httpStatus: statusCode,
                                                                       headers: allHeaderFields,
                                                                       resultBody: resultData)

@@ -27,7 +27,8 @@ final class NewsServiceImpl: NewsService {
     }
     
     private enum EndPoint {
-        static let checktoken = "/news"
+        static let news = "/news"
+        static let addNews = "/add_article"
     }
     
     // MARK: - Private Properties
@@ -46,7 +47,7 @@ final class NewsServiceImpl: NewsService {
             return
         }
         let parameters = [Constants.tokenParameter: token]
-        transport.request(method: .post, url: Constants.baseURL + EndPoint.checktoken, parameters: parameters) { [unowned self] transportResult in
+        transport.request(method: .post, url: Constants.baseURL + EndPoint.news, parameters: parameters) { [unowned self] transportResult in
             switch transportResult {
             case .transportSuccess(let payload):
                 let resultBody = payload.resultBody
@@ -78,7 +79,7 @@ final class NewsServiceImpl: NewsService {
         let parameters = [Constants.tokenParameter: token,
                           Constants.titleParameter: title,
                           Constants.textParameter: text]
-        transport.request(method: .post, url: Constants.baseURL + EndPoint.checktoken, parameters: parameters) { [unowned self] transportResult in
+        transport.request(method: .post, url: Constants.baseURL + EndPoint.addNews, parameters: parameters) { [unowned self] transportResult in
             switch transportResult {
             case .transportSuccess(let payload):
                 let resultBody = payload.resultBody
@@ -111,7 +112,8 @@ final class NewsServiceImpl: NewsService {
                           Constants.textParameter: text]
         let imageData = UIImageJPEGRepresentation(image, 1)
         let randomName = String(length: 8)
-        transport.upload(method: .post, url: Constants.baseURL + EndPoint.checktoken, parameters: parameters, data: imageData!, name: randomName, fileName: randomName + Constants.jpgExtension) { transportResult in
+        print("WITH IMAGE")
+        transport.upload(method: .post, url: Constants.baseURL + EndPoint.addNews, parameters: parameters, data: imageData!, name: "image", fileName: randomName + Constants.jpgExtension) { transportResult in
             switch transportResult {
             case .transportSuccess(let payload):
                 let resultBody = payload.resultBody

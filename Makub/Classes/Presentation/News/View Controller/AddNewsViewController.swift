@@ -201,6 +201,7 @@ final class AddNewsViewController: UIViewController {
                 self.titleTextField.text = ""
                 self.newsTextView.text = ""
                 self.imageToAttach = nil
+                self.rightButtonItem.isEnabled = false
             }
         } else {
             print("SEND NO IMAGE")
@@ -208,6 +209,7 @@ final class AddNewsViewController: UIViewController {
                 self.titleTextField.text = ""
                 self.newsTextView.text = ""
                 self.imageToAttach = nil
+                self.rightButtonItem.isEnabled = false
             }
         }
     }
