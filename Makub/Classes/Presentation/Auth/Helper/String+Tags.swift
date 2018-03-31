@@ -1,5 +1,5 @@
 //
-//  String+RemoveTags.swift
+//  String+Tags.swift
 //  Makub
 //
 //  Created by Елена Яновская on 30.03.2018.
@@ -10,6 +10,17 @@ import Foundation.NSString
 
 extension String {
     
+    // MARK: - Public Methods
+    
+    func addTags() -> String {
+        let originString = self
+        var editedString = ""
+        for line in originString.components(separatedBy: "\n") {
+            editedString.append("<div>\(line)</div>")
+        }
+        return editedString
+    }
+    
     func removeTags() -> String {
         var editedString = replaceDivTag()
         editedString = editedString.components(separatedBy: "<div>").joined()
@@ -17,6 +28,8 @@ extension String {
         editedString = editedString.components(separatedBy: "&nbsp;").joined()
         return editedString
     }
+    
+    // MARK: - Private Methods
     
     private func replaceDivTag() -> String {
         return replacingOccurrences(of: "</div><div>", with: "\n", options: .literal, range: nil)

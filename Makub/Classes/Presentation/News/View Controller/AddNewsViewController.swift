@@ -233,15 +233,13 @@ final class AddNewsViewController: UIViewController {
         guard let title = titleTextField.text,
             let text = newsTextView.text else { return }
         if let image = self.imageToAttach {
-            print("SEND WITH IMAGE")
-            self.presentationModel.addNewsWithImage(title: title, text: text, image: image) {
+            self.presentationModel.addNewsWithImage(title: title, text: text.addTags(), image: image) {
                 self.titleTextField.text = ""
                 self.newsTextView.text = ""
                 self.imageToAttach = nil
                 self.rightButtonItem.isEnabled = false
             }
         } else {
-            print("SEND NO IMAGE")
             self.presentationModel.addNews(title: title, text: text) {
                 self.titleTextField.text = ""
                 self.newsTextView.text = ""

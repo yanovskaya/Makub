@@ -49,7 +49,7 @@
 		C4A303FD2066F53C008BFE5E /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A303FC2066F53C008BFE5E /* NewsViewModel.swift */; };
 		C4A304002067085D008BFE5E /* AddNewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4A303FF2067085D008BFE5E /* AddNewsCell.xib */; };
 		C4A30404206709DF008BFE5E /* NewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4A30403206709DF008BFE5E /* NewsCell.xib */; };
-		C4A6BB36206E36C900284603 /* String+RemoveTags.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A6BB35206E36C900284603 /* String+RemoveTags.swift */; };
+		C4A6BB36206E36C900284603 /* String+Tags.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A6BB35206E36C900284603 /* String+Tags.swift */; };
 		C4A6BB3B206F7B1000284603 /* String+RemoveBlankText.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A6BB3A206F7B1000284603 /* String+RemoveBlankText.swift */; };
 		C4BC7104205F2BEA00332D7E /* AuthPassButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BC7103205F2BEA00332D7E /* AuthPassButton.swift */; };
 		C4D4E4D920606ED0000A9216 /* CallResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D4E4D820606ED0000A9216 /* CallResults.swift */; };
@@ -117,7 +117,7 @@
 		C4A303FC2066F53C008BFE5E /* NewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
 		C4A303FF2067085D008BFE5E /* AddNewsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddNewsCell.xib; sourceTree = "<group>"; };
 		C4A30403206709DF008BFE5E /* NewsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsCell.xib; sourceTree = "<group>"; };
-		C4A6BB35206E36C900284603 /* String+RemoveTags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+RemoveTags.swift"; sourceTree = "<group>"; };
+		C4A6BB35206E36C900284603 /* String+Tags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Tags.swift"; sourceTree = "<group>"; };
 		C4A6BB3A206F7B1000284603 /* String+RemoveBlankText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+RemoveBlankText.swift"; sourceTree = "<group>"; };
 		C4BC7103205F2BEA00332D7E /* AuthPassButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPassButton.swift; sourceTree = "<group>"; };
 		C4D4E4D820606ED0000A9216 /* CallResults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallResults.swift; sourceTree = "<group>"; };
@@ -307,7 +307,7 @@
 				C472A6C7205C4D5300768585 /* String+RemoveWhitespaces.swift */,
 				C44D60D12058061100A5C50F /* AuthTextField.swift */,
 				C4BC7103205F2BEA00332D7E /* AuthPassButton.swift */,
-				C4A6BB35206E36C900284603 /* String+RemoveTags.swift */,
+				C4A6BB35206E36C900284603 /* String+Tags.swift */,
 				C41BE782206FE2FD00ED5826 /* String+RandomString.swift */,
 			);
 			path = Helper;
@@ -736,7 +736,7 @@
 				C472A6BF205B16D500768585 /* PresentationModel.swift in Sources */,
 				C472A6CF205C647C00768585 /* KeychainKeys.swift in Sources */,
 				C408C8D1206D3F660053F057 /* NewsRouter.swift in Sources */,
-				C4A6BB36206E36C900284603 /* String+RemoveTags.swift in Sources */,
+				C4A6BB36206E36C900284603 /* String+Tags.swift in Sources */,
 				C472A6C3205B174000768585 /* AuthPresentationModel.swift in Sources */,
 				C4556B95205EC04D00D65DBD /* UIImage+ImageWithInsets.swift in Sources */,
 				C44D60D5205806BB00A5C50F /* Colors.swift in Sources */,
