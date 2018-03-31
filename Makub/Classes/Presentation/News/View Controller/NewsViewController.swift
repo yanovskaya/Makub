@@ -24,13 +24,16 @@ final class NewsViewController: UIViewController {
     
     @IBOutlet private var newsCollectionView: UICollectionView!
     
+    // MARK: - Public Properties
+    
+    let presentationModel = NewsPresentationModel()
+    
     // MARK: - Private Properties
     
     private var navigationSearchBar = UISearchBar()
     private var hidingNavBarManager: HidingNavigationBarManager?
     
     private let refreshControl = UIRefreshControl()
-    private let presentationModel = NewsPresentationModel()
     private let router = NewsRouter()
     
     private var filteredNews = [NewsViewModel]()

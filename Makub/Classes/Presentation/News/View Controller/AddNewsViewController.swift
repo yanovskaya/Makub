@@ -7,6 +7,7 @@
 //
 
 import FDTake
+import Kingfisher
 import Photos
 import PKHUD
 import UIKit
@@ -30,6 +31,7 @@ final class AddNewsViewController: UIViewController {
         
         static let attachButton = "paperclip"
         static let removeButton = "close"
+        static let userImage = "user"
     }
     
     // MARK: - IBOutlets
@@ -41,17 +43,22 @@ final class AddNewsViewController: UIViewController {
     @IBOutlet private var attachButton: UIButton!
     @IBOutlet private var removeButton: UIButton!
     
+    @IBOutlet private var authorImageView: UIImageView!
+    @IBOutlet private var authorLabel: UILabel!
+    
     @IBOutlet private var previewImageView: UIImageView!
     @IBOutlet private var newsTextView: UITextView!
     @IBOutlet private var titleTextField: UITextField!
     
-    @IBOutlet var heightImageView: NSLayoutConstraint!
+    @IBOutlet private var heightImageView: NSLayoutConstraint!
     @IBOutlet private var heightTextView: NSLayoutConstraint!
     @IBOutlet private var heightRemoveButton: NSLayoutConstraint!
     
-    // MARK: - Private Properties
+    // MARK: - Public Properties
     
-    private let presentationModel = NewsPresentationModel()
+    var presentationModel: NewsPresentationModel!
+    
+    // MARK: - Private Properties
     
     private var fdTakeController = FDTakeController()
     
@@ -85,6 +92,7 @@ final class AddNewsViewController: UIViewController {
         configureAttachButton()
         configureTextView()
         configureTextField()
+        configureAuthorView()
         
         bindEvents()
     }
@@ -142,7 +150,7 @@ final class AddNewsViewController: UIViewController {
     }
     
     private func configureTextView() {
-        newsTextView.textContainerInset = UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)
+        newsTextView.textContainerInset = UIEdgeInsets(top: 5, left: 20, bottom: 10, right: 20)
         newsTextView.font = UIFont.customFont(.robotoRegularFont(size: 17))
         newsTextView.textColor = PaletteColors.darkGray
         newsTextView.becomeFirstResponder()
@@ -168,6 +176,20 @@ final class AddNewsViewController: UIViewController {
     private func configureRemoveButton() {
         removeButton.tintColor = .lightGray
         removeButton.setTitle("", for: .normal)
+    }
+    
+    private func configureAuthorView() {
+        authorImageView.image = UIImage(named: Constants.userImage)
+        authorImageView.layer.cornerRadius = authorImageView.frame.width / 2
+        authorImageView.clipsToBounds = true
+        
+        guard let viewModel = presentationModel.userViewModel else { return }
+        authorImageView.kf.indicatorType = .activity
+        authorImageView.kf.setImage(with: URL(string: viewModel.photoURL))
+        
+        authorLabel.font = UIFont.customFont(.robotoBoldFont(size: 16))
+        authorLabel.text = viewModel.fullname
+        authorLabel.textColor = PaletteColors.darkGray
     }
     
     private func configureFdTakeController() {

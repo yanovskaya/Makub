@@ -13,6 +13,7 @@ final class User: Object, Decodable {
     
     @objc dynamic var error: Int = 0
     @objc dynamic var id: String = ""
+    @objc dynamic var name: String = ""
+    @objc dynamic var surname: String = ""
     @objc dynamic var photo: String!
-    
 }

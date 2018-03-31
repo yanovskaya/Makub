@@ -20,11 +20,13 @@ struct UserViewModel {
     
     let photoURL: String!
     let id: String
+    let fullname: String
     
     // MARK: - Initialization
     
     init(_ user: User) {
         self.id = user.id
+        self.fullname = user.name + " " + user.surname
         guard let photo = user.photo, photo != "" else {
             self.photoURL = nil
             return
