@@ -8,8 +8,24 @@
 
 import UIKit.UIColor
 
-struct PaleteColors {
+struct PaletteColors {
+    
+    // MARK: - AuthViewController
     
     static var borderAuthTextField = UIColor(hex: "E2E2E2")
     static var passButtonBackground = UIColor(hex: "6BF26B")
+    
+    // MARK: - PassHelpViewController
+    
+    static var darkGray = UIColor(hex: "303030")
+    
+    // MARK: VCs in TabBarController
+    
+    static let blueBackground = UIColor(hex: "F7F9FC")
+    static let blueTint = UIColor(hex: "5BABFF")
+    
+    // MARK: NewsViewController
+    
+    static let searchBar = UIColor(hex: "EBEBEB")
+    static let textGray = UIColor(hex: "72757F")
 }
