@@ -74,7 +74,7 @@
                                 </items>
                             </navigationBar>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1ZE-bU-PcY">
-                                <rect key="frame" x="25" y="79" width="266" height="30"/>
+                                <rect key="frame" x="25" y="79" width="283" height="30"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="UQm-j2-fPa"/>
@@ -83,8 +83,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="next"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qoZ-9u-y5Z">
-                                <rect key="frame" x="299" y="79" width="46" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qoZ-9u-y5Z">
+                                <rect key="frame" x="316" y="79" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="attachButtonTapped:" destination="CJn-v0-QGP" eventType="touchUpInside" id="Rr0-sT-8Kj"/>
@@ -99,15 +99,27 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ejT-jY-MAj">
+                                <rect key="frame" x="367" y="76" width="0.0" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" id="YB2-Lh-1lU"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="removeButtonTapped:" destination="CJn-v0-QGP" eventType="touchUpInside" id="uVz-pr-wi8"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="SzL-A4-rQC" firstAttribute="top" secondItem="1ZE-bU-PcY" secondAttribute="bottom" id="2Ll-nB-zah"/>
+                            <constraint firstItem="tZv-yI-LYh" firstAttribute="trailing" secondItem="ejT-jY-MAj" secondAttribute="trailing" constant="8" id="3u6-2E-eVL"/>
+                            <constraint firstItem="SzL-A4-rQC" firstAttribute="top" secondItem="ejT-jY-MAj" secondAttribute="bottom" constant="3" id="4oi-Fr-BEo"/>
                             <constraint firstItem="QhZ-JX-VEt" firstAttribute="top" secondItem="K3G-Es-8FB" secondAttribute="topMargin" id="CY4-Im-HXn"/>
                             <constraint firstItem="QhZ-JX-VEt" firstAttribute="trailing" secondItem="tZv-yI-LYh" secondAttribute="trailing" id="PdB-Zd-EUR"/>
+                            <constraint firstItem="ejT-jY-MAj" firstAttribute="leading" secondItem="qoZ-9u-y5Z" secondAttribute="trailing" constant="5" id="U6e-lt-SXg"/>
                             <constraint firstItem="1ZE-bU-PcY" firstAttribute="top" secondItem="QhZ-JX-VEt" secondAttribute="bottom" constant="15" id="VDU-8l-wlh"/>
                             <constraint firstItem="qoZ-9u-y5Z" firstAttribute="leading" secondItem="1ZE-bU-PcY" secondAttribute="trailing" constant="8" id="cN1-Oz-CUF"/>
-                            <constraint firstItem="tZv-yI-LYh" firstAttribute="trailing" secondItem="qoZ-9u-y5Z" secondAttribute="trailing" constant="30" id="foC-lC-tx3"/>
                             <constraint firstItem="SzL-A4-rQC" firstAttribute="leading" secondItem="tZv-yI-LYh" secondAttribute="leading" id="oJL-4e-vbA"/>
                             <constraint firstItem="tZv-yI-LYh" firstAttribute="trailing" secondItem="SzL-A4-rQC" secondAttribute="trailing" id="p6X-iF-8Ch"/>
                             <constraint firstItem="QhZ-JX-VEt" firstAttribute="leading" secondItem="tZv-yI-LYh" secondAttribute="leading" id="tQ9-Qz-Suh"/>
@@ -122,6 +134,8 @@
                         <outlet property="leftButtonItem" destination="at6-WU-baz" id="MYJ-di-0BS"/>
                         <outlet property="navigationBar" destination="QhZ-JX-VEt" id="9Tg-vC-7DU"/>
                         <outlet property="newsTextView" destination="SzL-A4-rQC" id="Ndd-zs-4KE"/>
+                        <outlet property="removeButton" destination="ejT-jY-MAj" id="73y-Hf-99s"/>
+                        <outlet property="removeButtonHeight" destination="YB2-Lh-1lU" id="RHK-2b-Val"/>
                         <outlet property="rightButtonItem" destination="hsF-I0-xzE" id="3Zk-Sp-cFr"/>
                         <outlet property="titleTextField" destination="1ZE-bU-PcY" id="a3U-zA-SPb"/>
                     </connections>

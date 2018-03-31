@@ -21,6 +21,7 @@ final class AddNewsViewController: UIViewController {
         static let titleTextField = "Название..."
         
         static let attachButton = "paperclip"
+        static let removeButton = "close"
     }
     
     // MARK: - IBOutlets
@@ -30,17 +31,30 @@ final class AddNewsViewController: UIViewController {
     @IBOutlet private var rightButtonItem: UIBarButtonItem!
     
     @IBOutlet private var attachButton: UIButton!
-    
+    @IBOutlet private var removeButton: UIButton!
     
     @IBOutlet private var newsTextView: UITextView!
     @IBOutlet private var titleTextField: UITextField!
     
     @IBOutlet private var heightTextView: NSLayoutConstraint!
+    @IBOutlet private var removeButtonHeight: NSLayoutConstraint!
     
     // MARK: - Private Properties
     
     private var fdTakeController = FDTakeController()
-    private var imageToAttach: UIImage!
+    private var imageToAttach: UIImage? {
+        didSet {
+            if imageToAttach != nil {
+                attachButton.tintColor = UIColor.green
+                removeButton.removeConstraint(removeButtonHeight)
+                removeButton.setImage(UIImage(named: Constants.removeButton), for: .normal)
+            } else {
+                attachButton.tintColor = PaletteColors.darkGray
+                removeButton.setImage(nil, for: .normal)
+                removeButton.addConstraint(removeButtonHeight)
+            }
+        }
+    }
     
     // MARK: - ViewController lifecycle
     
@@ -51,6 +65,7 @@ final class AddNewsViewController: UIViewController {
         
         configureNavigationItems()
         configureFdTakeController()
+        configureRemoveButton()
         configureAttachButton()
         configureTextView()
         configureTextField()
@@ -58,7 +73,7 @@ final class AddNewsViewController: UIViewController {
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        newsTextView.text = ""
+        
     }
     
     // MARK: - Private Methods
@@ -84,6 +99,7 @@ final class AddNewsViewController: UIViewController {
     private func configureTextView() {
         newsTextView.textContainerInset = UIEdgeInsets(top: 10, left: 20, bottom: 20, right: 20)
         newsTextView.font = UIFont.customFont(.robotoRegularFont(size: 17))
+        newsTextView.textColor = PaletteColors.darkGray
         newsTextView.becomeFirstResponder()
         newsTextView.delegate = self
         newsTextView.target(forAction: #selector(editingChanged), withSender: self)
@@ -95,20 +111,25 @@ final class AddNewsViewController: UIViewController {
         titleTextField.backgroundColor = .clear
         titleTextField.placeholder = Constants.titleTextField
         titleTextField.font = UIFont.customFont(.robotoBoldFont(size: 18))
+        titleTextField.textColor = PaletteColors.darkGray
     }
     
     private func configureAttachButton() {
         attachButton.setImage(UIImage(named: Constants.attachButton), for: .normal)
+        attachButton.tintColor = PaletteColors.darkGray
         attachButton.setTitle("", for: .normal)
     }
     
+    private func configureRemoveButton() {
+        removeButton.tintColor = .lightGray
+        removeButton.setTitle("", for: .normal)
+    }
+    
     private func configureFdTakeController() {
-        fdTakeController.didGetPhoto = {
-            (photo, _) in
-            self.imageToAttach = photo
-            self.attachButton.tintColor = .green
-        }
         fdTakeController.allowsVideo = false
+        fdTakeController.didGetPhoto = { [unowned self] (photo, _) in
+            self.imageToAttach = photo
+        }
     }
     
     @objc private func keyboardWillShow(_ notification: Notification) {
@@ -145,6 +166,11 @@ final class AddNewsViewController: UIViewController {
     @IBAction func attachButtonTapped(_ sender: Any) {
         fdTakeController.present()
     }
+    
+    @IBAction func removeButtonTapped(_ sender: Any) {
+        imageToAttach = nil
+    }
+    
     
 }
 

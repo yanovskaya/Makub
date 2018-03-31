@@ -75,33 +75,34 @@ final class Transport {
         },
                          to: url,
                          method: method,
-                         headers: headers) { (result) in
-                            switch result {
-                            case .success(let upload,_,_ ):
-                                upload.responseData { response in
-                                    switch response.result {
-                                    case .success(let resultData):
-                                        do {
-                                            guard let statusCode = response.response?.statusCode,
-                                                let allHeaderFields = response.response?.allHeaderFields else { return }
-                                            switch statusCode {
-                                            case 200:
-                                                let payload = TransportResponseResult(httpStatus: statusCode,
-                                                                                      headers: allHeaderFields,
-                                                                                      resultBody: resultData)
-                                                completion?(TransportCallResult.transportSuccess(payload: payload))
-                                            default:
-                                                let error = NSError(domain: "", code: statusCode, userInfo: nil)
-                                                completion?(TransportCallResult.transportFailure(error: error as NSError))
-                                            }
-                                        }
-                                    case .failure(let error):
-                                        completion?(TransportCallResult.transportFailure(error: error as NSError))
-                                    }
-                                }
-                            case .failure(let error):
+                         headers: headers)
+        { result in
+            switch result {
+            case .success(let upload, _, _):
+                upload.responseData { response in
+                    switch response.result {
+                    case .success(let resultData):
+                        do {
+                            guard let statusCode = response.response?.statusCode,
+                                let allHeaderFields = response.response?.allHeaderFields else { return }
+                            switch statusCode {
+                            case 200:
+                                let payload = TransportResponseResult(httpStatus: statusCode,
+                                                                      headers: allHeaderFields,
+                                                                      resultBody: resultData)
+                                completion?(TransportCallResult.transportSuccess(payload: payload))
+                            default:
+                                let error = NSError(domain: "", code: statusCode, userInfo: nil)
                                 completion?(TransportCallResult.transportFailure(error: error as NSError))
                             }
+                        }
+                    case .failure(let error):
+                        completion?(TransportCallResult.transportFailure(error: error as NSError))
+                    }
+                }
+            case .failure(let error):
+                completion?(TransportCallResult.transportFailure(error: error as NSError))
+            }
         }
     }
 }
