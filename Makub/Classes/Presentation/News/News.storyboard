@@ -109,17 +109,26 @@
                                     <action selector="removeButtonTapped:" destination="CJn-v0-QGP" eventType="touchUpInside" id="uVz-pr-wi8"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="G8u-Ez-7vj">
+                                <rect key="frame" x="25" y="519" width="324" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="2Nd-MV-9fw"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="SzL-A4-rQC" firstAttribute="top" secondItem="1ZE-bU-PcY" secondAttribute="bottom" id="2Ll-nB-zah"/>
                             <constraint firstItem="tZv-yI-LYh" firstAttribute="trailing" secondItem="ejT-jY-MAj" secondAttribute="trailing" constant="8" id="3u6-2E-eVL"/>
                             <constraint firstItem="SzL-A4-rQC" firstAttribute="top" secondItem="ejT-jY-MAj" secondAttribute="bottom" constant="3" id="4oi-Fr-BEo"/>
+                            <constraint firstItem="G8u-Ez-7vj" firstAttribute="leading" secondItem="tZv-yI-LYh" secondAttribute="leading" constant="25" id="5mV-Ab-4yU"/>
                             <constraint firstItem="QhZ-JX-VEt" firstAttribute="top" secondItem="K3G-Es-8FB" secondAttribute="topMargin" id="CY4-Im-HXn"/>
+                            <constraint firstItem="tZv-yI-LYh" firstAttribute="bottom" secondItem="G8u-Ez-7vj" secondAttribute="bottom" constant="20" id="KOk-FG-Kxe"/>
                             <constraint firstItem="QhZ-JX-VEt" firstAttribute="trailing" secondItem="tZv-yI-LYh" secondAttribute="trailing" id="PdB-Zd-EUR"/>
                             <constraint firstItem="ejT-jY-MAj" firstAttribute="leading" secondItem="qoZ-9u-y5Z" secondAttribute="trailing" constant="5" id="U6e-lt-SXg"/>
                             <constraint firstItem="1ZE-bU-PcY" firstAttribute="top" secondItem="QhZ-JX-VEt" secondAttribute="bottom" constant="15" id="VDU-8l-wlh"/>
                             <constraint firstItem="qoZ-9u-y5Z" firstAttribute="leading" secondItem="1ZE-bU-PcY" secondAttribute="trailing" constant="8" id="cN1-Oz-CUF"/>
+                            <constraint firstItem="G8u-Ez-7vj" firstAttribute="centerX" secondItem="tZv-yI-LYh" secondAttribute="centerX" id="dhP-gP-9KC"/>
                             <constraint firstItem="SzL-A4-rQC" firstAttribute="leading" secondItem="tZv-yI-LYh" secondAttribute="leading" id="oJL-4e-vbA"/>
                             <constraint firstItem="tZv-yI-LYh" firstAttribute="trailing" secondItem="SzL-A4-rQC" secondAttribute="trailing" id="p6X-iF-8Ch"/>
                             <constraint firstItem="QhZ-JX-VEt" firstAttribute="leading" secondItem="tZv-yI-LYh" secondAttribute="leading" id="tQ9-Qz-Suh"/>
@@ -130,12 +139,14 @@
                     </view>
                     <connections>
                         <outlet property="attachButton" destination="qoZ-9u-y5Z" id="4i1-e2-h6h"/>
+                        <outlet property="heightImageView" destination="2Nd-MV-9fw" id="PoE-ZJ-laK"/>
+                        <outlet property="heightRemoveButton" destination="YB2-Lh-1lU" id="RHK-2b-Val"/>
                         <outlet property="heightTextView" destination="4jE-AP-UDw" id="JXv-Zg-Qca"/>
                         <outlet property="leftButtonItem" destination="at6-WU-baz" id="MYJ-di-0BS"/>
                         <outlet property="navigationBar" destination="QhZ-JX-VEt" id="9Tg-vC-7DU"/>
                         <outlet property="newsTextView" destination="SzL-A4-rQC" id="Ndd-zs-4KE"/>
+                        <outlet property="previewImageView" destination="G8u-Ez-7vj" id="fcD-wA-OiU"/>
                         <outlet property="removeButton" destination="ejT-jY-MAj" id="73y-Hf-99s"/>
-                        <outlet property="removeButtonHeight" destination="YB2-Lh-1lU" id="RHK-2b-Val"/>
                         <outlet property="rightButtonItem" destination="hsF-I0-xzE" id="3Zk-Sp-cFr"/>
                         <outlet property="titleTextField" destination="1ZE-bU-PcY" id="a3U-zA-SPb"/>
                     </connections>

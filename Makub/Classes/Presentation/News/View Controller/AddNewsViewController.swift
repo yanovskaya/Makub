@@ -36,11 +36,13 @@ final class AddNewsViewController: UIViewController {
     @IBOutlet private var attachButton: UIButton!
     @IBOutlet private var removeButton: UIButton!
     
+    @IBOutlet private var previewImageView: UIImageView!
     @IBOutlet private var newsTextView: UITextView!
     @IBOutlet private var titleTextField: UITextField!
     
+    @IBOutlet var heightImageView: NSLayoutConstraint!
     @IBOutlet private var heightTextView: NSLayoutConstraint!
-    @IBOutlet private var removeButtonHeight: NSLayoutConstraint!
+    @IBOutlet private var heightRemoveButton: NSLayoutConstraint!
     
     // MARK: - Private Properties
     
@@ -52,12 +54,15 @@ final class AddNewsViewController: UIViewController {
         didSet {
             if imageToAttach != nil {
                 attachButton.tintColor = UIColor.green
-                removeButton.removeConstraint(removeButtonHeight)
+                removeButton.removeConstraint(heightRemoveButton)
                 removeButton.setImage(UIImage(named: Constants.removeButton), for: .normal)
+                previewImageView.image = imageToAttach
             } else {
                 attachButton.tintColor = PaletteColors.darkGray
                 removeButton.setImage(nil, for: .normal)
-                removeButton.addConstraint(removeButtonHeight)
+                removeButton.addConstraint(heightRemoveButton)
+                previewImageView.image = nil
+                newsTextView.becomeFirstResponder()
             }
         }
     }
@@ -162,8 +167,8 @@ final class AddNewsViewController: UIViewController {
     
     private func configureFdTakeController() {
         fdTakeController.allowsVideo = false
-        fdTakeController.didGetPhoto = { [unowned self] (photo, _) in
-            self.imageToAttach = photo
+        fdTakeController.didGetPhoto = { [unowned self] (image, _) in
+            self.imageToAttach = image
         }
     }
     
@@ -172,6 +177,7 @@ final class AddNewsViewController: UIViewController {
             let keyboardRectangle = keyboardFrame.cgRectValue
             let keyboardTopPoint = keyboardRectangle.minY
             heightTextView.constant = keyboardTopPoint - newsTextView.frame.minY
+            heightImageView.constant = previewImageView.frame.maxY - keyboardTopPoint
         }
     }
     
