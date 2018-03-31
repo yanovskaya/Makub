@@ -18,6 +18,12 @@ final class NewsServiceImpl: NewsService {
     private enum Constants {
         static let baseURL = "https://makub.ru/api"
         static let tokenParameter = "token"
+        
+        static let titleParameter = "title"
+        static let textParameter = "text"
+        static let imageParameter = "image"
+        
+        static let jpgExtension = ".jpg"
     }
     
     private enum EndPoint {
@@ -27,7 +33,8 @@ final class NewsServiceImpl: NewsService {
     // MARK: - Private Properties
     
     private let transport = Transport()
-    private let parser = Parser<NewsResponse>()
+    private let newsParser = Parser<NewsResponse>()
+    private let addNewsParser = Parser<AddNewsResponse>()
     private let realmCache = RealmCache<News>()
     
     // MARK: - Public Methods
@@ -43,7 +50,7 @@ final class NewsServiceImpl: NewsService {
             switch transportResult {
             case .transportSuccess(let payload):
                 let resultBody = payload.resultBody
-                let parseResult = self.parser.parse(from: resultBody)
+                let parseResult = self.newsParser.parse(from: resultBody)
                 switch parseResult {
                 case .parserSuccess(let model):
                     if model.error == 0 {
@@ -62,12 +69,80 @@ final class NewsServiceImpl: NewsService {
         }
     }
     
+    func addNews(title: String, text: String, completion: ((ServiceCallResult<AddNewsResponse>) -> Void)?) {
+        guard let token = KeychainWrapper.standard.string(forKey: KeychainKey.token) else {
+            let error = NSError(domain: "", code: AdditionalError.tokenNotFound)
+            completion?(ServiceCallResult.serviceFailure(error: error))
+            return
+        }
+        let parameters = [Constants.tokenParameter: token,
+                          Constants.titleParameter: title,
+                          Constants.textParameter: text]
+        transport.request(method: .post, url: Constants.baseURL + EndPoint.checktoken, parameters: parameters) { [unowned self] transportResult in
+            switch transportResult {
+            case .transportSuccess(let payload):
+                let resultBody = payload.resultBody
+                let parseResult = self.addNewsParser.parse(from: resultBody)
+                switch parseResult {
+                case .parserSuccess(let model):
+                    if model.error == 0 {
+                        completion?(ServiceCallResult.serviceSuccess(payload: model))
+                    } else {
+                        let error = NSError(domain: "", code: model.error)
+                        completion?(ServiceCallResult.serviceFailure(error: error))
+                    }
+                case .parserFailure(let error):
+                    completion?(ServiceCallResult.serviceFailure(error: error))
+                }
+            case .transportFailure(let error):
+                completion?(ServiceCallResult.serviceFailure(error: error))
+            }
+        }
+    }
+    
+    func addNewsWithImage(title: String, text: String, image: UIImage, completion: ((ServiceCallResult<AddNewsResponse>) -> Void)?) {
+        guard let token = KeychainWrapper.standard.string(forKey: KeychainKey.token) else {
+            let error = NSError(domain: "", code: AdditionalError.tokenNotFound)
+            completion?(ServiceCallResult.serviceFailure(error: error))
+            return
+        }
+        let parameters = [Constants.tokenParameter: token,
+                          Constants.titleParameter: title,
+                          Constants.textParameter: text]
+        let imageData = UIImageJPEGRepresentation(image, 1)
+        let randomName = String(length: 8)
+        transport.upload(method: .post, url: Constants.baseURL + EndPoint.checktoken, parameters: parameters, data: imageData!, name: randomName, fileName: randomName + Constants.jpgExtension) { transportResult in
+            switch transportResult {
+            case .transportSuccess(let payload):
+                let resultBody = payload.resultBody
+                let parseResult = self.addNewsParser.parse(from: resultBody)
+                switch parseResult {
+                case .parserSuccess(let model):
+                    if model.error == 0 {
+                        completion?(ServiceCallResult.serviceSuccess(payload: model))
+                    } else {
+                        let error = NSError(domain: "", code: model.error)
+                        completion?(ServiceCallResult.serviceFailure(error: error))
+                    }
+                case .parserFailure(let error):
+                    completion?(ServiceCallResult.serviceFailure(error: error))
+                }
+            case .transportFailure(let error):
+                completion?(ServiceCallResult.serviceFailure(error: error))
+            }
+        }
+    }
+    
     func obtainRealmCache(error: NSError? = nil, completion: ((ServiceCallResult<NewsResponse>) -> Void)?) {
         if let newsCache = self.realmCache.getCachedArray() {
             let newsResponse = NewsResponse(news: newsCache, error: 0)
             completion?(ServiceCallResult.serviceSuccess(payload: newsResponse))
         } else {
-            completion?(ServiceCallResult.serviceFailure(error: NSError()))
+            guard let error = error else {
+                completion?(ServiceCallResult.serviceFailure(error: NSError()))
+                return
+            }
+            completion?(ServiceCallResult.serviceFailure(error: error))
         }
     }
     

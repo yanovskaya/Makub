@@ -8,6 +8,7 @@
 
 import FDTake
 import Photos
+import PKHUD
 import UIKit
 
 final class AddNewsViewController: UIViewController {
@@ -19,6 +20,8 @@ final class AddNewsViewController: UIViewController {
         static let leftButtonItem = "Отмена"
         static let rigthButtonItem = "Готово"
         static let titleTextField = "Название..."
+        static let pkhudTitle = "Подождите"
+        static let pkhudSubtitle = "Публикуем новость"
         
         static let attachButton = "paperclip"
         static let removeButton = "close"
@@ -41,7 +44,10 @@ final class AddNewsViewController: UIViewController {
     
     // MARK: - Private Properties
     
+    private let presentationModel = NewsPresentationModel()
+    
     private var fdTakeController = FDTakeController()
+    
     private var imageToAttach: UIImage? {
         didSet {
             if imageToAttach != nil {
@@ -69,27 +75,56 @@ final class AddNewsViewController: UIViewController {
         configureAttachButton()
         configureTextView()
         configureTextField()
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
         
+        bindEvents()
     }
     
     // MARK: - Private Methods
+    
+    private func bindEvents() {
+        presentationModel.changeStateHandler = { status in
+            switch status {
+            case .loading:
+                PKHUD.sharedHUD.dimsBackground = true
+                PKHUD.sharedHUD.userInteractionOnUnderlyingViewsEnabled = false
+                HUD.show(.labeledProgress(title: Constants.pkhudTitle, subtitle: Constants.pkhudSubtitle))
+            case .rich:
+                HUD.show(.success)
+                HUD.hide(afterDelay: 0.4)
+                self.newsTextView.becomeFirstResponder()
+            case .error (let code):
+                switch code {
+                case -1009, -1001:
+                    HUD.show(.labeledError(title: ErrorDescription.title.rawValue, subtitle: ErrorDescription.network.rawValue))
+                case 2:
+                    HUD.show(.labeledError(title: ErrorDescription.title.rawValue, subtitle: ErrorDescription.recover.rawValue))
+                default:
+                    HUD.show(.labeledError(title: ErrorDescription.title.rawValue, subtitle: ErrorDescription.server.rawValue))
+                }
+                HUD.hide(afterDelay: 1.0)
+                self.newsTextView.becomeFirstResponder()
+            }
+        }
+    }
     
     private func configureNavigationItems() {
         navigationBar.topItem?.title = Constants.title
         leftButtonItem.title = Constants.leftButtonItem
         rightButtonItem.title = Constants.rigthButtonItem
         
-        navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: PaletteColors.darkGray,
-                                             NSAttributedStringKey.font: UIFont.customFont(.robotoMediumFont(size: 17))]
-        leftButtonItem.setTitleTextAttributes([NSAttributedStringKey.foregroundColor: PaletteColors.blueTint,
-                                               NSAttributedStringKey.font: UIFont.customFont(.robotoRegularFont(size: 17))], for: .normal)
+        let titleTextAttributes: [NSAttributedStringKey: Any] = [NSAttributedStringKey.foregroundColor: PaletteColors.darkGray,
+                                   NSAttributedStringKey.font: UIFont.customFont(.robotoMediumFont(size: 17))]
         
-        rightButtonItem.setTitleTextAttributes([NSAttributedStringKey.foregroundColor: PaletteColors.blueTint,
-                                               NSAttributedStringKey.font: UIFont.customFont(.robotoBoldFont(size: 17))], for: .normal)
+        let leftButtonAttributes = [NSAttributedStringKey.foregroundColor: PaletteColors.blueTint,
+                                                                      NSAttributedStringKey.font: UIFont.customFont(.robotoRegularFont(size: 17))]
+        let rightButtonAttributes = [NSAttributedStringKey.foregroundColor: PaletteColors.blueTint,
+                                     NSAttributedStringKey.font: UIFont.customFont(.robotoBoldFont(size: 17))]
+        navigationBar.titleTextAttributes = titleTextAttributes
+        leftButtonItem.setTitleTextAttributes(leftButtonAttributes, for: .normal)
+        leftButtonItem.setTitleTextAttributes(leftButtonAttributes, for: .selected)
+        
+        rightButtonItem.setTitleTextAttributes(rightButtonAttributes, for: .normal)
+        rightButtonItem.setTitleTextAttributes(rightButtonAttributes, for: .selected)
         
         rightButtonItem.setTitleTextAttributes([NSAttributedStringKey.font: UIFont.customFont(.robotoBoldFont(size: 17))], for: .disabled)
         
@@ -153,13 +188,28 @@ final class AddNewsViewController: UIViewController {
     
     @IBAction private func leftButtonItemTapped(_ sender: Any) {
         dismiss(animated: true)
-        titleTextField.resignFirstResponder()
-        newsTextView.resignFirstResponder()
+        view.endEditing(true)
     }
     
     @IBAction func rightButtonItemTapped(_ sender: Any) {
-//        titleTextField.resignFirstResponder()
-//        newsTextView.resignFirstResponder()
+        view.endEditing(true)
+        guard let title = titleTextField.text,
+            let text = newsTextView.text else { return }
+        if let image = self.imageToAttach {
+            print("SEND WITH IMAGE")
+            self.presentationModel.addNewsWithImage(title: title, text: text, image: image) {
+                self.titleTextField.text = ""
+                self.newsTextView.text = ""
+                self.imageToAttach = nil
+            }
+        } else {
+            print("SEND NO IMAGE")
+            self.presentationModel.addNews(title: title, text: text) {
+                self.titleTextField.text = ""
+                self.newsTextView.text = ""
+                self.imageToAttach = nil
+            }
+        }
     }
     
     

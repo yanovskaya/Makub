@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 final class NewsPresentationModel: PresentationModel {
     
@@ -107,6 +108,39 @@ final class NewsPresentationModel: PresentationModel {
         
     }
     
+    func addNews(title: String, text: String, completion: @escaping () -> Void) {
+        state = .loading
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+            self.state = .rich
+            completion()
+        }
+//        newsService.addNews(title: title, text: text) { result in
+//            switch result {
+//            case .serviceSuccess:
+//                self.state = .rich
+//                completion()
+//            case .serviceFailure(let error):
+//                self.state = .error(code: error.code)
+//            }
+//        }
+    }
+    
+    func addNewsWithImage(title: String, text: String, image: UIImage, completion: @escaping () -> Void) {
+        state = .loading
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+            self.state = .rich
+            completion()
+        }
+//        newsService.addNewsWithImage(title: title, text: text, image: image) { result in
+//            switch result {
+//            case .serviceSuccess:
+//                self.state = .rich
+//               // completion!()
+//            case .serviceFailure(let error):
+//                self.state = .error(code: error.code)
+//            }
+//        }
+    }
     
     // MARK: - Private Methods
     

@@ -9,7 +9,8 @@
 import Foundation.NSString
 
 extension String {
-    func randomString(length: Int) -> String {
+    
+    init(length: Int) {
         let letters : NSString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
         let len = UInt32(letters.length)
         var randomString = ""
@@ -18,6 +19,6 @@ extension String {
             var nextChar = letters.character(at: Int(rand))
             randomString += NSString(characters: &nextChar, length: 1) as String
         }
-        return randomString
+        self.init(randomString)
     }
 }
