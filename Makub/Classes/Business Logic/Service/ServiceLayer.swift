@@ -13,22 +13,14 @@ final class ServiceLayer {
     
     static let shared = ServiceLayer()
     
-    let sessionManager: SessionManager
-    let sessionDelegate: SessionDelegate
-    
     let authService: AuthService
     let userService: UserService
     let newsService: NewsService
     
     private init() {
-        sessionDelegate = SessionDelegate()
-        
-        let session = URLSession(configuration: .default, delegate: sessionDelegate, delegateQueue: nil)
-        sessionManager = SessionManager(session: session, delegate: sessionDelegate)!
-        
-        authService = AuthServiceImpl(sessionManager: sessionManager)
-        userService = UserServiceImpl(sessionManager: sessionManager)
-        newsService = NewsServiceImpl(sessionManager: sessionManager)
+        authService = AuthServiceImpl()
+        userService = UserServiceImpl()
+        newsService = NewsServiceImpl()
     }
     
 }

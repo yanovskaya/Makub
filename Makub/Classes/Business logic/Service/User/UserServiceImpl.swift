@@ -26,26 +26,20 @@ final class UserServiceImpl: UserService {
     
     // MARK: - Private Properties
     
-    private let sessionManager: SessionManager
-    private let transport: Transport
-    private let serializer = Serializer()
+    private let transport = Transport()
     private let parser = Parser<User>()
     private let realmCache = RealmCache<User>()
-    
-    // MARK: - Initialization
-    
-    init(sessionManager: SessionManager) {
-        self.sessionManager = sessionManager
-        transport = Transport(sessionManager: sessionManager)
-    }
-    
+
     // MARK: - Public Methods
     
     func obtainUserInfo(completion: ((ServiceCallResult<User>) -> Void)?) {
-        guard let token = KeychainWrapper.standard.string(forKey: KeychainKey.token) else { return }
-        let parameters = "\(Constants.tokenParameter)=\(token)"
-        let bodyParameters = serializer.serialize(parameters)
-        transport.request(method: HTTPMethod.post.rawValue, url: Constants.baseURL + EndPoint.checktoken, parameters: bodyParameters) { [unowned self] transportResult in
+        guard let token = KeychainWrapper.standard.string(forKey: KeychainKey.token) else {
+            let error = NSError(domain: "", code: AdditionalError.tokenNotFound)
+            completion?(ServiceCallResult.serviceFailure(error: error))
+            return
+        }
+        let parameters = [Constants.tokenParameter: token]
+        transport.request(method: .post, url: Constants.baseURL + EndPoint.checktoken, parameters: parameters) { [unowned self] transportResult in
             switch transportResult {
             case .transportSuccess(let payload):
                 let resultBody = payload.resultBody

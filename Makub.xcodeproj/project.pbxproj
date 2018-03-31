@@ -52,7 +52,6 @@
 		C4BC7104205F2BEA00332D7E /* AuthPassButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BC7103205F2BEA00332D7E /* AuthPassButton.swift */; };
 		C4D4E4D920606ED0000A9216 /* CallResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D4E4D820606ED0000A9216 /* CallResults.swift */; };
 		C4D4E4DD20606EE5000A9216 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D4E4DA20606EE4000A9216 /* Parser.swift */; };
-		C4D4E4DE20606EE5000A9216 /* Serializer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D4E4DB20606EE4000A9216 /* Serializer.swift */; };
 		C4D4E4DF20606EE5000A9216 /* Transport.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D4E4DC20606EE5000A9216 /* Transport.swift */; };
 		C4D4E4E320606F08000A9216 /* AuthServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D4E4E120606F08000A9216 /* AuthServiceImpl.swift */; };
 		C4D4E4E720606F2D000A9216 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D4E4E520606F2D000A9216 /* AuthService.swift */; };
@@ -67,6 +66,7 @@
 		C4D4E5022061934F000A9216 /* News.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4D4E5012061934F000A9216 /* News.storyboard */; };
 		C4D9099520680F1800DC3D6C /* AddNewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D9099420680F1800DC3D6C /* AddNewsCell.swift */; };
 		C4D909972068196900DC3D6C /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D909962068196900DC3D6C /* NewsCell.swift */; };
+		C4DFC37E206FAF6000E829BA /* AdditionalError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DFC37D206FAF6000E829BA /* AdditionalError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -118,7 +118,6 @@
 		C4BC7103205F2BEA00332D7E /* AuthPassButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPassButton.swift; sourceTree = "<group>"; };
 		C4D4E4D820606ED0000A9216 /* CallResults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallResults.swift; sourceTree = "<group>"; };
 		C4D4E4DA20606EE4000A9216 /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
-		C4D4E4DB20606EE4000A9216 /* Serializer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Serializer.swift; sourceTree = "<group>"; };
 		C4D4E4DC20606EE5000A9216 /* Transport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transport.swift; sourceTree = "<group>"; };
 		C4D4E4E120606F08000A9216 /* AuthServiceImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthServiceImpl.swift; sourceTree = "<group>"; };
 		C4D4E4E520606F2D000A9216 /* AuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
@@ -133,6 +132,7 @@
 		C4D4E5012061934F000A9216 /* News.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = News.storyboard; sourceTree = "<group>"; };
 		C4D9099420680F1800DC3D6C /* AddNewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewsCell.swift; sourceTree = "<group>"; };
 		C4D909962068196900DC3D6C /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
+		C4DFC37D206FAF6000E829BA /* AdditionalError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalError.swift; sourceTree = "<group>"; };
 		FD91280B983360A8DBD4BDFC /* Pods_Makub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Makub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -411,8 +411,7 @@
 				C4A303F82066EC3A008BFE5E /* Parser */,
 				C4A303F42066EA6C008BFE5E /* NewsServiceImpl.swift */,
 			);
-			name = News;
-			path = "../../Business logic/Service/News";
+			path = News;
 			sourceTree = "<group>";
 		};
 		C4A303F22066EA57008BFE5E /* Protocol */ = {
@@ -471,13 +470,11 @@
 		C4D4E4D320606E79000A9216 /* Core Components */ = {
 			isa = PBXGroup;
 			children = (
-				C4D4E4DB20606EE4000A9216 /* Serializer.swift */,
 				C4D4E4DC20606EE5000A9216 /* Transport.swift */,
 				C4D4E4DA20606EE4000A9216 /* Parser.swift */,
 				C4A303ED2066C1EB008BFE5E /* RealmCache.swift */,
 			);
-			name = "Core Components";
-			path = "../Business logic/Core Components";
+			path = "Core Components";
 			sourceTree = "<group>";
 		};
 		C4D4E4D420606E7B000A9216 /* Service */ = {
@@ -485,19 +482,11 @@
 			children = (
 				C4D4E4E820606F45000A9216 /* ServiceLayer.swift */,
 				C4D4E4D620606E9F000A9216 /* Auth */,
-				C4A303EF2066EA3F008BFE5E /* News */,
 				C4691C4E206527CE00991C19 /* User */,
-				C4D4E4D520606E9C000A9216 /* Common */,
+				C4A303EF2066EA3F008BFE5E /* News */,
+				C4DFC37F206FBE1200E829BA /* Helper */,
 			);
 			path = Service;
-			sourceTree = "<group>";
-		};
-		C4D4E4D520606E9C000A9216 /* Common */ = {
-			isa = PBXGroup;
-			children = (
-				C4D4E4D820606ED0000A9216 /* CallResults.swift */,
-			);
-			path = Common;
 			sourceTree = "<group>";
 		};
 		C4D4E4D620606E9F000A9216 /* Auth */ = {
@@ -547,6 +536,15 @@
 				C4D4E4F920618E63000A9216 /* RatingViewController.swift */,
 			);
 			path = Rating;
+			sourceTree = "<group>";
+		};
+		C4DFC37F206FBE1200E829BA /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				C4D4E4D820606ED0000A9216 /* CallResults.swift */,
+				C4DFC37D206FAF6000E829BA /* AdditionalError.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		C8FE19675A729A68973D7EBE /* Frameworks */ = {
@@ -736,7 +734,6 @@
 				C4D909972068196900DC3D6C /* NewsCell.swift in Sources */,
 				C472A6CA205C4F8100768585 /* ErrorDescription.swift in Sources */,
 				C45AC9622066656100F9947F /* UserViewModel.swift in Sources */,
-				C4D4E4DE20606EE5000A9216 /* Serializer.swift in Sources */,
 				C45AC967206671AF00F9947F /* NewsPresentationModel.swift in Sources */,
 				C472A6D1205C7E5900768585 /* Storyboard+GetViewController.swift in Sources */,
 				C4D4E4D920606ED0000A9216 /* CallResults.swift in Sources */,
@@ -751,6 +748,7 @@
 				C4A6BB3B206F7B1000284603 /* String+RemoveBlankText.swift in Sources */,
 				C4D9099520680F1800DC3D6C /* AddNewsCell.swift in Sources */,
 				C4D4E4DD20606EE5000A9216 /* Parser.swift in Sources */,
+				C4DFC37E206FAF6000E829BA /* AdditionalError.swift in Sources */,
 				C4A303FD2066F53C008BFE5E /* NewsViewModel.swift in Sources */,
 				C4A303FA2066EC5A008BFE5E /* NewsResponse.swift in Sources */,
 				C4D4E4E920606F45000A9216 /* ServiceLayer.swift in Sources */,

@@ -17,31 +17,19 @@ struct TransportResponseResult {
 
 final class Transport {
     
-    // MARK: - Private Properties
-    
-    private let sessionManager: SessionManager
-    
-    // MARK: - Initialization
-    
-    init(sessionManager: SessionManager) {
-        self.sessionManager = sessionManager
-    }
-    
     // MARK: - Public Methods
     
-    func request(method: String,
+    func request(method: HTTPMethod,
                  url: String,
-                 parameters: Data? = nil,
+                 parameters: [String: String]? = nil,
                  timeout: TimeInterval = 5,
                  headers: [String: String] = [:],
                  completion: ((TransportCallResult) -> Void)?) {
-        var request = URLRequest(url: URL(string: url)!)
-        request.httpMethod = method
-        request.httpBody = parameters
-        request.allHTTPHeaderFields = headers
-        request.timeoutInterval = timeout
-        request.cachePolicy = .reloadIgnoringCacheData
-        sessionManager.request(request).responseData { response in
+        Alamofire.request(url,
+                          method: method,
+                          parameters: parameters,
+                          encoding: URLEncoding.default,
+                          headers: headers).responseData { response in
             switch response.result {
             case .success(let resultData):
                 do {

@@ -16,6 +16,8 @@ final class AddNewsViewController: UIViewController {
         static let title = "Новости"
         static let leftButtonItem = "Отмена"
         static let rigthButtonItem = "Готово"
+        
+        static let attachButton = "paperclip"
     }
     
     // MARK: - IBOutlets
@@ -23,6 +25,9 @@ final class AddNewsViewController: UIViewController {
     @IBOutlet private var navigationBar: UINavigationBar!
     @IBOutlet private var leftButtonItem: UIBarButtonItem!
     @IBOutlet private var rightButtonItem: UIBarButtonItem!
+    
+    @IBOutlet private var attachButton: UIButton!
+    
     
     @IBOutlet private var newsTextView: UITextView!
     @IBOutlet private var titleTextField: UITextField!
@@ -37,17 +42,15 @@ final class AddNewsViewController: UIViewController {
         view.backgroundColor = .white
         
         configureNavigationItems()
+        
+        attachButton.setImage(UIImage(named: Constants.attachButton), for: .normal)
+        attachButton.setTitle("", for: .normal)
         titleTextField.delegate = self
         titleTextField.backgroundColor = .clear
         titleTextField.placeholder = "Название..."
         configureTextView()
         
         newsTextView.target(forAction: #selector(editingChanged), withSender: self)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        viewWillDisappear(animated)
-        newsTextView.resignFirstResponder()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -108,6 +111,7 @@ final class AddNewsViewController: UIViewController {
     
     @IBAction private func leftButtonItemTapped(_ sender: Any) {
         dismiss(animated: true)
+        newsTextView.resignFirstResponder()
     }
     
 }
