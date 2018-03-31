@@ -6,6 +6,7 @@
 //  Copyright © 2018 Elena Yanovskaya. All rights reserved.
 //
 
+import FDTake
 import UIKit
 
 final class AddNewsViewController: UIViewController {
@@ -34,10 +35,21 @@ final class AddNewsViewController: UIViewController {
     
     @IBOutlet private var heightTextView: NSLayoutConstraint!
     
+    var fdTakeController = FDTakeController()
+    var imageToAttach: UIImage!
+    
     // MARK: - ViewController lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        fdTakeController.didGetPhoto = {
+            (photo: UIImage, _) in
+            print("GET")
+            self.imageToAttach = photo
+        }
+        fdTakeController.allowsVideo = false
+        
         title = Constants.title
         view.backgroundColor = .white
         
@@ -112,6 +124,10 @@ final class AddNewsViewController: UIViewController {
     @IBAction private func leftButtonItemTapped(_ sender: Any) {
         dismiss(animated: true)
         newsTextView.resignFirstResponder()
+    }
+    
+    @IBAction func attachButtonTapped(_ sender: Any) {
+        fdTakeController.present()
     }
     
 }

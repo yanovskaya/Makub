@@ -63,22 +63,24 @@ final class NewsViewController: UIViewController {
         super.viewWillDisappear(animated)
         
         hidingNavBarManager?.viewWillDisappear(animated)
+        HUD.hide()
     }
-
     
     // MARK: - Private Methods
     
     private func bindEvents() {
-        presentationModel.changeStateHandler = { status in
+        presentationModel.changeStateHandler = { [weak self] status in
             switch status {
             case .loading:
+                PKHUD.sharedHUD.dimsBackground = false
+                PKHUD.sharedHUD.userInteractionOnUnderlyingViewsEnabled = true
                 HUD.show(.progress)
             case .rich:
-                self.filteredNews = self.presentationModel.newsViewModels
-                if let searchText = self.navigationSearchBar.text {
-                    self.filterNewsForSearchText(searchText: searchText)
+                self?.filteredNews = (self?.presentationModel.newsViewModels)!
+                if let searchText = self?.navigationSearchBar.text {
+                    self?.filterNewsForSearchText(searchText: searchText)
                 }
-                self.newsCollectionView.reloadData()
+                self?.newsCollectionView.reloadData()
                 HUD.hide()
             case .error (let code):
                 switch code {
@@ -92,7 +94,7 @@ final class NewsViewController: UIViewController {
                 HUD.hide(afterDelay: 1.0)
             }
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                self.refreshControl.endRefreshing()
+                self?.refreshControl.endRefreshing()
             }
         }
     }
@@ -127,7 +129,6 @@ final class NewsViewController: UIViewController {
         
         newsCollectionView.refreshControl = refreshControl
         refreshControl.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
-        print(view.frame.width)
         guard let flowLayout = newsCollectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
         flowLayout.estimatedItemSize.width = view.frame.width
     }
