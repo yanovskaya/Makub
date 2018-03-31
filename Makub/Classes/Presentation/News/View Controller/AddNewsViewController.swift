@@ -25,42 +25,32 @@ final class AddNewsViewController: UIViewController {
     @IBOutlet private var rightButtonItem: UIBarButtonItem!
     
     @IBOutlet private var newsTextView: UITextView!
-    @IBOutlet private var heightTextField: NSLayoutConstraint!
+    @IBOutlet private var titleTextField: UITextField!
+    
+    @IBOutlet private var heightTextView: NSLayoutConstraint!
     
     // MARK: - ViewController lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        newsTextView.textContainerInset = UIEdgeInsets(top: 20, left: 30, bottom: 20, right: 30)
-        newsTextView.font = UIFont.customFont(.robotoRegularFont(size: 16))
         title = Constants.title
-        configureNavigationItems()
-        newsTextView.becomeFirstResponder()
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        view.backgroundColor = .white
         
+        configureNavigationItems()
+        titleTextField.delegate = self
+        titleTextField.backgroundColor = .clear
+        titleTextField.placeholder = "Название ..."
+        configureTextView()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        viewWillAppear(animated)
+        viewWillDisappear(animated)
         newsTextView.resignFirstResponder()
-        
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         newsTextView.text = ""
-    }
-    
-    @objc func keyboardWillShow(_ notification: Notification) {
-        if let keyboardFrame: NSValue = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue {
-            let keyboardRectangle = keyboardFrame.cgRectValue
-            let keyboardHeight = keyboardRectangle.minY
-            heightTextField.constant = keyboardHeight - newsTextView.frame.minY
-        }
     }
     
     // MARK: - Private Methods
@@ -80,10 +70,38 @@ final class AddNewsViewController: UIViewController {
         rightButtonItem.isEnabled = false
     }
     
+    private func configureTextView() {
+        let indentView = UIView(frame: CGRect(x: 0, y: 0, width: 25, height: 0))
+        titleTextField.leftView = indentView
+        titleTextField.leftViewMode = .always
+        newsTextView.textContainerInset = UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20)
+        newsTextView.font = UIFont.customFont(.robotoRegularFont(size: 16))
+        newsTextView.becomeFirstResponder()
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
+    }
+    
+    @objc private func keyboardWillShow(_ notification: Notification) {
+        if let keyboardFrame: NSValue = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue {
+            let keyboardRectangle = keyboardFrame.cgRectValue
+            let keyboardTopPoint = keyboardRectangle.minY
+            heightTextView.constant = keyboardTopPoint - newsTextView.frame.minY
+        }
+    }
+    
     // MARK: - IBActions
     
     @IBAction private func leftButtonItemTapped(_ sender: Any) {
         dismiss(animated: true)
     }
     
+}
+
+extension AddNewsViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.text = textField.text?.removeBlankText()
+        textField.resignFirstResponder()
+        newsTextView.becomeFirstResponder()
+        return false
+    }
 }

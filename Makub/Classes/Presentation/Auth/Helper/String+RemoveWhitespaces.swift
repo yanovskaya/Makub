@@ -13,4 +13,11 @@ extension String {
     func removeWhitespaces() -> String {
         return components(separatedBy: .whitespaces).joined()
     }
+    
+    func removeBlankText() -> String {
+        for character in self where character != " " {
+            return self
+        }
+        return ""
+    }
 }
