@@ -7,4 +7,8 @@ target 'Makub' do
   pod 'Alamofire', '~> 4.7'
   pod 'PKHUD', '~> 5.0'
   pod 'SwiftKeychainWrapper'
+  pod 'RealmSwift'
+  pod 'Kingfisher', '~> 4.0'
+  pod 'HidingNavigationBar', '~> 2.0'
+  pod 'FDTake'
 end

@@ -6,6 +6,7 @@
 //  Copyright © 2018 Elena Yanovskaya. All rights reserved.
 //
 
+import SwiftKeychainWrapper
 import UIKit
 
 @UIApplicationMain
@@ -16,7 +17,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     private let navigationController = UINavigationController()
-    private let authStoryboard = UIStoryboard.init(with: StoryboardTitle.auth)
+    private let authStoryboard = UIStoryboard(with: StoryboardTitle.auth)
     
     private var authViewController: UIViewController {
         return authStoryboard.viewController(AuthViewController.self)
@@ -25,11 +26,14 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - App lifecycle
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        navigationController.viewControllers = [authViewController]
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = navigationController
+        if KeychainWrapper.standard.string(forKey: KeychainKey.token) == nil {
+            navigationController.viewControllers = [authViewController]
+            window?.rootViewController = navigationController
+        } else {
+            window?.rootViewController = TabBarController()
+        }
         window?.makeKeyAndVisible()
-        
         return true
     }
     

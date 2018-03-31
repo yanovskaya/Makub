@@ -15,7 +15,6 @@ final class AuthViewController: UIViewController {
     
     private enum Constants {
         static let authBackgroundImage = "auth_background"
-        static let backButtonImage = "arrow_left"
         static let logoImage = "logo"
         static let userImage = "user"
         static let lockImage = "lock"
@@ -63,8 +62,6 @@ final class AuthViewController: UIViewController {
         configureLoginButton()
         enableLoginButton()
         configureForgotButton()
-        
-        confivagureNavigationBar()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -135,19 +132,6 @@ final class AuthViewController: UIViewController {
         forgotButton.setTitle(Constants.forgotButton, for: .normal)
     }
     
-    private func confivagureNavigationBar() {
-        navigationController?.navigationBar.isTranslucent = false
-        navigationController?.navigationBar.tintColor = PaletteColors.darkGray
-        
-        var backButtonImage = UIImage(named: Constants.backButtonImage)
-        let inset = LayoutConstants.standard
-        backButtonImage = backButtonImage?.imageWithInsets(insets: UIEdgeInsets(top: inset, left: inset, bottom: 0, right: 0))
-        navigationController?.navigationBar.topItem?.title = " "
-        navigationController?.navigationBar.backIndicatorImage = backButtonImage
-        navigationController?.navigationBar.backIndicatorTransitionMaskImage = backButtonImage
-        UINavigationBar.appearance().shadowImage = UIImage()
-    }
-    
     private func enableLoginButton() {
         loginButton.isEnabled = false
         usernameTextField.addTarget(self, action: #selector(editingChanged), for: .editingChanged)
@@ -159,6 +143,17 @@ final class AuthViewController: UIViewController {
         usernameTextField.widthAnchor.constraint(equalToConstant: width).isActive = true
     }
     
+    @objc private func editingChanged() {
+        guard
+            let username = usernameTextField.text, username.count > 2,
+            let password = passwordTextField.text, password.count > 2
+            else {
+                loginButton.isEnabled = false
+                return
+        }
+        loginButton.isEnabled = true
+    }
+    
     // MARK: - IBAction
     
     @IBAction private func loginButtonTapped(_ sender: Any) {
@@ -166,11 +161,11 @@ final class AuthViewController: UIViewController {
             let password = passwordTextField.text else { return }
         presentationModel.authorizeUser(inputValues: [username, password]) {
             [unowned self] in
-            //self.router.showPincodeSet(source: self)
+            self.router.showTabBar()
         }
     }
     
-    @IBAction func forgotButtonTapped(_ sender: Any) {
+    @IBAction private func forgotButtonTapped(_ sender: Any) {
         router.showRecoverVC(source: self)
     }
     
@@ -186,17 +181,6 @@ extension AuthViewController: UITextFieldDelegate {
             passwordTextField.becomeFirstResponder()
         }
         return true
-    }
-    
-    @objc private func editingChanged(_ textField: UITextField) {
-        guard
-            let username = usernameTextField.text, username.count > 2,
-            let password = passwordTextField.text, password.count > 2
-            else {
-                loginButton.isEnabled = false
-                return
-        }
-        loginButton.isEnabled = true
     }
     
 }

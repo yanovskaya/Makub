@@ -28,26 +28,18 @@ final class AuthServiceImpl: AuthService {
     
     // MARK: - Private Properties
     
-    private let sessionManager: SessionManager
-    private let transport: Transport
-    private let serializer = Serializer()
+    private let transport = Transport()
     private let authParser = Parser<AuthResponse>()
     private let recoverParser = Parser<RecoverResponse>()
     
-    // MARK: - Initialization
-    
-    init(sessionManager: SessionManager) {
-        self.sessionManager = sessionManager
-        transport = Transport(sessionManager: sessionManager)
-    }
-    
     // MARK: - Public Methods
+    
     
     func authorizeUser(inputValues: [String],
                        completion: ((ServiceCallResult<AuthResponse>) -> Void)?) {
-        let parameters = "\(Constants.usernameParameter)=\(inputValues[0])&\(Constants.passwordParameter)=\(inputValues[1])"
-        let bodyParameters = serializer.serialize(parameters)
-        transport.request(method: HTTPMethod.post.rawValue, url: Constants.baseURL + EndPoint.login, parameters: bodyParameters) { [unowned self] transportResult in
+        let parameters = [Constants.usernameParameter: inputValues[0],
+                          Constants.passwordParameter: inputValues[1]]
+        transport.request(method: .post, url: Constants.baseURL + EndPoint.login, parameters: parameters) { [unowned self] transportResult in
             switch transportResult {
             case .transportSuccess(let payload):
                 let resultBody = payload.resultBody
@@ -58,6 +50,8 @@ final class AuthServiceImpl: AuthService {
                         self.storeToken(model.token)
                         completion?(ServiceCallResult.serviceSuccess(payload: model))
                     } else {
+                        // заглушка для тестирования
+//                        completion?(ServiceCallResult.serviceSuccess(payload: nil))
                         let error = NSError(domain: "", code: model.error)
                         completion?(ServiceCallResult.serviceFailure(error: error))
                     }
@@ -71,9 +65,8 @@ final class AuthServiceImpl: AuthService {
     }
     
     func recoverPassword(email: String, completion: ((ServiceCallResult<RecoverResponse>) -> Void)?) {
-        let parameters = "\(Constants.emailParameter)=\(email)"
-        let bodyParameters = serializer.serialize(parameters)
-        transport.request(method: HTTPMethod.post.rawValue, url: Constants.baseURL + EndPoint.recover, parameters: bodyParameters) { [unowned self] transportResult in
+        let parameters = [Constants.emailParameter: email]
+        transport.request(method: .post, url: Constants.baseURL + EndPoint.login, parameters: parameters) { [unowned self] transportResult in
             switch transportResult {
             case .transportSuccess(let payload):
                 let resultBody = payload.resultBody
@@ -84,9 +77,9 @@ final class AuthServiceImpl: AuthService {
                         completion?(ServiceCallResult.serviceSuccess(payload: nil))
                     } else {
                         // заглушка для тестирования
-                        completion?(ServiceCallResult.serviceSuccess(payload: nil))
-//                        let error = NSError(domain: "", code: model.error)
-//                        completion?(ServiceCallResult.serviceFailure(error: error))
+//                        completion?(ServiceCallResult.serviceSuccess(payload: nil))
+                        let error = NSError(domain: "", code: model.error)
+                        completion?(ServiceCallResult.serviceFailure(error: error))
                     }
                 case .parserFailure(let error):
                     completion?(ServiceCallResult.serviceFailure(error: error as NSError))

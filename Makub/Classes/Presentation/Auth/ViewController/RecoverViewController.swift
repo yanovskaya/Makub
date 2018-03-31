@@ -14,6 +14,7 @@ final class RecoverViewController: UIViewController {
     // MARK: - Constants
     
     private enum Constants {
+        static let backButtonImage = "arrow_left"
         static let manImage = "sad_man"
         static let mailImage = "mail"
         static let letterImage = "letter"
@@ -35,6 +36,9 @@ final class RecoverViewController: UIViewController {
     
     // MARK: - IBOutlets
     
+    @IBOutlet private var fakeNavigationView: UIView!
+    @IBOutlet private var backButton: UIButton!
+    
     @IBOutlet private var imageView: UIImageView!
     
     @IBOutlet private var titleLabel: UILabel!
@@ -52,8 +56,8 @@ final class RecoverViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.setNavigationBarHidden(false, animated: true)
-        navigationController?.navigationBar.topItem?.title = " "
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        configureFakeNavigationBar()
         
         bindEvents()
         
@@ -144,6 +148,16 @@ final class RecoverViewController: UIViewController {
         emailTextField.layer.borderColor = PaletteColors.darkGray.withAlphaComponent(0.6).cgColor
     }
     
+    private func configureFakeNavigationBar() {
+        let backButtonImage = UIImage(named: Constants.backButtonImage)
+        fakeNavigationView.backgroundColor = .clear
+        backButton.setImage(backButtonImage, for: .normal)
+        backButton.setTitle("", for: .normal)
+        backButton.tintColor = PaletteColors.darkGray
+        
+        navigationController?.interactivePopGestureRecognizer?.delegate = nil
+    }
+    
     private func enableRecoverButton() {
         recoverButton.isEnabled = false
         emailTextField.addTarget(self, action: #selector(editingChanged), for: .editingChanged)
@@ -156,7 +170,28 @@ final class RecoverViewController: UIViewController {
         imageView.image = UIImage(named: Constants.letterImage)
     }
     
-    @IBAction func recoverButtonTapped(_ sender: Any) {
+    private func isValidEmail(_ testStr: String) -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"
+        let emailTest = NSPredicate(format: "SELF MATCHES %@", emailRegEx)
+        return emailTest.evaluate(with: testStr)
+    }
+    
+    @objc private func editingChanged() {
+        guard let email = emailTextField.text, isValidEmail(email)
+            else {
+                recoverButton.isEnabled = false
+                return
+        }
+        recoverButton.isEnabled = true
+    }
+    
+    // MARK: - IBActions
+    
+    @IBAction private func backButtonTapped(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction private func recoverButtonTapped(_ sender: Any) {
         guard let email = emailTextField.text?.removeWhitespaces() else { return }
         presentationModel.recoverPassword(email: email) {
             [unowned self] in
@@ -173,15 +208,5 @@ extension RecoverViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
-    }
-    
-    @objc private func editingChanged(_ textField: UITextField) {
-        guard let email = emailTextField.text, email.count > 7,
-            email.range(of: "@") != nil, email.range(of: ".") != nil
-            else {
-                recoverButton.isEnabled = false
-                return
-        }
-        recoverButton.isEnabled = true
     }
 }
