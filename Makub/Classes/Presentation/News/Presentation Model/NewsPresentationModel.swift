@@ -79,8 +79,7 @@ final class NewsPresentationModel: PresentationModel {
                 guard let model = model else { return }
                 self.userViewModel = UserViewModel(model)
                 self.group.leave()
-            case .serviceFailure(let error):
-                self.error = error.code
+            case .serviceFailure:
                 self.group.leave()
             }
         }
@@ -92,20 +91,16 @@ final class NewsPresentationModel: PresentationModel {
                 guard let model = model else { return }
                 self.newsViewModels = model.news.flatMap { NewsViewModel($0) }
                 self.group.leave()
-            case .serviceFailure(let error):
-                self.error = error.code
+            case .serviceFailure:
                 self.group.leave()
             }
         }
         
         group.notify(queue: DispatchQueue.main) {
-            if self.error != nil {
-                self.state = .error(code: self.error)
-            } else {
+            if self.error == nil {
                 self.state = .rich
             }
         }
-        
     }
     
     func addNews(title: String, text: String, completion: @escaping () -> Void) {
@@ -137,13 +132,13 @@ final class NewsPresentationModel: PresentationModel {
     // MARK: - Private Methods
     
     private func obtainUserCache() {
-        userService.obtainRealmCache(error: nil) { [weak self] result in
+        userService.obtainRealmCache(error: nil) { result in
             switch result {
             case .serviceSuccess(let model):
                 guard let model = model else { return }
-                self?.userViewModel = UserViewModel(model)
-                self?.state = .rich
-                self?.userCacheIsObtained = true
+                self.userViewModel = UserViewModel(model)
+                self.state = .rich
+                self.userCacheIsObtained = true
             case .serviceFailure:
                 break
             }

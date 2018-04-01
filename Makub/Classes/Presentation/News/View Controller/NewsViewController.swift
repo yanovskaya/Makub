@@ -62,6 +62,11 @@ final class NewsViewController: UIViewController {
         hidingNavBarManager?.viewWillAppear(animated)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        bindEvents()
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
