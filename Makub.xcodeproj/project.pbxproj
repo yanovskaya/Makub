@@ -23,14 +23,10 @@
 		C41B3C272072561000A2B652 /* GamesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41B3C262072561000A2B652 /* GamesCell.swift */; };
 		C41B3C2A207256ED00A2B652 /* GamesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41B3C29207256ED00A2B652 /* GamesViewModel.swift */; };
 		C41B3C2C2072573600A2B652 /* Games.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41B3C2B2072573600A2B652 /* Games.swift */; };
-		C41B3C3120725D3B00A2B652 /* GamesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41B3C3020725D3B00A2B652 /* GamesResponse.swift */; };
 		C41B3C342072640100A2B652 /* Club.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41B3C332072640100A2B652 /* Club.swift */; };
 		C41B3C362072642000A2B652 /* Stages.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41B3C352072642000A2B652 /* Stages.swift */; };
-		C41B3C3820729EF900A2B652 /* GamesServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41B3C3720729EF900A2B652 /* GamesServiceImpl.swift */; };
-		C41B3C3A2072AB7100A2B652 /* GamesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41B3C392072AB7100A2B652 /* GamesService.swift */; };
 		C41B3C3D2072B12D00A2B652 /* GamesPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41B3C3C2072B12D00A2B652 /* GamesPresentationModel.swift */; };
 		C41BE783206FE2FD00ED5826 /* String+RandomString.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41BE782206FE2FD00ED5826 /* String+RandomString.swift */; };
-		C41BE78520700A1A00ED5826 /* AddNewsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41BE78420700A1A00ED5826 /* AddNewsResponse.swift */; };
 		C42924B0205C81E700E6D568 /* RecoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42924AF205C81E700E6D568 /* RecoverViewController.swift */; };
 		C44D60B0205529C100A5C50F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44D60AF205529C100A5C50F /* AppDelegate.swift */; };
 		C44D60B2205529C200A5C50F /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44D60B1205529C200A5C50F /* AuthViewController.swift */; };
@@ -45,8 +41,6 @@
 		C4556B95205EC04D00D65DBD /* UIImage+ImageWithInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4556B94205EC04D00D65DBD /* UIImage+ImageWithInsets.swift */; };
 		C45AC9622066656100F9947F /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45AC9612066656100F9947F /* UserViewModel.swift */; };
 		C45AC967206671AF00F9947F /* NewsPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45AC966206671AF00F9947F /* NewsPresentationModel.swift */; };
-		C4691C50206527DD00991C19 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4691C4F206527DD00991C19 /* UserService.swift */; };
-		C4691C52206527EE00991C19 /* UserServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4691C51206527EE00991C19 /* UserServiceImpl.swift */; };
 		C472A6BF205B16D500768585 /* PresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472A6BE205B16D500768585 /* PresentationModel.swift */; };
 		C472A6C3205B174000768585 /* AuthPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472A6C2205B174000768585 /* AuthPresentationModel.swift */; };
 		C472A6C8205C4D5300768585 /* String+RemoveWhitespaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472A6C7205C4D5300768585 /* String+RemoveWhitespaces.swift */; };
@@ -54,24 +48,13 @@
 		C472A6CF205C647C00768585 /* KeychainKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472A6CE205C647C00768585 /* KeychainKeys.swift */; };
 		C472A6D1205C7E5900768585 /* Storyboard+GetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472A6D0205C7E5900768585 /* Storyboard+GetViewController.swift */; };
 		C472A6D3205C7E8000768585 /* StoryboardTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472A6D2205C7E8000768585 /* StoryboardTitle.swift */; };
-		C4A303EE2066C1EB008BFE5E /* RealmCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A303ED2066C1EB008BFE5E /* RealmCache.swift */; };
-		C4A303F12066EA53008BFE5E /* NewsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A303F02066EA53008BFE5E /* NewsService.swift */; };
-		C4A303F52066EA6C008BFE5E /* NewsServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A303F42066EA6C008BFE5E /* NewsServiceImpl.swift */; };
 		C4A303F72066EAA4008BFE5E /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A303F62066EAA4008BFE5E /* News.swift */; };
-		C4A303FA2066EC5A008BFE5E /* NewsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A303F92066EC5A008BFE5E /* NewsResponse.swift */; };
 		C4A303FD2066F53C008BFE5E /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A303FC2066F53C008BFE5E /* NewsViewModel.swift */; };
 		C4A304002067085D008BFE5E /* AddNewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4A303FF2067085D008BFE5E /* AddNewsCell.xib */; };
 		C4A30404206709DF008BFE5E /* NewsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4A30403206709DF008BFE5E /* NewsCell.xib */; };
 		C4A6BB36206E36C900284603 /* String+Tags.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A6BB35206E36C900284603 /* String+Tags.swift */; };
 		C4A6BB3B206F7B1000284603 /* String+RemoveBlankText.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A6BB3A206F7B1000284603 /* String+RemoveBlankText.swift */; };
 		C4BC7104205F2BEA00332D7E /* AuthPassButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4BC7103205F2BEA00332D7E /* AuthPassButton.swift */; };
-		C4D4E4D920606ED0000A9216 /* CallResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D4E4D820606ED0000A9216 /* CallResults.swift */; };
-		C4D4E4DD20606EE5000A9216 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D4E4DA20606EE4000A9216 /* Parser.swift */; };
-		C4D4E4DF20606EE5000A9216 /* Transport.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D4E4DC20606EE5000A9216 /* Transport.swift */; };
-		C4D4E4E320606F08000A9216 /* AuthServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D4E4E120606F08000A9216 /* AuthServiceImpl.swift */; };
-		C4D4E4E720606F2D000A9216 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D4E4E520606F2D000A9216 /* AuthService.swift */; };
-		C4D4E4E920606F45000A9216 /* ServiceLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D4E4E820606F45000A9216 /* ServiceLayer.swift */; };
-		C4D4E4EB20606FA1000A9216 /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D4E4EA20606FA1000A9216 /* AuthResponse.swift */; };
 		C4D4E4EF20606FEF000A9216 /* RecoverPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D4E4EE20606FEF000A9216 /* RecoverPresentationModel.swift */; };
 		C4D4E4F22060860F000A9216 /* AuthRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D4E4F12060860F000A9216 /* AuthRouter.swift */; };
 		C4D4E4FA20618E63000A9216 /* RatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D4E4F920618E63000A9216 /* RatingViewController.swift */; };
@@ -81,7 +64,6 @@
 		C4D4E5022061934F000A9216 /* News.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4D4E5012061934F000A9216 /* News.storyboard */; };
 		C4D9099520680F1800DC3D6C /* AddNewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D9099420680F1800DC3D6C /* AddNewsCell.swift */; };
 		C4D909972068196900DC3D6C /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D909962068196900DC3D6C /* NewsCell.swift */; };
-		C4DFC37E206FAF6000E829BA /* AdditionalError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DFC37D206FAF6000E829BA /* AdditionalError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -102,14 +84,10 @@
 		C41B3C262072561000A2B652 /* GamesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesCell.swift; sourceTree = "<group>"; };
 		C41B3C29207256ED00A2B652 /* GamesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesViewModel.swift; sourceTree = "<group>"; };
 		C41B3C2B2072573600A2B652 /* Games.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Games.swift; sourceTree = "<group>"; };
-		C41B3C3020725D3B00A2B652 /* GamesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesResponse.swift; sourceTree = "<group>"; };
 		C41B3C332072640100A2B652 /* Club.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Club.swift; sourceTree = "<group>"; };
 		C41B3C352072642000A2B652 /* Stages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stages.swift; sourceTree = "<group>"; };
-		C41B3C3720729EF900A2B652 /* GamesServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesServiceImpl.swift; sourceTree = "<group>"; };
-		C41B3C392072AB7100A2B652 /* GamesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesService.swift; sourceTree = "<group>"; };
 		C41B3C3C2072B12D00A2B652 /* GamesPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesPresentationModel.swift; sourceTree = "<group>"; };
 		C41BE782206FE2FD00ED5826 /* String+RandomString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+RandomString.swift"; sourceTree = "<group>"; };
-		C41BE78420700A1A00ED5826 /* AddNewsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewsResponse.swift; sourceTree = "<group>"; };
 		C42924AF205C81E700E6D568 /* RecoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverViewController.swift; sourceTree = "<group>"; };
 		C44D60AC205529C100A5C50F /* Макуб.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Макуб.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C44D60AF205529C100A5C50F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -126,8 +104,6 @@
 		C4556B94205EC04D00D65DBD /* UIImage+ImageWithInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+ImageWithInsets.swift"; sourceTree = "<group>"; };
 		C45AC9612066656100F9947F /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		C45AC966206671AF00F9947F /* NewsPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsPresentationModel.swift; sourceTree = "<group>"; };
-		C4691C4F206527DD00991C19 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserService.swift; path = "Makub/Classes/Business logic/Service/User/Protocol/UserService.swift"; sourceTree = SOURCE_ROOT; };
-		C4691C51206527EE00991C19 /* UserServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserServiceImpl.swift; sourceTree = "<group>"; };
 		C472A6BE205B16D500768585 /* PresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationModel.swift; sourceTree = "<group>"; };
 		C472A6C2205B174000768585 /* AuthPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPresentationModel.swift; sourceTree = "<group>"; };
 		C472A6C7205C4D5300768585 /* String+RemoveWhitespaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+RemoveWhitespaces.swift"; sourceTree = "<group>"; };
@@ -135,24 +111,13 @@
 		C472A6CE205C647C00768585 /* KeychainKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainKeys.swift; sourceTree = "<group>"; };
 		C472A6D0205C7E5900768585 /* Storyboard+GetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Storyboard+GetViewController.swift"; sourceTree = "<group>"; };
 		C472A6D2205C7E8000768585 /* StoryboardTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryboardTitle.swift; sourceTree = "<group>"; };
-		C4A303ED2066C1EB008BFE5E /* RealmCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCache.swift; sourceTree = "<group>"; };
-		C4A303F02066EA53008BFE5E /* NewsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NewsService.swift; path = "Makub/Classes/Business logic/Service/News/Protocol/NewsService.swift"; sourceTree = SOURCE_ROOT; };
-		C4A303F42066EA6C008BFE5E /* NewsServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsServiceImpl.swift; sourceTree = "<group>"; };
 		C4A303F62066EAA4008BFE5E /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
-		C4A303F92066EC5A008BFE5E /* NewsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NewsResponse.swift; path = "Makub/Classes/Business logic/Service/News/Parser/NewsResponse.swift"; sourceTree = SOURCE_ROOT; };
 		C4A303FC2066F53C008BFE5E /* NewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
 		C4A303FF2067085D008BFE5E /* AddNewsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddNewsCell.xib; sourceTree = "<group>"; };
 		C4A30403206709DF008BFE5E /* NewsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsCell.xib; sourceTree = "<group>"; };
 		C4A6BB35206E36C900284603 /* String+Tags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Tags.swift"; sourceTree = "<group>"; };
 		C4A6BB3A206F7B1000284603 /* String+RemoveBlankText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+RemoveBlankText.swift"; sourceTree = "<group>"; };
 		C4BC7103205F2BEA00332D7E /* AuthPassButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPassButton.swift; sourceTree = "<group>"; };
-		C4D4E4D820606ED0000A9216 /* CallResults.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CallResults.swift; sourceTree = "<group>"; };
-		C4D4E4DA20606EE4000A9216 /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
-		C4D4E4DC20606EE5000A9216 /* Transport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transport.swift; sourceTree = "<group>"; };
-		C4D4E4E120606F08000A9216 /* AuthServiceImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthServiceImpl.swift; sourceTree = "<group>"; };
-		C4D4E4E520606F2D000A9216 /* AuthService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
-		C4D4E4E820606F45000A9216 /* ServiceLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceLayer.swift; sourceTree = "<group>"; };
-		C4D4E4EA20606FA1000A9216 /* AuthResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
 		C4D4E4EE20606FEF000A9216 /* RecoverPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPresentationModel.swift; sourceTree = "<group>"; };
 		C4D4E4F12060860F000A9216 /* AuthRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRouter.swift; sourceTree = "<group>"; };
 		C4D4E4F920618E63000A9216 /* RatingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingViewController.swift; sourceTree = "<group>"; };
@@ -162,7 +127,6 @@
 		C4D4E5012061934F000A9216 /* News.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = News.storyboard; sourceTree = "<group>"; };
 		C4D9099420680F1800DC3D6C /* AddNewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewsCell.swift; sourceTree = "<group>"; };
 		C4D909962068196900DC3D6C /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
-		C4DFC37D206FAF6000E829BA /* AdditionalError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalError.swift; sourceTree = "<group>"; };
 		FD91280B983360A8DBD4BDFC /* Pods_Makub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Makub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -264,32 +228,6 @@
 			path = "View Model";
 			sourceTree = "<group>";
 		};
-		C41B3C2D20725CF500A2B652 /* Games */ = {
-			isa = PBXGroup;
-			children = (
-				C41B3C2E20725D1300A2B652 /* Protocol */,
-				C41B3C2F20725D1900A2B652 /* Parser */,
-				C41B3C3720729EF900A2B652 /* GamesServiceImpl.swift */,
-			);
-			path = Games;
-			sourceTree = "<group>";
-		};
-		C41B3C2E20725D1300A2B652 /* Protocol */ = {
-			isa = PBXGroup;
-			children = (
-				C41B3C392072AB7100A2B652 /* GamesService.swift */,
-			);
-			path = Protocol;
-			sourceTree = "<group>";
-		};
-		C41B3C2F20725D1900A2B652 /* Parser */ = {
-			isa = PBXGroup;
-			children = (
-				C41B3C3020725D3B00A2B652 /* GamesResponse.swift */,
-			);
-			path = Parser;
-			sourceTree = "<group>";
-		};
 		C41B3C32207263AE00A2B652 /* Additional Info */ = {
 			isa = PBXGroup;
 			children = (
@@ -340,7 +278,6 @@
 			isa = PBXGroup;
 			children = (
 				C44D60C52055390300A5C50F /* Model */,
-				C4D4E4D220606E61000A9216 /* Business Logic */,
 				C44D60C62055390F00A5C50F /* Presentation */,
 			);
 			path = Classes;
@@ -443,14 +380,6 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
-		C45AC9562066166500F9947F /* Protocol */ = {
-			isa = PBXGroup;
-			children = (
-				C4691C4F206527DD00991C19 /* UserService.swift */,
-			);
-			path = Protocol;
-			sourceTree = "<group>";
-		};
 		C45AC9572066171C00F9947F /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -493,15 +422,6 @@
 			path = "Presentation Model";
 			sourceTree = "<group>";
 		};
-		C4691C4E206527CE00991C19 /* User */ = {
-			isa = PBXGroup;
-			children = (
-				C45AC9562066166500F9947F /* Protocol */,
-				C4691C51206527EE00991C19 /* UserServiceImpl.swift */,
-			);
-			path = User;
-			sourceTree = "<group>";
-		};
 		C472A6C0205B170E00768585 /* Presentation Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -517,33 +437,6 @@
 				C472A6CE205C647C00768585 /* KeychainKeys.swift */,
 			);
 			path = Keys;
-			sourceTree = "<group>";
-		};
-		C4A303EF2066EA3F008BFE5E /* News */ = {
-			isa = PBXGroup;
-			children = (
-				C4A303F22066EA57008BFE5E /* Protocol */,
-				C4A303F82066EC3A008BFE5E /* Parser */,
-				C4A303F42066EA6C008BFE5E /* NewsServiceImpl.swift */,
-			);
-			path = News;
-			sourceTree = "<group>";
-		};
-		C4A303F22066EA57008BFE5E /* Protocol */ = {
-			isa = PBXGroup;
-			children = (
-				C4A303F02066EA53008BFE5E /* NewsService.swift */,
-			);
-			path = Protocol;
-			sourceTree = "<group>";
-		};
-		C4A303F82066EC3A008BFE5E /* Parser */ = {
-			isa = PBXGroup;
-			children = (
-				C4A303F92066EC5A008BFE5E /* NewsResponse.swift */,
-				C41BE78420700A1A00ED5826 /* AddNewsResponse.swift */,
-			);
-			path = Parser;
 			sourceTree = "<group>";
 		};
 		C4A303FB2066F50C008BFE5E /* View Model */ = {
@@ -571,58 +464,6 @@
 				C4A6BB3A206F7B1000284603 /* String+RemoveBlankText.swift */,
 			);
 			path = Helper;
-			sourceTree = "<group>";
-		};
-		C4D4E4D220606E61000A9216 /* Business Logic */ = {
-			isa = PBXGroup;
-			children = (
-				C4D4E4D420606E7B000A9216 /* Service */,
-				C4D4E4D320606E79000A9216 /* Core Components */,
-			);
-			name = "Business Logic";
-			path = "Business logic";
-			sourceTree = "<group>";
-		};
-		C4D4E4D320606E79000A9216 /* Core Components */ = {
-			isa = PBXGroup;
-			children = (
-				C4D4E4DC20606EE5000A9216 /* Transport.swift */,
-				C4D4E4DA20606EE4000A9216 /* Parser.swift */,
-				C4A303ED2066C1EB008BFE5E /* RealmCache.swift */,
-			);
-			name = "Core Components";
-			path = "Makub/Classes/Business logic/Core Components";
-			sourceTree = SOURCE_ROOT;
-		};
-		C4D4E4D420606E7B000A9216 /* Service */ = {
-			isa = PBXGroup;
-			children = (
-				C4D4E4E820606F45000A9216 /* ServiceLayer.swift */,
-				C41B3C2D20725CF500A2B652 /* Games */,
-				C4A303EF2066EA3F008BFE5E /* News */,
-				C4691C4E206527CE00991C19 /* User */,
-				C4D4E4D620606E9F000A9216 /* Auth */,
-				C4DFC37F206FBE1200E829BA /* Helper */,
-			);
-			path = Service;
-			sourceTree = "<group>";
-		};
-		C4D4E4D620606E9F000A9216 /* Auth */ = {
-			isa = PBXGroup;
-			children = (
-				C4D4E4D720606EA9000A9216 /* Protocol */,
-				C4D4E4E120606F08000A9216 /* AuthServiceImpl.swift */,
-				C4D4E4EA20606FA1000A9216 /* AuthResponse.swift */,
-			);
-			path = Auth;
-			sourceTree = "<group>";
-		};
-		C4D4E4D720606EA9000A9216 /* Protocol */ = {
-			isa = PBXGroup;
-			children = (
-				C4D4E4E520606F2D000A9216 /* AuthService.swift */,
-			);
-			path = Protocol;
 			sourceTree = "<group>";
 		};
 		C4D4E4F0206085BD000A9216 /* Router */ = {
@@ -654,15 +495,6 @@
 				C4D4E4F920618E63000A9216 /* RatingViewController.swift */,
 			);
 			path = Rating;
-			sourceTree = "<group>";
-		};
-		C4DFC37F206FBE1200E829BA /* Helper */ = {
-			isa = PBXGroup;
-			children = (
-				C4D4E4D820606ED0000A9216 /* CallResults.swift */,
-				C4DFC37D206FAF6000E829BA /* AdditionalError.swift */,
-			);
-			path = Helper;
 			sourceTree = "<group>";
 		};
 		C8FE19675A729A68973D7EBE /* Frameworks */ = {
@@ -845,10 +677,8 @@
 				C44D60D7205807F500A5C50F /* UIColor+Hex.swift in Sources */,
 				C41B3C2A207256ED00A2B652 /* GamesViewModel.swift in Sources */,
 				C41BE783206FE2FD00ED5826 /* String+RandomString.swift in Sources */,
-				C41B3C3820729EF900A2B652 /* GamesServiceImpl.swift in Sources */,
 				C4BC7104205F2BEA00332D7E /* AuthPassButton.swift in Sources */,
 				C44D60B2205529C200A5C50F /* AuthViewController.swift in Sources */,
-				C4A303F52066EA6C008BFE5E /* NewsServiceImpl.swift in Sources */,
 				C472A6BF205B16D500768585 /* PresentationModel.swift in Sources */,
 				C472A6CF205C647C00768585 /* KeychainKeys.swift in Sources */,
 				C408C8D1206D3F660053F057 /* NewsRouter.swift in Sources */,
@@ -862,44 +692,28 @@
 				C45AC9622066656100F9947F /* UserViewModel.swift in Sources */,
 				C45AC967206671AF00F9947F /* NewsPresentationModel.swift in Sources */,
 				C472A6D1205C7E5900768585 /* Storyboard+GetViewController.swift in Sources */,
-				C4D4E4D920606ED0000A9216 /* CallResults.swift in Sources */,
-				C4D4E4E320606F08000A9216 /* AuthServiceImpl.swift in Sources */,
 				C41B3C272072561000A2B652 /* GamesCell.swift in Sources */,
 				C4D4E4F22060860F000A9216 /* AuthRouter.swift in Sources */,
 				C4A303F72066EAA4008BFE5E /* News.swift in Sources */,
 				C41B3C20207218CE00A2B652 /* GamesViewController.swift in Sources */,
 				C4D4E4FE20618FA9000A9216 /* TabBarController.swift in Sources */,
 				C4D4E4EF20606FEF000A9216 /* RecoverPresentationModel.swift in Sources */,
-				C4691C50206527DD00991C19 /* UserService.swift in Sources */,
-				C4691C52206527EE00991C19 /* UserServiceImpl.swift in Sources */,
 				C40EDD7420648EF000338300 /* UIImage+FromColor.swift in Sources */,
 				C41B3C362072642000A2B652 /* Stages.swift in Sources */,
 				C4A6BB3B206F7B1000284603 /* String+RemoveBlankText.swift in Sources */,
 				C4D9099520680F1800DC3D6C /* AddNewsCell.swift in Sources */,
-				C4D4E4DD20606EE5000A9216 /* Parser.swift in Sources */,
-				C4DFC37E206FAF6000E829BA /* AdditionalError.swift in Sources */,
-				C41B3C3120725D3B00A2B652 /* GamesResponse.swift in Sources */,
 				C41B3C22207218E400A2B652 /* FilterGamesViewController.swift in Sources */,
 				C4A303FD2066F53C008BFE5E /* NewsViewModel.swift in Sources */,
-				C4A303FA2066EC5A008BFE5E /* NewsResponse.swift in Sources */,
-				C4D4E4E920606F45000A9216 /* ServiceLayer.swift in Sources */,
-				C4A303F12066EA53008BFE5E /* NewsService.swift in Sources */,
 				C472A6C8205C4D5300768585 /* String+RemoveWhitespaces.swift in Sources */,
 				C408C8CF206D3E7A0053F057 /* AddNewsViewController.swift in Sources */,
-				C41BE78520700A1A00ED5826 /* AddNewsResponse.swift in Sources */,
-				C4D4E4EB20606FA1000A9216 /* AuthResponse.swift in Sources */,
-				C4D4E4DF20606EE5000A9216 /* Transport.swift in Sources */,
 				C4D4E4FA20618E63000A9216 /* RatingViewController.swift in Sources */,
-				C4D4E4E720606F2D000A9216 /* AuthService.swift in Sources */,
 				C42924B0205C81E700E6D568 /* RecoverViewController.swift in Sources */,
 				C44D60D22058061100A5C50F /* AuthTextField.swift in Sources */,
-				C41B3C3A2072AB7100A2B652 /* GamesService.swift in Sources */,
 				C41B3C2C2072573600A2B652 /* Games.swift in Sources */,
 				C44D60EA2058573D00A5C50F /* UIFont+CustomFont.swift in Sources */,
 				C44D60B0205529C100A5C50F /* AppDelegate.swift in Sources */,
 				C44D60CA20553B0100A5C50F /* User.swift in Sources */,
 				C472A6D3205C7E8000768585 /* StoryboardTitle.swift in Sources */,
-				C4A303EE2066C1EB008BFE5E /* RealmCache.swift in Sources */,
 				C4D4E4FC20618E8F000A9216 /* NewsViewController.swift in Sources */,
 				C41B3C342072640100A2B652 /* Club.swift in Sources */,
 			);
