@@ -16,6 +16,9 @@
 		C414F0D720596DE8001961EC /* Roboto-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C414F0D320596DE8001961EC /* Roboto-Bold.otf */; };
 		C414F0D820596DE8001961EC /* Roboto-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C414F0D420596DE8001961EC /* Roboto-Regular.otf */; };
 		C414F0DB2059A261001961EC /* UIViewController+HideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = C414F0DA2059A261001961EC /* UIViewController+HideKeyboard.swift */; };
+		C41B3C1D2072189E00A2B652 /* Games.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C41B3C1C2072189E00A2B652 /* Games.storyboard */; };
+		C41B3C20207218CE00A2B652 /* GamesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41B3C1F207218CE00A2B652 /* GamesViewController.swift */; };
+		C41B3C22207218E400A2B652 /* FilterGamesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41B3C21207218E400A2B652 /* FilterGamesViewController.swift */; };
 		C41BE783206FE2FD00ED5826 /* String+RandomString.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41BE782206FE2FD00ED5826 /* String+RandomString.swift */; };
 		C41BE78520700A1A00ED5826 /* AddNewsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41BE78420700A1A00ED5826 /* AddNewsResponse.swift */; };
 		C42924B0205C81E700E6D568 /* RecoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42924AF205C81E700E6D568 /* RecoverViewController.swift */; };
@@ -82,6 +85,9 @@
 		C414F0D320596DE8001961EC /* Roboto-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.otf"; sourceTree = "<group>"; };
 		C414F0D420596DE8001961EC /* Roboto-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.otf"; sourceTree = "<group>"; };
 		C414F0DA2059A261001961EC /* UIViewController+HideKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+HideKeyboard.swift"; sourceTree = "<group>"; };
+		C41B3C1C2072189E00A2B652 /* Games.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Games.storyboard; sourceTree = "<group>"; };
+		C41B3C1F207218CE00A2B652 /* GamesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesViewController.swift; sourceTree = "<group>"; };
+		C41B3C21207218E400A2B652 /* FilterGamesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterGamesViewController.swift; sourceTree = "<group>"; };
 		C41BE782206FE2FD00ED5826 /* String+RandomString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+RandomString.swift"; sourceTree = "<group>"; };
 		C41BE78420700A1A00ED5826 /* AddNewsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewsResponse.swift; sourceTree = "<group>"; };
 		C42924AF205C81E700E6D568 /* RecoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverViewController.swift; sourceTree = "<group>"; };
@@ -200,6 +206,25 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
+		C41B3C1B2072187D00A2B652 /* Games */ = {
+			isa = PBXGroup;
+			children = (
+				C41B3C1C2072189E00A2B652 /* Games.storyboard */,
+				C41B3C1E207218B400A2B652 /* ViewController */,
+			);
+			name = Games;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		C41B3C1E207218B400A2B652 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C41B3C1F207218CE00A2B652 /* GamesViewController.swift */,
+				C41B3C21207218E400A2B652 /* FilterGamesViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		C44D60A3205529C100A5C50F = {
 			isa = PBXGroup;
 			children = (
@@ -271,11 +296,12 @@
 		C44D60C62055390F00A5C50F /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				C44D60E82058571800A5C50F /* Common */,
+				C41B3C1B2072187D00A2B652 /* Games */,
 				C4D4E4F820618E47000A9216 /* Rating */,
 				C4D4E4F720618E42000A9216 /* News */,
 				C45AC95B2066179D00F9947F /* Tab Bar */,
 				C44D60C82055394900A5C50F /* Auth */,
+				C44D60E82058571800A5C50F /* Common */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -524,13 +550,13 @@
 		C4D4E4F720618E42000A9216 /* News */ = {
 			isa = PBXGroup;
 			children = (
-				C4A6BB39206F7AF600284603 /* Helper */,
 				C4D4E5012061934F000A9216 /* News.storyboard */,
 				C408C8CD206D3E590053F057 /* Router */,
 				C4A303FE20670818008BFE5E /* View */,
 				C4A303FB2066F50C008BFE5E /* View Model */,
 				C45AC9652066710B00F9947F /* Presentation Model */,
 				C45AC9572066171C00F9947F /* View Controller */,
+				C4A6BB39206F7AF600284603 /* Helper */,
 			);
 			path = News;
 			sourceTree = "<group>";
@@ -624,6 +650,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C41B3C1D2072189E00A2B652 /* Games.storyboard in Resources */,
 				C44D60BA205529C200A5C50F /* LaunchScreen.storyboard in Resources */,
 				C44D60B7205529C200A5C50F /* Assets.xcassets in Resources */,
 				C4A304002067085D008BFE5E /* AddNewsCell.xib in Resources */,
@@ -749,6 +776,7 @@
 				C4D4E4E320606F08000A9216 /* AuthServiceImpl.swift in Sources */,
 				C4D4E4F22060860F000A9216 /* AuthRouter.swift in Sources */,
 				C4A303F72066EAA4008BFE5E /* News.swift in Sources */,
+				C41B3C20207218CE00A2B652 /* GamesViewController.swift in Sources */,
 				C4D4E4FE20618FA9000A9216 /* TabBarController.swift in Sources */,
 				C4D4E4EF20606FEF000A9216 /* RecoverPresentationModel.swift in Sources */,
 				C4691C50206527DD00991C19 /* UserService.swift in Sources */,
@@ -758,6 +786,7 @@
 				C4D9099520680F1800DC3D6C /* AddNewsCell.swift in Sources */,
 				C4D4E4DD20606EE5000A9216 /* Parser.swift in Sources */,
 				C4DFC37E206FAF6000E829BA /* AdditionalError.swift in Sources */,
+				C41B3C22207218E400A2B652 /* FilterGamesViewController.swift in Sources */,
 				C4A303FD2066F53C008BFE5E /* NewsViewModel.swift in Sources */,
 				C4A303FA2066EC5A008BFE5E /* NewsResponse.swift in Sources */,
 				C4D4E4E920606F45000A9216 /* ServiceLayer.swift in Sources */,
