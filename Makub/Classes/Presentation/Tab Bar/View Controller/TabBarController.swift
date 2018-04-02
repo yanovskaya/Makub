@@ -29,6 +29,7 @@ final class TabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tabBar.barTintColor = .white
+        tabBar.tintColor = PaletteColors.blueTint
         navigationController?.isNavigationBarHidden = true
         createTabBarController()
     }

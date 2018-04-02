@@ -20,7 +20,7 @@ final class GamesPresentationModel: PresentationModel {
     private let gamesService = ServiceLayer.shared.gamesService
     
     private var fromIndex = 0
-    private var toIndex = 100
+    private var toIndex = 20
     
     private var newsCacheIsObtained = false
     
@@ -43,7 +43,7 @@ final class GamesPresentationModel: PresentationModel {
     
     func obtainMoreGames() {
         fromIndex = toIndex + 1
-        toIndex += 21
+        toIndex += 11
         gamesService.obtainAllGames(from: fromIndex, to: toIndex) { result in
             switch result {
             case .serviceSuccess(let model):

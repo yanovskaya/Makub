@@ -16,6 +16,6 @@ final class Parser <Response> where Response: Decodable {
             return ParserCallResult.parserSuccess(model: model)
         } catch {
             return ParserCallResult.parserFailure(error: error as NSError)
-        }
+        } 
     }
 }

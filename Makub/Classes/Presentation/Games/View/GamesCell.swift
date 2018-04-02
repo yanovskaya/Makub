@@ -55,15 +55,23 @@ final class GamesCell: UITableViewCell, ViewModelConfigurable {
         player1Label.text = viewModel.player1
         player2Label.text = viewModel.player2
         
+        let cornerRadius = photo1ImageView.frame.width / 2
+        let cornerProcessor = RoundCornerImageProcessor(cornerRadius: cornerRadius)
+        let sizeProcessor = ResizingImageProcessor(referenceSize: CGSize(width: 30, height: 30), mode: .aspectFill)
+        
         if let photo1URL = viewModel.photo1URL {
+            print(photo1URL)
             photo1ImageView.kf.indicatorType = .activity
-            photo1ImageView.kf.setImage(with: URL(string: photo1URL))
+            photo1ImageView.kf.setImage(with: URL(string: photo1URL), placeholder: nil, options: [.processor(cornerProcessor), .processor(sizeProcessor)])
+            setNeedsLayout()
         } else {
             photo1ImageView.image = UIImage(named: Constants.userImage)
         }
         if let photo2URL = viewModel.photo2URL {
+            print(photo2URL)
             photo2ImageView.kf.indicatorType = .activity
-            photo2ImageView.kf.setImage(with: URL(string: photo2URL))
+            photo2ImageView.kf.setImage(with: URL(string: photo2URL), placeholder: nil, options: [.processor(cornerProcessor), .processor(sizeProcessor)])
+            setNeedsLayout()
         } else {
             photo2ImageView.image = UIImage(named: Constants.userImage)
         }
@@ -76,7 +84,7 @@ final class GamesCell: UITableViewCell, ViewModelConfigurable {
         player2Label.font = UIFont.customFont(.robotoRegularFont(size: 16))
         typeLabel.font = UIFont.customFont(.robotoRegularFont(size: 12))
         score1Label.font = UIFont.customFont(.robotoMediumFont(size: 20))
-        score2Label.font = UIFont.customFont(.robotoMediumFont(size: 14))
+        score2Label.font = UIFont.customFont(.robotoMediumFont(size: 20))
         stageLabel.font = UIFont.customFont(.robotoRegularFont(size: 12))
     }
     

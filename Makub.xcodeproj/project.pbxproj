@@ -590,8 +590,9 @@
 				C4D4E4DA20606EE4000A9216 /* Parser.swift */,
 				C4A303ED2066C1EB008BFE5E /* RealmCache.swift */,
 			);
-			path = "Core Components";
-			sourceTree = "<group>";
+			name = "Core Components";
+			path = "Makub/Classes/Business logic/Core Components";
+			sourceTree = SOURCE_ROOT;
 		};
 		C4D4E4D420606E7B000A9216 /* Service */ = {
 			isa = PBXGroup;
