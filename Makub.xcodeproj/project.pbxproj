@@ -245,6 +245,29 @@
 			path = "Presentation Model";
 			sourceTree = "<group>";
 		};
+		C41B3C782072F21100A2B652 /* Business Logic */ = {
+			isa = PBXGroup;
+			children = (
+				C41B3C7A2072F22C00A2B652 /* Core Components */,
+				C41B3C792072F22500A2B652 /* Service */,
+			);
+			path = "Business Logic";
+			sourceTree = "<group>";
+		};
+		C41B3C792072F22500A2B652 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		C41B3C7A2072F22C00A2B652 /* Core Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Core Components";
+			sourceTree = "<group>";
+		};
 		C44D60A3205529C100A5C50F = {
 			isa = PBXGroup;
 			children = (
@@ -278,6 +301,7 @@
 			isa = PBXGroup;
 			children = (
 				C44D60C52055390300A5C50F /* Model */,
+				C41B3C782072F21100A2B652 /* Business Logic */,
 				C44D60C62055390F00A5C50F /* Presentation */,
 			);
 			path = Classes;
