@@ -14,7 +14,6 @@ final class NewsViewModel {
     
     private enum Constants {
         static let baseURL = "https://makub.ru"
-        static let defaultTitle = "Новость"
     }
     
     // MARK: - Public Properties

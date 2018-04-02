@@ -17,7 +17,7 @@ final class AddNewsViewController: UIViewController {
     // MARK: - Constants
     
     private enum Constants {
-        static let title = "Новости"
+        static let title = "Новость"
         static let leftButtonItem = "Отмена"
         static let rigthButtonItem = "Готово"
         static let titleTextField = "Название..."

@@ -23,6 +23,7 @@
 		C41B3C272072561000A2B652 /* GamesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41B3C262072561000A2B652 /* GamesCell.swift */; };
 		C41B3C2A207256ED00A2B652 /* GamesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41B3C29207256ED00A2B652 /* GamesViewModel.swift */; };
 		C41B3C2C2072573600A2B652 /* Games.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41B3C2B2072573600A2B652 /* Games.swift */; };
+		C41B3C3120725D3B00A2B652 /* GamesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41B3C3020725D3B00A2B652 /* GamesResponse.swift */; };
 		C41BE783206FE2FD00ED5826 /* String+RandomString.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41BE782206FE2FD00ED5826 /* String+RandomString.swift */; };
 		C41BE78520700A1A00ED5826 /* AddNewsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41BE78420700A1A00ED5826 /* AddNewsResponse.swift */; };
 		C42924B0205C81E700E6D568 /* RecoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42924AF205C81E700E6D568 /* RecoverViewController.swift */; };
@@ -96,6 +97,7 @@
 		C41B3C262072561000A2B652 /* GamesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesCell.swift; sourceTree = "<group>"; };
 		C41B3C29207256ED00A2B652 /* GamesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesViewModel.swift; sourceTree = "<group>"; };
 		C41B3C2B2072573600A2B652 /* Games.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Games.swift; sourceTree = "<group>"; };
+		C41B3C3020725D3B00A2B652 /* GamesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesResponse.swift; sourceTree = "<group>"; };
 		C41BE782206FE2FD00ED5826 /* String+RandomString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+RandomString.swift"; sourceTree = "<group>"; };
 		C41BE78420700A1A00ED5826 /* AddNewsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewsResponse.swift; sourceTree = "<group>"; };
 		C42924AF205C81E700E6D568 /* RecoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverViewController.swift; sourceTree = "<group>"; };
@@ -249,6 +251,30 @@
 				C41B3C29207256ED00A2B652 /* GamesViewModel.swift */,
 			);
 			path = "View Model";
+			sourceTree = "<group>";
+		};
+		C41B3C2D20725CF500A2B652 /* Games */ = {
+			isa = PBXGroup;
+			children = (
+				C41B3C2E20725D1300A2B652 /* Protocol */,
+				C41B3C2F20725D1900A2B652 /* Parser */,
+			);
+			path = Games;
+			sourceTree = "<group>";
+		};
+		C41B3C2E20725D1300A2B652 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		C41B3C2F20725D1900A2B652 /* Parser */ = {
+			isa = PBXGroup;
+			children = (
+				C41B3C3020725D3B00A2B652 /* GamesResponse.swift */,
+			);
+			path = Parser;
 			sourceTree = "<group>";
 		};
 		C44D60A3205529C100A5C50F = {
@@ -540,9 +566,10 @@
 			isa = PBXGroup;
 			children = (
 				C4D4E4E820606F45000A9216 /* ServiceLayer.swift */,
-				C4D4E4D620606E9F000A9216 /* Auth */,
-				C4691C4E206527CE00991C19 /* User */,
+				C41B3C2D20725CF500A2B652 /* Games */,
 				C4A303EF2066EA3F008BFE5E /* News */,
+				C4691C4E206527CE00991C19 /* User */,
+				C4D4E4D620606E9F000A9216 /* Auth */,
 				C4DFC37F206FBE1200E829BA /* Helper */,
 			);
 			path = Service;
@@ -816,6 +843,7 @@
 				C4D9099520680F1800DC3D6C /* AddNewsCell.swift in Sources */,
 				C4D4E4DD20606EE5000A9216 /* Parser.swift in Sources */,
 				C4DFC37E206FAF6000E829BA /* AdditionalError.swift in Sources */,
+				C41B3C3120725D3B00A2B652 /* GamesResponse.swift in Sources */,
 				C41B3C22207218E400A2B652 /* FilterGamesViewController.swift in Sources */,
 				C4A303FD2066F53C008BFE5E /* NewsViewModel.swift in Sources */,
 				C4A303FA2066EC5A008BFE5E /* NewsResponse.swift in Sources */,

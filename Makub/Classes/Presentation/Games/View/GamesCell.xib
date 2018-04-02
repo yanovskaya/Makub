@@ -13,7 +13,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB">
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="GamesCell" customModule="Макуб" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="127"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -96,6 +96,16 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="photo1" destination="aNu-KV-ljn" id="qgd-N1-JqF"/>
+                <outlet property="photo2" destination="YkM-XR-FMy" id="LYp-lI-bff"/>
+                <outlet property="player1" destination="CPD-SE-6cx" id="9I9-Ph-Ef7"/>
+                <outlet property="player2" destination="sX7-6Q-0cH" id="3yo-0g-N2h"/>
+                <outlet property="score1" destination="g6e-bV-b7k" id="63u-RQ-9AE"/>
+                <outlet property="score2" destination="7gQ-kI-yjN" id="3OV-Cb-laW"/>
+                <outlet property="stageLabel" destination="vCF-bm-V1g" id="5jt-Pk-9pf"/>
+                <outlet property="typeLabel" destination="m69-bh-asj" id="ho6-3S-tV9"/>
+            </connections>
             <point key="canvasLocation" x="201.5" y="324.5"/>
         </view>
     </objects>

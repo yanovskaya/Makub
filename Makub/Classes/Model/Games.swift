@@ -15,6 +15,7 @@ final class Games: Object, Decodable {
     @objc dynamic var score1: String! = nil
     @objc dynamic var score2: String! = nil
     @objc dynamic var type: String! = nil
+    @objc dynamic var stage: String! = nil
     @objc dynamic var video: String! = nil
     @objc dynamic var clubId: String! = nil
     @objc dynamic var name1: String! = nil
