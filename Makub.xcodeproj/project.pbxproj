@@ -31,7 +31,7 @@
 		C41B3CD92072F50F00A2B652 /* Transport.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41B3CD82072F50F00A2B652 /* Transport.swift */; };
 		C41B3CDB2072F53E00A2B652 /* ServiceLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41B3CDA2072F53E00A2B652 /* ServiceLayer.swift */; };
 		C41B3CE42072F5E100A2B652 /* CallResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41B3CE32072F5E100A2B652 /* CallResults.swift */; };
-		C41B3CE62072F5F100A2B652 /* AdditionalError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41B3CE52072F5F100A2B652 /* AdditionalError.swift */; };
+		C41B3CE62072F5F100A2B652 /* AdditionalErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41B3CE52072F5F100A2B652 /* AdditionalErrors.swift */; };
 		C41B3CE82072F61600A2B652 /* GamesServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41B3CE72072F61600A2B652 /* GamesServiceImpl.swift */; };
 		C41B3CEA2072F62900A2B652 /* NewsServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41B3CE92072F62900A2B652 /* NewsServiceImpl.swift */; };
 		C41B3CEC2072F63900A2B652 /* UserServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41B3CEB2072F63900A2B652 /* UserServiceImpl.swift */; };
@@ -110,7 +110,7 @@
 		C41B3CD82072F50F00A2B652 /* Transport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transport.swift; sourceTree = "<group>"; };
 		C41B3CDA2072F53E00A2B652 /* ServiceLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceLayer.swift; sourceTree = "<group>"; };
 		C41B3CE32072F5E100A2B652 /* CallResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallResults.swift; sourceTree = "<group>"; };
-		C41B3CE52072F5F100A2B652 /* AdditionalError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalError.swift; sourceTree = "<group>"; };
+		C41B3CE52072F5F100A2B652 /* AdditionalErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalErrors.swift; sourceTree = "<group>"; };
 		C41B3CE72072F61600A2B652 /* GamesServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesServiceImpl.swift; sourceTree = "<group>"; };
 		C41B3CE92072F62900A2B652 /* NewsServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsServiceImpl.swift; sourceTree = "<group>"; };
 		C41B3CEB2072F63900A2B652 /* UserServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserServiceImpl.swift; sourceTree = "<group>"; };
@@ -317,7 +317,7 @@
 			isa = PBXGroup;
 			children = (
 				C41B3CE32072F5E100A2B652 /* CallResults.swift */,
-				C41B3CE52072F5F100A2B652 /* AdditionalError.swift */,
+				C41B3CE52072F5F100A2B652 /* AdditionalErrors.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -887,7 +887,7 @@
 				C40EDD7420648EF000338300 /* UIImage+FromColor.swift in Sources */,
 				C41B3C362072642000A2B652 /* Stages.swift in Sources */,
 				C4A6BB3B206F7B1000284603 /* String+RemoveBlankText.swift in Sources */,
-				C41B3CE62072F5F100A2B652 /* AdditionalError.swift in Sources */,
+				C41B3CE62072F5F100A2B652 /* AdditionalErrors.swift in Sources */,
 				C4D9099520680F1800DC3D6C /* AddNewsCell.swift in Sources */,
 				C41B3C22207218E400A2B652 /* FilterGamesViewController.swift in Sources */,
 				C4A303FD2066F53C008BFE5E /* NewsViewModel.swift in Sources */,

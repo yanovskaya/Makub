@@ -7,3 +7,18 @@
 //
 
 import Foundation
+
+enum ServiceCallResult<Payload> {
+    case serviceSuccess(payload: Payload?)
+    case serviceFailure(error: NSError)
+}
+
+enum TransportCallResult {
+    case transportSuccess(payload: TransportResponseResult)
+    case transportFailure(error: NSError)
+}
+
+enum ParserCallResult<Model> {
+    case parserSuccess(model: Model)
+    case parserFailure(error: NSError)
+}
