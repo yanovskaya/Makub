@@ -44,7 +44,6 @@
 		C41B3CFE2072F76B00A2B652 /* NewsRepsonse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41B3CFD2072F76B00A2B652 /* NewsRepsonse.swift */; };
 		C41B3D002072F77A00A2B652 /* GamesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41B3CFF2072F77A00A2B652 /* GamesResponse.swift */; };
 		C41B3D022072F78E00A2B652 /* AddNewsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41B3D012072F78E00A2B652 /* AddNewsResponse.swift */; };
-		C41B3D052072F7CD00A2B652 /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41B3D042072F7CD00A2B652 /* UserResponse.swift */; };
 		C41BE783206FE2FD00ED5826 /* String+RandomString.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41BE782206FE2FD00ED5826 /* String+RandomString.swift */; };
 		C42924B0205C81E700E6D568 /* RecoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42924AF205C81E700E6D568 /* RecoverViewController.swift */; };
 		C44D60B0205529C100A5C50F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44D60AF205529C100A5C50F /* AppDelegate.swift */; };
@@ -124,7 +123,6 @@
 		C41B3CFD2072F76B00A2B652 /* NewsRepsonse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsRepsonse.swift; sourceTree = "<group>"; };
 		C41B3CFF2072F77A00A2B652 /* GamesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesResponse.swift; sourceTree = "<group>"; };
 		C41B3D012072F78E00A2B652 /* AddNewsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewsResponse.swift; sourceTree = "<group>"; };
-		C41B3D042072F7CD00A2B652 /* UserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponse.swift; sourceTree = "<group>"; };
 		C41BE782206FE2FD00ED5826 /* String+RandomString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+RandomString.swift"; sourceTree = "<group>"; };
 		C42924AF205C81E700E6D568 /* RecoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverViewController.swift; sourceTree = "<group>"; };
 		C44D60AC205529C100A5C50F /* Макуб.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Макуб.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -337,7 +335,6 @@
 		C41B3CA72072F2C100A2B652 /* User */ = {
 			isa = PBXGroup;
 			children = (
-				C41B3D032072F7B800A2B652 /* Parser */,
 				C41B3CE12072F5AC00A2B652 /* Protocol */,
 				C41B3CEB2072F63900A2B652 /* UserServiceImpl.swift */,
 			);
@@ -417,14 +414,6 @@
 			isa = PBXGroup;
 			children = (
 				C41B3CFB2072F74900A2B652 /* AuthResponse.swift */,
-			);
-			path = Parser;
-			sourceTree = "<group>";
-		};
-		C41B3D032072F7B800A2B652 /* Parser */ = {
-			isa = PBXGroup;
-			children = (
-				C41B3D042072F7CD00A2B652 /* UserResponse.swift */,
 			);
 			path = Parser;
 			sourceTree = "<group>";
@@ -913,7 +902,6 @@
 				C44D60D22058061100A5C50F /* AuthTextField.swift in Sources */,
 				C41B3CD52072F4F500A2B652 /* RealmCache.swift in Sources */,
 				C41B3C2C2072573600A2B652 /* Games.swift in Sources */,
-				C41B3D052072F7CD00A2B652 /* UserResponse.swift in Sources */,
 				C44D60EA2058573D00A5C50F /* UIFont+CustomFont.swift in Sources */,
 				C44D60B0205529C100A5C50F /* AppDelegate.swift in Sources */,
 				C44D60CA20553B0100A5C50F /* User.swift in Sources */,
