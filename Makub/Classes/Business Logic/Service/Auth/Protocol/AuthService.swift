@@ -7,3 +7,10 @@
 //
 
 import Foundation
+
+protocol AuthService: class {
+    
+    func authorizeUser(inputValues: [String], completion: ((ServiceCallResult<AuthResponse>) -> Void)?)
+    
+    func recoverPassword(email: String, completion: ((ServiceCallResult<RecoverResponse>) -> Void)?)
+}

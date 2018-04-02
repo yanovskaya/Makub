@@ -7,3 +7,13 @@
 //
 
 import Foundation
+import UIKit
+
+protocol NewsService: class {
+    
+    func obtainNews(completion: ((ServiceCallResult<NewsResponse>) -> Void)?)
+    func obtainRealmCache(error: NSError?, completion: ((ServiceCallResult<NewsResponse>) -> Void)?)
+    
+    func addNews(title: String, text: String, completion: ((ServiceCallResult<AddNewsResponse>) -> Void)?)
+    func addNewsWithImage(title: String, text: String, image: UIImage, completion: ((ServiceCallResult<AddNewsResponse>) -> Void)?)
+}

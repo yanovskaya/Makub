@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+struct NewsResponse: Decodable {
+    
+    let news: [News]!
+    let error: Int
+}

@@ -7,3 +7,10 @@
 //
 
 import Foundation
+
+protocol GamesService: class {
+    
+    func obtainAllGames(from: Int, to: Int, completion: ((ServiceCallResult<GamesResponse>) -> Void)?)
+    func obtainRealmCache(error: NSError?, completion: ((ServiceCallResult<GamesResponse>) -> Void)?)
+    
+}

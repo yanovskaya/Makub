@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+struct GamesResponse: Decodable {
+    
+    let games: [Games]!
+    let error: Int
+}
