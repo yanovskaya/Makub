@@ -222,6 +222,7 @@ extension NewsViewController: UICollectionViewDataSource {
                 newsCollectionView.dequeueReusableCell(withReuseIdentifier: addNewsCellId, for: indexPath) as? AddNewsCell else { return UICollectionViewCell() }
             let viewModel = presentationModel.userViewModel
             addNewsCell.configure(for: viewModel)
+            addNewsCell.layoutIfNeeded()
             return addNewsCell
         } else {
             let newsCellId = Constants.newsCellId
@@ -229,6 +230,7 @@ extension NewsViewController: UICollectionViewDataSource {
                 newsCollectionView.dequeueReusableCell(withReuseIdentifier: newsCellId, for: indexPath) as? NewsCell else { return UICollectionViewCell() }
             let viewModel = filteredNews[indexPath.row]
             newsCell.configure(for: viewModel)
+            newsCell.layoutIfNeeded()
             return newsCell
         }
     }

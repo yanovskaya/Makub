@@ -20,27 +20,19 @@ final class GamesViewModel {
     
     let score1: String
     let score2: String
-    let type: String
+    var type: String
     //let stage: String
     //let clubId: String
     let video: String!
-    let name1: String
-    let surname1: String
+    let player1: String
+    let player2: String
     let photo1URL: String!
-    let name2: String
-    let surname2: String
     let photo2URL: String!
     //let comments: String
     
     // MARK: - Initialization
     
     init(_ games: Games) {
-        
-        if let type = games.type {
-            self.type = obtainType(for: type)
-        } else {
-            self.type = ""
-        }
         
         if let score1 = games.score1 {
             self.score1 = score1
@@ -54,28 +46,18 @@ final class GamesViewModel {
             self.score2 = ""
         }
         
-        if let name1 = games.name1 {
-            self.name1 = name1
+        if let name1 = games.name1,
+            let surname1 = games.surname1 {
+            self.player1 = name1 + " " + surname1
         } else {
-            self.name1 = ""
+            self.player1 = ""
         }
         
-        if let name2 = games.name2 {
-            self.name2 = name2
+        if let name2 = games.name2,
+            let surname2 = games.surname2 {
+            self.player2 = name2 + " " + surname2
         } else {
-            self.name2 = ""
-        }
-        
-        if let surname1 = games.surname1 {
-            self.surname1 = surname1
-        } else {
-            self.surname1 = ""
-        }
-        
-        if let surname2 = games.surname2 {
-            self.surname2 = surname2
-        } else {
-            self.surname2 = ""
+            self.player2 = ""
         }
         
         if let photo1 = games.photo1, photo1 != "" {
@@ -95,19 +77,25 @@ final class GamesViewModel {
         } else {
             self.video = nil
         }
-    }
-    
-    private func obtainType(for id: String) -> String {
-        guard let id = Int(id) else { return "" }
-        switch id {
-        case 1:
-            return "Классика"
-        case 2:
-            return "Быстрый"
-        case 3:
-            return "Быстрый БП"
-        default:
-            return ""
+        
+        if let type = games.type {
+            guard let typeId = Int(type) else {
+                self.type = ""
+                return
+            }
+            switch typeId {
+            case 1:
+                self.type =  "Классика"
+            case 2:
+                self.type =  "Быстрый"
+            case 3:
+                self.type =  "Быстрый БП"
+            default:
+                self.type = ""
+            }
+        } else {
+            self.type = ""
         }
     }
+    
 }

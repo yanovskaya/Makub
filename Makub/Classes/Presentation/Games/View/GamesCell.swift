@@ -48,7 +48,7 @@ final class GamesCell: UITableViewCell, ViewModelConfigurable {
     // MARK: - Public Methods
     
     func configure(for viewModel: GamesViewModel) {
-        firstPlayerWon = score1 > score2
+        firstPlayerWon = viewModel.score1 > viewModel.score2
         typeLabel.text = viewModel.type
         score1Label.text = viewModel.score1
         score2Label.text = viewModel.score2
@@ -57,13 +57,13 @@ final class GamesCell: UITableViewCell, ViewModelConfigurable {
         
         if let photo1URL = viewModel.photo1URL {
             photo1ImageView.kf.indicatorType = .activity
-            photo1ImageView.kf.setImage(with: URL(string: imageURL))
+            photo1ImageView.kf.setImage(with: URL(string: photo1URL))
         } else {
             photo1ImageView.image = UIImage(named: Constants.userImage)
         }
         if let photo2URL = viewModel.photo2URL {
             photo2ImageView.kf.indicatorType = .activity
-            photo2ImageView.kf.setImage(with: URL(string: photoURL))
+            photo2ImageView.kf.setImage(with: URL(string: photo2URL))
         } else {
             photo2ImageView.image = UIImage(named: Constants.userImage)
         }

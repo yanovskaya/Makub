@@ -13,7 +13,7 @@
         <!--Games View Controller-->
         <scene sceneID="D6r-Fd-1ta">
             <objects>
-                <viewController id="hKz-Og-i5b" customClass="GamesViewController" customModule="Макуб" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GamesViewController" id="hKz-Og-i5b" customClass="GamesViewController" customModule="Макуб" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="g9G-pY-U2O">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
