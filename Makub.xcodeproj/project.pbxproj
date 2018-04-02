@@ -264,8 +264,48 @@
 		C41B3C7A2072F22C00A2B652 /* Core Components */ = {
 			isa = PBXGroup;
 			children = (
+				C41B3CA42072F2A000A2B652 /* Games */,
+				C41B3CA82072F2C600A2B652 /* News */,
+				C41B3CA72072F2C100A2B652 /* User */,
+				C41B3CA62072F2BC00A2B652 /* Auth */,
+				C41B3CA52072F2B300A2B652 /* Helper */,
 			);
 			path = "Core Components";
+			sourceTree = "<group>";
+		};
+		C41B3CA42072F2A000A2B652 /* Games */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Games;
+			sourceTree = "<group>";
+		};
+		C41B3CA52072F2B300A2B652 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		C41B3CA62072F2BC00A2B652 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		C41B3CA72072F2C100A2B652 /* User */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		C41B3CA82072F2C600A2B652 /* News */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = News;
 			sourceTree = "<group>";
 		};
 		C44D60A3205529C100A5C50F = {
