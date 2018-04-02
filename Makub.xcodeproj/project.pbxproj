@@ -26,9 +26,6 @@
 		C41B3C342072640100A2B652 /* Club.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41B3C332072640100A2B652 /* Club.swift */; };
 		C41B3C362072642000A2B652 /* Stages.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41B3C352072642000A2B652 /* Stages.swift */; };
 		C41B3C3D2072B12D00A2B652 /* GamesPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41B3C3C2072B12D00A2B652 /* GamesPresentationModel.swift */; };
-		C41B3CAC2072F32500A2B652 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41B3CA92072F32500A2B652 /* Parser.swift */; };
-		C41B3CAD2072F32500A2B652 /* Transport.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41B3CAA2072F32500A2B652 /* Transport.swift */; };
-		C41B3CAE2072F32500A2B652 /* RealmCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41B3CAB2072F32500A2B652 /* RealmCache.swift */; };
 		C41BE783206FE2FD00ED5826 /* String+RandomString.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41BE782206FE2FD00ED5826 /* String+RandomString.swift */; };
 		C42924B0205C81E700E6D568 /* RecoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42924AF205C81E700E6D568 /* RecoverViewController.swift */; };
 		C44D60B0205529C100A5C50F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44D60AF205529C100A5C50F /* AppDelegate.swift */; };
@@ -90,9 +87,6 @@
 		C41B3C332072640100A2B652 /* Club.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Club.swift; sourceTree = "<group>"; };
 		C41B3C352072642000A2B652 /* Stages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stages.swift; sourceTree = "<group>"; };
 		C41B3C3C2072B12D00A2B652 /* GamesPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesPresentationModel.swift; sourceTree = "<group>"; };
-		C41B3CA92072F32500A2B652 /* Parser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
-		C41B3CAA2072F32500A2B652 /* Transport.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transport.swift; sourceTree = "<group>"; };
-		C41B3CAB2072F32500A2B652 /* RealmCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmCache.swift; sourceTree = "<group>"; };
 		C41BE782206FE2FD00ED5826 /* String+RandomString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+RandomString.swift"; sourceTree = "<group>"; };
 		C42924AF205C81E700E6D568 /* RecoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverViewController.swift; sourceTree = "<group>"; };
 		C44D60AC205529C100A5C50F /* Макуб.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Макуб.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -254,23 +248,12 @@
 		C41B3C782072F21100A2B652 /* Business Logic */ = {
 			isa = PBXGroup;
 			children = (
-				C41B3C7A2072F22C00A2B652 /* Core Components */,
-				C41B3C792072F22500A2B652 /* Service */,
+				C41B3C7A2072F22C00A2B652 /* Service */,
 			);
 			path = "Business Logic";
 			sourceTree = "<group>";
 		};
-		C41B3C792072F22500A2B652 /* Service */ = {
-			isa = PBXGroup;
-			children = (
-				C41B3CAA2072F32500A2B652 /* Transport.swift */,
-				C41B3CA92072F32500A2B652 /* Parser.swift */,
-				C41B3CAB2072F32500A2B652 /* RealmCache.swift */,
-			);
-			path = Service;
-			sourceTree = "<group>";
-		};
-		C41B3C7A2072F22C00A2B652 /* Core Components */ = {
+		C41B3C7A2072F22C00A2B652 /* Service */ = {
 			isa = PBXGroup;
 			children = (
 				C41B3CA42072F2A000A2B652 /* Games */,
@@ -279,7 +262,7 @@
 				C41B3CA62072F2BC00A2B652 /* Auth */,
 				C41B3CA52072F2B300A2B652 /* Helper */,
 			);
-			path = "Core Components";
+			path = Service;
 			sourceTree = "<group>";
 		};
 		C41B3CA42072F2A000A2B652 /* Games */ = {
@@ -748,7 +731,6 @@
 			files = (
 				C414F0DB2059A261001961EC /* UIViewController+HideKeyboard.swift in Sources */,
 				C44D60D7205807F500A5C50F /* UIColor+Hex.swift in Sources */,
-				C41B3CAE2072F32500A2B652 /* RealmCache.swift in Sources */,
 				C41B3C2A207256ED00A2B652 /* GamesViewModel.swift in Sources */,
 				C41BE783206FE2FD00ED5826 /* String+RandomString.swift in Sources */,
 				C4BC7104205F2BEA00332D7E /* AuthPassButton.swift in Sources */,
@@ -759,7 +741,6 @@
 				C41B3C3D2072B12D00A2B652 /* GamesPresentationModel.swift in Sources */,
 				C4A6BB36206E36C900284603 /* String+Tags.swift in Sources */,
 				C472A6C3205B174000768585 /* AuthPresentationModel.swift in Sources */,
-				C41B3CAC2072F32500A2B652 /* Parser.swift in Sources */,
 				C4556B95205EC04D00D65DBD /* UIImage+ImageWithInsets.swift in Sources */,
 				C44D60D5205806BB00A5C50F /* Colors.swift in Sources */,
 				C4D909972068196900DC3D6C /* NewsCell.swift in Sources */,
@@ -784,7 +765,6 @@
 				C4D4E4FA20618E63000A9216 /* RatingViewController.swift in Sources */,
 				C42924B0205C81E700E6D568 /* RecoverViewController.swift in Sources */,
 				C44D60D22058061100A5C50F /* AuthTextField.swift in Sources */,
-				C41B3CAD2072F32500A2B652 /* Transport.swift in Sources */,
 				C41B3C2C2072573600A2B652 /* Games.swift in Sources */,
 				C44D60EA2058573D00A5C50F /* UIFont+CustomFont.swift in Sources */,
 				C44D60B0205529C100A5C50F /* AppDelegate.swift in Sources */,
