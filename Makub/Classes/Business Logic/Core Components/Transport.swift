@@ -86,7 +86,7 @@ final class Transport {
                             guard let statusCode = response.response?.statusCode,
                                 let allHeaderFields = response.response?.allHeaderFields else { return }
                             switch statusCode {
-                            case 200, 404:
+                            case 200:
                                 let payload = TransportResponseResult(httpStatus: statusCode,
                                                                       headers: allHeaderFields,
                                                                       resultBody: resultData)

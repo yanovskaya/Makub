@@ -212,19 +212,19 @@
 			isa = PBXGroup;
 			children = (
 				C41B3C1C2072189E00A2B652 /* Games.storyboard */,
-				C41B3C1E207218B400A2B652 /* ViewController */,
+				C41B3C1E207218B400A2B652 /* View Controller */,
 				C41B3C2320721CD700A2B652 /* View */,
 			);
 			path = Games;
 			sourceTree = "<group>";
 		};
-		C41B3C1E207218B400A2B652 /* ViewController */ = {
+		C41B3C1E207218B400A2B652 /* View Controller */ = {
 			isa = PBXGroup;
 			children = (
 				C41B3C1F207218CE00A2B652 /* GamesViewController.swift */,
 				C41B3C21207218E400A2B652 /* FilterGamesViewController.swift */,
 			);
-			path = ViewController;
+			path = "View Controller";
 			sourceTree = "<group>";
 		};
 		C41B3C2320721CD700A2B652 /* View */ = {

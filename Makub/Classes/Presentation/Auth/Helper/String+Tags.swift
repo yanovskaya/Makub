@@ -18,6 +18,7 @@ extension String {
         for line in originString.components(separatedBy: "\n") {
             editedString.append("<div>\(line)</div>")
         }
+        editedString = editedString.replacingOccurrences(of: "</div><div></div><div>", with: "</div><div>&nbsp;</div><div>", options: .literal, range: nil)
         return editedString
     }
     

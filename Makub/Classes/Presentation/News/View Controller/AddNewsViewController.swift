@@ -241,7 +241,7 @@ final class AddNewsViewController: UIViewController {
                 self.postButtonItem.isEnabled = false
             }
         } else {
-            self.presentationModel.addNews(title: title, text: text) {
+            self.presentationModel.addNews(title: title, text: text.addTags()) {
                 self.titleTextField.text = ""
                 self.newsTextView.text = ""
                 self.imageToAttach = nil
