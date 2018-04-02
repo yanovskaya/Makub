@@ -19,6 +19,7 @@
 		C41B3C1D2072189E00A2B652 /* Games.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C41B3C1C2072189E00A2B652 /* Games.storyboard */; };
 		C41B3C20207218CE00A2B652 /* GamesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41B3C1F207218CE00A2B652 /* GamesViewController.swift */; };
 		C41B3C22207218E400A2B652 /* FilterGamesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41B3C21207218E400A2B652 /* FilterGamesViewController.swift */; };
+		C41B3C2520721D2300A2B652 /* GameCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C41B3C2420721D2300A2B652 /* GameCell.xib */; };
 		C41BE783206FE2FD00ED5826 /* String+RandomString.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41BE782206FE2FD00ED5826 /* String+RandomString.swift */; };
 		C41BE78520700A1A00ED5826 /* AddNewsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41BE78420700A1A00ED5826 /* AddNewsResponse.swift */; };
 		C42924B0205C81E700E6D568 /* RecoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42924AF205C81E700E6D568 /* RecoverViewController.swift */; };
@@ -88,6 +89,7 @@
 		C41B3C1C2072189E00A2B652 /* Games.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Games.storyboard; sourceTree = "<group>"; };
 		C41B3C1F207218CE00A2B652 /* GamesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesViewController.swift; sourceTree = "<group>"; };
 		C41B3C21207218E400A2B652 /* FilterGamesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterGamesViewController.swift; sourceTree = "<group>"; };
+		C41B3C2420721D2300A2B652 /* GameCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameCell.xib; sourceTree = "<group>"; };
 		C41BE782206FE2FD00ED5826 /* String+RandomString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+RandomString.swift"; sourceTree = "<group>"; };
 		C41BE78420700A1A00ED5826 /* AddNewsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewsResponse.swift; sourceTree = "<group>"; };
 		C42924AF205C81E700E6D568 /* RecoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverViewController.swift; sourceTree = "<group>"; };
@@ -211,9 +213,9 @@
 			children = (
 				C41B3C1C2072189E00A2B652 /* Games.storyboard */,
 				C41B3C1E207218B400A2B652 /* ViewController */,
+				C41B3C2320721CD700A2B652 /* View */,
 			);
-			name = Games;
-			path = "New Group";
+			path = Games;
 			sourceTree = "<group>";
 		};
 		C41B3C1E207218B400A2B652 /* ViewController */ = {
@@ -223,6 +225,14 @@
 				C41B3C21207218E400A2B652 /* FilterGamesViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		C41B3C2320721CD700A2B652 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C41B3C2420721D2300A2B652 /* GameCell.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		C44D60A3205529C100A5C50F = {
@@ -657,6 +667,7 @@
 				C414F0D620596DE8001961EC /* Roboto-Light.otf in Resources */,
 				C414F0D820596DE8001961EC /* Roboto-Regular.otf in Resources */,
 				C4D4E5022061934F000A9216 /* News.storyboard in Resources */,
+				C41B3C2520721D2300A2B652 /* GameCell.xib in Resources */,
 				C4A30404206709DF008BFE5E /* NewsCell.xib in Resources */,
 				C44D60B5205529C200A5C50F /* Auth.storyboard in Resources */,
 				C4D4E50020619339000A9216 /* Rating.storyboard in Resources */,
