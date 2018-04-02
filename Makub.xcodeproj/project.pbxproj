@@ -24,6 +24,11 @@
 		C41B3C2A207256ED00A2B652 /* GamesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41B3C29207256ED00A2B652 /* GamesViewModel.swift */; };
 		C41B3C2C2072573600A2B652 /* Games.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41B3C2B2072573600A2B652 /* Games.swift */; };
 		C41B3C3120725D3B00A2B652 /* GamesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41B3C3020725D3B00A2B652 /* GamesResponse.swift */; };
+		C41B3C342072640100A2B652 /* Club.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41B3C332072640100A2B652 /* Club.swift */; };
+		C41B3C362072642000A2B652 /* Stages.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41B3C352072642000A2B652 /* Stages.swift */; };
+		C41B3C3820729EF900A2B652 /* GamesServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41B3C3720729EF900A2B652 /* GamesServiceImpl.swift */; };
+		C41B3C3A2072AB7100A2B652 /* GamesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41B3C392072AB7100A2B652 /* GamesService.swift */; };
+		C41B3C3D2072B12D00A2B652 /* GamesPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41B3C3C2072B12D00A2B652 /* GamesPresentationModel.swift */; };
 		C41BE783206FE2FD00ED5826 /* String+RandomString.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41BE782206FE2FD00ED5826 /* String+RandomString.swift */; };
 		C41BE78520700A1A00ED5826 /* AddNewsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41BE78420700A1A00ED5826 /* AddNewsResponse.swift */; };
 		C42924B0205C81E700E6D568 /* RecoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42924AF205C81E700E6D568 /* RecoverViewController.swift */; };
@@ -98,6 +103,11 @@
 		C41B3C29207256ED00A2B652 /* GamesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesViewModel.swift; sourceTree = "<group>"; };
 		C41B3C2B2072573600A2B652 /* Games.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Games.swift; sourceTree = "<group>"; };
 		C41B3C3020725D3B00A2B652 /* GamesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesResponse.swift; sourceTree = "<group>"; };
+		C41B3C332072640100A2B652 /* Club.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Club.swift; sourceTree = "<group>"; };
+		C41B3C352072642000A2B652 /* Stages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stages.swift; sourceTree = "<group>"; };
+		C41B3C3720729EF900A2B652 /* GamesServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesServiceImpl.swift; sourceTree = "<group>"; };
+		C41B3C392072AB7100A2B652 /* GamesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesService.swift; sourceTree = "<group>"; };
+		C41B3C3C2072B12D00A2B652 /* GamesPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesPresentationModel.swift; sourceTree = "<group>"; };
 		C41BE782206FE2FD00ED5826 /* String+RandomString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+RandomString.swift"; sourceTree = "<group>"; };
 		C41BE78420700A1A00ED5826 /* AddNewsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewsResponse.swift; sourceTree = "<group>"; };
 		C42924AF205C81E700E6D568 /* RecoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverViewController.swift; sourceTree = "<group>"; };
@@ -222,6 +232,7 @@
 				C41B3C1C2072189E00A2B652 /* Games.storyboard */,
 				C41B3C1E207218B400A2B652 /* View Controller */,
 				C41B3C2320721CD700A2B652 /* View */,
+				C41B3C3B2072B10800A2B652 /* Presentation Model */,
 				C41B3C282072569A00A2B652 /* View Model */,
 			);
 			path = Games;
@@ -258,6 +269,7 @@
 			children = (
 				C41B3C2E20725D1300A2B652 /* Protocol */,
 				C41B3C2F20725D1900A2B652 /* Parser */,
+				C41B3C3720729EF900A2B652 /* GamesServiceImpl.swift */,
 			);
 			path = Games;
 			sourceTree = "<group>";
@@ -265,6 +277,7 @@
 		C41B3C2E20725D1300A2B652 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
+				C41B3C392072AB7100A2B652 /* GamesService.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -275,6 +288,23 @@
 				C41B3C3020725D3B00A2B652 /* GamesResponse.swift */,
 			);
 			path = Parser;
+			sourceTree = "<group>";
+		};
+		C41B3C32207263AE00A2B652 /* Additional Info */ = {
+			isa = PBXGroup;
+			children = (
+				C41B3C332072640100A2B652 /* Club.swift */,
+				C41B3C352072642000A2B652 /* Stages.swift */,
+			);
+			path = "Additional Info";
+			sourceTree = "<group>";
+		};
+		C41B3C3B2072B10800A2B652 /* Presentation Model */ = {
+			isa = PBXGroup;
+			children = (
+				C41B3C3C2072B12D00A2B652 /* GamesPresentationModel.swift */,
+			);
+			path = "Presentation Model";
 			sourceTree = "<group>";
 		};
 		C44D60A3205529C100A5C50F = {
@@ -342,6 +372,7 @@
 				C44D60C920553B0100A5C50F /* User.swift */,
 				C4A303F62066EAA4008BFE5E /* News.swift */,
 				C41B3C2B2072573600A2B652 /* Games.swift */,
+				C41B3C32207263AE00A2B652 /* Additional Info */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -813,12 +844,14 @@
 				C44D60D7205807F500A5C50F /* UIColor+Hex.swift in Sources */,
 				C41B3C2A207256ED00A2B652 /* GamesViewModel.swift in Sources */,
 				C41BE783206FE2FD00ED5826 /* String+RandomString.swift in Sources */,
+				C41B3C3820729EF900A2B652 /* GamesServiceImpl.swift in Sources */,
 				C4BC7104205F2BEA00332D7E /* AuthPassButton.swift in Sources */,
 				C44D60B2205529C200A5C50F /* AuthViewController.swift in Sources */,
 				C4A303F52066EA6C008BFE5E /* NewsServiceImpl.swift in Sources */,
 				C472A6BF205B16D500768585 /* PresentationModel.swift in Sources */,
 				C472A6CF205C647C00768585 /* KeychainKeys.swift in Sources */,
 				C408C8D1206D3F660053F057 /* NewsRouter.swift in Sources */,
+				C41B3C3D2072B12D00A2B652 /* GamesPresentationModel.swift in Sources */,
 				C4A6BB36206E36C900284603 /* String+Tags.swift in Sources */,
 				C472A6C3205B174000768585 /* AuthPresentationModel.swift in Sources */,
 				C4556B95205EC04D00D65DBD /* UIImage+ImageWithInsets.swift in Sources */,
@@ -839,6 +872,7 @@
 				C4691C50206527DD00991C19 /* UserService.swift in Sources */,
 				C4691C52206527EE00991C19 /* UserServiceImpl.swift in Sources */,
 				C40EDD7420648EF000338300 /* UIImage+FromColor.swift in Sources */,
+				C41B3C362072642000A2B652 /* Stages.swift in Sources */,
 				C4A6BB3B206F7B1000284603 /* String+RemoveBlankText.swift in Sources */,
 				C4D9099520680F1800DC3D6C /* AddNewsCell.swift in Sources */,
 				C4D4E4DD20606EE5000A9216 /* Parser.swift in Sources */,
@@ -858,6 +892,7 @@
 				C4D4E4E720606F2D000A9216 /* AuthService.swift in Sources */,
 				C42924B0205C81E700E6D568 /* RecoverViewController.swift in Sources */,
 				C44D60D22058061100A5C50F /* AuthTextField.swift in Sources */,
+				C41B3C3A2072AB7100A2B652 /* GamesService.swift in Sources */,
 				C41B3C2C2072573600A2B652 /* Games.swift in Sources */,
 				C44D60EA2058573D00A5C50F /* UIFont+CustomFont.swift in Sources */,
 				C44D60B0205529C100A5C50F /* AppDelegate.swift in Sources */,
@@ -865,6 +900,7 @@
 				C472A6D3205C7E8000768585 /* StoryboardTitle.swift in Sources */,
 				C4A303EE2066C1EB008BFE5E /* RealmCache.swift in Sources */,
 				C4D4E4FC20618E8F000A9216 /* NewsViewController.swift in Sources */,
+				C41B3C342072640100A2B652 /* Club.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

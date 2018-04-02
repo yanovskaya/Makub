@@ -26,6 +26,7 @@ final class AddNewsCell: UICollectionViewCell, ViewModelConfigurable {
     // MARK: - View lifecycle
     
     override func awakeFromNib() {
+        super.awakeFromNib()
         configureLayout()
         configureLabel()
         

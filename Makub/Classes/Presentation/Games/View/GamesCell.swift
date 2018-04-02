@@ -30,6 +30,6 @@ final class GamesCell: UITableViewCell, ViewModelConfigurable {
     
     // MARK: - Public Methods
     
-    func configure(for viewModel: CurrencyRateViewModel) {
+    func configure(for viewModel: GamesViewModel) {
     }
 }

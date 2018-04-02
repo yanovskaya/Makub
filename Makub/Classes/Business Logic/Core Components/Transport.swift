@@ -21,7 +21,7 @@ final class Transport {
     
     func request(method: HTTPMethod,
                  url: String,
-                 parameters: [String: String]? = nil,
+                 parameters: [String: Any]? = nil,
                  timeout: TimeInterval = 5,
                  headers: [String: String] = [:],
                  completion: ((TransportCallResult) -> Void)?) {
@@ -55,7 +55,7 @@ final class Transport {
     
     func upload(method: HTTPMethod,
                 url: String,
-                parameters: [String: String]? = nil,
+                parameters: [String: Any]? = nil,
                 headers: [String: String] = [:],
                 data: Data,
                 name: String = "image",
@@ -69,7 +69,7 @@ final class Transport {
                                      mimeType: mimeType)
             if let parameters = parameters {
                 for (key, value) in parameters {
-                    multipartFormData.append(value.data(using: String.Encoding.utf8)!, withName: key)
+                    multipartFormData.append((value as AnyObject).data(using: String.Encoding.utf8.rawValue)!, withName: key)
                 }
             }
         },

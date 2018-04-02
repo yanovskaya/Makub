@@ -16,11 +16,13 @@ final class ServiceLayer {
     let authService: AuthService
     let userService: UserService
     let newsService: NewsService
+    let gamesService: GamesService
     
     private init() {
         authService = AuthServiceImpl()
         userService = UserServiceImpl()
         newsService = NewsServiceImpl()
+        gamesService = GamesServiceImpl()
     }
     
 }

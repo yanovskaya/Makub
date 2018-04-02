@@ -112,25 +112,30 @@ final class NewsServiceImpl: NewsService {
                           Constants.textParameter: text]
         let imageData = UIImageJPEGRepresentation(image, 1)
         let randomName = String(length: 5)
-        transport.upload(method: .post, url: Constants.baseURL + EndPoint.addNews, parameters: parameters, data: imageData!, name: "image", fileName: randomName + Constants.jpgExtension) { transportResult in
-            switch transportResult {
-            case .transportSuccess(let payload):
-                let resultBody = payload.resultBody
-                let parseResult = self.addNewsParser.parse(from: resultBody)
-                switch parseResult {
-                case .parserSuccess(let model):
-                    if model.error == 0 {
-                        completion?(ServiceCallResult.serviceSuccess(payload: model))
-                    } else {
-                        let error = NSError(domain: "", code: model.error)
-                        completion?(ServiceCallResult.serviceFailure(error: error))
-                    }
-                case .parserFailure(let error):
-                    completion?(ServiceCallResult.serviceFailure(error: error))
-                }
-            case .transportFailure(let error):
-                completion?(ServiceCallResult.serviceFailure(error: error))
-            }
+        transport.upload(method: .post,
+                         url: Constants.baseURL + EndPoint.addNews,
+                         parameters: parameters,
+                         data: imageData!,
+                         name: Constants.imageParameter,
+                         fileName: randomName + Constants.jpgExtension) { transportResult in
+                            switch transportResult {
+                            case .transportSuccess(let payload):
+                                let resultBody = payload.resultBody
+                                let parseResult = self.addNewsParser.parse(from: resultBody)
+                                switch parseResult {
+                                case .parserSuccess(let model):
+                                    if model.error == 0 {
+                                        completion?(ServiceCallResult.serviceSuccess(payload: model))
+                                    } else {
+                                        let error = NSError(domain: "", code: model.error)
+                                        completion?(ServiceCallResult.serviceFailure(error: error))
+                                    }
+                                case .parserFailure(let error):
+                                    completion?(ServiceCallResult.serviceFailure(error: error))
+                                }
+                            case .transportFailure(let error):
+                                completion?(ServiceCallResult.serviceFailure(error: error))
+                            }
         }
     }
     
