@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -45,7 +41,7 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
                 <outlet property="addNewsLabel" destination="ngp-7j-nJx" id="iJ4-W4-Gc0"/>
-                <outlet property="userPhoto" destination="Vp6-RU-7T9" id="sCq-fA-Sd1"/>
+                <outlet property="userImageView" destination="Vp6-RU-7T9" id="sCq-fA-Sd1"/>
             </connections>
             <point key="canvasLocation" x="108.5" y="336"/>
         </view>

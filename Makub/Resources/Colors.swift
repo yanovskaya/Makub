@@ -10,22 +10,27 @@ import UIKit.UIColor
 
 struct PaletteColors {
     
-    // MARK: - AuthViewController
+    // MARK: - Common
+    
+    static var darkGray = UIColor(hex: "303030")
+    static let textGray = UIColor(hex: "72757F")
+    
+    // MARK: - Auth
     
     static var borderAuthTextField = UIColor(hex: "E2E2E2")
     static var passButtonBackground = UIColor(hex: "6BF26B")
-    
-    // MARK: - PassHelpViewController
-    
-    static var darkGray = UIColor(hex: "303030")
     
     // MARK: VCs in TabBarController
     
     static let blueBackground = UIColor(hex: "F7F9FC")
     static let blueTint = UIColor(hex: "5BABFF")
     
-    // MARK: NewsViewController
+    // MARK: News
     
     static let searchBar = UIColor(hex: "EBEBEB")
-    static let textGray = UIColor(hex: "72757F")
+    
+    // MARK: Games
+    
+    static let winColor = UIColor(hex: "42CF42")
+    static let loseColor = UIColor(hex: "EC5B46")
 }

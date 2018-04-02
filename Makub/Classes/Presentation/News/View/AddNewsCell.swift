@@ -20,7 +20,7 @@ final class AddNewsCell: UICollectionViewCell, ViewModelConfigurable {
     
     // MARK: - IBOutlets
     
-    @IBOutlet private var userPhoto: UIImageView!
+    @IBOutlet private var userImageView: UIImageView!
     @IBOutlet private var addNewsLabel: UILabel!
     
     // MARK: - View lifecycle
@@ -30,21 +30,21 @@ final class AddNewsCell: UICollectionViewCell, ViewModelConfigurable {
         configureLayout()
         configureLabel()
         
-        userPhoto.image = UIImage(named: Constants.userImage)
+        userImageView.image = UIImage(named: Constants.userImage)
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        userPhoto.layer.cornerRadius = userPhoto.frame.width / 2
-        userPhoto.clipsToBounds = true
+        userImageView.layer.cornerRadius = userImageView.frame.width / 2
+        userImageView.clipsToBounds = true
     }
     
     // MARK: - Public Methods
     
     func configure(for viewModel: UserViewModel?) {
         guard let viewModel = viewModel else { return }
-        userPhoto.kf.indicatorType = .activity
-        userPhoto.kf.setImage(with: URL(string: viewModel.photoURL))
+        userImageView.kf.indicatorType = .activity
+        userImageView.kf.setImage(with: URL(string: viewModel.photoURL))
     }
     
     // MARK: - Private Methods

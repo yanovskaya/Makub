@@ -97,12 +97,12 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
-                <outlet property="photo1" destination="aNu-KV-ljn" id="qgd-N1-JqF"/>
-                <outlet property="photo2" destination="YkM-XR-FMy" id="LYp-lI-bff"/>
-                <outlet property="player1" destination="CPD-SE-6cx" id="9I9-Ph-Ef7"/>
-                <outlet property="player2" destination="sX7-6Q-0cH" id="3yo-0g-N2h"/>
-                <outlet property="score1" destination="g6e-bV-b7k" id="63u-RQ-9AE"/>
-                <outlet property="score2" destination="7gQ-kI-yjN" id="3OV-Cb-laW"/>
+                <outlet property="photo1ImageView" destination="aNu-KV-ljn" id="qgd-N1-JqF"/>
+                <outlet property="photo2ImageView" destination="YkM-XR-FMy" id="LYp-lI-bff"/>
+                <outlet property="player1Label" destination="CPD-SE-6cx" id="9I9-Ph-Ef7"/>
+                <outlet property="player2Label" destination="sX7-6Q-0cH" id="3yo-0g-N2h"/>
+                <outlet property="score1Label" destination="g6e-bV-b7k" id="63u-RQ-9AE"/>
+                <outlet property="score2Label" destination="7gQ-kI-yjN" id="3OV-Cb-laW"/>
                 <outlet property="stageLabel" destination="vCF-bm-V1g" id="5jt-Pk-9pf"/>
                 <outlet property="typeLabel" destination="m69-bh-asj" id="ho6-3S-tV9"/>
             </connections>

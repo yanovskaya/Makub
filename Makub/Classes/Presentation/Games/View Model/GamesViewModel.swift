@@ -20,21 +20,28 @@ final class GamesViewModel {
     
     let score1: String
     let score2: String
-    //let type: String
+    let type: String
     //let stage: String
     //let clubId: String
-    let videoURL: String!
+    let video: String!
     let name1: String
     let surname1: String
-    let photoURL1: String!
+    let photo1URL: String!
     let name2: String
     let surname2: String
-    let photoURL2: String!
+    let photo2URL: String!
     //let comments: String
     
     // MARK: - Initialization
     
     init(_ games: Games) {
+        
+        if let type = games.type {
+            self.type = obtainType(for: type)
+        } else {
+            self.type = ""
+        }
+        
         if let score1 = games.score1 {
             self.score1 = score1
         } else {
@@ -72,21 +79,35 @@ final class GamesViewModel {
         }
         
         if let photo1 = games.photo1, photo1 != "" {
-            self.photoURL1 = Constants.baseURL + photo1
+            self.photo1URL = Constants.baseURL + photo1
         } else {
-            self.photoURL1 = nil
+            self.photo1URL = nil
         }
         
         if let photo2 = games.photo2, photo2 != "" {
-            self.photoURL2 = Constants.baseURL + photo2
+            self.photo2URL = Constants.baseURL + photo2
         } else {
-            self.photoURL2 = nil
+            self.photo2URL = nil
         }
         
         if let video = games.video, video != "" {
-            self.videoURL = Constants.baseURL + video
+            self.video = video
         } else {
-            self.videoURL = nil
+            self.video = nil
+        }
+    }
+    
+    private func obtainType(for id: String) -> String {
+        guard let id = Int(id) else { return "" }
+        switch id {
+        case 1:
+            return "Классика"
+        case 2:
+            return "Быстрый"
+        case 3:
+            return "Быстрый БП"
+        default:
+            return ""
         }
     }
 }
