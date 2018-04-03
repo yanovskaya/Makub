@@ -28,12 +28,19 @@ final class AuthServiceImpl: AuthService {
     
     // MARK: - Private Properties
     
-    private let transport = Transport()
+    private let sessionManager: SessionManager
+    private let transport: Transport
     private let authParser = Parser<AuthResponse>()
     private let recoverParser = Parser<RecoverResponse>()
     
-    // MARK: - Public Methods
+    // MARK: - Initialization
     
+    init(sessionManager: SessionManager) {
+        self.sessionManager = sessionManager
+        transport = Transport(sessionManager: sessionManager)
+    }
+    
+    // MARK: - Public Methods
     
     func authorizeUser(inputValues: [String],
                        completion: ((ServiceCallResult<AuthResponse>) -> Void)?) {

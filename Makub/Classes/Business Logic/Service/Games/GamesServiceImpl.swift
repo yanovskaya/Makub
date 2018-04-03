@@ -30,9 +30,17 @@ final class GamesServiceImpl: GamesService {
     
     // MARK: - Private Properties
     
-    private let transport = Transport()
+    private let sessionManager: SessionManager
+    private let transport: Transport
     private let parser = Parser<GamesResponse>()
     private let realmCache = RealmCache<Games>()
+    
+    // MARK: - Initialization
+    
+    init(sessionManager: SessionManager) {
+        self.sessionManager = sessionManager
+        transport = Transport(sessionManager: sessionManager)
+    }
     
     // MARK: - Public Methods
     

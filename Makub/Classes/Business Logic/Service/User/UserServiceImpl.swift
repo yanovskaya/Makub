@@ -26,9 +26,17 @@ final class UserServiceImpl: UserService {
     
     // MARK: - Private Properties
     
-    private let transport = Transport()
+    private let sessionManager: SessionManager
+    private let transport: Transport
     private let parser = Parser<User>()
     private let realmCache = RealmCache<User>()
+    
+    // MARK: - Initialization
+    
+    init(sessionManager: SessionManager) {
+        self.sessionManager = sessionManager
+        transport = Transport(sessionManager: sessionManager)
+    }
     
     // MARK: - Public Methods
     

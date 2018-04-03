@@ -33,10 +33,19 @@ final class NewsServiceImpl: NewsService {
     
     // MARK: - Private Properties
     
-    private let transport = Transport()
+    private let requestSessionManager: SessionManager
+    private let uploadSessionManager: SessionManager
+    private var transport: Transport!
     private let newsParser = Parser<NewsResponse>()
     private let addNewsParser = Parser<AddNewsResponse>()
     private let realmCache = RealmCache<News>()
+    
+    // MARK: - Initialization
+    
+    init(requestSessionManager: SessionManager, uploadSessionManager: SessionManager) {
+        self.requestSessionManager = requestSessionManager
+        self.uploadSessionManager = uploadSessionManager
+    }
     
     // MARK: - Public Methods
     
@@ -47,6 +56,7 @@ final class NewsServiceImpl: NewsService {
             return
         }
         let parameters = [Constants.tokenParameter: token]
+        transport = Transport(sessionManager: requestSessionManager)
         transport.request(method: .post, url: Constants.baseURL + EndPoint.news, parameters: parameters) { [unowned self] transportResult in
             switch transportResult {
             case .transportSuccess(let payload):
@@ -79,6 +89,7 @@ final class NewsServiceImpl: NewsService {
         let parameters = [Constants.tokenParameter: token,
                           Constants.titleParameter: title,
                           Constants.textParameter: text]
+        transport = Transport(sessionManager: uploadSessionManager)
         transport.request(method: .post, url: Constants.baseURL + EndPoint.addNews, parameters: parameters) { [unowned self] transportResult in
             switch transportResult {
             case .transportSuccess(let payload):

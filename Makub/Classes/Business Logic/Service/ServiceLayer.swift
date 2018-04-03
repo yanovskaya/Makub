@@ -18,23 +18,26 @@ final class ServiceLayer {
     let newsService: NewsService
     let gamesService: GamesService
     
-    let requestManager: SessionManager = {
-        let configuration = URLSessionConfiguration.default
-        configuration.timeoutIntervalForRequest = 5
-        return SessionManager(configuration: configuration)
-    }()
-    
-    let uploadManager: SessionManager = {
-        let configuration = URLSessionConfiguration.default
-        configuration.timeoutIntervalForRequest = 20
-        return SessionManager(configuration: configuration)
-    }()
+    let requestSessionManager: SessionManager
+    let uploadSessionManager: SessionManager
     
     private init() {
-        authService = AuthServiceImpl()
-        userService = UserServiceImpl()
-        newsService = NewsServiceImpl()
-        gamesService = GamesServiceImpl()
+        requestSessionManager = {
+            let configuration = URLSessionConfiguration.default
+            configuration.timeoutIntervalForRequest = 5
+            return SessionManager(configuration: configuration)
+        }()
+        uploadSessionManager = {
+            let configuration = URLSessionConfiguration.default
+            configuration.timeoutIntervalForRequest = 20
+            return SessionManager(configuration: configuration)
+        }()
+        
+        authService = AuthServiceImpl(sessionManager: requestSessionManager)
+        userService = UserServiceImpl(sessionManager: requestSessionManager)
+        newsService = NewsServiceImpl(requestSessionManager: requestSessionManager,
+                                      uploadSessionManager: uploadSessionManager)
+        gamesService = GamesServiceImpl(sessionManager: requestSessionManager)
     }
     
 }
