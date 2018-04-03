@@ -35,18 +35,25 @@ final class AddNewsCell: UICollectionViewCell, ViewModelConfigurable {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        userImageView.clipsToBounds = true
+        userImageView.layer.cornerRadius = userImageView.frame.width / 2
     }
     
     // MARK: - Public Methods
     
     func configure(for viewModel: UserViewModel?) {
         guard let viewModel = viewModel else { return }
-        let cornerRadius = userImageView.frame.width / 2
-        let cornerProcessor = RoundCornerImageProcessor(cornerRadius: cornerRadius)
-        let sizeProcessor = ResizingImageProcessor(referenceSize: CGSize(width: 45, height: 45), mode: .aspectFill)
-        userImageView.kf.indicatorType = .activity
-        userImageView.kf.setImage(with: URL(string: viewModel.photoURL), placeholder: nil, options: [.processor(cornerProcessor), .processor(sizeProcessor)])
-        setNeedsLayout()
+        if let photoURL = viewModel.photoURL {
+            let sizeProcessor = ResizingImageProcessor(referenceSize: CGSize(width: 45, height: 45), mode: .aspectFill)
+            userImageView.kf.indicatorType = .activity
+            userImageView.kf.setImage(with: URL(string: photoURL), placeholder: nil, options: [.processor(sizeProcessor)], completionHandler: { (image, _, _, _) in
+                if image == nil {
+                    self.userImageView.image = UIImage(named: Constants.userImage)
+                }
+            })
+        } else {
+            self.userImageView.image = UIImage(named: Constants.userImage)
+        }
     }
     
     // MARK: - Private Methods

@@ -42,7 +42,7 @@ final class NewsServiceImpl: NewsService {
     
     func obtainNews(completion: ((ServiceCallResult<NewsResponse>) -> Void)?) {
         guard let token = KeychainWrapper.standard.string(forKey: KeychainKey.token) else {
-            let error = NSError(domain: "", code: AdditionalError.tokenNotFound)
+            let error = NSError(domain: "", code: AdditionalErrors.tokenNotFound)
             completion?(ServiceCallResult.serviceFailure(error: error))
             return
         }
@@ -72,7 +72,7 @@ final class NewsServiceImpl: NewsService {
     
     func addNews(title: String, text: String, completion: ((ServiceCallResult<AddNewsResponse>) -> Void)?) {
         guard let token = KeychainWrapper.standard.string(forKey: KeychainKey.token) else {
-            let error = NSError(domain: "", code: AdditionalError.tokenNotFound)
+            let error = NSError(domain: "", code: AdditionalErrors.tokenNotFound)
             completion?(ServiceCallResult.serviceFailure(error: error))
             return
         }
@@ -103,7 +103,7 @@ final class NewsServiceImpl: NewsService {
     
     func addNewsWithImage(title: String, text: String, image: UIImage, completion: ((ServiceCallResult<AddNewsResponse>) -> Void)?) {
         guard let token = KeychainWrapper.standard.string(forKey: KeychainKey.token) else {
-            let error = NSError(domain: "", code: AdditionalError.tokenNotFound)
+            let error = NSError(domain: "", code: AdditionalErrors.tokenNotFound)
             completion?(ServiceCallResult.serviceFailure(error: error))
             return
         }

@@ -31,6 +31,6 @@ struct UserViewModel {
             self.photoURL = nil
             return
         }
-        self.photoURL = Constants.baseURL + photo
+        self.photoURL = (Constants.baseURL + photo).removeSpacesInURL()
     }
 }

@@ -50,6 +50,8 @@ final class NewsCell: UICollectionViewCell, ViewModelConfigurable {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        authorImageView.clipsToBounds = true
+        authorImageView.layer.cornerRadius = authorImageView.frame.width / 2
     }
     
     // MARK: - Public Methods
@@ -63,24 +65,26 @@ final class NewsCell: UICollectionViewCell, ViewModelConfigurable {
         if let imageURL = viewModel.imageURL {
             imageHeight.constant = LayoutConstants.imageHeight
             bottomDistance.constant = LayoutConstants.bottomImageDistance
-            
-            let cornerRadius = illustrationImageView.frame.width / 2
             let sizeProcessor = ResizingImageProcessor(referenceSize: CGSize(width: 167, height: 359), mode: .aspectFill)
-            let cornerProcessor = RoundCornerImageProcessor(cornerRadius: cornerRadius)
             illustrationImageView.kf.indicatorType = .activity
-            illustrationImageView.kf.setImage(with: URL(string: imageURL), placeholder: nil, options: [.processor(cornerProcessor), .processor(sizeProcessor)])
-            setNeedsLayout()
+            illustrationImageView.kf.setImage(with: URL(string: imageURL), placeholder: nil, options: [.processor(sizeProcessor)], completionHandler: { (image, _, _, _) in
+                if image == nil {
+                    self.bottomDistance.constant = LayoutConstants.bottomDistance
+                    self.imageHeight.constant = 0
+                }
+            })
         } else {
             bottomDistance.constant = LayoutConstants.bottomDistance
-           imageHeight.constant = 0
+            imageHeight.constant = 0
         }
         if let photoURL = viewModel.photoURL {
-            let cornerRadius = authorImageView.frame.width / 2
-            let cornerProcessor = RoundCornerImageProcessor(cornerRadius: cornerRadius)
             let sizeProcessor = ResizingImageProcessor(referenceSize: CGSize(width: 40, height: 40), mode: .aspectFill)
             authorImageView.kf.indicatorType = .activity
-            authorImageView.kf.setImage(with: URL(string: photoURL), placeholder: nil, options: [.processor(cornerProcessor), .processor(sizeProcessor)])
-            setNeedsLayout()
+            authorImageView.kf.setImage(with: URL(string: photoURL), placeholder: nil, options: [.processor(sizeProcessor)], completionHandler: { (image, _, _, _) in
+                if image == nil {
+                    self.authorImageView.image = UIImage(named: Constants.userImage)
+                }
+            })
         } else {
             authorImageView.image = UIImage(named: Constants.userImage)
         }

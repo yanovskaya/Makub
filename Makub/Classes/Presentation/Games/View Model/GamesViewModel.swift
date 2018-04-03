@@ -61,13 +61,13 @@ final class GamesViewModel {
         }
         
         if let photo1 = games.photo1, photo1 != "" {
-            self.photo1URL = Constants.baseURL + photo1
+            self.photo1URL = (Constants.baseURL + photo1).removeSpacesInURL()
         } else {
             self.photo1URL = nil
         }
         
         if let photo2 = games.photo2, photo2 != "" {
-            self.photo2URL = Constants.baseURL + photo2
+            self.photo2URL = (Constants.baseURL + photo2).removeSpacesInURL()
         } else {
             self.photo2URL = nil
         }

@@ -34,7 +34,7 @@ final class UserServiceImpl: UserService {
     
     func obtainUserInfo(completion: ((ServiceCallResult<User>) -> Void)?) {
         guard let token = KeychainWrapper.standard.string(forKey: KeychainKey.token) else {
-            let error = NSError(domain: "", code: AdditionalError.tokenNotFound)
+            let error = NSError(domain: "", code: AdditionalErrors.tokenNotFound)
             completion?(ServiceCallResult.serviceFailure(error: error))
             return
         }
