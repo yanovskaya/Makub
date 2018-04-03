@@ -17,11 +17,11 @@ final class GamesViewController: UIViewController {
     }
     
     private enum LayoutConstants {
-        static let tableViewHeight: CGFloat = 130
+        static let tableViewHeight: CGFloat = 122
         static let leadingMargin: CGFloat = 5
         static let topEdge: CGFloat = 5
         static let bottomEdge: CGFloat = 5
-        static let cellSpacing: CGFloat = 5
+        static let cellSpacing: CGFloat = 3
     }
     
     // MARK: - IBOutlets
@@ -29,6 +29,7 @@ final class GamesViewController: UIViewController {
     @IBOutlet private var navigationBar: UINavigationBar!
     @IBOutlet private var tournamentsButtonItem: UIBarButtonItem!
     @IBOutlet private var filterButtonItem: UIBarButtonItem!
+    @IBOutlet private var navBackgroundView: UIView!
     
     @IBOutlet private var gamesCollectionView: UICollectionView!
     
@@ -45,6 +46,15 @@ final class GamesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = PaletteColors.blueBackground
+        navBackgroundView.backgroundColor = .white
+        let titleTextAttributes: [NSAttributedStringKey: Any] = [NSAttributedStringKey.foregroundColor: PaletteColors.darkGray,
+                                                                 NSAttributedStringKey.font: UIFont.customFont(.robotoMediumFont(size: 17))]
+        navigationBar.titleTextAttributes = titleTextAttributes
+        navigationBar.topItem?.title = Constants.title
+        navigationController?.isNavigationBarHidden = true
+        navigationBar.shadowImage = UIImage(color: UIColor.white)
+        navigationBar.setBackgroundImage(UIImage(color: UIColor.white), for: .default)
+        
         gamesCollectionView.backgroundColor = .clear
         gamesCollectionView.dataSource = self
         gamesCollectionView.delegate = self
@@ -132,8 +142,8 @@ extension GamesViewController: UITabBarControllerDelegate {
     
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         if tabBarController.selectedIndex == 2 {
-            let indexPath = IndexPath(item: 0, section: 0)
-            gamesCollectionView.scrollToItem(at: indexPath, at: .top, animated: true)
+            let topPoint = CGPoint(x: 0, y: 0)
+            gamesCollectionView.setContentOffset(topPoint, animated: true)
         }
     }
 }

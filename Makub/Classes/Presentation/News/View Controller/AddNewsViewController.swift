@@ -83,7 +83,6 @@ final class AddNewsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = Constants.title
         view.backgroundColor = .white
         
         configureNavigationItems()
