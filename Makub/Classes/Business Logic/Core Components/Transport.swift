@@ -25,7 +25,7 @@ final class Transport {
                  timeout: TimeInterval = 5,
                  headers: [String: String] = [:],
                  completion: ((TransportCallResult) -> Void)?) {
-        Alamofire.request(url,
+        ServiceLayer.shared.requestManager.request(url,
                           method: method,
                           parameters: parameters,
                           encoding: URLEncoding.default,
@@ -62,7 +62,7 @@ final class Transport {
                 fileName: String = "file.jpg",
                 mimeType: String = "image/jpg",
                 completion: ((TransportCallResult) -> Void)?) {
-        Alamofire.upload(multipartFormData: { multipartFormData in
+        ServiceLayer.shared.uploadManager.upload(multipartFormData: { multipartFormData in
             multipartFormData.append(data,
                                      withName: name,
                                      fileName: fileName,

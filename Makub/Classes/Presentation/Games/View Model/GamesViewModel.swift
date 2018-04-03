@@ -33,7 +33,6 @@ final class GamesViewModel {
     // MARK: - Initialization
     
     init(_ games: Games) {
-        
         if let score1 = games.score1 {
             self.score1 = score1
         } else {
