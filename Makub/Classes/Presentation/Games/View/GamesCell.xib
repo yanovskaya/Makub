@@ -51,15 +51,15 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ssX-Xf-wgy">
-                    <rect key="frame" x="340" y="17" width="15" height="15"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ssX-Xf-wgy">
+                    <rect key="frame" x="335" y="14.5" width="20" height="20"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="15" id="OKR-1O-qb4"/>
+                        <constraint firstAttribute="width" constant="20" id="OKR-1O-qb4"/>
                         <constraint firstAttribute="width" secondItem="ssX-Xf-wgy" secondAttribute="height" multiplier="1:1" id="OKj-aZ-Hvj"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m69-bh-asj">
-                    <rect key="frame" x="284" y="14" width="42" height="21"/>
+                    <rect key="frame" x="279" y="14" width="42" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -76,7 +76,6 @@
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="YkM-XR-FMy" secondAttribute="bottom" constant="14" id="5P3-QZ-4Zq"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="g6e-bV-b7k" secondAttribute="trailing" constant="20" id="5Sx-fx-6f3"/>
                 <constraint firstItem="CPD-SE-6cx" firstAttribute="centerY" secondItem="aNu-KV-ljn" secondAttribute="centerY" id="6xW-dl-39P"/>
-                <constraint firstItem="g6e-bV-b7k" firstAttribute="top" secondItem="ssX-Xf-wgy" secondAttribute="bottom" constant="18" id="7eg-kS-8BB"/>
                 <constraint firstItem="g6e-bV-b7k" firstAttribute="centerY" secondItem="CPD-SE-6cx" secondAttribute="centerY" id="CIg-Y6-oXh"/>
                 <constraint firstItem="7gQ-kI-yjN" firstAttribute="centerY" secondItem="sX7-6Q-0cH" secondAttribute="centerY" id="EuV-a5-WTT"/>
                 <constraint firstItem="aNu-KV-ljn" firstAttribute="width" secondItem="YkM-XR-FMy" secondAttribute="width" id="G3b-n5-iIR"/>
@@ -84,6 +83,7 @@
                 <constraint firstItem="YkM-XR-FMy" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="14" id="IhN-a0-WN0"/>
                 <constraint firstItem="vCF-bm-V1g" firstAttribute="centerY" secondItem="m69-bh-asj" secondAttribute="centerY" id="KFW-cr-Dvk"/>
                 <constraint firstItem="CPD-SE-6cx" firstAttribute="leading" secondItem="sX7-6Q-0cH" secondAttribute="leading" id="LyW-73-7aX"/>
+                <constraint firstItem="aNu-KV-ljn" firstAttribute="top" secondItem="vCF-bm-V1g" secondAttribute="bottom" constant="8" id="XHq-uL-h83"/>
                 <constraint firstItem="vCF-bm-V1g" firstAttribute="leading" secondItem="aNu-KV-ljn" secondAttribute="leading" id="Y6z-EF-Duy"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="7gQ-kI-yjN" secondAttribute="trailing" constant="20" id="b5A-XJ-fyx"/>
                 <constraint firstItem="sX7-6Q-0cH" firstAttribute="leading" secondItem="YkM-XR-FMy" secondAttribute="trailing" constant="12" id="bTx-Va-O5L"/>
@@ -106,6 +106,7 @@
                 <outlet property="score2Label" destination="7gQ-kI-yjN" id="3OV-Cb-laW"/>
                 <outlet property="stageLabel" destination="vCF-bm-V1g" id="5jt-Pk-9pf"/>
                 <outlet property="typeLabel" destination="m69-bh-asj" id="ho6-3S-tV9"/>
+                <outlet property="videoImageView" destination="ssX-Xf-wgy" id="2M8-FC-Tp0"/>
             </connections>
             <point key="canvasLocation" x="201.5" y="324.5"/>
         </view>

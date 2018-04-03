@@ -14,7 +14,7 @@ final class AddNewsCell: UICollectionViewCell, ViewModelConfigurable {
     // MARK: - Constants
     
     private enum Constants {
-        static let userImage = "user"
+        static let userImage = "photo_default"
         static let addNewsLabel = "Создать новую запись"
     }
     

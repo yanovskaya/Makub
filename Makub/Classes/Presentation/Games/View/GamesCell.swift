@@ -14,13 +14,15 @@ final class GamesCell: UITableViewCell, ViewModelConfigurable {
     // MARK: - Constants
     
     private enum Constants {
-        static let userImage = "user"
+        static let userImage = "photo_default"
+        static let videoImage = "video"
     }
 
     // MARK: - IBOutlets
     
     @IBOutlet private var stageLabel: UILabel!
     @IBOutlet private var typeLabel: UILabel!
+    @IBOutlet private var videoImageView: UIImageView!
     
     @IBOutlet private var photo1ImageView: UIImageView!
     @IBOutlet private var photo2ImageView: UIImageView!
@@ -63,7 +65,7 @@ final class GamesCell: UITableViewCell, ViewModelConfigurable {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        stageLabel.text = nil
+        //stageLabel.text = nil
         typeLabel.text = nil
         player1Label.text = nil
         player2Label.text = nil
@@ -95,6 +97,7 @@ final class GamesCell: UITableViewCell, ViewModelConfigurable {
         } else {
             photo1ImageView.image = UIImage(named: Constants.userImage)
         }
+        
         if let photo2URL = viewModel.photo2URL {
             photo2ImageView.kf.indicatorType = .activity
             photo2ImageView.kf.setImage(with: URL(string: photo2URL), placeholder: nil, options: [.processor(sizeProcessor)], completionHandler: { (image, _, _, _) in
@@ -105,6 +108,8 @@ final class GamesCell: UITableViewCell, ViewModelConfigurable {
         } else {
             photo2ImageView.image = UIImage(named: Constants.userImage)
         }
+        
+        videoImageView.image = UIImage(named: Constants.videoImage)
     }
     
     // MARK: - Private Methods

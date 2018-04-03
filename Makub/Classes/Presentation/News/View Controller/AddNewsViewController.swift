@@ -31,7 +31,7 @@ final class AddNewsViewController: UIViewController {
         
         static let attachButton = "paperclip"
         static let removeButton = "close"
-        static let userImage = "user"
+        static let userImage = "photo_default"
     }
     
     // MARK: - IBOutlets

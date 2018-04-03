@@ -16,6 +16,10 @@ final class GamesViewController: UIViewController {
         static let cellIdentifier = String(describing: GamesCell.self)
     }
     
+    private enum LayoutConstants {
+        static let tableViewHeight: CGFloat = 140
+    }
+    
     // MARK: - IBOutlets
     
     @IBOutlet private var navigationBar: UINavigationBar!
@@ -37,6 +41,7 @@ final class GamesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         gamesTableView.dataSource = self
+        gamesTableView.delegate = self
         gamesTableView.register(UINib(nibName: Constants.cellIdentifier, bundle: nil), forCellReuseIdentifier: Constants.cellIdentifier)
         
         bindEvents()
@@ -96,7 +101,15 @@ extension GamesViewController: UITableViewDataSource {
         cell.layoutIfNeeded()
         return cell
     }
+}
+
+// MARK: - UITableViewDelegate
+
+extension GamesViewController: UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return LayoutConstants.tableViewHeight
+    }
 }
 
 // MARK: - UITabBarControllerDelegate

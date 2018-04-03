@@ -14,7 +14,7 @@ final class NewsCell: UICollectionViewCell, ViewModelConfigurable {
     // MARK: - Constants
     
     private enum Constants {
-        static let userImage = "user"
+        static let userImage = "photo_default"
     }
     
     private enum LayoutConstants {
