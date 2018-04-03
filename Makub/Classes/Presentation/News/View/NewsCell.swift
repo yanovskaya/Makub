@@ -24,6 +24,14 @@ final class NewsCell: UICollectionViewCell, ViewModelConfigurable {
         
     }
     
+    private enum SizeConstants {
+        static let photoWidth: CGFloat = 120
+        static let photoHeight: CGFloat = 120
+        
+        static let imageWidth: CGFloat = 501
+        static let imageHeight: CGFloat = 1077
+    }
+    
     // MARK: - IBOutlets
     
     @IBOutlet private var authorLabel: UILabel!
@@ -75,7 +83,7 @@ final class NewsCell: UICollectionViewCell, ViewModelConfigurable {
         if let imageURL = viewModel.imageURL {
             imageHeight.constant = LayoutConstants.imageHeight
             bottomDistance.constant = LayoutConstants.bottomImageDistance
-            let sizeProcessor = ResizingImageProcessor(referenceSize: CGSize(width: 501, height: 1077), mode: .aspectFill)
+            let sizeProcessor = ResizingImageProcessor(referenceSize: CGSize(width: SizeConstants.imageWidth, height: SizeConstants.imageHeight), mode: .aspectFill)
             illustrationImageView.kf.indicatorType = .activity
             illustrationImageView.kf.setImage(with: URL(string: imageURL), placeholder: nil, options: [.processor(sizeProcessor)], completionHandler: { (image, _, _, _) in
                 if image == nil {
@@ -88,7 +96,7 @@ final class NewsCell: UICollectionViewCell, ViewModelConfigurable {
             imageHeight.constant = 0
         }
         if let photoURL = viewModel.photoURL {
-            let sizeProcessor = ResizingImageProcessor(referenceSize: CGSize(width: 120, height: 120), mode: .aspectFill)
+            let sizeProcessor = ResizingImageProcessor(referenceSize: CGSize(width: SizeConstants.photoWidth, height: SizeConstants.photoHeight), mode: .aspectFill)
             authorImageView.kf.indicatorType = .activity
             authorImageView.kf.setImage(with: URL(string: photoURL), placeholder: nil, options: [.processor(sizeProcessor)], completionHandler: { (image, _, _, _) in
                 if image == nil {

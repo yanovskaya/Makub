@@ -43,6 +43,11 @@ final class GamesViewController: UIViewController {
         presentationModel.obtainGames()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        tabBarController?.delegate = self
+    }
+    
     // MARK: - Private Methods
     
     private func bindEvents() {
@@ -74,6 +79,8 @@ final class GamesViewController: UIViewController {
     
 }
 
+// MARK: - UITableViewDataSource
+
 extension GamesViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -90,4 +97,15 @@ extension GamesViewController: UITableViewDataSource {
         return cell
     }
     
+}
+
+// MARK: - UITabBarControllerDelegate
+
+extension GamesViewController: UITabBarControllerDelegate {
+    
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        if tabBarController.selectedIndex == 2 {
+            gamesTableView.setContentOffset(CGPoint.zero, animated: true)
+        }
+    }
 }

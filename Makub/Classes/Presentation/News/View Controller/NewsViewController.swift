@@ -43,7 +43,6 @@ final class NewsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         filteredNews = presentationModel.newsViewModels
-        
         view.backgroundColor = PaletteColors.blueBackground
         
         configureNavigationController()
@@ -64,6 +63,7 @@ final class NewsViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        tabBarController?.delegate = self
         bindEvents()
     }
     
@@ -164,7 +164,7 @@ final class NewsViewController: UIViewController {
         navigationSearchBar.resignFirstResponder()
     }
     
-    @objc func refresh(_ refreshControl: UIRefreshControl) {
+    @objc private func refresh(_ refreshControl: UIRefreshControl) {
         presentationModel.refreshNews()
     }
 }
@@ -262,5 +262,16 @@ extension NewsViewController: UICollectionViewDelegateFlowLayout {
     func scrollViewShouldScrollToTop(scrollView: UIScrollView) -> Bool {
         hidingNavBarManager?.shouldScrollToTop()
         return true
+    }
+}
+
+// MARK: - UITabBarControllerDelegate
+
+extension NewsViewController: UITabBarControllerDelegate {
+    
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        if tabBarController.selectedIndex == 0 {
+            newsCollectionView.setContentOffset(CGPoint.zero, animated: true)
+        }
     }
 }

@@ -107,7 +107,6 @@ final class AddNewsViewController: UIViewController {
                 PKHUD.sharedHUD.userInteractionOnUnderlyingViewsEnabled = false
                 HUD.show(.labeledProgress(title: Constants.pkhudTitle, subtitle: Constants.pkhudSubtitle))
             case .rich:
-                print("SUCCESSS")
                 HUD.show(.success)
                 HUD.hide(afterDelay: 0.4)
                 self.newsTextView.becomeFirstResponder()

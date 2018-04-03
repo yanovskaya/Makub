@@ -54,6 +54,11 @@ final class GamesCell: UITableViewCell, ViewModelConfigurable {
         photo2ImageView.layer.cornerRadius = photo2ImageView.frame.width / 2
     }
     
+    private enum SizeConstants {
+        static let photoWidth: CGFloat = 90
+        static let photoHeight: CGFloat = 90
+    }
+    
     // MARK: - Prepare for Reuse
     
     override func prepareForReuse() {
@@ -78,10 +83,9 @@ final class GamesCell: UITableViewCell, ViewModelConfigurable {
         player1Label.text = viewModel.player1
         player2Label.text = viewModel.player2
         
-        let sizeProcessor = ResizingImageProcessor(referenceSize: CGSize(width: 90, height: 90), mode: .aspectFill)
+        let sizeProcessor = ResizingImageProcessor(referenceSize: CGSize(width: SizeConstants.photoWidth, height: SizeConstants.photoHeight), mode: .aspectFill)
         
         if let photo1URL = viewModel.photo1URL {
-            print(photo1URL)
             photo1ImageView.kf.indicatorType = .activity
             photo1ImageView.kf.setImage(with: URL(string: photo1URL), placeholder: nil, options: [.processor(sizeProcessor)], completionHandler: { (image, _, _, _) in
                 if image == nil {
@@ -92,7 +96,6 @@ final class GamesCell: UITableViewCell, ViewModelConfigurable {
             photo1ImageView.image = UIImage(named: Constants.userImage)
         }
         if let photo2URL = viewModel.photo2URL {
-            print(photo2URL)
             photo2ImageView.kf.indicatorType = .activity
             photo2ImageView.kf.setImage(with: URL(string: photo2URL), placeholder: nil, options: [.processor(sizeProcessor)], completionHandler: { (image, _, _, _) in
                 if image == nil {
