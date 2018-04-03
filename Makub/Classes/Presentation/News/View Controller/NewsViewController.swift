@@ -20,6 +20,12 @@ final class NewsViewController: UIViewController {
         static let newsCellId = String(describing: NewsCell.self)
     }
     
+    private enum LayoutConstants {
+        static let topEdge: CGFloat = 10
+        static let bottomEdge: CGFloat = 10
+        static let cellSpacing: CGFloat = 10
+    }
+    
     // MARK: - IBOutlets
     
     @IBOutlet private var newsCollectionView: UICollectionView!
@@ -253,10 +259,14 @@ extension NewsViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         if section == 0 {
-            return UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
+            return UIEdgeInsets(top: LayoutConstants.topEdge, left: 0, bottom: 0, right: 0)
         } else {
-            return UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
+            return UIEdgeInsets(top: LayoutConstants.topEdge, left: 0, bottom: LayoutConstants.bottomEdge, right: 0)
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return LayoutConstants.cellSpacing
     }
     
     func scrollViewShouldScrollToTop(scrollView: UIScrollView) -> Bool {

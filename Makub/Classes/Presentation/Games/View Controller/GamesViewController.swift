@@ -18,6 +18,10 @@ final class GamesViewController: UIViewController {
     
     private enum LayoutConstants {
         static let tableViewHeight: CGFloat = 140
+        static let leadingMargin: CGFloat = 8
+        static let topEdge: CGFloat = 8
+        static let bottomEdge: CGFloat = 8
+        static let cellSpacing: CGFloat = 8
     }
     
     // MARK: - IBOutlets
@@ -26,7 +30,7 @@ final class GamesViewController: UIViewController {
     @IBOutlet private var tournamentsButtonItem: UIBarButtonItem!
     @IBOutlet private var filterButtonItem: UIBarButtonItem!
     
-    @IBOutlet private var gamesTableView: UITableView!
+    @IBOutlet private var gamesCollectionView: UICollectionView!
     
     // MARK: - Public Properties
     
@@ -40,9 +44,14 @@ final class GamesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        gamesTableView.dataSource = self
-        gamesTableView.delegate = self
-        gamesTableView.register(UINib(nibName: Constants.cellIdentifier, bundle: nil), forCellReuseIdentifier: Constants.cellIdentifier)
+        view.backgroundColor = PaletteColors.blueBackground
+        gamesCollectionView.backgroundColor = .clear
+        gamesCollectionView.dataSource = self
+        gamesCollectionView.delegate = self
+        gamesCollectionView.register(UINib(nibName: Constants.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: Constants.cellIdentifier)
+        guard let flowLayout = gamesCollectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
+        flowLayout.estimatedItemSize.width = view.frame.width - 2 * LayoutConstants.leadingMargin
+        flowLayout.estimatedItemSize.height = LayoutConstants.leadingMargin
         
         bindEvents()
         presentationModel.obtainGames()
@@ -63,7 +72,7 @@ final class GamesViewController: UIViewController {
                 PKHUD.sharedHUD.userInteractionOnUnderlyingViewsEnabled = false
                 HUD.show(.progress)
             case .rich:
-                self?.gamesTableView.reloadData()
+                self?.gamesCollectionView.reloadData()
                 HUD.hide()
             case .error (let code):
                 switch code {
@@ -84,18 +93,18 @@ final class GamesViewController: UIViewController {
     
 }
 
-// MARK: - UITableViewDataSource
+// MARK: - UICollectionViewDataSource
 
-extension GamesViewController: UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+extension GamesViewController: UICollectionViewDataSource {
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return presentationModel.viewModels.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let viewModel = presentationModel.viewModels[indexPath.row]
         let cellIdentifier = Constants.cellIdentifier
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier) as? GamesCell else { return UITableViewCell() }
+        guard let cell = gamesCollectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? GamesCell else { return UICollectionViewCell() }
         
         cell.configure(for: viewModel)
         cell.layoutIfNeeded()
@@ -103,14 +112,19 @@ extension GamesViewController: UITableViewDataSource {
     }
 }
 
-// MARK: - UITableViewDelegate
+// MARK: - UICollectionViewDelegateFlowLayout
 
-extension GamesViewController: UITableViewDelegate {
+extension GamesViewController: UICollectionViewDelegateFlowLayout {
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return LayoutConstants.tableViewHeight
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+            return UIEdgeInsets(top: LayoutConstants.topEdge, left: 0, bottom: LayoutConstants.bottomEdge, right: 0)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return LayoutConstants.cellSpacing
     }
 }
+
 
 // MARK: - UITabBarControllerDelegate
 
@@ -118,7 +132,7 @@ extension GamesViewController: UITabBarControllerDelegate {
     
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         if tabBarController.selectedIndex == 2 {
-            gamesTableView.setContentOffset(CGPoint.zero, animated: true)
+            gamesCollectionView.setContentOffset(CGPoint.zero, animated: true)
         }
     }
 }

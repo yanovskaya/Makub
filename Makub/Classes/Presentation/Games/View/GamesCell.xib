@@ -73,7 +73,7 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="YkM-XR-FMy" secondAttribute="bottom" constant="14" id="5P3-QZ-4Zq"/>
+                <constraint firstAttribute="bottom" secondItem="YkM-XR-FMy" secondAttribute="bottom" priority="999" constant="14" id="5P3-QZ-4Zq"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="g6e-bV-b7k" secondAttribute="trailing" constant="20" id="5Sx-fx-6f3"/>
                 <constraint firstItem="CPD-SE-6cx" firstAttribute="centerY" secondItem="aNu-KV-ljn" secondAttribute="centerY" id="6xW-dl-39P"/>
                 <constraint firstItem="g6e-bV-b7k" firstAttribute="centerY" secondItem="CPD-SE-6cx" secondAttribute="centerY" id="CIg-Y6-oXh"/>
@@ -92,7 +92,7 @@
                 <constraint firstItem="m69-bh-asj" firstAttribute="centerY" secondItem="ssX-Xf-wgy" secondAttribute="centerY" id="mNM-fn-Wve"/>
                 <constraint firstItem="sX7-6Q-0cH" firstAttribute="centerY" secondItem="YkM-XR-FMy" secondAttribute="centerY" id="uxU-1n-Aq9"/>
                 <constraint firstItem="YkM-XR-FMy" firstAttribute="top" secondItem="aNu-KV-ljn" secondAttribute="bottom" constant="13" id="w0d-Nx-Rd6"/>
-                <constraint firstItem="vCF-bm-V1g" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="14" id="xHS-Cs-JJD"/>
+                <constraint firstItem="vCF-bm-V1g" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="14" id="xHS-Cs-JJD"/>
                 <constraint firstItem="ssX-Xf-wgy" firstAttribute="trailing" secondItem="g6e-bV-b7k" secondAttribute="trailing" id="zLQ-fs-joi"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

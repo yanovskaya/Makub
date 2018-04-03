@@ -27,26 +27,33 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="8he-r2-Fj6">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="D5y-tR-vwi">
                                 <rect key="frame" x="0.0" y="44" width="375" height="623"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </tableView>
+                                <color key="backgroundColor" red="0.0" green="0.99143940210000003" blue="1" alpha="0.29730308219178081" colorSpace="custom" customColorSpace="sRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="NwV-Tq-cjk">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Qkt-O0-bER" firstAttribute="trailing" secondItem="qXr-xU-rqo" secondAttribute="trailing" id="1NP-0g-0fv"/>
-                            <constraint firstItem="qXr-xU-rqo" firstAttribute="bottom" secondItem="8he-r2-Fj6" secondAttribute="bottom" id="FHJ-u4-BuY"/>
-                            <constraint firstItem="8he-r2-Fj6" firstAttribute="top" secondItem="Qkt-O0-bER" secondAttribute="bottom" id="G2x-xM-4IV"/>
+                            <constraint firstItem="D5y-tR-vwi" firstAttribute="top" secondItem="Qkt-O0-bER" secondAttribute="bottom" id="AqA-kM-pek"/>
                             <constraint firstItem="Qkt-O0-bER" firstAttribute="top" secondItem="g9G-pY-U2O" secondAttribute="top" id="GBJ-Av-pRA"/>
                             <constraint firstItem="Qkt-O0-bER" firstAttribute="leading" secondItem="qXr-xU-rqo" secondAttribute="leading" id="Mgn-vM-ytT"/>
-                            <constraint firstItem="qXr-xU-rqo" firstAttribute="trailing" secondItem="8he-r2-Fj6" secondAttribute="trailing" id="Upy-Mr-zgi"/>
-                            <constraint firstItem="8he-r2-Fj6" firstAttribute="leading" secondItem="qXr-xU-rqo" secondAttribute="leading" id="xdx-K4-IeU"/>
+                            <constraint firstItem="D5y-tR-vwi" firstAttribute="leading" secondItem="qXr-xU-rqo" secondAttribute="leading" id="P8a-zw-P6c"/>
+                            <constraint firstItem="qXr-xU-rqo" firstAttribute="bottom" secondItem="D5y-tR-vwi" secondAttribute="bottom" id="d7l-9N-fE1"/>
+                            <constraint firstItem="qXr-xU-rqo" firstAttribute="trailing" secondItem="D5y-tR-vwi" secondAttribute="trailing" id="pdk-a0-j53"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qXr-xU-rqo"/>
                     </view>
                     <connections>
                         <outlet property="filterButtonItem" destination="Qle-uw-l9w" id="hsb-oW-Tnp"/>
-                        <outlet property="gamesTableView" destination="8he-r2-Fj6" id="ef0-xn-T9S"/>
+                        <outlet property="gamesCollectionView" destination="D5y-tR-vwi" id="HBg-fc-89z"/>
                         <outlet property="navigationBar" destination="Qkt-O0-bER" id="p7G-yw-IKx"/>
                         <outlet property="tournamentsButtonItem" destination="DVP-aM-lJY" id="erA-fq-nW3"/>
                     </connections>

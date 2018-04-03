@@ -9,7 +9,7 @@
 import Kingfisher
 import UIKit
 
-final class GamesCell: UITableViewCell, ViewModelConfigurable {
+final class GamesCell: UICollectionViewCell, ViewModelConfigurable {
     
     // MARK: - Constants
     
