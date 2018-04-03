@@ -281,7 +281,9 @@ extension NewsViewController: UITabBarControllerDelegate {
     
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         if tabBarController.selectedIndex == 0 {
-            newsCollectionView.setContentOffset(CGPoint.zero, animated: true)
+            let indexPath = IndexPath(item: 0, section: 0)
+            hidingNavBarManager?.shouldScrollToTop()
+            newsCollectionView.scrollToItem(at: indexPath, at: .top, animated: true)
         }
     }
 }

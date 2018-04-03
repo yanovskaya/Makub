@@ -132,7 +132,8 @@ extension GamesViewController: UITabBarControllerDelegate {
     
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         if tabBarController.selectedIndex == 2 {
-            gamesCollectionView.setContentOffset(CGPoint.zero, animated: true)
+            let indexPath = IndexPath(item: 0, section: 0)
+            gamesCollectionView.scrollToItem(at: indexPath, at: .top, animated: true)
         }
     }
 }
