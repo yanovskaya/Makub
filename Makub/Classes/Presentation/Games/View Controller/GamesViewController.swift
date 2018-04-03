@@ -17,11 +17,11 @@ final class GamesViewController: UIViewController {
     }
     
     private enum LayoutConstants {
-        static let tableViewHeight: CGFloat = 140
-        static let leadingMargin: CGFloat = 8
-        static let topEdge: CGFloat = 8
-        static let bottomEdge: CGFloat = 8
-        static let cellSpacing: CGFloat = 8
+        static let tableViewHeight: CGFloat = 130
+        static let leadingMargin: CGFloat = 5
+        static let topEdge: CGFloat = 5
+        static let bottomEdge: CGFloat = 5
+        static let cellSpacing: CGFloat = 5
     }
     
     // MARK: - IBOutlets

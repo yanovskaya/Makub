@@ -109,7 +109,8 @@ final class GamesCell: UICollectionViewCell, ViewModelConfigurable {
             photo2ImageView.image = UIImage(named: Constants.userImage)
         }
         
-        videoImageView.image = UIImage(named: Constants.videoImage)
+        videoImageView.tintColor = PaletteColors.textGray
+        videoImageView.image = UIImage(named: Constants.videoImage)?.withRenderingMode(.alwaysTemplate)
     }
     
     // MARK: - Private Methods
