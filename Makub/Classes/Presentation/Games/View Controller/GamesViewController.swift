@@ -49,6 +49,8 @@ final class GamesViewController: UIViewController {
         presentationModel.changeStateHandler = { [weak self] status in
             switch status {
             case .loading:
+                PKHUD.sharedHUD.dimsBackground = true
+                PKHUD.sharedHUD.userInteractionOnUnderlyingViewsEnabled = false
                 HUD.show(.progress)
             case .rich:
                 self?.gamesTableView.reloadData()

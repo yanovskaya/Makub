@@ -77,6 +77,8 @@ final class AuthViewController: UIViewController {
         presentationModel.changeStateHandler = { status in
             switch status {
             case .loading:
+                PKHUD.sharedHUD.dimsBackground = true
+                PKHUD.sharedHUD.userInteractionOnUnderlyingViewsEnabled = false
                 HUD.show(.progress)
             case .rich:
                 HUD.hide()

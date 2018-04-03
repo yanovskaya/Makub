@@ -24,9 +24,9 @@ extension String {
     
     func removeTags() -> String {
         var editedString = replaceDivTag()
+        editedString = editedString.components(separatedBy: "&nbsp;").joined()
         editedString = editedString.components(separatedBy: "<div>").joined()
         editedString = editedString.components(separatedBy: "</div>").joined()
-        editedString = editedString.components(separatedBy: "&nbsp;").joined()
         return editedString
     }
     

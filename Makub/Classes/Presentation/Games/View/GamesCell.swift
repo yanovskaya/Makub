@@ -54,6 +54,20 @@ final class GamesCell: UITableViewCell, ViewModelConfigurable {
         photo2ImageView.layer.cornerRadius = photo2ImageView.frame.width / 2
     }
     
+    // MARK: - Prepare for Reuse
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        stageLabel.text = nil
+        typeLabel.text = nil
+        player1Label.text = nil
+        player2Label.text = nil
+        score1Label.text = nil
+        score2Label.text = nil
+        photo1ImageView.image = nil
+        photo2ImageView.image = nil
+    }
+    
     // MARK: - Public Methods
     
     func configure(for viewModel: GamesViewModel) {
@@ -64,7 +78,7 @@ final class GamesCell: UITableViewCell, ViewModelConfigurable {
         player1Label.text = viewModel.player1
         player2Label.text = viewModel.player2
         
-        let sizeProcessor = ResizingImageProcessor(referenceSize: CGSize(width: 30, height: 30), mode: .aspectFill)
+        let sizeProcessor = ResizingImageProcessor(referenceSize: CGSize(width: 90, height: 90), mode: .aspectFill)
         
         if let photo1URL = viewModel.photo1URL {
             print(photo1URL)

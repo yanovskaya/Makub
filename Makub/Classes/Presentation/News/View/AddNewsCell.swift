@@ -39,12 +39,20 @@ final class AddNewsCell: UICollectionViewCell, ViewModelConfigurable {
         userImageView.layer.cornerRadius = userImageView.frame.width / 2
     }
     
+    // MARK: - Prepare for Reuse
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        addNewsLabel.text = nil
+        userImageView.image = nil
+    }
+    
     // MARK: - Public Methods
     
     func configure(for viewModel: UserViewModel?) {
         guard let viewModel = viewModel else { return }
         if let photoURL = viewModel.photoURL {
-            let sizeProcessor = ResizingImageProcessor(referenceSize: CGSize(width: 45, height: 45), mode: .aspectFill)
+            let sizeProcessor = ResizingImageProcessor(referenceSize: CGSize(width: 135, height: 135), mode: .aspectFill)
             userImageView.kf.indicatorType = .activity
             userImageView.kf.setImage(with: URL(string: photoURL), placeholder: nil, options: [.processor(sizeProcessor)], completionHandler: { (image, _, _, _) in
                 if image == nil {

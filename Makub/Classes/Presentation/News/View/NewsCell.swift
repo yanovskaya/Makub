@@ -54,6 +54,16 @@ final class NewsCell: UICollectionViewCell, ViewModelConfigurable {
         authorImageView.layer.cornerRadius = authorImageView.frame.width / 2
     }
     
+    // MARK: - Prepare for Reuse
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        authorLabel.text = nil
+        authorImageView.image = nil
+        dateLabel.text = nil
+        illustrationImageView.image = nil
+    }
+    
     // MARK: - Public Methods
     
     func configure(for viewModel: NewsViewModel) {
@@ -65,7 +75,7 @@ final class NewsCell: UICollectionViewCell, ViewModelConfigurable {
         if let imageURL = viewModel.imageURL {
             imageHeight.constant = LayoutConstants.imageHeight
             bottomDistance.constant = LayoutConstants.bottomImageDistance
-            let sizeProcessor = ResizingImageProcessor(referenceSize: CGSize(width: 167, height: 359), mode: .aspectFill)
+            let sizeProcessor = ResizingImageProcessor(referenceSize: CGSize(width: 501, height: 1077), mode: .aspectFill)
             illustrationImageView.kf.indicatorType = .activity
             illustrationImageView.kf.setImage(with: URL(string: imageURL), placeholder: nil, options: [.processor(sizeProcessor)], completionHandler: { (image, _, _, _) in
                 if image == nil {
@@ -78,7 +88,7 @@ final class NewsCell: UICollectionViewCell, ViewModelConfigurable {
             imageHeight.constant = 0
         }
         if let photoURL = viewModel.photoURL {
-            let sizeProcessor = ResizingImageProcessor(referenceSize: CGSize(width: 40, height: 40), mode: .aspectFill)
+            let sizeProcessor = ResizingImageProcessor(referenceSize: CGSize(width: 120, height: 120), mode: .aspectFill)
             authorImageView.kf.indicatorType = .activity
             authorImageView.kf.setImage(with: URL(string: photoURL), placeholder: nil, options: [.processor(sizeProcessor)], completionHandler: { (image, _, _, _) in
                 if image == nil {
