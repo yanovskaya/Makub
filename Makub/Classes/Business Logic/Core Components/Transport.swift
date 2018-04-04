@@ -32,7 +32,6 @@ final class Transport {
     func request(method: HTTPMethod,
                  url: String,
                  parameters: [String: Any]? = nil,
-                 timeout: TimeInterval = 5,
                  headers: [String: String] = [:],
                  completion: ((TransportCallResult) -> Void)?) {
         sessionManager.request(url,

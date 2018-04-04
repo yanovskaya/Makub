@@ -11,13 +11,14 @@ import UIKit
 
 final class GamesViewController: UIViewController {
     
+    // MARK: - Constants
+    
     private enum Constants {
         static let title = "Все игры"
         static let cellIdentifier = String(describing: GamesCell.self)
     }
     
     private enum LayoutConstants {
-        static let tableViewHeight: CGFloat = 122
         static let leadingMargin: CGFloat = 5
         static let topEdge: CGFloat = 5
         static let bottomEdge: CGFloat = 5
@@ -61,10 +62,12 @@ final class GamesViewController: UIViewController {
         gamesCollectionView.register(UINib(nibName: Constants.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: Constants.cellIdentifier)
         guard let flowLayout = gamesCollectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
         flowLayout.estimatedItemSize.width = view.frame.width - 2 * LayoutConstants.leadingMargin
-        flowLayout.estimatedItemSize.height = LayoutConstants.leadingMargin
         
         bindEvents()
         presentationModel.obtainGames()
+        
+        gamesCollectionView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -78,8 +81,6 @@ final class GamesViewController: UIViewController {
         presentationModel.changeStateHandler = { [weak self] status in
             switch status {
             case .loading:
-                PKHUD.sharedHUD.dimsBackground = true
-                PKHUD.sharedHUD.userInteractionOnUnderlyingViewsEnabled = false
                 HUD.show(.progress)
             case .rich:
                 self?.gamesCollectionView.reloadData()
@@ -101,6 +102,9 @@ final class GamesViewController: UIViewController {
         }
     }
     
+    @objc private func refresh(_ refreshControl: UIRefreshControl) {
+        presentationModel.refreshGames()
+    }
 }
 
 // MARK: - UICollectionViewDataSource
