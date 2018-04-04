@@ -11,4 +11,5 @@ target 'Makub' do
   pod 'Kingfisher', '~> 4.0'
   pod 'HidingNavigationBar', '~> 2.0'
   pod 'FDTake'
+  pod 'UILoadControl'
 end

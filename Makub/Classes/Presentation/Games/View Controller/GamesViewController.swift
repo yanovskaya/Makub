@@ -8,6 +8,7 @@
 
 import PKHUD
 import UIKit
+import UILoadControl
 
 final class GamesViewController: UIViewController {
     
@@ -41,6 +42,11 @@ final class GamesViewController: UIViewController {
     // MARK: - Private Properties
     
     private let refreshControl = UIRefreshControl()
+    private var isLoading = false {
+        didSet {
+            print(isLoading)
+        }
+    }
     
     // MARK: - ViewController lifecycle
     
@@ -59,6 +65,7 @@ final class GamesViewController: UIViewController {
         gamesCollectionView.backgroundColor = .clear
         gamesCollectionView.dataSource = self
         gamesCollectionView.delegate = self
+        gamesCollectionView.loadControl = UILoadControl(target: self, action: #selector(loadMore(sender:)))
         gamesCollectionView.register(UINib(nibName: Constants.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: Constants.cellIdentifier)
         guard let flowLayout = gamesCollectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
         flowLayout.estimatedItemSize.width = view.frame.width - 2 * LayoutConstants.leadingMargin
@@ -83,7 +90,11 @@ final class GamesViewController: UIViewController {
             case .loading:
                 HUD.show(.progress)
             case .rich:
+                self?.gamesCollectionView.loadControl?.endLoading()
                 self?.gamesCollectionView.reloadData()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                    self?.isLoading = false
+                }
                 HUD.hide()
             case .error (let code):
                 switch code {
@@ -104,6 +115,16 @@ final class GamesViewController: UIViewController {
     
     @objc private func refresh(_ refreshControl: UIRefreshControl) {
         presentationModel.refreshGames()
+    }
+    
+     @objc func loadMore(sender: AnyObject?) {
+        print("REFRESH")
+        if !isLoading {
+            isLoading = true
+            presentationModel.obtainMoreGames()
+        } else {
+            gamesCollectionView.loadControl?.endLoading()
+        }
     }
 }
 
@@ -149,5 +170,11 @@ extension GamesViewController: UITabBarControllerDelegate {
             let topPoint = CGPoint(x: 0, y: 0)
             gamesCollectionView.setContentOffset(topPoint, animated: true)
         }
+    }
+}
+
+extension GamesViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        scrollView.loadControl?.update()
     }
 }

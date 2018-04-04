@@ -11,6 +11,7 @@ PODS:
     - Realm (= 3.1.1)
   - SwiftKeychainWrapper (3.0.1)
   - SwiftLint (0.25.0)
+  - UILoadControl (2.1.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
@@ -21,6 +22,7 @@ DEPENDENCIES:
   - RealmSwift
   - SwiftKeychainWrapper
   - SwiftLint
+  - UILoadControl
 
 SPEC CHECKSUMS:
   Alamofire: 907e0a98eb68cdb7f9d1f541a563d6ac5dc77b25
@@ -32,7 +34,8 @@ SPEC CHECKSUMS:
   RealmSwift: d31937ca6a6ee54acde64ec839523c0a3c04924b
   SwiftKeychainWrapper: 38952a3636320ae61bad3513cadd870929de7a4a
   SwiftLint: e14651157288e9e01d6e1a71db7014fb5744a8ea
+  UILoadControl: e742ddbe4c67ba1f13b00b7d462d4141307d021f
 
-PODFILE CHECKSUM: 204d9169ae197f28a1ead3faed70ff9f1fbe0cc3
+PODFILE CHECKSUM: 1ef5d3a1b06f5ad8e164193d72d49d8cbab9517e
 
 COCOAPODS: 1.4.0

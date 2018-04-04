@@ -20,19 +20,19 @@ final class GamesPresentationModel: PresentationModel {
     private let gamesService = ServiceLayer.shared.gamesService
     
     private var fromIndex = 1
-    private var toIndex = 20
-    
-    private var newsCacheIsObtained = false
+    private var toIndex = 10
+    private let count = 10
     
     // MARK: - Public Methods
     
     func obtainGames() {
         state = .loading
-        gamesService.obtainAllGames(from: fromIndex, to: toIndex) { result in
+        gamesService.obtainAllGames(from: fromIndex, to: count) { result in
             switch result {
             case .serviceSuccess(let model):
                 guard let model = model else { return }
                 self.viewModels = model.games.flatMap { GamesViewModel($0) }
+               print(self.viewModels.count)
                 self.state = .rich
             case .serviceFailure(let error):
                 self.state = .error(code: error.code)
@@ -42,9 +42,10 @@ final class GamesPresentationModel: PresentationModel {
     }
     
     func obtainMoreGames() {
+        print("obtainMoreGames!!!!")
         fromIndex = toIndex + 1
         toIndex += 10
-        gamesService.obtainAllGames(from: fromIndex, to: toIndex) { result in
+        gamesService.obtainAllGames(from: fromIndex, to: count) { result in
             switch result {
             case .serviceSuccess(let model):
                 guard let model = model else { return }
@@ -59,11 +60,14 @@ final class GamesPresentationModel: PresentationModel {
     }
     
     func refreshGames() {
-        gamesService.obtainAllGames(from: fromIndex, to: toIndex) { result in
+        fromIndex = 1
+        toIndex = 10
+        gamesService.obtainAllGames(from: fromIndex, to: count) { result in
             switch result {
             case .serviceSuccess(let model):
                 guard let model = model else { return }
                 self.viewModels = model.games.flatMap { GamesViewModel($0) }
+                print(self.viewModels.count)
                 self.state = .rich
             case .serviceFailure:
                 break
