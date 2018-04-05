@@ -31,6 +31,10 @@ final class GamesCell: UICollectionViewCell, ViewModelConfigurable {
     @IBOutlet private var score1Label: UILabel!
     @IBOutlet private var score2Label: UILabel!
     
+    @IBOutlet var widthVideoImageView: NSLayoutConstraint!
+    @IBOutlet var leadingVideoImageView: NSLayoutConstraint!
+    
+    @IBOutlet var centerVideoImageView: NSLayoutConstraint!
     // MARK: - Private Property
     
     private var firstPlayerWon: Bool! {
@@ -73,6 +77,7 @@ final class GamesCell: UICollectionViewCell, ViewModelConfigurable {
         score2Label.text = nil
         photo1ImageView.image = nil
         photo2ImageView.image = nil
+        videoImageView.image = nil
     }
     
     // MARK: - Public Methods
@@ -109,8 +114,26 @@ final class GamesCell: UICollectionViewCell, ViewModelConfigurable {
             photo2ImageView.image = UIImage(named: Constants.userImage)
         }
         
-        videoImageView.tintColor = PaletteColors.textGray
-        videoImageView.image = UIImage(named: Constants.videoImage)?.withRenderingMode(.alwaysTemplate)
+        let trailingConstraint = videoImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
+        trailingConstraint.priority = UILayoutPriority(rawValue: 249)
+        if viewModel.video != nil {
+            videoImageView.tintColor = PaletteColors.textGray
+            videoImageView.image = UIImage(named: Constants.videoImage)?.withRenderingMode(.alwaysTemplate)
+            videoImageView.isHidden = false
+            
+            trailingConstraint.isActive = false
+            centerVideoImageView.isActive = true
+            widthVideoImageView.constant = 20
+            leadingVideoImageView.constant = 8
+        } else {
+            videoImageView.removeConstraints([leadingVideoImageView])
+            videoImageView.isHidden = true
+            centerVideoImageView.isActive = false
+            trailingConstraint.isActive = true
+            
+            leadingVideoImageView.constant = 0
+            widthVideoImageView.constant = 0
+        }
     }
     
     // MARK: - Private Methods

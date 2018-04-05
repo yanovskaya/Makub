@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -30,7 +30,7 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7gQ-kI-yjN">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7gQ-kI-yjN">
                     <rect key="frame" x="313" y="84.5" width="42" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
@@ -45,7 +45,7 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g6e-bV-b7k">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g6e-bV-b7k">
                     <rect key="frame" x="313" y="41.5" width="42" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
@@ -87,10 +87,11 @@
                 <constraint firstItem="vCF-bm-V1g" firstAttribute="leading" secondItem="aNu-KV-ljn" secondAttribute="leading" id="Y6z-EF-Duy"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="7gQ-kI-yjN" secondAttribute="trailing" constant="20" id="b5A-XJ-fyx"/>
                 <constraint firstItem="sX7-6Q-0cH" firstAttribute="leading" secondItem="YkM-XR-FMy" secondAttribute="trailing" constant="12" id="bTx-Va-O5L"/>
+                <constraint firstItem="g6e-bV-b7k" firstAttribute="width" secondItem="7gQ-kI-yjN" secondAttribute="width" id="cKh-nd-xhg"/>
                 <constraint firstItem="aNu-KV-ljn" firstAttribute="leading" secondItem="YkM-XR-FMy" secondAttribute="leading" id="ht0-zH-70U"/>
                 <constraint firstItem="aNu-KV-ljn" firstAttribute="height" secondItem="YkM-XR-FMy" secondAttribute="height" id="htD-lb-Ke3"/>
                 <constraint firstItem="m69-bh-asj" firstAttribute="centerY" secondItem="ssX-Xf-wgy" secondAttribute="centerY" id="mNM-fn-Wve"/>
-                <constraint firstItem="ssX-Xf-wgy" firstAttribute="centerX" secondItem="g6e-bV-b7k" secondAttribute="centerX" id="mrV-9a-KNJ"/>
+                <constraint firstItem="ssX-Xf-wgy" firstAttribute="centerX" secondItem="g6e-bV-b7k" secondAttribute="centerX" id="pms-0H-egS"/>
                 <constraint firstItem="sX7-6Q-0cH" firstAttribute="centerY" secondItem="YkM-XR-FMy" secondAttribute="centerY" id="uxU-1n-Aq9"/>
                 <constraint firstItem="YkM-XR-FMy" firstAttribute="top" secondItem="aNu-KV-ljn" secondAttribute="bottom" constant="13" id="w0d-Nx-Rd6"/>
                 <constraint firstItem="vCF-bm-V1g" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="xHS-Cs-JJD"/>
@@ -98,6 +99,8 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
+                <outlet property="centerVideoImageView" destination="pms-0H-egS" id="tSP-GX-s5x"/>
+                <outlet property="leadingVideoImageView" destination="Gs7-zn-YCw" id="d38-sz-0aZ"/>
                 <outlet property="photo1ImageView" destination="aNu-KV-ljn" id="qgd-N1-JqF"/>
                 <outlet property="photo2ImageView" destination="YkM-XR-FMy" id="LYp-lI-bff"/>
                 <outlet property="player1Label" destination="CPD-SE-6cx" id="9I9-Ph-Ef7"/>
@@ -107,6 +110,7 @@
                 <outlet property="stageLabel" destination="vCF-bm-V1g" id="5jt-Pk-9pf"/>
                 <outlet property="typeLabel" destination="m69-bh-asj" id="ho6-3S-tV9"/>
                 <outlet property="videoImageView" destination="ssX-Xf-wgy" id="2M8-FC-Tp0"/>
+                <outlet property="widthVideoImageView" destination="OKR-1O-qb4" id="AVK-b4-d6e"/>
             </connections>
             <point key="canvasLocation" x="201.5" y="324.5"/>
         </view>

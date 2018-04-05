@@ -66,13 +66,13 @@ final class AddNewsViewController: UIViewController {
         didSet {
             if imageToAttach != nil {
                 attachButton.tintColor = UIColor.green
-                removeButton.removeConstraint(heightRemoveButton)
+                heightRemoveButton.isActive = false
                 removeButton.setImage(UIImage(named: Constants.removeButton), for: .normal)
                 previewImageView.image = imageToAttach
             } else {
                 attachButton.tintColor = PaletteColors.darkGray
                 removeButton.setImage(nil, for: .normal)
-                removeButton.addConstraint(heightRemoveButton)
+                heightRemoveButton.isActive = true
                 previewImageView.image = nil
                 newsTextView.becomeFirstResponder()
             }
