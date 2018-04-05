@@ -10,8 +10,8 @@ import HidingNavigationBar
 import PKHUD
 import UIKit
 
-final class NewsViewController: UIViewController {
-    
+final class NewsViewController: UIViewController, NewsCellDelegate {
+
     // MARK: - Constants
     
     private enum Constants {
@@ -78,6 +78,12 @@ final class NewsViewController: UIViewController {
         
         hidingNavBarManager?.viewWillDisappear(animated)
         HUD.hide()
+    }
+    
+    // MARK: - Public Methods
+    
+    func moreButtonTapped(_ sender: NewsCell) {
+        print(sender.tag)
     }
     
     // MARK: - Private Methods
@@ -248,6 +254,9 @@ extension NewsViewController: UICollectionViewDataSource {
                 newsCollectionView.dequeueReusableCell(withReuseIdentifier: newsCellId, for: indexPath) as? NewsCell else { return UICollectionViewCell() }
             let viewModel = filteredNews[indexPath.row]
             newsCell.configure(for: viewModel)
+            newsCell.configureMoreButton(userId: presentationModel.userViewModel.id)
+            newsCell.delegate = self
+            newsCell.contentView.isUserInteractionEnabled = false
             newsCell.layoutIfNeeded()
             return newsCell
         }
@@ -259,8 +268,13 @@ extension NewsViewController: UICollectionViewDataSource {
 
 extension NewsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(indexPath)
         if indexPath.section == 0 {
             router.presentAddNewsVC(source: self)
+        }
+        else {
+            print("else")
+            print(indexPath)
         }
     }
 }

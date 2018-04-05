@@ -20,8 +20,8 @@ final class GamesPresentationModel: PresentationModel {
     private let gamesService = ServiceLayer.shared.gamesService
     
     private var fromIndex = 1
-    private var toIndex = 100
-    private let count = 100
+    private var toIndex = 80
+    private let count = 80
     
     // MARK: - Public Methods
     

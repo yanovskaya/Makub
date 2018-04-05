@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -66,9 +66,17 @@
                         <constraint firstAttribute="height" constant="1" id="KHK-xc-eoW"/>
                     </constraints>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BX4-gQ-3Fm">
+                    <rect key="frame" x="309" y="15" width="46" height="30"/>
+                    <state key="normal" title="Button"/>
+                    <connections>
+                        <action selector="moreButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="6Lm-p9-LNA"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="BX4-gQ-3Fm" firstAttribute="centerY" secondItem="9pf-I3-GeF" secondAttribute="centerY" id="3Fd-Vg-dvn"/>
                 <constraint firstItem="mKp-B8-2ZK" firstAttribute="leading" secondItem="DaZ-Vj-aNW" secondAttribute="leading" id="3aE-Yv-9bX"/>
                 <constraint firstItem="DaZ-Vj-aNW" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="3uf-Tr-fYA"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="mKp-B8-2ZK" secondAttribute="trailing" id="72p-mw-dR0"/>
@@ -79,6 +87,7 @@
                 <constraint firstItem="DaZ-Vj-aNW" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="20" id="TKJ-Rn-tue"/>
                 <constraint firstItem="cRY-bw-V5q" firstAttribute="top" secondItem="chl-oC-NYa" secondAttribute="bottom" constant="10" id="WSg-mP-Bd7"/>
                 <constraint firstAttribute="bottom" secondItem="cRY-bw-V5q" secondAttribute="bottom" priority="999" constant="198" id="Xso-Ix-mOg"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="BX4-gQ-3Fm" secondAttribute="trailing" constant="20" id="YUe-RY-UqO"/>
                 <constraint firstItem="9pf-I3-GeF" firstAttribute="centerY" secondItem="DaZ-Vj-aNW" secondAttribute="centerY" id="cJa-Gr-psU"/>
                 <constraint firstItem="chl-oC-NYa" firstAttribute="top" secondItem="mKp-B8-2ZK" secondAttribute="bottom" constant="12" id="dvD-dU-JYO"/>
                 <constraint firstItem="chl-oC-NYa" firstAttribute="leading" secondItem="DaZ-Vj-aNW" secondAttribute="leading" constant="5" id="eFc-VR-cDT"/>
@@ -99,6 +108,7 @@
                 <outlet property="illustrationImageView" destination="IQI-5u-zQB" id="Fr4-eq-cZd"/>
                 <outlet property="imageHeight" destination="lfn-3V-STt" id="hSe-Ok-9Tz"/>
                 <outlet property="lineView" destination="mKp-B8-2ZK" id="aMR-RF-A9b"/>
+                <outlet property="moreButton" destination="BX4-gQ-3Fm" id="Xsu-XN-b4P"/>
                 <outlet property="titleLabel" destination="chl-oC-NYa" id="3CK-RX-zFY"/>
             </connections>
             <point key="canvasLocation" x="40.5" y="247.5"/>

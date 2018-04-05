@@ -18,6 +18,8 @@ final class NewsViewModel {
     
     // MARK: - Public Properties
     
+    let id: String
+    let authorId: String
     let title: String
     let text: String
     let date: String
@@ -29,6 +31,14 @@ final class NewsViewModel {
     // MARK: - Initialization
     
     init(_ news: News) {
+        self.id = news.id
+        
+        if let authorId = news.author {
+            self.authorId = authorId
+        } else {
+            self.authorId = ""
+        }
+        
         if let text = news.text {
             self.text = text.removeTags()
         } else {

@@ -15,6 +15,7 @@ final class NewsCell: UICollectionViewCell, ViewModelConfigurable {
     
     private enum Constants {
         static let userImage = "photo_default"
+        static let moreButton = "more"
     }
     
     private enum LayoutConstants {
@@ -40,17 +41,26 @@ final class NewsCell: UICollectionViewCell, ViewModelConfigurable {
     @IBOutlet private var illustrationImageView: UIImageView!
     @IBOutlet private var titleLabel: UILabel!
     @IBOutlet private var descriptionLabel: UILabel!
+    @IBOutlet private var moreButton: UIButton!
     
     @IBOutlet private var lineView: UIView!
     
     @IBOutlet private var imageHeight: NSLayoutConstraint!
     @IBOutlet private var bottomDistance: NSLayoutConstraint!
     
+    // MARK: - Public Properties
+    
+    weak var delegate: NewsCellDelegate?
+    
+    // MARK: - Private Properties
+    
+    private var viewModel: NewsViewModel!
     
     // MARK: - View lifecycle
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        moreButton.isHidden = true
         configureLayout()
         configureFont()
         configureColor()
@@ -75,6 +85,8 @@ final class NewsCell: UICollectionViewCell, ViewModelConfigurable {
     // MARK: - Public Methods
     
     func configure(for viewModel: NewsViewModel) {
+        self.viewModel = viewModel
+        
         dateLabel.text = viewModel.date
         titleLabel.text = viewModel.title
         descriptionLabel.text = viewModel.text
@@ -108,6 +120,15 @@ final class NewsCell: UICollectionViewCell, ViewModelConfigurable {
         }
     }
     
+    func configureMoreButton(userId: String) {
+        moreButton.setTitle("", for: .normal)
+        if viewModel.authorId == userId {
+            moreButton.setImage(UIImage(named: Constants.moreButton), for: .normal)
+            moreButton.tintColor = PaletteColors.textGray
+            moreButton.isHidden = false
+        }
+    }
+    
     // MARK: - Private Methods
     
     private func configureLayout() {
@@ -130,4 +151,13 @@ final class NewsCell: UICollectionViewCell, ViewModelConfigurable {
         descriptionLabel.textColor = PaletteColors.textGray
         lineView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.2)
     }
+    
+    // MARK: - IBAction
+    
+    @IBAction func moreButtonTapped(_ sender: NewsCell) {
+        guard let tag = Int(viewModel.id) else { return }
+        sender.tag = tag
+        delegate?.moreButtonTapped(sender)
+    }
+    
 }
