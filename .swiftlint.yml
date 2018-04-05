@@ -26,7 +26,7 @@ excluded:
 comma: error
 
 identifier_name:
- - 2
+ - 1
  - 60
 
 type_body_length:

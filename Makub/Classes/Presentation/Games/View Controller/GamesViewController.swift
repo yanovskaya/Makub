@@ -24,6 +24,7 @@ final class GamesViewController: UIViewController {
         static let topEdge: CGFloat = 5
         static let bottomEdge: CGFloat = 5
         static let cellSpacing: CGFloat = 3
+        static let estimatedCellHeight: CGFloat = 122
     }
     
     // MARK: - IBOutlets
@@ -110,6 +111,7 @@ final class GamesViewController: UIViewController {
                 break
             case .rich:
                 self?.gamesCollectionView.loadControl?.endLoading()
+                self?.gamesCollectionView?.reloadData()
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                     self?.isLoading = false
                 }
@@ -141,7 +143,7 @@ final class GamesViewController: UIViewController {
         
         guard let flowLayout = gamesCollectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
         flowLayout.estimatedItemSize.width = view.frame.width - 2 * LayoutConstants.leadingMargin
-        flowLayout.estimatedItemSize.height = 122
+        flowLayout.estimatedItemSize.height = LayoutConstants.estimatedCellHeight
     }
     
     @objc private func refreshGames(_ refreshControl: UIRefreshControl) {
@@ -153,12 +155,7 @@ final class GamesViewController: UIViewController {
         if !isLoading {
             isLoading = true
             bindEventsObtainMoreGames()
-            presentationModel.obtainMoreGames { indexPathArray in
-                self.gamesCollectionView?.performBatchUpdates ({
-                self.gamesCollectionView?.insertItems(at: indexPathArray)
-                self.gamesCollectionView.layoutIfNeeded()
-                }, completion: nil)
-            }
+            presentationModel.obtainMoreGames()
         } else {
             gamesCollectionView.loadControl?.endLoading()
         }
@@ -174,8 +171,6 @@ extension GamesViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        print(indexPath)
-        print("1")
         let viewModel = presentationModel.viewModels[indexPath.row]
         let cellIdentifier = Constants.cellIdentifier
         guard let cell = gamesCollectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? GamesCell else { return UICollectionViewCell() }

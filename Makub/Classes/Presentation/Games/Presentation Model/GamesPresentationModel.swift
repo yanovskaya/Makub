@@ -32,7 +32,6 @@ final class GamesPresentationModel: PresentationModel {
             case .serviceSuccess(let model):
                 guard let model = model else { return }
                 self.viewModels = model.games.flatMap { GamesViewModel($0) }
-               print(self.viewModels.count)
                 self.state = .rich
             case .serviceFailure(let error):
                 self.state = .error(code: error.code)
@@ -41,8 +40,7 @@ final class GamesPresentationModel: PresentationModel {
         
     }
     
-    func obtainMoreGames(completion: @escaping ([IndexPath]) -> Void) {
-        print("obtainMoreGames!!!!")
+    func obtainMoreGames() {
         fromIndex = toIndex + 1
         toIndex += 10
         gamesService.obtainAllGames(from: fromIndex, to: count) { result in
@@ -52,7 +50,6 @@ final class GamesPresentationModel: PresentationModel {
                 let moreViewModels = model.games.flatMap { GamesViewModel($0) }
                 self.viewModels += moreViewModels
                 self.state = .rich
-                completion(self.configureIndexPathArray(from: self.fromIndex, to: self.toIndex))
             case .serviceFailure:
                 break
             }
@@ -68,20 +65,11 @@ final class GamesPresentationModel: PresentationModel {
             case .serviceSuccess(let model):
                 guard let model = model else { return }
                 self.viewModels = model.games.flatMap { GamesViewModel($0) }
-                print(self.viewModels.count)
                 self.state = .rich
             case .serviceFailure:
                 break
             }
         }
-    }
-    
-    private func configureIndexPathArray(from fromIndex: Int, to toIndex: Int) -> [IndexPath] {
-        var indexPathArray = [IndexPath]()
-        for index in (fromIndex - 1)..<toIndex {
-            indexPathArray.append(IndexPath(item: index, section: 0))
-        }
-        return indexPathArray
     }
     
 }

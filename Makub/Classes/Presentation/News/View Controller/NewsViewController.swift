@@ -181,7 +181,7 @@ final class NewsViewController: UIViewController {
         navigationSearchBar.resignFirstResponder()
     }
     
-    @objc private func refresh(_ refreshControl: UIRefreshControl) {
+    @objc private func refreshGames(_ refreshControl: UIRefreshControl) {
         bindEventsRefreshNews()
         presentationModel.refreshNews()
     }
