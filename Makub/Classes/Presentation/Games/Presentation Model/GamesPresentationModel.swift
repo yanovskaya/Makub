@@ -31,7 +31,7 @@ final class GamesPresentationModel: PresentationModel {
             switch result {
             case .serviceSuccess(let model):
                 guard let model = model else { return }
-                self.viewModels = model.games.flatMap { GamesViewModel($0) }
+                self.viewModels = model.games.compactMap { GamesViewModel($0) }
                 self.state = .rich
             case .serviceFailure(let error):
                 self.state = .error(code: error.code)
@@ -47,7 +47,7 @@ final class GamesPresentationModel: PresentationModel {
             switch result {
             case .serviceSuccess(let model):
                 guard let model = model else { return }
-                let moreViewModels = model.games.flatMap { GamesViewModel($0) }
+                let moreViewModels = model.games.compactMap { GamesViewModel($0) }
                 self.viewModels += moreViewModels
                 self.state = .rich
             case .serviceFailure:
@@ -64,7 +64,7 @@ final class GamesPresentationModel: PresentationModel {
             switch result {
             case .serviceSuccess(let model):
                 guard let model = model else { return }
-                self.viewModels = model.games.flatMap { GamesViewModel($0) }
+                self.viewModels = model.games.compactMap { GamesViewModel($0) }
                 self.state = .rich
             case .serviceFailure:
                 break

@@ -52,7 +52,7 @@ final class NewsPresentationModel: PresentationModel {
             switch result {
             case .serviceSuccess(let model):
                 guard let model = model else { return }
-                self.newsViewModels = model.news.flatMap { NewsViewModel($0) }
+                self.newsViewModels = model.news.compactMap { NewsViewModel($0) }
                 self.group.leave()
             case .serviceFailure(let error):
                 self.error = error.code
@@ -89,7 +89,7 @@ final class NewsPresentationModel: PresentationModel {
             switch result {
             case .serviceSuccess(let model):
                 guard let model = model else { return }
-                self.newsViewModels = model.news.flatMap { NewsViewModel($0) }
+                self.newsViewModels = model.news.compactMap { NewsViewModel($0) }
                 self.group.leave()
             case .serviceFailure:
                 self.group.leave()
