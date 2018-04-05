@@ -42,39 +42,18 @@ final class GamesViewController: UIViewController {
     // MARK: - Private Properties
     
     private let refreshControl = UIRefreshControl()
-    private var isLoading = false {
-        didSet {
-            print(isLoading)
-        }
-    }
+    private var isLoading = false
     
     // MARK: - ViewController lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = PaletteColors.blueBackground
-        navBackgroundView.backgroundColor = .white
-        let titleTextAttributes: [NSAttributedStringKey: Any] = [NSAttributedStringKey.foregroundColor: PaletteColors.darkGray,
-                                                                 NSAttributedStringKey.font: UIFont.customFont(.robotoMediumFont(size: 17))]
-        navigationBar.titleTextAttributes = titleTextAttributes
-        navigationBar.topItem?.title = Constants.title
-        navigationController?.isNavigationBarHidden = true
-        navigationBar.shadowImage = UIImage(color: UIColor.white)
-        navigationBar.setBackgroundImage(UIImage(color: UIColor.white), for: .default)
         
-        gamesCollectionView.backgroundColor = .clear
-        gamesCollectionView.dataSource = self
-        gamesCollectionView.delegate = self
-        gamesCollectionView.loadControl = UILoadControl(target: self, action: #selector(loadMore(sender:)))
-        gamesCollectionView.register(UINib(nibName: Constants.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: Constants.cellIdentifier)
-        guard let flowLayout = gamesCollectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
-        flowLayout.estimatedItemSize.width = view.frame.width - 2 * LayoutConstants.leadingMargin
-        
-        bindEvents()
+        configureNavigationBar()
+        configureCollectionView()
+        bindEventsObtainGames()
         presentationModel.obtainGames()
-        
-        gamesCollectionView.refreshControl = refreshControl
-        refreshControl.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -84,17 +63,13 @@ final class GamesViewController: UIViewController {
     
     // MARK: - Private Methods
     
-    private func bindEvents() {
+    private func bindEventsObtainGames() {
         presentationModel.changeStateHandler = { [weak self] status in
             switch status {
             case .loading:
                 HUD.show(.progress)
             case .rich:
-                self?.gamesCollectionView.loadControl?.endLoading()
                 self?.gamesCollectionView.reloadData()
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
-                    self?.isLoading = false
-                }
                 HUD.hide()
             case .error (let code):
                 switch code {
@@ -107,21 +82,83 @@ final class GamesViewController: UIViewController {
                 }
                 HUD.hide(afterDelay: 1.0)
             }
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                self?.refreshControl.endRefreshing()
+        }
+    }
+    
+    private func bindEventsRefreshGames() {
+        presentationModel.changeStateHandler = { [weak self] status in
+            switch status {
+            case .loading:
+                break
+            case .rich:
+                self?.gamesCollectionView.reloadData()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                    self?.refreshControl.endRefreshing()
+                }
+            case .error:
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                    self?.refreshControl.endRefreshing()
+                }
             }
         }
     }
     
-    @objc private func refresh(_ refreshControl: UIRefreshControl) {
+    private func bindEventsObtainMoreGames() {
+        presentationModel.changeStateHandler = { [weak self] status in
+            switch status {
+            case .loading:
+                break
+            case .rich:
+                self?.gamesCollectionView.loadControl?.endLoading()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+                    self?.isLoading = false
+                }
+            case .error:
+                self?.gamesCollectionView.loadControl?.endLoading()
+            }
+        }
+    }
+    
+    private func configureNavigationBar() {
+        navigationController?.isNavigationBarHidden = true
+        navBackgroundView.backgroundColor = .white
+        let titleTextAttributes: [NSAttributedStringKey: Any] = [NSAttributedStringKey.foregroundColor: PaletteColors.darkGray,
+                                                                 NSAttributedStringKey.font: UIFont.customFont(.robotoMediumFont(size: 17))]
+        navigationBar.titleTextAttributes = titleTextAttributes
+        navigationBar.topItem?.title = Constants.title
+        navigationBar.shadowImage = UIImage(color: UIColor.white)
+        navigationBar.setBackgroundImage(UIImage(color: UIColor.white), for: .default)
+    }
+    
+    private func configureCollectionView() {
+        gamesCollectionView.backgroundColor = .clear
+        gamesCollectionView.dataSource = self
+        gamesCollectionView.delegate = self
+        gamesCollectionView.loadControl = UILoadControl(target: self, action: #selector(obtainMoreGames(sender:)))
+        gamesCollectionView.register(UINib(nibName: Constants.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: Constants.cellIdentifier)
+        gamesCollectionView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(refreshGames(_:)), for: .valueChanged)
+        
+        guard let flowLayout = gamesCollectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
+        flowLayout.estimatedItemSize.width = view.frame.width - 2 * LayoutConstants.leadingMargin
+        flowLayout.estimatedItemSize.height = 122
+    }
+    
+    @objc private func refreshGames(_ refreshControl: UIRefreshControl) {
+        bindEventsRefreshGames()
         presentationModel.refreshGames()
     }
     
-     @objc func loadMore(sender: AnyObject?) {
-        print("REFRESH")
+     @objc private func obtainMoreGames(sender: AnyObject?) {
         if !isLoading {
             isLoading = true
-            presentationModel.obtainMoreGames()
+            bindEventsObtainMoreGames()
+            presentationModel.obtainMoreGames { indexPathArray in
+                self.gamesCollectionView?.performBatchUpdates ({
+                self.gamesCollectionView?.insertItems(at: indexPathArray)
+                self.gamesCollectionView.layoutIfNeeded()
+                }, completion: nil)
+            }
         } else {
             gamesCollectionView.loadControl?.endLoading()
         }
@@ -137,6 +174,8 @@ extension GamesViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        print(indexPath)
+        print("1")
         let viewModel = presentationModel.viewModels[indexPath.row]
         let cellIdentifier = Constants.cellIdentifier
         guard let cell = gamesCollectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? GamesCell else { return UICollectionViewCell() }

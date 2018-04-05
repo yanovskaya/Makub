@@ -41,7 +41,7 @@ final class GamesPresentationModel: PresentationModel {
         
     }
     
-    func obtainMoreGames() {
+    func obtainMoreGames(completion: @escaping ([IndexPath]) -> Void) {
         print("obtainMoreGames!!!!")
         fromIndex = toIndex + 1
         toIndex += 10
@@ -52,6 +52,7 @@ final class GamesPresentationModel: PresentationModel {
                 let moreViewModels = model.games.flatMap { GamesViewModel($0) }
                 self.viewModels += moreViewModels
                 self.state = .rich
+                completion(self.configureIndexPathArray(from: self.fromIndex, to: self.toIndex))
             case .serviceFailure:
                 break
             }
@@ -73,7 +74,14 @@ final class GamesPresentationModel: PresentationModel {
                 break
             }
         }
-
+    }
+    
+    private func configureIndexPathArray(from fromIndex: Int, to toIndex: Int) -> [IndexPath] {
+        var indexPathArray = [IndexPath]()
+        for index in (fromIndex - 1)..<toIndex {
+            indexPathArray.append(IndexPath(item: index, section: 0))
+        }
+        return indexPathArray
     }
     
 }

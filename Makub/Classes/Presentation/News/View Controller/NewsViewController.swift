@@ -57,7 +57,7 @@ final class NewsViewController: UIViewController {
         configureSearchBar()
         
         hideSearchKeyboardWhenTappedAround()
-        bindEvents()
+        bindEventsObtainNews()
         presentationModel.obtainNews()
     }
     
@@ -70,7 +70,7 @@ final class NewsViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         tabBarController?.delegate = self
-        bindEvents()
+        bindEventsObtainNews()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -82,7 +82,7 @@ final class NewsViewController: UIViewController {
     
     // MARK: - Private Methods
     
-    private func bindEvents() {
+    private func bindEventsObtainNews() {
         presentationModel.changeStateHandler = { [weak self] status in
             switch status {
             case .loading:
@@ -107,8 +107,19 @@ final class NewsViewController: UIViewController {
                 }
                 HUD.hide(afterDelay: 1.0)
             }
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                self?.refreshControl.endRefreshing()
+        }
+    }
+    
+    private func bindEventsRefreshNews() {
+        presentationModel.changeStateHandler = { [weak self] status in
+            switch status {
+            case .loading:
+                break
+            case .error, .rich:
+                self?.newsCollectionView.reloadData()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                    self?.refreshControl.endRefreshing()
+                }
             }
         }
     }
@@ -142,7 +153,7 @@ final class NewsViewController: UIViewController {
         newsCollectionView.register(UINib(nibName: Constants.newsCellId, bundle: nil), forCellWithReuseIdentifier: Constants.newsCellId)
         
         newsCollectionView.refreshControl = refreshControl
-        refreshControl.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
+        refreshControl.addTarget(self, action: #selector(refreshGames(_:)), for: .valueChanged)
         guard let flowLayout = newsCollectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
         flowLayout.estimatedItemSize.width = view.frame.width
     }
@@ -171,6 +182,7 @@ final class NewsViewController: UIViewController {
     }
     
     @objc private func refresh(_ refreshControl: UIRefreshControl) {
+        bindEventsRefreshNews()
         presentationModel.refreshNews()
     }
 }

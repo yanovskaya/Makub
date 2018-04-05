@@ -257,7 +257,6 @@ final class AddNewsViewController: UIViewController {
         imageToAttach = nil
     }
     
-    
 }
 
 // MARK: - UITextFieldDelegate
