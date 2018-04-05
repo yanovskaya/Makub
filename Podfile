@@ -4,12 +4,12 @@ use_frameworks!
 
 target 'Makub' do
   pod 'SwiftLint'
-  pod 'Alamofire', '~> 4.7'
-  pod 'PKHUD', '~> 5.0'
+  pod 'Alamofire'
+  pod 'PKHUD'
   pod 'SwiftKeychainWrapper'
   pod 'RealmSwift'
-  pod 'Kingfisher', '~> 4.0'
-  pod 'HidingNavigationBar', '~> 2.0'
+  pod 'Kingfisher'
+  pod 'HidingNavigationBar'
   pod 'FDTake'
   pod 'UILoadControl'
 end

@@ -20,8 +20,8 @@ final class GamesPresentationModel: PresentationModel {
     private let gamesService = ServiceLayer.shared.gamesService
     
     private var fromIndex = 1
-    private var toIndex = 10
-    private let count = 10
+    private var toIndex = 100
+    private let count = 100
     
     // MARK: - Public Methods
     
@@ -41,8 +41,9 @@ final class GamesPresentationModel: PresentationModel {
     }
     
     func obtainMoreGames() {
+        let count = 20
         fromIndex = toIndex + 1
-        toIndex += 10
+        toIndex += count
         gamesService.obtainAllGames(from: fromIndex, to: count) { result in
             switch result {
             case .serviceSuccess(let model):
@@ -59,7 +60,7 @@ final class GamesPresentationModel: PresentationModel {
     
     func refreshGames() {
         fromIndex = 1
-        toIndex = 10
+        toIndex = 100
         gamesService.obtainAllGames(from: fromIndex, to: count) { result in
             switch result {
             case .serviceSuccess(let model):

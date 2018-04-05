@@ -1,41 +1,54 @@
 PODS:
-  - Alamofire (4.7.0)
+  - Alamofire (4.7.1)
   - FDTake (2.0.0)
   - HidingNavigationBar (2.0.1)
   - Kingfisher (4.6.4)
   - PKHUD (5.0.0)
-  - Realm (3.1.1):
-    - Realm/Headers (= 3.1.1)
-  - Realm/Headers (3.1.1)
-  - RealmSwift (3.1.1):
-    - Realm (= 3.1.1)
+  - Realm (3.3.2):
+    - Realm/Headers (= 3.3.2)
+  - Realm/Headers (3.3.2)
+  - RealmSwift (3.3.2):
+    - Realm (= 3.3.2)
   - SwiftKeychainWrapper (3.0.1)
   - SwiftLint (0.25.0)
   - UILoadControl (2.1.0)
 
 DEPENDENCIES:
-  - Alamofire (~> 4.7)
+  - Alamofire
   - FDTake
-  - HidingNavigationBar (~> 2.0)
-  - Kingfisher (~> 4.0)
-  - PKHUD (~> 5.0)
+  - HidingNavigationBar
+  - Kingfisher
+  - PKHUD
   - RealmSwift
   - SwiftKeychainWrapper
   - SwiftLint
   - UILoadControl
 
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - Alamofire
+    - FDTake
+    - HidingNavigationBar
+    - Kingfisher
+    - PKHUD
+    - Realm
+    - RealmSwift
+    - SwiftKeychainWrapper
+    - SwiftLint
+    - UILoadControl
+
 SPEC CHECKSUMS:
-  Alamofire: 907e0a98eb68cdb7f9d1f541a563d6ac5dc77b25
+  Alamofire: 68d7d521118d49c615a8d2214d87cdf525599d30
   FDTake: 21152c660ddf075a859f86af83f9d17dc4b5a539
   HidingNavigationBar: 82c06978041080f0e4d97095563414a4367b71c6
   Kingfisher: 68498a706e46c2a050b0c9572f100e5db407f6e0
   PKHUD: 3c001512c6e002091184197a8de7a20420786e3b
-  Realm: 42d1c38a5b1bbcc828b48a7ce702cb86fc68adf4
-  RealmSwift: d31937ca6a6ee54acde64ec839523c0a3c04924b
+  Realm: d927fbf66df5532cfafc08afb5f7e53ded37b894
+  RealmSwift: 4e903a494e05d866581d69ad6f7e7b879d446baf
   SwiftKeychainWrapper: 38952a3636320ae61bad3513cadd870929de7a4a
   SwiftLint: e14651157288e9e01d6e1a71db7014fb5744a8ea
   UILoadControl: e742ddbe4c67ba1f13b00b7d462d4141307d021f
 
-PODFILE CHECKSUM: 1ef5d3a1b06f5ad8e164193d72d49d8cbab9517e
+PODFILE CHECKSUM: 9598a85f23a93d5aca3821eee156e8aae926f17b
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.0

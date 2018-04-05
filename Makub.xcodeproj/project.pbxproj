@@ -694,7 +694,6 @@
 				C44D60A9205529C100A5C50F /* Frameworks */,
 				C44D60AA205529C100A5C50F /* Resources */,
 				4969C7D6DC60B9B862F4CC52 /* [CP] Embed Pods Frameworks */,
-				3B91DFCF6D4FC27ABCC4765A /* [CP] Copy Pods Resources */,
 				C4F242032059DCBC007E8A16 /* Swiftlint */,
 			);
 			buildRules = (
@@ -764,21 +763,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3B91DFCF6D4FC27ABCC4765A /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Makub/Pods-Makub-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		4969C7D6DC60B9B862F4CC52 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

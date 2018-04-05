@@ -24,7 +24,7 @@ final class GamesViewController: UIViewController {
         static let topEdge: CGFloat = 5
         static let bottomEdge: CGFloat = 5
         static let cellSpacing: CGFloat = 3
-        static let estimatedCellHeight: CGFloat = 122
+        static let estimatedCellHeight: CGFloat = 115.5
     }
     
     // MARK: - IBOutlets
@@ -206,6 +206,8 @@ extension GamesViewController: UITabBarControllerDelegate {
         }
     }
 }
+
+// MARK: - UIScrollViewDelegate
 
 extension GamesViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
