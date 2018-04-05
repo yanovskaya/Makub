@@ -16,4 +16,5 @@ protocol NewsService: class {
     
     func addNews(title: String, text: String, completion: ((ServiceCallResult<AddNewsResponse>) -> Void)?)
     func addNewsWithImage(title: String, text: String, image: UIImage, completion: ((ServiceCallResult<AddNewsResponse>) -> Void)?)
+    func deleteNews(id: Int, completion: ((ServiceCallResult<DeleteNewsResponse>) -> Void)?)
 }

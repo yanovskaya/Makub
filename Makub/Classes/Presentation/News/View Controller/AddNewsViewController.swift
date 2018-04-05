@@ -119,7 +119,9 @@ final class AddNewsViewController: UIViewController {
                     HUD.show(.labeledError(title: ErrorDescription.title.rawValue, subtitle: ErrorDescription.server.rawValue))
                 }
                 HUD.hide(afterDelay: 1.0)
-                self.newsTextView.becomeFirstResponder()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                    self.newsTextView.becomeFirstResponder()
+                }
             }
         }
     }

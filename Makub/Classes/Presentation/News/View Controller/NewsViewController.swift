@@ -16,6 +16,8 @@ final class NewsViewController: UIViewController, NewsCellDelegate {
     
     private enum Constants {
         static let searchBarPlaceholder = "Поиск"
+        static let deleteAction = "Удалить"
+        static let cancelAction = "Отмена"
         static let addNewsCellId = String(describing: AddNewsCell.self)
         static let newsCellId = String(describing: NewsCell.self)
     }
@@ -83,7 +85,17 @@ final class NewsViewController: UIViewController, NewsCellDelegate {
     // MARK: - Public Methods
     
     func moreButtonTapped(_ sender: NewsCell) {
-        print(sender.tag)
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let deleteAction = UIAlertAction(title: Constants.deleteAction, style: .destructive) { _ in
+            self.bindEventsDeleteNews()
+            self.presentationModel.deleteNews(id: sender.tag)
+        }
+        let cancelAction = UIAlertAction(title: Constants.cancelAction, style: .cancel)
+        
+        alertController.addAction(deleteAction)
+        alertController.addAction(cancelAction)
+        
+        present(alertController, animated: true, completion: nil)
     }
     
     // MARK: - Private Methods
@@ -121,11 +133,48 @@ final class NewsViewController: UIViewController, NewsCellDelegate {
             switch status {
             case .loading:
                 break
-            case .error, .rich:
+            case .rich:
+                self?.filteredNews = (self?.presentationModel.newsViewModels)!
+                if let searchText = self?.navigationSearchBar.text {
+                    self?.filterNewsForSearchText(searchText: searchText)
+                }
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                    self?.refreshControl.endRefreshing()
+                }
+                self?.newsCollectionView.reloadData()
+            case .error:
                 self?.newsCollectionView.reloadData()
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                     self?.refreshControl.endRefreshing()
                 }
+            }
+        }
+    }
+    
+    private func bindEventsDeleteNews() {
+        presentationModel.changeStateHandler = { [weak self] status in
+            switch status {
+            case .loading:
+                PKHUD.sharedHUD.dimsBackground = false
+                PKHUD.sharedHUD.userInteractionOnUnderlyingViewsEnabled = true
+                HUD.show(.progress)
+            case .rich:
+                self?.filteredNews = (self?.presentationModel.newsViewModels)!
+                if let searchText = self?.navigationSearchBar.text {
+                    self?.filterNewsForSearchText(searchText: searchText)
+                }
+                self?.newsCollectionView.reloadData()
+                HUD.hide()
+            case .error (let code):
+                switch code {
+                case -1009, -1001:
+                    HUD.show(.labeledError(title: ErrorDescription.title.rawValue, subtitle: ErrorDescription.network.rawValue))
+                case 2:
+                    HUD.show(.labeledError(title: ErrorDescription.title.rawValue, subtitle: ErrorDescription.recover.rawValue))
+                default:
+                    HUD.show(.labeledError(title: ErrorDescription.title.rawValue, subtitle: ErrorDescription.server.rawValue))
+                }
+                HUD.hide(afterDelay: 1.0)
             }
         }
     }
@@ -271,10 +320,6 @@ extension NewsViewController: UICollectionViewDelegate {
         print(indexPath)
         if indexPath.section == 0 {
             router.presentAddNewsVC(source: self)
-        }
-        else {
-            print("else")
-            print(indexPath)
         }
     }
 }

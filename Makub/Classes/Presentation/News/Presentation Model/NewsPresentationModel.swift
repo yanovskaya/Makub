@@ -129,6 +129,18 @@ final class NewsPresentationModel: PresentationModel {
         }
     }
     
+    func deleteNews(id: Int) {
+        state = .loading
+        newsService.deleteNews(id: id) { result in
+            switch result {
+            case .serviceSuccess:
+                self.state = .rich
+            case .serviceFailure(let error):
+                self.state = .error(code: error.code)
+            }
+        }
+    }
+    
     // MARK: - Private Methods
     
     private func obtainUserCache() {

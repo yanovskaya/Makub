@@ -23,12 +23,15 @@ final class NewsServiceImpl: NewsService {
         static let textParameter = "text"
         static let imageParameter = "image"
         
+        static let idParameter = "id"
+        
         static let jpgExtension = ".jpg"
     }
     
     private enum EndPoint {
         static let news = "/news"
         static let addNews = "/add_article"
+        static let deleteNews = "/article_delete"
     }
     
     // MARK: - Private Properties
@@ -38,6 +41,7 @@ final class NewsServiceImpl: NewsService {
     private var transport: Transport!
     private let newsParser = Parser<NewsResponse>()
     private let addNewsParser = Parser<AddNewsResponse>()
+    private let deleteNewsParser = Parser<DeleteNewsResponse>()
     private let realmCache = RealmCache<News>()
     
     // MARK: - Initialization
@@ -136,7 +140,7 @@ final class NewsServiceImpl: NewsService {
                                 switch parseResult {
                                 case .parserSuccess(let model):
                                     if model.error == 0 {
-                                        completion?(ServiceCallResult.serviceSuccess(payload: model))
+                                        completion?(ServiceCallResult.serviceSuccess(payload: nil))
                                     } else {
                                         let error = NSError(domain: "", code: model.error)
                                         completion?(ServiceCallResult.serviceFailure(error: error))
@@ -147,6 +151,37 @@ final class NewsServiceImpl: NewsService {
                             case .transportFailure(let error):
                                 completion?(ServiceCallResult.serviceFailure(error: error))
                             }
+        }
+    }
+    
+    func deleteNews(id: Int, completion: ((ServiceCallResult<DeleteNewsResponse>) -> Void)?) {
+        guard let token = KeychainWrapper.standard.string(forKey: KeychainKey.token) else {
+            let error = NSError(domain: "", code: AdditionalErrors.tokenNotFound)
+            completion?(ServiceCallResult.serviceFailure(error: error))
+            return
+        }
+        let parameters = [Constants.idParameter: id,
+                          Constants.tokenParameter: token] as [String: Any]
+        transport = Transport(sessionManager: requestSessionManager)
+        transport.request(method: .post, url: Constants.baseURL + EndPoint.deleteNews, parameters: parameters) { [unowned self] transportResult in
+            switch transportResult {
+            case .transportSuccess(let payload):
+                let resultBody = payload.resultBody
+                let parseResult = self.deleteNewsParser.parse(from: resultBody)
+                switch parseResult {
+                case .parserSuccess(let model):
+                    if model.error == 0 {
+                        completion?(ServiceCallResult.serviceSuccess(payload: nil))
+                    } else {
+                        let error = NSError(domain: "", code: model.error)
+                        completion?(ServiceCallResult.serviceFailure(error: error))
+                    }
+                case .parserFailure(let error):
+                    completion?(ServiceCallResult.serviceFailure(error: error))
+                }
+            case .transportFailure(let error):
+                completion?(ServiceCallResult.serviceFailure(error: error))
+            }
         }
     }
     
