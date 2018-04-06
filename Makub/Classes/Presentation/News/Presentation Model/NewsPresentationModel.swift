@@ -30,7 +30,7 @@ final class NewsPresentationModel: PresentationModel {
     
     // MARK: - Public Methods
     
-    func obtainNews() {
+    func obtainNewsWithUser() {
         group.enter()
         obtainUserCache()
         if !userCacheIsObtained { state = .loading }
@@ -70,7 +70,7 @@ final class NewsPresentationModel: PresentationModel {
         
     }
     
-    func refreshNews() {
+    func refreshNewsWithUser() {
         group.enter()
         obtainUserCache()
         userService.obtainUserInfo { result in
@@ -103,26 +103,37 @@ final class NewsPresentationModel: PresentationModel {
         }
     }
     
-    func addNews(title: String, text: String, completion: @escaping () -> Void) {
+    func obtainOnlyNews() {
+        newsService.obtainNews { result in
+            switch result {
+            case .serviceSuccess(let model):
+                guard let model = model else { return }
+                self.newsViewModels = model.news.compactMap { NewsViewModel($0) }
+                self.state = .rich
+            case .serviceFailure:
+                self.state = .rich
+            }
+        }
+    }
+    
+    func addNews(title: String, text: String) {
         state = .loading
         newsService.addNews(title: title, text: text) { result in
             switch result {
             case .serviceSuccess:
                 self.state = .rich
-                completion()
             case .serviceFailure(let error):
                 self.state = .error(code: error.code)
             }
         }
     }
     
-    func addNewsWithImage(title: String, text: String, image: UIImage, completion: @escaping () -> Void) {
+    func addNewsWithImage(title: String, text: String, image: UIImage) {
         state = .loading
         newsService.addNewsWithImage(title: title, text: text, image: image) { result in
             switch result {
             case .serviceSuccess:
                 self.state = .rich
-                completion()
             case .serviceFailure(let error):
                 self.state = .error(code: error.code)
             }
@@ -134,7 +145,7 @@ final class NewsPresentationModel: PresentationModel {
         newsService.deleteNews(id: id) { result in
             switch result {
             case .serviceSuccess:
-                self.state = .rich
+                self.obtainOnlyNews()
             case .serviceFailure(let error):
                 self.state = .error(code: error.code)
             }

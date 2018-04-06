@@ -114,14 +114,11 @@ final class GamesCell: UICollectionViewCell, ViewModelConfigurable {
             photo2ImageView.image = UIImage(named: Constants.userImage)
         }
         
-        let trailingConstraint = videoImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
-        trailingConstraint.priority = UILayoutPriority(rawValue: 249)
         if viewModel.video != nil {
             videoImageView.tintColor = PaletteColors.textGray
             videoImageView.image = UIImage(named: Constants.videoImage)?.withRenderingMode(.alwaysTemplate)
             videoImageView.isHidden = false
             
-            trailingConstraint.isActive = false
             centerVideoImageView.isActive = true
             widthVideoImageView.constant = 20
             leadingVideoImageView.constant = 8
@@ -129,7 +126,6 @@ final class GamesCell: UICollectionViewCell, ViewModelConfigurable {
             videoImageView.removeConstraints([leadingVideoImageView])
             videoImageView.isHidden = true
             centerVideoImageView.isActive = false
-            trailingConstraint.isActive = true
             
             leadingVideoImageView.constant = 0
             widthVideoImageView.constant = 0

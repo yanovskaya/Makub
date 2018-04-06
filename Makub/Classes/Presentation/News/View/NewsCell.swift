@@ -80,6 +80,7 @@ final class NewsCell: UICollectionViewCell, ViewModelConfigurable {
         authorImageView.image = nil
         dateLabel.text = nil
         illustrationImageView.image = nil
+        moreButton.setImage(nil, for: .normal)
     }
     
     // MARK: - Public Methods

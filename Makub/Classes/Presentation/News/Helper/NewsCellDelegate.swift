@@ -9,6 +9,6 @@
 import Foundation
 
 protocol NewsCellDelegate: class {
-    //func configureMoreButton
+
     func moreButtonTapped(_ sender: NewsCell)
 }

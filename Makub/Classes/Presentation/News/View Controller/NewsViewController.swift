@@ -10,7 +10,7 @@ import HidingNavigationBar
 import PKHUD
 import UIKit
 
-final class NewsViewController: UIViewController, NewsCellDelegate {
+final class NewsViewController: UIViewController {
 
     // MARK: - Constants
     
@@ -60,7 +60,7 @@ final class NewsViewController: UIViewController, NewsCellDelegate {
         
         hideSearchKeyboardWhenTappedAround()
         bindEventsObtainNews()
-        presentationModel.obtainNews()
+        presentationModel.obtainNewsWithUser()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -72,6 +72,7 @@ final class NewsViewController: UIViewController, NewsCellDelegate {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         tabBarController?.delegate = self
+        newsCollectionView.reloadData()
         bindEventsObtainNews()
     }
     
@@ -80,22 +81,6 @@ final class NewsViewController: UIViewController, NewsCellDelegate {
         
         hidingNavBarManager?.viewWillDisappear(animated)
         HUD.hide()
-    }
-    
-    // MARK: - Public Methods
-    
-    func moreButtonTapped(_ sender: NewsCell) {
-        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        let deleteAction = UIAlertAction(title: Constants.deleteAction, style: .destructive) { _ in
-            self.bindEventsDeleteNews()
-            self.presentationModel.deleteNews(id: sender.tag)
-        }
-        let cancelAction = UIAlertAction(title: Constants.cancelAction, style: .cancel)
-        
-        alertController.addAction(deleteAction)
-        alertController.addAction(cancelAction)
-        
-        present(alertController, animated: true, completion: nil)
     }
     
     // MARK: - Private Methods
@@ -155,8 +140,6 @@ final class NewsViewController: UIViewController, NewsCellDelegate {
         presentationModel.changeStateHandler = { [weak self] status in
             switch status {
             case .loading:
-                PKHUD.sharedHUD.dimsBackground = false
-                PKHUD.sharedHUD.userInteractionOnUnderlyingViewsEnabled = true
                 HUD.show(.progress)
             case .rich:
                 self?.filteredNews = (self?.presentationModel.newsViewModels)!
@@ -175,6 +158,20 @@ final class NewsViewController: UIViewController, NewsCellDelegate {
                     HUD.show(.labeledError(title: ErrorDescription.title.rawValue, subtitle: ErrorDescription.server.rawValue))
                 }
                 HUD.hide(afterDelay: 1.0)
+            }
+        }
+    }
+    
+    private func bindEventsObtainOnlyNews() {
+        presentationModel.changeStateHandler = { [weak self] status in
+            switch status {
+            case .rich:
+                self?.filteredNews = (self?.presentationModel.newsViewModels)!
+                if let searchText = self?.navigationSearchBar.text {
+                    self?.filterNewsForSearchText(searchText: searchText)
+                }
+                self?.newsCollectionView.reloadData()
+            default: break
             }
         }
     }
@@ -238,7 +235,7 @@ final class NewsViewController: UIViewController, NewsCellDelegate {
     
     @objc private func refreshGames(_ refreshControl: UIRefreshControl) {
         bindEventsRefreshNews()
-        presentationModel.refreshNews()
+        presentationModel.refreshNewsWithUser()
     }
 }
 
@@ -317,7 +314,6 @@ extension NewsViewController: UICollectionViewDataSource {
 
 extension NewsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath)
         if indexPath.section == 0 {
             router.presentAddNewsVC(source: self)
         }
@@ -356,5 +352,34 @@ extension NewsViewController: UITabBarControllerDelegate {
             hidingNavBarManager?.shouldScrollToTop()
             newsCollectionView.scrollToItem(at: indexPath, at: .top, animated: true)
         }
+    }
+}
+
+// MARK: - NewsCellDelegate
+
+extension NewsViewController: NewsCellDelegate {
+    
+    func moreButtonTapped(_ sender: NewsCell) {
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let deleteAction = UIAlertAction(title: Constants.deleteAction, style: .destructive) { _ in
+            self.bindEventsDeleteNews()
+            self.presentationModel.deleteNews(id: sender.tag)
+        }
+        let cancelAction = UIAlertAction(title: Constants.cancelAction, style: .cancel)
+        
+        alertController.addAction(deleteAction)
+        alertController.addAction(cancelAction)
+        
+        present(alertController, animated: true, completion: nil)
+    }
+}
+
+// MARK: - AddNewsViewControllerDelegate
+
+extension NewsViewController: AddNewsViewControllerDelegate {
+    
+    func addNewsCollectionView() {
+        bindEventsObtainOnlyNews()
+        presentationModel.obtainOnlyNews()
     }
 }

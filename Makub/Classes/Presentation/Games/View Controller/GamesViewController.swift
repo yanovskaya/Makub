@@ -21,8 +21,8 @@ final class GamesViewController: UIViewController {
     
     private enum LayoutConstants {
         static let leadingMargin: CGFloat = 5
-        static let topEdge: CGFloat = 5
-        static let bottomEdge: CGFloat = 5
+        static let topEdge: CGFloat = 10
+        static let bottomEdge: CGFloat = 10
         static let cellSpacing: CGFloat = 3
         static let estimatedCellHeight: CGFloat = 115.5
     }

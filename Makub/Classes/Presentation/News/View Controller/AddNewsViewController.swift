@@ -57,6 +57,7 @@ final class AddNewsViewController: UIViewController {
     // MARK: - Public Properties
     
     var presentationModel: NewsPresentationModel!
+    weak var delegate: AddNewsViewControllerDelegate?
     
     // MARK: - Private Properties
     
@@ -106,9 +107,9 @@ final class AddNewsViewController: UIViewController {
                 PKHUD.sharedHUD.userInteractionOnUnderlyingViewsEnabled = false
                 HUD.show(.labeledProgress(title: Constants.pkhudTitle, subtitle: Constants.pkhudSubtitle))
             case .rich:
-                HUD.show(.success)
-                HUD.hide(afterDelay: 0.4)
-                self.newsTextView.becomeFirstResponder()
+                HUD.hide()
+                self.delegate?.addNewsCollectionView()
+                self.dismiss(animated: true)
             case .error (let code):
                 switch code {
                 case -1009, -1001:
@@ -234,19 +235,9 @@ final class AddNewsViewController: UIViewController {
         guard let title = titleTextField.text,
             let text = newsTextView.text else { return }
         if let image = self.imageToAttach {
-            self.presentationModel.addNewsWithImage(title: title, text: text.addTags(), image: image) {
-                self.titleTextField.text = ""
-                self.newsTextView.text = ""
-                self.imageToAttach = nil
-                self.postButtonItem.isEnabled = false
-            }
+            self.presentationModel.addNewsWithImage(title: title, text: text.addTags(), image: image)
         } else {
-            self.presentationModel.addNews(title: title, text: text.addTags()) {
-                self.titleTextField.text = ""
-                self.newsTextView.text = ""
-                self.imageToAttach = nil
-                self.postButtonItem.isEnabled = false
-            }
+            self.presentationModel.addNews(title: title, text: text.addTags())
         }
     }
     

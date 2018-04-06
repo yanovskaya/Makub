@@ -95,6 +95,7 @@
                 <constraint firstItem="sX7-6Q-0cH" firstAttribute="centerY" secondItem="YkM-XR-FMy" secondAttribute="centerY" id="uxU-1n-Aq9"/>
                 <constraint firstItem="YkM-XR-FMy" firstAttribute="top" secondItem="aNu-KV-ljn" secondAttribute="bottom" constant="13" id="w0d-Nx-Rd6"/>
                 <constraint firstItem="vCF-bm-V1g" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="xHS-Cs-JJD"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="ssX-Xf-wgy" secondAttribute="trailing" priority="249" constant="20" id="xsB-p4-kQ8"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
