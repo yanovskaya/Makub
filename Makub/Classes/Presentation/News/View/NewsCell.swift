@@ -55,6 +55,7 @@ final class NewsCell: UICollectionViewCell, ViewModelConfigurable {
     // MARK: - Private Properties
     
     private var viewModel: NewsViewModel!
+    private let indicator = UserIndicator()
     
     // MARK: - View lifecycle
     
@@ -97,7 +98,7 @@ final class NewsCell: UICollectionViewCell, ViewModelConfigurable {
             imageHeight.constant = LayoutConstants.imageHeight
             bottomDistance.constant = LayoutConstants.bottomImageDistance
             let sizeProcessor = ResizingImageProcessor(referenceSize: CGSize(width: SizeConstants.imageWidth, height: SizeConstants.imageHeight), mode: .aspectFill)
-            illustrationImageView.kf.indicatorType = .activity
+            illustrationImageView.kf.indicatorType = .custom(indicator: indicator)
             illustrationImageView.kf.setImage(with: URL(string: imageURL), placeholder: nil, options: [.processor(sizeProcessor)], completionHandler: { (image, _, _, _) in
                 if image == nil {
                     self.bottomDistance.constant = LayoutConstants.bottomDistance
@@ -110,7 +111,7 @@ final class NewsCell: UICollectionViewCell, ViewModelConfigurable {
         }
         if let photoURL = viewModel.photoURL {
             let sizeProcessor = ResizingImageProcessor(referenceSize: CGSize(width: SizeConstants.photoWidth, height: SizeConstants.photoHeight), mode: .aspectFill)
-            authorImageView.kf.indicatorType = .activity
+            authorImageView.kf.indicatorType = .custom(indicator: indicator)
             authorImageView.kf.setImage(with: URL(string: photoURL), placeholder: nil, options: [.processor(sizeProcessor)], completionHandler: { (image, _, _, _) in
                 if image == nil {
                     self.authorImageView.image = UIImage(named: Constants.userImage)

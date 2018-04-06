@@ -34,7 +34,7 @@ final class NewsPresentationModel: PresentationModel {
         group.enter()
         obtainUserCache()
         if !userCacheIsObtained { state = .loading }
-        userService.obtainUserInfo { result in
+        userService.obtainUserInfo(useCache: true) { result in
             switch result {
             case .serviceSuccess(let model):
                 guard let model = model else { return }
@@ -73,7 +73,7 @@ final class NewsPresentationModel: PresentationModel {
     func refreshNewsWithUser() {
         group.enter()
         obtainUserCache()
-        userService.obtainUserInfo { result in
+        userService.obtainUserInfo(useCache: false) { result in
             switch result {
             case .serviceSuccess(let model):
                 guard let model = model else { return }
@@ -92,6 +92,7 @@ final class NewsPresentationModel: PresentationModel {
                 self.newsViewModels = model.news.compactMap { NewsViewModel($0) }
                 self.group.leave()
             case .serviceFailure:
+                self.state = .error(code: 1)
                 self.group.leave()
             }
         }

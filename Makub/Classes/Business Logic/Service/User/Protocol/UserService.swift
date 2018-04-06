@@ -10,6 +10,6 @@ import Foundation
 
 protocol UserService: class {
     
-    func obtainUserInfo(completion: ((ServiceCallResult<User>) -> Void)?)
+    func obtainUserInfo(useCache: Bool, completion: ((ServiceCallResult<User>) -> Void)?)
     func obtainRealmCache(error: NSError?, completion: ((ServiceCallResult<User>) -> Void)?)
 }

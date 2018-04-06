@@ -63,6 +63,8 @@ final class AddNewsViewController: UIViewController {
     
     private var fdTakeController = FDTakeController()
     
+    private let indicator = UserIndicator()
+    
     private var imageToAttach: UIImage? {
         didSet {
             if imageToAttach != nil {
@@ -186,7 +188,7 @@ final class AddNewsViewController: UIViewController {
         authorImageView.clipsToBounds = true
         
         guard let viewModel = presentationModel.userViewModel else { return }
-        authorImageView.kf.indicatorType = .activity
+        authorImageView.kf.indicatorType = .custom(indicator: indicator)
         authorImageView.kf.setImage(with: URL(string: viewModel.photoURL))
         
         authorLabel.font = UIFont.customFont(.robotoBoldFont(size: 16))

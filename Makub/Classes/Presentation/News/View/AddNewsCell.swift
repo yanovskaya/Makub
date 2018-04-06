@@ -28,6 +28,10 @@ final class AddNewsCell: UICollectionViewCell, ViewModelConfigurable {
     @IBOutlet private var userImageView: UIImageView!
     @IBOutlet private var addNewsLabel: UILabel!
     
+    // MARK: - Private Property
+    
+    private let indicator = UserIndicator()
+    
     // MARK: - View lifecycle
     
     override func awakeFromNib() {
@@ -50,7 +54,7 @@ final class AddNewsCell: UICollectionViewCell, ViewModelConfigurable {
         guard let viewModel = viewModel else { return }
         if let photoURL = viewModel.photoURL {
             let sizeProcessor = ResizingImageProcessor(referenceSize: CGSize(width: SizeConstants.userWidth, height: SizeConstants.userHeight), mode: .aspectFill)
-            userImageView.kf.indicatorType = .activity
+            userImageView.kf.indicatorType = .custom(indicator: indicator)
             userImageView.kf.setImage(with: URL(string: photoURL), placeholder: nil, options: [.processor(sizeProcessor)], completionHandler: { (image, _, _, _) in
                 if image == nil {
                     self.userImageView.image = UIImage(named: Constants.userImage)

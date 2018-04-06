@@ -40,7 +40,7 @@ final class UserServiceImpl: UserService {
     
     // MARK: - Public Methods
     
-    func obtainUserInfo(completion: ((ServiceCallResult<User>) -> Void)?) {
+    func obtainUserInfo(useCache: Bool, completion: ((ServiceCallResult<User>) -> Void)?) {
         guard let token = KeychainWrapper.standard.string(forKey: KeychainKey.token) else {
             let error = NSError(domain: "", code: AdditionalErrors.tokenNotFound)
             completion?(ServiceCallResult.serviceFailure(error: error))
@@ -62,10 +62,18 @@ final class UserServiceImpl: UserService {
                         completion?(ServiceCallResult.serviceFailure(error: error))
                     }
                 case .parserFailure(let error):
-                    self.obtainRealmCache(error: error, completion: completion)
+                    if useCache {
+                        self.obtainRealmCache(error: error, completion: completion)
+                    } else {
+                        completion?(ServiceCallResult.serviceFailure(error: NSError()))
+                    }
                 }
             case .transportFailure(let error):
-                self.obtainRealmCache(error: error, completion: completion)
+                if useCache {
+                    self.obtainRealmCache(error: error, completion: completion)
+                } else {
+                    completion?(ServiceCallResult.serviceFailure(error: NSError()))
+                }
             }
         }
     }

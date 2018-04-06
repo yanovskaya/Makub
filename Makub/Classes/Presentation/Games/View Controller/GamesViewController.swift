@@ -135,7 +135,7 @@ final class GamesViewController: UIViewController {
         navigationBar.setBackgroundImage(UIImage(color: UIColor.white), for: .default)
         
         filterButtonItem.image = UIImage(named: Constants.filterImage)
-        filterButtonItem.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 3, right: 5)
+        filterButtonItem.imageInsets = UIEdgeInsets(top: 2, left: 0, bottom: 0, right: 5)
         filterButtonItem.tintColor = PaletteColors.darkGray
     }
     

@@ -35,6 +35,7 @@ final class GamesCell: UICollectionViewCell, ViewModelConfigurable {
     @IBOutlet var leadingVideoImageView: NSLayoutConstraint!
     
     @IBOutlet var centerVideoImageView: NSLayoutConstraint!
+    
     // MARK: - Private Property
     
     private var firstPlayerWon: Bool! {
@@ -42,6 +43,8 @@ final class GamesCell: UICollectionViewCell, ViewModelConfigurable {
             configureScoreColor()
         }
     }
+    
+    private let indicator = UserIndicator()
     
     // MARK: - View lifecycle
     
@@ -93,7 +96,7 @@ final class GamesCell: UICollectionViewCell, ViewModelConfigurable {
         let sizeProcessor = ResizingImageProcessor(referenceSize: CGSize(width: SizeConstants.photoWidth, height: SizeConstants.photoHeight), mode: .aspectFill)
         
         if let photo1URL = viewModel.photo1URL {
-            photo1ImageView.kf.indicatorType = .activity
+            photo1ImageView.kf.indicatorType = .custom(indicator: indicator)
             photo1ImageView.kf.setImage(with: URL(string: photo1URL), placeholder: nil, options: [.processor(sizeProcessor)], completionHandler: { (image, _, _, _) in
                 if image == nil {
                     self.photo1ImageView.image = UIImage(named: Constants.userImage)
@@ -104,7 +107,7 @@ final class GamesCell: UICollectionViewCell, ViewModelConfigurable {
         }
         
         if let photo2URL = viewModel.photo2URL {
-            photo2ImageView.kf.indicatorType = .activity
+            photo2ImageView.kf.indicatorType = .custom(indicator: indicator)
             photo2ImageView.kf.setImage(with: URL(string: photo2URL), placeholder: nil, options: [.processor(sizeProcessor)], completionHandler: { (image, _, _, _) in
                 if image == nil {
                     self.photo2ImageView.image = UIImage(named: Constants.userImage)

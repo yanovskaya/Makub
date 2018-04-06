@@ -127,7 +127,6 @@ final class NewsViewController: UIViewController {
                 }
                 self?.newsCollectionView.reloadData()
             case .error:
-                self?.newsCollectionView.reloadData()
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                     self?.refreshControl.endRefreshing()
                 }
