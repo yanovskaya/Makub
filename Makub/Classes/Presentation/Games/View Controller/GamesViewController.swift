@@ -119,6 +119,7 @@ final class GamesViewController: UIViewController {
                 }
             case .error:
                 self?.gamesCollectionView.loadControl?.endLoading()
+                self?.isLoading = false
             }
         }
     }

@@ -53,7 +53,7 @@ final class NewsServiceImpl: NewsService {
     
     // MARK: - Public Methods
     
-    func obtainNews(completion: ((ServiceCallResult<NewsResponse>) -> Void)?) {
+    func obtainNews(useCache: Bool, completion: ((ServiceCallResult<NewsResponse>) -> Void)?) {
         guard let token = KeychainWrapper.standard.string(forKey: KeychainKey.token) else {
             let error = NSError(domain: "", code: AdditionalErrors.tokenNotFound)
             completion?(ServiceCallResult.serviceFailure(error: error))
@@ -76,10 +76,18 @@ final class NewsServiceImpl: NewsService {
                         completion?(ServiceCallResult.serviceFailure(error: error))
                     }
                 case .parserFailure(let error):
-                    self.obtainRealmCache(error: error, completion: completion)
+                    if useCache {
+                        self.obtainRealmCache(error: error, completion: completion)
+                    } else {
+                        completion?(ServiceCallResult.serviceFailure(error: error))
+                    }
                 }
             case .transportFailure(let error):
-                self.obtainRealmCache(error: error, completion: completion)
+                if useCache {
+                    self.obtainRealmCache(error: error, completion: completion)
+                } else {
+                    completion?(ServiceCallResult.serviceFailure(error: error))
+                }
             }
         }
     }

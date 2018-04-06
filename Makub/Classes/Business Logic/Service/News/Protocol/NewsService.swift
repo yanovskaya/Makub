@@ -11,7 +11,7 @@ import UIKit
 
 protocol NewsService: class {
     
-    func obtainNews(completion: ((ServiceCallResult<NewsResponse>) -> Void)?)
+    func obtainNews(useCache: Bool, completion: ((ServiceCallResult<NewsResponse>) -> Void)?)
     func obtainRealmCache(error: NSError?, completion: ((ServiceCallResult<NewsResponse>) -> Void)?)
     
     func addNews(title: String, text: String, completion: ((ServiceCallResult<AddNewsResponse>) -> Void)?)

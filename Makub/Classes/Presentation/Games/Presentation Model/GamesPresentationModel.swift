@@ -27,7 +27,7 @@ final class GamesPresentationModel: PresentationModel {
     
     func obtainGames() {
         state = .loading
-        gamesService.obtainAllGames(from: fromIndex, to: count) { result in
+        gamesService.obtainAllGames(from: fromIndex, to: count, useCache: true) { result in
             switch result {
             case .serviceSuccess(let model):
                 guard let model = model else { return }
@@ -44,7 +44,7 @@ final class GamesPresentationModel: PresentationModel {
         let count = 20
         fromIndex = toIndex + 1
         toIndex += count
-        gamesService.obtainAllGames(from: fromIndex, to: count) { result in
+        gamesService.obtainAllGames(from: fromIndex, to: count, useCache: false) { result in
             switch result {
             case .serviceSuccess(let model):
                 guard let model = model else { return }
@@ -52,7 +52,7 @@ final class GamesPresentationModel: PresentationModel {
                 self.viewModels += moreViewModels
                 self.state = .rich
             case .serviceFailure:
-                break
+                self.state = .error(code: 1)
             }
         }
         
@@ -61,14 +61,14 @@ final class GamesPresentationModel: PresentationModel {
     func refreshGames() {
         fromIndex = 1
         toIndex = 100
-        gamesService.obtainAllGames(from: fromIndex, to: count) { result in
+        gamesService.obtainAllGames(from: fromIndex, to: count, useCache: false) { result in
             switch result {
             case .serviceSuccess(let model):
                 guard let model = model else { return }
                 self.viewModels = model.games.compactMap { GamesViewModel($0) }
                 self.state = .rich
             case .serviceFailure:
-                break
+                self.state = .error(code: 1)
             }
         }
     }

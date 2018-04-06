@@ -72,7 +72,6 @@ final class NewsViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         tabBarController?.delegate = self
-        newsCollectionView.reloadData()
         bindEventsObtainNews()
     }
     
