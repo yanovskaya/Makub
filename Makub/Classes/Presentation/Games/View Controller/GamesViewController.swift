@@ -16,6 +16,7 @@ final class GamesViewController: UIViewController {
     
     private enum Constants {
         static let title = "Все игры"
+        static let filterImage = "filter"
         static let cellIdentifier = String(describing: GamesCell.self)
     }
     
@@ -44,6 +45,7 @@ final class GamesViewController: UIViewController {
     
     private let refreshControl = UIRefreshControl()
     private var isLoading = false
+    private let router = GamesRouter()
     
     // MARK: - ViewController lifecycle
     
@@ -130,6 +132,10 @@ final class GamesViewController: UIViewController {
         navigationBar.topItem?.title = Constants.title
         navigationBar.shadowImage = UIImage(color: UIColor.white)
         navigationBar.setBackgroundImage(UIImage(color: UIColor.white), for: .default)
+        
+        filterButtonItem.image = UIImage(named: Constants.filterImage)
+        filterButtonItem.imageInsets = UIEdgeInsets(top: 0, left: 0, bottom: 3, right: 5)
+        filterButtonItem.tintColor = PaletteColors.darkGray
     }
     
     private func configureCollectionView() {
@@ -160,6 +166,13 @@ final class GamesViewController: UIViewController {
             gamesCollectionView.loadControl?.endLoading()
         }
     }
+    
+    // MARK: - IBActions
+    
+    @IBAction func filterButtonItemTapped(_ sender: Any) {
+        router.presentFilterGamesVC(source: self)
+    }
+    
 }
 
 // MARK: - UICollectionViewDataSource

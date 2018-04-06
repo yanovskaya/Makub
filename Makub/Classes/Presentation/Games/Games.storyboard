@@ -27,7 +27,11 @@
                                 <items>
                                     <navigationItem title="Title" id="lH6-mB-gsR">
                                         <barButtonItem key="leftBarButtonItem" title="Item" id="DVP-aM-lJY"/>
-                                        <barButtonItem key="rightBarButtonItem" title="Item" id="Qle-uw-l9w"/>
+                                        <barButtonItem key="rightBarButtonItem" title="Item" id="Qle-uw-l9w">
+                                            <connections>
+                                                <action selector="filterButtonItemTapped:" destination="hKz-Og-i5b" id="AfB-aH-m3z"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -74,11 +78,24 @@
         <!--Filter Games View Controller-->
         <scene sceneID="TI4-6l-HGz">
             <objects>
-                <viewController id="9XH-FP-7Tz" customClass="FilterGamesViewController" customModule="Макуб" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FilterGamesViewController" id="9XH-FP-7Tz" customClass="FilterGamesViewController" customModule="Макуб" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nV6-mt-PYK">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kJ1-yb-PaQ">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Title" id="06Y-32-m4r"/>
+                                </items>
+                            </navigationBar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="kJ1-yb-PaQ" firstAttribute="trailing" secondItem="nqj-g2-6If" secondAttribute="trailing" id="IxP-jc-Zzx"/>
+                            <constraint firstItem="kJ1-yb-PaQ" firstAttribute="leading" secondItem="nqj-g2-6If" secondAttribute="leading" id="fiQ-Pl-dsL"/>
+                            <constraint firstItem="kJ1-yb-PaQ" firstAttribute="top" secondItem="nqj-g2-6If" secondAttribute="top" id="tjd-AA-CPY"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="nqj-g2-6If"/>
                     </view>
                 </viewController>

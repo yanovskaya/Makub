@@ -77,6 +77,7 @@
 		C4C259A42076981000C0CDD4 /* NewsCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C259A32076981000C0CDD4 /* NewsCellDelegate.swift */; };
 		C4C259A62076A3D000C0CDD4 /* DeleteNewsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C259A52076A3D000C0CDD4 /* DeleteNewsResponse.swift */; };
 		C4C259A82077662100C0CDD4 /* AddNewsViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C259A72077662100C0CDD4 /* AddNewsViewControllerDelegate.swift */; };
+		C4C259AB207804DF00C0CDD4 /* GamesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C259AA207804DF00C0CDD4 /* GamesRouter.swift */; };
 		C4D4E4EF20606FEF000A9216 /* RecoverPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D4E4EE20606FEF000A9216 /* RecoverPresentationModel.swift */; };
 		C4D4E4F22060860F000A9216 /* AuthRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D4E4F12060860F000A9216 /* AuthRouter.swift */; };
 		C4D4E4FA20618E63000A9216 /* RatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D4E4F920618E63000A9216 /* RatingViewController.swift */; };
@@ -162,6 +163,7 @@
 		C4C259A32076981000C0CDD4 /* NewsCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCellDelegate.swift; sourceTree = "<group>"; };
 		C4C259A52076A3D000C0CDD4 /* DeleteNewsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteNewsResponse.swift; sourceTree = "<group>"; };
 		C4C259A72077662100C0CDD4 /* AddNewsViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewsViewControllerDelegate.swift; sourceTree = "<group>"; };
+		C4C259AA207804DF00C0CDD4 /* GamesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesRouter.swift; sourceTree = "<group>"; };
 		C4D4E4EE20606FEF000A9216 /* RecoverPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPresentationModel.swift; sourceTree = "<group>"; };
 		C4D4E4F12060860F000A9216 /* AuthRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRouter.swift; sourceTree = "<group>"; };
 		C4D4E4F920618E63000A9216 /* RatingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingViewController.swift; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 			isa = PBXGroup;
 			children = (
 				C41B3C1C2072189E00A2B652 /* Games.storyboard */,
+				C4C259A9207804C800C0CDD4 /* Router */,
 				C41B3C1E207218B400A2B652 /* View Controller */,
 				C41B3C2320721CD700A2B652 /* View */,
 				C41B3C3B2072B10800A2B652 /* Presentation Model */,
@@ -652,6 +655,14 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
+		C4C259A9207804C800C0CDD4 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				C4C259AA207804DF00C0CDD4 /* GamesRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
 		C4D4E4F0206085BD000A9216 /* Router */ = {
 			isa = PBXGroup;
 			children = (
@@ -845,6 +856,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4C259AB207804DF00C0CDD4 /* GamesRouter.swift in Sources */,
 				C414F0DB2059A261001961EC /* UIViewController+HideKeyboard.swift in Sources */,
 				C41B3CEA2072F62900A2B652 /* NewsServiceImpl.swift in Sources */,
 				C41B3CF12072F6C800A2B652 /* UserService.swift in Sources */,
