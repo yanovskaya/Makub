@@ -8,13 +8,7 @@
 
 import Foundation
 
-extension NSDictionary {
-    func parse<T>(_ key: String) -> T {
-        return self.object(forKey: key) as! T
-    }
-}
-
-class FilterOption {
+final class FilterOption {
     private struct Keys {
         static var nameKey = "name"
         static var optionsKey = "options"

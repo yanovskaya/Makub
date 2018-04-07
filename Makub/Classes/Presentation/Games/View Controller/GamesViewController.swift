@@ -208,7 +208,6 @@ extension GamesViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-
 // MARK: - UITabBarControllerDelegate
 
 extension GamesViewController: UITabBarControllerDelegate {

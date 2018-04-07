@@ -285,25 +285,33 @@ extension NewsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let section = indexPath.section
         if section == 0 {
-            let addNewsCellId = Constants.addNewsCellId
-            guard let addNewsCell =
-                newsCollectionView.dequeueReusableCell(withReuseIdentifier: addNewsCellId, for: indexPath) as? AddNewsCell else { return UICollectionViewCell() }
-            let viewModel = presentationModel.userViewModel
-            addNewsCell.configure(for: viewModel)
-            addNewsCell.layoutIfNeeded()
-            return addNewsCell
+            return addNewsCell(collectionView, cellForItemAt: indexPath)
         } else {
-            let newsCellId = Constants.newsCellId
-            guard let newsCell =
-                newsCollectionView.dequeueReusableCell(withReuseIdentifier: newsCellId, for: indexPath) as? NewsCell else { return UICollectionViewCell() }
-            let viewModel = filteredNews[indexPath.row]
-            newsCell.configure(for: viewModel)
-            newsCell.configureMoreButton(userId: presentationModel.userViewModel.id)
-            newsCell.delegate = self
-            newsCell.contentView.isUserInteractionEnabled = false
-            newsCell.layoutIfNeeded()
-            return newsCell
+            return newsCell(collectionView, cellForItemAt: indexPath)
         }
+    }
+    
+    func addNewsCell(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+         let cellIdentifier = Constants.addNewsCellId
+        guard let cell =
+            newsCollectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? AddNewsCell else { return UICollectionViewCell() }
+        let viewModel = presentationModel.userViewModel
+        cell.configure(for: viewModel)
+        cell.layoutIfNeeded()
+        return cell
+    }
+    
+    func newsCell(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cellIdentifier = Constants.newsCellId
+        guard let cell =
+            newsCollectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? NewsCell else { return UICollectionViewCell() }
+        let viewModel = filteredNews[indexPath.row]
+        cell.configure(for: viewModel)
+        cell.configureMoreButton(userId: presentationModel.userViewModel.id)
+        cell.delegate = self
+        cell.contentView.isUserInteractionEnabled = false
+        cell.layoutIfNeeded()
+        return cell
     }
     
 }
