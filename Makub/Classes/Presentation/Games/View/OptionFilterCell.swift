@@ -28,7 +28,6 @@ final class OptionFilterCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         circleImageView.image = nil
-        //titleLabel.text = nil
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -39,11 +38,12 @@ final class OptionFilterCell: UITableViewCell {
     
     private var chosen = false
     
-    func setChosen() {
-        chosen = !chosen
-
+    func setChosen(chosen: Bool, animated: Bool = true) {
+        self.chosen = chosen
+        
+        let duration = animated ? 0.25 : 0
         UIView.transition(with: circleImageView,
-                   duration: 0.25,
+                   duration: duration,
                    options: .transitionCrossDissolve,
                    animations: { self.chooseAction() })
     }

@@ -27,6 +27,7 @@ final class FilterGamesViewController: UIViewController {
     
     private let filterOptions = FilterOptionsParser.filterOptions
     private var oppenedCategories: [Int] = []
+    private var chosenOptions : [IndexPath] = []
     
     // MARK: - ViewController lifecycle
     
@@ -76,15 +77,20 @@ extension FilterGamesViewController: UITableViewDataSource {
     }
     
     func titleCell(_ tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.titleCellId, for: indexPath) as? TitleFilterCell else { return UITableViewCell() }
-        cell.selectionStyle = .none
-        return cell
+        guard let titleCell = tableView.dequeueReusableCell(withIdentifier: Constants.titleCellId, for: indexPath) as? TitleFilterCell else { return UITableViewCell() }
+        titleCell.selectionStyle = .none
+        return titleCell
     }
     
     func optionCell(_ tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.optionCellId, for: indexPath) as? OptionFilterCell else { return UITableViewCell() }
-        cell.selectionStyle = .none
-        return cell
+        guard let optionCell = tableView.dequeueReusableCell(withIdentifier: Constants.optionCellId, for: indexPath) as? OptionFilterCell else { return UITableViewCell() }
+        optionCell.selectionStyle = .none
+        if chosenOptions.index(of: indexPath) != nil {
+            optionCell.setChosen(chosen: true, animated: false)
+        } else {
+            optionCell.setChosen(chosen: false, animated: false)
+        }
+        return optionCell
     }
     
 }
@@ -115,7 +121,13 @@ extension FilterGamesViewController: UITableViewDelegate {
             tableView.endUpdates()
         } else {
             guard let optionCell = tableView.cellForRow(at: indexPath) as? OptionFilterCell else { return }
-            optionCell.setChosen()
+            if let index = chosenOptions.index(of: indexPath) {
+                optionCell.setChosen(chosen: false)
+                chosenOptions.remove(at: index)
+            } else {
+                optionCell.setChosen(chosen: true)
+                chosenOptions.append(indexPath)
+            }
         }
     }
     

@@ -35,7 +35,7 @@ class FilterOptionsParser {
             result.append(entity)
         }
         
-        let optionsDictionary: NSDictionary = ["name": "Клуб", "options": ["Stylery", "Your Mom", ""]]
+        let optionsDictionary: NSDictionary = ["name": "Клуб", "options": ["Stylery", "Your Mom", "", "", "", ""]]
         let optionsEntity = FilterOption(info: optionsDictionary)
         result.append(optionsEntity)
         return result
