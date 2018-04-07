@@ -33,6 +33,13 @@ final class TitleFilterCell: UITableViewCell {
         lineView.backgroundColor = .clear
     }
     
+    // MARK: - Prepare for Reuse
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        //titleLabel.text = nil
+    }
+    
     private var opened = false
     
     func setOpened() {

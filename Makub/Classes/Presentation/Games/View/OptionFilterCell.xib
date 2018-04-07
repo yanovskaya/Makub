@@ -56,7 +56,7 @@
             <connections>
                 <outlet property="circleImageView" destination="rCK-bz-gbK" id="FLM-O3-3bY"/>
                 <outlet property="containerView" destination="0AU-Ho-VGC" id="8VK-2l-zuF"/>
-                <outlet property="titleLabel" destination="LS3-hH-vlr" id="8sh-0R-KBG"/>
+                <outlet property="titleLabel" destination="I0k-Fs-h9r" id="6Ts-hm-a0g"/>
             </connections>
             <point key="canvasLocation" x="33.5" y="380.5"/>
         </view>

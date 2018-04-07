@@ -100,6 +100,6 @@ final class AuthServiceImpl: AuthService {
     // MARK: - Private Methods
     
     private func storeToken(_ token: String) {
-        KeychainWrapper.standard.set(token, forKey: KeychainKey.token)
+        KeychainWrapper.standard.set(token, forKey: KeychainKeys.token)
     }
 }

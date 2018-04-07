@@ -48,6 +48,13 @@ final class AddNewsCell: UICollectionViewCell, ViewModelConfigurable {
         userImageView.layer.cornerRadius = userImageView.frame.width / 2
     }
     
+    // MARK: - Prepare for Reuse
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        userImageView.image = nil
+    }
+    
     // MARK: - Public Methods
     
     func configure(for viewModel: UserViewModel?) {

@@ -69,17 +69,17 @@ final class NewsViewController: UIViewController {
         hidingNavBarManager?.viewWillAppear(animated)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        tabBarController?.delegate = self
-        bindEventsObtainNews()
-    }
-    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
         hidingNavBarManager?.viewWillDisappear(animated)
         HUD.hide()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        tabBarController?.delegate = self
+        bindEventsObtainNews()
     }
     
     // MARK: - Private Methods

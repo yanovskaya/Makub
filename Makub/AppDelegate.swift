@@ -27,12 +27,28 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
-        if KeychainWrapper.standard.string(forKey: KeychainKey.token) == nil {
+        
+        let token = KeychainWrapper.standard.string(forKey: KeychainKeys.token)
+        let wasLaunchBefore = UserDefaults.standard.bool(forKey: UserDefaultsKeys.wasLaunchBefore)
+        
+        // Токена нет И приложение до этого не запускалось
+        if token == nil && !wasLaunchBefore {
+            UserDefaults.standard.set(true, forKey: UserDefaultsKeys.wasLaunchBefore)
             navigationController.viewControllers = [authViewController]
             window?.rootViewController = navigationController
+            
+            // Токен есть И приложение до этого не запускалось
+        } else if !wasLaunchBefore {
+            KeychainWrapper.standard.removeAllKeys()
+            UserDefaults.standard.set(true, forKey: UserDefaultsKeys.wasLaunchBefore)
+            navigationController.viewControllers = [authViewController]
+            window?.rootViewController = navigationController
+            
+            // Токен есть И приложение до этого запускалось
         } else {
             window?.rootViewController = TabBarController()
         }
+        
         window?.makeKeyAndVisible()
         return true
     }

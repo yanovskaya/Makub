@@ -45,7 +45,7 @@ final class GamesServiceImpl: GamesService {
     // MARK: - Public Methods
     
     func obtainAllGames(from: Int, to: Int, useCache: Bool, completion: ((ServiceCallResult<GamesResponse>) -> Void)?) {
-        guard let token = KeychainWrapper.standard.string(forKey: KeychainKey.token) else {
+        guard let token = KeychainWrapper.standard.string(forKey: KeychainKeys.token) else {
             let error = NSError(domain: "", code: AdditionalErrors.tokenNotFound)
             completion?(ServiceCallResult.serviceFailure(error: error))
             return

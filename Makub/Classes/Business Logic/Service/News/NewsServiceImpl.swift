@@ -54,7 +54,7 @@ final class NewsServiceImpl: NewsService {
     // MARK: - Public Methods
     
     func obtainNews(useCache: Bool, completion: ((ServiceCallResult<NewsResponse>) -> Void)?) {
-        guard let token = KeychainWrapper.standard.string(forKey: KeychainKey.token) else {
+        guard let token = KeychainWrapper.standard.string(forKey: KeychainKeys.token) else {
             let error = NSError(domain: "", code: AdditionalErrors.tokenNotFound)
             completion?(ServiceCallResult.serviceFailure(error: error))
             return
@@ -93,7 +93,7 @@ final class NewsServiceImpl: NewsService {
     }
     
     func addNews(title: String, text: String, completion: ((ServiceCallResult<AddNewsResponse>) -> Void)?) {
-        guard let token = KeychainWrapper.standard.string(forKey: KeychainKey.token) else {
+        guard let token = KeychainWrapper.standard.string(forKey: KeychainKeys.token) else {
             let error = NSError(domain: "", code: AdditionalErrors.tokenNotFound)
             completion?(ServiceCallResult.serviceFailure(error: error))
             return
@@ -125,7 +125,7 @@ final class NewsServiceImpl: NewsService {
     }
     
     func addNewsWithImage(title: String, text: String, image: UIImage, completion: ((ServiceCallResult<AddNewsResponse>) -> Void)?) {
-        guard let token = KeychainWrapper.standard.string(forKey: KeychainKey.token) else {
+        guard let token = KeychainWrapper.standard.string(forKey: KeychainKeys.token) else {
             let error = NSError(domain: "", code: AdditionalErrors.tokenNotFound)
             completion?(ServiceCallResult.serviceFailure(error: error))
             return
@@ -163,7 +163,7 @@ final class NewsServiceImpl: NewsService {
     }
     
     func deleteNews(id: Int, completion: ((ServiceCallResult<DeleteNewsResponse>) -> Void)?) {
-        guard let token = KeychainWrapper.standard.string(forKey: KeychainKey.token) else {
+        guard let token = KeychainWrapper.standard.string(forKey: KeychainKeys.token) else {
             let error = NSError(domain: "", code: AdditionalErrors.tokenNotFound)
             completion?(ServiceCallResult.serviceFailure(error: error))
             return

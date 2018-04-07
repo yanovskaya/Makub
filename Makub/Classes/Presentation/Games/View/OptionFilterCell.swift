@@ -10,14 +10,8 @@ import UIKit
 
 final class OptionFilterCell: UITableViewCell {
     
-    // MARK: - Constants
-    
-    private enum Constants {
-        static let circleImage = "circle"
-    }
-    
     @IBOutlet private var containerView: UIView!
-    @IBOutlet var titleLabel: NSLayoutConstraint!
+    @IBOutlet var titleLabel: UILabel!
     @IBOutlet var circleImageView: UIImageView!
     
     var initialImage: UIImage!
@@ -29,6 +23,12 @@ final class OptionFilterCell: UITableViewCell {
         initialImage = UIImage(color: .white, size: CGSize(width: 50, height: 50))?.drawEmptyCircle()
         
         circleImageView.image = initialImage
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        circleImageView.image = nil
+        //titleLabel.text = nil
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
