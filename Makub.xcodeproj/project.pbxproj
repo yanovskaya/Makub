@@ -61,6 +61,7 @@
 		C45AC9622066656100F9947F /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45AC9612066656100F9947F /* UserViewModel.swift */; };
 		C45AC967206671AF00F9947F /* NewsPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45AC966206671AF00F9947F /* NewsPresentationModel.swift */; };
 		C46318682079422F00E14DAC /* NSObject+Fill.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46318672079422F00E14DAC /* NSObject+Fill.swift */; };
+		C463186A207944AD00E14DAC /* UIImage+DrawCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4631869207944AD00E14DAC /* UIImage+DrawCircle.swift */; };
 		C472A6BF205B16D500768585 /* PresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472A6BE205B16D500768585 /* PresentationModel.swift */; };
 		C472A6C3205B174000768585 /* AuthPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472A6C2205B174000768585 /* AuthPresentationModel.swift */; };
 		C472A6C8205C4D5300768585 /* String+RemoveWhitespaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472A6C7205C4D5300768585 /* String+RemoveWhitespaces.swift */; };
@@ -156,6 +157,7 @@
 		C45AC9612066656100F9947F /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		C45AC966206671AF00F9947F /* NewsPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsPresentationModel.swift; sourceTree = "<group>"; };
 		C46318672079422F00E14DAC /* NSObject+Fill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Fill.swift"; sourceTree = "<group>"; };
+		C4631869207944AD00E14DAC /* UIImage+DrawCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+DrawCircle.swift"; sourceTree = "<group>"; };
 		C472A6BE205B16D500768585 /* PresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationModel.swift; sourceTree = "<group>"; };
 		C472A6C2205B174000768585 /* AuthPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPresentationModel.swift; sourceTree = "<group>"; };
 		C472A6C7205C4D5300768585 /* String+RemoveWhitespaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+RemoveWhitespaces.swift"; sourceTree = "<group>"; };
@@ -702,6 +704,7 @@
 				C4C259B92078DF4800C0CDD4 /* FilterOptionsParser.swift */,
 				C49EF4C720790E2800906664 /* NSDictionary+Parse.swift */,
 				C46318672079422F00E14DAC /* NSObject+Fill.swift */,
+				C4631869207944AD00E14DAC /* UIImage+DrawCircle.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -972,6 +975,7 @@
 				C4C259BA2078DF4800C0CDD4 /* FilterOptionsParser.swift in Sources */,
 				C472A6D3205C7E8000768585 /* StoryboardTitle.swift in Sources */,
 				C4D4E4FC20618E8F000A9216 /* NewsViewController.swift in Sources */,
+				C463186A207944AD00E14DAC /* UIImage+DrawCircle.swift in Sources */,
 				C41B3C342072640100A2B652 /* Club.swift in Sources */,
 				C4C259B22078CCB800C0CDD4 /* TitleFilterCell.swift in Sources */,
 			);

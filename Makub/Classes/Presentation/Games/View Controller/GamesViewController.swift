@@ -64,6 +64,11 @@ final class GamesViewController: UIViewController {
         tabBarController?.delegate = self
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        HUD.hide()
+    }
+    
     // MARK: - Private Methods
     
     private func bindEventsObtainGames() {

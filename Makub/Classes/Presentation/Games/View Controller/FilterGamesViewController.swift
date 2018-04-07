@@ -59,7 +59,7 @@ extension FilterGamesViewController: UITableViewDataSource {
     }
     
     func numberOfElementsInSection(_ section: Int, allElementsToShow: Bool = false) -> Int {
-        if oppenedCategories.index(of: section) != nil || allElementsToShow  {
+        if oppenedCategories.index(of: section) != nil || allElementsToShow {
             return filterOptions[section].options.count + 2
         }
         return 1
@@ -76,13 +76,14 @@ extension FilterGamesViewController: UITableViewDataSource {
     }
     
     func titleCell(_ tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.titleCellId, for: indexPath) as! TitleFilterCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.titleCellId, for: indexPath) as? TitleFilterCell else { return UITableViewCell() }
         cell.selectionStyle = .none
         return cell
     }
     
     func optionCell(_ tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: Constants.optionCellId, for: indexPath) as! OptionFilterCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.optionCellId, for: indexPath) as? OptionFilterCell else { return UITableViewCell() }
+        cell.selectionStyle = .none
         return cell
     }
     
@@ -93,27 +94,29 @@ extension FilterGamesViewController: UITableViewDataSource {
 extension FilterGamesViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let titleCell = tableView.cellForRow(at: indexPath) as? TitleFilterCell else { return }
-        
-        tableView.beginUpdates()
-        tableView.deselectRow(at: indexPath, animated: true)
-        
-        var indexPathes: [IndexPath] = []
-        for index in 1..<numberOfElementsInSection(indexPath.section, allElementsToShow: true) {
-            indexPathes.append(IndexPath(row: index, section: indexPath.section))
-        }
-        
-        if let index = oppenedCategories.index(of: indexPath.section) {
-            oppenedCategories.remove(at: index)
-            tableView.deleteRows(at: indexPathes, with: UITableViewRowAnimation.fade)
-            titleCell.setOpened(false)
+        if indexPath.row == 0 {
+            guard let titleCell = tableView.cellForRow(at: indexPath) as? TitleFilterCell else { return }
+            tableView.beginUpdates()
+            tableView.deselectRow(at: indexPath, animated: true)
+            
+            var indexPathes: [IndexPath] = []
+            for index in 1..<numberOfElementsInSection(indexPath.section, allElementsToShow: true) {
+                indexPathes.append(IndexPath(row: index, section: indexPath.section))
+            }
+            
+            if let index = oppenedCategories.index(of: indexPath.section) {
+                oppenedCategories.remove(at: index)
+                tableView.deleteRows(at: indexPathes, with: UITableViewRowAnimation.fade)
+            } else {
+                oppenedCategories.append(indexPath.section)
+                tableView.insertRows(at: indexPathes, with: UITableViewRowAnimation.fade)
+            }
+            titleCell.setOpened()
+            tableView.endUpdates()
         } else {
-            oppenedCategories.append(indexPath.section)
-            tableView.insertRows(at: indexPathes, with: UITableViewRowAnimation.fade)
-            titleCell.setOpened(true)
+            guard let optionCell = tableView.cellForRow(at: indexPath) as? OptionFilterCell else { return }
+            optionCell.setChosen()
         }
-        
-        tableView.endUpdates()
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

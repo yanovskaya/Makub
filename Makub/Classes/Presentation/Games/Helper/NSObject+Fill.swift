@@ -9,7 +9,7 @@
 import Foundation.NSObject
 
 extension NSObject {
-    func fill<T>(_ action: (T!) -> ()) -> T! {
+    func fill<T>(_ action: (T) -> Void) -> T! {
         return self as! T
     }
 }

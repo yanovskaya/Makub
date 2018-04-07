@@ -26,7 +26,6 @@ final class TitleFilterCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        isUserInteractionEnabled = true
         
         arrowImageView.image = UIImage(named: Constants.arrowImage)?.withRenderingMode(.alwaysTemplate)
         arrowImageView.tintColor = PaletteColors.darkGray
@@ -34,19 +33,19 @@ final class TitleFilterCell: UITableViewCell {
         lineView.backgroundColor = .clear
     }
     
-    private var opened: Bool!
+    private var opened = false
     
-    func setOpened(_ opened: Bool) {
-        self.opened = opened
+    func setOpened() {
+        opened = !opened
         
         changeLineView()
         UIView.animate(withDuration: 0.25, animations: { () -> Void in
-            self.rotateAction(opened)
+            self.rotateAction()
         })
     }
     
     
-    private func rotateAction(_ opened: Bool) {
+    private func rotateAction() {
         if opened {
             arrowImageView.transform = CGAffineTransform(rotationAngle: CGFloat(-Double.pi / 2))
         } else {
