@@ -89,15 +89,26 @@
                                     <navigationItem title="Title" id="06Y-32-m4r"/>
                                 </items>
                             </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cg2-UJ-pZx">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="cg2-UJ-pZx" firstAttribute="top" secondItem="kJ1-yb-PaQ" secondAttribute="bottom" id="6k9-Z5-VMG"/>
+                            <constraint firstItem="cg2-UJ-pZx" firstAttribute="leading" secondItem="nqj-g2-6If" secondAttribute="leading" id="D8M-SQ-fGt"/>
                             <constraint firstItem="kJ1-yb-PaQ" firstAttribute="trailing" secondItem="nqj-g2-6If" secondAttribute="trailing" id="IxP-jc-Zzx"/>
+                            <constraint firstItem="nqj-g2-6If" firstAttribute="bottom" secondItem="cg2-UJ-pZx" secondAttribute="bottom" id="aUX-Pq-sJj"/>
                             <constraint firstItem="kJ1-yb-PaQ" firstAttribute="leading" secondItem="nqj-g2-6If" secondAttribute="leading" id="fiQ-Pl-dsL"/>
                             <constraint firstItem="kJ1-yb-PaQ" firstAttribute="top" secondItem="nqj-g2-6If" secondAttribute="top" id="tjd-AA-CPY"/>
+                            <constraint firstItem="nqj-g2-6If" firstAttribute="trailing" secondItem="cg2-UJ-pZx" secondAttribute="trailing" id="vTN-oi-jGc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nqj-g2-6If"/>
                     </view>
+                    <connections>
+                        <outlet property="filterTableView" destination="cg2-UJ-pZx" id="RdH-Q5-s9m"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ww1-rF-JG5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

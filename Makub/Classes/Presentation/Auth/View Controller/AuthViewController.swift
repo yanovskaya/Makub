@@ -147,8 +147,8 @@ final class AuthViewController: UIViewController {
     
     @objc private func editingChanged() {
         guard
-            let username = usernameTextField.text, username.count > 2,
-            let password = passwordTextField.text, password.count > 2
+            let username = usernameTextField.text?.removeWhitespaces(), username.count > 2,
+            let password = passwordTextField.text?.removeWhitespaces(), password.count > 2
             else {
                 loginButton.isEnabled = false
                 return
@@ -156,7 +156,7 @@ final class AuthViewController: UIViewController {
         loginButton.isEnabled = true
     }
     
-    // MARK: - IBAction
+    // MARK: - IBActions
     
     @IBAction private func loginButtonTapped(_ sender: Any) {
         guard let username = usernameTextField.text?.removeWhitespaces(),
