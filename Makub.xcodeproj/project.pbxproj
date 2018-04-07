@@ -60,6 +60,7 @@
 		C4556B95205EC04D00D65DBD /* UIImage+ImageWithInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4556B94205EC04D00D65DBD /* UIImage+ImageWithInsets.swift */; };
 		C45AC9622066656100F9947F /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45AC9612066656100F9947F /* UserViewModel.swift */; };
 		C45AC967206671AF00F9947F /* NewsPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45AC966206671AF00F9947F /* NewsPresentationModel.swift */; };
+		C46318682079422F00E14DAC /* NSObject+Fill.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46318672079422F00E14DAC /* NSObject+Fill.swift */; };
 		C472A6BF205B16D500768585 /* PresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472A6BE205B16D500768585 /* PresentationModel.swift */; };
 		C472A6C3205B174000768585 /* AuthPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472A6C2205B174000768585 /* AuthPresentationModel.swift */; };
 		C472A6C8205C4D5300768585 /* String+RemoveWhitespaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472A6C7205C4D5300768585 /* String+RemoveWhitespaces.swift */; };
@@ -154,6 +155,7 @@
 		C4556B94205EC04D00D65DBD /* UIImage+ImageWithInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+ImageWithInsets.swift"; sourceTree = "<group>"; };
 		C45AC9612066656100F9947F /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		C45AC966206671AF00F9947F /* NewsPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsPresentationModel.swift; sourceTree = "<group>"; };
+		C46318672079422F00E14DAC /* NSObject+Fill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Fill.swift"; sourceTree = "<group>"; };
 		C472A6BE205B16D500768585 /* PresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationModel.swift; sourceTree = "<group>"; };
 		C472A6C2205B174000768585 /* AuthPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPresentationModel.swift; sourceTree = "<group>"; };
 		C472A6C7205C4D5300768585 /* String+RemoveWhitespaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+RemoveWhitespaces.swift"; sourceTree = "<group>"; };
@@ -699,6 +701,7 @@
 			children = (
 				C4C259B92078DF4800C0CDD4 /* FilterOptionsParser.swift */,
 				C49EF4C720790E2800906664 /* NSDictionary+Parse.swift */,
+				C46318672079422F00E14DAC /* NSObject+Fill.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -923,6 +926,7 @@
 				C472A6C3205B174000768585 /* AuthPresentationModel.swift in Sources */,
 				C4C259AE2078242400C0CDD4 /* UserIndicator.swift in Sources */,
 				C41B3CEC2072F63900A2B652 /* UserServiceImpl.swift in Sources */,
+				C46318682079422F00E14DAC /* NSObject+Fill.swift in Sources */,
 				C4556B95205EC04D00D65DBD /* UIImage+ImageWithInsets.swift in Sources */,
 				C41B3CF52072F6E600A2B652 /* GamesService.swift in Sources */,
 				C44D60D5205806BB00A5C50F /* Colors.swift in Sources */,

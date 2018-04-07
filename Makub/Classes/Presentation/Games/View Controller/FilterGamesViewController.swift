@@ -32,11 +32,17 @@ final class FilterGamesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = PaletteColors.blueBackground
         
         filterTableView.register(UINib(nibName: Constants.titleCellId, bundle: nil), forCellReuseIdentifier: Constants.titleCellId)
         filterTableView.register(UINib(nibName: Constants.optionCellId, bundle: nil), forCellReuseIdentifier: Constants.optionCellId)
         filterTableView.dataSource = self
         filterTableView.delegate = self
+        filterTableView.backgroundColor = .clear
+        filterTableView.tableFooterView = UIView()
+        filterTableView.separatorStyle = .none
+        filterTableView.rowHeight = UITableViewAutomaticDimension
+        filterTableView.alwaysBounceVertical = false
     }
 }
 
@@ -54,7 +60,6 @@ extension FilterGamesViewController: UITableViewDataSource {
     
     func numberOfElementsInSection(_ section: Int, allElementsToShow: Bool = false) -> Int {
         if oppenedCategories.index(of: section) != nil || allElementsToShow  {
-           // print(oppenedCategories)
             return filterOptions[section].options.count + 2
         }
         return 1
@@ -72,6 +77,7 @@ extension FilterGamesViewController: UITableViewDataSource {
     
     func titleCell(_ tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.titleCellId, for: indexPath) as! TitleFilterCell
+        cell.selectionStyle = .none
         return cell
     }
     
@@ -85,7 +91,10 @@ extension FilterGamesViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 
 extension FilterGamesViewController: UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let titleCell = tableView.cellForRow(at: indexPath) as? TitleFilterCell else { return }
+        
         tableView.beginUpdates()
         tableView.deselectRow(at: indexPath, animated: true)
         
@@ -97,12 +106,22 @@ extension FilterGamesViewController: UITableViewDelegate {
         if let index = oppenedCategories.index(of: indexPath.section) {
             oppenedCategories.remove(at: index)
             tableView.deleteRows(at: indexPathes, with: UITableViewRowAnimation.fade)
+            titleCell.setOpened(false)
         } else {
             oppenedCategories.append(indexPath.section)
             tableView.insertRows(at: indexPathes, with: UITableViewRowAnimation.fade)
+            titleCell.setOpened(true)
         }
         
         tableView.endUpdates()
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return UIView().fill { $0.backgroundColor = PaletteColors.blueBackground }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 10
     }
     
 }
