@@ -10,11 +10,17 @@ import Foundation
 
 final class FilterPresentationModel {
     
+    // MARK: - Public Properties
+    
     var viewModels: [FilterViewModel]!
+    
+    // MARK: - Initialization
     
     init() {
         obtainFilterOptions()
     }
+    
+    // MARK: - Private Methods
     
     private func obtainFilterOptions() {
         var model = [Filter]()

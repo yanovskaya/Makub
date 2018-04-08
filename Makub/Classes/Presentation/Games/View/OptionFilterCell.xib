@@ -55,7 +55,6 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
                 <outlet property="circleImageView" destination="rCK-bz-gbK" id="FLM-O3-3bY"/>
-                <outlet property="containerView" destination="0AU-Ho-VGC" id="8VK-2l-zuF"/>
                 <outlet property="titleLabel" destination="I0k-Fs-h9r" id="6Ts-hm-a0g"/>
             </connections>
             <point key="canvasLocation" x="33.5" y="380.5"/>

@@ -14,6 +14,8 @@ final class FilterViewModel {
     
     let filter: Filter
     
+    // MARK: - Initialization
+    
     init(_ filter: Filter) {
         self.filter = filter
     }

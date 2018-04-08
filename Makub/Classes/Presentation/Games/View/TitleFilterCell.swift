@@ -16,21 +16,25 @@ final class TitleFilterCell: UITableViewCell {
         static let arrowImage = "down_arrow"
     }
 
-    @IBOutlet private var containerView: UIView!
-    @IBOutlet var arrowImageView: UIImageView!
-    @IBOutlet var titleLabel: UILabel!
+    // MARK: - IBOutlets
     
-    @IBOutlet var optionSetLabel: UILabel!
+    @IBOutlet private var optionSetLabel: UILabel!
+
+    @IBOutlet private var arrowImageView: UIImageView!
+    @IBOutlet private var titleLabel: UILabel!
+    @IBOutlet private var lineView: UIView!
     
-    @IBOutlet var lineView: UIView!
+    // MARK: - Private Property
+    
+    private var opened = false
+    
+    // MARK: - View lifecycle
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        arrowImageView.image = UIImage(named: Constants.arrowImage)?.withRenderingMode(.alwaysTemplate)
-        arrowImageView.tintColor = PaletteColors.darkGray
-        arrowImageView.contentMode = .scaleAspectFit
         lineView.backgroundColor = .clear
+        configureImageView()
     }
     
     // MARK: - Prepare for Reuse
@@ -40,7 +44,7 @@ final class TitleFilterCell: UITableViewCell {
         //titleLabel.text = nil
     }
     
-    private var opened = false
+    // MARK: - Public Methods
     
     func setOpened() {
         opened = !opened
@@ -51,6 +55,13 @@ final class TitleFilterCell: UITableViewCell {
         })
     }
     
+    // MARK: - Private Methods
+    
+    private func configureImageView() {
+        arrowImageView.image = UIImage(named: Constants.arrowImage)?.withRenderingMode(.alwaysTemplate)
+        arrowImageView.tintColor = PaletteColors.darkGray
+        arrowImageView.contentMode = .scaleAspectFit
+    }
     
     private func rotateAction() {
         if opened {
@@ -59,6 +70,8 @@ final class TitleFilterCell: UITableViewCell {
             arrowImageView.transform = CGAffineTransform(rotationAngle: CGFloat(0))
         }
     }
+    
+    // MARK: - Private Methods
     
     private func changeLineView() {
         if opened {

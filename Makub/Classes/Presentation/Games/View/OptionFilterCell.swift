@@ -10,33 +10,32 @@ import UIKit
 
 final class OptionFilterCell: UITableViewCell {
     
-    @IBOutlet private var containerView: UIView!
-    @IBOutlet var titleLabel: UILabel!
-    @IBOutlet var circleImageView: UIImageView!
+    // MARK: - IBOutlets
+
+    @IBOutlet private var titleLabel: UILabel!
+    @IBOutlet private var circleImageView: UIImageView!
     
-    var initialImage: UIImage!
+    // MARK: - Private Property
+    
+    private var initialImage: UIImage!
+    private var chosen = false
+    
+    // MARK: - View lifecycle
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        circleImageView.contentMode = .scaleAspectFit
-        initialImage = UIImage(color: .white, size: CGSize(width: 50, height: 50))?.drawEmptyCircle()
-        
-        circleImageView.image = initialImage
+        configureImageView()
     }
+    
+    // MARK: - Prepare for Reuse
     
     override func prepareForReuse() {
         super.prepareForReuse()
         circleImageView.image = nil
     }
     
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
-        // Configure the view for the selected state
-    }
-    
-    private var chosen = false
+    // MARK: - Public Methods
     
     func setChosen(chosen: Bool, animated: Bool = true) {
         self.chosen = chosen
@@ -48,6 +47,14 @@ final class OptionFilterCell: UITableViewCell {
                    animations: { self.chooseAction() })
     }
     
+    // MARK: - Private Methods
+    
+    private func configureImageView() {
+        circleImageView.contentMode = .scaleAspectFit
+        initialImage = UIImage(color: .white, size: CGSize(width: 50, height: 50))?.drawEmptyCircle()
+        
+        circleImageView.image = initialImage
+    }
     
     private func chooseAction() {
         if chosen {

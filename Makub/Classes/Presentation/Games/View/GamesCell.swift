@@ -18,6 +18,11 @@ final class GamesCell: UICollectionViewCell, ViewModelConfigurable {
         static let videoImage = "video"
     }
 
+    private enum SizeConstants {
+        static let photoWidth: CGFloat = 90
+        static let photoHeight: CGFloat = 90
+    }
+    
     // MARK: - IBOutlets
     
     @IBOutlet private var stageLabel: UILabel!
@@ -31,10 +36,9 @@ final class GamesCell: UICollectionViewCell, ViewModelConfigurable {
     @IBOutlet private var score1Label: UILabel!
     @IBOutlet private var score2Label: UILabel!
     
-    @IBOutlet var widthVideoImageView: NSLayoutConstraint!
-    @IBOutlet var leadingVideoImageView: NSLayoutConstraint!
-    
-    @IBOutlet var centerVideoImageView: NSLayoutConstraint!
+    @IBOutlet private var widthVideoImageView: NSLayoutConstraint!
+    @IBOutlet private var leadingVideoImageView: NSLayoutConstraint!
+    @IBOutlet private var centerVideoImageView: NSLayoutConstraint!
     
     // MARK: - Private Property
     
@@ -61,11 +65,6 @@ final class GamesCell: UICollectionViewCell, ViewModelConfigurable {
         
         photo2ImageView.clipsToBounds = true
         photo2ImageView.layer.cornerRadius = photo2ImageView.frame.width / 2
-    }
-    
-    private enum SizeConstants {
-        static let photoWidth: CGFloat = 90
-        static let photoHeight: CGFloat = 90
     }
     
     // MARK: - Prepare for Reuse

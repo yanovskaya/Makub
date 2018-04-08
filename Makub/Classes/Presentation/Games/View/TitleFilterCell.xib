@@ -73,7 +73,6 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
                 <outlet property="arrowImageView" destination="3WI-eQ-6TO" id="bGI-Dw-ORv"/>
-                <outlet property="containerView" destination="Aqn-Q1-Cg4" id="YHB-r3-usf"/>
                 <outlet property="lineView" destination="wbp-fC-uAq" id="s1W-o4-nab"/>
                 <outlet property="optionSetLabel" destination="Rfw-8z-Qaq" id="LFs-ia-9d0"/>
                 <outlet property="titleLabel" destination="ISu-zh-jZB" id="d82-qn-Kfq"/>

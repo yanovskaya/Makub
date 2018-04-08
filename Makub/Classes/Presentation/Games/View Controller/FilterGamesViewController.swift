@@ -23,7 +23,7 @@ final class FilterGamesViewController: UIViewController {
     
     @IBOutlet private var filterTableView: UITableView!
     
-        // MARK: - Private Properties
+    // MARK: - Private Properties
     
     private let presentationModel = FilterPresentationModel()
     
@@ -34,12 +34,19 @@ final class FilterGamesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = PaletteColors.blueBackground
         
-        filterTableView.register(UINib(nibName: Constants.titleCellId, bundle: nil), forCellReuseIdentifier: Constants.titleCellId)
-        filterTableView.register(UINib(nibName: Constants.optionCellId, bundle: nil), forCellReuseIdentifier: Constants.optionCellId)
+        view.backgroundColor = PaletteColors.blueBackground
+        configureTableView()
+    }
+    
+    // MARK: - Private Methods
+    
+    private func configureTableView() {
         filterTableView.dataSource = self
         filterTableView.delegate = self
+        filterTableView.register(UINib(nibName: Constants.titleCellId, bundle: nil), forCellReuseIdentifier: Constants.titleCellId)
+        filterTableView.register(UINib(nibName: Constants.optionCellId, bundle: nil), forCellReuseIdentifier: Constants.optionCellId)
+        
         filterTableView.backgroundColor = .clear
         filterTableView.tableFooterView = UIView()
         filterTableView.separatorStyle = .none
@@ -51,6 +58,8 @@ final class FilterGamesViewController: UIViewController {
 // MARK: - UITableViewDataSource
 
 extension FilterGamesViewController: UITableViewDataSource {
+    
+    // MARK: - Public Methods
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return presentationModel.viewModels.count
@@ -67,7 +76,6 @@ extension FilterGamesViewController: UITableViewDataSource {
         return 1
     }
     
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.row {
         case 0:
@@ -77,13 +85,15 @@ extension FilterGamesViewController: UITableViewDataSource {
         }
     }
     
-    func titleCell(_ tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {
+    // MARK: - Private Methods
+    
+    private func titleCell(_ tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {
         guard let titleCell = tableView.dequeueReusableCell(withIdentifier: Constants.titleCellId, for: indexPath) as? TitleFilterCell else { return UITableViewCell() }
         titleCell.selectionStyle = .none
         return titleCell
     }
     
-    func optionCell(_ tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {
+    private func optionCell(_ tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {
         guard let optionCell = tableView.dequeueReusableCell(withIdentifier: Constants.optionCellId, for: indexPath) as? OptionFilterCell else { return UITableViewCell() }
         optionCell.selectionStyle = .none
         if chosenOptions.index(of: indexPath) != nil {
@@ -100,37 +110,17 @@ extension FilterGamesViewController: UITableViewDataSource {
 
 extension FilterGamesViewController: UITableViewDelegate {
     
+    // MARK: - Public Methods
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
-            guard let titleCell = tableView.cellForRow(at: indexPath) as? TitleFilterCell else { return }
-            tableView.beginUpdates()
-            tableView.deselectRow(at: indexPath, animated: true)
-            
-            var indexPathes: [IndexPath] = []
-            for index in 1..<numberOfElementsInSection(indexPath.section, allElementsToShow: true) {
-                indexPathes.append(IndexPath(row: index, section: indexPath.section))
-            }
-            
-            if let index = oppenedCategories.index(of: indexPath.section) {
-                oppenedCategories.remove(at: index)
-                tableView.deleteRows(at: indexPathes, with: UITableViewRowAnimation.fade)
-            } else {
-                oppenedCategories.append(indexPath.section)
-                tableView.insertRows(at: indexPathes, with: UITableViewRowAnimation.fade)
-            }
-            titleCell.setOpened()
-            tableView.endUpdates()
+            titleCell(tableView, didSelectRowAt: indexPath)
         } else {
-            guard let optionCell = tableView.cellForRow(at: indexPath) as? OptionFilterCell else { return }
-            if let index = chosenOptions.index(of: indexPath) {
-                optionCell.setChosen(chosen: false)
-                chosenOptions.remove(at: index)
-            } else {
-                optionCell.setChosen(chosen: true)
-                chosenOptions.append(indexPath)
-            }
+            optionCell(tableView, didSelectRowAt: indexPath)
         }
     }
+    
+    // MARK: - Methods for Header & Footer
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         return UIView().fill { $0.backgroundColor = PaletteColors.blueBackground }
@@ -150,6 +140,40 @@ extension FilterGamesViewController: UITableViewDelegate {
         if section == presentationModel.viewModels.count - 1 {
             return 10
         } else { return 0 }
+    }
+    
+    // MARK: - Private Methods
+    
+    private func titleCell(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let titleCell = tableView.cellForRow(at: indexPath) as? TitleFilterCell else { return }
+        tableView.beginUpdates()
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        var indexPathes: [IndexPath] = []
+        for index in 1..<numberOfElementsInSection(indexPath.section, allElementsToShow: true) {
+            indexPathes.append(IndexPath(row: index, section: indexPath.section))
+        }
+        
+        if let index = oppenedCategories.index(of: indexPath.section) {
+            oppenedCategories.remove(at: index)
+            tableView.deleteRows(at: indexPathes, with: UITableViewRowAnimation.fade)
+        } else {
+            oppenedCategories.append(indexPath.section)
+            tableView.insertRows(at: indexPathes, with: UITableViewRowAnimation.fade)
+        }
+        titleCell.setOpened()
+        tableView.endUpdates()
+    }
+    
+    private func optionCell(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let optionCell = tableView.cellForRow(at: indexPath) as? OptionFilterCell else { return }
+        if let index = chosenOptions.index(of: indexPath) {
+            optionCell.setChosen(chosen: false)
+            chosenOptions.remove(at: index)
+        } else {
+            optionCell.setChosen(chosen: true)
+            chosenOptions.append(indexPath)
+        }
     }
     
 }
