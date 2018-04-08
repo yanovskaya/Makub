@@ -29,6 +29,7 @@ final class FilterGamesViewController: UIViewController {
     
     private var oppenedCategories: [Int] = []
     private var chosenOptions: [IndexPath] = []
+    private var selectedOptionsInSection = [Int: Int]()
     
     // MARK: - ViewController lifecycle
     
@@ -71,7 +72,7 @@ extension FilterGamesViewController: UITableViewDataSource {
     
     func numberOfElementsInSection(_ section: Int, allElementsToShow: Bool = false) -> Int {
         if oppenedCategories.index(of: section) != nil || allElementsToShow {
-            return presentationModel.viewModels[section].filter.options.count + 2
+            return presentationModel.viewModels[section].options.count + 1
         }
         return 1
     }
@@ -90,6 +91,14 @@ extension FilterGamesViewController: UITableViewDataSource {
     private func titleCell(_ tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {
         guard let titleCell = tableView.dequeueReusableCell(withIdentifier: Constants.titleCellId, for: indexPath) as? TitleFilterCell else { return UITableViewCell() }
         titleCell.selectionStyle = .none
+        let viewModel = presentationModel.viewModels[indexPath.section]
+        titleCell.configure(for: viewModel)
+        
+        if let count = selectedOptionsInSection[indexPath.section] {
+            titleCell.configureDescription(with: count)
+        } else {
+            titleCell.configureDescription(with: 0)
+        }
         return titleCell
     }
     
@@ -101,6 +110,8 @@ extension FilterGamesViewController: UITableViewDataSource {
         } else {
             optionCell.setChosen(chosen: false, animated: false)
         }
+        let viewModel = presentationModel.viewModels[indexPath.section].options[indexPath.row - 1]
+        optionCell.configure(for: viewModel)
         return optionCell
     }
     
@@ -168,12 +179,22 @@ extension FilterGamesViewController: UITableViewDelegate {
     private func optionCell(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let optionCell = tableView.cellForRow(at: indexPath) as? OptionFilterCell else { return }
         if let index = chosenOptions.index(of: indexPath) {
+            if let count = selectedOptionsInSection[indexPath.section] {
+                selectedOptionsInSection[indexPath.section] = count - 1
+            }
             optionCell.setChosen(chosen: false)
             chosenOptions.remove(at: index)
         } else {
+            if let count = selectedOptionsInSection[indexPath.section] {
+                selectedOptionsInSection[indexPath.section] = count + 1
+            } else {
+                selectedOptionsInSection[indexPath.section] = 1
+            }
             optionCell.setChosen(chosen: true)
             chosenOptions.append(indexPath)
         }
+        let indexPath = IndexPath(item: 0, section: indexPath.section)
+        tableView.reloadRows(at: [indexPath], with: .none)
     }
     
 }

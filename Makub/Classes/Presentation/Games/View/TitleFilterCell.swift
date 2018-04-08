@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class TitleFilterCell: UITableViewCell {
+final class TitleFilterCell: UITableViewCell, ViewModelConfigurable {
     
     // MARK: - Constants
     
@@ -18,7 +18,7 @@ final class TitleFilterCell: UITableViewCell {
 
     // MARK: - IBOutlets
     
-    @IBOutlet private var optionSetLabel: UILabel!
+    @IBOutlet private var descriptionLabel: UILabel!
 
     @IBOutlet private var arrowImageView: UIImageView!
     @IBOutlet private var titleLabel: UILabel!
@@ -41,10 +41,24 @@ final class TitleFilterCell: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        //titleLabel.text = nil
+        titleLabel.text = nil
+        descriptionLabel.text = nil
     }
     
     // MARK: - Public Methods
+    
+    func configure(for viewModel: FilterViewModel) {
+        titleLabel.text = viewModel.name
+    }
+    
+    func configureDescription(with count: Int) {
+        print(count)
+        if count > 0 {
+        descriptionLabel.text = String(count)
+        } else {
+            descriptionLabel.text = ""
+        }
+    }
     
     func setOpened() {
         opened = !opened

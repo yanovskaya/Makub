@@ -12,7 +12,7 @@ final class OptionFilterCell: UITableViewCell {
     
     // MARK: - IBOutlets
 
-    @IBOutlet private var titleLabel: UILabel!
+    @IBOutlet private var optionLabel: UILabel!
     @IBOutlet private var circleImageView: UIImageView!
     
     // MARK: - Private Property
@@ -33,6 +33,7 @@ final class OptionFilterCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         circleImageView.image = nil
+        optionLabel.text = nil
     }
     
     // MARK: - Public Methods
@@ -45,6 +46,10 @@ final class OptionFilterCell: UITableViewCell {
                    duration: duration,
                    options: .transitionCrossDissolve,
                    animations: { self.chooseAction() })
+    }
+    
+    func configure(for option: String) {
+        optionLabel.text = option
     }
     
     // MARK: - Private Methods

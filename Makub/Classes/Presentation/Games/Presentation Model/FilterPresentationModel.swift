@@ -31,7 +31,7 @@ final class FilterPresentationModel {
             model.append(entity)
         }
         
-        let optionsDictionary: NSDictionary = ["name": "Клуб", "options": ["Stylery", "Your Mom", "", "", "", ""]]
+        let optionsDictionary: NSDictionary = ["name": "Клуб", "options": ["Stylery", "Your Mom"]]
         let optionsEntity = Filter(info: optionsDictionary)
         model.append(optionsEntity)
         viewModels = model.compactMap { FilterViewModel($0) }

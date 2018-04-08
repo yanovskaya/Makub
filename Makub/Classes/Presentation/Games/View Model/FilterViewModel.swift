@@ -12,12 +12,14 @@ final class FilterViewModel {
     
     // MARK: - Public Properties
     
-    let filter: Filter
+    let name: String
+    let options: [String]
     
     // MARK: - Initialization
     
     init(_ filter: Filter) {
-        self.filter = filter
+        name = filter.name
+        options = filter.options
     }
     
 }
