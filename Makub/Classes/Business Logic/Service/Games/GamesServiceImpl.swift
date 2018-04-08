@@ -33,7 +33,7 @@ final class GamesServiceImpl: GamesService {
     private let sessionManager: SessionManager
     private let transport: Transport
     private let parser = Parser<GamesResponse>()
-    private let realmCache = RealmCache<Games>()
+    private let realmCache = RealmCache<Game>()
     
     // MARK: - Initialization
     

@@ -1,5 +1,5 @@
 //
-//  Games.swift
+//  Game.swift
 //  Makub
 //
 //  Created by Елена Яновская on 02.04.2018.
@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-final class Games: Object, Decodable {
+final class Game: Object, Decodable {
     
     @objc dynamic var id: String! = nil
     @objc dynamic var score1: String! = nil

@@ -10,6 +10,6 @@ import Foundation
 
 struct GamesResponse: Decodable {
     
-    let games: [Games]!
+    let games: [Game]!
     let error: Int
 }

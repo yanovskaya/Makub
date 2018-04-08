@@ -25,9 +25,10 @@ final class FilterGamesViewController: UIViewController {
     
         // MARK: - Private Properties
     
-    private let filterOptions = FilterOptionsParser.filterOptions
+    private let presentationModel = FilterPresentationModel()
+    
     private var oppenedCategories: [Int] = []
-    private var chosenOptions : [IndexPath] = []
+    private var chosenOptions: [IndexPath] = []
     
     // MARK: - ViewController lifecycle
     
@@ -52,7 +53,7 @@ final class FilterGamesViewController: UIViewController {
 extension FilterGamesViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return filterOptions.count
+        return presentationModel.viewModels.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -61,7 +62,7 @@ extension FilterGamesViewController: UITableViewDataSource {
     
     func numberOfElementsInSection(_ section: Int, allElementsToShow: Bool = false) -> Int {
         if oppenedCategories.index(of: section) != nil || allElementsToShow {
-            return filterOptions[section].options.count + 2
+            return presentationModel.viewModels[section].filter.options.count + 2
         }
         return 1
     }
@@ -137,6 +138,18 @@ extension FilterGamesViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 10
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        if section == presentationModel.viewModels.count - 1 {
+            return UIView().fill { $0.backgroundColor = PaletteColors.blueBackground }
+        } else { return nil }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        if section == presentationModel.viewModels.count - 1 {
+            return 10
+        } else { return 0 }
     }
     
 }
