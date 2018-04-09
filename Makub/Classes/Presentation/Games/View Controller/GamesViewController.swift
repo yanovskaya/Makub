@@ -10,7 +10,8 @@ import PKHUD
 import UIKit
 import UILoadControl
 
-final class GamesViewController: UIViewController {
+final class GamesViewController: UIViewController, FilterGamesViewControllerDelegate {
+    
     
     // MARK: - Constants
     
@@ -67,6 +68,11 @@ final class GamesViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         HUD.hide()
+    }
+    
+    func filterAllGamesViewModels(viewModels: [GameViewModel], parameters: [String : [String]]) {
+        presentationModel.filterAllGamesViewModels(viewModels: viewModels, parameters: parameters)
+        gamesCollectionView.reloadData()
     }
     
     // MARK: - Private Methods

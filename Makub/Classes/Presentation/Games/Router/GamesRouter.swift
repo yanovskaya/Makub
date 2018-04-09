@@ -20,6 +20,8 @@ final class GamesRouter {
     /// News -> AddNews.
     func presentFilterGamesVC(source gamesViewController: GamesViewController) {
         let filterGamesViewController = gamesStoryboard.viewController(FilterGamesViewController.self)
+        filterGamesViewController.presentationModel.gamesViewModels = gamesViewController.presentationModel.viewModels
+        filterGamesViewController.delegate = gamesViewController
         gamesViewController.present(filterGamesViewController, animated: true)
     }
 }

@@ -25,14 +25,17 @@ final class GamesServiceImpl: GamesService {
     }
     
     private enum EndPoint {
-        static let allGames = "/all_games"
+        static let games = "/all_games"
+        static let gamesCount = "/all_games_count"
     }
     
     // MARK: - Private Properties
     
     private let sessionManager: SessionManager
     private let transport: Transport
-    private let parser = Parser<GamesResponse>()
+    private let gamesParser = Parser<GamesResponse>()
+    private let countParser = Parser<GamesCountResponse>()
+    
     private let realmCache = RealmCache<Game>()
     
     // MARK: - Initialization
@@ -44,7 +47,7 @@ final class GamesServiceImpl: GamesService {
     
     // MARK: - Public Methods
     
-    func obtainAllGames(from: Int, to: Int, useCache: Bool, completion: ((ServiceCallResult<GamesResponse>) -> Void)?) {
+    func obtainGames(from: Int, to: Int, useCache: Bool, completion: ((ServiceCallResult<GamesResponse>) -> Void)?) {
         guard let token = KeychainWrapper.standard.string(forKey: KeychainKeys.token) else {
             let error = NSError(domain: "", code: AdditionalErrors.tokenNotFound)
             completion?(ServiceCallResult.serviceFailure(error: error))
@@ -53,11 +56,11 @@ final class GamesServiceImpl: GamesService {
         let parameters = [Constants.tokenParameter: token,
                           Constants.fromParameter: from,
                           Constants.toParameter: to] as [String: Any]
-        transport.request(method: .post, url: Constants.baseURL + EndPoint.allGames, parameters: parameters) { [unowned self] transportResult in
+        transport.request(method: .post, url: Constants.baseURL + EndPoint.games, parameters: parameters) { [unowned self] transportResult in
             switch transportResult {
             case .transportSuccess(let payload):
                 let resultBody = payload.resultBody
-                let parseResult = self.parser.parse(from: resultBody)
+                let parseResult = self.gamesParser.parse(from: resultBody)
                 switch parseResult {
                 case .parserSuccess(let model):
                     if model.error == 0 {
@@ -70,16 +73,43 @@ final class GamesServiceImpl: GamesService {
                 case .parserFailure(let error):
                     if useCache {
                         self.obtainRealmCache(error: error, completion: completion)
-                    } else {
-                        completion?(ServiceCallResult.serviceFailure(error: error))
                     }
+                    completion?(ServiceCallResult.serviceFailure(error: error))
                 }
             case .transportFailure(let error):
                 if useCache {
                     self.obtainRealmCache(error: error, completion: completion)
-                } else {
+                }
+                completion?(ServiceCallResult.serviceFailure(error: error))
+            }
+        }
+    }
+    
+    func obtainGamesCount(completion: ((ServiceCallResult<GamesCountResponse>) -> Void)?) {
+        guard let token = KeychainWrapper.standard.string(forKey: KeychainKeys.token) else {
+            let error = NSError(domain: "", code: AdditionalErrors.tokenNotFound)
+            completion?(ServiceCallResult.serviceFailure(error: error))
+            return
+        }
+        let parameters = [Constants.tokenParameter: token]
+        transport.request(method: .post, url: Constants.baseURL + EndPoint.gamesCount, parameters: parameters) { [unowned self] transportResult in
+            switch transportResult {
+            case .transportSuccess(let payload):
+                let resultBody = payload.resultBody
+                let parseResult = self.countParser.parse(from: resultBody)
+                switch parseResult {
+                case .parserSuccess(let model):
+                    if model.error == 0 {
+                        completion?(ServiceCallResult.serviceSuccess(payload: model))
+                    } else {
+                        let error = NSError(domain: "", code: model.error)
+                        completion?(ServiceCallResult.serviceFailure(error: error))
+                    }
+                case .parserFailure(let error):
                     completion?(ServiceCallResult.serviceFailure(error: error))
                 }
+            case .transportFailure(let error):
+                completion?(ServiceCallResult.serviceFailure(error: error))
             }
         }
     }
@@ -97,7 +127,6 @@ final class GamesServiceImpl: GamesService {
         }
     }
     
-    private func obtainStageById() {}
     
     //private func
 }

@@ -6,6 +6,7 @@
 //  Copyright © 2018 Elena Yanovskaya. All rights reserved.
 //
 
+import PKHUD
 import UIKit
 
 final class FilterGamesViewController: UIViewController {
@@ -32,13 +33,20 @@ final class FilterGamesViewController: UIViewController {
     
     @IBOutlet private var filterTableView: UITableView!
     
-    // MARK: - Private Properties
+    // MARK: - Public Properties
     
-    private let presentationModel = FilterPresentationModel()
+    weak var delegate: FilterGamesViewControllerDelegate?
+    let presentationModel = FilterPresentationModel()
+    
+    // MARK: - Private Properties
     
     private var oppenedCategories: [Int] = []
     private var chosenOptions: [IndexPath] = []
-    private var selectedOptionsInSection = [Int: Int]()
+    private var selectedOptionsInSection = [Int: Int]() {
+        didSet {
+            enableDoneButtonItem()
+        }
+    }
     
     // MARK: - ViewController lifecycle
     
@@ -49,10 +57,20 @@ final class FilterGamesViewController: UIViewController {
         configureTableView()
         configureNavigationBar()
         configureNavigationItems()
+        presentationModel.obtainAllGames()
+        bindEvents()
     }
     
     // MARK: - Private Methods
     
+    private func bindEvents() {
+        presentationModel.changeStateHandler = { status in
+            switch status {
+            case .loading, .rich, .error: break
+            }
+        }
+    }
+
     private func configureTableView() {
         navBackgroundView.backgroundColor = .white
         filterTableView.dataSource = self
@@ -96,9 +114,30 @@ final class FilterGamesViewController: UIViewController {
         doneButtonItem.isEnabled = false
     }
     
+    private func enableDoneButtonItem() {
+        for key in selectedOptionsInSection.keys {
+            if let value = selectedOptionsInSection[key],
+                value > 0 {
+                doneButtonItem.isEnabled = true
+                return
+            }
+        }
+        doneButtonItem.isEnabled = false
+    }
+    
+    // MARK: - IBActions
+    
     @IBAction func cancelButtonTapped(_ sender: Any) {
         dismiss(animated: true)
     }
+    
+    
+    @IBAction func doneButtonTapped(_ sender: Any) {
+        delegate?.filterAllGamesViewModels(viewModels: presentationModel.gamesViewModels,
+                                           parameters: presentationModel.prepareFilterConditions(for: chosenOptions))
+        dismiss(animated: true)
+    }
+    
     
 }
 
@@ -109,7 +148,7 @@ extension FilterGamesViewController: UITableViewDataSource {
     // MARK: - Public Methods
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return presentationModel.viewModels.count
+        return presentationModel.filterViewModels.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -118,7 +157,7 @@ extension FilterGamesViewController: UITableViewDataSource {
     
     func numberOfElementsInSection(_ section: Int, allElementsToShow: Bool = false) -> Int {
         if oppenedCategories.index(of: section) != nil || allElementsToShow {
-            return presentationModel.viewModels[section].options.count + 1
+            return presentationModel.filterViewModels[section].options.count + 1
         }
         return 1
     }
@@ -137,7 +176,7 @@ extension FilterGamesViewController: UITableViewDataSource {
     private func titleCell(_ tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {
         guard let titleCell = tableView.dequeueReusableCell(withIdentifier: Constants.titleCellId, for: indexPath) as? TitleFilterCell else { return UITableViewCell() }
         titleCell.selectionStyle = .none
-        let viewModel = presentationModel.viewModels[indexPath.section]
+        let viewModel = presentationModel.filterViewModels[indexPath.section]
         titleCell.configure(for: viewModel)
         
         if let count = selectedOptionsInSection[indexPath.section] {
@@ -156,7 +195,7 @@ extension FilterGamesViewController: UITableViewDataSource {
         } else {
             optionCell.setChosen(chosen: false, animated: false)
         }
-        let viewModel = presentationModel.viewModels[indexPath.section].options[indexPath.row - 1]
+        let viewModel = presentationModel.filterViewModels[indexPath.section].options[indexPath.row - 1]
         optionCell.configure(for: viewModel)
         return optionCell
     }
@@ -188,13 +227,13 @@ extension FilterGamesViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        if section == presentationModel.viewModels.count - 1 {
+        if section == presentationModel.filterViewModels.count - 1 {
             return UIView().fill { $0.backgroundColor = PaletteColors.blueBackground }
         } else { return nil }
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        if section == presentationModel.viewModels.count - 1 {
+        if section == presentationModel.filterViewModels.count - 1 {
             return 10
         } else { return 0 }
     }

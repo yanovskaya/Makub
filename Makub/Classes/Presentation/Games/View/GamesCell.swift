@@ -84,7 +84,7 @@ final class GamesCell: UICollectionViewCell, ViewModelConfigurable {
     
     // MARK: - Public Methods
     
-    func configure(for viewModel: GamesViewModel) {
+    func configure(for viewModel: GameViewModel) {
         firstPlayerWon = viewModel.score1 > viewModel.score2
         typeLabel.text = viewModel.type
         score1Label.text = viewModel.score1

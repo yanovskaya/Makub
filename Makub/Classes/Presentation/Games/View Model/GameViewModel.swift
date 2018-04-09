@@ -1,5 +1,5 @@
 //
-//  GamesViewModel.swift
+//  GameViewModel.swift
 //  Makub
 //
 //  Created by Елена Яновская on 02.04.2018.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class GamesViewModel {
+final class GameViewModel {
     
     // MARK: - Constants
     
