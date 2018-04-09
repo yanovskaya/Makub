@@ -91,11 +91,6 @@
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <items>
                                     <navigationItem title="Title" id="06Y-32-m4r">
-                                        <barButtonItem key="leftBarButtonItem" title="Item" id="69Z-tV-4nu">
-                                            <connections>
-                                                <action selector="cancelButtonTapped:" destination="9XH-FP-7Tz" id="mTL-a4-SOQ"/>
-                                            </connections>
-                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Item" id="wpA-W0-0Io">
                                             <connections>
                                                 <action selector="doneButtonTapped:" destination="9XH-FP-7Tz" id="gFU-Tw-pvj"/>
@@ -126,7 +121,6 @@
                         <viewLayoutGuide key="safeArea" id="nqj-g2-6If"/>
                     </view>
                     <connections>
-                        <outlet property="cancelButtonItem" destination="69Z-tV-4nu" id="fi8-6A-Pl0"/>
                         <outlet property="doneButtonItem" destination="wpA-W0-0Io" id="Ttj-oM-OXQ"/>
                         <outlet property="filterTableView" destination="cg2-UJ-pZx" id="RdH-Q5-s9m"/>
                         <outlet property="navBackgroundView" destination="Vo4-cX-nMO" id="Ewt-D2-B4I"/>

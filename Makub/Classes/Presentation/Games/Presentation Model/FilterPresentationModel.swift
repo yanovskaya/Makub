@@ -28,17 +28,6 @@ final class FilterPresentationModel: PresentationModel {
     
     // MARK: - Public Methods
     
-    func obtainAllGames() {
-        gamesService.obtainGamesCount { result in
-            switch result {
-            case .serviceSuccess(let model):
-                self.obtainGames(count: model!.count)
-            case .serviceFailure:
-                self.obtainGames()
-            }
-        }
-    }
-    
     func prepareFilterConditions(for indexPathArray: [IndexPath]) -> [String: [String]] {
         var dictionary = [String: [String]]()
         for indexPath in indexPathArray {
@@ -68,20 +57,5 @@ final class FilterPresentationModel: PresentationModel {
         let optionsEntity = Filter(info: optionsDictionary)
         model.append(optionsEntity)
         filterViewModels = model.compactMap { FilterViewModel($0) }
-    }
-    
-    private func obtainGames(count: Int = 2000) {
-        state = .loading
-        gamesService.obtainGames(from: 1, to: count, useCache: true) { result in
-            switch result {
-            case .serviceSuccess(let model):
-                guard let model = model else { return }
-                self.gamesViewModels = model.games.compactMap { GameViewModel($0) }
-                self.state = .rich
-            case .serviceFailure(let error): break
-                //self.state = .error(code: error.code)
-                
-            }
-        }
     }
 }

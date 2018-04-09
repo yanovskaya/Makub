@@ -10,5 +10,7 @@ import Foundation
 
 protocol FilterGamesViewControllerDelegate: class {
     
-    func filterAllGamesViewModels(viewModels: [GameViewModel], parameters: [String: [String]])
+    func obtainAllGames(parameters: [String: [String]])
+    
+    func showGamesWithNoFilter()
 }

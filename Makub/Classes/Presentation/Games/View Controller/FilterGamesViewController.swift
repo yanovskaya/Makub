@@ -28,7 +28,6 @@ final class FilterGamesViewController: UIViewController {
     @IBOutlet private var navBackgroundView: UIView!
     
     @IBOutlet private var navigationBar: UINavigationBar!
-    @IBOutlet private var cancelButtonItem: UIBarButtonItem!
     @IBOutlet private var doneButtonItem: UIBarButtonItem!
     
     @IBOutlet private var filterTableView: UITableView!
@@ -37,16 +36,13 @@ final class FilterGamesViewController: UIViewController {
     
     weak var delegate: FilterGamesViewControllerDelegate?
     let presentationModel = FilterPresentationModel()
+    var filterIsSet = false
     
     // MARK: - Private Properties
     
     private var oppenedCategories: [Int] = []
     private var chosenOptions: [IndexPath] = []
-    private var selectedOptionsInSection = [Int: Int]() {
-        didSet {
-            enableDoneButtonItem()
-        }
-    }
+    private var selectedOptionsInSection = [Int: Int]()
     
     // MARK: - ViewController lifecycle
     
@@ -57,19 +53,9 @@ final class FilterGamesViewController: UIViewController {
         configureTableView()
         configureNavigationBar()
         configureNavigationItems()
-        presentationModel.obtainAllGames()
-        bindEvents()
     }
     
     // MARK: - Private Methods
-    
-    private func bindEvents() {
-        presentationModel.changeStateHandler = { status in
-            switch status {
-            case .loading, .rich, .error: break
-            }
-        }
-    }
 
     private func configureTableView() {
         navBackgroundView.backgroundColor = .white
@@ -92,50 +78,41 @@ final class FilterGamesViewController: UIViewController {
     
     private func configureNavigationItems() {
         navigationBar.topItem?.title = Constants.title
-        cancelButtonItem.title = Constants.cancelButtonItem
         doneButtonItem.title = Constants.doneButtonItem
         
         let titleTextAttributes: [NSAttributedStringKey: Any] = [NSAttributedStringKey.foregroundColor: PaletteColors.darkGray,
                                                                  NSAttributedStringKey.font: UIFont.customFont(.robotoMediumFont(size: 17))]
-        
-        let leftButtonAttributes = [NSAttributedStringKey.foregroundColor: PaletteColors.blueTint,
-                                    NSAttributedStringKey.font: UIFont.customFont(.robotoRegularFont(size: 17))]
         let rightButtonAttributes = [NSAttributedStringKey.foregroundColor: PaletteColors.blueTint,
                                      NSAttributedStringKey.font: UIFont.customFont(.robotoBoldFont(size: 17))]
         navigationBar.titleTextAttributes = titleTextAttributes
-        cancelButtonItem.setTitleTextAttributes(leftButtonAttributes, for: .normal)
-        cancelButtonItem.setTitleTextAttributes(leftButtonAttributes, for: .selected)
         
         doneButtonItem.setTitleTextAttributes(rightButtonAttributes, for: .normal)
         doneButtonItem.setTitleTextAttributes(rightButtonAttributes, for: .selected)
         
         doneButtonItem.setTitleTextAttributes([NSAttributedStringKey.font: UIFont.customFont(.robotoBoldFont(size: 17))], for: .disabled)
-        
-        doneButtonItem.isEnabled = false
     }
     
-    private func enableDoneButtonItem() {
+    private func defineFilterIsSet() {
         for key in selectedOptionsInSection.keys {
             if let value = selectedOptionsInSection[key],
                 value > 0 {
-                doneButtonItem.isEnabled = true
+                filterIsSet = true
                 return
             }
         }
-        doneButtonItem.isEnabled = false
+        filterIsSet = false
     }
     
     // MARK: - IBActions
     
-    @IBAction func cancelButtonTapped(_ sender: Any) {
-        dismiss(animated: true)
-    }
-    
-    
     @IBAction func doneButtonTapped(_ sender: Any) {
-        delegate?.filterAllGamesViewModels(viewModels: presentationModel.gamesViewModels,
-                                           parameters: presentationModel.prepareFilterConditions(for: chosenOptions))
+        defineFilterIsSet()
         dismiss(animated: true)
+        if filterIsSet {
+        delegate?.obtainAllGames(parameters: presentationModel.prepareFilterConditions(for: chosenOptions))
+        } else {
+            delegate?.showGamesWithNoFilter()
+        }
     }
     
     

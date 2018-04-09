@@ -44,7 +44,7 @@ final class GamesViewController: UIViewController, FilterGamesViewControllerDele
     
     // MARK: - Private Properties
     
-    private let refreshControl = UIRefreshControl()
+    private var refreshControl = UIRefreshControl()
     private var isLoading = false
     private let router = GamesRouter()
     
@@ -70,9 +70,29 @@ final class GamesViewController: UIViewController, FilterGamesViewControllerDele
         HUD.hide()
     }
     
-    func filterAllGamesViewModels(viewModels: [GameViewModel], parameters: [String : [String]]) {
-        presentationModel.filterAllGamesViewModels(viewModels: viewModels, parameters: parameters)
+    func obtainAllGames(parameters: [String: [String]]) {
+        bindEventsObtainGames()
+        let topPoint = CGPoint(x: 0, y: 0)
+        gamesCollectionView.setContentOffset(topPoint, animated: true)
+        presentationModel.obtainAllGames(parameters: parameters)
+        filterButtonItem.tintColor = PaletteColors.blueTint
+        gamesCollectionView.loadControl = nil
+        refreshControl.removeFromSuperview()
+        gamesCollectionView.loadControl?.removeFromSuperview()
         gamesCollectionView.reloadData()
+    }
+    
+    func showGamesWithNoFilter() {
+        if refreshControl.superview == nil ||  gamesCollectionView.loadControl?.superview == nil {
+            print("NO FILTOR")
+            bindEventsObtainGames()
+            presentationModel.obtainGames()
+            filterButtonItem.tintColor = PaletteColors.darkGray
+            gamesCollectionView.refreshControl = refreshControl
+            refreshControl.addTarget(self, action: #selector(refreshGames(_:)), for: .valueChanged)
+            gamesCollectionView.addSubview(refreshControl)
+            gamesCollectionView.loadControl = UILoadControl(target: self, action: #selector(obtainMoreGames(sender:)))
+        }
     }
     
     // MARK: - Private Methods
