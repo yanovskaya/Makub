@@ -324,8 +324,8 @@
 		C41B3C3B2072B10800A2B652 /* Presentation Model */ = {
 			isa = PBXGroup;
 			children = (
-				C4C259B92078DF4800C0CDD4 /* FilterPresentationModel.swift */,
 				C41B3C3C2072B12D00A2B652 /* GamesPresentationModel.swift */,
+				C4C259B92078DF4800C0CDD4 /* FilterPresentationModel.swift */,
 			);
 			path = "Presentation Model";
 			sourceTree = "<group>";

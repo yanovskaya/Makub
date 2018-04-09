@@ -18,8 +18,8 @@ final class AddNewsViewController: UIViewController {
     
     private enum Constants {
         static let title = "Новость"
-        static let leftButtonItem = "Отмена"
-        static let rigthButtonItem = "Готово"
+        static let cancelButtonItem = "Отмена"
+        static let doneButtonItem = "Готово"
         static let titleTextField = "Название..."
         static let pkhudTitle = "Подождите"
         static let pkhudSubtitle = "Публикуем новость"
@@ -38,7 +38,7 @@ final class AddNewsViewController: UIViewController {
     
     @IBOutlet private var navigationBar: UINavigationBar!
     @IBOutlet private var cancelButtonItem: UIBarButtonItem!
-    @IBOutlet private var postButtonItem: UIBarButtonItem!
+    @IBOutlet private var doneButtonItem: UIBarButtonItem!
     
     @IBOutlet private var attachButton: UIButton!
     @IBOutlet private var removeButton: UIButton!
@@ -131,8 +131,8 @@ final class AddNewsViewController: UIViewController {
     
     private func configureNavigationItems() {
         navigationBar.topItem?.title = Constants.title
-        cancelButtonItem.title = Constants.leftButtonItem
-        postButtonItem.title = Constants.rigthButtonItem
+        cancelButtonItem.title = Constants.cancelButtonItem
+        doneButtonItem.title = Constants.doneButtonItem
         
         let titleTextAttributes: [NSAttributedStringKey: Any] = [NSAttributedStringKey.foregroundColor: PaletteColors.darkGray,
                                    NSAttributedStringKey.font: UIFont.customFont(.robotoMediumFont(size: 17))]
@@ -145,12 +145,12 @@ final class AddNewsViewController: UIViewController {
         cancelButtonItem.setTitleTextAttributes(leftButtonAttributes, for: .normal)
         cancelButtonItem.setTitleTextAttributes(leftButtonAttributes, for: .selected)
         
-        postButtonItem.setTitleTextAttributes(rightButtonAttributes, for: .normal)
-        postButtonItem.setTitleTextAttributes(rightButtonAttributes, for: .selected)
+        doneButtonItem.setTitleTextAttributes(rightButtonAttributes, for: .normal)
+        doneButtonItem.setTitleTextAttributes(rightButtonAttributes, for: .selected)
         
-        postButtonItem.setTitleTextAttributes([NSAttributedStringKey.font: UIFont.customFont(.robotoBoldFont(size: 17))], for: .disabled)
+        doneButtonItem.setTitleTextAttributes([NSAttributedStringKey.font: UIFont.customFont(.robotoBoldFont(size: 17))], for: .disabled)
         
-        postButtonItem.isEnabled = false
+        doneButtonItem.isEnabled = false
     }
     
     private func configureTextView() {
@@ -219,10 +219,10 @@ final class AddNewsViewController: UIViewController {
     @objc private func editingChanged() {
         guard let text = newsTextView.text, text.count > 2
             else {
-                postButtonItem.isEnabled = false
+                doneButtonItem.isEnabled = false
                 return
         }
-        postButtonItem.isEnabled = true
+        doneButtonItem.isEnabled = true
     }
     
     // MARK: - IBActions
@@ -272,9 +272,9 @@ extension AddNewsViewController: UITextViewDelegate {
     
     func textViewDidChange(_ textView: UITextView) {
         guard let text = textView.text, text.count > 7 else {
-            postButtonItem.isEnabled = false
+            doneButtonItem.isEnabled = false
             return
         }
-        postButtonItem.isEnabled = !text.removeBlankText().isEmpty
+        doneButtonItem.isEnabled = !text.removeBlankText().isEmpty
     }
 }

@@ -26,6 +26,7 @@ final class OptionFilterCell: UITableViewCell {
         super.awakeFromNib()
         
         configureImageView()
+        configureLabel()
     }
     
     // MARK: - Prepare for Reuse
@@ -54,6 +55,14 @@ final class OptionFilterCell: UITableViewCell {
     
     // MARK: - Private Methods
     
+    private func chooseAction() {
+        if chosen {
+            circleImageView.image = initialImage?.drawFilledCircle()
+        } else {
+            circleImageView.image = initialImage
+        }
+    }
+    
     private func configureImageView() {
         circleImageView.contentMode = .scaleAspectFit
         initialImage = UIImage(color: .white, size: CGSize(width: 50, height: 50))?.drawEmptyCircle()
@@ -61,12 +70,9 @@ final class OptionFilterCell: UITableViewCell {
         circleImageView.image = initialImage
     }
     
-    private func chooseAction() {
-        if chosen {
-            circleImageView.image = initialImage?.drawFilledCircle()
-        } else {
-            circleImageView.image = initialImage
-        }
+    private func configureLabel() {
+        optionLabel.font = UIFont.customFont(.robotoRegularFont(size: 16))
+        optionLabel.textColor = PaletteColors.darkGray
     }
     
 }

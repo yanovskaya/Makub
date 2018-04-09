@@ -18,11 +18,11 @@ final class TitleFilterCell: UITableViewCell, ViewModelConfigurable {
 
     // MARK: - IBOutlets
     
-    @IBOutlet private var descriptionLabel: UILabel!
-
     @IBOutlet private var arrowImageView: UIImageView!
-    @IBOutlet private var titleLabel: UILabel!
     @IBOutlet private var lineView: UIView!
+    
+    @IBOutlet private var titleLabel: UILabel!
+    @IBOutlet private var descriptionLabel: UILabel!
     
     // MARK: - Private Property
     
@@ -35,6 +35,7 @@ final class TitleFilterCell: UITableViewCell, ViewModelConfigurable {
         
         lineView.backgroundColor = .clear
         configureImageView()
+        configureLabels()
     }
     
     // MARK: - Prepare for Reuse
@@ -52,7 +53,6 @@ final class TitleFilterCell: UITableViewCell, ViewModelConfigurable {
     }
     
     func configureDescription(with count: Int) {
-        print(count)
         if count > 0 {
         descriptionLabel.text = String(count)
         } else {
@@ -71,12 +71,6 @@ final class TitleFilterCell: UITableViewCell, ViewModelConfigurable {
     
     // MARK: - Private Methods
     
-    private func configureImageView() {
-        arrowImageView.image = UIImage(named: Constants.arrowImage)?.withRenderingMode(.alwaysTemplate)
-        arrowImageView.tintColor = PaletteColors.darkGray
-        arrowImageView.contentMode = .scaleAspectFit
-    }
-    
     private func rotateAction() {
         if opened {
             arrowImageView.transform = CGAffineTransform(rotationAngle: CGFloat(-Double.pi / 2))
@@ -85,14 +79,26 @@ final class TitleFilterCell: UITableViewCell, ViewModelConfigurable {
         }
     }
     
-    // MARK: - Private Methods
-    
     private func changeLineView() {
         if opened {
             lineView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.2)
         } else {
             lineView.backgroundColor = .clear
         }
+    }
+    
+    private func configureImageView() {
+        arrowImageView.image = UIImage(named: Constants.arrowImage)?.withRenderingMode(.alwaysTemplate)
+        arrowImageView.tintColor = PaletteColors.darkGray
+        arrowImageView.contentMode = .scaleAspectFit
+    }
+    
+    private func configureLabels() {
+        titleLabel.font = UIFont.customFont(.robotoRegularFont(size: 16))
+        titleLabel.textColor = PaletteColors.darkGray
+        
+        descriptionLabel.font = UIFont.customFont(.robotoRegularFont(size: 16))
+        descriptionLabel.textColor = PaletteColors.textGray
     }
     
 }

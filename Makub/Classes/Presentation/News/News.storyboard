@@ -111,7 +111,7 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="G8u-Ez-7vj">
-                                <rect key="frame" x="25" y="514" width="324" height="128"/>
+                                <rect key="frame" x="25" y="514" width="325" height="128"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="128" id="2Nd-MV-9fw"/>
                                 </constraints>
@@ -172,12 +172,12 @@
                         <outlet property="authorImageView" destination="OE7-HM-ocA" id="T6l-yE-00y"/>
                         <outlet property="authorLabel" destination="LiG-j5-LWy" id="mpQ-bT-fbX"/>
                         <outlet property="cancelButtonItem" destination="at6-WU-baz" id="MYJ-di-0BS"/>
+                        <outlet property="doneButtonItem" destination="hsF-I0-xzE" id="3Zk-Sp-cFr"/>
                         <outlet property="heightImageView" destination="2Nd-MV-9fw" id="PoE-ZJ-laK"/>
                         <outlet property="heightRemoveButton" destination="YB2-Lh-1lU" id="RHK-2b-Val"/>
                         <outlet property="heightTextView" destination="4jE-AP-UDw" id="JXv-Zg-Qca"/>
                         <outlet property="navigationBar" destination="QhZ-JX-VEt" id="9Tg-vC-7DU"/>
                         <outlet property="newsTextView" destination="SzL-A4-rQC" id="Ndd-zs-4KE"/>
-                        <outlet property="postButtonItem" destination="hsF-I0-xzE" id="3Zk-Sp-cFr"/>
                         <outlet property="previewImageView" destination="G8u-Ez-7vj" id="fcD-wA-OiU"/>
                         <outlet property="removeButton" destination="ejT-jY-MAj" id="73y-Hf-99s"/>
                         <outlet property="titleTextField" destination="1ZE-bU-PcY" id="a3U-zA-SPb"/>

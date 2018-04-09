@@ -14,12 +14,21 @@ final class FilterGamesViewController: UIViewController {
     
     private enum Constants {
         static let title = "Фильтр"
+        static let cancelButtonItem = "Отмена"
+        static let doneButtonItem = "Готово"
+        
         static let filterImage = "filter"
         static let titleCellId = String(describing: TitleFilterCell.self)
         static let optionCellId = String(describing: OptionFilterCell.self)
     }
     
     // MARK: - IBOutlets
+    
+    @IBOutlet private var navBackgroundView: UIView!
+    
+    @IBOutlet private var navigationBar: UINavigationBar!
+    @IBOutlet private var cancelButtonItem: UIBarButtonItem!
+    @IBOutlet private var doneButtonItem: UIBarButtonItem!
     
     @IBOutlet private var filterTableView: UITableView!
     
@@ -35,14 +44,17 @@ final class FilterGamesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         view.backgroundColor = PaletteColors.blueBackground
+        
         configureTableView()
+        configureNavigationBar()
+        configureNavigationItems()
     }
     
     // MARK: - Private Methods
     
     private func configureTableView() {
+        navBackgroundView.backgroundColor = .white
         filterTableView.dataSource = self
         filterTableView.delegate = self
         filterTableView.register(UINib(nibName: Constants.titleCellId, bundle: nil), forCellReuseIdentifier: Constants.titleCellId)
@@ -54,6 +66,40 @@ final class FilterGamesViewController: UIViewController {
         filterTableView.rowHeight = UITableViewAutomaticDimension
         filterTableView.alwaysBounceVertical = false
     }
+    
+    private func configureNavigationBar() {
+        navigationBar.isTranslucent = false
+        navigationBar.shadowImage = UIImage(color: .white)
+    }
+    
+    private func configureNavigationItems() {
+        navigationBar.topItem?.title = Constants.title
+        cancelButtonItem.title = Constants.cancelButtonItem
+        doneButtonItem.title = Constants.doneButtonItem
+        
+        let titleTextAttributes: [NSAttributedStringKey: Any] = [NSAttributedStringKey.foregroundColor: PaletteColors.darkGray,
+                                                                 NSAttributedStringKey.font: UIFont.customFont(.robotoMediumFont(size: 17))]
+        
+        let leftButtonAttributes = [NSAttributedStringKey.foregroundColor: PaletteColors.blueTint,
+                                    NSAttributedStringKey.font: UIFont.customFont(.robotoRegularFont(size: 17))]
+        let rightButtonAttributes = [NSAttributedStringKey.foregroundColor: PaletteColors.blueTint,
+                                     NSAttributedStringKey.font: UIFont.customFont(.robotoBoldFont(size: 17))]
+        navigationBar.titleTextAttributes = titleTextAttributes
+        cancelButtonItem.setTitleTextAttributes(leftButtonAttributes, for: .normal)
+        cancelButtonItem.setTitleTextAttributes(leftButtonAttributes, for: .selected)
+        
+        doneButtonItem.setTitleTextAttributes(rightButtonAttributes, for: .normal)
+        doneButtonItem.setTitleTextAttributes(rightButtonAttributes, for: .selected)
+        
+        doneButtonItem.setTitleTextAttributes([NSAttributedStringKey.font: UIFont.customFont(.robotoBoldFont(size: 17))], for: .disabled)
+        
+        doneButtonItem.isEnabled = false
+    }
+    
+    @IBAction func cancelButtonTapped(_ sender: Any) {
+        dismiss(animated: true)
+    }
+    
 }
 
 // MARK: - UITableViewDataSource
@@ -193,8 +239,7 @@ extension FilterGamesViewController: UITableViewDelegate {
             optionCell.setChosen(chosen: true)
             chosenOptions.append(indexPath)
         }
-        let indexPath = IndexPath(item: 0, section: indexPath.section)
-        tableView.reloadRows(at: [indexPath], with: .none)
+        tableView.reloadData()
     }
     
 }
