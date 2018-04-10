@@ -117,6 +117,16 @@ final class GamesPresentationModel: PresentationModel {
                             return true
                         }
                     }
+                } else if parameter.key == "Видео" {
+                    for value in parameter.value {
+                        if value == "С видео",
+                            game.video != nil {
+                            return true
+                        } else if value == "Без видео",
+                            game.video == nil {
+                            return true
+                        }
+                    }
                 }
                 return false
             }

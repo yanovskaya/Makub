@@ -41,8 +41,11 @@ final class FilterGamesViewController: UIViewController {
     // MARK: - Private Properties
     
     private var oppenedCategories: [Int] = []
-    private var selectedOptionsInSection = [Int: Int]()
     var chosenOptions: [IndexPath]!
+    
+    private var selectedOptionsInSection = [Int: Int]()
+    
+    
     
     // MARK: - ViewController lifecycle
     
@@ -53,6 +56,14 @@ final class FilterGamesViewController: UIViewController {
         configureTableView()
         configureNavigationBar()
         configureNavigationItems()
+        
+        for option in chosenOptions {
+            if selectedOptionsInSection[option.section] == nil {
+                selectedOptionsInSection[option.section] = 1
+            } else {
+                selectedOptionsInSection[option.section]! += 1
+            }
+        }
     }
     
     // MARK: - Private Methods
@@ -114,6 +125,7 @@ final class FilterGamesViewController: UIViewController {
         }
         delegate?.saveChosenOptions(chosenOptions)
         dismiss(animated: true)
+        print("dismiss")
     }
     
 }

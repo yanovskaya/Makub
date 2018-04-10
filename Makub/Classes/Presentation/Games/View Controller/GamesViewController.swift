@@ -71,7 +71,7 @@ final class GamesViewController: UIViewController, FilterGamesViewControllerDele
     }
     
     func obtainAllGames(parameters: [String: [String]]) {
-        bindEventsObtainGames()
+        bindEventsObtainFilteredGames()
         let topPoint = CGPoint(x: 0, y: 0)
         gamesCollectionView.setContentOffset(topPoint, animated: true)
         presentationModel.obtainAllGames(parameters: parameters)
@@ -88,6 +88,8 @@ final class GamesViewController: UIViewController, FilterGamesViewControllerDele
     
     func showGamesWithNoFilter() {
         if refreshControl.superview == nil || gamesCollectionView.loadControl?.superview == nil {
+            let topPoint = CGPoint(x: 0, y: 0)
+            gamesCollectionView.setContentOffset(topPoint, animated: true)
             print("NO FILTOR")
             bindEventsObtainGames()
             presentationModel.obtainGames()
@@ -117,6 +119,33 @@ final class GamesViewController: UIViewController, FilterGamesViewControllerDele
                     HUD.show(.labeledError(title: ErrorDescription.title.rawValue, subtitle: ErrorDescription.server.rawValue))
                 }
                 HUD.hide(afterDelay: 1.0)
+            }
+        }
+    }
+    
+    private func bindEventsObtainFilteredGames() {
+        presentationModel.changeStateHandler = { [weak self] status in
+            switch status {
+            case .loading:
+                HUD.show(.labeledProgress(title: "Подождите", subtitle: "Идет фильтрация"))
+                print("loading")
+            case .rich:
+                self?.gamesCollectionView.reloadData()
+                HUD.hide()
+            case .error (let code):
+                switch code {
+                case -1009, -1001:
+                    HUD.show(.labeledError(title: ErrorDescription.title.rawValue, subtitle: ErrorDescription.network.rawValue))
+                case 2:
+                    HUD.show(.labeledError(title: ErrorDescription.title.rawValue, subtitle: ErrorDescription.recover.rawValue))
+                default:
+                    HUD.show(.labeledError(title: ErrorDescription.title.rawValue, subtitle: ErrorDescription.server.rawValue))
+                }
+                HUD.hide(afterDelay: 1.0)
+                self?.filterButtonItem.tintColor = PaletteColors.darkGray
+                self?.gamesCollectionView.addSubview(self!.refreshControl)
+                self?.gamesCollectionView.loadControl = UILoadControl(target: self, action: #selector(self?.obtainMoreGames(sender:)))
+                self?.presentationModel.chosenOptions = []
             }
         }
     }

@@ -12,5 +12,14 @@
 			<string>Быстрый БП</string>
 		</array>
 	</dict>
+	<dict>
+		<key>name</key>
+		<string>Видео</string>
+		<key>options</key>
+		<array>
+			<string>С видео</string>
+			<string>Без видео</string>
+		</array>
+	</dict>
 </array>
 </plist>
