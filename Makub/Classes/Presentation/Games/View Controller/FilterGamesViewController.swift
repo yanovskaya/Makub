@@ -41,8 +41,8 @@ final class FilterGamesViewController: UIViewController {
     // MARK: - Private Properties
     
     private var oppenedCategories: [Int] = []
-    private var chosenOptions: [IndexPath] = []
     private var selectedOptionsInSection = [Int: Int]()
+    var chosenOptions: [IndexPath]!
     
     // MARK: - ViewController lifecycle
     
@@ -107,14 +107,14 @@ final class FilterGamesViewController: UIViewController {
     
     @IBAction func doneButtonTapped(_ sender: Any) {
         defineFilterIsSet()
-        dismiss(animated: true)
         if filterIsSet {
         delegate?.obtainAllGames(parameters: presentationModel.prepareFilterConditions(for: chosenOptions))
         } else {
             delegate?.showGamesWithNoFilter()
         }
+        delegate?.saveChosenOptions(chosenOptions)
+        dismiss(animated: true)
     }
-    
     
 }
 

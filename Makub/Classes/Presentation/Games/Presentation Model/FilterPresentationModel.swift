@@ -13,7 +13,6 @@ final class FilterPresentationModel: PresentationModel {
     // MARK: - Public Properties
     
     var filterViewModels: [FilterViewModel]!
-    var gamesViewModels: [GameViewModel]!
     
     // MARK: - Private Properties
     
@@ -53,9 +52,10 @@ final class FilterPresentationModel: PresentationModel {
             model.append(entity)
         }
         
-        let optionsDictionary: NSDictionary = ["name": "Клуб", "options": ["Stylery", "Your Mom"]]
-        let optionsEntity = Filter(info: optionsDictionary)
-        model.append(optionsEntity)
+        // Для добавления других пунктов для фильтра.
+//        let optionsDictionary: NSDictionary = ["name": "Клуб", "options": ["Stylery", "Your Mom"]]
+//        let optionsEntity = Filter(info: optionsDictionary)
+//        model.append(optionsEntity)
         filterViewModels = model.compactMap { FilterViewModel($0) }
     }
 }

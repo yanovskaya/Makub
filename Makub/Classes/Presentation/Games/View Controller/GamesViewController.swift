@@ -82,14 +82,16 @@ final class GamesViewController: UIViewController, FilterGamesViewControllerDele
         gamesCollectionView.reloadData()
     }
     
+    func saveChosenOptions(_ options: [IndexPath]) {
+        presentationModel.saveChosenOptions(options)
+    }
+    
     func showGamesWithNoFilter() {
-        if refreshControl.superview == nil ||  gamesCollectionView.loadControl?.superview == nil {
+        if refreshControl.superview == nil || gamesCollectionView.loadControl?.superview == nil {
             print("NO FILTOR")
             bindEventsObtainGames()
             presentationModel.obtainGames()
             filterButtonItem.tintColor = PaletteColors.darkGray
-            gamesCollectionView.refreshControl = refreshControl
-            refreshControl.addTarget(self, action: #selector(refreshGames(_:)), for: .valueChanged)
             gamesCollectionView.addSubview(refreshControl)
             gamesCollectionView.loadControl = UILoadControl(target: self, action: #selector(obtainMoreGames(sender:)))
         }

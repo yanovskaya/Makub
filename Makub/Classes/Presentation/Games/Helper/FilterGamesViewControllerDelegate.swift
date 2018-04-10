@@ -10,6 +10,8 @@ import Foundation
 
 protocol FilterGamesViewControllerDelegate: class {
     
+    func saveChosenOptions(_ options: [IndexPath])
+    
     func obtainAllGames(parameters: [String: [String]])
     
     func showGamesWithNoFilter()

@@ -16,6 +16,8 @@ final class GamesPresentationModel: PresentationModel {
     var viewModels = [GameViewModel]()
     var filterParameters = [String: [String]]()
     
+    var chosenOptions = [IndexPath]()
+    
     // MARK: - Private Properties
     
     private let gamesService = ServiceLayer.shared.gamesService
@@ -85,6 +87,10 @@ final class GamesPresentationModel: PresentationModel {
         }
     }
     
+    func saveChosenOptions(_ options: [IndexPath]) {
+        chosenOptions = options
+    }
+    
     // MARK: - Private Methods
     
     private func obtainFilterGames(count: Int = 2000, parameters: [String: [String]]) {
@@ -103,12 +109,13 @@ final class GamesPresentationModel: PresentationModel {
     }
     
     private func filterAllGamesViewModels() {
-        state = .loading
         for parameter in filterParameters {
             self.viewModels = self.viewModels.filter { game in
                 if parameter.key == "Тип" {
                     for value in parameter.value {
-                        return game.type.lowercased() == value.lowercased()
+                        if game.type.lowercased() == value.lowercased() {
+                            return true
+                        }
                     }
                 }
                 return false
