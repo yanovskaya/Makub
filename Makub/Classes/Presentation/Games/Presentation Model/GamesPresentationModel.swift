@@ -90,8 +90,8 @@ final class GamesPresentationModel: PresentationModel {
             switch result {
             case .serviceSuccess(let model):
                 self.obtainFilterGames(count: model!.count, parameters: parameters)
-            case .serviceFailure:
-                self.obtainGames()
+            case .serviceFailure(let error):
+                self.state = .error(code: error.code)
             }
         }
     }

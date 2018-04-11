@@ -9,6 +9,7 @@
 import Foundation
 
 extension NSDictionary {
+    
     func parse<T>(_ key: String) -> T {
         return self.object(forKey: key) as! T
     }

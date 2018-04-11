@@ -12,7 +12,6 @@ import UILoadControl
 
 final class GamesViewController: UIViewController {
     
-    
     // MARK: - Constants
     
     private enum Constants {
@@ -86,8 +85,6 @@ final class GamesViewController: UIViewController {
                 switch code {
                 case -1009, -1001:
                     HUD.show(.labeledError(title: ErrorDescription.title.rawValue, subtitle: ErrorDescription.network.rawValue))
-                case 2:
-                    HUD.show(.labeledError(title: ErrorDescription.title.rawValue, subtitle: ErrorDescription.recover.rawValue))
                 default:
                     HUD.show(.labeledError(title: ErrorDescription.title.rawValue, subtitle: ErrorDescription.server.rawValue))
                 }
@@ -108,8 +105,6 @@ final class GamesViewController: UIViewController {
                 switch code {
                 case -1009, -1001:
                     HUD.show(.labeledError(title: ErrorDescription.title.rawValue, subtitle: ErrorDescription.network.rawValue))
-                case 2:
-                    HUD.show(.labeledError(title: ErrorDescription.title.rawValue, subtitle: ErrorDescription.recover.rawValue))
                 default:
                     HUD.show(.labeledError(title: ErrorDescription.title.rawValue, subtitle: ErrorDescription.server.rawValue))
                 }
@@ -118,6 +113,9 @@ final class GamesViewController: UIViewController {
                 self?.gamesCollectionView.addSubview(self!.refreshControl)
                 self?.gamesCollectionView.loadControl = UILoadControl(target: self, action: #selector(self?.obtainMoreGames(sender:)))
                 self?.presentationModel.chosenOptions = []
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                    self?.presentationModel.obtainGames()
+                }
             }
         }
     }
