@@ -73,7 +73,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NX3-Ur-NFp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-239.19999999999999" y="106.59670164917542"/>
+            <point key="canvasLocation" x="-529" y="107"/>
         </scene>
         <!--Filter Games View Controller-->
         <scene sceneID="TI4-6l-HGz">

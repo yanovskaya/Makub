@@ -73,14 +73,16 @@ final class GamesServiceImpl: GamesService {
                 case .parserFailure(let error):
                     if useCache {
                         self.obtainRealmCache(error: error, completion: completion)
+                    } else {
+                        completion?(ServiceCallResult.serviceFailure(error: error))
                     }
-                    completion?(ServiceCallResult.serviceFailure(error: error))
                 }
             case .transportFailure(let error):
                 if useCache {
                     self.obtainRealmCache(error: error, completion: completion)
+                } else {
+                    completion?(ServiceCallResult.serviceFailure(error: error))
                 }
-                completion?(ServiceCallResult.serviceFailure(error: error))
             }
         }
     }

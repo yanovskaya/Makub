@@ -68,7 +68,7 @@ final class AddNewsViewController: UIViewController {
     private var imageToAttach: UIImage? {
         didSet {
             if imageToAttach != nil {
-                attachButton.tintColor = UIColor.green
+                attachButton.tintColor = PaletteColors.blueTint
                 heightRemoveButton.isActive = false
                 removeButton.setImage(UIImage(named: Constants.removeButton), for: .normal)
                 previewImageView.image = imageToAttach
@@ -137,16 +137,16 @@ final class AddNewsViewController: UIViewController {
         let titleTextAttributes: [NSAttributedStringKey: Any] = [NSAttributedStringKey.foregroundColor: PaletteColors.darkGray,
                                    NSAttributedStringKey.font: UIFont.customFont(.robotoMediumFont(size: 17))]
         
-        let leftButtonAttributes = [NSAttributedStringKey.foregroundColor: PaletteColors.blueTint,
+        let cancelButtonAttributes = [NSAttributedStringKey.foregroundColor: PaletteColors.blueTint,
                                                                       NSAttributedStringKey.font: UIFont.customFont(.robotoRegularFont(size: 17))]
-        let rightButtonAttributes = [NSAttributedStringKey.foregroundColor: PaletteColors.blueTint,
+        let doneButtonAttributes = [NSAttributedStringKey.foregroundColor: PaletteColors.blueTint,
                                      NSAttributedStringKey.font: UIFont.customFont(.robotoBoldFont(size: 17))]
         navigationBar.titleTextAttributes = titleTextAttributes
-        cancelButtonItem.setTitleTextAttributes(leftButtonAttributes, for: .normal)
-        cancelButtonItem.setTitleTextAttributes(leftButtonAttributes, for: .selected)
+        cancelButtonItem.setTitleTextAttributes(cancelButtonAttributes, for: .normal)
+        cancelButtonItem.setTitleTextAttributes(cancelButtonAttributes, for: .selected)
         
-        doneButtonItem.setTitleTextAttributes(rightButtonAttributes, for: .normal)
-        doneButtonItem.setTitleTextAttributes(rightButtonAttributes, for: .selected)
+        doneButtonItem.setTitleTextAttributes(doneButtonAttributes, for: .normal)
+        doneButtonItem.setTitleTextAttributes(doneButtonAttributes, for: .selected)
         
         doneButtonItem.setTitleTextAttributes([NSAttributedStringKey.font: UIFont.customFont(.robotoBoldFont(size: 17))], for: .disabled)
         

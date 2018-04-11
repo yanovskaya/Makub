@@ -25,20 +25,4 @@ final class Game: Object, Decodable {
     @objc dynamic var surname2: String! = nil
     @objc dynamic var photo2: String! = nil
     @objc dynamic var comments: String! = nil
-    
-    enum CodingKeys: String, CodingKey {
-        case id
-        case score1
-        case score2
-        case type
-        case video
-        case clubId = "club_id"
-        case name1
-        case surname1
-        case photo1
-        case name2
-        case surname2
-        case photo2
-        case comments
-    }
 }

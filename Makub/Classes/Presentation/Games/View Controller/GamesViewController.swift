@@ -90,7 +90,6 @@ final class GamesViewController: UIViewController, FilterGamesViewControllerDele
         if refreshControl.superview == nil || gamesCollectionView.loadControl?.superview == nil {
             let topPoint = CGPoint(x: 0, y: 0)
             gamesCollectionView.setContentOffset(topPoint, animated: true)
-            print("NO FILTOR")
             bindEventsObtainGames()
             presentationModel.obtainGames()
             filterButtonItem.tintColor = PaletteColors.darkGray
@@ -128,7 +127,6 @@ final class GamesViewController: UIViewController, FilterGamesViewControllerDele
             switch status {
             case .loading:
                 HUD.show(.labeledProgress(title: "Подождите", subtitle: "Идет фильтрация"))
-                print("loading")
             case .rich:
                 self?.gamesCollectionView.reloadData()
                 HUD.hide()

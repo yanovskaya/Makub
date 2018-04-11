@@ -125,7 +125,6 @@ final class FilterGamesViewController: UIViewController {
         }
         delegate?.saveChosenOptions(chosenOptions)
         dismiss(animated: true)
-        print("dismiss")
     }
     
 }
