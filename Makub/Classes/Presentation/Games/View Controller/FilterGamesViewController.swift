@@ -35,17 +35,16 @@ final class FilterGamesViewController: UIViewController {
     // MARK: - Public Properties
     
     weak var delegate: FilterGamesViewControllerDelegate?
+    
     let presentationModel = FilterPresentationModel()
-    var filterIsSet = false
+    var chosenOptions: [IndexPath]!
     
     // MARK: - Private Properties
     
     private var oppenedCategories: [Int] = []
-    var chosenOptions: [IndexPath]!
-    
     private var selectedOptionsInSection = [Int: Int]()
     
-    
+    private var filterIsSet = false
     
     // MARK: - ViewController lifecycle
     
@@ -57,13 +56,7 @@ final class FilterGamesViewController: UIViewController {
         configureNavigationBar()
         configureNavigationItems()
         
-        for option in chosenOptions {
-            if selectedOptionsInSection[option.section] == nil {
-                selectedOptionsInSection[option.section] = 1
-            } else {
-                selectedOptionsInSection[option.section]! += 1
-            }
-        }
+        configureSelectedOptions()
     }
     
     // MARK: - Private Methods
@@ -112,6 +105,16 @@ final class FilterGamesViewController: UIViewController {
             }
         }
         filterIsSet = false
+    }
+    
+    private func configureSelectedOptions() {
+        for option in chosenOptions {
+            if selectedOptionsInSection[option.section] == nil {
+                selectedOptionsInSection[option.section] = 1
+            } else {
+                selectedOptionsInSection[option.section]! += 1
+            }
+        }
     }
     
     // MARK: - IBActions

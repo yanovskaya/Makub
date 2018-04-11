@@ -10,13 +10,15 @@ import PKHUD
 import UIKit
 import UILoadControl
 
-final class GamesViewController: UIViewController, FilterGamesViewControllerDelegate {
+final class GamesViewController: UIViewController {
     
     
     // MARK: - Constants
     
     private enum Constants {
         static let title = "Все игры"
+        static let pkhudTitle = "Подождите"
+        static let pkhudSubtitle = "Идет фильтрация"
         static let filterImage = "filter"
         static let cellIdentifier = String(describing: GamesCell.self)
     }
@@ -70,34 +72,6 @@ final class GamesViewController: UIViewController, FilterGamesViewControllerDele
         HUD.hide()
     }
     
-    func obtainAllGames(parameters: [String: [String]]) {
-        bindEventsObtainFilteredGames()
-        let topPoint = CGPoint(x: 0, y: 0)
-        gamesCollectionView.setContentOffset(topPoint, animated: true)
-        presentationModel.obtainAllGames(parameters: parameters)
-        filterButtonItem.tintColor = PaletteColors.blueTint
-        gamesCollectionView.loadControl = nil
-        refreshControl.removeFromSuperview()
-        gamesCollectionView.loadControl?.removeFromSuperview()
-        gamesCollectionView.reloadData()
-    }
-    
-    func saveChosenOptions(_ options: [IndexPath]) {
-        presentationModel.saveChosenOptions(options)
-    }
-    
-    func showGamesWithNoFilter() {
-        if refreshControl.superview == nil || gamesCollectionView.loadControl?.superview == nil {
-            let topPoint = CGPoint(x: 0, y: 0)
-            gamesCollectionView.setContentOffset(topPoint, animated: true)
-            bindEventsObtainGames()
-            presentationModel.obtainGames()
-            filterButtonItem.tintColor = PaletteColors.darkGray
-            gamesCollectionView.addSubview(refreshControl)
-            gamesCollectionView.loadControl = UILoadControl(target: self, action: #selector(obtainMoreGames(sender:)))
-        }
-    }
-    
     // MARK: - Private Methods
     
     private func bindEventsObtainGames() {
@@ -126,7 +100,7 @@ final class GamesViewController: UIViewController, FilterGamesViewControllerDele
         presentationModel.changeStateHandler = { [weak self] status in
             switch status {
             case .loading:
-                HUD.show(.labeledProgress(title: "Подождите", subtitle: "Идет фильтрация"))
+                HUD.show(.labeledProgress(title: Constants.pkhudTitle, subtitle: Constants.pkhudSubtitle))
             case .rich:
                 self?.gamesCollectionView.reloadData()
                 HUD.hide()
@@ -218,7 +192,7 @@ final class GamesViewController: UIViewController, FilterGamesViewControllerDele
         presentationModel.refreshGames()
     }
     
-     @objc private func obtainMoreGames(sender: AnyObject?) {
+    @objc private func obtainMoreGames(sender: AnyObject?) {
         if !isLoading {
             isLoading = true
             bindEventsObtainMoreGames()
@@ -285,5 +259,38 @@ extension GamesViewController: UITabBarControllerDelegate {
 extension GamesViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         scrollView.loadControl?.update()
+    }
+}
+
+// MARK: - FilterGamesViewControllerDelegate
+
+extension GamesViewController: FilterGamesViewControllerDelegate {
+    
+    func obtainAllGames(parameters: [String: [String]]) {
+        bindEventsObtainFilteredGames()
+        let topPoint = CGPoint(x: 0, y: 0)
+        gamesCollectionView.setContentOffset(topPoint, animated: true)
+        presentationModel.obtainAllGames(parameters: parameters)
+        filterButtonItem.tintColor = PaletteColors.blueTint
+        gamesCollectionView.loadControl = nil
+        refreshControl.removeFromSuperview()
+        gamesCollectionView.loadControl?.removeFromSuperview()
+        gamesCollectionView.reloadData()
+    }
+    
+    func showGamesWithNoFilter() {
+        if refreshControl.superview == nil || gamesCollectionView.loadControl?.superview == nil {
+            let topPoint = CGPoint(x: 0, y: 0)
+            gamesCollectionView.setContentOffset(topPoint, animated: true)
+            bindEventsObtainGames()
+            presentationModel.obtainGames()
+            filterButtonItem.tintColor = PaletteColors.darkGray
+            gamesCollectionView.addSubview(refreshControl)
+            gamesCollectionView.loadControl = UILoadControl(target: self, action: #selector(obtainMoreGames(sender:)))
+        }
+    }
+    
+    func saveChosenOptions(_ options: [IndexPath]) {
+        presentationModel.saveChosenOptions(options)
     }
 }

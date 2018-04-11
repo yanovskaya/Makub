@@ -10,6 +10,13 @@ import Foundation
 
 final class FilterPresentationModel: PresentationModel {
     
+    // MARK: - Constants
+    
+    private enum Constants {
+        static let resource = "FilterOptions"
+        static let type = "plist"
+    }
+    
     // MARK: - Public Properties
     
     var filterViewModels: [FilterViewModel]!
@@ -45,7 +52,7 @@ final class FilterPresentationModel: PresentationModel {
     
     private func obtainFilterOptions() {
         var model = [Filter]()
-        let array = NSArray(contentsOfFile: Bundle.main.path(forResource: "FilterOptions", ofType: "plist")!)!
+        let array = NSArray(contentsOfFile: Bundle.main.path(forResource: Constants.resource, ofType: Constants.type)!)!
         
         for dictionary in array as! [NSDictionary] {
             let entity = Filter(info: dictionary)

@@ -61,6 +61,7 @@ final class NewsCell: UICollectionViewCell, ViewModelConfigurable {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         moreButton.isHidden = true
         configureLayout()
         configureFont()

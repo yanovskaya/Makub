@@ -11,6 +11,15 @@ import UIKit
 
 final class GamesPresentationModel: PresentationModel {
     
+    // MARK: - Constants
+    
+    private enum Constants {
+        static let typeKey = "Тип"
+        static let videoKey = "Видео"
+        static let trueVideo = "С видео"
+        static let falseVideo = "Без видео"
+    }
+    
     // MARK: - Public Properties
     
     var viewModels = [GameViewModel]()
@@ -111,18 +120,18 @@ final class GamesPresentationModel: PresentationModel {
     private func filterAllGamesViewModels() {
         for parameter in filterParameters {
             self.viewModels = self.viewModels.filter { game in
-                if parameter.key == "Тип" {
+                if parameter.key == Constants.typeKey {
                     for value in parameter.value {
                         if game.type.lowercased() == value.lowercased() {
                             return true
                         }
                     }
-                } else if parameter.key == "Видео" {
+                } else if parameter.key == Constants.videoKey {
                     for value in parameter.value {
-                        if value == "С видео",
+                        if value == Constants.trueVideo,
                             game.video != nil {
                             return true
-                        } else if value == "Без видео",
+                        } else if value == Constants.falseVideo,
                             game.video == nil {
                             return true
                         }
@@ -133,4 +142,5 @@ final class GamesPresentationModel: PresentationModel {
         }
         state = .rich
     }
+    
 }
