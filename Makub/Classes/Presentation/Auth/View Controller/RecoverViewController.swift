@@ -109,7 +109,7 @@ final class RecoverViewController: UIViewController {
     
     private func configureTitleLabel() {
         titleLabel.textColor = PaletteColors.darkGray
-        titleLabel.font = UIFont.customFont(.robotoBoldFont(size: 18))
+        titleLabel.font = UIFont.customFont(.robotoBoldFont(size: 16))
         titleLabel.text = Constants.helpTitleLabel
     }
     
@@ -122,7 +122,7 @@ final class RecoverViewController: UIViewController {
         attributedText.addAttribute(.paragraphStyle, value: style, range: NSRange(location: 0, length: text.count))
         descriptionLabel.attributedText = attributedText
         descriptionLabel.textColor = PaletteColors.darkGray.withAlphaComponent(0.8)
-        descriptionLabel.font = UIFont.customFont(.robotoRegularFont(size: 16))
+        descriptionLabel.font = UIFont.customFont(.robotoRegularFont(size: 14))
         descriptionLabel.text = Constants.helpDescriptionLabel
     }
     
@@ -146,6 +146,7 @@ final class RecoverViewController: UIViewController {
         emailTextField.addImage(Constants.mailImage, color: darkGray, opacity: 0.8)
         emailTextField.textColor = PaletteColors.darkGray
         emailTextField.layer.borderColor = PaletteColors.darkGray.withAlphaComponent(0.6).cgColor
+        emailTextField.font = UIFont.customFont(.robotoLightFont(size: 15))
     }
     
     private func configureFakeNavigationBar() {

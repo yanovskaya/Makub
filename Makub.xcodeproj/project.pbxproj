@@ -24,7 +24,7 @@
 		C41B3C2A207256ED00A2B652 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41B3C29207256ED00A2B652 /* GameViewModel.swift */; };
 		C41B3C2C2072573600A2B652 /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41B3C2B2072573600A2B652 /* Game.swift */; };
 		C41B3C342072640100A2B652 /* Club.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41B3C332072640100A2B652 /* Club.swift */; };
-		C41B3C362072642000A2B652 /* Stages.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41B3C352072642000A2B652 /* Stages.swift */; };
+		C41B3C362072642000A2B652 /* Tournament.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41B3C352072642000A2B652 /* Tournament.swift */; };
 		C41B3C3D2072B12D00A2B652 /* GamesPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41B3C3C2072B12D00A2B652 /* GamesPresentationModel.swift */; };
 		C41B3CD52072F4F500A2B652 /* RealmCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41B3CD42072F4F500A2B652 /* RealmCache.swift */; };
 		C41B3CD72072F50000A2B652 /* Parser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41B3CD62072F50000A2B652 /* Parser.swift */; };
@@ -123,7 +123,7 @@
 		C41B3C29207256ED00A2B652 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
 		C41B3C2B2072573600A2B652 /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		C41B3C332072640100A2B652 /* Club.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Club.swift; sourceTree = "<group>"; };
-		C41B3C352072642000A2B652 /* Stages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stages.swift; sourceTree = "<group>"; };
+		C41B3C352072642000A2B652 /* Tournament.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tournament.swift; sourceTree = "<group>"; };
 		C41B3C3C2072B12D00A2B652 /* GamesPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesPresentationModel.swift; sourceTree = "<group>"; };
 		C41B3CD42072F4F500A2B652 /* RealmCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmCache.swift; sourceTree = "<group>"; };
 		C41B3CD62072F50000A2B652 /* Parser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parser.swift; sourceTree = "<group>"; };
@@ -320,7 +320,7 @@
 			isa = PBXGroup;
 			children = (
 				C41B3C332072640100A2B652 /* Club.swift */,
-				C41B3C352072642000A2B652 /* Stages.swift */,
+				C41B3C352072642000A2B652 /* Tournament.swift */,
 			);
 			path = "Additional Info";
 			sourceTree = "<group>";
@@ -969,7 +969,7 @@
 				C4D4E4FE20618FA9000A9216 /* TabBarController.swift in Sources */,
 				C4D4E4EF20606FEF000A9216 /* RecoverPresentationModel.swift in Sources */,
 				C40EDD7420648EF000338300 /* UIImage+FromColor.swift in Sources */,
-				C41B3C362072642000A2B652 /* Stages.swift in Sources */,
+				C41B3C362072642000A2B652 /* Tournament.swift in Sources */,
 				C4A6BB3B206F7B1000284603 /* String+RemoveBlankText.swift in Sources */,
 				C41B3CE62072F5F100A2B652 /* AdditionalErrors.swift in Sources */,
 				C4D9099520680F1800DC3D6C /* AddNewsCell.swift in Sources */,

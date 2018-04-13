@@ -53,6 +53,12 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
             navigationController.viewControllers = [authViewController]
             window?.rootViewController = navigationController
             
+            
+            // Токена нет и приложение до этого запускалось.
+        } else if token == nil, wasLaunchBefore {
+            navigationController.viewControllers = [authViewController]
+            window?.rootViewController = navigationController
+            
             // Токен есть и приложение до этого запускалось.
         } else {
             window?.rootViewController = TabBarController()

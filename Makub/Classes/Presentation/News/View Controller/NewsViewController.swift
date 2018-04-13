@@ -307,6 +307,7 @@ extension NewsViewController: UICollectionViewDataSource {
         cell.delegate = self
         cell.contentView.isUserInteractionEnabled = false
         cell.layoutIfNeeded()
+        cell.updateConstraints()
         return cell
     }
     

@@ -99,11 +99,15 @@ final class NewsCell: UICollectionViewCell, ViewModelConfigurable {
             imageHeight.constant = LayoutConstants.imageHeight
             bottomDistance.constant = LayoutConstants.bottomImageDistance
             let sizeProcessor = ResizingImageProcessor(referenceSize: CGSize(width: SizeConstants.imageWidth, height: SizeConstants.imageHeight), mode: .aspectFill)
-            illustrationImageView.kf.indicatorType = .custom(indicator: indicator)
+            illustrationImageView.kf.indicatorType = .activity
             illustrationImageView.kf.setImage(with: URL(string: imageURL), placeholder: nil, options: [.processor(sizeProcessor)], completionHandler: { (image, _, _, _) in
                 if image == nil {
+                    print("NILLLLL")
                     self.bottomDistance.constant = LayoutConstants.bottomDistance
                     self.imageHeight.constant = 0
+                    self.illustrationImageView.layoutIfNeeded()
+                    self.layoutIfNeeded()
+                    self.updateConstraints()
                 }
             })
         } else {
