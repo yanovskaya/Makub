@@ -18,6 +18,8 @@ final class NewsViewController: UIViewController {
         static let searchBarPlaceholder = "Поиск"
         static let deleteAction = "Удалить"
         static let cancelAction = "Отмена"
+        static let pkhudDeleteTitle = "Готово!"
+        static let pkhudDeleteSubtitle = "Запись удалена"
         static let addNewsCellId = String(describing: AddNewsCell.self)
         static let newsCellId = String(describing: NewsCell.self)
     }
@@ -120,7 +122,7 @@ final class NewsViewController: UIViewController {
                 if let searchText = self?.navigationSearchBar.text {
                     self?.filterNewsForSearchText(searchText: searchText)
                 }
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                     self?.refreshControl.endRefreshing()
                 }
                 self?.newsCollectionView.reloadData()
@@ -143,7 +145,8 @@ final class NewsViewController: UIViewController {
                     self?.filterNewsForSearchText(searchText: searchText)
                 }
                 self?.newsCollectionView.reloadData()
-                HUD.hide()
+                HUD.show(.labeledSuccess(title: Constants.pkhudDeleteTitle, subtitle: Constants.pkhudDeleteSubtitle))
+                HUD.hide(afterDelay: 1.0)
             case .error (let code):
                 switch code {
                 case -1009, -1001:
@@ -165,7 +168,8 @@ final class NewsViewController: UIViewController {
                     self?.filterNewsForSearchText(searchText: searchText)
                 }
                 self?.newsCollectionView.reloadData()
-            default: break
+            default:
+                break
             }
         }
     }

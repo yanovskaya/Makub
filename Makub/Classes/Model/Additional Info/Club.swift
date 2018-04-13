@@ -11,5 +11,6 @@ import RealmSwift
 
 final class Club: Object, Decodable {
     
-    @objc dynamic var name: String = ""
+    @objc dynamic var id: String! = nil
+    @objc dynamic var name: String! = nil
 }

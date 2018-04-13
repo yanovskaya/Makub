@@ -105,8 +105,8 @@
                 <outlet property="bottomDistance" destination="Xso-Ix-mOg" id="h6W-FK-2di"/>
                 <outlet property="dateLabel" destination="z9J-lG-4TZ" id="bTX-IO-nmr"/>
                 <outlet property="descriptionLabel" destination="cRY-bw-V5q" id="jWA-y3-ARN"/>
+                <outlet property="heightIllustrationImageView" destination="lfn-3V-STt" id="hcI-4e-eZB"/>
                 <outlet property="illustrationImageView" destination="IQI-5u-zQB" id="Fr4-eq-cZd"/>
-                <outlet property="imageHeight" destination="lfn-3V-STt" id="hSe-Ok-9Tz"/>
                 <outlet property="lineView" destination="mKp-B8-2ZK" id="aMR-RF-A9b"/>
                 <outlet property="moreButton" destination="BX4-gQ-3Fm" id="Xsu-XN-b4P"/>
                 <outlet property="titleLabel" destination="chl-oC-NYa" id="3CK-RX-zFY"/>

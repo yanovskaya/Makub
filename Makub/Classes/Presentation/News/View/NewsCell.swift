@@ -19,7 +19,7 @@ final class NewsCell: UICollectionViewCell, ViewModelConfigurable {
     }
     
     private enum LayoutConstants {
-        static let imageHeight: CGFloat = 167
+        static let heightIllustrationImageView: CGFloat = 167
         static let bottomImageDistance: CGFloat = 198
         static let bottomDistance: CGFloat = 20
         
@@ -45,7 +45,8 @@ final class NewsCell: UICollectionViewCell, ViewModelConfigurable {
     
     @IBOutlet private var lineView: UIView!
     
-    @IBOutlet private var imageHeight: NSLayoutConstraint!
+    @IBOutlet private var heightIllustrationImageView: NSLayoutConstraint!
+    
     @IBOutlet private var bottomDistance: NSLayoutConstraint!
     
     // MARK: - Public Properties
@@ -96,23 +97,19 @@ final class NewsCell: UICollectionViewCell, ViewModelConfigurable {
         authorLabel.text = viewModel.fullName
         
         if let imageURL = viewModel.imageURL {
-            imageHeight.constant = LayoutConstants.imageHeight
+            heightIllustrationImageView.constant = LayoutConstants.heightIllustrationImageView
             bottomDistance.constant = LayoutConstants.bottomImageDistance
             let sizeProcessor = ResizingImageProcessor(referenceSize: CGSize(width: SizeConstants.imageWidth, height: SizeConstants.imageHeight), mode: .aspectFill)
             illustrationImageView.kf.indicatorType = .activity
             illustrationImageView.kf.setImage(with: URL(string: imageURL), placeholder: nil, options: [.processor(sizeProcessor)], completionHandler: { (image, _, _, _) in
                 if image == nil {
-                    print("NILLLLL")
                     self.bottomDistance.constant = LayoutConstants.bottomDistance
-                    self.imageHeight.constant = 0
-                    self.illustrationImageView.layoutIfNeeded()
-                    self.layoutIfNeeded()
-                    self.updateConstraints()
+                    self.heightIllustrationImageView.constant = 0
                 }
             })
         } else {
             bottomDistance.constant = LayoutConstants.bottomDistance
-            imageHeight.constant = 0
+            heightIllustrationImageView.constant = 0
         }
         if let photoURL = viewModel.photoURL {
             let sizeProcessor = ResizingImageProcessor(referenceSize: CGSize(width: SizeConstants.photoWidth, height: SizeConstants.photoHeight), mode: .aspectFill)
