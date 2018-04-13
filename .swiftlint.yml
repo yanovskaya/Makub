@@ -26,16 +26,25 @@ excluded:
 comma: error
 
 identifier_name:
- - 1
- - 60
+  min_length: 
+    warning: 2 
+  excluded: 
+    - id
+    - URL
+    - GlobalAPIKey
+reporter: "xcode"
 
 type_body_length:
-warning: 600
-error: 800
+  - 300 # warning
+  - 400 # error
+
+function_body_length:
+  - 200 # warning
+  - 300 # error
 
 file_length:
- - 1000
- - 1200
+  warning: 500
+  error: 1200
 
 line_length:
  - 180
@@ -62,6 +71,10 @@ type_name:
 max_length:
 warning: 60
 error: 100
+
+cyclomatic_complexity:
+  warning: 15
+  error: 20
 
 force_cast: warning
 
