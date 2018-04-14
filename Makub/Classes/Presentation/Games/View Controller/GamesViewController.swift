@@ -58,7 +58,7 @@ final class GamesViewController: UIViewController {
         configureNavigationBar()
         configureCollectionView()
         bindEventsObtainGames()
-        presentationModel.obtainGames()
+        presentationModel.obtainGamesWithClubs()
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -114,7 +114,7 @@ final class GamesViewController: UIViewController {
                 self?.gamesCollectionView.loadControl = UILoadControl(target: self, action: #selector(self?.obtainMoreGames(sender:)))
                 self?.presentationModel.chosenOptions = []
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                    self?.presentationModel.obtainGames()
+                    self?.presentationModel.obtainGamesWithClubs()
                 }
             }
         }
@@ -215,11 +215,11 @@ final class GamesViewController: UIViewController {
 extension GamesViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return presentationModel.viewModels.count
+        return presentationModel.gamesViewModels.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let viewModel = presentationModel.viewModels[indexPath.row]
+        let viewModel = presentationModel.gamesViewModels[indexPath.row]
         let cellIdentifier = Constants.cellIdentifier
         guard let cell = gamesCollectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? GamesCell else { return UICollectionViewCell() }
         
@@ -283,7 +283,7 @@ extension GamesViewController: FilterGamesViewControllerDelegate {
             let topPoint = CGPoint(x: 0, y: 0)
             gamesCollectionView.setContentOffset(topPoint, animated: true)
             bindEventsObtainGames()
-            presentationModel.obtainGames()
+            presentationModel.obtainGamesWithClubs()
             filterButtonItem.tintColor = PaletteColors.darkGray
             gamesCollectionView.addSubview(refreshControl)
             gamesCollectionView.loadControl = UILoadControl(target: self, action: #selector(obtainMoreGames(sender:)))

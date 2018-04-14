@@ -25,42 +25,24 @@ final class GameViewModel {
     let score2: String
     var type: String
     //let stage: String
-    //let clubId: String
+    let clubId: String
     let video: String!
     let player1: String
     let player2: String
     let photo1URL: String!
     let photo2URL: String!
+    
+    var club: String!
     //let comments: String
     
     // MARK: - Initialization
     
     init(_ games: Game) {
-        if let score1 = games.score1 {
-            self.score1 = score1
-        } else {
-            self.score1 = ""
-        }
-        
-        if let score2 = games.score2 {
-            self.score2 = score2
-        } else {
-            self.score2 = ""
-        }
-        
-        if let name1 = games.name1,
-            let surname1 = games.surname1 {
-            self.player1 = name1 + " " + surname1
-        } else {
-            self.player1 = ""
-        }
-        
-        if let name2 = games.name2,
-            let surname2 = games.surname2 {
-            self.player2 = name2 + " " + surname2
-        } else {
-            self.player2 = ""
-        }
+        self.score1 = games.score1
+        self.score2 = games.score2
+        self.clubId = games.clubId
+        self.player1 = games.name1 + " " + games.surname1
+        self.player2 = games.name2 + " " + games.surname2
         
         if let photo1 = games.photo1, photo1 != "" {
             self.photo1URL = (Constants.baseURL + photo1).removeSpacesInURL()
@@ -87,11 +69,11 @@ final class GameViewModel {
             }
             switch typeId {
             case 1:
-                self.type =  Constants.classicType
+                self.type = Constants.classicType
             case 2:
-                self.type =  Constants.quickType
+                self.type = Constants.quickType
             case 3:
-                self.type =  Constants.quichBPType
+                self.type = Constants.quichBPType
             default:
                 self.type = ""
             }

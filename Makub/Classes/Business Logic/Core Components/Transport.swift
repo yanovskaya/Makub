@@ -84,8 +84,7 @@ final class Transport {
         },
                          to: url,
                          method: method,
-                         headers: headers)
-        { result in
+                         headers: headers) { result in
             switch result {
             case .success(let upload, _, _):
                 upload.responseData { response in

@@ -25,7 +25,7 @@ final class GamesCell: UICollectionViewCell, ViewModelConfigurable {
     
     // MARK: - IBOutlets
     
-    @IBOutlet private var stageLabel: UILabel!
+    @IBOutlet private var tournamentLabel: UILabel!
     @IBOutlet private var typeLabel: UILabel!
     @IBOutlet private var videoImageView: UIImageView!
     
@@ -91,6 +91,7 @@ final class GamesCell: UICollectionViewCell, ViewModelConfigurable {
         score2Label.text = viewModel.score2
         player1Label.text = viewModel.player1
         player2Label.text = viewModel.player2
+        tournamentLabel.text = viewModel.club
         
         let sizeProcessor = ResizingImageProcessor(referenceSize: CGSize(width: SizeConstants.photoWidth, height: SizeConstants.photoHeight), mode: .aspectFill)
         
@@ -139,17 +140,17 @@ final class GamesCell: UICollectionViewCell, ViewModelConfigurable {
     private func configureFont() {
         player1Label.font = UIFont.customFont(.robotoRegularFont(size: 16))
         player2Label.font = UIFont.customFont(.robotoRegularFont(size: 16))
-        typeLabel.font = UIFont.customFont(.robotoRegularFont(size: 12))
+        typeLabel.font = UIFont.customFont(.robotoRegularFont(size: 11))
         score1Label.font = UIFont.customFont(.robotoMediumFont(size: 23))
         score2Label.font = UIFont.customFont(.robotoMediumFont(size: 23))
-        stageLabel.font = UIFont.customFont(.robotoRegularFont(size: 12))
+        tournamentLabel.font = UIFont.customFont(.robotoRegularFont(size: 11))
     }
     
     private func configureColor() {
         player1Label.textColor = PaletteColors.darkGray
         player2Label.textColor = PaletteColors.darkGray
         typeLabel.textColor = PaletteColors.textGray
-        stageLabel.textColor = PaletteColors.darkGray
+        tournamentLabel.textColor = PaletteColors.textGray
     }
     
     private func configureScoreColor() {

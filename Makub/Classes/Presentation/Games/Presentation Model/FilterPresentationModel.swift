@@ -15,22 +15,22 @@ final class FilterPresentationModel: PresentationModel {
     private enum Constants {
         static let resource = "FilterOptions"
         static let type = "plist"
+        
+        static let clubKey = "Клуб"
     }
     
     // MARK: - Public Properties
     
     var filterViewModels: [FilterViewModel]!
+    var clubViewModels: [ClubViewModel]! {
+        didSet {
+            obtainFilterOptions()
+        }
+    }
     
     // MARK: - Private Properties
     
     private let gamesService = ServiceLayer.shared.gamesService
-    
-    // MARK: - Initialization
-    
-    override init() {
-        super.init()
-        obtainFilterOptions()
-    }
     
     // MARK: - Public Methods
     
@@ -59,10 +59,11 @@ final class FilterPresentationModel: PresentationModel {
             model.append(entity)
         }
         
-        // Для добавления других пунктов для фильтра.
-//        let optionsDictionary: NSDictionary = ["name": "Клуб", "options": ["Stylery", "Your Mom"]]
-//        let optionsEntity = Filter(info: optionsDictionary)
-//        model.append(optionsEntity)
+        let clubsDictionary = clubViewModels.compactMap { $0.name }
+        let clubsOptions: NSDictionary = ["name": Constants.clubKey,
+                                          "options": clubsDictionary]
+        let clubsEntity = Filter(info: clubsOptions)
+        model.insert(clubsEntity, at: model.count - 1)
         filterViewModels = model.compactMap { FilterViewModel($0) }
     }
 }

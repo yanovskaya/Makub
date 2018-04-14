@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -23,8 +27,8 @@
                                 <constraint firstAttribute="width" constant="25" id="gTo-Xo-h5R"/>
                             </constraints>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I0k-Fs-h9r">
-                            <rect key="frame" x="90" y="16" width="42" height="27"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I0k-Fs-h9r">
+                            <rect key="frame" x="90" y="16" width="270" height="27"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -32,6 +36,7 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
+                        <constraint firstAttribute="trailing" secondItem="I0k-Fs-h9r" secondAttribute="trailing" constant="15" id="5Dk-ro-bsy"/>
                         <constraint firstAttribute="bottom" secondItem="I0k-Fs-h9r" secondAttribute="bottom" constant="16" id="C4a-qA-1tj"/>
                         <constraint firstItem="rCK-bz-gbK" firstAttribute="centerY" secondItem="0AU-Ho-VGC" secondAttribute="centerY" id="JVk-Ki-SGd"/>
                         <constraint firstItem="I0k-Fs-h9r" firstAttribute="centerY" secondItem="0AU-Ho-VGC" secondAttribute="centerY" id="LS3-hH-vlr"/>

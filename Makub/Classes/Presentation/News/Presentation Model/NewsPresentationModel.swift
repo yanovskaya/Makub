@@ -22,10 +22,8 @@ final class NewsPresentationModel: PresentationModel {
     private let newsService = ServiceLayer.shared.newsService
     
     private var userCacheIsObtained = false
-    private var newsCacheIsObtained = false
 
     private let group = DispatchGroup()
-    
     private var error: Int!
     
     // MARK: - Public Methods
@@ -67,7 +65,6 @@ final class NewsPresentationModel: PresentationModel {
                 self.state = .rich
             }
         }
-        
     }
     
     func refreshNewsWithUser() {
