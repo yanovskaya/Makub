@@ -47,6 +47,10 @@
 		C41B3D072072FDB800A2B652 /* String+SpacesInURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41B3D062072FDB800A2B652 /* String+SpacesInURL.swift */; };
 		C41BE783206FE2FD00ED5826 /* String+RandomString.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41BE782206FE2FD00ED5826 /* String+RandomString.swift */; };
 		C42924B0205C81E700E6D568 /* RecoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42924AF205C81E700E6D568 /* RecoverViewController.swift */; };
+		C42940C220827B060026B2C3 /* GameInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42940C120827B060026B2C3 /* GameInfoViewController.swift */; };
+		C42940C420827BA60026B2C3 /* GameInfoPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42940C320827BA60026B2C3 /* GameInfoPresentationModel.swift */; };
+		C42940C920827CF50026B2C3 /* GameInfoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42940C820827CF50026B2C3 /* GameInfoService.swift */; };
+		C42940CB20827D2B0026B2C3 /* CommentsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42940CA20827D2B0026B2C3 /* CommentsResponse.swift */; };
 		C430FD05208103240019D9CE /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C430FD04208103240019D9CE /* Auth.storyboard */; };
 		C430FD0820822A390019D9CE /* ClubsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C430FD0720822A390019D9CE /* ClubsResponse.swift */; };
 		C430FD0A20822EA10019D9CE /* ClubViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C430FD0920822EA10019D9CE /* ClubViewModel.swift */; };
@@ -148,6 +152,10 @@
 		C41B3D062072FDB800A2B652 /* String+SpacesInURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+SpacesInURL.swift"; sourceTree = "<group>"; };
 		C41BE782206FE2FD00ED5826 /* String+RandomString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+RandomString.swift"; sourceTree = "<group>"; };
 		C42924AF205C81E700E6D568 /* RecoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverViewController.swift; sourceTree = "<group>"; };
+		C42940C120827B060026B2C3 /* GameInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfoViewController.swift; sourceTree = "<group>"; };
+		C42940C320827BA60026B2C3 /* GameInfoPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfoPresentationModel.swift; sourceTree = "<group>"; };
+		C42940C820827CF50026B2C3 /* GameInfoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfoService.swift; sourceTree = "<group>"; };
+		C42940CA20827D2B0026B2C3 /* CommentsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsResponse.swift; sourceTree = "<group>"; };
 		C430FD04208103240019D9CE /* Auth.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		C430FD0720822A390019D9CE /* ClubsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubsResponse.swift; sourceTree = "<group>"; };
 		C430FD0920822EA10019D9CE /* ClubViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubViewModel.swift; sourceTree = "<group>"; };
@@ -294,6 +302,7 @@
 			children = (
 				C41B3C1F207218CE00A2B652 /* GamesViewController.swift */,
 				C41B3C21207218E400A2B652 /* FilterGamesViewController.swift */,
+				C42940C120827B060026B2C3 /* GameInfoViewController.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -335,6 +344,7 @@
 			children = (
 				C41B3C3C2072B12D00A2B652 /* GamesPresentationModel.swift */,
 				C4C259B92078DF4800C0CDD4 /* FilterPresentationModel.swift */,
+				C42940C320827BA60026B2C3 /* GameInfoPresentationModel.swift */,
 			);
 			path = "Presentation Model";
 			sourceTree = "<group>";
@@ -352,6 +362,7 @@
 			isa = PBXGroup;
 			children = (
 				C41B3CDA2072F53E00A2B652 /* ServiceLayer.swift */,
+				C42940C520827CC30026B2C3 /* Game Info */,
 				C41B3CA42072F2A000A2B652 /* Games */,
 				C41B3CA82072F2C600A2B652 /* News */,
 				C41B3CA72072F2C100A2B652 /* User */,
@@ -475,6 +486,31 @@
 			isa = PBXGroup;
 			children = (
 				C41B3CFB2072F74900A2B652 /* AuthResponse.swift */,
+			);
+			path = Parser;
+			sourceTree = "<group>";
+		};
+		C42940C520827CC30026B2C3 /* Game Info */ = {
+			isa = PBXGroup;
+			children = (
+				C42940C620827CD20026B2C3 /* Protocol */,
+				C42940C720827CD90026B2C3 /* Parser */,
+			);
+			path = "Game Info";
+			sourceTree = "<group>";
+		};
+		C42940C620827CD20026B2C3 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				C42940C820827CF50026B2C3 /* GameInfoService.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		C42940C720827CD90026B2C3 /* Parser */ = {
+			isa = PBXGroup;
+			children = (
+				C42940CA20827D2B0026B2C3 /* CommentsResponse.swift */,
 			);
 			path = Parser;
 			sourceTree = "<group>";
@@ -869,6 +905,7 @@
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
 				"${BUILT_PRODUCTS_DIR}/UILoadControl/UILoadControl.framework",
+				"${BUILT_PRODUCTS_DIR}/YouTubePlayer/YouTubePlayer.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -881,6 +918,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UILoadControl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YouTubePlayer.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -940,6 +978,7 @@
 				C4BC7104205F2BEA00332D7E /* AuthPassButton.swift in Sources */,
 				C44D60B2205529C200A5C50F /* AuthViewController.swift in Sources */,
 				C41B3CEE2072F64B00A2B652 /* AuthServiceImpl.swift in Sources */,
+				C42940CB20827D2B0026B2C3 /* CommentsResponse.swift in Sources */,
 				C472A6BF205B16D500768585 /* PresentationModel.swift in Sources */,
 				C41B3CFE2072F76B00A2B652 /* NewsRepsonse.swift in Sources */,
 				C4C259A82077662100C0CDD4 /* AddNewsViewControllerDelegate.swift in Sources */,
@@ -962,6 +1001,7 @@
 				C44D60D5205806BB00A5C50F /* Colors.swift in Sources */,
 				C4D909972068196900DC3D6C /* NewsCell.swift in Sources */,
 				C472A6CA205C4F8100768585 /* ErrorDescription.swift in Sources */,
+				C42940C920827CF50026B2C3 /* GameInfoService.swift in Sources */,
 				C41B3CDB2072F53E00A2B652 /* ServiceLayer.swift in Sources */,
 				C45AC9622066656100F9947F /* UserViewModel.swift in Sources */,
 				C45AC967206671AF00F9947F /* NewsPresentationModel.swift in Sources */,
@@ -974,6 +1014,7 @@
 				C41B3C20207218CE00A2B652 /* GamesViewController.swift in Sources */,
 				C41B3CFC2072F74900A2B652 /* AuthResponse.swift in Sources */,
 				C4C259B62078CCDE00C0CDD4 /* OptionFilterCell.swift in Sources */,
+				C42940C220827B060026B2C3 /* GameInfoViewController.swift in Sources */,
 				C4D4E4FE20618FA9000A9216 /* TabBarController.swift in Sources */,
 				C4D4E4EF20606FEF000A9216 /* RecoverPresentationModel.swift in Sources */,
 				C40EDD7420648EF000338300 /* UIImage+FromColor.swift in Sources */,
@@ -990,6 +1031,7 @@
 				C408C8CF206D3E7A0053F057 /* AddNewsViewController.swift in Sources */,
 				C4C259A62076A3D000C0CDD4 /* DeleteNewsResponse.swift in Sources */,
 				C4D4E4FA20618E63000A9216 /* RatingViewController.swift in Sources */,
+				C42940C420827BA60026B2C3 /* GameInfoPresentationModel.swift in Sources */,
 				C463186C207964C700E14DAC /* UserDefaultsKeys.swift in Sources */,
 				C41B3CE82072F61600A2B652 /* GamesServiceImpl.swift in Sources */,
 				C42924B0205C81E700E6D568 /* RecoverViewController.swift in Sources */,
@@ -1144,6 +1186,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JHLX4XGDFC;
 				INFOPLIST_FILE = "$(SRCROOT)/Makub/Supporting files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "-.Makub";
 				PRODUCT_NAME = "Макуб";
@@ -1160,6 +1203,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JHLX4XGDFC;
 				INFOPLIST_FILE = "$(SRCROOT)/Makub/Supporting files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "-.Makub";
 				PRODUCT_NAME = "Макуб";

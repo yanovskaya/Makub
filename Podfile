@@ -12,4 +12,5 @@ target 'Makub' do
   pod 'HidingNavigationBar'
   pod 'FDTake'
   pod 'UILoadControl'
+  pod 'YouTubePlayer'
 end

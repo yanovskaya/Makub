@@ -17,7 +17,7 @@ final class GamesRouter {
     
     // MARK: - Public Methods
     
-    /// News -> AddNews.
+    /// Games -> FilterGames.
     func presentFilterGamesVC(source gamesViewController: GamesViewController) {
         let filterGamesViewController = gamesStoryboard.viewController(FilterGamesViewController.self)
         filterGamesViewController.chosenOptions = gamesViewController.presentationModel.chosenOptions
@@ -25,4 +25,12 @@ final class GamesRouter {
         filterGamesViewController.delegate = gamesViewController
         gamesViewController.present(filterGamesViewController, animated: true)
     }
+    
+    /// Games -> GameInfo.
+    func showGameInfoVC(source gamesViewController: GamesViewController, _ index: Int) {
+        let gameInfoViewController = gamesStoryboard.viewController(GameInfoViewController.self)
+        gameInfoViewController.presentationModel.gameViewModel = gamesViewController.presentationModel.gamesViewModels[index]
+        gamesViewController.show(gameInfoViewController, sender: self)
+    }
+    
 }

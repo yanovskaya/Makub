@@ -122,7 +122,7 @@ final class NewsViewController: UIViewController {
                 if let searchText = self?.navigationSearchBar.text {
                     self?.filterNewsForSearchText(searchText: searchText)
                 }
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                     self?.refreshControl.endRefreshing()
                 }
                 self?.newsCollectionView.reloadData()
@@ -206,6 +206,7 @@ final class NewsViewController: UIViewController {
         refreshControl.addTarget(self, action: #selector(refreshGames(_:)), for: .valueChanged)
         guard let flowLayout = newsCollectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
         flowLayout.estimatedItemSize.width = view.frame.width
+        flowLayout.estimatedItemSize.height = 500
     }
     
     private func hideSearchKeyboardWhenTappedAround() {

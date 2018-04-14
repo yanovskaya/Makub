@@ -65,6 +65,8 @@ final class GamesCell: UICollectionViewCell, ViewModelConfigurable {
         
         photo2ImageView.clipsToBounds = true
         photo2ImageView.layer.cornerRadius = photo2ImageView.frame.width / 2
+        tournamentLabel.adjustsFontSizeToFitWidth = false
+        tournamentLabel.lineBreakMode = .byTruncatingTail
     }
     
     // MARK: - Prepare for Reuse

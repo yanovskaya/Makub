@@ -231,6 +231,10 @@ extension GamesViewController: UICollectionViewDataSource {
         cell.layoutIfNeeded()
         return cell
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        router.showGameInfoVC(source: self, indexPath.row)
+    }
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout

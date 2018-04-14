@@ -12,6 +12,7 @@ PODS:
   - SwiftKeychainWrapper (3.0.1)
   - SwiftLint (0.25.0)
   - UILoadControl (2.1.0)
+  - YouTubePlayer (0.4.0)
 
 DEPENDENCIES:
   - Alamofire
@@ -23,6 +24,7 @@ DEPENDENCIES:
   - SwiftKeychainWrapper
   - SwiftLint
   - UILoadControl
+  - YouTubePlayer
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
@@ -36,6 +38,7 @@ SPEC REPOS:
     - SwiftKeychainWrapper
     - SwiftLint
     - UILoadControl
+    - YouTubePlayer
 
 SPEC CHECKSUMS:
   Alamofire: 68d7d521118d49c615a8d2214d87cdf525599d30
@@ -48,7 +51,8 @@ SPEC CHECKSUMS:
   SwiftKeychainWrapper: 38952a3636320ae61bad3513cadd870929de7a4a
   SwiftLint: e14651157288e9e01d6e1a71db7014fb5744a8ea
   UILoadControl: e742ddbe4c67ba1f13b00b7d462d4141307d021f
+  YouTubePlayer: 028451f6772f372d4759866db99824c676ac1473
 
-PODFILE CHECKSUM: 9598a85f23a93d5aca3821eee156e8aae926f17b
+PODFILE CHECKSUM: e934167795fb46a54466c8d88707adda79a432ad
 
 COCOAPODS: 1.5.0
