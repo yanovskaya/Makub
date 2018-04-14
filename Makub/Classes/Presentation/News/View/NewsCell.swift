@@ -19,7 +19,6 @@ final class NewsCell: UICollectionViewCell, ViewModelConfigurable {
     }
     
     private enum LayoutConstants {
-        static let heightIllustrationImageView: CGFloat = 167
         static let bottomImageDistance: CGFloat = 198
         static let bottomDistance: CGFloat = 20
         
@@ -52,6 +51,7 @@ final class NewsCell: UICollectionViewCell, ViewModelConfigurable {
     // MARK: - Public Properties
     
     weak var delegate: NewsCellDelegate?
+    var heightIllustrationImageViewConstant: CGFloat!
     
     // MARK: - Private Properties
     
@@ -97,7 +97,7 @@ final class NewsCell: UICollectionViewCell, ViewModelConfigurable {
         authorLabel.text = viewModel.fullName
         
         if let imageURL = viewModel.imageURL {
-            heightIllustrationImageView.constant = LayoutConstants.heightIllustrationImageView
+            heightIllustrationImageView.constant = heightIllustrationImageViewConstant
             bottomDistance.constant = LayoutConstants.bottomImageDistance
             let sizeProcessor = ResizingImageProcessor(referenceSize: CGSize(width: SizeConstants.imageWidth, height: SizeConstants.imageHeight), mode: .aspectFill)
             illustrationImageView.kf.indicatorType = .activity

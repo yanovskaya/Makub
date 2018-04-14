@@ -125,9 +125,12 @@ final class GamesPresentationModel: PresentationModel {
             case .serviceSuccess(let model):
                 guard let model = model else { return }
                 self.gamesViewModels = model.games.compactMap { GameViewModel($0) }
-                self.obtainClubs {
-                    self.filterAllGamesViewModels()
+                for gameViewModel in self.gamesViewModels {
+                    for clubViewModel in self.clubViewModels where gameViewModel.clubId == clubViewModel.id {
+                        gameViewModel.club = clubViewModel.name
+                    }
                 }
+                self.filterAllGamesViewModels()
             case .serviceFailure(let error):
                 self.state = .error(code: error.code)
             }

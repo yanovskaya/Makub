@@ -27,7 +27,7 @@ final class GamesViewController: UIViewController {
         static let topEdge: CGFloat = 10
         static let bottomEdge: CGFloat = 10
         static let cellSpacing: CGFloat = 3
-        static let estimatedCellHeight: CGFloat = 115.5
+        static let estimatedCellHeight: CGFloat = 114
     }
     
     // MARK: - IBOutlets
@@ -47,6 +47,7 @@ final class GamesViewController: UIViewController {
     
     private var refreshControl = UIRefreshControl()
     private var isLoading = false
+    private var filterDataIsObtained = false
     private let router = GamesRouter()
     
     // MARK: - ViewController lifecycle
@@ -80,6 +81,7 @@ final class GamesViewController: UIViewController {
                 HUD.show(.progress)
             case .rich:
                 self?.gamesCollectionView.reloadData()
+                self?.filterDataIsObtained = true
                 HUD.hide()
             case .error (let code):
                 switch code {
@@ -205,7 +207,9 @@ final class GamesViewController: UIViewController {
     // MARK: - IBActions
     
     @IBAction func filterButtonItemTapped(_ sender: Any) {
-        router.presentFilterGamesVC(source: self)
+        if filterDataIsObtained {
+            router.presentFilterGamesVC(source: self)
+        }
     }
     
 }
@@ -275,7 +279,6 @@ extension GamesViewController: FilterGamesViewControllerDelegate {
         gamesCollectionView.loadControl = nil
         refreshControl.removeFromSuperview()
         gamesCollectionView.loadControl?.removeFromSuperview()
-        gamesCollectionView.reloadData()
     }
     
     func showGamesWithNoFilter() {
