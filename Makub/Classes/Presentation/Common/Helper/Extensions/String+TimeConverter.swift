@@ -19,18 +19,20 @@ extension String {
         let components = Calendar.current.dateComponents([.day, .hour, .minute], from: convertedDate, to: dateForNow)
         guard let day = components.day,
             let hour = components.hour else { return nil }
-        if day > 1 {
+        let currentHour = Calendar.current.component(.hour, from: Date())
+        let fixedHour = Calendar.current.component(.hour, from: convertedDate)
+        if day > 1 || (currentHour < fixedHour && day > 0) {
             dateFormatter.dateFormat = "dd.MM.yyyy"
             return dateFormatter.string(from: convertedDate)
-        } else if day > 0 {
-            dateFormatter.dateFormat = "dd.MM"
+        } else if day > 0 || (currentHour < fixedHour) {
+            dateFormatter.dateFormat = "HH:mm"
             return "Вчера в" + " " + dateFormatter.string(from: convertedDate)
         } else if hour > 3 {
             dateFormatter.dateFormat = "HH:mm"
             return "Cегодня в" + " " + dateFormatter.string(from: convertedDate)
         } else if hour > 1 {
             dateFormatter.dateFormat = "HH"
-            return dateFormatter.string(from: convertedDate) + "часа назад"
+            return dateFormatter.string(from: convertedDate) + " " + "часа назад"
         } else if hour == 1 {
             return "Час назад"
         } else {
