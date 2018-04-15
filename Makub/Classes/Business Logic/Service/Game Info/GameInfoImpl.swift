@@ -19,7 +19,7 @@ final class GameInfoServiceImpl: GameInfoService {
         static let baseURL = "https://makub.ru/api"
         static let tokenParameter = "token"
         static let gameIdParameter = "game_id"
-        static let stageParameter = "stage"
+        static let stageParameter = "id"
     }
     
     private enum EndPoint {
@@ -33,9 +33,6 @@ final class GameInfoServiceImpl: GameInfoService {
     private let transport: Transport
     private let commentsParser = Parser<CommentsResponse>()
     private let tournamentParser = Parser<TournamentResponse>()
-    
-    private let commentsRealmCache = RealmCache<Comment>()
-    private let tournamentRealmCache = RealmCache<Tournament>()
     
     // MARK: - Initialization
     
@@ -52,27 +49,33 @@ final class GameInfoServiceImpl: GameInfoService {
             completion?(ServiceCallResult.serviceFailure(error: error))
             return
         }
+        print("par")
         let parameters = [Constants.tokenParameter: token,
                           Constants.gameIdParameter: gameId] as [String: Any]
         transport.request(method: .post, url: Constants.baseURL + EndPoint.comments, parameters: parameters) { [unowned self] transportResult in
+            print("tr res")
             switch transportResult {
             case .transportSuccess(let payload):
+                print("suuuc")
                 let resultBody = payload.resultBody
                 let parseResult = self.commentsParser.parse(from: resultBody)
                 switch parseResult {
                 case .parserSuccess(let model):
                     if model.error == 0 {
-                        self.commentsRealmCache.refreshCache(model.comments)
+                        print("parse suc")
                         completion?(ServiceCallResult.serviceSuccess(payload: model))
                     } else {
+                        print("parse err")
                         let error = NSError(domain: "", code: model.error)
                         completion?(ServiceCallResult.serviceFailure(error: error))
                     }
                 case .parserFailure(let error):
-                    self.obtainCommentsRealmCache(error: error, completion: completion)
+                    print("parse error c")
+                    completion?(ServiceCallResult.serviceFailure(error: error))
                 }
             case .transportFailure(let error):
-                self.obtainCommentsRealmCache(error: error, completion: completion)
+                print("tr not suc")
+                completion?(ServiceCallResult.serviceFailure(error: error))
             }
         }
     }
@@ -85,7 +88,7 @@ final class GameInfoServiceImpl: GameInfoService {
         }
         let parameters = [Constants.tokenParameter: token,
                           Constants.stageParameter: stage] as [String: Any]
-        transport.request(method: .post, url: Constants.baseURL + EndPoint.comments, parameters: parameters) { [unowned self] transportResult in
+        transport.request(method: .post, url: Constants.baseURL + EndPoint.tournament, parameters: parameters) { [unowned self] transportResult in
             switch transportResult {
             case .transportSuccess(let payload):
                 let resultBody = payload.resultBody
@@ -93,46 +96,18 @@ final class GameInfoServiceImpl: GameInfoService {
                 switch parseResult {
                 case .parserSuccess(let model):
                     if model.error == 0 {
-                        self.tournamentRealmCache.refreshCache(model.tournament)
                         completion?(ServiceCallResult.serviceSuccess(payload: model))
                     } else {
                         let error = NSError(domain: "", code: model.error)
                         completion?(ServiceCallResult.serviceFailure(error: error))
                     }
                 case .parserFailure(let error):
-                    self.obtainTournamentRealmCache(error: error, completion: completion)
+                    print("parse error t")
+                    completion?(ServiceCallResult.serviceFailure(error: error))
                 }
             case .transportFailure(let error):
-                self.obtainTournamentRealmCache(error: error, completion: completion)
+                completion?(ServiceCallResult.serviceFailure(error: error))
             }
-        }
-    }
-    
-    // MARK: - Private Methods
-    
-    private func obtainCommentsRealmCache(error: NSError? = nil, completion: ((ServiceCallResult<CommentsResponse>) -> Void)?) {
-        if let commentsCache = self.commentsRealmCache.getCachedArray() {
-            let commentsResponse = CommentsResponse(comments: commentsCache, error: 0)
-            completion?(ServiceCallResult.serviceSuccess(payload: commentsResponse))
-        } else {
-            guard let error = error else {
-                completion?(ServiceCallResult.serviceFailure(error: NSError()))
-                return
-            }
-            completion?(ServiceCallResult.serviceFailure(error: error))
-        }
-    }
-    
-    private func obtainTournamentRealmCache(error: NSError? = nil, completion: ((ServiceCallResult<TournamentResponse>) -> Void)?) {
-        if let tournamentCache = self.tournamentRealmCache.getCachedObject() {
-            let tournamentResponse = TournamentResponse(tournament: tournamentCache, error: 0)
-            completion?(ServiceCallResult.serviceSuccess(payload: tournamentResponse))
-        } else {
-            guard let error = error else {
-                completion?(ServiceCallResult.serviceFailure(error: NSError()))
-                return
-            }
-            completion?(ServiceCallResult.serviceFailure(error: error))
         }
     }
     

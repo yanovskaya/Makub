@@ -6,15 +6,26 @@
 //  Copyright © 2018 Elena Yanovskaya. All rights reserved.
 //
 
+import PKHUD
 import UIKit
 import YouTubePlayer
 
 final class GameInfoViewController: UIViewController {
     
     private enum Constants {
-        static let backButtonImage = "down_arrow"
+        static let title = "Об игре"
+        static let backButtonImage = "arrow_left"
+        
+        static let gameInfoCellId = String(describing: GameInfoCell.self)
+        static let addCommentCellId = String(describing: AddCommentCell.self)
+        static let commentsCellId = String(describing: CommentsCell.self)
     }
 
+    private enum LayoutConstants {
+        static let bottomEdge: CGFloat = 3
+        static let cellSpacing: CGFloat = 3
+    }
+    
     // MARK: - IBOutlets
     
     @IBOutlet private var navBackgroundView: UIView!
@@ -22,14 +33,25 @@ final class GameInfoViewController: UIViewController {
     @IBOutlet private var backButtonItem: UIBarButtonItem!
     @IBOutlet private var gameCollectionView: UICollectionView!
     
+    private var isObtained = false
     // MARK: - Public Properties
     
     let presentationModel = GameInfoPresentationModel()
+    
+    // MARK: - Private Properties
+    
+    private let router = GamesRouter()
     
     // MARK: - ViewController lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        bindEventsObtainGameInfo()
+        presentationModel.obtainGameInfo()
+        
+        gameCollectionView.delegate = self
+        gameCollectionView.dataSource = self
         
         navigationBar.setBackgroundImage(UIImage(color: UIColor.white), for: .default)
         navBackgroundView.backgroundColor = .white
@@ -38,5 +60,155 @@ final class GameInfoViewController: UIViewController {
         gameCollectionView.backgroundColor = .clear
         view.backgroundColor = PaletteColors.blueBackground
         navigationController?.interactivePopGestureRecognizer?.delegate = nil
+        
+        let titleTextAttributes: [NSAttributedStringKey: Any] = [NSAttributedStringKey.foregroundColor: PaletteColors.darkGray,
+                                                                 NSAttributedStringKey.font: UIFont.customFont(.robotoMediumFont(size: 17))]
+        navigationBar.titleTextAttributes = titleTextAttributes
+        navigationBar.topItem?.title = Constants.title
+        
+        
+        gameCollectionView.register(UINib(nibName: Constants.gameInfoCellId, bundle: nil), forCellWithReuseIdentifier: Constants.gameInfoCellId)
+        gameCollectionView.register(UINib(nibName: Constants.commentsCellId, bundle: nil), forCellWithReuseIdentifier: Constants.commentsCellId)
+        gameCollectionView.register(UINib(nibName: Constants.addCommentCellId, bundle: nil), forCellWithReuseIdentifier: Constants.addCommentCellId)
+        
+        guard let flowLayout = gameCollectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
+        flowLayout.estimatedItemSize.width = view.frame.width
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        tabBarController?.delegate = self
+    }
+    
+    // MARK: - Private Methods
+    
+    private func bindEventsObtainGameInfo() {
+        presentationModel.changeStateHandler = { [weak self] status in
+            switch status {
+            case .loading:
+                HUD.show(.progress)
+            case .rich:
+                self?.isObtained = true
+                self?.gameCollectionView.reloadData()
+                HUD.hide()
+            case .error (let code):
+                switch code {
+                case -1009, -1001:
+                    HUD.show(.labeledError(title: ErrorDescription.title.rawValue, subtitle: ErrorDescription.network.rawValue))
+                default:
+                    HUD.show(.labeledError(title: ErrorDescription.title.rawValue, subtitle: ErrorDescription.server.rawValue))
+                }
+                HUD.hide(afterDelay: 1.0)
+            }
+        }
+    }
+    
+}
+
+// MARK: - UICollectionViewDataSource
+
+extension GameInfoViewController: UICollectionViewDataSource {
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        if isObtained {
+        if presentationModel.gameViewModel.commentsCount == 0 {
+            return 2
+        } else {
+            return 3
+            } } else {
+            return 0
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if section == 0 || section == 1 {
+            return 1
+        } else {
+            print(presentationModel.gameViewModel.commentsCount)
+            return presentationModel.gameViewModel.commentsCount
+        }
+    }
+    
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let section = indexPath.section
+        if section == 0 {
+            return gameInfoCell(collectionView, cellForItemAt: indexPath)
+        } else if section == 1 {
+            return addCommentCell(collectionView, cellForItemAt: indexPath)
+        } else {
+            return commentsCell(collectionView, cellForItemAt: indexPath)
+        }
+    }
+    
+    func gameInfoCell(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cellIdentifier = Constants.gameInfoCellId
+        guard let cell =
+            collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? GameInfoCell,
+            let gameViewModel = presentationModel.gameViewModel,
+            let tournamentViewModel = presentationModel.tournamentViewModel else {
+                return UICollectionViewCell()
+        }
+        cell.contentView.isUserInteractionEnabled = false
+        cell.configure(for: gameViewModel)
+        cell.configureTournament(for: tournamentViewModel)
+        cell.layoutIfNeeded()
+        return cell
+    }
+    
+    func addCommentCell(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cellIdentifier = Constants.addCommentCellId
+        guard let cell =
+            collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? AddCommentCell,
+            let viewModel = presentationModel.userViewModel else {
+            return UICollectionViewCell()
+        }
+        cell.configure(for: viewModel)
+        cell.layoutIfNeeded()
+        return cell
+    }
+    
+    func commentsCell(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cellIdentifier = Constants.commentsCellId
+        guard let cell =
+            collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? CommentsCell else { return UICollectionViewCell() }
+        let viewModel = presentationModel.commentViewModels[indexPath.row]
+        cell.configure(for: viewModel)
+        cell.layoutIfNeeded()
+        return cell
+    }
+    
+}
+
+// MARK: - UICollectionViewDelegate
+
+extension GameInfoViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.section == 1 {
+            router.presentAddCommentVC(source: self)
+        }
+    }
+}
+
+// MARK: - UICollectionViewDelegateFlowLayout
+
+extension GameInfoViewController: UICollectionViewDelegateFlowLayout {
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 0, bottom: LayoutConstants.bottomEdge, right: 0)
+
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return LayoutConstants.cellSpacing
+    }
+}
+
+// MARK: - UITabBarControllerDelegate
+
+extension GameInfoViewController: UITabBarControllerDelegate {
+    
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        navigationController?.popViewController(animated: true)
     }
 }

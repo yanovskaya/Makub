@@ -17,15 +17,17 @@ final class CommentViewModel {
     // MARK: - Public Properties
     
     let comment: String
-    let player: String
+    let author: String
     let photoURL: String!
     let time: String
+    let playerId: String
     
     // MARK: - Initialization
     
     init(_ comment: Comment) {
         self.comment = comment.comment
-        self.player = comment.name + " " + comment.surname
+        self.playerId = comment.playerId
+        self.author = comment.name + " " + comment.surname
         
         if let photo = comment.photo, photo != "" {
             self.photoURL = (Constants.baseURL + photo).removeSpacesInURL()

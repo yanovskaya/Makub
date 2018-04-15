@@ -13,13 +13,18 @@ final class TournamentViewModel {
     // MARK: - Public Properties
     
     let tournament: String
-    let description: String
+    let description: String?
     
     // MARK: - Initialization
     
     init(_ tournament: Tournament) {
         self.tournament = tournament.name
         self.description = tournament.smalldesc
+    }
+    
+    init(title: String) {
+        tournament = title
+        description = nil
     }
     
 }

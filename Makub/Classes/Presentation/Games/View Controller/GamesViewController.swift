@@ -225,7 +225,7 @@ extension GamesViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let viewModel = presentationModel.gamesViewModels[indexPath.row]
         let cellIdentifier = Constants.cellIdentifier
-        guard let cell = gamesCollectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? GamesCell else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? GamesCell else { return UICollectionViewCell() }
         
         cell.configure(for: viewModel)
         cell.layoutIfNeeded()

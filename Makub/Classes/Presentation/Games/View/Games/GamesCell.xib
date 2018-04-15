@@ -100,6 +100,7 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
                 <outlet property="centerVideoImageView" destination="pms-0H-egS" id="tSP-GX-s5x"/>
+                <outlet property="clubLabel" destination="vCF-bm-V1g" id="HcN-fk-MGV"/>
                 <outlet property="leadingVideoImageView" destination="Gs7-zn-YCw" id="d38-sz-0aZ"/>
                 <outlet property="photo1ImageView" destination="aNu-KV-ljn" id="qgd-N1-JqF"/>
                 <outlet property="photo2ImageView" destination="YkM-XR-FMy" id="LYp-lI-bff"/>
@@ -107,7 +108,6 @@
                 <outlet property="player2Label" destination="sX7-6Q-0cH" id="3yo-0g-N2h"/>
                 <outlet property="score1Label" destination="g6e-bV-b7k" id="63u-RQ-9AE"/>
                 <outlet property="score2Label" destination="7gQ-kI-yjN" id="3OV-Cb-laW"/>
-                <outlet property="tournamentLabel" destination="vCF-bm-V1g" id="HcN-fk-MGV"/>
                 <outlet property="typeLabel" destination="m69-bh-asj" id="ho6-3S-tV9"/>
                 <outlet property="videoImageView" destination="ssX-Xf-wgy" id="2M8-FC-Tp0"/>
                 <outlet property="widthVideoImageView" destination="OKR-1O-qb4" id="AVK-b4-d6e"/>

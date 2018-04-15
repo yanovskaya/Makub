@@ -33,4 +33,7 @@ final class GamesRouter {
         gamesViewController.show(gameInfoViewController, sender: self)
     }
     
+    func presentAddCommentVC(source gameInfoViewController: GameInfoViewController) {
+    }
+    
 }

@@ -47,7 +47,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iy1-9z-5wW">
-                    <rect key="frame" x="76" y="77.5" width="283" height="20.5"/>
+                    <rect key="frame" x="76" y="77.5" width="42" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -64,7 +64,6 @@
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="zjC-Yv-8FZ" secondAttribute="trailing" constant="8" id="Hkb-V4-zoS"/>
                 <constraint firstItem="V0G-cl-wCm" firstAttribute="centerY" secondItem="iUm-ig-gDb" secondAttribute="centerY" id="NJi-CS-Ags"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="V0G-cl-wCm" secondAttribute="trailing" constant="45" id="Pq8-GU-tuV"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="iy1-9z-5wW" secondAttribute="trailing" constant="16" id="RZJ-qV-WYQ"/>
                 <constraint firstItem="iy1-9z-5wW" firstAttribute="top" secondItem="iUm-ig-gDb" secondAttribute="bottom" constant="16" id="ZzU-EI-1fb"/>
                 <constraint firstItem="U85-rx-9a1" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="bXL-F4-cby"/>
                 <constraint firstItem="zjC-Yv-8FZ" firstAttribute="centerY" secondItem="V0G-cl-wCm" secondAttribute="centerY" id="eDF-vA-CrH"/>
@@ -76,7 +75,7 @@
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
                 <outlet property="authorImageView" destination="U85-rx-9a1" id="xR4-yq-Asf"/>
-                <outlet property="authorNameLabel" destination="BRn-XI-pRA" id="vVZ-jY-GNw"/>
+                <outlet property="authorLabel" destination="BRn-XI-pRA" id="vVZ-jY-GNw"/>
                 <outlet property="clubLabel" destination="3AD-Jw-IGg" id="0Ll-CR-Nsw"/>
                 <outlet property="commentLabel" destination="iy1-9z-5wW" id="B8U-ZX-LnE"/>
                 <outlet property="dateLabel" destination="V0G-cl-wCm" id="IvW-U6-R7k"/>

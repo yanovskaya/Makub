@@ -69,7 +69,6 @@ final class NewsPresentationModel: PresentationModel {
     
     func refreshNewsWithUser() {
         group.enter()
-        obtainUserCache()
         userService.obtainUserInfo(useCache: false) { result in
             switch result {
             case .serviceSuccess(let model):

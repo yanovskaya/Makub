@@ -295,7 +295,7 @@ extension NewsViewController: UICollectionViewDataSource {
     func addNewsCell(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
          let cellIdentifier = Constants.addNewsCellId
         guard let cell =
-            newsCollectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? AddNewsCell else { return UICollectionViewCell() }
+            collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? AddNewsCell else { return UICollectionViewCell() }
         let viewModel = presentationModel.userViewModel
         cell.configure(for: viewModel)
         cell.layoutIfNeeded()
@@ -305,7 +305,7 @@ extension NewsViewController: UICollectionViewDataSource {
     func newsCell(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cellIdentifier = Constants.newsCellId
         guard let cell =
-            newsCollectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? NewsCell else { return UICollectionViewCell() }
+            collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? NewsCell else { return UICollectionViewCell() }
         let viewModel = filteredNews[indexPath.row]
         cell.heightIllustrationImageViewConstant = (view.frame.width - 16) / 3 * 2
         cell.configure(for: viewModel)

@@ -19,13 +19,13 @@ final class GamesCell: UICollectionViewCell, ViewModelConfigurable {
     }
 
     private enum SizeConstants {
-        static let photoWidth: CGFloat = 90
-        static let photoHeight: CGFloat = 90
+        static let photoWidth: CGFloat = 200
+        static let photoHeight: CGFloat = 200
     }
     
     // MARK: - IBOutlets
     
-    @IBOutlet private var tournamentLabel: UILabel!
+    @IBOutlet private var clubLabel: UILabel!
     @IBOutlet private var typeLabel: UILabel!
     @IBOutlet private var videoImageView: UIImageView!
     
@@ -65,15 +65,13 @@ final class GamesCell: UICollectionViewCell, ViewModelConfigurable {
         
         photo2ImageView.clipsToBounds = true
         photo2ImageView.layer.cornerRadius = photo2ImageView.frame.width / 2
-        tournamentLabel.adjustsFontSizeToFitWidth = false
-        tournamentLabel.lineBreakMode = .byTruncatingTail
     }
     
     // MARK: - Prepare for Reuse
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        //stageLabel.text = nil
+        clubLabel.text = nil
         typeLabel.text = nil
         player1Label.text = nil
         player2Label.text = nil
@@ -93,7 +91,7 @@ final class GamesCell: UICollectionViewCell, ViewModelConfigurable {
         score2Label.text = viewModel.score2
         player1Label.text = viewModel.player1
         player2Label.text = viewModel.player2
-        tournamentLabel.text = viewModel.club
+        clubLabel.text = viewModel.club
         
         let sizeProcessor = ResizingImageProcessor(referenceSize: CGSize(width: SizeConstants.photoWidth, height: SizeConstants.photoHeight), mode: .aspectFill)
         
@@ -145,14 +143,14 @@ final class GamesCell: UICollectionViewCell, ViewModelConfigurable {
         typeLabel.font = UIFont.customFont(.robotoRegularFont(size: 11))
         score1Label.font = UIFont.customFont(.robotoMediumFont(size: 23))
         score2Label.font = UIFont.customFont(.robotoMediumFont(size: 23))
-        tournamentLabel.font = UIFont.customFont(.robotoRegularFont(size: 11))
+        clubLabel.font = UIFont.customFont(.robotoRegularFont(size: 11))
     }
     
     private func configureColor() {
         player1Label.textColor = PaletteColors.darkGray
         player2Label.textColor = PaletteColors.darkGray
         typeLabel.textColor = PaletteColors.textGray
-        tournamentLabel.textColor = PaletteColors.textGray
+        clubLabel.textColor = PaletteColors.textGray
     }
     
     private func configureScoreColor() {

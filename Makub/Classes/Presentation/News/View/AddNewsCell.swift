@@ -38,8 +38,6 @@ final class AddNewsCell: UICollectionViewCell, ViewModelConfigurable {
         super.awakeFromNib()
         configureLayout()
         configureLabel()
-        
-        userImageView.image = UIImage(named: Constants.userImage)
     }
     
     override func layoutSubviews() {
