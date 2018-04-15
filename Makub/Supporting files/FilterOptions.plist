@@ -14,6 +14,15 @@
 	</dict>
 	<dict>
 		<key>name</key>
+		<string>Турнир</string>
+		<key>options</key>
+		<array>
+			<string>Товарищеская игра</string>
+			<string>Турнир</string>
+		</array>
+	</dict>
+	<dict>
+		<key>name</key>
 		<string>Видео</string>
 		<key>options</key>
 		<array>

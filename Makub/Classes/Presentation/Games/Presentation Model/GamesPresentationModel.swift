@@ -16,9 +16,14 @@ final class GamesPresentationModel: PresentationModel {
     private enum Constants {
         static let typeKey = "Тип"
         static let clubKey = "Клуб"
+        
         static let videoKey = "Видео"
         static let trueVideo = "С видео"
         static let falseVideo = "Без видео"
+        
+        static let tournamentKey = "Турнир"
+        static let friendGame = "Товарищеская игра"
+        static let tournament = "Турнир"
     }
     
     // MARK: - Public Properties
@@ -155,6 +160,16 @@ final class GamesPresentationModel: PresentationModel {
                             return true
                         } else if value == Constants.falseVideo,
                             game.video == nil {
+                            return true
+                        }
+                    }
+                } else if parameter.key == Constants.tournamentKey {
+                    for value in parameter.value {
+                        if value == Constants.friendGame,
+                            game.stage == "0" {
+                            return true
+                        } else if value == Constants.tournament,
+                            game.stage != "0" {
                             return true
                         }
                     }

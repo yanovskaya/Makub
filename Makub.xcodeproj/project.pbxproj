@@ -114,6 +114,8 @@
 		C4E1127A20834AF100EE7DC4 /* GameInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E1127920834AF100EE7DC4 /* GameInfoCell.swift */; };
 		C4E1127C20834B0400EE7DC4 /* AddCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E1127B20834B0400EE7DC4 /* AddCommentCell.swift */; };
 		C4E1127E20834B1700EE7DC4 /* CommentsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E1127D20834B1700EE7DC4 /* CommentsCell.swift */; };
+		C4E1128020835B4600EE7DC4 /* GameInfoImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E1127F20835B4600EE7DC4 /* GameInfoImpl.swift */; };
+		C4E1128220835B6100EE7DC4 /* TournamentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E1128120835B6100EE7DC4 /* TournamentResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -227,6 +229,8 @@
 		C4E1127920834AF100EE7DC4 /* GameInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfoCell.swift; sourceTree = "<group>"; };
 		C4E1127B20834B0400EE7DC4 /* AddCommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCommentCell.swift; sourceTree = "<group>"; };
 		C4E1127D20834B1700EE7DC4 /* CommentsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsCell.swift; sourceTree = "<group>"; };
+		C4E1127F20835B4600EE7DC4 /* GameInfoImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfoImpl.swift; sourceTree = "<group>"; };
+		C4E1128120835B6100EE7DC4 /* TournamentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TournamentResponse.swift; sourceTree = "<group>"; };
 		FD91280B983360A8DBD4BDFC /* Pods_Makub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Makub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -504,6 +508,7 @@
 			children = (
 				C42940C620827CD20026B2C3 /* Protocol */,
 				C42940C720827CD90026B2C3 /* Parser */,
+				C4E1127F20835B4600EE7DC4 /* GameInfoImpl.swift */,
 			);
 			path = "Game Info";
 			sourceTree = "<group>";
@@ -520,6 +525,7 @@
 			isa = PBXGroup;
 			children = (
 				C42940CA20827D2B0026B2C3 /* CommentsResponse.swift */,
+				C4E1128120835B6100EE7DC4 /* TournamentResponse.swift */,
 			);
 			path = Parser;
 			sourceTree = "<group>";
@@ -1054,6 +1060,7 @@
 				C45AC9622066656100F9947F /* UserViewModel.swift in Sources */,
 				C45AC967206671AF00F9947F /* NewsPresentationModel.swift in Sources */,
 				C472A6D1205C7E5900768585 /* Storyboard+GetViewController.swift in Sources */,
+				C4E1128020835B4600EE7DC4 /* GameInfoImpl.swift in Sources */,
 				C49EF4C820790E2800906664 /* NSDictionary+Parse.swift in Sources */,
 				C41B3C272072561000A2B652 /* GamesCell.swift in Sources */,
 				C4D4E4F22060860F000A9216 /* AuthRouter.swift in Sources */,
@@ -1064,6 +1071,7 @@
 				C4C259B62078CCDE00C0CDD4 /* OptionFilterCell.swift in Sources */,
 				C42940C220827B060026B2C3 /* GameInfoViewController.swift in Sources */,
 				C4D4E4FE20618FA9000A9216 /* TabBarController.swift in Sources */,
+				C4E1128220835B6100EE7DC4 /* TournamentResponse.swift in Sources */,
 				C4D4E4EF20606FEF000A9216 /* RecoverPresentationModel.swift in Sources */,
 				C40EDD7420648EF000338300 /* UIImage+FromColor.swift in Sources */,
 				C41B3C362072642000A2B652 /* Tournament.swift in Sources */,
