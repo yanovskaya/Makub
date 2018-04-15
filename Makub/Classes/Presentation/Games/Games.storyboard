@@ -138,24 +138,53 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="flj-hN-FPl" customClass="YouTubePlayerView" customModule="YouTubePlayer">
-                                <rect key="frame" x="0.0" y="20" width="320" height="170"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gzh-6m-a8N">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="55"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="170" id="wIU-uQ-HS5"/>
+                                    <constraint firstAttribute="height" constant="55" id="xpd-go-1pS"/>
                                 </constraints>
                             </view>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QWG-3q-Jsj">
+                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                                <items>
+                                    <navigationItem title="Title" id="Irk-gg-ntE">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" id="fHV-8B-LfP"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="t20-8B-IUj">
+                                <rect key="frame" x="0.0" y="65" width="320" height="503"/>
+                                <color key="backgroundColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="jMz-2C-pcA">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="flj-hN-FPl" firstAttribute="trailing" secondItem="pmK-cJ-rWJ" secondAttribute="trailing" id="QKv-UC-uw2"/>
-                            <constraint firstItem="flj-hN-FPl" firstAttribute="leading" secondItem="pmK-cJ-rWJ" secondAttribute="leading" id="TCs-ne-SYI"/>
-                            <constraint firstItem="flj-hN-FPl" firstAttribute="top" secondItem="pmK-cJ-rWJ" secondAttribute="top" id="fQG-Fu-JbK"/>
+                            <constraint firstItem="QWG-3q-Jsj" firstAttribute="top" secondItem="pmK-cJ-rWJ" secondAttribute="top" id="8b0-SW-Qze"/>
+                            <constraint firstItem="QWG-3q-Jsj" firstAttribute="leading" secondItem="pmK-cJ-rWJ" secondAttribute="leading" id="8gr-Fq-IjI"/>
+                            <constraint firstItem="pmK-cJ-rWJ" firstAttribute="trailing" secondItem="t20-8B-IUj" secondAttribute="trailing" id="GSM-nv-LRD"/>
+                            <constraint firstItem="pmK-cJ-rWJ" firstAttribute="bottom" secondItem="t20-8B-IUj" secondAttribute="bottom" id="KcA-t0-HQL"/>
+                            <constraint firstItem="gzh-6m-a8N" firstAttribute="top" secondItem="N0p-Hb-7mg" secondAttribute="top" id="LOU-na-Hd4"/>
+                            <constraint firstItem="t20-8B-IUj" firstAttribute="leading" secondItem="pmK-cJ-rWJ" secondAttribute="leading" id="Rue-T1-mEr"/>
+                            <constraint firstItem="QWG-3q-Jsj" firstAttribute="trailing" secondItem="pmK-cJ-rWJ" secondAttribute="trailing" id="UDW-AP-pMQ"/>
+                            <constraint firstItem="gzh-6m-a8N" firstAttribute="leading" secondItem="pmK-cJ-rWJ" secondAttribute="leading" id="cAi-WG-sMP"/>
+                            <constraint firstItem="pmK-cJ-rWJ" firstAttribute="trailing" secondItem="gzh-6m-a8N" secondAttribute="trailing" id="kY1-rJ-T5Q"/>
+                            <constraint firstItem="t20-8B-IUj" firstAttribute="top" secondItem="QWG-3q-Jsj" secondAttribute="bottom" constant="1" id="sGU-Ip-3dC"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pmK-cJ-rWJ"/>
                     </view>
                     <connections>
-                        <outlet property="gameVideoPlayer" destination="flj-hN-FPl" id="kgh-Qc-DbN"/>
+                        <outlet property="backButtonItem" destination="fHV-8B-LfP" id="JjH-C6-YVd"/>
+                        <outlet property="gameCollectionView" destination="t20-8B-IUj" id="2am-xI-zg6"/>
+                        <outlet property="navBackgroundView" destination="gzh-6m-a8N" id="vGT-T6-zGX"/>
+                        <outlet property="navigationBar" destination="QWG-3q-Jsj" id="Fu8-UJ-276"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VUp-ZZ-tje" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -10,10 +10,17 @@ import UIKit
 import YouTubePlayer
 
 final class GameInfoViewController: UIViewController {
+    
+    private enum Constants {
+        static let backButtonImage = "down_arrow"
+    }
 
     // MARK: - IBOutlets
     
-    @IBOutlet private var gameVideoPlayer: YouTubePlayerView!
+    @IBOutlet private var navBackgroundView: UIView!
+    @IBOutlet private var navigationBar: UINavigationBar!
+    @IBOutlet private var backButtonItem: UIBarButtonItem!
+    @IBOutlet private var gameCollectionView: UICollectionView!
     
     // MARK: - Public Properties
     
@@ -23,9 +30,13 @@ final class GameInfoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.isNavigationBarHidden = false
-        if let video = presentationModel.gameViewModel.video {
-            gameVideoPlayer.loadVideoID(video)
-        }
+        
+        navigationBar.setBackgroundImage(UIImage(color: UIColor.white), for: .default)
+        navBackgroundView.backgroundColor = .white
+        backButtonItem.image = UIImage(named: Constants.backButtonImage)
+        backButtonItem.tintColor = PaletteColors.darkGray
+        gameCollectionView.backgroundColor = .clear
+        view.backgroundColor = PaletteColors.blueBackground
+        navigationController?.interactivePopGestureRecognizer?.delegate = nil
     }
 }

@@ -111,7 +111,9 @@
 		C4E1126B2082C56000EE7DC4 /* GameInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4E1126A2082C56000EE7DC4 /* GameInfoCell.xib */; };
 		C4E1126D2082C58400EE7DC4 /* AddCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4E1126C2082C58400EE7DC4 /* AddCommentCell.xib */; };
 		C4E1126F2082C59700EE7DC4 /* CommentsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4E1126E2082C59700EE7DC4 /* CommentsCell.xib */; };
-		C4E112742082C6F200EE7DC4 /* GameInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E112732082C6F200EE7DC4 /* GameInfoCell.swift */; };
+		C4E1127A20834AF100EE7DC4 /* GameInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E1127920834AF100EE7DC4 /* GameInfoCell.swift */; };
+		C4E1127C20834B0400EE7DC4 /* AddCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E1127B20834B0400EE7DC4 /* AddCommentCell.swift */; };
+		C4E1127E20834B1700EE7DC4 /* CommentsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E1127D20834B1700EE7DC4 /* CommentsCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -222,7 +224,9 @@
 		C4E1126A2082C56000EE7DC4 /* GameInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameInfoCell.xib; sourceTree = "<group>"; };
 		C4E1126C2082C58400EE7DC4 /* AddCommentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddCommentCell.xib; sourceTree = "<group>"; };
 		C4E1126E2082C59700EE7DC4 /* CommentsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentsCell.xib; sourceTree = "<group>"; };
-		C4E112732082C6F200EE7DC4 /* GameInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfoCell.swift; sourceTree = "<group>"; };
+		C4E1127920834AF100EE7DC4 /* GameInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfoCell.swift; sourceTree = "<group>"; };
+		C4E1127B20834B0400EE7DC4 /* AddCommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCommentCell.swift; sourceTree = "<group>"; };
+		C4E1127D20834B1700EE7DC4 /* CommentsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsCell.swift; sourceTree = "<group>"; };
 		FD91280B983360A8DBD4BDFC /* Pods_Makub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Makub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -828,7 +832,9 @@
 				C4E1126A2082C56000EE7DC4 /* GameInfoCell.xib */,
 				C4E1126C2082C58400EE7DC4 /* AddCommentCell.xib */,
 				C4E1126E2082C59700EE7DC4 /* CommentsCell.xib */,
-				C4E112732082C6F200EE7DC4 /* GameInfoCell.swift */,
+				C4E1127920834AF100EE7DC4 /* GameInfoCell.swift */,
+				C4E1127B20834B0400EE7DC4 /* AddCommentCell.swift */,
+				C4E1127D20834B1700EE7DC4 /* CommentsCell.swift */,
 			);
 			path = "Game Info";
 			sourceTree = "<group>";
@@ -1009,19 +1015,21 @@
 				C430FD0820822A390019D9CE /* ClubsResponse.swift in Sources */,
 				C41B3CEA2072F62900A2B652 /* NewsServiceImpl.swift in Sources */,
 				C41B3CF12072F6C800A2B652 /* UserService.swift in Sources */,
-				C4E112742082C6F200EE7DC4 /* GameInfoCell.swift in Sources */,
+				C4E1127A20834AF100EE7DC4 /* GameInfoCell.swift in Sources */,
 				C44D60D7205807F500A5C50F /* UIColor+Hex.swift in Sources */,
 				C41B3C2A207256ED00A2B652 /* GameViewModel.swift in Sources */,
 				C4631870207A100600E14DAC /* FilterViewModel.swift in Sources */,
 				C41BE783206FE2FD00ED5826 /* String+RandomString.swift in Sources */,
 				C41B3CF72072F70A00A2B652 /* AuthService.swift in Sources */,
 				C4BC7104205F2BEA00332D7E /* AuthPassButton.swift in Sources */,
+				C4E1127E20834B1700EE7DC4 /* CommentsCell.swift in Sources */,
 				C44D60B2205529C200A5C50F /* AuthViewController.swift in Sources */,
 				C41B3CEE2072F64B00A2B652 /* AuthServiceImpl.swift in Sources */,
 				C42940CB20827D2B0026B2C3 /* CommentsResponse.swift in Sources */,
 				C472A6BF205B16D500768585 /* PresentationModel.swift in Sources */,
 				C41B3CFE2072F76B00A2B652 /* NewsRepsonse.swift in Sources */,
 				C4C259A82077662100C0CDD4 /* AddNewsViewControllerDelegate.swift in Sources */,
+				C4E1127C20834B0400EE7DC4 /* AddCommentCell.swift in Sources */,
 				C41B3CF32072F6D500A2B652 /* NewsService.swift in Sources */,
 				C472A6CF205C647C00768585 /* KeychainKeys.swift in Sources */,
 				C408C8D1206D3F660053F057 /* NewsRouter.swift in Sources */,
