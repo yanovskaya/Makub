@@ -31,6 +31,7 @@ final class GameViewModel {
     let player2: String
     let photo1URL: String!
     let photo2URL: String!
+    let playerTime: String
     
     var club: String!
     //let comments: String
@@ -43,6 +44,7 @@ final class GameViewModel {
         self.clubId = games.clubId
         self.player1 = games.name1 + " " + games.surname1
         self.player2 = games.name2 + " " + games.surname2
+        self.playerTime = games.playTime
         
         if let photo1 = games.photo1, photo1 != "" {
             self.photo1URL = (Constants.baseURL + photo1).removeSpacesInURL()

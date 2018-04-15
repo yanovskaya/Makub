@@ -108,6 +108,10 @@
 		C4D4E5022061934F000A9216 /* News.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4D4E5012061934F000A9216 /* News.storyboard */; };
 		C4D9099520680F1800DC3D6C /* AddNewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D9099420680F1800DC3D6C /* AddNewsCell.swift */; };
 		C4D909972068196900DC3D6C /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D909962068196900DC3D6C /* NewsCell.swift */; };
+		C4E1126B2082C56000EE7DC4 /* GameInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4E1126A2082C56000EE7DC4 /* GameInfoCell.xib */; };
+		C4E1126D2082C58400EE7DC4 /* AddCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4E1126C2082C58400EE7DC4 /* AddCommentCell.xib */; };
+		C4E1126F2082C59700EE7DC4 /* CommentsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4E1126E2082C59700EE7DC4 /* CommentsCell.xib */; };
+		C4E112742082C6F200EE7DC4 /* GameInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E112732082C6F200EE7DC4 /* GameInfoCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -215,6 +219,10 @@
 		C4D4E5012061934F000A9216 /* News.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = News.storyboard; sourceTree = "<group>"; };
 		C4D9099420680F1800DC3D6C /* AddNewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewsCell.swift; sourceTree = "<group>"; };
 		C4D909962068196900DC3D6C /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
+		C4E1126A2082C56000EE7DC4 /* GameInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameInfoCell.xib; sourceTree = "<group>"; };
+		C4E1126C2082C58400EE7DC4 /* AddCommentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddCommentCell.xib; sourceTree = "<group>"; };
+		C4E1126E2082C59700EE7DC4 /* CommentsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentsCell.xib; sourceTree = "<group>"; };
+		C4E112732082C6F200EE7DC4 /* GameInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfoCell.swift; sourceTree = "<group>"; };
 		FD91280B983360A8DBD4BDFC /* Pods_Makub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Makub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -310,12 +318,9 @@
 		C41B3C2320721CD700A2B652 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C41B3C2420721D2300A2B652 /* GamesCell.xib */,
-				C4C259AF2078CCA200C0CDD4 /* TitleFilterCell.xib */,
-				C4C259B32078CCCA00C0CDD4 /* OptionFilterCell.xib */,
-				C41B3C262072561000A2B652 /* GamesCell.swift */,
-				C4C259B12078CCB800C0CDD4 /* TitleFilterCell.swift */,
-				C4C259B52078CCDE00C0CDD4 /* OptionFilterCell.swift */,
+				C4E112702082C5D500EE7DC4 /* Games */,
+				C4E112712082C5E100EE7DC4 /* Filter */,
+				C4E112722082C6B300EE7DC4 /* Game Info */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -797,6 +802,37 @@
 			path = Rating;
 			sourceTree = "<group>";
 		};
+		C4E112702082C5D500EE7DC4 /* Games */ = {
+			isa = PBXGroup;
+			children = (
+				C41B3C2420721D2300A2B652 /* GamesCell.xib */,
+				C41B3C262072561000A2B652 /* GamesCell.swift */,
+			);
+			path = Games;
+			sourceTree = "<group>";
+		};
+		C4E112712082C5E100EE7DC4 /* Filter */ = {
+			isa = PBXGroup;
+			children = (
+				C4C259AF2078CCA200C0CDD4 /* TitleFilterCell.xib */,
+				C4C259B32078CCCA00C0CDD4 /* OptionFilterCell.xib */,
+				C4C259B12078CCB800C0CDD4 /* TitleFilterCell.swift */,
+				C4C259B52078CCDE00C0CDD4 /* OptionFilterCell.swift */,
+			);
+			path = Filter;
+			sourceTree = "<group>";
+		};
+		C4E112722082C6B300EE7DC4 /* Game Info */ = {
+			isa = PBXGroup;
+			children = (
+				C4E1126A2082C56000EE7DC4 /* GameInfoCell.xib */,
+				C4E1126C2082C58400EE7DC4 /* AddCommentCell.xib */,
+				C4E1126E2082C59700EE7DC4 /* CommentsCell.xib */,
+				C4E112732082C6F200EE7DC4 /* GameInfoCell.swift */,
+			);
+			path = "Game Info";
+			sourceTree = "<group>";
+		};
 		C8FE19675A729A68973D7EBE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -870,8 +906,11 @@
 				C41B3C1D2072189E00A2B652 /* Games.storyboard in Resources */,
 				C44D60BA205529C200A5C50F /* LaunchScreen.storyboard in Resources */,
 				C44D60B7205529C200A5C50F /* Assets.xcassets in Resources */,
+				C4E1126F2082C59700EE7DC4 /* CommentsCell.xib in Resources */,
 				C4A304002067085D008BFE5E /* AddNewsCell.xib in Resources */,
 				C414F0D620596DE8001961EC /* Roboto-Light.otf in Resources */,
+				C4E1126D2082C58400EE7DC4 /* AddCommentCell.xib in Resources */,
+				C4E1126B2082C56000EE7DC4 /* GameInfoCell.xib in Resources */,
 				C4C259B42078CCCA00C0CDD4 /* OptionFilterCell.xib in Resources */,
 				C4C259B02078CCA200C0CDD4 /* TitleFilterCell.xib in Resources */,
 				C414F0D820596DE8001961EC /* Roboto-Regular.otf in Resources */,
@@ -970,6 +1009,7 @@
 				C430FD0820822A390019D9CE /* ClubsResponse.swift in Sources */,
 				C41B3CEA2072F62900A2B652 /* NewsServiceImpl.swift in Sources */,
 				C41B3CF12072F6C800A2B652 /* UserService.swift in Sources */,
+				C4E112742082C6F200EE7DC4 /* GameInfoCell.swift in Sources */,
 				C44D60D7205807F500A5C50F /* UIColor+Hex.swift in Sources */,
 				C41B3C2A207256ED00A2B652 /* GameViewModel.swift in Sources */,
 				C4631870207A100600E14DAC /* FilterViewModel.swift in Sources */,

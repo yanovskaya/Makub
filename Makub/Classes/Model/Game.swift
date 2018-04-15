@@ -25,4 +25,5 @@ final class Game: Object, Decodable {
     @objc dynamic var surname2: String! = nil
     @objc dynamic var photo2: String! = nil
     @objc dynamic var comments: String! = nil
+    @objc dynamic var playTime: String! = nil
 }
