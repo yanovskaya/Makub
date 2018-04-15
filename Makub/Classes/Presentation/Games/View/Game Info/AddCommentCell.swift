@@ -15,7 +15,7 @@ final class AddCommentCell: UICollectionViewCell, ViewModelConfigurable {
     
     private enum Constants {
         static let userImage = "photo_default"
-        static let addNewsLabel = "Новая запись"
+        static let addNewsLabel = "Оставить комментарий"
     }
     
     private enum SizeConstants {

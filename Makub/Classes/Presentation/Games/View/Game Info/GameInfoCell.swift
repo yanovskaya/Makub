@@ -40,17 +40,17 @@ final class GameInfoCell: UICollectionViewCell, ViewModelConfigurable {
     @IBOutlet private var colonLabel: UILabel!
     @IBOutlet private var player1Label: UILabel!
     @IBOutlet private var player2Label: UILabel!
-    @IBOutlet private var tournamentLabel: UILabel!
+    @IBOutlet var tournamentLabel: UILabel!
     @IBOutlet private var descriptionLabel: UILabel!
-    @IBOutlet private var commentsLabel: UILabel!
     
     
-    @IBOutlet private var blueView: UIView!
+    @IBOutlet var blueView: UIView!
     @IBOutlet private var lineView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         colonLabel.text = ":"
+        blueView.backgroundColor = PaletteColors.blueTint.withAlphaComponent(0.1)
     }
     
     override func layoutSubviews() {
@@ -65,12 +65,13 @@ final class GameInfoCell: UICollectionViewCell, ViewModelConfigurable {
     func configure(for viewModel: GameViewModel) {
         if let video = viewModel.video {
             gameVideoPlayer.loadVideoID(video)
+        } else {
+            gameVideoPlayer.heightAnchor.constraint(equalToConstant: 0).isActive = true
         }
         dateLabel.text = viewModel.playerTime
         clubLabel.text = viewModel.club
         score1Label.text = viewModel.score1
         score2Label.text = viewModel.score2
-        commentsLabel.text = viewModel.comments
         player1Label.text = viewModel.player1
         player2Label.text = viewModel.player2
         

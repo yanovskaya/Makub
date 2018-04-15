@@ -82,6 +82,7 @@ final class GamesViewController: UIViewController {
             case .rich:
                 self?.gamesCollectionView.reloadData()
                 self?.filterDataIsObtained = true
+                print("HHHHHIIDEEEE")
                 HUD.hide()
             case .error (let code):
                 switch code {

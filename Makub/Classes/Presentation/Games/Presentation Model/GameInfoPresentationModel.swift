@@ -31,61 +31,19 @@ final class GameInfoPresentationModel: PresentationModel {
     
     func obtainGameInfo() {
         group.enter()
-        obtainUserCache()
-        if !userCacheIsObtained { state = .loading }
-        userService.obtainUserInfo(useCache: true) { result in
-            switch result {
-            case .serviceSuccess(let model):
-                guard let model = model else { return }
-                self.userViewModel = UserViewModel(model)
-                self.group.leave()
-            case .serviceFailure(let error):
-                self.error = error.code
-                self.group.leave()
-            }
-        }
+        obtainUserInfo()
         
         if gameViewModel.stage != "0" {
             group.enter()
-            state = .loading
-            guard let stage = Int(gameViewModel.stage) else { return }
-            gameInfoService.obtainTournament(stage: stage) { result in
-                switch result {
-                case .serviceSuccess(let model):
-                    guard let model = model else { return }
-                    self.tournamentViewModel = TournamentViewModel(model.tournament)
-                    self.group.leave()
-                case .serviceFailure(let error):
-                    self.error = error.code
-                    self.group.leave()
-                }
-            }
+            print("obtain tournament")
+            obtainTournament()
         } else {
             tournamentViewModel = TournamentViewModel(title: "Товарищеская игра")
         }
         
-        if gameViewModel.commentsCount != 0 {
+        if gameViewModel.comments != "0" {
             group.enter()
-            print("obtain")
-            state = .loading
-            print(gameViewModel.id)
-            guard let gameId = Int(gameViewModel.id) else { return }
-            print(gameId)
-            gameInfoService.obtainComments(gameId: gameId) { result in
-                print(result)
-                print("result")
-                switch result {
-                case .serviceSuccess(let model):
-                    guard let model = model else { return }
-                    print("succeesss")
-                    self.commentViewModels = model.comments.compactMap { CommentViewModel($0) }
-                    self.group.leave()
-                case .serviceFailure(let error):
-                    print("failure")
-                    self.error = error.code
-                    self.group.leave()
-                }
-            }
+            obtainComments()
         }
         
         group.notify(queue: DispatchQueue.main) {
@@ -101,8 +59,7 @@ final class GameInfoPresentationModel: PresentationModel {
     // MARK: - Private Methods
     
     private func obtainUserInfo() {
-        obtainUserCache()
-        if !userCacheIsObtained { state = .loading }
+        state = .loading
         userService.obtainUserInfo(useCache: true) { result in
             switch result {
             case .serviceSuccess(let model):
@@ -133,18 +90,21 @@ final class GameInfoPresentationModel: PresentationModel {
     }
     
     private func obtainComments() {
-        
-    }
-    
-    private func obtainUserCache() {
-        userService.obtainRealmCache(error: nil) { result in
+        state = .loading
+        guard let gameId = Int(gameViewModel.id) else { return }
+        print(gameId)
+        gameInfoService.obtainComments(gameId: gameId) { result in
+            print(result)
             switch result {
             case .serviceSuccess(let model):
                 guard let model = model else { return }
-                self.userViewModel = UserViewModel(model)
-                self.userCacheIsObtained = true
-            case .serviceFailure:
-                break
+                print("succeesss")
+                self.commentViewModels = model.comments.compactMap { CommentViewModel($0) }
+                self.group.leave()
+            case .serviceFailure(let error):
+                print("failure")
+                self.error = error.code
+                self.group.leave()
             }
         }
     }

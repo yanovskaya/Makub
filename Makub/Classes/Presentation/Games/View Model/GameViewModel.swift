@@ -17,8 +17,6 @@ final class GameViewModel {
         static let classicType = "Классика"
         static let quickType = "Быстрый"
         static let quichBPType = "Быстрый БП"
-        
-        static let commentsTail = "Комментариев"
     }
     
     // MARK: - Public Properties
@@ -35,7 +33,6 @@ final class GameViewModel {
     let photo2URL: String!
     let playerTime: String
     let comments: String
-    let commentsCount: Int
     
     var type: String
     var club: String!
@@ -49,12 +46,16 @@ final class GameViewModel {
         self.clubId = game.clubId
         self.player1 = game.name1 + " " + game.surname1
         self.player2 = game.name2 + " " + game.surname2
-        self.playerTime = game.playTime
+        
+        
         self.stage = game.stage
-        self.commentsCount = Int(game.comments)!
-        self.comments = game.comments + " " + Constants.commentsTail
+        self.comments = game.comments
         
-        
+        if let time = game.playTime.timeConverter() {
+            self.playerTime = time
+        } else {
+            self.playerTime = ""
+        }
         if let photo1 = game.photo1, photo1 != "" {
             self.photo1URL = (Constants.baseURL + photo1).removeSpacesInURL()
         } else {

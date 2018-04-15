@@ -24,18 +24,18 @@ extension String {
             return dateFormatter.string(from: convertedDate)
         } else if day > 0 {
             dateFormatter.dateFormat = "dd.MM"
-            return "вчера в" + " " + dateFormatter.string(from: convertedDate)
+            return "Вчера в" + " " + dateFormatter.string(from: convertedDate)
         } else if hour > 3 {
             dateFormatter.dateFormat = "HH:mm"
-            return "сегодня в" + " " + dateFormatter.string(from: convertedDate)
+            return "Cегодня в" + " " + dateFormatter.string(from: convertedDate)
         } else if hour > 1 {
             dateFormatter.dateFormat = "HH"
             return dateFormatter.string(from: convertedDate) + "часа назад"
         } else if hour == 1 {
-            return "час назад"
+            return "Час назад"
         } else {
             dateFormatter.dateFormat = "mm"
-            return dateFormatter.string(from: convertedDate) + "мин назад"
+            return dateFormatter.string(from: convertedDate) + " " + "мин назад"
         }
     }
 }

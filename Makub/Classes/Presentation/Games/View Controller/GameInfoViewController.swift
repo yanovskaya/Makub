@@ -32,14 +32,12 @@ final class GameInfoViewController: UIViewController {
     @IBOutlet private var navigationBar: UINavigationBar!
     @IBOutlet private var backButtonItem: UIBarButtonItem!
     @IBOutlet private var gameCollectionView: UICollectionView!
-    
-    private var isObtained = false
     // MARK: - Public Properties
     
     let presentationModel = GameInfoPresentationModel()
     
     // MARK: - Private Properties
-    
+    var isObtained = false
     private let router = GamesRouter()
     
     // MARK: - ViewController lifecycle
@@ -86,7 +84,10 @@ final class GameInfoViewController: UIViewController {
         presentationModel.changeStateHandler = { [weak self] status in
             switch status {
             case .loading:
-                HUD.show(.progress)
+                DispatchQueue.main.async {
+                    HUD.show(.progress)
+                }
+                
             case .rich:
                 self?.isObtained = true
                 self?.gameCollectionView.reloadData()
@@ -99,6 +100,9 @@ final class GameInfoViewController: UIViewController {
                     HUD.show(.labeledError(title: ErrorDescription.title.rawValue, subtitle: ErrorDescription.server.rawValue))
                 }
                 HUD.hide(afterDelay: 1.0)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    self?.navigationController?.popViewController(animated: true)
+                }
             }
         }
     }
@@ -111,11 +115,12 @@ extension GameInfoViewController: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         if isObtained {
-        if presentationModel.gameViewModel.commentsCount == 0 {
-            return 2
+            if presentationModel.gameViewModel.comments == "0" {
+                return 2
+            } else {
+                return 3
+            }
         } else {
-            return 3
-            } } else {
             return 0
         }
     }
@@ -124,8 +129,7 @@ extension GameInfoViewController: UICollectionViewDataSource {
         if section == 0 || section == 1 {
             return 1
         } else {
-            print(presentationModel.gameViewModel.commentsCount)
-            return presentationModel.gameViewModel.commentsCount
+            return presentationModel.commentViewModels.count
         }
     }
     
@@ -150,6 +154,7 @@ extension GameInfoViewController: UICollectionViewDataSource {
                 return UICollectionViewCell()
         }
         cell.contentView.isUserInteractionEnabled = false
+        cell.blueView.widthAnchor.constraint(equalToConstant: view.frame.width).isActive = true
         cell.configure(for: gameViewModel)
         cell.configureTournament(for: tournamentViewModel)
         cell.layoutIfNeeded()
