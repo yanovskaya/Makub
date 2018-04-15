@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+struct CommentsResponse: Decodable {
+    
+    let comments: [Comment]!
+    let error: Int
+}

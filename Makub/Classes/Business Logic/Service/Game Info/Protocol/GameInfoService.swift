@@ -7,3 +7,10 @@
 //
 
 import Foundation
+
+protocol GameInfoService: class {
+    
+    func obtainComments(gameId: Int, completion: ((ServiceCallResult<CommentsResponse>) -> Void)?)
+    
+    func obtainTournament(stage: Int, completion: ((ServiceCallResult<TournamentResponse>) -> Void)?)
+}

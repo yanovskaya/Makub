@@ -116,6 +116,7 @@
 		C4E1127E20834B1700EE7DC4 /* CommentsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E1127D20834B1700EE7DC4 /* CommentsCell.swift */; };
 		C4E1128020835B4600EE7DC4 /* GameInfoImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E1127F20835B4600EE7DC4 /* GameInfoImpl.swift */; };
 		C4E1128220835B6100EE7DC4 /* TournamentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E1128120835B6100EE7DC4 /* TournamentResponse.swift */; };
+		C4E112842083605D00EE7DC4 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E112832083605D00EE7DC4 /* Comment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -231,6 +232,7 @@
 		C4E1127D20834B1700EE7DC4 /* CommentsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsCell.swift; sourceTree = "<group>"; };
 		C4E1127F20835B4600EE7DC4 /* GameInfoImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfoImpl.swift; sourceTree = "<group>"; };
 		C4E1128120835B6100EE7DC4 /* TournamentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TournamentResponse.swift; sourceTree = "<group>"; };
+		C4E112832083605D00EE7DC4 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		FD91280B983360A8DBD4BDFC /* Pods_Makub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Makub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -597,6 +599,7 @@
 				C4A303F62066EAA4008BFE5E /* News.swift */,
 				C41B3C2B2072573600A2B652 /* Game.swift */,
 				C463186D207A0DE000E14DAC /* Filter.swift */,
+				C4E112832083605D00EE7DC4 /* Comment.swift */,
 				C41B3C32207263AE00A2B652 /* Additional Info */,
 			);
 			path = Model;
@@ -1040,6 +1043,7 @@
 				C472A6CF205C647C00768585 /* KeychainKeys.swift in Sources */,
 				C408C8D1206D3F660053F057 /* NewsRouter.swift in Sources */,
 				C4540F93207B8CBD00EEC4A5 /* GamesCountResponse.swift in Sources */,
+				C4E112842083605D00EE7DC4 /* Comment.swift in Sources */,
 				C41B3D022072F78E00A2B652 /* AddNewsResponse.swift in Sources */,
 				C41B3C3D2072B12D00A2B652 /* GamesPresentationModel.swift in Sources */,
 				C4540F95207BEAA100EEC4A5 /* FilterGamesViewControllerDelegate.swift in Sources */,

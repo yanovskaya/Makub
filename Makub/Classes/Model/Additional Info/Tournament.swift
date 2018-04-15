@@ -14,7 +14,6 @@ final class Tournament: Object, Decodable {
     @objc dynamic var id: String! = nil
     @objc dynamic var name: String! = nil
     @objc dynamic var smalldesc: String! = nil
-    @objc dynamic var type: String! = nil
-    @objc dynamic var stage: String! = nil
+    @objc dynamic var club: String! = nil
     @objc dynamic var date: String! = nil
 }

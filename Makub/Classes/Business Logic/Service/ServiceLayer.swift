@@ -17,6 +17,7 @@ final class ServiceLayer {
     let userService: UserService
     let newsService: NewsService
     let gamesService: GamesService
+    let gameInfoService: GameInfoService
     
     let requestSessionManager: SessionManager
     let uploadSessionManager: SessionManager
@@ -38,6 +39,7 @@ final class ServiceLayer {
         newsService = NewsServiceImpl(requestSessionManager: requestSessionManager,
                                       uploadSessionManager: uploadSessionManager)
         gamesService = GamesServiceImpl(sessionManager: requestSessionManager)
+        gameInfoService = GameInfoServiceImpl(sessionManager: requestSessionManager)
     }
     
 }
