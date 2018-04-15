@@ -38,34 +38,34 @@ final class GameViewModel {
     
     // MARK: - Initialization
     
-    init(_ games: Game) {
-        self.score1 = games.score1
-        self.score2 = games.score2
-        self.clubId = games.clubId
-        self.player1 = games.name1 + " " + games.surname1
-        self.player2 = games.name2 + " " + games.surname2
-        self.playerTime = games.playTime
-        self.stage = games.stage
+    init(_ game: Game) {
+        self.score1 = game.score1
+        self.score2 = game.score2
+        self.clubId = game.clubId
+        self.player1 = game.name1 + " " + game.surname1
+        self.player2 = game.name2 + " " + game.surname2
+        self.playerTime = game.playTime
+        self.stage = game.stage
         
-        if let photo1 = games.photo1, photo1 != "" {
+        if let photo1 = game.photo1, photo1 != "" {
             self.photo1URL = (Constants.baseURL + photo1).removeSpacesInURL()
         } else {
             self.photo1URL = nil
         }
         
-        if let photo2 = games.photo2, photo2 != "" {
+        if let photo2 = game.photo2, photo2 != "" {
             self.photo2URL = (Constants.baseURL + photo2).removeSpacesInURL()
         } else {
             self.photo2URL = nil
         }
         
-        if let video = games.video, video != "" {
+        if let video = game.video, video != "" {
             self.video = video
         } else {
             self.video = nil
         }
         
-        if let type = games.type {
+        if let type = game.type {
             guard let typeId = Int(type) else {
                 self.type = ""
                 return

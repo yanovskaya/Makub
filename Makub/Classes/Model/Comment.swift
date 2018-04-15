@@ -13,7 +13,7 @@ final class Comment: Object, Decodable {
     
     @objc dynamic var id: String! = nil
     @objc dynamic var comment: String! = nil
-    @objc dynamic var player_id: String! = nil
+    @objc dynamic var playerId: String! = nil
     @objc dynamic var time: String! = nil
     @objc dynamic var name: String! = nil
     @objc dynamic var surname: String! = nil

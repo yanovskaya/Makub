@@ -13,4 +13,11 @@ final class GameInfoPresentationModel: PresentationModel {
     // MARK: - Public Properties
     
     var gameViewModel: GameViewModel!
+    var tournamentViewModel: TournamentViewModel!
+    var commentViewModels: [CommentViewModel]!
+    
+    // MARK: - Private Properties
+    
+    private let group = DispatchGroup()
+    private var error: Int!
 }
