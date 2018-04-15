@@ -10,7 +10,7 @@ import Kingfisher
 import UIKit
 import YouTubePlayer
 
-final class GameInfoCell: UICollectionViewCell, ViewModelConfigurable {
+final class GameInfoCell: UICollectionViewCell, ViewModelConfigurable, YouTubePlayerDelegate {
     
     // MARK: - Constants
     
@@ -43,14 +43,23 @@ final class GameInfoCell: UICollectionViewCell, ViewModelConfigurable {
     @IBOutlet var tournamentLabel: UILabel!
     @IBOutlet private var descriptionLabel: UILabel!
     
+    let spinner = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
     
+    @IBOutlet var videoContainerView: UIView!
     @IBOutlet var blueView: UIView!
     @IBOutlet private var lineView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        gameVideoPlayer.isHidden = true
         colonLabel.text = ":"
         blueView.backgroundColor = PaletteColors.blueTint.withAlphaComponent(0.1)
+        gameVideoPlayer.delegate = self
+        videoContainerView.backgroundColor = PaletteColors.darkGray
+        spinner.startAnimating()
+        videoContainerView.addSubview(spinner)
+  
+        
     }
     
     override func layoutSubviews() {
@@ -60,13 +69,14 @@ final class GameInfoCell: UICollectionViewCell, ViewModelConfigurable {
         
         photo2ImageView.clipsToBounds = true
         photo2ImageView.layer.cornerRadius = photo2ImageView.frame.width / 2
+        spinner.center = videoContainerView.center
     }
     
     func configure(for viewModel: GameViewModel) {
         if let video = viewModel.video {
             gameVideoPlayer.loadVideoID(video)
         } else {
-            gameVideoPlayer.heightAnchor.constraint(equalToConstant: 0).isActive = true
+            videoContainerView.heightAnchor.constraint(equalToConstant: 0).isActive = true
         }
         dateLabel.text = viewModel.playerTime
         clubLabel.text = viewModel.club
@@ -98,6 +108,11 @@ final class GameInfoCell: UICollectionViewCell, ViewModelConfigurable {
         } else {
             photo2ImageView.image = UIImage(named: Constants.userImage)
         }
+    }
+    
+    func playerReady(_ videoPlayer: YouTubePlayerView) {
+        spinner.stopAnimating()
+        videoPlayer.isHidden = false
     }
     
     func configureTournament(for viewModel: TournamentViewModel) {

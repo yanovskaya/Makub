@@ -16,13 +16,6 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="448"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="11P-hW-T58" customClass="YouTubePlayerView" customModule="YouTubePlayer">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="170"/>
-                    <color key="backgroundColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="170" id="A0C-9p-iqs"/>
-                    </constraints>
-                </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eeq-15-mga">
                     <rect key="frame" x="16" y="182" width="42" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -43,7 +36,7 @@
                     </constraints>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JyD-Ku-4BV">
-                    <rect key="frame" x="16" y="218.5" width="359" height="1"/>
+                    <rect key="frame" x="16" y="214.5" width="359" height="1"/>
                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="cJh-5Z-vE0"/>
@@ -118,34 +111,51 @@
                         <constraint firstAttribute="bottom" secondItem="jv6-lM-WVV" secondAttribute="bottom" constant="20" id="xxo-ll-CQb"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e0l-w7-9Oo">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="170"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="11P-hW-T58" customClass="YouTubePlayerView" customModule="YouTubePlayer">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="170"/>
+                            <color key="backgroundColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="170" id="2XB-Vd-ovN"/>
+                        <constraint firstAttribute="trailing" secondItem="11P-hW-T58" secondAttribute="trailing" id="N6V-Xt-kql"/>
+                        <constraint firstAttribute="bottom" secondItem="11P-hW-T58" secondAttribute="bottom" id="WQD-ev-ASd"/>
+                        <constraint firstItem="11P-hW-T58" firstAttribute="leading" secondItem="e0l-w7-9Oo" secondAttribute="leading" id="dx6-jp-jE9"/>
+                        <constraint firstItem="11P-hW-T58" firstAttribute="top" secondItem="e0l-w7-9Oo" secondAttribute="top" id="yYc-yg-XBY"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="E1h-Iu-iAX" firstAttribute="top" secondItem="Sve-Pr-1or" secondAttribute="bottom" constant="16" id="1vs-YE-exN"/>
+                <constraint firstItem="eeq-15-mga" firstAttribute="top" secondItem="e0l-w7-9Oo" secondAttribute="bottom" constant="12" id="2bN-UZ-1FL"/>
                 <constraint firstItem="dFe-z5-u71" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="5g8-r4-rC6"/>
                 <constraint firstItem="ztv-M3-UyF" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="Aa7-Qq-zHd"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="D3r-S6-xA4" secondAttribute="trailing" constant="58" id="BUp-xR-MBT"/>
                 <constraint firstItem="eeq-15-mga" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="CaP-dY-M3F"/>
                 <constraint firstItem="Sve-Pr-1or" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="58" id="Ffk-lg-EYF"/>
+                <constraint firstItem="e0l-w7-9Oo" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="H5x-n1-blp"/>
                 <constraint firstItem="btJ-ia-KiQ" firstAttribute="centerY" secondItem="eeq-15-mga" secondAttribute="centerY" id="I4n-b5-3Cm"/>
                 <constraint firstItem="JyD-Ku-4BV" firstAttribute="leading" secondItem="eeq-15-mga" secondAttribute="leading" id="IcS-BZ-y7Y"/>
-                <constraint firstItem="JyD-Ku-4BV" firstAttribute="top" secondItem="eeq-15-mga" secondAttribute="bottom" constant="16" id="Juy-Z6-bP8"/>
+                <constraint firstItem="JyD-Ku-4BV" firstAttribute="top" secondItem="eeq-15-mga" secondAttribute="bottom" constant="12" id="Juy-Z6-bP8"/>
                 <constraint firstItem="JYD-gC-j8b" firstAttribute="centerY" secondItem="E1h-Iu-iAX" secondAttribute="centerY" id="L16-La-Bhn"/>
                 <constraint firstItem="ztv-M3-UyF" firstAttribute="top" secondItem="JYD-gC-j8b" secondAttribute="bottom" constant="25" id="MUQ-AT-eor"/>
+                <constraint firstItem="e0l-w7-9Oo" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="OQf-KX-5DL"/>
                 <constraint firstItem="ztv-M3-UyF" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="PH1-0W-g8b"/>
                 <constraint firstItem="D3r-S6-xA4" firstAttribute="width" secondItem="D3r-S6-xA4" secondAttribute="height" multiplier="1:1" id="Q1A-Ez-yAu"/>
-                <constraint firstItem="11P-hW-T58" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="RmF-Aw-1R4"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="btJ-ia-KiQ" secondAttribute="trailing" constant="16" id="Sns-qz-7k2"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="ztv-M3-UyF" secondAttribute="bottom" priority="999" id="ZtK-VQ-0zo"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="11P-hW-T58" secondAttribute="trailing" id="bwM-gA-OdO"/>
                 <constraint firstItem="JyD-Ku-4BV" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="cyE-fS-XDl"/>
                 <constraint firstItem="JYD-gC-j8b" firstAttribute="centerX" secondItem="D3r-S6-xA4" secondAttribute="centerX" id="gUA-SU-ais"/>
                 <constraint firstItem="dFe-z5-u71" firstAttribute="centerY" secondItem="Sve-Pr-1or" secondAttribute="centerY" id="gxg-3e-mKK"/>
-                <constraint firstItem="11P-hW-T58" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="hil-vj-T4W"/>
-                <constraint firstItem="eeq-15-mga" firstAttribute="top" secondItem="11P-hW-T58" secondAttribute="bottom" constant="12" id="j8l-mR-R9B"/>
                 <constraint firstItem="E1h-Iu-iAX" firstAttribute="centerX" secondItem="Sve-Pr-1or" secondAttribute="centerX" id="ksk-cX-7Mj"/>
+                <constraint firstItem="e0l-w7-9Oo" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="lFH-n0-a96"/>
                 <constraint firstItem="D3r-S6-xA4" firstAttribute="centerY" secondItem="Sve-Pr-1or" secondAttribute="centerY" id="psF-Cj-wzr"/>
-                <constraint firstItem="Sve-Pr-1or" firstAttribute="top" secondItem="JyD-Ku-4BV" secondAttribute="bottom" constant="16" id="q09-vL-kZg"/>
+                <constraint firstItem="Sve-Pr-1or" firstAttribute="top" secondItem="JyD-Ku-4BV" secondAttribute="bottom" constant="20" id="q09-vL-kZg"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
@@ -164,8 +174,9 @@
                 <outlet property="score1Label" destination="FML-kp-JHj" id="h3m-0V-7tO"/>
                 <outlet property="score2Label" destination="2AP-MP-T7B" id="BMO-77-nBM"/>
                 <outlet property="tournamentLabel" destination="wVA-CK-4NF" id="JHd-Sa-15e"/>
+                <outlet property="videoContainerView" destination="e0l-w7-9Oo" id="9mZ-Ov-nRn"/>
             </connections>
-            <point key="canvasLocation" x="44.5" y="236.5"/>
+            <point key="canvasLocation" x="44.5" y="236"/>
         </view>
     </objects>
 </document>

@@ -8,7 +8,6 @@
 
 import PKHUD
 import UIKit
-import YouTubePlayer
 
 final class GameInfoViewController: UIViewController {
     
