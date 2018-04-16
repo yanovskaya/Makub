@@ -51,13 +51,21 @@ final class GameInfoCell: UICollectionViewCell, ViewModelConfigurable {
     private let indicator = UserIndicator()
     private var spinner: UIActivityIndicatorView!
     
+    private var firstPlayerWon: Bool! {
+        didSet {
+            configureScoreColor()
+        }
+    }
+    
     // MARK: - View lifecycle
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
         configureViews()
         configureSpinner()
+        
+        configureFont()
+        configureColor()
     }
     
     override func layoutSubviews() {
@@ -74,19 +82,15 @@ final class GameInfoCell: UICollectionViewCell, ViewModelConfigurable {
     // MARK: - Public Methods
     
     func configure(for viewModel: GameViewModel) {
-        if let video = viewModel.video {
-            gameVideoPlayer.loadVideoID(video)
-            let height = frame.width / 16 * 9
-            gameVideoPlayerHeight.constant = height
-        } else {
-            gameVideoPlayerHeight.constant = 0
-        }
         dateLabel.text = viewModel.playerTime
         clubLabel.text = viewModel.club
+        firstPlayerWon = viewModel.score1 > viewModel.score2
         score1Label.text = viewModel.score1
         score2Label.text = viewModel.score2
+        
         player1Label.text = viewModel.player1
         player2Label.text = viewModel.player2
+        configureSizeLabel(characters: max(viewModel.player1.count, viewModel.player2.count))
         
         let sizeProcessor = ResizingImageProcessor(referenceSize: CGSize(width: SizeConstants.photoWidth, height: SizeConstants.photoHeight), mode: .aspectFill)
         
@@ -111,12 +115,23 @@ final class GameInfoCell: UICollectionViewCell, ViewModelConfigurable {
         } else {
             photo2ImageView.image = UIImage(named: Constants.userImage)
         }
+        
+        if let video = viewModel.video {
+            gameVideoPlayer.loadVideoID(video)
+            let height = frame.width / 16 * 9
+            gameVideoPlayerHeight.constant = height
+        } else {
+            gameVideoPlayerHeight.constant = 0
+        }
     }
     
     func configureTournament(for viewModel: TournamentViewModel) {
         tournamentLabel.text = viewModel.tournament
         if let description = viewModel.description {
             descriptionLabel.text = description
+        } else {
+            descriptionLabel.removeFromSuperview()
+            tournamentLabel.bottomAnchor.constraint(equalTo: blueView.bottomAnchor, constant: -1 * 16).isActive = true
         }
     }
     
@@ -140,6 +155,49 @@ final class GameInfoCell: UICollectionViewCell, ViewModelConfigurable {
         blueView.backgroundColor = PaletteColors.blueTint.withAlphaComponent(0.1)
     }
     
+    private func configureFont() {
+        dateLabel.font = UIFont.customFont(.robotoRegularFont(size: 12))
+        clubLabel.font = UIFont.customFont(.robotoRegularFont(size: 12))
+        tournamentLabel.font = UIFont.customFont(.robotoRegularFont(size: 16))
+        descriptionLabel.font = UIFont.customFont(.robotoRegularFont(size: 14))
+        score1Label.font = UIFont.customFont(.robotoRegularFont(size: 25))
+        score2Label.font = UIFont.customFont(.robotoRegularFont(size: 25))
+        colonLabel.font = UIFont.customFont(.robotoRegularFont(size: 25))
+    }
+    
+    private func configureColor() {
+        player1Label.textColor = PaletteColors.darkGray
+        player2Label.textColor = PaletteColors.darkGray
+        tournamentLabel.textColor = PaletteColors.darkGray
+        dateLabel.textColor = PaletteColors.textGray
+        clubLabel.textColor = PaletteColors.textGray
+        descriptionLabel.textColor = PaletteColors.textGray
+        colonLabel.textColor = PaletteColors.textGray
+        lineView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.2)
+    }
+    
+    private func configureSizeLabel(characters: Int) {
+        let size: CGFloat
+        if characters < 15 {
+            size = 16
+        } else if characters < 18 {
+            size = 15
+        } else {
+            size = 14
+        }
+        player1Label.font = UIFont.customFont(.robotoRegularFont(size: size))
+        player2Label.font = UIFont.customFont(.robotoRegularFont(size: size))
+    }
+    
+    private func configureScoreColor() {
+        if firstPlayerWon {
+            score1Label.textColor = PaletteColors.winColor
+            score2Label.textColor = PaletteColors.loseColor
+        } else {
+            score1Label.textColor = PaletteColors.loseColor
+            score2Label.textColor = PaletteColors.winColor
+        }
+    }
 }
 
 extension GameInfoCell: YouTubePlayerDelegate {

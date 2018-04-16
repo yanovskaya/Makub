@@ -13,18 +13,18 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CommentsCell" customModule="Макуб" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="114"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="110"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="U85-rx-9a1">
-                    <rect key="frame" x="16" y="18.5" width="40" height="40"/>
+                    <rect key="frame" x="16" y="18" width="40" height="40"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="U85-rx-9a1" secondAttribute="height" multiplier="1:1" id="5hD-3n-jXO"/>
                         <constraint firstAttribute="width" constant="40" id="oxN-hl-tHy"/>
                     </constraints>
                 </imageView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="iUm-ig-gDb">
-                    <rect key="frame" x="76" y="15.5" width="42" height="46"/>
+                    <rect key="frame" x="72" y="15.5" width="42" height="46"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BRn-XI-pRA">
                             <rect key="frame" x="0.0" y="0.0" width="42" height="20.5"/>
@@ -32,7 +32,7 @@
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3AD-Jw-IGg">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V0G-cl-wCm">
                             <rect key="frame" x="0.0" y="25.5" width="42" height="20.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
@@ -40,36 +40,28 @@
                         </label>
                     </subviews>
                 </stackView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V0G-cl-wCm">
-                    <rect key="frame" x="288" y="28.5" width="42" height="20.5"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iy1-9z-5wW">
-                    <rect key="frame" x="76" y="77.5" width="291" height="20.5"/>
+                    <rect key="frame" x="16" y="73.5" width="351" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zjC-Yv-8FZ">
-                    <rect key="frame" x="337" y="24" width="30" height="30"/>
+                    <rect key="frame" x="337" y="23" width="30" height="30"/>
                     <state key="normal" title="B"/>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="iy1-9z-5wW" firstAttribute="leading" secondItem="iUm-ig-gDb" secondAttribute="leading" id="5zH-4F-y0V"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="iy1-9z-5wW" secondAttribute="trailing" constant="8" id="GEu-Ek-KIV"/>
+                <constraint firstItem="zjC-Yv-8FZ" firstAttribute="centerY" secondItem="iUm-ig-gDb" secondAttribute="centerY" id="GJx-7v-1Br"/>
+                <constraint firstItem="iy1-9z-5wW" firstAttribute="leading" secondItem="U85-rx-9a1" secondAttribute="leading" id="GoT-De-9Rt"/>
                 <constraint firstItem="iUm-ig-gDb" firstAttribute="centerY" secondItem="U85-rx-9a1" secondAttribute="centerY" id="HTg-fl-LMN"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="zjC-Yv-8FZ" secondAttribute="trailing" constant="8" id="Hkb-V4-zoS"/>
-                <constraint firstItem="V0G-cl-wCm" firstAttribute="centerY" secondItem="iUm-ig-gDb" secondAttribute="centerY" id="NJi-CS-Ags"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="V0G-cl-wCm" secondAttribute="trailing" constant="45" id="Pq8-GU-tuV"/>
-                <constraint firstItem="iy1-9z-5wW" firstAttribute="top" secondItem="iUm-ig-gDb" secondAttribute="bottom" constant="16" id="ZzU-EI-1fb"/>
+                <constraint firstItem="iy1-9z-5wW" firstAttribute="top" secondItem="iUm-ig-gDb" secondAttribute="bottom" constant="12" id="ZzU-EI-1fb"/>
                 <constraint firstItem="U85-rx-9a1" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="bXL-F4-cby"/>
-                <constraint firstItem="zjC-Yv-8FZ" firstAttribute="centerY" secondItem="V0G-cl-wCm" secondAttribute="centerY" id="eDF-vA-CrH"/>
                 <constraint firstItem="iUm-ig-gDb" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="16" id="lpA-GI-Zlx"/>
-                <constraint firstItem="iUm-ig-gDb" firstAttribute="leading" secondItem="U85-rx-9a1" secondAttribute="trailing" constant="20" id="pwV-MU-zd6"/>
+                <constraint firstItem="iUm-ig-gDb" firstAttribute="leading" secondItem="U85-rx-9a1" secondAttribute="trailing" constant="16" id="pwV-MU-zd6"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="iy1-9z-5wW" secondAttribute="bottom" priority="999" constant="16" id="qrx-sJ-urW"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -77,7 +69,6 @@
             <connections>
                 <outlet property="authorImageView" destination="U85-rx-9a1" id="xR4-yq-Asf"/>
                 <outlet property="authorLabel" destination="BRn-XI-pRA" id="vVZ-jY-GNw"/>
-                <outlet property="clubLabel" destination="3AD-Jw-IGg" id="0Ll-CR-Nsw"/>
                 <outlet property="commentLabel" destination="iy1-9z-5wW" id="B8U-ZX-LnE"/>
                 <outlet property="dateLabel" destination="V0G-cl-wCm" id="IvW-U6-R7k"/>
                 <outlet property="moreButton" destination="zjC-Yv-8FZ" id="Wp9-gT-ppA"/>

@@ -36,7 +36,7 @@ final class AddCommentCell: UICollectionViewCell, ViewModelConfigurable {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        newCommentLabel.text = Constants.addNewsLabel
+        configureLabel()
     }
     
     override func layoutSubviews() {
@@ -59,6 +59,14 @@ final class AddCommentCell: UICollectionViewCell, ViewModelConfigurable {
         } else {
             self.userImageView.image = UIImage(named: Constants.userImage)
         }
+    }
+    
+    // MARK: - Private Methods
+    
+    private func configureLabel() {
+        newCommentLabel.textColor = PaletteColors.darkGray
+        newCommentLabel.font = UIFont.customFont(.robotoRegularFont(size: 16))
+        newCommentLabel.text = Constants.addNewsLabel
     }
     
 }

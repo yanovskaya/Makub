@@ -227,7 +227,5 @@ extension GameInfoViewController: UICollectionViewDelegateFlowLayout {
 
 extension GameInfoViewController: UITabBarControllerDelegate {
     
-    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        navigationController?.popViewController(animated: true)
-    }
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {}
 }

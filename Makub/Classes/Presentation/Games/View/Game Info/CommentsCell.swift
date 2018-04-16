@@ -26,7 +26,6 @@ final class CommentsCell: UICollectionViewCell, ViewModelConfigurable {
     
     @IBOutlet private var authorImageView: UIImageView!
     @IBOutlet private var authorLabel: UILabel!
-    @IBOutlet private var clubLabel: UILabel!
     @IBOutlet private var commentLabel: UILabel!
     @IBOutlet private var dateLabel: UILabel!
     @IBOutlet private var moreButton: UIButton!
@@ -39,6 +38,8 @@ final class CommentsCell: UICollectionViewCell, ViewModelConfigurable {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        configureColor()
+        configureFont()
     }
     
     override func layoutSubviews() {
@@ -65,5 +66,19 @@ final class CommentsCell: UICollectionViewCell, ViewModelConfigurable {
         } else {
             self.authorImageView.image = UIImage(named: Constants.userImage)
         }
+    }
+    
+    // MARK: - Private Methods
+    
+    private func configureColor() {
+        authorLabel.textColor = PaletteColors.darkGray
+        dateLabel.textColor = PaletteColors.textGray
+        commentLabel.textColor = PaletteColors.textGray
+    }
+    
+    private func configureFont() {
+        authorLabel.font = UIFont.customFont(.robotoRegularFont(size: 16))
+        commentLabel.font = UIFont.customFont(.robotoRegularFont(size: 14))
+        dateLabel.font = UIFont.customFont(.robotoRegularFont(size: 12))
     }
 }

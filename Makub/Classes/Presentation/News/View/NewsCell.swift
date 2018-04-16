@@ -21,7 +21,6 @@ final class NewsCell: UICollectionViewCell, ViewModelConfigurable {
     private enum LayoutConstants {
         static let bottomImageDistance: CGFloat = 198
         static let bottomDistance: CGFloat = 20
-        
     }
     
     private enum SizeConstants {
