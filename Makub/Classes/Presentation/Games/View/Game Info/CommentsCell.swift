@@ -11,7 +11,6 @@ import UIKit
 
 final class CommentsCell: UICollectionViewCell, ViewModelConfigurable {
     
-    
     // MARK: - Constants
     
     private enum Constants {
@@ -23,8 +22,6 @@ final class CommentsCell: UICollectionViewCell, ViewModelConfigurable {
         static let userHeight: CGFloat = 135
     }
     
-    private let indicator = UserIndicator()
-    
     // MARK: - IBOutlets
     
     @IBOutlet private var authorImageView: UIImageView!
@@ -34,9 +31,23 @@ final class CommentsCell: UICollectionViewCell, ViewModelConfigurable {
     @IBOutlet private var dateLabel: UILabel!
     @IBOutlet private var moreButton: UIButton!
     
+    // MARK: - Private Property
+    
+    private let indicator = UserIndicator()
+    
+    // MARK: - View lifecycle
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        authorImageView.clipsToBounds = true
+        authorImageView.layer.cornerRadius = authorImageView.frame.width / 2
+    }
+    
+    // MARK: - Public Methods
     
     func configure(for viewModel: CommentViewModel) {
         authorLabel.text = viewModel.author

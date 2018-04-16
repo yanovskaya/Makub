@@ -23,12 +23,16 @@ final class AddCommentCell: UICollectionViewCell, ViewModelConfigurable {
         static let userHeight: CGFloat = 135
     }
     
-    private let indicator = UserIndicator()
-    
     // MARK: - IBOutlets
     
     @IBOutlet private var userImageView: UIImageView!
     @IBOutlet private var newCommentLabel: UILabel!
+    
+    // MARK: - Private Property
+    
+    private let indicator = UserIndicator()
+    
+    // MARK: - View lifecycle
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -40,6 +44,8 @@ final class AddCommentCell: UICollectionViewCell, ViewModelConfigurable {
         userImageView.clipsToBounds = true
         userImageView.layer.cornerRadius = userImageView.frame.width / 2
     }
+    
+    // MARK: - Public Methods
     
     func configure(for viewModel: UserViewModel) {
         if let photoURL = viewModel.photoURL {

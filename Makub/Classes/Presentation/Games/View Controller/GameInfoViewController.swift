@@ -21,7 +21,7 @@ final class GameInfoViewController: UIViewController {
     }
 
     private enum LayoutConstants {
-        static let bottomEdge: CGFloat = 3
+        static let bottomEdge: CGFloat = 5
         static let cellSpacing: CGFloat = 3
     }
     
@@ -31,45 +31,28 @@ final class GameInfoViewController: UIViewController {
     @IBOutlet private var navigationBar: UINavigationBar!
     @IBOutlet private var backButtonItem: UIBarButtonItem!
     @IBOutlet private var gameCollectionView: UICollectionView!
+    
     // MARK: - Public Properties
     
     let presentationModel = GameInfoPresentationModel()
     
     // MARK: - Private Properties
-    var isObtained = false
+    
     private let router = GamesRouter()
+    
+    private var gameInfoIsObtained = false
     
     // MARK: - ViewController lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = PaletteColors.blueBackground
+        
+        configureNavigationBar()
+        configureCollectionView()
         
         bindEventsObtainGameInfo()
         presentationModel.obtainGameInfo()
-        
-        gameCollectionView.delegate = self
-        gameCollectionView.dataSource = self
-        
-        navigationBar.setBackgroundImage(UIImage(color: UIColor.white), for: .default)
-        navBackgroundView.backgroundColor = .white
-        backButtonItem.image = UIImage(named: Constants.backButtonImage)
-        backButtonItem.tintColor = PaletteColors.darkGray
-        gameCollectionView.backgroundColor = .clear
-        view.backgroundColor = PaletteColors.blueBackground
-        navigationController?.interactivePopGestureRecognizer?.delegate = nil
-        
-        let titleTextAttributes: [NSAttributedStringKey: Any] = [NSAttributedStringKey.foregroundColor: PaletteColors.darkGray,
-                                                                 NSAttributedStringKey.font: UIFont.customFont(.robotoMediumFont(size: 17))]
-        navigationBar.titleTextAttributes = titleTextAttributes
-        navigationBar.topItem?.title = Constants.title
-        
-        
-        gameCollectionView.register(UINib(nibName: Constants.gameInfoCellId, bundle: nil), forCellWithReuseIdentifier: Constants.gameInfoCellId)
-        gameCollectionView.register(UINib(nibName: Constants.commentsCellId, bundle: nil), forCellWithReuseIdentifier: Constants.commentsCellId)
-        gameCollectionView.register(UINib(nibName: Constants.addCommentCellId, bundle: nil), forCellWithReuseIdentifier: Constants.addCommentCellId)
-        
-        guard let flowLayout = gameCollectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
-        flowLayout.estimatedItemSize.width = view.frame.width
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -86,9 +69,8 @@ final class GameInfoViewController: UIViewController {
                 DispatchQueue.main.async {
                     HUD.show(.progress)
                 }
-                
             case .rich:
-                self?.isObtained = true
+                self?.gameInfoIsObtained = true
                 self?.gameCollectionView.reloadData()
                 HUD.hide()
             case .error (let code):
@@ -106,6 +88,36 @@ final class GameInfoViewController: UIViewController {
         }
     }
     
+    private func configureNavigationBar() {
+        navigationController?.interactivePopGestureRecognizer?.delegate = nil
+        let titleTextAttributes: [NSAttributedStringKey: Any] = [NSAttributedStringKey.foregroundColor: PaletteColors.darkGray,
+                                                                 NSAttributedStringKey.font: UIFont.customFont(.robotoMediumFont(size: 17))]
+        navigationBar.titleTextAttributes = titleTextAttributes
+        navigationBar.topItem?.title = Constants.title
+        navigationBar.setBackgroundImage(UIImage(color: UIColor.white), for: .default)
+        navBackgroundView.backgroundColor = .white
+        backButtonItem.image = UIImage(named: Constants.backButtonImage)
+        backButtonItem.tintColor = PaletteColors.darkGray
+    }
+    
+    private func configureCollectionView() {
+        gameCollectionView.delegate = self
+        gameCollectionView.dataSource = self
+        
+        gameCollectionView.register(UINib(nibName: Constants.gameInfoCellId, bundle: nil), forCellWithReuseIdentifier: Constants.gameInfoCellId)
+        gameCollectionView.register(UINib(nibName: Constants.commentsCellId, bundle: nil), forCellWithReuseIdentifier: Constants.commentsCellId)
+        gameCollectionView.register(UINib(nibName: Constants.addCommentCellId, bundle: nil), forCellWithReuseIdentifier: Constants.addCommentCellId)
+        gameCollectionView.backgroundColor = .clear
+        
+        guard let flowLayout = gameCollectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
+        flowLayout.estimatedItemSize.width = view.frame.width
+    }
+    
+    // MARK: - IBAction
+    
+    @IBAction private func backButtonTapped(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
 }
 
 // MARK: - UICollectionViewDataSource
@@ -113,7 +125,7 @@ final class GameInfoViewController: UIViewController {
 extension GameInfoViewController: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        if isObtained {
+        if gameInfoIsObtained {
             if presentationModel.gameViewModel.comments == "0" {
                 return 2
             } else {
@@ -153,7 +165,7 @@ extension GameInfoViewController: UICollectionViewDataSource {
                 return UICollectionViewCell()
         }
         cell.contentView.isUserInteractionEnabled = false
-        cell.blueView.widthAnchor.constraint(equalToConstant: view.frame.width).isActive = true
+        cell.configureCellWidth(view.frame.width)
         cell.configure(for: gameViewModel)
         cell.configureTournament(for: tournamentViewModel)
         cell.layoutIfNeeded()
@@ -199,8 +211,11 @@ extension GameInfoViewController: UICollectionViewDelegate {
 extension GameInfoViewController: UICollectionViewDelegateFlowLayout {
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 0, bottom: LayoutConstants.bottomEdge, right: 0)
-
+        if section != 1 {
+            return UIEdgeInsets(top: 0, left: 0, bottom: LayoutConstants.bottomEdge, right: 0)
+        } else {
+            return UIEdgeInsets(top: 0, left: 0, bottom: LayoutConstants.cellSpacing, right: 0)
+        }
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

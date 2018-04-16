@@ -10,7 +10,7 @@ import Kingfisher
 import UIKit
 import YouTubePlayer
 
-final class GameInfoCell: UICollectionViewCell, ViewModelConfigurable, YouTubePlayerDelegate {
+final class GameInfoCell: UICollectionViewCell, ViewModelConfigurable {
     
     // MARK: - Constants
     
@@ -22,10 +22,6 @@ final class GameInfoCell: UICollectionViewCell, ViewModelConfigurable, YouTubePl
         static let photoWidth: CGFloat = 200
         static let photoHeight: CGFloat = 200
     }
-    
-    // MARK: - Private Property
-    
-    private let indicator = UserIndicator()
     
     // MARK: - IBOutlets
     
@@ -40,26 +36,28 @@ final class GameInfoCell: UICollectionViewCell, ViewModelConfigurable, YouTubePl
     @IBOutlet private var colonLabel: UILabel!
     @IBOutlet private var player1Label: UILabel!
     @IBOutlet private var player2Label: UILabel!
-    @IBOutlet var tournamentLabel: UILabel!
+    @IBOutlet private var tournamentLabel: UILabel!
     @IBOutlet private var descriptionLabel: UILabel!
     
-    let spinner = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
-    
-    @IBOutlet var videoContainerView: UIView!
-    @IBOutlet var blueView: UIView!
+    @IBOutlet private var videoContainerView: UIView!
+    @IBOutlet private var blueView: UIView!
     @IBOutlet private var lineView: UIView!
+    
+    @IBOutlet private var gameVideoPlayerHeight: NSLayoutConstraint!
+    
+    
+    // MARK: - Private Property
+    
+    private let indicator = UserIndicator()
+    private var spinner: UIActivityIndicatorView!
+    
+    // MARK: - View lifecycle
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        gameVideoPlayer.isHidden = true
-        colonLabel.text = ":"
-        blueView.backgroundColor = PaletteColors.blueTint.withAlphaComponent(0.1)
-        gameVideoPlayer.delegate = self
-        videoContainerView.backgroundColor = PaletteColors.darkGray
-        spinner.startAnimating()
-        videoContainerView.addSubview(spinner)
-  
         
+        configureViews()
+        configureSpinner()
     }
     
     override func layoutSubviews() {
@@ -69,14 +67,19 @@ final class GameInfoCell: UICollectionViewCell, ViewModelConfigurable, YouTubePl
         
         photo2ImageView.clipsToBounds = true
         photo2ImageView.layer.cornerRadius = photo2ImageView.frame.width / 2
+        
         spinner.center = videoContainerView.center
     }
+    
+    // MARK: - Public Methods
     
     func configure(for viewModel: GameViewModel) {
         if let video = viewModel.video {
             gameVideoPlayer.loadVideoID(video)
+            let height = frame.width / 16 * 9
+            gameVideoPlayerHeight.constant = height
         } else {
-            videoContainerView.heightAnchor.constraint(equalToConstant: 0).isActive = true
+            gameVideoPlayerHeight.constant = 0
         }
         dateLabel.text = viewModel.playerTime
         clubLabel.text = viewModel.club
@@ -110,15 +113,39 @@ final class GameInfoCell: UICollectionViewCell, ViewModelConfigurable, YouTubePl
         }
     }
     
-    func playerReady(_ videoPlayer: YouTubePlayerView) {
-        spinner.stopAnimating()
-        videoPlayer.isHidden = false
-    }
-    
     func configureTournament(for viewModel: TournamentViewModel) {
         tournamentLabel.text = viewModel.tournament
         if let description = viewModel.description {
             descriptionLabel.text = description
         }
+    }
+    
+    func configureCellWidth(_ width: CGFloat) {
+        blueView.widthAnchor.constraint(equalToConstant: width).isActive = true
+    }
+    
+    // MARK: - Private Methods
+    
+    private func configureSpinner() {
+        gameVideoPlayer.isHidden = true
+        spinner = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        spinner.startAnimating()
+        videoContainerView.addSubview(spinner)
+    }
+    
+    private func configureViews() {
+        gameVideoPlayer.delegate = self
+        videoContainerView.backgroundColor = PaletteColors.darkGray
+        colonLabel.text = ":"
+        blueView.backgroundColor = PaletteColors.blueTint.withAlphaComponent(0.1)
+    }
+    
+}
+
+extension GameInfoCell: YouTubePlayerDelegate {
+    
+    func playerReady(_ videoPlayer: YouTubePlayerView) {
+        spinner.stopAnimating()
+        videoPlayer.isHidden = false
     }
 }

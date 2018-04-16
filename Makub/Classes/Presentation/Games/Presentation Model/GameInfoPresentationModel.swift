@@ -35,7 +35,6 @@ final class GameInfoPresentationModel: PresentationModel {
         
         if gameViewModel.stage != "0" {
             group.enter()
-            print("obtain tournament")
             obtainTournament()
         } else {
             tournamentViewModel = TournamentViewModel(title: "Товарищеская игра")

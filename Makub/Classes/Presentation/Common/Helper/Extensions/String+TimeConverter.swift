@@ -31,8 +31,7 @@ extension String {
             dateFormatter.dateFormat = "HH:mm"
             return "Cегодня в" + " " + dateFormatter.string(from: convertedDate)
         } else if hour > 1 {
-            dateFormatter.dateFormat = "HH"
-            return dateFormatter.string(from: convertedDate) + " " + "часа назад"
+            return String(hour) + " " + "часа назад"
         } else if hour == 1 {
             return "Час назад"
         } else {

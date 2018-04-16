@@ -117,11 +117,13 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="11P-hW-T58" customClass="YouTubePlayerView" customModule="YouTubePlayer">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="170"/>
                             <color key="backgroundColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="170" id="tQd-c1-NeL"/>
+                            </constraints>
                         </view>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="170" id="2XB-Vd-ovN"/>
                         <constraint firstAttribute="trailing" secondItem="11P-hW-T58" secondAttribute="trailing" id="N6V-Xt-kql"/>
                         <constraint firstAttribute="bottom" secondItem="11P-hW-T58" secondAttribute="bottom" id="WQD-ev-ASd"/>
                         <constraint firstItem="11P-hW-T58" firstAttribute="leading" secondItem="e0l-w7-9Oo" secondAttribute="leading" id="dx6-jp-jE9"/>
@@ -166,6 +168,7 @@
                 <outlet property="dateLabel" destination="eeq-15-mga" id="vR4-kV-lFE"/>
                 <outlet property="descriptionLabel" destination="jv6-lM-WVV" id="DN8-JY-U0d"/>
                 <outlet property="gameVideoPlayer" destination="11P-hW-T58" id="VYy-C7-Wt8"/>
+                <outlet property="gameVideoPlayerHeight" destination="tQd-c1-NeL" id="uQ8-9I-FbJ"/>
                 <outlet property="lineView" destination="JyD-Ku-4BV" id="e5Q-0j-oiZ"/>
                 <outlet property="photo1ImageView" destination="Sve-Pr-1or" id="Rb3-0f-JY3"/>
                 <outlet property="photo2ImageView" destination="D3r-S6-xA4" id="73n-Kb-i0V"/>

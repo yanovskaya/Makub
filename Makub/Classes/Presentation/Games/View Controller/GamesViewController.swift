@@ -82,7 +82,7 @@ final class GamesViewController: UIViewController {
             case .rich:
                 self?.gamesCollectionView.reloadData()
                 self?.filterDataIsObtained = true
-                print("HHHHHIIDEEEE")
+                
                 HUD.hide()
             case .error (let code):
                 switch code {
@@ -117,6 +117,7 @@ final class GamesViewController: UIViewController {
                 self?.gamesCollectionView.loadControl = UILoadControl(target: self, action: #selector(self?.obtainMoreGames(sender:)))
                 self?.presentationModel.chosenOptions = []
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                    self?.stopBindEvents()
                     self?.presentationModel.obtainGamesWithClubs()
                 }
             }
@@ -155,6 +156,17 @@ final class GamesViewController: UIViewController {
             case .error:
                 self?.gamesCollectionView.loadControl?.endLoading()
                 self?.isLoading = false
+            }
+        }
+    }
+    
+    private func stopBindEvents() {
+        presentationModel.changeStateHandler = { [weak self] status in
+            switch status {
+            case .rich:
+                self?.gamesCollectionView.reloadData()
+            default:
+                break
             }
         }
     }
