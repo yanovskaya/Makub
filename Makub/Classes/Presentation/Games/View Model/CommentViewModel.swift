@@ -25,7 +25,7 @@ final class CommentViewModel {
     // MARK: - Initialization
     
     init(_ comment: Comment) {
-        self.comment = comment.comment
+        self.comment = comment.comment.removeTags()
         self.playerId = comment.playerId
         self.author = comment.name + " " + comment.surname
         

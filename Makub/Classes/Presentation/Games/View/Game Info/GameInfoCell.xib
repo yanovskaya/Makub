@@ -17,13 +17,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eeq-15-mga">
-                    <rect key="frame" x="16" y="182" width="42" height="20.5"/>
+                    <rect key="frame" x="16" y="182" width="96" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="btJ-ia-KiQ">
-                    <rect key="frame" x="317" y="182" width="42" height="20.5"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="btJ-ia-KiQ">
+                    <rect key="frame" x="115" y="182" width="244" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -134,26 +134,28 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="E1h-Iu-iAX" firstAttribute="top" secondItem="Sve-Pr-1or" secondAttribute="bottom" constant="16" id="1vs-YE-exN"/>
-                <constraint firstItem="eeq-15-mga" firstAttribute="top" secondItem="e0l-w7-9Oo" secondAttribute="bottom" constant="12" id="2bN-UZ-1FL"/>
                 <constraint firstItem="dFe-z5-u71" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="5g8-r4-rC6"/>
                 <constraint firstItem="ztv-M3-UyF" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="Aa7-Qq-zHd"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="D3r-S6-xA4" secondAttribute="trailing" constant="58" id="BUp-xR-MBT"/>
                 <constraint firstItem="eeq-15-mga" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="CaP-dY-M3F"/>
+                <constraint firstItem="JyD-Ku-4BV" firstAttribute="top" secondItem="btJ-ia-KiQ" secondAttribute="bottom" constant="12" id="E8i-zB-NWw"/>
                 <constraint firstItem="Sve-Pr-1or" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="58" id="Ffk-lg-EYF"/>
                 <constraint firstItem="e0l-w7-9Oo" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="H5x-n1-blp"/>
                 <constraint firstItem="btJ-ia-KiQ" firstAttribute="centerY" secondItem="eeq-15-mga" secondAttribute="centerY" id="I4n-b5-3Cm"/>
                 <constraint firstItem="JyD-Ku-4BV" firstAttribute="leading" secondItem="eeq-15-mga" secondAttribute="leading" id="IcS-BZ-y7Y"/>
-                <constraint firstItem="JyD-Ku-4BV" firstAttribute="top" secondItem="eeq-15-mga" secondAttribute="bottom" constant="12" id="Juy-Z6-bP8"/>
                 <constraint firstItem="JYD-gC-j8b" firstAttribute="centerY" secondItem="E1h-Iu-iAX" secondAttribute="centerY" id="L16-La-Bhn"/>
                 <constraint firstItem="ztv-M3-UyF" firstAttribute="top" secondItem="JYD-gC-j8b" secondAttribute="bottom" constant="25" id="MUQ-AT-eor"/>
                 <constraint firstItem="e0l-w7-9Oo" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="OQf-KX-5DL"/>
                 <constraint firstItem="ztv-M3-UyF" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="PH1-0W-g8b"/>
                 <constraint firstItem="D3r-S6-xA4" firstAttribute="width" secondItem="D3r-S6-xA4" secondAttribute="height" multiplier="1:1" id="Q1A-Ez-yAu"/>
+                <constraint firstItem="eeq-15-mga" firstAttribute="trailing" secondItem="Sve-Pr-1or" secondAttribute="trailing" id="RkZ-yg-dXY"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="btJ-ia-KiQ" secondAttribute="trailing" constant="16" id="Sns-qz-7k2"/>
+                <constraint firstItem="btJ-ia-KiQ" firstAttribute="leading" secondItem="eeq-15-mga" secondAttribute="trailing" constant="3" id="UAs-7Z-G6N"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="ztv-M3-UyF" secondAttribute="bottom" priority="999" id="ZtK-VQ-0zo"/>
                 <constraint firstItem="JyD-Ku-4BV" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="cyE-fS-XDl"/>
                 <constraint firstItem="JYD-gC-j8b" firstAttribute="centerX" secondItem="D3r-S6-xA4" secondAttribute="centerX" id="gUA-SU-ais"/>
                 <constraint firstItem="dFe-z5-u71" firstAttribute="centerY" secondItem="Sve-Pr-1or" secondAttribute="centerY" id="gxg-3e-mKK"/>
+                <constraint firstItem="btJ-ia-KiQ" firstAttribute="top" secondItem="e0l-w7-9Oo" secondAttribute="bottom" constant="12" id="h2x-Tk-Gt6"/>
                 <constraint firstItem="E1h-Iu-iAX" firstAttribute="centerX" secondItem="Sve-Pr-1or" secondAttribute="centerX" id="ksk-cX-7Mj"/>
                 <constraint firstItem="e0l-w7-9Oo" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="lFH-n0-a96"/>
                 <constraint firstItem="D3r-S6-xA4" firstAttribute="centerY" secondItem="Sve-Pr-1or" secondAttribute="centerY" id="psF-Cj-wzr"/>
@@ -179,7 +181,7 @@
                 <outlet property="tournamentLabel" destination="wVA-CK-4NF" id="JHd-Sa-15e"/>
                 <outlet property="videoContainerView" destination="e0l-w7-9Oo" id="9mZ-Ov-nRn"/>
             </connections>
-            <point key="canvasLocation" x="44.5" y="236"/>
+            <point key="canvasLocation" x="44.5" y="235.5"/>
         </view>
     </objects>
 </document>

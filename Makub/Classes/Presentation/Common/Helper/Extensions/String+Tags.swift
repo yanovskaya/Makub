@@ -23,7 +23,7 @@ extension String {
     }
     
     func removeTags() -> String {
-        var editedString = replaceDivTag()
+        var editedString = replaceTags()
         editedString = editedString.components(separatedBy: "&nbsp;").joined()
         editedString = editedString.components(separatedBy: "<div>").joined()
         editedString = editedString.components(separatedBy: "</div>").joined()
@@ -32,7 +32,9 @@ extension String {
     
     // MARK: - Private Methods
     
-    private func replaceDivTag() -> String {
-        return replacingOccurrences(of: "</div><div>", with: "\n", options: .literal, range: nil)
+    private func replaceTags() -> String {
+        var newString = replacingOccurrences(of: "</div><div>", with: "\n", options: .literal, range: nil)
+        newString = newString.replacingOccurrences(of: "&quot;", with: "\"", options: .literal, range: nil)
+        return newString
     }
 }

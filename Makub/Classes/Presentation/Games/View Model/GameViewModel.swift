@@ -47,7 +47,6 @@ final class GameViewModel {
         self.player1 = game.name1 + " " + game.surname1
         self.player2 = game.name2 + " " + game.surname2
         
-        
         self.stage = game.stage
         self.comments = game.comments
         
@@ -68,7 +67,7 @@ final class GameViewModel {
             self.photo2URL = nil
         }
         
-        if let video = game.video, video != "" {
+        if let video = game.video, video != "", video.count < 20 {
             self.video = video
         } else {
             self.video = nil

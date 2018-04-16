@@ -90,7 +90,11 @@ final class GameInfoCell: UICollectionViewCell, ViewModelConfigurable {
         
         player1Label.text = viewModel.player1
         player2Label.text = viewModel.player2
-        configureSizeLabel(characters: max(viewModel.player1.count, viewModel.player2.count))
+        
+        let player1Count = viewModel.player1.count
+        let player2Count = viewModel.player2.count
+        configureSizeLabel(sum: player1Count + player2Count,
+                           characters: max(player1Count, player2Count))
         
         let sizeProcessor = ResizingImageProcessor(referenceSize: CGSize(width: SizeConstants.photoWidth, height: SizeConstants.photoHeight), mode: .aspectFill)
         
@@ -117,6 +121,7 @@ final class GameInfoCell: UICollectionViewCell, ViewModelConfigurable {
         }
         
         if let video = viewModel.video {
+            spinner.startAnimating()
             gameVideoPlayer.loadVideoID(video)
             let height = frame.width / 16 * 9
             gameVideoPlayerHeight.constant = height
@@ -144,20 +149,19 @@ final class GameInfoCell: UICollectionViewCell, ViewModelConfigurable {
     private func configureSpinner() {
         gameVideoPlayer.isHidden = true
         spinner = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
-        spinner.startAnimating()
         videoContainerView.addSubview(spinner)
     }
     
     private func configureViews() {
         gameVideoPlayer.delegate = self
-        videoContainerView.backgroundColor = PaletteColors.darkGray
         colonLabel.text = ":"
+        videoContainerView.backgroundColor = PaletteColors.darkGray
         blueView.backgroundColor = PaletteColors.blueTint.withAlphaComponent(0.1)
     }
     
     private func configureFont() {
         dateLabel.font = UIFont.customFont(.robotoRegularFont(size: 12))
-        clubLabel.font = UIFont.customFont(.robotoRegularFont(size: 12))
+        clubLabel.font = UIFont.customFont(.robotoRegularFont(size: 13))
         tournamentLabel.font = UIFont.customFont(.robotoRegularFont(size: 16))
         descriptionLabel.font = UIFont.customFont(.robotoRegularFont(size: 14))
         score1Label.font = UIFont.customFont(.robotoRegularFont(size: 25))
@@ -176,14 +180,16 @@ final class GameInfoCell: UICollectionViewCell, ViewModelConfigurable {
         lineView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.2)
     }
     
-    private func configureSizeLabel(characters: Int) {
+    private func configureSizeLabel(sum: Int, characters: Int) {
         let size: CGFloat
         if characters < 15 {
             size = 16
         } else if characters < 18 {
             size = 15
-        } else {
+        } else if characters < 22, sum < 34 {
             size = 14
+        } else {
+            size = 13
         }
         player1Label.font = UIFont.customFont(.robotoRegularFont(size: size))
         player2Label.font = UIFont.customFont(.robotoRegularFont(size: size))
