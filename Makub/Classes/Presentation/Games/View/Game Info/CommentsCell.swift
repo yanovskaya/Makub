@@ -78,7 +78,7 @@ final class CommentsCell: UICollectionViewCell, ViewModelConfigurable {
     private func configureColor() {
         authorLabel.textColor = PaletteColors.darkGray
         dateLabel.textColor = PaletteColors.textGray
-        commentLabel.textColor = PaletteColors.textGray
+        commentLabel.textColor = PaletteColors.darkGray
     }
     
     private func configureFont() {

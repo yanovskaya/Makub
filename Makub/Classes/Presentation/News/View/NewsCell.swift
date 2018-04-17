@@ -19,8 +19,8 @@ final class NewsCell: UICollectionViewCell, ViewModelConfigurable {
     }
     
     private enum LayoutConstants {
-        static let bottomImageDistance: CGFloat = 198
-        static let bottomDistance: CGFloat = 20
+        static let imageDistance: CGFloat = 15
+        static let minImageDistance: CGFloat = 5
     }
     
     private enum SizeConstants {
@@ -44,8 +44,7 @@ final class NewsCell: UICollectionViewCell, ViewModelConfigurable {
     @IBOutlet private var lineView: UIView!
     
     @IBOutlet private var heightIllustrationImageView: NSLayoutConstraint!
-    
-    @IBOutlet private var bottomDistance: NSLayoutConstraint!
+    @IBOutlet private var imageDistance: NSLayoutConstraint!
     
     // MARK: - Public Properties
     
@@ -98,17 +97,17 @@ final class NewsCell: UICollectionViewCell, ViewModelConfigurable {
         
         if let imageURL = viewModel.imageURL {
             heightIllustrationImageView.constant = heightIllustrationImageViewConstant
-            bottomDistance.constant = LayoutConstants.bottomImageDistance
+            imageDistance.constant = LayoutConstants.imageDistance
             let sizeProcessor = ResizingImageProcessor(referenceSize: CGSize(width: SizeConstants.imageWidth, height: SizeConstants.imageHeight), mode: .aspectFill)
             illustrationImageView.kf.indicatorType = .activity
             illustrationImageView.kf.setImage(with: URL(string: imageURL), placeholder: nil, options: [.processor(sizeProcessor)], completionHandler: { (image, _, _, _) in
                 if image == nil {
-                    self.bottomDistance.constant = LayoutConstants.bottomDistance
                     self.heightIllustrationImageView.constant = 0
+                    self.imageDistance.constant = LayoutConstants.minImageDistance
                 }
             })
         } else {
-            bottomDistance.constant = LayoutConstants.bottomDistance
+            self.imageDistance.constant = LayoutConstants.minImageDistance
             heightIllustrationImageView.constant = 0
         }
         if let photoURL = viewModel.photoURL {
@@ -164,7 +163,7 @@ final class NewsCell: UICollectionViewCell, ViewModelConfigurable {
         authorLabel.textColor = PaletteColors.darkGray
         dateLabel.textColor = PaletteColors.textGray
         titleLabel.textColor = PaletteColors.darkGray
-        descriptionLabel.textColor = PaletteColors.textGray
+        descriptionLabel.textColor = PaletteColors.darkGray
         lineView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.2)
     }
     

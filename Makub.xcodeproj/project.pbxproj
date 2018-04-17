@@ -109,7 +109,7 @@
 		C4C259B22078CCB800C0CDD4 /* TitleFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C259B12078CCB800C0CDD4 /* TitleFilterCell.swift */; };
 		C4C259B42078CCCA00C0CDD4 /* OptionFilterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4C259B32078CCCA00C0CDD4 /* OptionFilterCell.xib */; };
 		C4C259B62078CCDE00C0CDD4 /* OptionFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C259B52078CCDE00C0CDD4 /* OptionFilterCell.swift */; };
-		C4C259B82078DBEA00C0CDD4 /* FilterOptions.plist in Resources */ = {isa = PBXBuildFile; fileRef = C4C259B72078DBEA00C0CDD4 /* FilterOptions.plist */; };
+		C4C259B82078DBEA00C0CDD4 /* FilterGamesOptions.plist in Resources */ = {isa = PBXBuildFile; fileRef = C4C259B72078DBEA00C0CDD4 /* FilterGamesOptions.plist */; };
 		C4C259BA2078DF4800C0CDD4 /* FilterGamesPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C259B92078DF4800C0CDD4 /* FilterGamesPresentationModel.swift */; };
 		C4D4E4EF20606FEF000A9216 /* RecoverPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D4E4EE20606FEF000A9216 /* RecoverPresentationModel.swift */; };
 		C4D4E4F22060860F000A9216 /* AuthRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D4E4F12060860F000A9216 /* AuthRouter.swift */; };
@@ -237,7 +237,7 @@
 		C4C259B12078CCB800C0CDD4 /* TitleFilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleFilterCell.swift; sourceTree = "<group>"; };
 		C4C259B32078CCCA00C0CDD4 /* OptionFilterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OptionFilterCell.xib; sourceTree = "<group>"; };
 		C4C259B52078CCDE00C0CDD4 /* OptionFilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionFilterCell.swift; sourceTree = "<group>"; };
-		C4C259B72078DBEA00C0CDD4 /* FilterOptions.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = FilterOptions.plist; sourceTree = "<group>"; };
+		C4C259B72078DBEA00C0CDD4 /* FilterGamesOptions.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = FilterGamesOptions.plist; sourceTree = "<group>"; };
 		C4C259B92078DF4800C0CDD4 /* FilterGamesPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterGamesPresentationModel.swift; sourceTree = "<group>"; };
 		C4D4E4EE20606FEF000A9216 /* RecoverPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPresentationModel.swift; sourceTree = "<group>"; };
 		C4D4E4F12060860F000A9216 /* AuthRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRouter.swift; sourceTree = "<group>"; };
@@ -618,7 +618,7 @@
 			isa = PBXGroup;
 			children = (
 				C44D60BB205529C200A5C50F /* Info.plist */,
-				C4C259B72078DBEA00C0CDD4 /* FilterOptions.plist */,
+				C4C259B72078DBEA00C0CDD4 /* FilterGamesOptions.plist */,
 			);
 			path = "Supporting files";
 			sourceTree = "<group>";
@@ -986,7 +986,7 @@
 				C4D4E5022061934F000A9216 /* News.storyboard in Resources */,
 				C41B3C2520721D2300A2B652 /* GamesCell.xib in Resources */,
 				C4A30404206709DF008BFE5E /* NewsCell.xib in Resources */,
-				C4C259B82078DBEA00C0CDD4 /* FilterOptions.plist in Resources */,
+				C4C259B82078DBEA00C0CDD4 /* FilterGamesOptions.plist in Resources */,
 				C4D4E50020619339000A9216 /* Rating.storyboard in Resources */,
 				C414F0D520596DE8001961EC /* Roboto-Medium.otf in Resources */,
 				C414F0D720596DE8001961EC /* Roboto-Bold.otf in Resources */,
