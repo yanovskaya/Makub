@@ -1,5 +1,5 @@
 //
-//  FilterOptionsParser.swift
+//  FilterGamesPresentationModel.swift
 //  Makub
 //
 //  Created by Елена Яновская on 07.04.2018.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class FilterPresentationModel: PresentationModel {
+final class FilterGamesPresentationModel: PresentationModel {
     
     // MARK: - Constants
     
@@ -21,7 +21,7 @@ final class FilterPresentationModel: PresentationModel {
     
     // MARK: - Public Properties
     
-    var filterViewModels: [FilterViewModel]!
+    var filterViewModels: [FilterGamesViewModel]!
     var clubViewModels: [ClubViewModel]! {
         didSet {
             obtainFilterOptions()
@@ -64,6 +64,6 @@ final class FilterPresentationModel: PresentationModel {
                                           "options": clubsDictionary]
         let clubsEntity = Filter(info: clubsOptions)
         model.insert(clubsEntity, at: model.count - 1)
-        filterViewModels = model.compactMap { FilterViewModel($0) }
+        filterViewModels = model.compactMap { FilterGamesViewModel($0) }
     }
 }

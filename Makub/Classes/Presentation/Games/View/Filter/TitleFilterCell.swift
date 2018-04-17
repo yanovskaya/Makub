@@ -48,7 +48,7 @@ final class TitleFilterCell: UITableViewCell, ViewModelConfigurable {
     
     // MARK: - Public Methods
     
-    func configure(for viewModel: FilterViewModel) {
+    func configure(for viewModel: FilterGamesViewModel) {
         titleLabel.text = viewModel.name
     }
     

@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class FilterViewModel {
+final class FilterGamesViewModel {
     
     // MARK: - Public Properties
     

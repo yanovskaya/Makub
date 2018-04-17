@@ -36,7 +36,7 @@ final class FilterGamesViewController: UIViewController {
     
     weak var delegate: FilterGamesViewControllerDelegate?
     
-    let presentationModel = FilterPresentationModel()
+    let presentationModel = FilterGamesPresentationModel()
     var chosenOptions: [IndexPath]!
     
     // MARK: - Private Properties
