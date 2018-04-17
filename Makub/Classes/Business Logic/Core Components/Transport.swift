@@ -2,7 +2,7 @@
 //  Transport.swift
 //  Makub
 //
-//  Created by Елена Яновская on 15.03.2018.
+//  Created by Елена Яновская on 03.04.2018.
 //  Copyright © 2018 Elena Yanovskaya. All rights reserved.
 //
 
@@ -17,15 +17,24 @@ struct TransportResponseResult {
 
 final class Transport {
     
+    // MARK: - Private Properties
+    
+    private let sessionManager: SessionManager
+    
+    // MARK: - Initialization
+    
+    init(sessionManager: SessionManager) {
+        self.sessionManager = sessionManager
+    }
+    
     // MARK: - Public Methods
     
     func request(method: HTTPMethod,
                  url: String,
-                 parameters: [String: String]? = nil,
-                 timeout: TimeInterval = 5,
+                 parameters: [String: Any]? = nil,
                  headers: [String: String] = [:],
                  completion: ((TransportCallResult) -> Void)?) {
-        Alamofire.request(url,
+        sessionManager.request(url,
                           method: method,
                           parameters: parameters,
                           encoding: URLEncoding.default,
@@ -55,28 +64,27 @@ final class Transport {
     
     func upload(method: HTTPMethod,
                 url: String,
-                parameters: [String: String]? = nil,
+                parameters: [String: Any]? = nil,
                 headers: [String: String] = [:],
                 data: Data,
                 name: String = "image",
                 fileName: String = "file.jpg",
                 mimeType: String = "image/jpg",
                 completion: ((TransportCallResult) -> Void)?) {
-        Alamofire.upload(multipartFormData: { multipartFormData in
+        sessionManager.upload(multipartFormData: { multipartFormData in
             multipartFormData.append(data,
                                      withName: name,
                                      fileName: fileName,
                                      mimeType: mimeType)
             if let parameters = parameters {
                 for (key, value) in parameters {
-                    multipartFormData.append(value.data(using: String.Encoding.utf8)!, withName: key)
+                    multipartFormData.append((value as AnyObject).data(using: String.Encoding.utf8.rawValue)!, withName: key)
                 }
             }
         },
                          to: url,
                          method: method,
-                         headers: headers)
-        { result in
+                         headers: headers) { result in
             switch result {
             case .success(let upload, _, _):
                 upload.responseData { response in
@@ -86,7 +94,7 @@ final class Transport {
                             guard let statusCode = response.response?.statusCode,
                                 let allHeaderFields = response.response?.allHeaderFields else { return }
                             switch statusCode {
-                            case 200, 404:
+                            case 200:
                                 let payload = TransportResponseResult(httpStatus: statusCode,
                                                                       headers: allHeaderFields,
                                                                       resultBody: resultData)

@@ -11,6 +11,8 @@ import RealmSwift
 
 final class News: Object, Decodable {
     
+    @objc dynamic var author: String! = nil
+    @objc dynamic var id: String! = nil
     @objc dynamic var title: String! = nil
     @objc dynamic var text: String! = nil
     @objc dynamic var tag: String! = nil

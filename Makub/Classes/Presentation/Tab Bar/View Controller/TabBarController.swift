@@ -15,18 +15,21 @@ final class TabBarController: UITabBarController {
     private enum Constants {
         static var newsImage = "newspaper"
         static var ratingImage = "star"
+        static var gamesImage = "fighting"
     }
     
     // MARK: - Private Properties
     
     private let newsStoryboard = UIStoryboard(with: StoryboardTitle.news)
     private let ratingStoryboard = UIStoryboard(with: StoryboardTitle.rating)
+    private let gamesStoryboard = UIStoryboard(with: StoryboardTitle.games)
     
     // MARK: - ViewController lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tabBar.barTintColor = .white
+        tabBar.tintColor = PaletteColors.blueTint
         navigationController?.isNavigationBarHidden = true
         createTabBarController()
     }
@@ -42,7 +45,11 @@ final class TabBarController: UITabBarController {
         let ratingVC = ratingStoryboard.viewController(RatingViewController.self)
         ratingVC.tabBarItem = UITabBarItem(title: nil, image: ratingItem, tag: 1)
         
-        let controllerArray = [newsVC, ratingVC]
+        let gamesItem = UIImage(named: Constants.gamesImage)?.imageWithInsets(insets: UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0))
+        let gamesVC = gamesStoryboard.viewController(GamesViewController.self)
+        gamesVC.tabBarItem = UITabBarItem(title: nil, image: gamesItem, tag: 2)
+        
+        let controllerArray = [newsVC, ratingVC, gamesVC]
         viewControllers = controllerArray.map { UINavigationController(rootViewController: $0) }
     }
 

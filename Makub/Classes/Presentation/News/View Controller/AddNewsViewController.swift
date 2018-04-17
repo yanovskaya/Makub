@@ -17,9 +17,9 @@ final class AddNewsViewController: UIViewController {
     // MARK: - Constants
     
     private enum Constants {
-        static let title = "Новости"
-        static let leftButtonItem = "Отмена"
-        static let rigthButtonItem = "Готово"
+        static let title = "Новость"
+        static let cancelButtonItem = "Отмена"
+        static let doneButtonItem = "Готово"
         static let titleTextField = "Название..."
         static let pkhudTitle = "Подождите"
         static let pkhudSubtitle = "Публикуем новость"
@@ -31,14 +31,14 @@ final class AddNewsViewController: UIViewController {
         
         static let attachButton = "paperclip"
         static let removeButton = "close"
-        static let userImage = "user"
+        static let userImage = "photo_default"
     }
     
     // MARK: - IBOutlets
     
     @IBOutlet private var navigationBar: UINavigationBar!
-    @IBOutlet private var leftButtonItem: UIBarButtonItem!
-    @IBOutlet private var rightButtonItem: UIBarButtonItem!
+    @IBOutlet private var cancelButtonItem: UIBarButtonItem!
+    @IBOutlet private var doneButtonItem: UIBarButtonItem!
     
     @IBOutlet private var attachButton: UIButton!
     @IBOutlet private var removeButton: UIButton!
@@ -56,23 +56,27 @@ final class AddNewsViewController: UIViewController {
     
     // MARK: - Public Properties
     
-    var presentationModel: NewsPresentationModel!
+    var presentationModel = AddNewsPresentationModel()
+    
+    weak var delegate: AddNewsViewControllerDelegate?
     
     // MARK: - Private Properties
     
     private var fdTakeController = FDTakeController()
     
+    private let indicator = UserIndicator()
+    
     private var imageToAttach: UIImage? {
         didSet {
             if imageToAttach != nil {
-                attachButton.tintColor = UIColor.green
-                removeButton.removeConstraint(heightRemoveButton)
+                attachButton.tintColor = PaletteColors.blueTint
+                heightRemoveButton.isActive = false
                 removeButton.setImage(UIImage(named: Constants.removeButton), for: .normal)
                 previewImageView.image = imageToAttach
             } else {
                 attachButton.tintColor = PaletteColors.darkGray
                 removeButton.setImage(nil, for: .normal)
-                removeButton.addConstraint(heightRemoveButton)
+                heightRemoveButton.isActive = true
                 previewImageView.image = nil
                 newsTextView.becomeFirstResponder()
             }
@@ -83,7 +87,6 @@ final class AddNewsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = Constants.title
         view.backgroundColor = .white
         
         configureNavigationItems()
@@ -107,46 +110,46 @@ final class AddNewsViewController: UIViewController {
                 PKHUD.sharedHUD.userInteractionOnUnderlyingViewsEnabled = false
                 HUD.show(.labeledProgress(title: Constants.pkhudTitle, subtitle: Constants.pkhudSubtitle))
             case .rich:
-                HUD.show(.success)
-                HUD.hide(afterDelay: 0.4)
-                self.newsTextView.becomeFirstResponder()
+                HUD.hide()
+                self.delegate?.addNewsToCollectionView()
+                self.dismiss(animated: true)
             case .error (let code):
                 switch code {
                 case -1009, -1001:
                     HUD.show(.labeledError(title: ErrorDescription.title.rawValue, subtitle: ErrorDescription.network.rawValue))
-                case 2:
-                    HUD.show(.labeledError(title: ErrorDescription.title.rawValue, subtitle: ErrorDescription.recover.rawValue))
                 default:
                     HUD.show(.labeledError(title: ErrorDescription.title.rawValue, subtitle: ErrorDescription.server.rawValue))
                 }
                 HUD.hide(afterDelay: 1.0)
-                self.newsTextView.becomeFirstResponder()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                    self.newsTextView.becomeFirstResponder()
+                }
             }
         }
     }
     
     private func configureNavigationItems() {
         navigationBar.topItem?.title = Constants.title
-        leftButtonItem.title = Constants.leftButtonItem
-        rightButtonItem.title = Constants.rigthButtonItem
+        cancelButtonItem.title = Constants.cancelButtonItem
+        doneButtonItem.title = Constants.doneButtonItem
         
         let titleTextAttributes: [NSAttributedStringKey: Any] = [NSAttributedStringKey.foregroundColor: PaletteColors.darkGray,
                                    NSAttributedStringKey.font: UIFont.customFont(.robotoMediumFont(size: 17))]
         
-        let leftButtonAttributes = [NSAttributedStringKey.foregroundColor: PaletteColors.blueTint,
+        let cancelButtonAttributes = [NSAttributedStringKey.foregroundColor: PaletteColors.blueTint,
                                                                       NSAttributedStringKey.font: UIFont.customFont(.robotoRegularFont(size: 17))]
-        let rightButtonAttributes = [NSAttributedStringKey.foregroundColor: PaletteColors.blueTint,
+        let doneButtonAttributes = [NSAttributedStringKey.foregroundColor: PaletteColors.blueTint,
                                      NSAttributedStringKey.font: UIFont.customFont(.robotoBoldFont(size: 17))]
         navigationBar.titleTextAttributes = titleTextAttributes
-        leftButtonItem.setTitleTextAttributes(leftButtonAttributes, for: .normal)
-        leftButtonItem.setTitleTextAttributes(leftButtonAttributes, for: .selected)
+        cancelButtonItem.setTitleTextAttributes(cancelButtonAttributes, for: .normal)
+        cancelButtonItem.setTitleTextAttributes(cancelButtonAttributes, for: .selected)
         
-        rightButtonItem.setTitleTextAttributes(rightButtonAttributes, for: .normal)
-        rightButtonItem.setTitleTextAttributes(rightButtonAttributes, for: .selected)
+        doneButtonItem.setTitleTextAttributes(doneButtonAttributes, for: .normal)
+        doneButtonItem.setTitleTextAttributes(doneButtonAttributes, for: .selected)
         
-        rightButtonItem.setTitleTextAttributes([NSAttributedStringKey.font: UIFont.customFont(.robotoBoldFont(size: 17))], for: .disabled)
+        doneButtonItem.setTitleTextAttributes([NSAttributedStringKey.font: UIFont.customFont(.robotoBoldFont(size: 17))], for: .disabled)
         
-        rightButtonItem.isEnabled = false
+        doneButtonItem.isEnabled = false
     }
     
     private func configureTextView() {
@@ -155,7 +158,6 @@ final class AddNewsViewController: UIViewController {
         newsTextView.textColor = PaletteColors.darkGray
         newsTextView.becomeFirstResponder()
         newsTextView.delegate = self
-        newsTextView.target(forAction: #selector(editingChanged), withSender: self)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
     }
     
@@ -184,7 +186,7 @@ final class AddNewsViewController: UIViewController {
         authorImageView.clipsToBounds = true
         
         guard let viewModel = presentationModel.userViewModel else { return }
-        authorImageView.kf.indicatorType = .activity
+        authorImageView.kf.indicatorType = .custom(indicator: indicator)
         authorImageView.kf.setImage(with: URL(string: viewModel.photoURL))
         
         authorLabel.font = UIFont.customFont(.robotoBoldFont(size: 16))
@@ -207,45 +209,26 @@ final class AddNewsViewController: UIViewController {
             let keyboardRectangle = keyboardFrame.cgRectValue
             let keyboardTopPoint = keyboardRectangle.minY
             heightTextView.constant = keyboardTopPoint - newsTextView.frame.minY
-            heightImageView.constant = previewImageView.frame.maxY - newsTextView.frame.maxY - 10
+            heightImageView.constant = previewImageView.frame.maxY - newsTextView.frame.maxY
         }
         NotificationCenter.default.removeObserver(self)
     }
     
-    @objc private func editingChanged() {
-        guard let text = newsTextView.text, text.count > 2
-            else {
-                rightButtonItem.isEnabled = false
-                return
-        }
-        rightButtonItem.isEnabled = true
-    }
-    
     // MARK: - IBActions
     
-    @IBAction private func leftButtonItemTapped(_ sender: Any) {
+    @IBAction private func cancelButtonItemTapped(_ sender: Any) {
         dismiss(animated: true)
         view.endEditing(true)
     }
     
-    @IBAction func rightButtonItemTapped(_ sender: Any) {
+    @IBAction func postButtonItemTapped(_ sender: Any) {
         view.endEditing(true)
         guard let title = titleTextField.text,
             let text = newsTextView.text else { return }
         if let image = self.imageToAttach {
-            self.presentationModel.addNewsWithImage(title: title, text: text.addTags(), image: image) {
-                self.titleTextField.text = ""
-                self.newsTextView.text = ""
-                self.imageToAttach = nil
-                self.rightButtonItem.isEnabled = false
-            }
+            self.presentationModel.addNewsWithImage(title: title, text: text.addTags(), image: image)
         } else {
-            self.presentationModel.addNews(title: title, text: text) {
-                self.titleTextField.text = ""
-                self.newsTextView.text = ""
-                self.imageToAttach = nil
-                self.rightButtonItem.isEnabled = false
-            }
+            self.presentationModel.addNews(title: title, text: text.addTags())
         }
     }
     
@@ -257,7 +240,6 @@ final class AddNewsViewController: UIViewController {
     @IBAction func removeButtonTapped(_ sender: Any) {
         imageToAttach = nil
     }
-    
     
 }
 
@@ -278,10 +260,10 @@ extension AddNewsViewController: UITextFieldDelegate {
 extension AddNewsViewController: UITextViewDelegate {
     
     func textViewDidChange(_ textView: UITextView) {
-        guard let text = textView.text, text.count > 7 else {
-            rightButtonItem.isEnabled = false
+        guard let text = textView.text, text.removeWhitespaces().count > 0 else {
+            doneButtonItem.isEnabled = false
             return
         }
-        rightButtonItem.isEnabled = !text.removeBlankText().isEmpty
+        doneButtonItem.isEnabled = !text.removeBlankText().isEmpty
     }
 }

@@ -8,6 +8,6 @@
 
 import Foundation
 
-enum KeychainKey {
+enum KeychainKeys {
     static let token = "token"
 }

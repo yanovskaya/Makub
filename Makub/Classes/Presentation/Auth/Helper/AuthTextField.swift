@@ -32,7 +32,7 @@ final class AuthTextField: UITextField {
         configureBorder()
     }
     
-    // MARK: - Public Methods
+    // MARK: - Override Methods
     
     override func textRect(forBounds bounds: CGRect) -> CGRect {
         let offset = LayoutConstants.standard + LayoutConstants.leadingDistance + imageView.frame.width
@@ -45,6 +45,8 @@ final class AuthTextField: UITextField {
         let padding = UIEdgeInsets(top: 0, left: offset, bottom: 0, right: offset)
         return UIEdgeInsetsInsetRect(bounds, padding)
     }
+    
+    // MARK: - Public Methods
     
     func attributePlaceholder() {
         guard let placeholder = placeholder else { return }

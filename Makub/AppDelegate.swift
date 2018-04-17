@@ -6,6 +6,7 @@
 //  Copyright © 2018 Elena Yanovskaya. All rights reserved.
 //
 
+import Kingfisher
 import SwiftKeychainWrapper
 import UIKit
 
@@ -26,15 +27,44 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - App lifecycle
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        setInitialVC()
+        ImageCache.default.maxDiskCacheSize = 50 * 1024 * 1024
+        return true
+    }
+    
+    // MARK: - Private Methods
+    
+    private func setInitialVC() {
         window = UIWindow(frame: UIScreen.main.bounds)
-        if KeychainWrapper.standard.string(forKey: KeychainKey.token) == nil {
+        
+        let token = KeychainWrapper.standard.string(forKey: KeychainKeys.token)
+        let wasLaunchBefore = UserDefaults.standard.bool(forKey: UserDefaultsKeys.wasLaunchBefore)
+        
+        // Токена нет и приложение до этого не запускалось.
+        if token == nil && !wasLaunchBefore {
+            UserDefaults.standard.set(true, forKey: UserDefaultsKeys.wasLaunchBefore)
             navigationController.viewControllers = [authViewController]
             window?.rootViewController = navigationController
+            
+            // Токен есть и приложение до этого не запускалось.
+        } else if !wasLaunchBefore {
+            KeychainWrapper.standard.removeAllKeys()
+            UserDefaults.standard.set(true, forKey: UserDefaultsKeys.wasLaunchBefore)
+            navigationController.viewControllers = [authViewController]
+            window?.rootViewController = navigationController
+            
+            
+            // Токена нет и приложение до этого запускалось.
+        } else if token == nil, wasLaunchBefore {
+            navigationController.viewControllers = [authViewController]
+            window?.rootViewController = navigationController
+            
+            // Токен есть и приложение до этого запускалось.
         } else {
             window?.rootViewController = TabBarController()
         }
+        
         window?.makeKeyAndVisible()
-        return true
     }
     
 }

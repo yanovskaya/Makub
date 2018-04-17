@@ -14,11 +14,12 @@ final class NewsViewModel {
     
     private enum Constants {
         static let baseURL = "https://makub.ru"
-        static let defaultTitle = "Новость"
     }
     
     // MARK: - Public Properties
     
+    let id: String
+    let authorId: String
     let title: String
     let text: String
     let date: String
@@ -30,6 +31,14 @@ final class NewsViewModel {
     // MARK: - Initialization
     
     init(_ news: News) {
+        self.id = news.id
+        
+        if let authorId = news.author {
+            self.authorId = authorId
+        } else {
+            self.authorId = ""
+        }
+        
         if let text = news.text {
             self.text = text.removeTags()
         } else {
@@ -62,13 +71,13 @@ final class NewsViewModel {
         }
         
         if let photo = news.photo, photo != "" {
-            self.photoURL = Constants.baseURL + photo
+            self.photoURL = (Constants.baseURL + photo).removeSpacesInURL()
         } else {
             self.photoURL = nil
         }
         
         if let image = news.image, image != "" {
-            self.imageURL = Constants.baseURL + image
+            self.imageURL = (Constants.baseURL + image).removeSpacesInURL()
         } else {
             self.imageURL = nil
         }

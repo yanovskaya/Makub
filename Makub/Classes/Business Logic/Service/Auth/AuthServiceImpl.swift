@@ -2,7 +2,7 @@
 //  AuthServiceImpl.swift
 //  Makub
 //
-//  Created by Елена Яновская on 15.03.2018.
+//  Created by Елена Яновская on 03.04.2018.
 //  Copyright © 2018 Elena Yanovskaya. All rights reserved.
 //
 
@@ -28,12 +28,19 @@ final class AuthServiceImpl: AuthService {
     
     // MARK: - Private Properties
     
-    private let transport = Transport()
+    private let sessionManager: SessionManager
+    private let transport: Transport
     private let authParser = Parser<AuthResponse>()
     private let recoverParser = Parser<RecoverResponse>()
     
-    // MARK: - Public Methods
+    // MARK: - Initialization
     
+    init(sessionManager: SessionManager) {
+        self.sessionManager = sessionManager
+        transport = Transport(sessionManager: sessionManager)
+    }
+    
+    // MARK: - Public Methods
     
     func authorizeUser(inputValues: [String],
                        completion: ((ServiceCallResult<AuthResponse>) -> Void)?) {
@@ -51,7 +58,7 @@ final class AuthServiceImpl: AuthService {
                         completion?(ServiceCallResult.serviceSuccess(payload: model))
                     } else {
                         // заглушка для тестирования
-//                        completion?(ServiceCallResult.serviceSuccess(payload: nil))
+                        //                        completion?(ServiceCallResult.serviceSuccess(payload: nil))
                         let error = NSError(domain: "", code: model.error)
                         completion?(ServiceCallResult.serviceFailure(error: error))
                     }
@@ -77,7 +84,7 @@ final class AuthServiceImpl: AuthService {
                         completion?(ServiceCallResult.serviceSuccess(payload: nil))
                     } else {
                         // заглушка для тестирования
-//                        completion?(ServiceCallResult.serviceSuccess(payload: nil))
+                        //                        completion?(ServiceCallResult.serviceSuccess(payload: nil))
                         let error = NSError(domain: "", code: model.error)
                         completion?(ServiceCallResult.serviceFailure(error: error))
                     }
@@ -93,6 +100,6 @@ final class AuthServiceImpl: AuthService {
     // MARK: - Private Methods
     
     private func storeToken(_ token: String) {
-        KeychainWrapper.standard.set(token, forKey: KeychainKey.token)
+        KeychainWrapper.standard.set(token, forKey: KeychainKeys.token)
     }
 }

@@ -22,19 +22,17 @@ final class NewsPresentationModel: PresentationModel {
     private let newsService = ServiceLayer.shared.newsService
     
     private var userCacheIsObtained = false
-    private var newsCacheIsObtained = false
 
     private let group = DispatchGroup()
-    
     private var error: Int!
     
     // MARK: - Public Methods
     
-    func obtainNews() {
+    func obtainNewsWithUser() {
         group.enter()
         obtainUserCache()
         if !userCacheIsObtained { state = .loading }
-        userService.obtainUserInfo { result in
+        userService.obtainUserInfo(useCache: true) { result in
             switch result {
             case .serviceSuccess(let model):
                 guard let model = model else { return }
@@ -48,11 +46,11 @@ final class NewsPresentationModel: PresentationModel {
         
         group.enter()
         state = .loading
-        newsService.obtainNews { result in
+        newsService.obtainNews(useCache: true) { result in
             switch result {
             case .serviceSuccess(let model):
                 guard let model = model else { return }
-                self.newsViewModels = model.news.flatMap { NewsViewModel($0) }
+                self.newsViewModels = model.news.compactMap { NewsViewModel($0) }
                 self.group.leave()
             case .serviceFailure(let error):
                 self.error = error.code
@@ -67,67 +65,61 @@ final class NewsPresentationModel: PresentationModel {
                 self.state = .rich
             }
         }
-        
     }
     
-    func refreshNews() {
+    func refreshNewsWithUser() {
         group.enter()
-        obtainUserCache()
-        userService.obtainUserInfo { result in
+        userService.obtainUserInfo(useCache: false) { result in
             switch result {
             case .serviceSuccess(let model):
                 guard let model = model else { return }
                 self.userViewModel = UserViewModel(model)
                 self.group.leave()
-            case .serviceFailure(let error):
-                self.error = error.code
+            case .serviceFailure:
                 self.group.leave()
             }
         }
         
         group.enter()
-        newsService.obtainNews { result in
+        newsService.obtainNews(useCache: false) { result in
             switch result {
             case .serviceSuccess(let model):
                 guard let model = model else { return }
-                self.newsViewModels = model.news.flatMap { NewsViewModel($0) }
+                self.newsViewModels = model.news.compactMap { NewsViewModel($0) }
                 self.group.leave()
-            case .serviceFailure(let error):
-                self.error = error.code
+            case .serviceFailure:
+                self.state = .error(code: 1)
                 self.group.leave()
             }
         }
         
         group.notify(queue: DispatchQueue.main) {
-            if self.error != nil {
-                self.state = .error(code: self.error)
-            } else {
+            if self.error == nil {
                 self.state = .rich
-            }
-        }
-        
-    }
-    
-    func addNews(title: String, text: String, completion: @escaping () -> Void) {
-        state = .loading
-        newsService.addNews(title: title, text: text) { result in
-            switch result {
-            case .serviceSuccess:
-                self.state = .rich
-                completion()
-            case .serviceFailure(let error):
-                self.state = .error(code: error.code)
             }
         }
     }
     
-    func addNewsWithImage(title: String, text: String, image: UIImage, completion: @escaping () -> Void) {
+    func obtainOnlyNews() {
+        newsService.obtainNews(useCache: false) { result in
+            switch result {
+            case .serviceSuccess(let model):
+                guard let model = model else { return }
+                self.newsViewModels = model.news.compactMap { NewsViewModel($0) }
+                self.state = .rich
+            case .serviceFailure:
+                self.state = .error(code: 1)
+            }
+        }
+    }
+
+    
+    func deleteNews(id: Int) {
         state = .loading
-        newsService.addNewsWithImage(title: title, text: text, image: image) { result in
+        newsService.deleteNews(id: id) { result in
             switch result {
             case .serviceSuccess:
-                self.state = .rich
-                completion()
+                self.obtainOnlyNews()
             case .serviceFailure(let error):
                 self.state = .error(code: error.code)
             }
@@ -137,13 +129,13 @@ final class NewsPresentationModel: PresentationModel {
     // MARK: - Private Methods
     
     private func obtainUserCache() {
-        userService.obtainRealmCache(error: nil) { [weak self] result in
+        userService.obtainRealmCache(error: nil) { result in
             switch result {
             case .serviceSuccess(let model):
                 guard let model = model else { return }
-                self?.userViewModel = UserViewModel(model)
-                self?.state = .rich
-                self?.userCacheIsObtained = true
+                self.userViewModel = UserViewModel(model)
+                self.state = .rich
+                self.userCacheIsObtained = true
             case .serviceFailure:
                 break
             }

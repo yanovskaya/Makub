@@ -20,7 +20,8 @@ final class NewsRouter {
     func presentAddNewsVC(source newsViewController: NewsViewController) {
         let addNewsViewController = newsStoryboard.viewController(AddNewsViewController.self)
         let presentationModel = newsViewController.presentationModel
-        addNewsViewController.presentationModel = presentationModel
+        addNewsViewController.presentationModel.userViewModel = presentationModel.userViewModel
+        addNewsViewController.delegate = newsViewController
         newsViewController.present(addNewsViewController, animated: true)
     }
 }

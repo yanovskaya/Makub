@@ -11,13 +11,23 @@ import PKHUD
 import UIKit
 
 final class NewsViewController: UIViewController {
-    
+
     // MARK: - Constants
     
     private enum Constants {
         static let searchBarPlaceholder = "Поиск"
+        static let deleteAction = "Удалить"
+        static let cancelAction = "Отмена"
+        static let pkhudDeleteTitle = "Готово!"
+        static let pkhudDeleteSubtitle = "Запись удалена"
         static let addNewsCellId = String(describing: AddNewsCell.self)
         static let newsCellId = String(describing: NewsCell.self)
+    }
+    
+    private enum LayoutConstants {
+        static let topEdge: CGFloat = 10
+        static let bottomEdge: CGFloat = 10
+        static let cellSpacing: CGFloat = 10
     }
     
     // MARK: - IBOutlets
@@ -43,7 +53,6 @@ final class NewsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         filteredNews = presentationModel.newsViewModels
-        
         view.backgroundColor = PaletteColors.blueBackground
         
         configureNavigationController()
@@ -52,8 +61,8 @@ final class NewsViewController: UIViewController {
         configureSearchBar()
         
         hideSearchKeyboardWhenTappedAround()
-        bindEvents()
-        presentationModel.obtainNews()
+        bindEventsObtainNewsWithUser()
+        presentationModel.obtainNewsWithUser()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -69,9 +78,15 @@ final class NewsViewController: UIViewController {
         HUD.hide()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        tabBarController?.delegate = self
+        bindEventsObtainNewsWithUser()
+    }
+    
     // MARK: - Private Methods
     
-    private func bindEvents() {
+    private func bindEventsObtainNewsWithUser() {
         presentationModel.changeStateHandler = { [weak self] status in
             switch status {
             case .loading:
@@ -89,15 +104,72 @@ final class NewsViewController: UIViewController {
                 switch code {
                 case -1009, -1001:
                     HUD.show(.labeledError(title: ErrorDescription.title.rawValue, subtitle: ErrorDescription.network.rawValue))
-                case 2:
-                    HUD.show(.labeledError(title: ErrorDescription.title.rawValue, subtitle: ErrorDescription.recover.rawValue))
                 default:
                     HUD.show(.labeledError(title: ErrorDescription.title.rawValue, subtitle: ErrorDescription.server.rawValue))
                 }
                 HUD.hide(afterDelay: 1.0)
             }
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                self?.refreshControl.endRefreshing()
+        }
+    }
+    
+    private func bindEventsRefreshNews() {
+        presentationModel.changeStateHandler = { [weak self] status in
+            switch status {
+            case .loading:
+                break
+            case .rich:
+                self?.filteredNews = (self?.presentationModel.newsViewModels)!
+                if let searchText = self?.navigationSearchBar.text {
+                    self?.filterNewsForSearchText(searchText: searchText)
+                }
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                    self?.refreshControl.endRefreshing()
+                }
+                self?.newsCollectionView.reloadData()
+            case .error:
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                    self?.refreshControl.endRefreshing()
+                }
+            }
+        }
+    }
+    
+    private func bindEventsDeleteNews() {
+        presentationModel.changeStateHandler = { [weak self] status in
+            switch status {
+            case .loading:
+                HUD.show(.progress)
+            case .rich:
+                self?.filteredNews = (self?.presentationModel.newsViewModels)!
+                if let searchText = self?.navigationSearchBar.text {
+                    self?.filterNewsForSearchText(searchText: searchText)
+                }
+                self?.newsCollectionView.reloadData()
+                HUD.show(.labeledSuccess(title: Constants.pkhudDeleteTitle, subtitle: Constants.pkhudDeleteSubtitle))
+                HUD.hide(afterDelay: 1.0)
+            case .error (let code):
+                switch code {
+                case -1009, -1001:
+                    HUD.show(.labeledError(title: ErrorDescription.title.rawValue, subtitle: ErrorDescription.network.rawValue))
+                default:
+                    HUD.show(.labeledError(title: ErrorDescription.title.rawValue, subtitle: ErrorDescription.server.rawValue))
+                }
+                HUD.hide(afterDelay: 1.0)
+            }
+        }
+    }
+    
+    private func bindEventsObtainOnlyNews() {
+        presentationModel.changeStateHandler = { [weak self] status in
+            switch status {
+            case .rich:
+                self?.filteredNews = (self?.presentationModel.newsViewModels)!
+                if let searchText = self?.navigationSearchBar.text {
+                    self?.filterNewsForSearchText(searchText: searchText)
+                }
+                self?.newsCollectionView.reloadData()
+            default:
+                break
             }
         }
     }
@@ -131,9 +203,10 @@ final class NewsViewController: UIViewController {
         newsCollectionView.register(UINib(nibName: Constants.newsCellId, bundle: nil), forCellWithReuseIdentifier: Constants.newsCellId)
         
         newsCollectionView.refreshControl = refreshControl
-        refreshControl.addTarget(self, action: #selector(refresh(_:)), for: .valueChanged)
+        refreshControl.addTarget(self, action: #selector(refreshGames(_:)), for: .valueChanged)
         guard let flowLayout = newsCollectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
         flowLayout.estimatedItemSize.width = view.frame.width
+        flowLayout.estimatedItemSize.height = 500
     }
     
     private func hideSearchKeyboardWhenTappedAround() {
@@ -159,8 +232,9 @@ final class NewsViewController: UIViewController {
         navigationSearchBar.resignFirstResponder()
     }
     
-    @objc func refresh(_ refreshControl: UIRefreshControl) {
-        presentationModel.refreshNews()
+    @objc private func refreshGames(_ refreshControl: UIRefreshControl) {
+        bindEventsRefreshNews()
+        presentationModel.refreshNewsWithUser()
     }
 }
 
@@ -212,20 +286,35 @@ extension NewsViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let section = indexPath.section
         if section == 0 {
-            let addNewsCellId = Constants.addNewsCellId
-            guard let addNewsCell =
-                newsCollectionView.dequeueReusableCell(withReuseIdentifier: addNewsCellId, for: indexPath) as? AddNewsCell else { return UICollectionViewCell() }
-            let viewModel = presentationModel.userViewModel
-            addNewsCell.configure(for: viewModel)
-            return addNewsCell
+            return addNewsCell(collectionView, cellForItemAt: indexPath)
         } else {
-            let newsCellId = Constants.newsCellId
-            guard let newsCell =
-                newsCollectionView.dequeueReusableCell(withReuseIdentifier: newsCellId, for: indexPath) as? NewsCell else { return UICollectionViewCell() }
-            let viewModel = filteredNews[indexPath.row]
-            newsCell.configure(for: viewModel)
-            return newsCell
+            return newsCell(collectionView, cellForItemAt: indexPath)
         }
+    }
+    
+    func addNewsCell(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+         let cellIdentifier = Constants.addNewsCellId
+        guard let cell =
+            collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? AddNewsCell else { return UICollectionViewCell() }
+        let viewModel = presentationModel.userViewModel
+        cell.configure(for: viewModel)
+        cell.layoutIfNeeded()
+        return cell
+    }
+    
+    func newsCell(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cellIdentifier = Constants.newsCellId
+        guard let cell =
+            collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? NewsCell else { return UICollectionViewCell() }
+        let viewModel = filteredNews[indexPath.row]
+        cell.configure(for: viewModel)
+        cell.configureMoreButton(userId: presentationModel.userViewModel.id)
+        cell.configureCellWidth(view.frame.width)
+        cell.delegate = self
+        cell.contentView.isUserInteractionEnabled = false
+        cell.layoutIfNeeded()
+        cell.updateConstraints()
+        return cell
     }
     
 }
@@ -246,14 +335,60 @@ extension NewsViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         if section == 0 {
-            return UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0)
+            return UIEdgeInsets(top: LayoutConstants.topEdge, left: 0, bottom: 0, right: 0)
         } else {
-            return UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
+            return UIEdgeInsets(top: LayoutConstants.topEdge, left: 0, bottom: LayoutConstants.bottomEdge, right: 0)
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return LayoutConstants.cellSpacing
     }
     
     func scrollViewShouldScrollToTop(scrollView: UIScrollView) -> Bool {
         hidingNavBarManager?.shouldScrollToTop()
         return true
+    }
+}
+
+// MARK: - UITabBarControllerDelegate
+
+extension NewsViewController: UITabBarControllerDelegate {
+    
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        if tabBarController.selectedIndex == 0 {
+            let indexPath = IndexPath(item: 0, section: 0)
+            hidingNavBarManager?.shouldScrollToTop()
+            newsCollectionView.scrollToItem(at: indexPath, at: .top, animated: true)
+        }
+    }
+}
+
+// MARK: - NewsCellDelegate
+
+extension NewsViewController: NewsCellDelegate {
+    
+    func moreButtonTapped(_ sender: NewsCell) {
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let deleteAction = UIAlertAction(title: Constants.deleteAction, style: .destructive) { _ in
+            self.bindEventsDeleteNews()
+            self.presentationModel.deleteNews(id: sender.tag)
+        }
+        let cancelAction = UIAlertAction(title: Constants.cancelAction, style: .cancel)
+        
+        alertController.addAction(deleteAction)
+        alertController.addAction(cancelAction)
+        
+        present(alertController, animated: true, completion: nil)
+    }
+}
+
+// MARK: - AddNewsViewControllerDelegate
+
+extension NewsViewController: AddNewsViewControllerDelegate {
+    
+    func addNewsToCollectionView() {
+        bindEventsObtainOnlyNews()
+        presentationModel.obtainOnlyNews()
     }
 }
