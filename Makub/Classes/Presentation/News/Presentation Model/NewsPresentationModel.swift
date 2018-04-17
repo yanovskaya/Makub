@@ -112,30 +112,7 @@ final class NewsPresentationModel: PresentationModel {
             }
         }
     }
-    
-    func addNews(title: String, text: String) {
-        state = .loading
-        newsService.addNews(title: title, text: text) { result in
-            switch result {
-            case .serviceSuccess:
-                self.state = .rich
-            case .serviceFailure(let error):
-                self.state = .error(code: error.code)
-            }
-        }
-    }
-    
-    func addNewsWithImage(title: String, text: String, image: UIImage) {
-        state = .loading
-        newsService.addNewsWithImage(title: title, text: text, image: image) { result in
-            switch result {
-            case .serviceSuccess:
-                self.state = .rich
-            case .serviceFailure(let error):
-                self.state = .error(code: error.code)
-            }
-        }
-    }
+
     
     func deleteNews(id: Int) {
         state = .loading

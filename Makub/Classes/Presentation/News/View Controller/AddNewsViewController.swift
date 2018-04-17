@@ -56,7 +56,7 @@ final class AddNewsViewController: UIViewController {
     
     // MARK: - Public Properties
     
-    var presentationModel: NewsPresentationModel!
+    var presentationModel = AddNewsPresentationModel()
     
     weak var delegate: AddNewsViewControllerDelegate?
     

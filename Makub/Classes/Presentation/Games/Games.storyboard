@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -195,20 +196,66 @@
             </objects>
             <point key="canvasLocation" x="820" y="109.29535232383809"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Comment View Controller-->
         <scene sceneID="f5p-7U-vqg">
             <objects>
-                <viewController id="bkt-aS-44I" sceneMemberID="viewController">
+                <viewController id="bkt-aS-44I" customClass="AddCommentViewController" customModule="Макуб" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="m5x-7D-tJW">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="unj-JO-0yl">
+                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                                <items>
+                                    <navigationItem title="Title" id="psl-ju-bIh"/>
+                                </items>
+                            </navigationBar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X9R-Qd-n7D">
+                                <rect key="frame" x="0.0" y="64" width="320" height="60"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RQW-Nu-f8i">
+                                        <rect key="frame" x="90" y="19.5" width="42" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wOK-5e-YKm">
+                                        <rect key="frame" x="25" y="7.5" width="45" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="45" id="nFm-bC-j7k"/>
+                                            <constraint firstAttribute="width" secondItem="wOK-5e-YKm" secondAttribute="height" multiplier="1:1" id="r19-Ec-e9p"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="wOK-5e-YKm" firstAttribute="centerY" secondItem="X9R-Qd-n7D" secondAttribute="centerY" id="A06-nG-D6C"/>
+                                    <constraint firstAttribute="height" constant="60" id="DBi-XA-pdQ"/>
+                                    <constraint firstItem="RQW-Nu-f8i" firstAttribute="leading" secondItem="wOK-5e-YKm" secondAttribute="trailing" constant="20" id="esM-JI-xxx"/>
+                                    <constraint firstItem="RQW-Nu-f8i" firstAttribute="centerY" secondItem="wOK-5e-YKm" secondAttribute="centerY" id="wmv-zd-HvC"/>
+                                    <constraint firstItem="wOK-5e-YKm" firstAttribute="leading" secondItem="X9R-Qd-n7D" secondAttribute="leading" constant="25" id="yd1-Q3-CyG"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="X9R-Qd-n7D" firstAttribute="leading" secondItem="tnz-AN-AhX" secondAttribute="leading" id="7Ul-5z-OQR"/>
+                            <constraint firstItem="X9R-Qd-n7D" firstAttribute="top" secondItem="unj-JO-0yl" secondAttribute="bottom" id="8yl-OZ-W7T"/>
+                            <constraint firstItem="unj-JO-0yl" firstAttribute="trailing" secondItem="tnz-AN-AhX" secondAttribute="trailing" id="LFF-3i-wL1"/>
+                            <constraint firstItem="X9R-Qd-n7D" firstAttribute="trailing" secondItem="tnz-AN-AhX" secondAttribute="trailing" id="hAZ-HF-WYu"/>
+                            <constraint firstItem="unj-JO-0yl" firstAttribute="top" secondItem="tnz-AN-AhX" secondAttribute="top" id="og6-LV-Sb7"/>
+                            <constraint firstItem="unj-JO-0yl" firstAttribute="leading" secondItem="tnz-AN-AhX" secondAttribute="leading" id="oqn-1g-d1b"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="tnz-AN-AhX"/>
                     </view>
+                    <connections>
+                        <outlet property="addCommentLabel" destination="RQW-Nu-f8i" id="TiC-px-Vjj"/>
+                        <outlet property="authorImageView" destination="wOK-5e-YKm" id="zFt-fa-sU3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N13-v5-Qze" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1671" y="110"/>
+            <point key="canvasLocation" x="1670.625" y="109.85915492957747"/>
         </scene>
     </scenes>
 </document>

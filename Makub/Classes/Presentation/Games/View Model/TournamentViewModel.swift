@@ -18,8 +18,13 @@ final class TournamentViewModel {
     // MARK: - Initialization
     
     init(_ tournament: Tournament) {
-        self.tournament = tournament.smalldesc.capitalizeFirstLetter()
-        self.description = tournament.name.capitalizeFirstLetter()
+        if tournament.smalldesc != "" {
+            self.tournament = tournament.smalldesc.capitalizeFirstLetter()
+            description = tournament.name.capitalizeFirstLetter()
+        } else {
+            self.tournament = tournament.name.capitalizeFirstLetter()
+            description = nil
+        }
     }
     
     init(title: String) {
