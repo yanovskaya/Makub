@@ -300,9 +300,9 @@ extension GamesViewController: UIScrollViewDelegate {
 
 // MARK: - FilterGamesViewControllerDelegate
 
-extension GamesViewController: FilterGamesViewControllerDelegate {
+extension GamesViewController: FilterViewControllerDelegate {
     
-    func obtainAllGames(parameters: [String: [String]]) {
+    func obtainAllItems(parameters: [String: [String]]) {
         bindEventsObtainFilteredGames()
         let topPoint = CGPoint(x: 0, y: 0)
         gamesCollectionView.setContentOffset(topPoint, animated: true)
@@ -313,7 +313,7 @@ extension GamesViewController: FilterGamesViewControllerDelegate {
         gamesCollectionView.loadControl?.removeFromSuperview()
     }
     
-    func showGamesWithNoFilter() {
+    func showItemsWithNoFilter() {
         if refreshControl.superview == nil || gamesCollectionView.loadControl?.superview == nil {
             let topPoint = CGPoint(x: 0, y: 0)
             gamesCollectionView.setContentOffset(topPoint, animated: true)

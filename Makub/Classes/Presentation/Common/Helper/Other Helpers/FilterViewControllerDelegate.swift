@@ -8,11 +8,11 @@
 
 import Foundation
 
-protocol FilterGamesViewControllerDelegate: class {
+protocol FilterViewControllerDelegate: class {
     
     func saveChosenOptions(_ options: [IndexPath])
     
-    func obtainAllGames(parameters: [String: [String]])
+    func obtainAllItems(parameters: [String: [String]])
     
-    func showGamesWithNoFilter()
+    func showItemsWithNoFilter()
 }

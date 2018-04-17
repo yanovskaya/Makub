@@ -64,7 +64,7 @@
 		C44D60D7205807F500A5C50F /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44D60D6205807F500A5C50F /* UIColor+Hex.swift */; };
 		C44D60EA2058573D00A5C50F /* UIFont+CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44D60E92058573D00A5C50F /* UIFont+CustomFont.swift */; };
 		C4540F93207B8CBD00EEC4A5 /* GamesCountResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4540F92207B8CBD00EEC4A5 /* GamesCountResponse.swift */; };
-		C4540F95207BEAA100EEC4A5 /* FilterGamesViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4540F94207BEAA100EEC4A5 /* FilterGamesViewControllerDelegate.swift */; };
+		C4540F95207BEAA100EEC4A5 /* FilterViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4540F94207BEAA100EEC4A5 /* FilterViewControllerDelegate.swift */; };
 		C4556B95205EC04D00D65DBD /* UIImage+ImageWithInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4556B94205EC04D00D65DBD /* UIImage+ImageWithInsets.swift */; };
 		C45AC9622066656100F9947F /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45AC9612066656100F9947F /* UserViewModel.swift */; };
 		C45AC967206671AF00F9947F /* NewsPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45AC966206671AF00F9947F /* NewsPresentationModel.swift */; };
@@ -192,7 +192,7 @@
 		C44D60D6205807F500A5C50F /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		C44D60E92058573D00A5C50F /* UIFont+CustomFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+CustomFont.swift"; sourceTree = "<group>"; };
 		C4540F92207B8CBD00EEC4A5 /* GamesCountResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesCountResponse.swift; sourceTree = "<group>"; };
-		C4540F94207BEAA100EEC4A5 /* FilterGamesViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterGamesViewControllerDelegate.swift; sourceTree = "<group>"; };
+		C4540F94207BEAA100EEC4A5 /* FilterViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewControllerDelegate.swift; sourceTree = "<group>"; };
 		C4556B94205EC04D00D65DBD /* UIImage+ImageWithInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+ImageWithInsets.swift"; sourceTree = "<group>"; };
 		C45AC9612066656100F9947F /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		C45AC966206671AF00F9947F /* NewsPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsPresentationModel.swift; sourceTree = "<group>"; };
@@ -356,7 +356,6 @@
 			isa = PBXGroup;
 			children = (
 				C4E112702082C5D500EE7DC4 /* Games */,
-				C4E112712082C5E100EE7DC4 /* Filter */,
 				C4E112722082C6B300EE7DC4 /* Game Info */,
 			);
 			path = View;
@@ -535,6 +534,17 @@
 			path = Parser;
 			sourceTree = "<group>";
 		};
+		C427F2A920868FD4007D6C83 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C4C259AF2078CCA200C0CDD4 /* TitleFilterCell.xib */,
+				C4C259B32078CCCA00C0CDD4 /* OptionFilterCell.xib */,
+				C4C259B12078CCB800C0CDD4 /* TitleFilterCell.swift */,
+				C4C259B52078CCDE00C0CDD4 /* OptionFilterCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		C42940C520827CC30026B2C3 /* Game Info */ = {
 			isa = PBXGroup;
 			children = (
@@ -695,6 +705,7 @@
 			isa = PBXGroup;
 			children = (
 				C472A6BE205B16D500768585 /* PresentationModel.swift */,
+				C427F2A920868FD4007D6C83 /* View */,
 				C414F0D92059A23D001961EC /* Helper */,
 			);
 			path = Common;
@@ -818,6 +829,7 @@
 		C4C259AC2078240A00C0CDD4 /* Other Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				C4540F94207BEAA100EEC4A5 /* FilterViewControllerDelegate.swift */,
 				C4C259AD2078242400C0CDD4 /* UserIndicator.swift */,
 			);
 			path = "Other Helpers";
@@ -830,7 +842,6 @@
 				C49EF4C720790E2800906664 /* NSDictionary+Parse.swift */,
 				C46318672079422F00E14DAC /* NSObject+Fill.swift */,
 				C4631869207944AD00E14DAC /* UIImage+DrawCircle.swift */,
-				C4540F94207BEAA100EEC4A5 /* FilterGamesViewControllerDelegate.swift */,
 				C49162232085E10300A95E07 /* AddCommentViewControllerDelegate.swift */,
 			);
 			path = Helper;
@@ -874,17 +885,6 @@
 				C41B3C262072561000A2B652 /* GamesCell.swift */,
 			);
 			path = Games;
-			sourceTree = "<group>";
-		};
-		C4E112712082C5E100EE7DC4 /* Filter */ = {
-			isa = PBXGroup;
-			children = (
-				C4C259AF2078CCA200C0CDD4 /* TitleFilterCell.xib */,
-				C4C259B32078CCCA00C0CDD4 /* OptionFilterCell.xib */,
-				C4C259B12078CCB800C0CDD4 /* TitleFilterCell.swift */,
-				C4C259B52078CCDE00C0CDD4 /* OptionFilterCell.swift */,
-			);
-			path = Filter;
 			sourceTree = "<group>";
 		};
 		C4E112722082C6B300EE7DC4 /* Game Info */ = {
@@ -1103,7 +1103,7 @@
 				C4E112842083605D00EE7DC4 /* Comment.swift in Sources */,
 				C41B3D022072F78E00A2B652 /* AddNewsResponse.swift in Sources */,
 				C41B3C3D2072B12D00A2B652 /* GamesPresentationModel.swift in Sources */,
-				C4540F95207BEAA100EEC4A5 /* FilterGamesViewControllerDelegate.swift in Sources */,
+				C4540F95207BEAA100EEC4A5 /* FilterViewControllerDelegate.swift in Sources */,
 				C41B3CE42072F5E100A2B652 /* CallResults.swift in Sources */,
 				C4A6BB36206E36C900284603 /* String+Tags.swift in Sources */,
 				C463186E207A0DE000E14DAC /* Filter.swift in Sources */,
