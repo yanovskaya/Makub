@@ -18,8 +18,8 @@ final class TournamentViewModel {
     // MARK: - Initialization
     
     init(_ tournament: Tournament) {
-        self.tournament = tournament.name
-        self.description = tournament.smalldesc
+        self.tournament = tournament.smalldesc.capitalizeFirstLetter()
+        self.description = tournament.name.capitalizeFirstLetter()
     }
     
     init(title: String) {

@@ -10,5 +10,5 @@ import Foundation
 
 protocol AddNewsViewControllerDelegate: class {
     
-    func addNewsCollectionView()
+    func addNewsToCollectionView()
 }

@@ -41,23 +41,23 @@
                     </subviews>
                 </stackView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iy1-9z-5wW">
-                    <rect key="frame" x="16" y="73.5" width="351" height="20.5"/>
+                    <rect key="frame" x="16" y="73.5" width="343" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zjC-Yv-8FZ">
-                    <rect key="frame" x="337" y="23" width="30" height="30"/>
+                    <rect key="frame" x="329" y="23" width="30" height="30"/>
                     <state key="normal" title="B"/>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="iy1-9z-5wW" secondAttribute="trailing" constant="8" id="GEu-Ek-KIV"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="iy1-9z-5wW" secondAttribute="trailing" constant="16" id="GEu-Ek-KIV"/>
                 <constraint firstItem="zjC-Yv-8FZ" firstAttribute="centerY" secondItem="iUm-ig-gDb" secondAttribute="centerY" id="GJx-7v-1Br"/>
                 <constraint firstItem="iy1-9z-5wW" firstAttribute="leading" secondItem="U85-rx-9a1" secondAttribute="leading" id="GoT-De-9Rt"/>
                 <constraint firstItem="iUm-ig-gDb" firstAttribute="centerY" secondItem="U85-rx-9a1" secondAttribute="centerY" id="HTg-fl-LMN"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="zjC-Yv-8FZ" secondAttribute="trailing" constant="8" id="Hkb-V4-zoS"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="zjC-Yv-8FZ" secondAttribute="trailing" constant="16" id="Hkb-V4-zoS"/>
                 <constraint firstItem="iy1-9z-5wW" firstAttribute="top" secondItem="iUm-ig-gDb" secondAttribute="bottom" constant="12" id="ZzU-EI-1fb"/>
                 <constraint firstItem="U85-rx-9a1" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="bXL-F4-cby"/>
                 <constraint firstItem="iUm-ig-gDb" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="16" id="lpA-GI-Zlx"/>

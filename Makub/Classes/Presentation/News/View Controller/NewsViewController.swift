@@ -387,7 +387,7 @@ extension NewsViewController: NewsCellDelegate {
 
 extension NewsViewController: AddNewsViewControllerDelegate {
     
-    func addNewsCollectionView() {
+    func addNewsToCollectionView() {
         bindEventsObtainOnlyNews()
         presentationModel.obtainOnlyNews()
     }

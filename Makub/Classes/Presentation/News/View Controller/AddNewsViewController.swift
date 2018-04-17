@@ -111,7 +111,7 @@ final class AddNewsViewController: UIViewController {
                 HUD.show(.labeledProgress(title: Constants.pkhudTitle, subtitle: Constants.pkhudSubtitle))
             case .rich:
                 HUD.hide()
-                self.delegate?.addNewsCollectionView()
+                self.delegate?.addNewsToCollectionView()
                 self.dismiss(animated: true)
             case .error (let code):
                 switch code {

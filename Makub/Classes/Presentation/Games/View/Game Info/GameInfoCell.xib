@@ -134,6 +134,7 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="E1h-Iu-iAX" firstAttribute="top" secondItem="Sve-Pr-1or" secondAttribute="bottom" constant="16" id="1vs-YE-exN"/>
+                <constraint firstItem="JyD-Ku-4BV" firstAttribute="top" relation="greaterThanOrEqual" secondItem="eeq-15-mga" secondAttribute="bottom" constant="12" id="22s-IY-0yu"/>
                 <constraint firstItem="dFe-z5-u71" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="5g8-r4-rC6"/>
                 <constraint firstItem="ztv-M3-UyF" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="Aa7-Qq-zHd"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="D3r-S6-xA4" secondAttribute="trailing" constant="58" id="BUp-xR-MBT"/>
@@ -158,6 +159,7 @@
                 <constraint firstItem="btJ-ia-KiQ" firstAttribute="top" secondItem="e0l-w7-9Oo" secondAttribute="bottom" constant="12" id="h2x-Tk-Gt6"/>
                 <constraint firstItem="E1h-Iu-iAX" firstAttribute="centerX" secondItem="Sve-Pr-1or" secondAttribute="centerX" id="ksk-cX-7Mj"/>
                 <constraint firstItem="e0l-w7-9Oo" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="lFH-n0-a96"/>
+                <constraint firstItem="eeq-15-mga" firstAttribute="top" relation="greaterThanOrEqual" secondItem="e0l-w7-9Oo" secondAttribute="bottom" constant="12" id="oJ2-co-VAu"/>
                 <constraint firstItem="D3r-S6-xA4" firstAttribute="centerY" secondItem="Sve-Pr-1or" secondAttribute="centerY" id="psF-Cj-wzr"/>
                 <constraint firstItem="Sve-Pr-1or" firstAttribute="top" secondItem="JyD-Ku-4BV" secondAttribute="bottom" constant="25" id="q09-vL-kZg"/>
             </constraints>

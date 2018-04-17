@@ -18,7 +18,7 @@ final class ClubViewModel {
     // MARK: - Initialization
     
     init(_ club: Club) {
-        self.id = club.id
-        self.name = club.name
+        id = club.id
+        name = club.name
     }
 }

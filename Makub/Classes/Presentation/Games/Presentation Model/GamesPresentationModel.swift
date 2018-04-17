@@ -23,6 +23,7 @@ final class GamesPresentationModel: PresentationModel {
         
         static let tournamentKey = "Турнир"
         static let friendGame = "Товарищеская игра"
+        static let interClub = "Межклубный"
         static let tournament = "Турнир"
     }
     
@@ -95,6 +96,9 @@ final class GamesPresentationModel: PresentationModel {
                 for gameViewModel in self.gamesViewModels {
                     for clubViewModel in self.clubViewModels where gameViewModel.clubId == clubViewModel.id {
                         gameViewModel.club = clubViewModel.name
+                    }
+                    if gameViewModel.clubId == "0" {
+                        gameViewModel.club = Constants.interClub
                     }
                 }
                 self.state = .rich
@@ -189,8 +193,11 @@ final class GamesPresentationModel: PresentationModel {
                 guard let model = model else { return }
                 self.clubViewModels = model.clubs.compactMap { ClubViewModel($0) }
                 for gameViewModel in self.gamesViewModels {
-                    for clubViewModel in self.clubViewModels where gameViewModel.clubId == clubViewModel.id {
+                    for clubViewModel in self.clubViewModels where clubViewModel.id == gameViewModel.clubId {
                         gameViewModel.club = clubViewModel.name
+                    }
+                    if gameViewModel.clubId == "0" {
+                        gameViewModel.club = Constants.interClub
                     }
                 }
                 self.state = .rich
@@ -210,6 +217,9 @@ final class GamesPresentationModel: PresentationModel {
                 for gameViewModel in self.gamesViewModels {
                     for clubViewModel in self.clubViewModels where gameViewModel.clubId == clubViewModel.id {
                         gameViewModel.club = clubViewModel.name
+                    }
+                    if gameViewModel.clubId == "0" {
+                        gameViewModel.club = Constants.interClub
                     }
                 }
                 self.state = .rich

@@ -84,6 +84,7 @@
 		C48C71D0208380F0007D984B /* TournamentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48C71CF208380F0007D984B /* TournamentViewModel.swift */; };
 		C48C71D22083811A007D984B /* CommentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48C71D12083811A007D984B /* CommentViewModel.swift */; };
 		C491621C2085314900A95E07 /* AddCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C491621B2085314900A95E07 /* AddCommentViewController.swift */; };
+		C491621E2085378600A95E07 /* String+CapitalizeFirstLetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C491621D2085378600A95E07 /* String+CapitalizeFirstLetter.swift */; };
 		C49EF4C820790E2800906664 /* NSDictionary+Parse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49EF4C720790E2800906664 /* NSDictionary+Parse.swift */; };
 		C4A303F72066EAA4008BFE5E /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A303F62066EAA4008BFE5E /* News.swift */; };
 		C4A303FD2066F53C008BFE5E /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A303FC2066F53C008BFE5E /* NewsViewModel.swift */; };
@@ -204,6 +205,7 @@
 		C48C71CF208380F0007D984B /* TournamentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TournamentViewModel.swift; sourceTree = "<group>"; };
 		C48C71D12083811A007D984B /* CommentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentViewModel.swift; sourceTree = "<group>"; };
 		C491621B2085314900A95E07 /* AddCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCommentViewController.swift; sourceTree = "<group>"; };
+		C491621D2085378600A95E07 /* String+CapitalizeFirstLetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+CapitalizeFirstLetter.swift"; sourceTree = "<group>"; };
 		C49EF4C720790E2800906664 /* NSDictionary+Parse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSDictionary+Parse.swift"; sourceTree = "<group>"; };
 		C4A303F62066EAA4008BFE5E /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		C4A303FC2066F53C008BFE5E /* NewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
@@ -788,6 +790,7 @@
 		C4C259BB2078F51C00C0CDD4 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				C491621D2085378600A95E07 /* String+CapitalizeFirstLetter.swift */,
 				C49EF4C720790E2800906664 /* NSDictionary+Parse.swift */,
 				C46318672079422F00E14DAC /* NSObject+Fill.swift */,
 				C4631869207944AD00E14DAC /* UIImage+DrawCircle.swift */,
@@ -1074,6 +1077,7 @@
 				C472A6CA205C4F8100768585 /* ErrorDescription.swift in Sources */,
 				C42940C920827CF50026B2C3 /* GameInfoService.swift in Sources */,
 				C41B3CDB2072F53E00A2B652 /* ServiceLayer.swift in Sources */,
+				C491621E2085378600A95E07 /* String+CapitalizeFirstLetter.swift in Sources */,
 				C45AC9622066656100F9947F /* UserViewModel.swift in Sources */,
 				C45AC967206671AF00F9947F /* NewsPresentationModel.swift in Sources */,
 				C472A6D1205C7E5900768585 /* Storyboard+GetViewController.swift in Sources */,
