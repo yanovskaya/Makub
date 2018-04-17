@@ -18,7 +18,8 @@ extension String {
         let dateForNow = Date()
         let components = Calendar.current.dateComponents([.day, .hour, .minute], from: convertedDate, to: dateForNow)
         guard let day = components.day,
-            let hour = components.hour else { return nil }
+            let hour = components.hour,
+            let minute = components.minute else { return nil }
         let currentHour = Calendar.current.component(.hour, from: Date())
         let fixedHour = Calendar.current.component(.hour, from: convertedDate)
         if day > 1 || (currentHour < fixedHour && day > 0) {
@@ -35,8 +36,7 @@ extension String {
         } else if hour == 1 {
             return "Час назад"
         } else {
-            dateFormatter.dateFormat = "mm"
-            return dateFormatter.string(from: convertedDate) + " " + "мин назад"
+            return String(minute) + " " + "мин назад"
         }
     }
 }

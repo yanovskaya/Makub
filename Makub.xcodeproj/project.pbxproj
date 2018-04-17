@@ -86,6 +86,9 @@
 		C491621C2085314900A95E07 /* AddCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C491621B2085314900A95E07 /* AddCommentViewController.swift */; };
 		C491621E2085378600A95E07 /* String+CapitalizeFirstLetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C491621D2085378600A95E07 /* String+CapitalizeFirstLetter.swift */; };
 		C49162202085DED300A95E07 /* AddNewsPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C491621F2085DED300A95E07 /* AddNewsPresentationModel.swift */; };
+		C49162222085E0CE00A95E07 /* AddCommentPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49162212085E0CE00A95E07 /* AddCommentPresentationModel.swift */; };
+		C49162242085E10300A95E07 /* AddCommentViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49162232085E10300A95E07 /* AddCommentViewControllerDelegate.swift */; };
+		C49162262086135D00A95E07 /* AddCommentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49162252086135D00A95E07 /* AddCommentResponse.swift */; };
 		C49EF4C820790E2800906664 /* NSDictionary+Parse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49EF4C720790E2800906664 /* NSDictionary+Parse.swift */; };
 		C4A303F72066EAA4008BFE5E /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A303F62066EAA4008BFE5E /* News.swift */; };
 		C4A303FD2066F53C008BFE5E /* NewsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4A303FC2066F53C008BFE5E /* NewsViewModel.swift */; };
@@ -208,6 +211,9 @@
 		C491621B2085314900A95E07 /* AddCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCommentViewController.swift; sourceTree = "<group>"; };
 		C491621D2085378600A95E07 /* String+CapitalizeFirstLetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+CapitalizeFirstLetter.swift"; sourceTree = "<group>"; };
 		C491621F2085DED300A95E07 /* AddNewsPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewsPresentationModel.swift; sourceTree = "<group>"; };
+		C49162212085E0CE00A95E07 /* AddCommentPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCommentPresentationModel.swift; sourceTree = "<group>"; };
+		C49162232085E10300A95E07 /* AddCommentViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCommentViewControllerDelegate.swift; sourceTree = "<group>"; };
+		C49162252086135D00A95E07 /* AddCommentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCommentResponse.swift; sourceTree = "<group>"; };
 		C49EF4C720790E2800906664 /* NSDictionary+Parse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSDictionary+Parse.swift"; sourceTree = "<group>"; };
 		C4A303F62066EAA4008BFE5E /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		C4A303FC2066F53C008BFE5E /* NewsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsViewModel.swift; sourceTree = "<group>"; };
@@ -376,6 +382,7 @@
 				C41B3C3C2072B12D00A2B652 /* GamesPresentationModel.swift */,
 				C4C259B92078DF4800C0CDD4 /* FilterPresentationModel.swift */,
 				C42940C320827BA60026B2C3 /* GameInfoPresentationModel.swift */,
+				C49162212085E0CE00A95E07 /* AddCommentPresentationModel.swift */,
 			);
 			path = "Presentation Model";
 			sourceTree = "<group>";
@@ -544,6 +551,7 @@
 			children = (
 				C42940CA20827D2B0026B2C3 /* CommentsResponse.swift */,
 				C4E1128120835B6100EE7DC4 /* TournamentResponse.swift */,
+				C49162252086135D00A95E07 /* AddCommentResponse.swift */,
 			);
 			path = Parser;
 			sourceTree = "<group>";
@@ -798,6 +806,7 @@
 				C46318672079422F00E14DAC /* NSObject+Fill.swift */,
 				C4631869207944AD00E14DAC /* UIImage+DrawCircle.swift */,
 				C4540F94207BEAA100EEC4A5 /* FilterGamesViewControllerDelegate.swift */,
+				C49162232085E10300A95E07 /* AddCommentViewControllerDelegate.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -1047,12 +1056,14 @@
 				C44D60D7205807F500A5C50F /* UIColor+Hex.swift in Sources */,
 				C41B3C2A207256ED00A2B652 /* GameViewModel.swift in Sources */,
 				C4631870207A100600E14DAC /* FilterViewModel.swift in Sources */,
+				C49162262086135D00A95E07 /* AddCommentResponse.swift in Sources */,
 				C41BE783206FE2FD00ED5826 /* String+RandomString.swift in Sources */,
 				C49162202085DED300A95E07 /* AddNewsPresentationModel.swift in Sources */,
 				C41B3CF72072F70A00A2B652 /* AuthService.swift in Sources */,
 				C4BC7104205F2BEA00332D7E /* AuthPassButton.swift in Sources */,
 				C4E1127E20834B1700EE7DC4 /* CommentsCell.swift in Sources */,
 				C44D60B2205529C200A5C50F /* AuthViewController.swift in Sources */,
+				C49162242085E10300A95E07 /* AddCommentViewControllerDelegate.swift in Sources */,
 				C41B3CEE2072F64B00A2B652 /* AuthServiceImpl.swift in Sources */,
 				C42940CB20827D2B0026B2C3 /* CommentsResponse.swift in Sources */,
 				C472A6BF205B16D500768585 /* PresentationModel.swift in Sources */,
@@ -1071,6 +1082,7 @@
 				C4A6BB36206E36C900284603 /* String+Tags.swift in Sources */,
 				C463186E207A0DE000E14DAC /* Filter.swift in Sources */,
 				C472A6C3205B174000768585 /* AuthPresentationModel.swift in Sources */,
+				C49162222085E0CE00A95E07 /* AddCommentPresentationModel.swift in Sources */,
 				C4C259AE2078242400C0CDD4 /* UserIndicator.swift in Sources */,
 				C41B3CEC2072F63900A2B652 /* UserServiceImpl.swift in Sources */,
 				C46318682079422F00E14DAC /* NSObject+Fill.swift in Sources */,

@@ -33,7 +33,14 @@ final class GamesRouter {
         gamesViewController.show(gameInfoViewController, sender: self)
     }
     
+    /// GameInfo -> AddComment.
     func presentAddCommentVC(source gameInfoViewController: GameInfoViewController) {
+        let addCommentViewController = gamesStoryboard.viewController(AddCommentViewController.self)
+        let presentationModel = gameInfoViewController.presentationModel
+        addCommentViewController.presentationModel.userViewModel = presentationModel.userViewModel
+        addCommentViewController.presentationModel.gameViewModel = presentationModel.gameViewModel
+        addCommentViewController.delegate = gameInfoViewController
+        gameInfoViewController.present(addCommentViewController, animated: true)
     }
     
 }

@@ -199,19 +199,30 @@
         <!--Add Comment View Controller-->
         <scene sceneID="f5p-7U-vqg">
             <objects>
-                <viewController id="bkt-aS-44I" customClass="AddCommentViewController" customModule="Макуб" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddCommentViewController" id="bkt-aS-44I" customClass="AddCommentViewController" customModule="Макуб" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="m5x-7D-tJW">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="unj-JO-0yl">
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="unj-JO-0yl">
                                 <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                                 <items>
-                                    <navigationItem title="Title" id="psl-ju-bIh"/>
+                                    <navigationItem title="Title" id="psl-ju-bIh">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" id="oYe-2c-9c5">
+                                            <connections>
+                                                <action selector="cancelButtonItemTapped:" destination="bkt-aS-44I" id="lAG-xe-T2u"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Item" id="dtd-Dc-LaT">
+                                            <connections>
+                                                <action selector="postButtonItemTapped:" destination="bkt-aS-44I" id="mba-li-xzp"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X9R-Qd-n7D">
-                                <rect key="frame" x="0.0" y="64" width="320" height="60"/>
+                                <rect key="frame" x="0.0" y="65" width="320" height="60"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RQW-Nu-f8i">
                                         <rect key="frame" x="90" y="19.5" width="42" height="21"/>
@@ -219,7 +230,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wOK-5e-YKm">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wOK-5e-YKm">
                                         <rect key="frame" x="25" y="7.5" width="45" height="45"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="45" id="nFm-bC-j7k"/>
@@ -236,21 +247,38 @@
                                     <constraint firstItem="wOK-5e-YKm" firstAttribute="leading" secondItem="X9R-Qd-n7D" secondAttribute="leading" constant="25" id="yd1-Q3-CyG"/>
                                 </constraints>
                             </view>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="a9s-9h-vpd">
+                                <rect key="frame" x="0.0" y="125" width="320" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="VlA-xe-Sw8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="X9R-Qd-n7D" firstAttribute="leading" secondItem="tnz-AN-AhX" secondAttribute="leading" id="7Ul-5z-OQR"/>
-                            <constraint firstItem="X9R-Qd-n7D" firstAttribute="top" secondItem="unj-JO-0yl" secondAttribute="bottom" id="8yl-OZ-W7T"/>
+                            <constraint firstItem="X9R-Qd-n7D" firstAttribute="top" secondItem="unj-JO-0yl" secondAttribute="bottom" constant="1" id="8yl-OZ-W7T"/>
                             <constraint firstItem="unj-JO-0yl" firstAttribute="trailing" secondItem="tnz-AN-AhX" secondAttribute="trailing" id="LFF-3i-wL1"/>
+                            <constraint firstItem="tnz-AN-AhX" firstAttribute="trailing" secondItem="a9s-9h-vpd" secondAttribute="trailing" id="NOp-Zn-7cb"/>
+                            <constraint firstItem="a9s-9h-vpd" firstAttribute="top" secondItem="X9R-Qd-n7D" secondAttribute="bottom" id="OrD-eR-kVR"/>
                             <constraint firstItem="X9R-Qd-n7D" firstAttribute="trailing" secondItem="tnz-AN-AhX" secondAttribute="trailing" id="hAZ-HF-WYu"/>
                             <constraint firstItem="unj-JO-0yl" firstAttribute="top" secondItem="tnz-AN-AhX" secondAttribute="top" id="og6-LV-Sb7"/>
                             <constraint firstItem="unj-JO-0yl" firstAttribute="leading" secondItem="tnz-AN-AhX" secondAttribute="leading" id="oqn-1g-d1b"/>
+                            <constraint firstItem="a9s-9h-vpd" firstAttribute="leading" secondItem="tnz-AN-AhX" secondAttribute="leading" id="yXo-Wl-hF9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tnz-AN-AhX"/>
                     </view>
                     <connections>
-                        <outlet property="addCommentLabel" destination="RQW-Nu-f8i" id="TiC-px-Vjj"/>
                         <outlet property="authorImageView" destination="wOK-5e-YKm" id="zFt-fa-sU3"/>
+                        <outlet property="authorLabel" destination="RQW-Nu-f8i" id="TiC-px-Vjj"/>
+                        <outlet property="cancelButtonItem" destination="oYe-2c-9c5" id="qks-2m-lNL"/>
+                        <outlet property="commentTextView" destination="a9s-9h-vpd" id="xIc-cd-0KB"/>
+                        <outlet property="doneButtonItem" destination="dtd-Dc-LaT" id="AE9-hK-Me4"/>
+                        <outlet property="heightTextView" destination="VlA-xe-Sw8" id="AD0-jw-Rkn"/>
+                        <outlet property="navigationBar" destination="unj-JO-0yl" id="gpk-EW-rOy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N13-v5-Qze" userLabel="First Responder" sceneMemberID="firstResponder"/>

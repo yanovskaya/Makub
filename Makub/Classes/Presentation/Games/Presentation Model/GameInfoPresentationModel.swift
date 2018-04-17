@@ -54,6 +54,21 @@ final class GameInfoPresentationModel: PresentationModel {
         }
     }
     
+    func obtainOnlyComments() {
+        state = .loading
+        guard let gameId = Int(gameViewModel.id) else { return }
+        gameInfoService.obtainComments(gameId: gameId) { result in
+            switch result {
+            case .serviceSuccess(let model):
+                guard let model = model else { return }
+                self.commentViewModels = model.comments.compactMap { CommentViewModel($0) }
+                self.state = .rich
+            case .serviceFailure(let error):
+                self.state = .error(code: error.code)
+            }
+        }
+    }
+    
     
     // MARK: - Private Methods
     
@@ -91,19 +106,14 @@ final class GameInfoPresentationModel: PresentationModel {
     private func obtainComments() {
         state = .loading
         guard let gameId = Int(gameViewModel.id) else { return }
-        print(gameId)
         gameInfoService.obtainComments(gameId: gameId) { result in
-            print(result)
             switch result {
             case .serviceSuccess(let model):
                 guard let model = model else { return }
-                print("succeesss")
                 self.commentViewModels = model.comments.compactMap { CommentViewModel($0) }
                 self.group.leave()
             case .serviceFailure(let error):
-                print("failure")
                 self.error = error.code
-                self.group.leave()
             }
         }
     }

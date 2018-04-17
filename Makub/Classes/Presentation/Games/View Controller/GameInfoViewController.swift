@@ -88,6 +88,17 @@ final class GameInfoViewController: UIViewController {
         }
     }
     
+    private func bindEventsObtainOnlyComments() {
+        presentationModel.changeStateHandler = { [weak self] status in
+            switch status {
+            case .rich:
+                self?.gameCollectionView.reloadData()
+            default:
+                break
+            }
+        }
+    }
+    
     private func configureNavigationBar() {
         navigationController?.interactivePopGestureRecognizer?.delegate = nil
         let titleTextAttributes: [NSAttributedStringKey: Any] = [NSAttributedStringKey.foregroundColor: PaletteColors.darkGray,
@@ -126,7 +137,7 @@ extension GameInfoViewController: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         if gameInfoIsObtained {
-            if presentationModel.gameViewModel.comments == "0" {
+            if presentationModel.commentViewModels.count == 0 {
                 return 2
             } else {
                 return 3
@@ -190,6 +201,7 @@ extension GameInfoViewController: UICollectionViewDataSource {
             collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? CommentsCell else { return UICollectionViewCell() }
         let viewModel = presentationModel.commentViewModels[indexPath.row]
         cell.configure(for: viewModel)
+        cell.configureCellWidth(view.frame.width)
         cell.layoutIfNeeded()
         return cell
     }
@@ -228,4 +240,14 @@ extension GameInfoViewController: UICollectionViewDelegateFlowLayout {
 extension GameInfoViewController: UITabBarControllerDelegate {
     
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {}
+}
+
+// MARK: - AddCommentViewControllerDelegate
+
+extension GameInfoViewController: AddCommentViewControllerDelegate {
+    
+    func addCommentToCollectionView() {
+        bindEventsObtainOnlyComments()
+        presentationModel.obtainOnlyComments()
+    }
 }

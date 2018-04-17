@@ -20,11 +20,14 @@ final class GameInfoServiceImpl: GameInfoService {
         static let tokenParameter = "token"
         static let gameIdParameter = "game_id"
         static let stageParameter = "id"
+        static let playerIdParameter = "player_id"
+        static let commentParameter = "comment"
     }
     
     private enum EndPoint {
         static let tournament = "/tournament_by_stage"
         static let comments = "/get_comments"
+        static let addComment = "/add_comment"
     }
     
     // MARK: - Private Properties
@@ -33,6 +36,7 @@ final class GameInfoServiceImpl: GameInfoService {
     private let transport: Transport
     private let commentsParser = Parser<CommentsResponse>()
     private let tournamentParser = Parser<TournamentResponse>()
+    private let addCommentParser = Parser<AddCommentResponse>()
     
     // MARK: - Initialization
     
@@ -49,32 +53,25 @@ final class GameInfoServiceImpl: GameInfoService {
             completion?(ServiceCallResult.serviceFailure(error: error))
             return
         }
-        print("par")
         let parameters = [Constants.tokenParameter: token,
                           Constants.gameIdParameter: gameId] as [String: Any]
         transport.request(method: .post, url: Constants.baseURL + EndPoint.comments, parameters: parameters) { [unowned self] transportResult in
-            print("tr res")
             switch transportResult {
             case .transportSuccess(let payload):
-                print("suuuc")
                 let resultBody = payload.resultBody
                 let parseResult = self.commentsParser.parse(from: resultBody)
                 switch parseResult {
                 case .parserSuccess(let model):
                     if model.error == 0 {
-                        print("parse suc")
                         completion?(ServiceCallResult.serviceSuccess(payload: model))
                     } else {
-                        print("parse err")
                         let error = NSError(domain: "", code: model.error)
                         completion?(ServiceCallResult.serviceFailure(error: error))
                     }
                 case .parserFailure(let error):
-                    print("parse error c")
                     completion?(ServiceCallResult.serviceFailure(error: error))
                 }
             case .transportFailure(let error):
-                print("tr not suc")
                 completion?(ServiceCallResult.serviceFailure(error: error))
             }
         }
@@ -102,7 +99,6 @@ final class GameInfoServiceImpl: GameInfoService {
                         completion?(ServiceCallResult.serviceFailure(error: error))
                     }
                 case .parserFailure(let error):
-                    print("parse error t")
                     completion?(ServiceCallResult.serviceFailure(error: error))
                 }
             case .transportFailure(let error):
@@ -111,4 +107,35 @@ final class GameInfoServiceImpl: GameInfoService {
         }
     }
     
+    func addComment(gameId: Int, playerId: Int, comment: String, completion: ((ServiceCallResult<AddCommentResponse>) -> Void)?) {
+        guard let token = KeychainWrapper.standard.string(forKey: KeychainKeys.token) else {
+            let error = NSError(domain: "", code: AdditionalErrors.tokenNotFound)
+            completion?(ServiceCallResult.serviceFailure(error: error))
+            return
+        }
+        let parameters = [Constants.tokenParameter: token,
+                          Constants.gameIdParameter: gameId,
+                          Constants.playerIdParameter: playerId,
+                          Constants.commentParameter: comment] as [String: Any]
+        transport.request(method: .post, url: Constants.baseURL + EndPoint.addComment, parameters: parameters) { [unowned self] transportResult in
+            switch transportResult {
+            case .transportSuccess(let payload):
+                let resultBody = payload.resultBody
+                let parseResult = self.addCommentParser.parse(from: resultBody)
+                switch parseResult {
+                case .parserSuccess(let model):
+                    if model.error == 0 {
+                        completion?(ServiceCallResult.serviceSuccess(payload: model))
+                    } else {
+                        let error = NSError(domain: "", code: model.error)
+                        completion?(ServiceCallResult.serviceFailure(error: error))
+                    }
+                case .parserFailure(let error):
+                    completion?(ServiceCallResult.serviceFailure(error: error))
+                }
+            case .transportFailure(let error):
+                completion?(ServiceCallResult.serviceFailure(error: error))
+            }
+        }
+    }
 }

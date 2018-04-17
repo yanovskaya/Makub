@@ -132,6 +132,12 @@ final class NewsCell: UICollectionViewCell, ViewModelConfigurable {
         }
     }
     
+    func configureCellWidth(_ width: CGFloat) {
+        let leftOffset: CGFloat = 25
+        let rightOffset: CGFloat = 20
+        descriptionLabel.widthAnchor.constraint(equalToConstant: width - (leftOffset + rightOffset)).isActive = true
+    }
+    
     // MARK: - Private Methods
     
     private func configureLayout() {

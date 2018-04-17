@@ -61,7 +61,7 @@ final class NewsViewController: UIViewController {
         configureSearchBar()
         
         hideSearchKeyboardWhenTappedAround()
-        bindEventsObtainNews()
+        bindEventsObtainNewsWithUser()
         presentationModel.obtainNewsWithUser()
     }
     
@@ -81,12 +81,12 @@ final class NewsViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         tabBarController?.delegate = self
-        bindEventsObtainNews()
+        bindEventsObtainNewsWithUser()
     }
     
     // MARK: - Private Methods
     
-    private func bindEventsObtainNews() {
+    private func bindEventsObtainNewsWithUser() {
         presentationModel.changeStateHandler = { [weak self] status in
             switch status {
             case .loading:
@@ -310,6 +310,7 @@ extension NewsViewController: UICollectionViewDataSource {
         cell.heightIllustrationImageViewConstant = (view.frame.width - 16) / 3 * 2
         cell.configure(for: viewModel)
         cell.configureMoreButton(userId: presentationModel.userViewModel.id)
+        cell.configureCellWidth(view.frame.width)
         cell.delegate = self
         cell.contentView.isUserInteractionEnabled = false
         cell.layoutIfNeeded()

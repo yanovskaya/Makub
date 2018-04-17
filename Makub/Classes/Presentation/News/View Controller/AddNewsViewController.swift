@@ -158,7 +158,6 @@ final class AddNewsViewController: UIViewController {
         newsTextView.textColor = PaletteColors.darkGray
         newsTextView.becomeFirstResponder()
         newsTextView.delegate = self
-        newsTextView.target(forAction: #selector(editingChanged), withSender: self)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: .UIKeyboardWillShow, object: nil)
     }
     
@@ -215,15 +214,6 @@ final class AddNewsViewController: UIViewController {
         NotificationCenter.default.removeObserver(self)
     }
     
-    @objc private func editingChanged() {
-        guard let text = newsTextView.text, text.count > 2
-            else {
-                doneButtonItem.isEnabled = false
-                return
-        }
-        doneButtonItem.isEnabled = true
-    }
-    
     // MARK: - IBActions
     
     @IBAction private func cancelButtonItemTapped(_ sender: Any) {
@@ -270,7 +260,7 @@ extension AddNewsViewController: UITextFieldDelegate {
 extension AddNewsViewController: UITextViewDelegate {
     
     func textViewDidChange(_ textView: UITextView) {
-        guard let text = textView.text, text.count > 7 else {
+        guard let text = textView.text, text.removeWhitespaces().count > 0 else {
             doneButtonItem.isEnabled = false
             return
         }

@@ -68,6 +68,11 @@ final class CommentsCell: UICollectionViewCell, ViewModelConfigurable {
         }
     }
     
+    func configureCellWidth(_ width: CGFloat) {
+        let offsets: CGFloat = 2 * 16
+        commentLabel.widthAnchor.constraint(equalToConstant: width - offsets).isActive = true
+    }
+    
     // MARK: - Private Methods
     
     private func configureColor() {
