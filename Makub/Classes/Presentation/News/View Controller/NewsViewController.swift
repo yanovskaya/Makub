@@ -41,7 +41,7 @@ final class NewsViewController: UIViewController {
     // MARK: - Private Properties
     
     private var navigationSearchBar = UISearchBar()
-    private var hidingNavBarManager: HidingNavigationBarManager?
+    private weak var hidingNavBarManager: HidingNavigationBarManager?
     
     private let refreshControl = UIRefreshControl()
     private let router = NewsRouter()

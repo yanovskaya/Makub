@@ -12,17 +12,71 @@
         <!--Tournaments View Controller-->
         <scene sceneID="MrF-1c-gUN">
             <objects>
-                <viewController id="lsu-rB-RgU" customClass="TournamentsViewController" customModule="Макуб" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TournamentsViewController" id="lsu-rB-RgU" customClass="TournamentsViewController" customModule="Макуб" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ixx-P9-7JR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oEK-AJ-lSd">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="65"/>
+                                <subviews>
+                                    <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kZU-Hk-5Lf">
+                                        <rect key="frame" x="0.0" y="21" width="375" height="44"/>
+                                        <items>
+                                            <navigationItem title="Title" id="SwA-4l-eUF">
+                                                <barButtonItem key="leftBarButtonItem" title="Item" id="bxT-dR-KDR">
+                                                    <connections>
+                                                        <action selector="gamesItemTapped:" destination="lsu-rB-RgU" id="pGX-zg-qCU"/>
+                                                    </connections>
+                                                </barButtonItem>
+                                                <barButtonItem key="rightBarButtonItem" title="Item" id="BbT-wg-gcE"/>
+                                            </navigationItem>
+                                        </items>
+                                    </navigationBar>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="6Ie-9X-7Wc"/>
+                                    <constraint firstItem="kZU-Hk-5Lf" firstAttribute="leading" secondItem="oEK-AJ-lSd" secondAttribute="leading" id="Qk8-Wk-OjJ"/>
+                                    <constraint firstAttribute="bottom" secondItem="kZU-Hk-5Lf" secondAttribute="bottom" id="Rvk-DA-FN6"/>
+                                    <constraint firstAttribute="trailing" secondItem="kZU-Hk-5Lf" secondAttribute="trailing" id="c6G-DO-sdl"/>
+                                </constraints>
+                            </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="vHg-4o-awq">
+                                <rect key="frame" x="0.0" y="65" width="375" height="602"/>
+                                <color key="backgroundColor" red="0.45138680930000002" green="0.99309605359999997" blue="1" alpha="0.5841984160958904" colorSpace="custom" customColorSpace="sRGB"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="RLd-jM-FQ7">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="oEK-AJ-lSd" firstAttribute="top" secondItem="ixx-P9-7JR" secondAttribute="top" id="95T-rj-VLH"/>
+                            <constraint firstItem="oEK-AJ-lSd" firstAttribute="leading" secondItem="PJ7-D6-PWb" secondAttribute="leading" id="BDA-aJ-Aix"/>
+                            <constraint firstItem="oEK-AJ-lSd" firstAttribute="trailing" secondItem="PJ7-D6-PWb" secondAttribute="trailing" id="K47-cM-33y"/>
+                            <constraint firstItem="PJ7-D6-PWb" firstAttribute="bottom" secondItem="vHg-4o-awq" secondAttribute="bottom" id="UPQ-Hg-KHY"/>
+                            <constraint firstItem="vHg-4o-awq" firstAttribute="top" secondItem="oEK-AJ-lSd" secondAttribute="bottom" id="UjZ-49-C1H"/>
+                            <constraint firstItem="PJ7-D6-PWb" firstAttribute="trailing" secondItem="vHg-4o-awq" secondAttribute="trailing" id="Zjy-WP-Yrs"/>
+                            <constraint firstItem="vHg-4o-awq" firstAttribute="leading" secondItem="PJ7-D6-PWb" secondAttribute="leading" id="mNQ-9D-OfQ"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="PJ7-D6-PWb"/>
                     </view>
+                    <connections>
+                        <outlet property="filterButtonItem" destination="BbT-wg-gcE" id="0cv-gB-nTE"/>
+                        <outlet property="gamesButtonItem" destination="bxT-dR-KDR" id="J86-Vs-ro3"/>
+                        <outlet property="navBackgroundView" destination="oEK-AJ-lSd" id="QLr-WV-Yqb"/>
+                        <outlet property="navigationBar" destination="kZU-Hk-5Lf" id="sEi-pv-5Yu"/>
+                        <outlet property="tournamentsCollectionView" destination="vHg-4o-awq" id="zbw-29-6xV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Myi-kX-lCC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="167" y="161"/>
+            <point key="canvasLocation" x="165.59999999999999" y="160.56971514242881"/>
         </scene>
     </scenes>
 </document>

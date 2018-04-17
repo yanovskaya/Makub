@@ -58,6 +58,7 @@ final class GameInfoViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         tabBarController?.delegate = self
+        tabBarController?.tabBarItem.isEnabled = false
     }
     
     // MARK: - Private Methods

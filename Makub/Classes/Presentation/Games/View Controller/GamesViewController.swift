@@ -18,6 +18,7 @@ final class GamesViewController: UIViewController {
         static let title = "Все игры"
         static let pkhudTitle = "Подождите"
         static let pkhudSubtitle = "Идет фильтрация"
+        static let tournamentImage = "trophy"
         static let filterImage = "filter"
         static let cellIdentifier = String(describing: GamesCell.self)
     }
@@ -185,7 +186,9 @@ final class GamesViewController: UIViewController {
         filterButtonItem.imageInsets = UIEdgeInsets(top: 2, left: 0, bottom: 0, right: 5)
         filterButtonItem.tintColor = PaletteColors.darkGray
         
-        tournamentsButtonItem.title = ""
+        tournamentsButtonItem.image = UIImage(named: Constants.tournamentImage)
+        tournamentsButtonItem.imageInsets = UIEdgeInsets(top: 2, left: 0, bottom: 0, right: 5)
+        tournamentsButtonItem.tintColor = PaletteColors.darkGray
     }
     
     private func configureCollectionView() {
@@ -225,6 +228,18 @@ final class GamesViewController: UIViewController {
         }
     }
     
+    @IBAction func tournamentItemTapped(_ sender: Any) {
+        let gamesStoryboard = UIStoryboard(with: StoryboardTitle.tournaments)
+         let gameInfoViewController = gamesStoryboard.viewController(TournamentsViewController.self)
+        let transition = CATransition()
+           transition.type = kCATransitionReveal
+        transition.subtype = kCATransitionFromLeft
+        transition.duration = 0.4
+        transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        self.navigationController?.view.layer.add(transition, forKey: nil)
+        navigationController?.popToRootViewController(animated: false)
+        self.navigationController?.pushViewController(gameInfoViewController, animated: false)
+    }
 }
 
 // MARK: - UICollectionViewDataSource

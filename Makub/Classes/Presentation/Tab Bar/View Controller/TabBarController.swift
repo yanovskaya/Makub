@@ -52,5 +52,4 @@ final class TabBarController: UITabBarController {
         let controllerArray = [newsVC, ratingVC, gamesVC]
         viewControllers = controllerArray.map { UINavigationController(rootViewController: $0) }
     }
-
 }
