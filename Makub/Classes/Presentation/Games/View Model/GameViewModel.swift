@@ -14,9 +14,6 @@ final class GameViewModel {
     
     private enum Constants {
         static let baseURL = "https://makub.ru"
-        static let classicType = "Классика"
-        static let quickType = "Быстрый"
-        static let quichBPType = "Быстрый БП"
     }
     
     // MARK: - Public Properties
@@ -74,20 +71,7 @@ final class GameViewModel {
         }
         
         if let type = game.type {
-            guard let typeId = Int(type) else {
-                self.type = ""
-                return
-            }
-            switch typeId {
-            case 1:
-                self.type = Constants.classicType
-            case 2:
-                self.type = Constants.quickType
-            case 3:
-                self.type = Constants.quichBPType
-            default:
-                self.type = ""
-            }
+            self.type = type.getType()
         } else {
             self.type = ""
         }

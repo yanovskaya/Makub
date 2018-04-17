@@ -76,8 +76,6 @@ class TournamentsViewController: UIViewController {
     }
 
     @IBAction func gamesItemTapped(_ sender: Any) {
-        let gamesStoryboard = UIStoryboard(with: StoryboardTitle.games)
-        let gameInfoViewController = gamesStoryboard.viewController(GamesViewController.self)
         let transition = CATransition()
         transition.type = kCATransitionReveal
         transition.subtype = kCATransitionFromRight
@@ -94,8 +92,6 @@ class TournamentsViewController: UIViewController {
 extension TournamentsViewController: UITabBarControllerDelegate {
     
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        let gamesStoryboard = UIStoryboard(with: StoryboardTitle.games)
-        let gameInfoViewController = gamesStoryboard.viewController(GamesViewController.self)
         let transition = CATransition()
         transition.type = kCATransitionReveal
         transition.subtype = kCATransitionFromRight
