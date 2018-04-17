@@ -10,6 +10,12 @@ import Foundation
 
 final class GameInfoPresentationModel: PresentationModel {
     
+    // MARK: - Constants
+    
+    private enum Constants {
+        static let friendGame = "Товарищеский матч"
+    }
+    
     // MARK: - Public Properties
     
     var gameViewModel: GameViewModel!
@@ -37,7 +43,7 @@ final class GameInfoPresentationModel: PresentationModel {
             group.enter()
             obtainTournament()
         } else {
-            tournamentViewModel = TournamentViewModel(title: "Товарищеская игра")
+            tournamentViewModel = TournamentViewModel(title: Constants.friendGame)
         }
         
         if gameViewModel.comments != "0" {

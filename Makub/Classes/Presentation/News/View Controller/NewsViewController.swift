@@ -307,7 +307,6 @@ extension NewsViewController: UICollectionViewDataSource {
         guard let cell =
             collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? NewsCell else { return UICollectionViewCell() }
         let viewModel = filteredNews[indexPath.row]
-        cell.heightIllustrationImageViewConstant = (view.frame.width - 16) / 3 * 2
         cell.configure(for: viewModel)
         cell.configureMoreButton(userId: presentationModel.userViewModel.id)
         cell.configureCellWidth(view.frame.width)

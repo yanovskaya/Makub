@@ -83,7 +83,9 @@ final class CommentsCell: UICollectionViewCell, ViewModelConfigurable {
     
     private func configureFont() {
         authorLabel.font = UIFont.customFont(.robotoRegularFont(size: 16))
-        commentLabel.font = UIFont.customFont(.robotoRegularFont(size: 14))
+        commentLabel.font = UIFont.customFont(.robotoRegularFont(size: 15))
         dateLabel.font = UIFont.customFont(.robotoRegularFont(size: 12))
+        
+        commentLabel.setLineSpacing(lineSpacing: 3)
     }
 }

@@ -22,7 +22,7 @@ final class GamesPresentationModel: PresentationModel {
         static let falseVideo = "Без видео"
         
         static let tournamentKey = "Турнир"
-        static let friendGame = "Товарищеская игра"
+        static let friendGame = "Товарищеский матч"
         static let interClub = "Межклубный"
         static let tournament = "Турнир"
     }

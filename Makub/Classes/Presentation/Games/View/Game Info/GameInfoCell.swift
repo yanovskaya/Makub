@@ -163,10 +163,14 @@ final class GameInfoCell: UICollectionViewCell, ViewModelConfigurable {
         dateLabel.font = UIFont.customFont(.robotoRegularFont(size: 12))
         clubLabel.font = UIFont.customFont(.robotoRegularFont(size: 13))
         tournamentLabel.font = UIFont.customFont(.robotoRegularFont(size: 16))
-        descriptionLabel.font = UIFont.customFont(.robotoRegularFont(size: 14))
+        descriptionLabel.font = UIFont.customFont(.robotoRegularFont(size: 15))
         score1Label.font = UIFont.customFont(.robotoRegularFont(size: 25))
         score2Label.font = UIFont.customFont(.robotoRegularFont(size: 25))
         colonLabel.font = UIFont.customFont(.robotoRegularFont(size: 25))
+        
+        clubLabel.setLineSpacing(lineSpacing: 3)
+        tournamentLabel.setLineSpacing(lineSpacing: 3)
+        descriptionLabel.setLineSpacing(lineSpacing: 4)
     }
     
     private func configureColor() {

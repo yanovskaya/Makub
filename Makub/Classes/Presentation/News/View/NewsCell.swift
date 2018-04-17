@@ -50,12 +50,13 @@ final class NewsCell: UICollectionViewCell, ViewModelConfigurable {
     // MARK: - Public Properties
     
     weak var delegate: NewsCellDelegate?
-    var heightIllustrationImageViewConstant: CGFloat!
     
     // MARK: - Private Properties
     
     private var viewModel: NewsViewModel!
     private let indicator = UserIndicator()
+    
+    private var heightIllustrationImageViewConstant: CGFloat!
     
     // MARK: - View lifecycle
     
@@ -136,6 +137,9 @@ final class NewsCell: UICollectionViewCell, ViewModelConfigurable {
         let leftOffset: CGFloat = 25
         let rightOffset: CGFloat = 20
         descriptionLabel.widthAnchor.constraint(equalToConstant: width - (leftOffset + rightOffset)).isActive = true
+        
+        let imageOffset: CGFloat = 16
+        heightIllustrationImageViewConstant = (width - imageOffset) / 3 * 2
     }
     
     // MARK: - Private Methods
@@ -147,10 +151,13 @@ final class NewsCell: UICollectionViewCell, ViewModelConfigurable {
     }
     
     private func configureFont() {
-        authorLabel.font = UIFont.customFont(.robotoMediumFont(size: 14))
+        authorLabel.font = UIFont.customFont(.robotoMediumFont(size: 15))
         dateLabel.font = UIFont.customFont(.robotoRegularFont(size: 12))
         titleLabel.font = UIFont.customFont(.robotoBoldFont(size: 16))
-        descriptionLabel.font = UIFont.customFont(.robotoRegularFont(size: 14))
+        descriptionLabel.font = UIFont.customFont(.robotoRegularFont(size: 15))
+        
+        titleLabel.setLineSpacing(lineSpacing: 3)
+        descriptionLabel.setLineSpacing(lineSpacing: 3)
     }
     
     private func configureColor() {
