@@ -14,27 +14,27 @@ final class TournamentViewModel {
     
     let name: String
     let description: String?
-    let clubId: String
-    let place: String
+    let place: String?
     let date: String
     let period: TimePeriod
     let status: String
     let type: String
     
-    var club: String!
-    
     // MARK: - Initialization
     
     init(_ tournament: Tournament) {
-        if tournament.smalldesc != "" {
+        if let description = tournament.smalldesc, description != "" {
             name = tournament.name.capitalizeFirstLetter()
-            description = tournament.smalldesc.capitalizeFirstLetter()
+            self.description = description.capitalizeFirstLetter()
         } else {
             name = tournament.name.capitalizeFirstLetter()
             description = nil
         }
-        clubId = tournament.club
-        place = tournament.place
+        if let place = tournament.place, place != "" {
+            self.place = place
+        } else {
+            self.place = nil
+        }
         status = tournament.status.getStatus()
         type = tournament.type.getType()
         if let date = tournament.date.dateConverter() {
@@ -43,6 +43,36 @@ final class TournamentViewModel {
             date = ""
             period = .past
         }
+    }
+    
+    init(desc: Bool, date: Bool) {
+        name = "Турнир года"
+        var dd: String
+        if Int(arc4random_uniform(UInt32(100))) < 30 {
+            dd = "2018-04-18"
+        } else if Int(arc4random_uniform(UInt32(100))) < 60 {
+             dd = "2018-04-17"
+        } else {
+            dd = "2018-04-19"
+        }
+        if let date = dd.dateConverter() {
+            (self.date, self.period) = date
+        } else {
+            self.date = ""
+            period = .past
+        }
+        if date {
+            self.place = "Турнир года турнир турнир рутнри турна"
+        } else {
+            self.place = nil
+        }
+        if desc {
+            self.description = "где-то правоы ваполыао оавытлпта аоаыялв"
+        } else {
+            self.description = nil
+        }
+        type = "1".getType()
+        status = "2".getStatus()
     }
     
 }

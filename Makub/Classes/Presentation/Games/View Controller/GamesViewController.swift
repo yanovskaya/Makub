@@ -65,6 +65,7 @@ final class GamesViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
+        bindEventsObtainGames()
         tabBarController?.delegate = self
     }
     
@@ -229,16 +230,7 @@ final class GamesViewController: UIViewController {
     }
     
     @IBAction func tournamentItemTapped(_ sender: Any) {
-        let gamesStoryboard = UIStoryboard(with: StoryboardTitle.tournaments)
-         let gameInfoViewController = gamesStoryboard.viewController(TournamentsViewController.self)
-        let transition = CATransition()
-           transition.type = kCATransitionReveal
-        transition.subtype = kCATransitionFromLeft
-        transition.duration = 0.4
-        transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-        self.navigationController?.view.layer.add(transition, forKey: nil)
-        navigationController?.popToRootViewController(animated: false)
-        self.navigationController?.pushViewController(gameInfoViewController, animated: false)
+        router.showTournamentsVC(source: self)
     }
 }
 

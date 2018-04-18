@@ -6,6 +6,7 @@
 //  Copyright © 2018 Elena Yanovskaya. All rights reserved.
 //
 
+import PKHUD
 import UIKit
 
 class TournamentsViewController: UIViewController {
@@ -14,11 +15,8 @@ class TournamentsViewController: UIViewController {
     
     private enum Constants {
         static let title = "Все турниры"
-        static let pkhudTitle = "Подождите"
-        static let pkhudSubtitle = "Идет фильтрация"
-        static let filterImage = "filter"
         static let gamesImage = "fighting"
-        static let cellIdentifier = String(describing: GamesCell.self)
+        static let cellIdentifier = String(describing: TournamentCell.self)
     }
     
     private enum LayoutConstants {
@@ -28,20 +26,84 @@ class TournamentsViewController: UIViewController {
         static let cellSpacing: CGFloat = 3
     }
 
+    // MARK: - IBOutlets
+    
     @IBOutlet private var navBackgroundView: UIView!
     @IBOutlet private var navigationBar: UINavigationBar!
-    @IBOutlet var tournamentsCollectionView: UICollectionView!
+    @IBOutlet private var tournamentsCollectionView: UICollectionView!
     
-    @IBOutlet var gamesButtonItem: UIBarButtonItem!
-    @IBOutlet var filterButtonItem: UIBarButtonItem!
+    @IBOutlet private var gamesButtonItem: UIBarButtonItem!
+    
+    // MARK: - Public Properties
+    
+    let presentationModel = TournamentsPresentationModel()
+    
+    // MARK: - Private Properties
+    
+    private var refreshControl = UIRefreshControl()
+    
+    // MARK: - ViewController lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = PaletteColors.blueBackground
-        tabBarController?.delegate = self
+        
         configureNavigationBar()
         configureCollectionView()
+        
+        bindEventsObtainTournaments()
+        presentationModel.obtainTournamentsWithClubs()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        bindEventsObtainTournaments()
+        tabBarController?.delegate = self
+    }
+    
+    // MARK: - Public Methods
+    
+    private func bindEventsObtainTournaments() {
+        presentationModel.changeStateHandler = { [weak self] status in
+            switch status {
+            case .loading:
+                DispatchQueue.main.async {
+                HUD.show(.progress)
+                }
+            case .rich:
+                self?.tournamentsCollectionView.reloadData()
+                HUD.hide()
+            case .error (let code):
+                switch code {
+                case -1009, -1001:
+                    HUD.show(.labeledError(title: ErrorDescription.title.rawValue, subtitle: ErrorDescription.network.rawValue))
+                default:
+                    HUD.show(.labeledError(title: ErrorDescription.title.rawValue, subtitle: ErrorDescription.server.rawValue))
+                }
+                HUD.hide(afterDelay: 1.0)
+            }
+        }
+    }
+    
+    private func bindEventsRefreshTournaments() {
+        presentationModel.changeStateHandler = { [weak self] status in
+            switch status {
+            case .loading:
+                break
+            case .rich:
+                self?.tournamentsCollectionView.reloadData()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                    self?.refreshControl.endRefreshing()
+                }
+            case .error:
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+                    self?.refreshControl.endRefreshing()
+                }
+            }
+        }
+    }
+    
+    // MARK: - Private Methods
     
     private func configureNavigationBar() {
         navigationController?.isNavigationBarHidden = true
@@ -53,10 +115,6 @@ class TournamentsViewController: UIViewController {
         navigationBar.shadowImage = UIImage(color: UIColor.white)
         navigationBar.setBackgroundImage(UIImage(color: UIColor.white), for: .default)
         
-        filterButtonItem.image = UIImage(named: Constants.filterImage)
-        filterButtonItem.imageInsets = UIEdgeInsets(top: 2, left: 0, bottom: 0, right: 5)
-        filterButtonItem.tintColor = PaletteColors.darkGray
-        
         gamesButtonItem.image = UIImage(named: Constants.gamesImage)
         gamesButtonItem.imageInsets = UIEdgeInsets(top: 2, left: 0, bottom: 0, right: 5)
         gamesButtonItem.tintColor = PaletteColors.darkGray
@@ -64,18 +122,22 @@ class TournamentsViewController: UIViewController {
     
     private func configureCollectionView() {
         tournamentsCollectionView.backgroundColor = .clear
-//        gamesCollectionView.dataSource = self
-//        gamesCollectionView.delegate = self
-//        gamesCollectionView.loadControl = UILoadControl(target: self, action: #selector(obtainMoreGames(sender:)))
-//        gamesCollectionView.register(UINib(nibName: Constants.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: Constants.cellIdentifier)
-//        gamesCollectionView.refreshControl = refreshControl
-//        refreshControl.addTarget(self, action: #selector(refreshGames(_:)), for: .valueChanged)
+        tournamentsCollectionView.dataSource = self
+        tournamentsCollectionView.delegate = self
+        tournamentsCollectionView.register(UINib(nibName: Constants.cellIdentifier, bundle: nil), forCellWithReuseIdentifier: Constants.cellIdentifier)
+        tournamentsCollectionView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(refreshTournaments(_:)), for: .valueChanged)
         
         guard let flowLayout = tournamentsCollectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
         flowLayout.estimatedItemSize.width = view.frame.width - 2 * LayoutConstants.leadingMargin
     }
+    
+    @objc private func refreshTournaments(_ refreshControl: UIRefreshControl) {
+        bindEventsRefreshTournaments()
+        presentationModel.refreshTournaments()
+    }
 
-    @IBAction func gamesItemTapped(_ sender: Any) {
+    private func routeBack() {
         let transition = CATransition()
         transition.type = kCATransitionReveal
         transition.subtype = kCATransitionFromRight
@@ -84,6 +146,44 @@ class TournamentsViewController: UIViewController {
         navigationController?.view.layer.add(transition, forKey: nil)
         navigationController?.popToRootViewController(animated: false)
         dismiss(animated: false)
+    }
+    
+    // MARK: - IBActions
+    
+    @IBAction private func gamesItemTapped(_ sender: Any) {
+        routeBack()
+    }
+}
+
+// MARK: - UICollectionViewDataSource
+
+extension TournamentsViewController: UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return presentationModel.tournamentsViewModels.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let viewModel = presentationModel.tournamentsViewModels[indexPath.row]
+        let cellIdentifier = Constants.cellIdentifier
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? TournamentCell else { return UICollectionViewCell() }
+        cell.configure(for: viewModel)
+        cell.configureCellWidth(view.frame.width)
+        cell.layoutIfNeeded()
+        return cell
+    }
+}
+
+// MARK: - UICollectionViewDelegateFlowLayout
+
+extension TournamentsViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: LayoutConstants.topEdge, left: 0, bottom: LayoutConstants.bottomEdge, right: 0)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return LayoutConstants.cellSpacing
     }
 }
 

@@ -29,7 +29,6 @@
                                                         <action selector="gamesItemTapped:" destination="lsu-rB-RgU" id="pGX-zg-qCU"/>
                                                     </connections>
                                                 </barButtonItem>
-                                                <barButtonItem key="rightBarButtonItem" title="Item" id="BbT-wg-gcE"/>
                                             </navigationItem>
                                         </items>
                                     </navigationBar>
@@ -67,7 +66,6 @@
                         <viewLayoutGuide key="safeArea" id="PJ7-D6-PWb"/>
                     </view>
                     <connections>
-                        <outlet property="filterButtonItem" destination="BbT-wg-gcE" id="0cv-gB-nTE"/>
                         <outlet property="gamesButtonItem" destination="bxT-dR-KDR" id="J86-Vs-ro3"/>
                         <outlet property="navBackgroundView" destination="oEK-AJ-lSd" id="QLr-WV-Yqb"/>
                         <outlet property="navigationBar" destination="kZU-Hk-5Lf" id="sEi-pv-5Yu"/>

@@ -68,6 +68,7 @@ final class NewsPresentationModel: PresentationModel {
     }
     
     func refreshNewsWithUser() {
+        self.error = nil
         group.enter()
         userService.obtainUserInfo(useCache: false) { result in
             switch result {

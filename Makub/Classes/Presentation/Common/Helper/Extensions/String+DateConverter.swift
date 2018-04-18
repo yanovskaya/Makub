@@ -22,15 +22,19 @@ extension String {
         dateFormatter.dateFormat = "yyyy-MM-dd"
         
         guard let convertedDate = dateFormatter.date(from: self) else { return nil }
-        let dateForNow = Date()
-        let components = Calendar.current.dateComponents([.year, .day], from: convertedDate, to: dateForNow)
+        dateFormatter.dateFormat = "dd.MM.yyyy"
+        let dateForNowString = dateFormatter.string(from: Date())
+        guard let dateForNowConverted = dateFormatter.date(from: dateForNowString) else { return nil }
+        print(dateForNowConverted)
+        print(convertedDate)
+        let components = Calendar.current.dateComponents([.year, .day], from: convertedDate, to: dateForNowConverted)
         guard let day = components.day,
             let year = components.year else { return nil }
         let fixedMonth = Calendar.current.component(.month, from: convertedDate)
         if year > 0 {
             dateFormatter.dateFormat = "dd.MM.yyyy"
             return (dateFormatter.string(from: convertedDate), .past)
-        } else if convertedDate == dateForNow {
+        } else if day == 0 {
             return ("Cегодня", .future)
         } else if day == -1 {
             return ("Завтра", .future)
