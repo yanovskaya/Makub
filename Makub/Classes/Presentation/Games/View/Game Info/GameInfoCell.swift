@@ -130,7 +130,7 @@ final class GameInfoCell: UICollectionViewCell, ViewModelConfigurable {
         }
     }
     
-    func configureTournament(for viewModel: TournamentViewModel) {
+    func configureTournament(for viewModel: TournamentForGameViewModel) {
         tournamentLabel.text = viewModel.tournament
         if let description = viewModel.description {
             descriptionLabel.text = description

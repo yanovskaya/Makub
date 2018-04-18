@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class TournamentViewModel {
+final class TournamentForGameViewModel {
     
     // MARK: - Public Properties
     
@@ -19,8 +19,8 @@ final class TournamentViewModel {
     
     init(_ tournament: Tournament) {
         if tournament.smalldesc != "" {
-            self.tournament = tournament.smalldesc.capitalizeFirstLetter()
-            description = tournament.name.capitalizeFirstLetter()
+            self.tournament = tournament.name.capitalizeFirstLetter()
+            description = tournament.smalldesc.capitalizeFirstLetter()
         } else {
             self.tournament = tournament.name.capitalizeFirstLetter()
             description = nil

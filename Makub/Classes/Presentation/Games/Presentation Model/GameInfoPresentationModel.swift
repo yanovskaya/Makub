@@ -19,7 +19,7 @@ final class GameInfoPresentationModel: PresentationModel {
     // MARK: - Public Properties
     
     var gameViewModel: GameViewModel!
-    var tournamentViewModel: TournamentViewModel!
+    var tournamentViewModel: TournamentForGameViewModel!
     var commentViewModels = [CommentViewModel]()
     var userViewModel: UserViewModel!
     
@@ -43,7 +43,7 @@ final class GameInfoPresentationModel: PresentationModel {
             group.enter()
             obtainTournament()
         } else {
-            tournamentViewModel = TournamentViewModel(title: Constants.friendGame)
+            tournamentViewModel = TournamentForGameViewModel(title: Constants.friendGame)
         }
         
         if gameViewModel.comments != "0" {
@@ -100,7 +100,7 @@ final class GameInfoPresentationModel: PresentationModel {
             switch result {
             case .serviceSuccess(let model):
                 guard let model = model else { return }
-                self.tournamentViewModel = TournamentViewModel(model.tournament)
+                self.tournamentViewModel = TournamentForGameViewModel(model.tournament)
                 self.group.leave()
             case .serviceFailure(let error):
                 self.error = error.code
