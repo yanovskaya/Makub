@@ -68,7 +68,7 @@ class TournamentsViewController: UIViewController {
             switch status {
             case .loading:
                 DispatchQueue.main.async {
-                HUD.show(.progress)
+                    HUD.show(.progress)
                 }
             case .rich:
                 self?.tournamentsCollectionView.reloadData()

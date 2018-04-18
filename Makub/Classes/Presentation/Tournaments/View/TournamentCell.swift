@@ -28,6 +28,8 @@ final class TournamentCell: UICollectionViewCell, ViewModelConfigurable {
     @IBOutlet private var dateLabel: UILabel!
     @IBOutlet private var placeLabel: UILabel!
     
+    @IBOutlet var distanceBetweenInfo: NSLayoutConstraint!
+    @IBOutlet var distanceBetweenTitles: NSLayoutConstraint!
     // MARK: - View lifecycle
     
     override func awakeFromNib() {
@@ -47,8 +49,9 @@ final class TournamentCell: UICollectionViewCell, ViewModelConfigurable {
         descriptionLabel.text = nil
         dateLabel.text = nil
         placeLabel.text = nil
-        whereLabel.text = nil
+        whereLabel.text = Constants.whereLabel
         backgroundColor = .white
+        
     }
     
     // MARK: - Public Methods
@@ -60,15 +63,19 @@ final class TournamentCell: UICollectionViewCell, ViewModelConfigurable {
         statusLabel.text = viewModel.status
         if let description = viewModel.description {
         descriptionLabel.text = description
+            distanceBetweenTitles.constant = 8
         } else {
-            descriptionLabel.text = nil
+            descriptionLabel.text = ""
+            distanceBetweenTitles.constant = 0
         }
         if let place = viewModel.place {
             placeLabel.text = place
             whereLabel.text = Constants.whereLabel
+            distanceBetweenInfo.constant = 8
         } else {
-            placeLabel.text = nil
-            whereLabel.text = nil
+            placeLabel.text = ""
+            whereLabel.text = ""
+            distanceBetweenInfo.constant = 0
         }
         switch viewModel.period {
         case .future:

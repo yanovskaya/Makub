@@ -51,9 +51,9 @@ final class TournamentViewModel {
         if Int(arc4random_uniform(UInt32(100))) < 30 {
             dd = "2018-04-18"
         } else if Int(arc4random_uniform(UInt32(100))) < 60 {
-             dd = "2018-04-17"
+             dd = "2017-04-17"
         } else {
-            dd = "2018-04-19"
+            dd = "2018-04-20"
         }
         if let date = dd.dateConverter() {
             (self.date, self.period) = date
@@ -67,7 +67,7 @@ final class TournamentViewModel {
             self.place = nil
         }
         if desc {
-            self.description = "где-то правоы ваполыао оавытлпта аоаыялв"
+            self.description = "где-то правоы ваполыао оавлпта аоаыялв"
         } else {
             self.description = nil
         }

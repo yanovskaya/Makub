@@ -25,8 +25,6 @@ extension String {
         dateFormatter.dateFormat = "dd.MM.yyyy"
         let dateForNowString = dateFormatter.string(from: Date())
         guard let dateForNowConverted = dateFormatter.date(from: dateForNowString) else { return nil }
-        print(dateForNowConverted)
-        print(convertedDate)
         let components = Calendar.current.dateComponents([.year, .day], from: convertedDate, to: dateForNowConverted)
         guard let day = components.day,
             let year = components.year else { return nil }
