@@ -163,7 +163,7 @@ final class NewsCell: UICollectionViewCell, ViewModelConfigurable {
         authorLabel.textColor = PaletteColors.darkGray
         dateLabel.textColor = PaletteColors.textGray
         titleLabel.textColor = PaletteColors.darkGray
-        descriptionLabel.textColor = PaletteColors.darkGray
+        descriptionLabel.textColor = PaletteColors.textGray
         lineView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.2)
     }
     

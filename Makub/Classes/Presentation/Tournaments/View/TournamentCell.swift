@@ -17,6 +17,11 @@ final class TournamentCell: UICollectionViewCell, ViewModelConfigurable {
         static let whereLabel = "Где:"
     }
     
+    private enum LayoutConstants {
+        static let distanceBetweenInfo: CGFloat = 8
+        static let distanceBetweenTitles: CGFloat = 8
+    }
+    
     // MARK: - IBOutlets
     
     @IBOutlet private var statusLabel: UILabel!
@@ -28,8 +33,9 @@ final class TournamentCell: UICollectionViewCell, ViewModelConfigurable {
     @IBOutlet private var dateLabel: UILabel!
     @IBOutlet private var placeLabel: UILabel!
     
-    @IBOutlet var distanceBetweenInfo: NSLayoutConstraint!
-    @IBOutlet var distanceBetweenTitles: NSLayoutConstraint!
+    @IBOutlet private var distanceBetweenInfo: NSLayoutConstraint!
+    @IBOutlet private var distanceBetweenTitles: NSLayoutConstraint!
+    
     // MARK: - View lifecycle
     
     override func awakeFromNib() {
@@ -51,7 +57,6 @@ final class TournamentCell: UICollectionViewCell, ViewModelConfigurable {
         placeLabel.text = nil
         whereLabel.text = Constants.whereLabel
         backgroundColor = .white
-        
     }
     
     // MARK: - Public Methods
@@ -63,7 +68,7 @@ final class TournamentCell: UICollectionViewCell, ViewModelConfigurable {
         statusLabel.text = viewModel.status
         if let description = viewModel.description {
         descriptionLabel.text = description
-            distanceBetweenTitles.constant = 8
+            distanceBetweenTitles.constant = LayoutConstants.distanceBetweenTitles
         } else {
             descriptionLabel.text = ""
             distanceBetweenTitles.constant = 0
@@ -71,7 +76,7 @@ final class TournamentCell: UICollectionViewCell, ViewModelConfigurable {
         if let place = viewModel.place {
             placeLabel.text = place
             whereLabel.text = Constants.whereLabel
-            distanceBetweenInfo.constant = 8
+            distanceBetweenInfo.constant = LayoutConstants.distanceBetweenInfo
         } else {
             placeLabel.text = ""
             whereLabel.text = ""
@@ -80,13 +85,17 @@ final class TournamentCell: UICollectionViewCell, ViewModelConfigurable {
         switch viewModel.period {
         case .future:
             backgroundColor = PaletteColors.blueTint.withAlphaComponent(0.1)
+            dateLabel.font = UIFont.customFont(.robotoMediumFont(size: 14))
         case .past:
             backgroundColor = .white
+             dateLabel.font = UIFont.customFont(.robotoRegularFont(size: 14))
         }
     }
     
     func configureCellWidth(_ width: CGFloat) {
-         nameLabel.widthAnchor.constraint(equalToConstant: width - 14 * 2 - 5 * 2).isActive = true
+        let cellMargins: CGFloat = 5 * 2
+        let nameLabelMargins: CGFloat = 14 * 2
+         nameLabel.widthAnchor.constraint(equalToConstant: width - cellMargins - nameLabelMargins).isActive = true
         if let placeLabel = placeLabel {
             placeLabel.widthAnchor.constraint(equalToConstant: width * 3 / 4).isActive = true
         }
@@ -105,7 +114,7 @@ final class TournamentCell: UICollectionViewCell, ViewModelConfigurable {
         descriptionLabel.font = UIFont.customFont(.robotoRegularFont(size: 15))
         whenLabel.font = UIFont.customFont(.robotoMediumFont(size: 14))
         whereLabel.font = UIFont.customFont(.robotoMediumFont(size: 14))
-        dateLabel.font = UIFont.customFont(.robotoRegularFont(size: 14))
+       
         placeLabel.font = UIFont.customFont(.robotoRegularFont(size: 14))
         
         placeLabel.setLineSpacing(lineSpacing: 3)
@@ -120,7 +129,7 @@ final class TournamentCell: UICollectionViewCell, ViewModelConfigurable {
         descriptionLabel.textColor = PaletteColors.textGray
         whenLabel.textColor = PaletteColors.darkGray
         whereLabel.textColor = PaletteColors.darkGray
-        dateLabel.textColor = PaletteColors.textGray
-        placeLabel.textColor = PaletteColors.textGray
+        dateLabel.textColor = PaletteColors.darkGray
+        placeLabel.textColor = PaletteColors.darkGray
     }
 }

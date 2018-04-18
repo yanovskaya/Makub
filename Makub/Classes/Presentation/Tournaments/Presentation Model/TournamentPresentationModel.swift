@@ -36,12 +36,18 @@ final class TournamentsPresentationModel: PresentationModel {
             switch result {
             case .serviceSuccess(let model):
                 guard let model = model else { return }
-                self.tournamentsViewModels = [TournamentViewModel(desc: true, date: true), TournamentViewModel(desc: true, date: false),
+                //self.tournamentsViewModels = model.tournaments.compactMap { TournamentViewModel($0) }
+                // моковый объект
+                self.tournamentsViewModels = [TournamentViewModel(desc: true, date: true),
+                                              TournamentViewModel(desc: true, date: false),
                                               TournamentViewModel(desc: false, date: true), TournamentViewModel(desc: false, date: false),
-                                              TournamentViewModel(desc: true, date: true), TournamentViewModel(desc: true, date: false), TournamentViewModel(desc: false, date: true), TournamentViewModel(desc: false, date: false),
-                                              
-                                              TournamentViewModel(desc: true, date: false), TournamentViewModel(desc: false, date: true), TournamentViewModel(desc: false, date: false)
-                ]
+                                              TournamentViewModel(desc: true, date: true),
+                                              TournamentViewModel(desc: true, date: false),
+                                              TournamentViewModel(desc: false, date: true),
+                                              TournamentViewModel(desc: false, date: false),
+                                              TournamentViewModel(desc: true, date: false),
+                                              TournamentViewModel(desc: false, date: true),
+                                              TournamentViewModel(desc: false, date: false)]
                 self.state = .rich
             case .serviceFailure(let error):
                 self.state = .error(code: error.code)
@@ -55,10 +61,17 @@ final class TournamentsPresentationModel: PresentationModel {
             case .serviceSuccess(let model):
                 guard let model = model else { return }
                 //self.tournamentsViewModels = model.tournaments.compactMap { TournamentViewModel($0) }
-                self.tournamentsViewModels = [TournamentViewModel(desc: true, date: true), TournamentViewModel(desc: true, date: false),
-                                              TournamentViewModel(desc: false, date: true), TournamentViewModel(desc: false, date: false), TournamentViewModel(desc: true, date: true),
-                                              TournamentViewModel(desc: true, date: false), TournamentViewModel(desc: false, date: true), TournamentViewModel(desc: false, date: false),
-                                              TournamentViewModel(desc: true, date: false), TournamentViewModel(desc: false, date: true), TournamentViewModel(desc: false, date: false)]
+                // моковый объект
+                self.tournamentsViewModels = [TournamentViewModel(desc: true, date: true),
+                                              TournamentViewModel(desc: true, date: false),
+                                              TournamentViewModel(desc: false, date: true), TournamentViewModel(desc: false, date: false),
+                                              TournamentViewModel(desc: true, date: true),
+                                              TournamentViewModel(desc: true, date: false),
+                                              TournamentViewModel(desc: false, date: true),
+                                              TournamentViewModel(desc: false, date: false),
+                                              TournamentViewModel(desc: true, date: false),
+                                              TournamentViewModel(desc: false, date: true),
+                                              TournamentViewModel(desc: false, date: false)]
                 self.state = .rich
             case .serviceFailure:
                 self.state = .error(code: 1)

@@ -18,9 +18,14 @@ final class GameInfoCell: UICollectionViewCell, ViewModelConfigurable {
         static let userImage = "photo_default"
     }
     
+    private enum LayoutConstants {
+        static let bottomTournamentLabel: CGFloat = -16
+    }
+    
     private enum SizeConstants {
         static let photoWidth: CGFloat = 200
         static let photoHeight: CGFloat = 200
+        static let videoAspectRatio: CGFloat = 9/16
     }
     
     // MARK: - IBOutlets
@@ -123,7 +128,7 @@ final class GameInfoCell: UICollectionViewCell, ViewModelConfigurable {
         if let video = viewModel.video {
             spinner.startAnimating()
             gameVideoPlayer.loadVideoID(video)
-            let height = frame.width / 16 * 9
+            let height = frame.width * SizeConstants.videoAspectRatio
             gameVideoPlayerHeight.constant = height
         } else {
             gameVideoPlayerHeight.constant = 0
@@ -136,7 +141,7 @@ final class GameInfoCell: UICollectionViewCell, ViewModelConfigurable {
             descriptionLabel.text = description
         } else {
             descriptionLabel.removeFromSuperview()
-            tournamentLabel.bottomAnchor.constraint(equalTo: blueView.bottomAnchor, constant: -1 * 16).isActive = true
+            tournamentLabel.bottomAnchor.constraint(equalTo: blueView.bottomAnchor, constant: LayoutConstants.bottomTournamentLabel).isActive = true
         }
     }
     

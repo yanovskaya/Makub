@@ -26,10 +26,11 @@ extension String {
         let dateForNowString = dateFormatter.string(from: Date())
         guard let dateForNowConverted = dateFormatter.date(from: dateForNowString) else { return nil }
         let components = Calendar.current.dateComponents([.year, .day], from: convertedDate, to: dateForNowConverted)
-        guard let day = components.day,
-            let year = components.year else { return nil }
+        guard let day = components.day else { return nil }
+        let fixedYear = Calendar.current.component(.year, from: convertedDate)
+        let currentYear = Calendar.current.component(.year, from: dateForNowConverted)
         let fixedMonth = Calendar.current.component(.month, from: convertedDate)
-        if year > 0 {
+        if fixedYear != currentYear {
             dateFormatter.dateFormat = "dd.MM.yyyy"
             return (dateFormatter.string(from: convertedDate), .past)
         } else if day == 0 {
