@@ -146,6 +146,9 @@
 		C4E1128020835B4600EE7DC4 /* GameInfoImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E1127F20835B4600EE7DC4 /* GameInfoImpl.swift */; };
 		C4E1128220835B6100EE7DC4 /* TournamentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E1128120835B6100EE7DC4 /* TournamentResponse.swift */; };
 		C4E112842083605D00EE7DC4 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E112832083605D00EE7DC4 /* Comment.swift */; };
+		C4EFB7912089063000E6033B /* RatingPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4EFB7902089063000E6033B /* RatingPresentationModel.swift */; };
+		C4EFB794208906A800E6033B /* RatingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4EFB793208906A800E6033B /* RatingViewModel.swift */; };
+		C4EFB79720890A8300E6033B /* RatingType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4EFB79620890A8300E6033B /* RatingType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -291,6 +294,9 @@
 		C4E1127F20835B4600EE7DC4 /* GameInfoImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfoImpl.swift; sourceTree = "<group>"; };
 		C4E1128120835B6100EE7DC4 /* TournamentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TournamentResponse.swift; sourceTree = "<group>"; };
 		C4E112832083605D00EE7DC4 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		C4EFB7902089063000E6033B /* RatingPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingPresentationModel.swift; sourceTree = "<group>"; };
+		C4EFB793208906A800E6033B /* RatingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingViewModel.swift; sourceTree = "<group>"; };
+		C4EFB79620890A8300E6033B /* RatingType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingType.swift; sourceTree = "<group>"; };
 		FD91280B983360A8DBD4BDFC /* Pods_Makub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Makub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -1026,6 +1032,9 @@
 		C4D4E4F820618E47000A9216 /* Rating */ = {
 			isa = PBXGroup;
 			children = (
+				C4EFB79520890A7200E6033B /* Helper */,
+				C4EFB7922089069A00E6033B /* View Model */,
+				C4EFB78F2089060700E6033B /* Presentation Model */,
 				C4D4E4FF20619339000A9216 /* Rating.storyboard */,
 				C427F2D9208812CA007D6C83 /* View Controller */,
 				C427F2DA2088B5C3007D6C83 /* View */,
@@ -1053,6 +1062,30 @@
 				C4E1127D20834B1700EE7DC4 /* CommentsCell.swift */,
 			);
 			path = "Game Info";
+			sourceTree = "<group>";
+		};
+		C4EFB78F2089060700E6033B /* Presentation Model */ = {
+			isa = PBXGroup;
+			children = (
+				C4EFB7902089063000E6033B /* RatingPresentationModel.swift */,
+			);
+			path = "Presentation Model";
+			sourceTree = "<group>";
+		};
+		C4EFB7922089069A00E6033B /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				C4EFB793208906A800E6033B /* RatingViewModel.swift */,
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
+		C4EFB79520890A7200E6033B /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				C4EFB79620890A8300E6033B /* RatingType.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		C8FE19675A729A68973D7EBE /* Frameworks */ = {
@@ -1267,6 +1300,7 @@
 				C4540F95207BEAA100EEC4A5 /* FilterViewControllerDelegate.swift in Sources */,
 				C41B3CE42072F5E100A2B652 /* CallResults.swift in Sources */,
 				C427F2D72087C8CE007D6C83 /* ClubsService.swift in Sources */,
+				C4EFB794208906A800E6033B /* RatingViewModel.swift in Sources */,
 				C4A6BB36206E36C900284603 /* String+Tags.swift in Sources */,
 				C463186E207A0DE000E14DAC /* Filter.swift in Sources */,
 				C472A6C3205B174000768585 /* AuthPresentationModel.swift in Sources */,
@@ -1331,6 +1365,7 @@
 				C41B3C2C2072573600A2B652 /* Game.swift in Sources */,
 				C44D60EA2058573D00A5C50F /* UIFont+CustomFont.swift in Sources */,
 				C491621C2085314900A95E07 /* AddCommentViewController.swift in Sources */,
+				C4EFB79720890A8300E6033B /* RatingType.swift in Sources */,
 				C41B3D072072FDB800A2B652 /* String+SpacesInURL.swift in Sources */,
 				C427F2CE2087B937007D6C83 /* String+DateConverter.swift in Sources */,
 				C44D60B0205529C100A5C50F /* AppDelegate.swift in Sources */,
@@ -1344,6 +1379,7 @@
 				C41B3C342072640100A2B652 /* Club.swift in Sources */,
 				C491622B20862DD500A95E07 /* TournamentsViewController.swift in Sources */,
 				C4C259B22078CCB800C0CDD4 /* TitleFilterCell.swift in Sources */,
+				C4EFB7912089063000E6033B /* RatingPresentationModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

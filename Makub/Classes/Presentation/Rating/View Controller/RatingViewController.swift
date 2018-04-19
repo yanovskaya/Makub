@@ -12,12 +12,12 @@ final class RatingViewController: UIViewController {
     
     @IBOutlet private var navigationBar: UINavigationBar!
     @IBOutlet private var indicatorView: UIView!
-    @IBOutlet var commonButton: UIButton!
-    @IBOutlet var classicButton: UIButton!
-    @IBOutlet var fastButton: UIButton!
-    @IBOutlet var veryFastButton: UIButton!
+    @IBOutlet private var commonButton: UIButton!
+    @IBOutlet private var classicButton: UIButton!
+    @IBOutlet private var fastButton: UIButton!
+    @IBOutlet private var veryFastButton: UIButton!
     
-    @IBOutlet var indicatorButtonLeadingConstraint: NSLayoutConstraint!
+    @IBOutlet private var indicatorButtonLeadingConstraint: NSLayoutConstraint!
     
     // MARK: - ViewController lifecycle
 
@@ -33,6 +33,10 @@ final class RatingViewController: UIViewController {
         
         navigationBar.shadowImage = UIImage(color: UIColor.white)
         navigationBar.setBackgroundImage(UIImage(color: UIColor.white), for: .default)
+        commonButton.tintColor = PaletteColors.blueTint
+        classicButton.tintColor = PaletteColors.lightGray
+        fastButton.tintColor = PaletteColors.lightGray
+        veryFastButton.tintColor = PaletteColors.lightGray
         
         commonButton.tag = 0
         classicButton.tag = 1
@@ -48,18 +52,29 @@ final class RatingViewController: UIViewController {
     @IBAction func typeButtonTapped(_ sender: UIButton) {
         indicatorButtonLeadingConstraint.isActive = false
         var const: CGFloat!
+        var button: UIButton
         switch sender.tag {
         case 1:
             const = classicButton.frame.origin.x
+            button = classicButton
         case 2:
              const = fastButton.frame.origin.x
+            button = fastButton
         case 3:
              const = veryFastButton.frame.origin.x
+            button = veryFastButton
         default:
              const = commonButton.frame.origin.x
+            button = commonButton
         }
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 20, animations: ({
             self.indicatorView.frame.origin.x = const + 12
+            
+            self.commonButton.tintColor = PaletteColors.lightGray
+            self.classicButton.tintColor = PaletteColors.lightGray
+            self.fastButton.tintColor = PaletteColors.lightGray
+            self.veryFastButton.tintColor = PaletteColors.lightGray
+            button.tintColor = PaletteColors.blueTint
         }))
     }
 }

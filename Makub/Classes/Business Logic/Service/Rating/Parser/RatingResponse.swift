@@ -12,4 +12,9 @@ struct RatingResponse: Decodable {
     
     let rating: [Rating]!
     let error: Int
+    
+    private enum CodingKeys: CodingKey, String {
+        case rating = "main"
+        case error
+    }
 }
