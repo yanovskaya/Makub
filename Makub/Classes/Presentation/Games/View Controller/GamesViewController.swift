@@ -79,7 +79,6 @@ final class GamesViewController: UIViewController {
         presentationModel.changeStateHandler = { [weak self] status in
             switch status {
             case .loading:
-                print("1 l")
                 HUD.show(.progress)
             case .rich:
                 self?.gamesCollectionView.reloadData()

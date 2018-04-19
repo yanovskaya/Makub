@@ -28,7 +28,7 @@ final class RatingViewController: UIViewController {
         view.backgroundColor = PaletteColors.blueBackground
         indicatorView.backgroundColor = PaletteColors.blueTint
         indicatorView.clipsToBounds = true
-        indicatorView.layer.cornerRadius = 4
+        indicatorView.layer.cornerRadius = 5
         indicatorView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         
         navigationBar.shadowImage = UIImage(color: UIColor.white)
@@ -38,6 +38,11 @@ final class RatingViewController: UIViewController {
         classicButton.tag = 1
         fastButton.tag = 2
         veryFastButton.tag = 3
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        tabBarController?.delegate = self
     }
     
     @IBAction func typeButtonTapped(_ sender: UIButton) {
@@ -57,4 +62,11 @@ final class RatingViewController: UIViewController {
             self.indicatorView.frame.origin.x = const + 12
         }))
     }
+}
+
+// MARK: - UITabBarControllerDelegate
+
+extension RatingViewController: UITabBarControllerDelegate {
+    
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {}
 }

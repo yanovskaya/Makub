@@ -57,6 +57,8 @@
 		C427F2D02087BFD0007D6C83 /* TournamentPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C427F2CF2087BFD0007D6C83 /* TournamentPresentationModel.swift */; };
 		C427F2D52087C8B1007D6C83 /* ClubsServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C427F2D42087C8B1007D6C83 /* ClubsServiceImpl.swift */; };
 		C427F2D72087C8CE007D6C83 /* ClubsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C427F2D62087C8CE007D6C83 /* ClubsService.swift */; };
+		C427F2DC2088B5E1007D6C83 /* RatingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C427F2DB2088B5E1007D6C83 /* RatingCell.xib */; };
+		C427F2DE2088B7CD007D6C83 /* RatingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C427F2DD2088B7CD007D6C83 /* RatingCell.swift */; };
 		C42924B0205C81E700E6D568 /* RecoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42924AF205C81E700E6D568 /* RecoverViewController.swift */; };
 		C42940C220827B060026B2C3 /* GameInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42940C120827B060026B2C3 /* GameInfoViewController.swift */; };
 		C42940C420827BA60026B2C3 /* GameInfoPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42940C320827BA60026B2C3 /* GameInfoPresentationModel.swift */; };
@@ -194,6 +196,8 @@
 		C427F2CF2087BFD0007D6C83 /* TournamentPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TournamentPresentationModel.swift; sourceTree = "<group>"; };
 		C427F2D42087C8B1007D6C83 /* ClubsServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubsServiceImpl.swift; sourceTree = "<group>"; };
 		C427F2D62087C8CE007D6C83 /* ClubsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubsService.swift; sourceTree = "<group>"; };
+		C427F2DB2088B5E1007D6C83 /* RatingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RatingCell.xib; sourceTree = "<group>"; };
+		C427F2DD2088B7CD007D6C83 /* RatingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingCell.swift; sourceTree = "<group>"; };
 		C42924AF205C81E700E6D568 /* RecoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverViewController.swift; sourceTree = "<group>"; };
 		C42940C120827B060026B2C3 /* GameInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfoViewController.swift; sourceTree = "<group>"; };
 		C42940C320827BA60026B2C3 /* GameInfoPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfoPresentationModel.swift; sourceTree = "<group>"; };
@@ -647,6 +651,15 @@
 			path = "View Controller";
 			sourceTree = "<group>";
 		};
+		C427F2DA2088B5C3007D6C83 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C427F2DB2088B5E1007D6C83 /* RatingCell.xib */,
+				C427F2DD2088B7CD007D6C83 /* RatingCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		C42940C520827CC30026B2C3 /* Game Info */ = {
 			isa = PBXGroup;
 			children = (
@@ -979,6 +992,7 @@
 			children = (
 				C4D4E4FF20619339000A9216 /* Rating.storyboard */,
 				C427F2D9208812CA007D6C83 /* View Controller */,
+				C427F2DA2088B5C3007D6C83 /* View */,
 			);
 			path = Rating;
 			sourceTree = "<group>";
@@ -1076,6 +1090,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C41B3C1D2072189E00A2B652 /* Games.storyboard in Resources */,
+				C427F2DC2088B5E1007D6C83 /* RatingCell.xib in Resources */,
 				C491622D20862DEE00A95E07 /* Tournaments.storyboard in Resources */,
 				C44D60BA205529C200A5C50F /* LaunchScreen.storyboard in Resources */,
 				C44D60B7205529C200A5C50F /* Assets.xcassets in Resources */,
@@ -1225,6 +1240,7 @@
 				C4556B95205EC04D00D65DBD /* UIImage+ImageWithInsets.swift in Sources */,
 				C41B3CF52072F6E600A2B652 /* GamesService.swift in Sources */,
 				C44D60D5205806BB00A5C50F /* Colors.swift in Sources */,
+				C427F2DE2088B7CD007D6C83 /* RatingCell.swift in Sources */,
 				C427F2C62087AF9A007D6C83 /* TournamentsResponse.swift in Sources */,
 				C4D909972068196900DC3D6C /* NewsCell.swift in Sources */,
 				C472A6CA205C4F8100768585 /* ErrorDescription.swift in Sources */,
