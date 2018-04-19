@@ -20,6 +20,7 @@ final class ServiceLayer {
     let gameInfoService: GameInfoService
     let tournamentsService: TournamentsService
     let clubsService: ClubsService
+    let ratingService: RatingService
     
     let requestSessionManager: SessionManager
     let uploadSessionManager: SessionManager
@@ -44,6 +45,7 @@ final class ServiceLayer {
         gameInfoService = GameInfoServiceImpl(sessionManager: requestSessionManager)
         tournamentsService = TournamentsServiceImpl(sessionManager: requestSessionManager)
         clubsService = ClubsServiceImpl(sessionManager: requestSessionManager)
+        ratingService = RatingServiceImpl(sessionManager: requestSessionManager)
     }
     
 }
