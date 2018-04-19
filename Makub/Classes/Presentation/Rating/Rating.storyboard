@@ -112,6 +112,7 @@
                         <outlet property="indicatorButtonLeadingConstraint" destination="TEe-73-e3x" id="EHT-eZ-qem"/>
                         <outlet property="indicatorView" destination="QTd-Xn-vuj" id="clt-9r-C5e"/>
                         <outlet property="navigationBar" destination="h53-6G-ehW" id="YhO-Xw-0pM"/>
+                        <outlet property="ratingCollectionView" destination="TTf-FL-yYb" id="8pe-hR-n9T"/>
                         <outlet property="veryFastButton" destination="Cnc-WI-Ip6" id="tls-71-xbo"/>
                     </connections>
                 </viewController>

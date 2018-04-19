@@ -1032,12 +1032,12 @@
 		C4D4E4F820618E47000A9216 /* Rating */ = {
 			isa = PBXGroup;
 			children = (
-				C4EFB79520890A7200E6033B /* Helper */,
-				C4EFB7922089069A00E6033B /* View Model */,
-				C4EFB78F2089060700E6033B /* Presentation Model */,
 				C4D4E4FF20619339000A9216 /* Rating.storyboard */,
 				C427F2D9208812CA007D6C83 /* View Controller */,
+				C4EFB7922089069A00E6033B /* View Model */,
+				C4EFB78F2089060700E6033B /* Presentation Model */,
 				C427F2DA2088B5C3007D6C83 /* View */,
+				C4EFB79520890A7200E6033B /* Helper */,
 			);
 			path = Rating;
 			sourceTree = "<group>";

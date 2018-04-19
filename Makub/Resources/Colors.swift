@@ -37,4 +37,8 @@ struct PaletteColors {
     // MARK: - Rating
     
     static let lightGray = UIColor(hex: "C0C0C0")
+    static let gold = UIColor(hex: "FFD700")
+    static let silver = UIColor(hex: "C0C0C0")
+    static let bronze = UIColor(hex: "CD7F32")
+    static let standardBorder = UIColor(hex: "EBEBEB")
 }

@@ -34,19 +34,27 @@ final class RatingCell: UICollectionViewCell {
     // MARK: - Private Properties
     
     private let indicator = UserIndicator()
-    private var type: RatingType!
-    private var position: Int!
+    var type: RatingType!
+    var position: Int! {
+        didSet {
+            configureBorder()
+        }
+    }
     
     // MARK: - View lifecycle
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        configureFont()
+        configureColor()
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
         playerImageView.clipsToBounds = true
+        borderView.clipsToBounds = true
         playerImageView.layer.cornerRadius = playerImageView.frame.width / 2
+        borderView.layer.cornerRadius = borderView.frame.width / 2
     }
     
     // MARK: - Prepare for Reuse
@@ -63,7 +71,7 @@ final class RatingCell: UICollectionViewCell {
     // MARK: - Public Methods
     
     func configure(for viewModel: RatingViewModel) {
-        ratingPositionLabel.text = String(position)
+        ratingPositionLabel.text = "#" + String(position) 
         playerLabel.text = viewModel.fullname
         clubLabel.text = viewModel.club
         
@@ -92,11 +100,41 @@ final class RatingCell: UICollectionViewCell {
         }
     }
     
+    func configureCellWidth(_ width: CGFloat) {
+        clubLabel.widthAnchor.constraint(equalToConstant: width / 2).isActive = true
+    }
+    
     // MARK: - Private Methods
     
-    private func configureLayout() {
-        self.contentView.translatesAutoresizingMaskIntoConstraints = false
-        let screenWidth = UIScreen.main.bounds.size.width
-        widthAnchor.constraint(equalToConstant: screenWidth).isActive = true
+    private func configureFont() {
+        ratingPositionLabel.font = UIFont.customFont(.robotoMediumFont(size: 16))
+        playerLabel.font = UIFont.customFont(.robotoMediumFont(size: 14))
+        clubLabel.font = UIFont.customFont(.robotoRegularFont(size: 12))
+        scoreLabel.font = UIFont.customFont(.robotoRegularFont(size: 14))
+    }
+    
+    private func configureColor() {
+        ratingPositionLabel.textColor = PaletteColors.darkGray
+        playerLabel.textColor = PaletteColors.darkGray
+        clubLabel.textColor = PaletteColors.textGray
+        ratingPositionLabel.textColor = PaletteColors.darkGray
+        scoreLabel.textColor = PaletteColors.darkGray
+    }
+    
+    private func configureBorder() {
+        borderView.backgroundColor = .white
+        borderView.layer.borderWidth = 1.5
+        var color: UIColor
+        switch position {
+        case 1:
+            color = PaletteColors.gold
+        case 2:
+            color = PaletteColors.silver
+        case 3:
+            color = PaletteColors.bronze
+        default:
+            color = PaletteColors.standardBorder
+        }
+        borderView.layer.borderColor = color.cgColor
     }
 }
