@@ -58,6 +58,11 @@ final class AddCommentViewController: UIViewController {
         bindEvents()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        HUD.hide()
+    }
+    
     // MARK: - Private Methods
     
     private func bindEvents() {

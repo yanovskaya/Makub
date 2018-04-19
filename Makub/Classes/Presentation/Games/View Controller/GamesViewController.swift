@@ -65,7 +65,6 @@ final class GamesViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        bindEventsObtainGames()
         tabBarController?.delegate = self
     }
     
@@ -80,6 +79,7 @@ final class GamesViewController: UIViewController {
         presentationModel.changeStateHandler = { [weak self] status in
             switch status {
             case .loading:
+                print("1 l")
                 HUD.show(.progress)
             case .rich:
                 self?.gamesCollectionView.reloadData()
@@ -102,6 +102,7 @@ final class GamesViewController: UIViewController {
         presentationModel.changeStateHandler = { [weak self] status in
             switch status {
             case .loading:
+                print("wr roading")
                 HUD.show(.labeledProgress(title: Constants.pkhudTitle, subtitle: Constants.pkhudSubtitle))
             case .rich:
                 self?.gamesCollectionView.reloadData()
@@ -119,7 +120,7 @@ final class GamesViewController: UIViewController {
                 self?.gamesCollectionView.loadControl = UILoadControl(target: self, action: #selector(self?.obtainMoreGames(sender:)))
                 self?.presentationModel.chosenOptions = []
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                    self?.stopBindEvents()
+                    self?.bindRichEvent()
                     self?.presentationModel.obtainGamesWithClubs()
                 }
             }
@@ -162,7 +163,7 @@ final class GamesViewController: UIViewController {
         }
     }
     
-    private func stopBindEvents() {
+    private func bindRichEvent() {
         presentationModel.changeStateHandler = { [weak self] status in
             switch status {
             case .rich:

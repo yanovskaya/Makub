@@ -380,6 +380,7 @@
 			isa = PBXGroup;
 			children = (
 				C4E112702082C5D500EE7DC4 /* Games */,
+				C427F2A920868FD4007D6C83 /* Filter */,
 				C4E112722082C6B300EE7DC4 /* Game Info */,
 			);
 			path = View;
@@ -395,15 +396,6 @@
 				C48C71D12083811A007D984B /* CommentViewModel.swift */,
 			);
 			path = "View Model";
-			sourceTree = "<group>";
-		};
-		C41B3C32207263AE00A2B652 /* Additional Info */ = {
-			isa = PBXGroup;
-			children = (
-				C41B3C332072640100A2B652 /* Club.swift */,
-				C41B3C352072642000A2B652 /* Tournament.swift */,
-			);
-			path = "Additional Info";
 			sourceTree = "<group>";
 		};
 		C41B3C3B2072B10800A2B652 /* Presentation Model */ = {
@@ -559,7 +551,7 @@
 			path = Parser;
 			sourceTree = "<group>";
 		};
-		C427F2A920868FD4007D6C83 /* View */ = {
+		C427F2A920868FD4007D6C83 /* Filter */ = {
 			isa = PBXGroup;
 			children = (
 				C4C259AF2078CCA200C0CDD4 /* TitleFilterCell.xib */,
@@ -567,7 +559,7 @@
 				C4C259B12078CCB800C0CDD4 /* TitleFilterCell.swift */,
 				C4C259B52078CCDE00C0CDD4 /* OptionFilterCell.swift */,
 			);
-			path = View;
+			path = Filter;
 			sourceTree = "<group>";
 		};
 		C427F2B020869D9F007D6C83 /* View */ = {
@@ -751,7 +743,8 @@
 				C41B3C2B2072573600A2B652 /* Game.swift */,
 				C463186D207A0DE000E14DAC /* Filter.swift */,
 				C4E112832083605D00EE7DC4 /* Comment.swift */,
-				C41B3C32207263AE00A2B652 /* Additional Info */,
+				C41B3C332072640100A2B652 /* Club.swift */,
+				C41B3C352072642000A2B652 /* Tournament.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -815,7 +808,6 @@
 			isa = PBXGroup;
 			children = (
 				C472A6BE205B16D500768585 /* PresentationModel.swift */,
-				C427F2A920868FD4007D6C83 /* View */,
 				C414F0D92059A23D001961EC /* Helper */,
 			);
 			path = Common;
@@ -942,7 +934,6 @@
 		C4C259AC2078240A00C0CDD4 /* Other Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				C4540F94207BEAA100EEC4A5 /* FilterViewControllerDelegate.swift */,
 				C4C259AD2078242400C0CDD4 /* UserIndicator.swift */,
 			);
 			path = "Other Helpers";
@@ -951,6 +942,7 @@
 		C4C259BB2078F51C00C0CDD4 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				C4540F94207BEAA100EEC4A5 /* FilterViewControllerDelegate.swift */,
 				C491621D2085378600A95E07 /* String+CapitalizeFirstLetter.swift */,
 				C49EF4C720790E2800906664 /* NSDictionary+Parse.swift */,
 				C46318672079422F00E14DAC /* NSObject+Fill.swift */,
