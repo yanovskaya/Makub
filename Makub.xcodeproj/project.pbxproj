@@ -647,6 +647,14 @@
 			path = Parser;
 			sourceTree = "<group>";
 		};
+		C427F2D9208812CA007D6C83 /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C4D4E4F920618E63000A9216 /* RatingViewController.swift */,
+			);
+			path = "View Controller";
+			sourceTree = "<group>";
+		};
 		C42940C520827CC30026B2C3 /* Game Info */ = {
 			isa = PBXGroup;
 			children = (
@@ -978,7 +986,7 @@
 			isa = PBXGroup;
 			children = (
 				C4D4E4FF20619339000A9216 /* Rating.storyboard */,
-				C4D4E4F920618E63000A9216 /* RatingViewController.swift */,
+				C427F2D9208812CA007D6C83 /* View Controller */,
 			);
 			path = Rating;
 			sourceTree = "<group>";
