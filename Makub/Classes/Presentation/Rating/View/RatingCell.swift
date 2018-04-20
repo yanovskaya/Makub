@@ -107,7 +107,9 @@ final class RatingCell: UICollectionViewCell {
     }
     
     func configureCellWidth(_ width: CGFloat) {
-        clubLabel.widthAnchor.constraint(equalToConstant: width / 2 - 5).isActive = true
+        let cellMargins: CGFloat = 5 * 2
+        let additionalMargin: CGFloat = 5
+        clubLabel.widthAnchor.constraint(equalToConstant: width / 2 - cellMargins - additionalMargin).isActive = true
     }
     
     // MARK: - Private Methods

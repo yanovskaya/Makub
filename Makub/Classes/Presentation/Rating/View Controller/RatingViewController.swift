@@ -52,26 +52,12 @@ final class RatingViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.isNavigationBarHidden = true
         view.backgroundColor = PaletteColors.blueBackground
-        indicatorView.backgroundColor = PaletteColors.blueTint
-        indicatorView.clipsToBounds = true
-        indicatorView.layer.cornerRadius = 5
-        indicatorView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-        
-        commonButton.tintColor = PaletteColors.blueTint
-        classicButton.tintColor = PaletteColors.lightGray
-        fastButton.tintColor = PaletteColors.lightGray
-        veryFastButton.tintColor = PaletteColors.lightGray
-        
-        commonButton.tag = 0
-        classicButton.tag = 1
-        fastButton.tag = 2
-        veryFastButton.tag = 3
         
         configureNavigationBar()
         configureCollectionView()
-        configureButtonText()
+        configureIndicatorView()
+        configureButtons()
         bindEventsRating()
         presentationModel.obtainRatingWithUser()
     }
@@ -126,8 +112,7 @@ final class RatingViewController: UIViewController {
             switch status {
             case .rich:
                 self?.ratingCollectionView.reloadData()
-                let topPoint = CGPoint(x: 0, y: 0)
-                self?.ratingCollectionView.setContentOffset(topPoint, animated: true)
+                self?.scrollToTop()
                 HUD.hide()
             default:
                 break
@@ -159,17 +144,41 @@ final class RatingViewController: UIViewController {
         flowLayout.estimatedItemSize.width = view.frame.width - 2 * LayoutConstants.leadingMargin
     }
     
-    private func configureButtonText() {
+    private func configureIndicatorView() {
+        indicatorView.backgroundColor = PaletteColors.blueTint
+        indicatorView.clipsToBounds = true
+        indicatorView.layer.cornerRadius = 5
+        indicatorView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+    }
+    
+    private func configureButtons() {
         commonButton.setTitle(Constants.common, for: .normal)
         classicButton.setTitle(Constants.classic, for: .normal)
         fastButton.setTitle(Constants.fast, for: .normal)
         veryFastButton.setTitle(Constants.veryFast, for: .normal)
+        
+        commonButton.tintColor = PaletteColors.blueTint
+        classicButton.tintColor = PaletteColors.lightGray
+        fastButton.tintColor = PaletteColors.lightGray
+        veryFastButton.tintColor = PaletteColors.lightGray
+        
+        commonButton.tag = 0
+        classicButton.tag = 1
+        fastButton.tag = 2
+        veryFastButton.tag = 3
+    }
+    
+    private func scrollToTop() {
+        let topPoint = CGPoint(x: 0, y: 0)
+        ratingCollectionView.setContentOffset(topPoint, animated: true)
     }
     
     @objc private func refreshRating(_ refreshControl: UIRefreshControl) {
         bindEventsRefreshRating()
-        presentationModel.refreshRating()
+        presentationModel.refreshRating(type: ratingType)
     }
+    
+    // MARK: - IBAction
     
     @IBAction private func typeButtonTapped(_ sender: UIButton) {
         indicatorButtonLeadingConstraint.isActive = false
@@ -221,7 +230,8 @@ extension RatingViewController: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? RatingCell else { return UICollectionViewCell() }
         cell.type = ratingType
         cell.ratingPosition = indexPath.row + 1
-        if viewModel.id == presentationModel.userViewModel.id {
+        if let userViewModel = presentationModel.userViewModel,
+            viewModel.id == userViewModel.id {
             cell.isUserRating = true
         } else {
             cell.isUserRating = false
@@ -246,16 +256,13 @@ extension RatingViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-
 // MARK: - UITabBarControllerDelegate
 
-/////// scroll to top + hide !!!!!!
 extension RatingViewController: UITabBarControllerDelegate {
     
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         if tabBarController.selectedIndex == 1 {
-            let topPoint = CGPoint(x: 0, y: 0)
-            ratingCollectionView.setContentOffset(topPoint, animated: true)
+            scrollToTop()
         }
     }
 }

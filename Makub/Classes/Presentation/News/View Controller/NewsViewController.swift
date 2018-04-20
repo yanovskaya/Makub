@@ -75,8 +75,6 @@ final class NewsViewController: UIViewController {
         hidingNavBarManager?.viewWillDisappear(animated)
     }
     
-    
-    ///// STOP BIND EVENTS
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         tabBarController?.delegate = self
