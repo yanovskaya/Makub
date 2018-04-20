@@ -20,17 +20,25 @@ struct PaletteColors {
     static var borderAuthTextField = UIColor(hex: "E2E2E2")
     static var passButtonBackground = UIColor(hex: "6BF26B")
     
-    // MARK: VCs in TabBarController
+    // MARK: - VCs in TabBarController
     
     static let blueBackground = UIColor(hex: "F7F9FC")
     static let blueTint = UIColor(hex: "5BABFF")
     
-    // MARK: News
+    // MARK: - News
     
     static let searchBar = UIColor(hex: "EBEBEB")
     
-    // MARK: Games
+    // MARK: - Games
     
     static let winColor = UIColor(hex: "42CF42")
     static let loseColor = UIColor(hex: "EC5B46")
+    
+    // MARK: - Rating
+    
+    static let lightGray = UIColor(hex: "C0C0C0")
+    static let gold = UIColor(hex: "FFD700")
+    static let silver = UIColor(hex: "C0C0C0")
+    static let bronze = UIColor(hex: "CD7F32")
+    static let standardBorder = UIColor(hex: "EBEBEB")
 }

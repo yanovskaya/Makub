@@ -83,5 +83,4 @@ final class AddNewsCell: UICollectionViewCell, ViewModelConfigurable {
         addNewsLabel.text = Constants.addNewsLabel
         addNewsLabel.textColor = PaletteColors.textGray
     }
-    
 }

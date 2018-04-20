@@ -96,8 +96,6 @@ final class AddNewsViewController: UIViewController {
         configureTextView()
         configureTextField()
         configureAuthorView()
-        
-        bindEvents()
     }
     
     // MARK: - Private Methods
@@ -223,6 +221,7 @@ final class AddNewsViewController: UIViewController {
     
     @IBAction func postButtonItemTapped(_ sender: Any) {
         view.endEditing(true)
+        bindEvents()
         guard let title = titleTextField.text,
             let text = newsTextView.text else { return }
         if let image = self.imageToAttach {

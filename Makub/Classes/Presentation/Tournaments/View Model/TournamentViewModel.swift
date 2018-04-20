@@ -74,5 +74,4 @@ final class TournamentViewModel {
         type = "1".getType()
         status = "2".getStatus()
     }
-    
 }

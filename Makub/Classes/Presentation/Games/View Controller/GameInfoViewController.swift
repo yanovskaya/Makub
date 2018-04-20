@@ -61,12 +61,19 @@ final class GameInfoViewController: UIViewController {
         tabBarController?.tabBarItem.isEnabled = false
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        HUD.hide()
+    }
+    
     // MARK: - Private Methods
     
     private func bindEventsObtainGameInfo() {
         presentationModel.changeStateHandler = { [weak self] status in
             switch status {
             case .loading:
+                PKHUD.sharedHUD.dimsBackground = false
+                PKHUD.sharedHUD.userInteractionOnUnderlyingViewsEnabled = true
                 DispatchQueue.main.async {
                     HUD.show(.progress)
                 }
