@@ -60,6 +60,80 @@ final class RatingViewController: UIViewController {
         configureButtons()
         bindEventsRating()
         presentationModel.obtainRatingWithUser()
+        
+        let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(swipeRight))
+        rightSwipe.direction = UISwipeGestureRecognizerDirection.right
+        ratingCollectionView.addGestureRecognizer(rightSwipe)
+        
+        let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(swipeLeft))
+        leftSwipe.direction = UISwipeGestureRecognizerDirection.left
+        ratingCollectionView.addGestureRecognizer(leftSwipe)
+    }
+    
+    @objc func swipeLeft() {
+        indicatorButtonLeadingConstraint.isActive = false
+        var const: CGFloat
+        var button: UIButton
+        switch ratingType {
+        case .common:
+            const = classicButton.frame.origin.x
+            button = classicButton
+            ratingType = .classic
+        case .classic:
+            const = fastButton.frame.origin.x
+            button = fastButton
+            ratingType = .fast
+        case .fast:
+            const = veryFastButton.frame.origin.x
+            button = veryFastButton
+            ratingType = .veryFast
+        case .veryFast:
+            return
+        }
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 20, animations: ({
+            self.indicatorView.frame.origin.x = const + 12
+            
+            self.commonButton.tintColor = PaletteColors.lightGray
+            self.classicButton.tintColor = PaletteColors.lightGray
+            self.fastButton.tintColor = PaletteColors.lightGray
+            self.veryFastButton.tintColor = PaletteColors.lightGray
+            button.tintColor = PaletteColors.blueTint
+            self.bindEventsSort()
+            self.presentationModel.sortRating(for: self.ratingType)
+        }))
+    }
+    
+    @objc func swipeRight() {
+        indicatorButtonLeadingConstraint.isActive = false
+        var const: CGFloat
+        var button: UIButton
+        switch ratingType {
+        case .fast:
+            const = classicButton.frame.origin.x
+            button = classicButton
+            ratingType = .classic
+        case .veryFast:
+            const = fastButton.frame.origin.x
+            button = fastButton
+            ratingType = .fast
+        case .classic:
+            const = commonButton.frame.origin.x
+            button = commonButton
+            ratingType = .common
+        case .common:
+            return
+        }
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 20, animations: ({
+            self.indicatorView.frame.origin.x = const + 12
+            
+            self.commonButton.tintColor = PaletteColors.lightGray
+            self.classicButton.tintColor = PaletteColors.lightGray
+            self.fastButton.tintColor = PaletteColors.lightGray
+            self.veryFastButton.tintColor = PaletteColors.lightGray
+            button.tintColor = PaletteColors.blueTint
+            self.bindEventsSort()
+            self.presentationModel.sortRating(for: self.ratingType)
+        }))
     }
     
     override func viewDidAppear(_ animated: Bool) {

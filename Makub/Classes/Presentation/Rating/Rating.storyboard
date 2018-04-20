@@ -93,6 +93,7 @@
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="TTf-FL-yYb" firstAttribute="bottom" secondItem="2RM-BE-IdT" secondAttribute="bottom" id="6EX-XO-Z1t"/>
                             <constraint firstItem="QEB-5o-fkH" firstAttribute="top" secondItem="xFw-Ek-N2N" secondAttribute="top" id="AZY-RG-bhM"/>
