@@ -66,6 +66,10 @@ final class GamesViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         tabBarController?.delegate = self
+        if presentationModel.gamesViewModels.isEmpty {
+            bindEventsObtainGames()
+            presentationModel.obtainGamesWithClubs()
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {

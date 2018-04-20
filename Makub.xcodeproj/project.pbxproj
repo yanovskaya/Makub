@@ -130,6 +130,13 @@
 		C4C259BA2078DF4800C0CDD4 /* FilterGamesPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C259B92078DF4800C0CDD4 /* FilterGamesPresentationModel.swift */; };
 		C4C4A57B208A645700AB6384 /* Account.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4C4A57A208A645700AB6384 /* Account.storyboard */; };
 		C4C4A57D208A64C300AB6384 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C4A57C208A64C300AB6384 /* AccountViewController.swift */; };
+		C4C4A580208A8CA900AB6384 /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4C4A57F208A8CA900AB6384 /* UserCell.xib */; };
+		C4C4A582208A8CC600AB6384 /* SettingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4C4A581208A8CC600AB6384 /* SettingCell.xib */; };
+		C4C4A584208A8D1500AB6384 /* ExitCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4C4A583208A8D1500AB6384 /* ExitCell.xib */; };
+		C4C4A586208A919C00AB6384 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C4A585208A919C00AB6384 /* UserCell.swift */; };
+		C4C4A588208A9AA200AB6384 /* Settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = C4C4A587208A9AA200AB6384 /* Settings.plist */; };
+		C4C4A58B208A9E7100AB6384 /* AccountPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C4A58A208A9E7100AB6384 /* AccountPresentationModel.swift */; };
+		C4C4A593208AA34B00AB6384 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C4A592208AA34B00AB6384 /* SettingCell.swift */; };
 		C4D4E4EF20606FEF000A9216 /* RecoverPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D4E4EE20606FEF000A9216 /* RecoverPresentationModel.swift */; };
 		C4D4E4F22060860F000A9216 /* AuthRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D4E4F12060860F000A9216 /* AuthRouter.swift */; };
 		C4D4E4FA20618E63000A9216 /* RatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D4E4F920618E63000A9216 /* RatingViewController.swift */; };
@@ -280,6 +287,13 @@
 		C4C259B92078DF4800C0CDD4 /* FilterGamesPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterGamesPresentationModel.swift; sourceTree = "<group>"; };
 		C4C4A57A208A645700AB6384 /* Account.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Account.storyboard; sourceTree = "<group>"; };
 		C4C4A57C208A64C300AB6384 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		C4C4A57F208A8CA900AB6384 /* UserCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
+		C4C4A581208A8CC600AB6384 /* SettingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingCell.xib; sourceTree = "<group>"; };
+		C4C4A583208A8D1500AB6384 /* ExitCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExitCell.xib; sourceTree = "<group>"; };
+		C4C4A585208A919C00AB6384 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		C4C4A587208A9AA200AB6384 /* Settings.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Settings.plist; sourceTree = "<group>"; };
+		C4C4A58A208A9E7100AB6384 /* AccountPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountPresentationModel.swift; sourceTree = "<group>"; };
+		C4C4A592208AA34B00AB6384 /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
 		C4D4E4EE20606FEF000A9216 /* RecoverPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPresentationModel.swift; sourceTree = "<group>"; };
 		C4D4E4F12060860F000A9216 /* AuthRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRouter.swift; sourceTree = "<group>"; };
 		C4D4E4F920618E63000A9216 /* RatingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingViewController.swift; sourceTree = "<group>"; };
@@ -789,6 +803,7 @@
 			children = (
 				C44D60BB205529C200A5C50F /* Info.plist */,
 				C4C259B72078DBEA00C0CDD4 /* FilterGamesOptions.plist */,
+				C4C4A587208A9AA200AB6384 /* Settings.plist */,
 			);
 			path = "Supporting files";
 			sourceTree = "<group>";
@@ -799,11 +814,11 @@
 				C44D60C920553B0100A5C50F /* User.swift */,
 				C4A303F62066EAA4008BFE5E /* News.swift */,
 				C41B3C2B2072573600A2B652 /* Game.swift */,
-				C463186D207A0DE000E14DAC /* Filter.swift */,
 				C4E112832083605D00EE7DC4 /* Comment.swift */,
 				C41B3C332072640100A2B652 /* Club.swift */,
 				C41B3C352072642000A2B652 /* Tournament.swift */,
 				C427F2DF2088BC45007D6C83 /* Rating.swift */,
+				C463186D207A0DE000E14DAC /* Filter.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1017,6 +1032,8 @@
 			children = (
 				C4C4A57A208A645700AB6384 /* Account.storyboard */,
 				C4C4A576208A641800AB6384 /* View Controller */,
+				C4C4A589208A9E5500AB6384 /* Presentation Model */,
+				C4C4A57E208A8C4900AB6384 /* View */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -1027,6 +1044,26 @@
 				C4C4A57C208A64C300AB6384 /* AccountViewController.swift */,
 			);
 			path = "View Controller";
+			sourceTree = "<group>";
+		};
+		C4C4A57E208A8C4900AB6384 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C4C4A57F208A8CA900AB6384 /* UserCell.xib */,
+				C4C4A581208A8CC600AB6384 /* SettingCell.xib */,
+				C4C4A583208A8D1500AB6384 /* ExitCell.xib */,
+				C4C4A585208A919C00AB6384 /* UserCell.swift */,
+				C4C4A592208AA34B00AB6384 /* SettingCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C4C4A589208A9E5500AB6384 /* Presentation Model */ = {
+			isa = PBXGroup;
+			children = (
+				C4C4A58A208A9E7100AB6384 /* AccountPresentationModel.swift */,
+			);
+			path = "Presentation Model";
 			sourceTree = "<group>";
 		};
 		C4D4E4F0206085BD000A9216 /* Router */ = {
@@ -1191,11 +1228,15 @@
 				C4E1126D2082C58400EE7DC4 /* AddCommentCell.xib in Resources */,
 				C427F2B220869DBC007D6C83 /* TournamentCell.xib in Resources */,
 				C4E1126B2082C56000EE7DC4 /* GameInfoCell.xib in Resources */,
+				C4C4A588208A9AA200AB6384 /* Settings.plist in Resources */,
+				C4C4A584208A8D1500AB6384 /* ExitCell.xib in Resources */,
+				C4C4A582208A8CC600AB6384 /* SettingCell.xib in Resources */,
 				C4C259B42078CCCA00C0CDD4 /* OptionFilterCell.xib in Resources */,
 				C4C259B02078CCA200C0CDD4 /* TitleFilterCell.xib in Resources */,
 				C414F0D820596DE8001961EC /* Roboto-Regular.otf in Resources */,
 				C430FD05208103240019D9CE /* Auth.storyboard in Resources */,
 				C4D4E5022061934F000A9216 /* News.storyboard in Resources */,
+				C4C4A580208A8CA900AB6384 /* UserCell.xib in Resources */,
 				C41B3C2520721D2300A2B652 /* GamesCell.xib in Resources */,
 				C4A30404206709DF008BFE5E /* NewsCell.xib in Resources */,
 				C4C259B82078DBEA00C0CDD4 /* FilterGamesOptions.plist in Resources */,
@@ -1302,11 +1343,13 @@
 				C49162202085DED300A95E07 /* AddNewsPresentationModel.swift in Sources */,
 				C41B3CF72072F70A00A2B652 /* AuthService.swift in Sources */,
 				C4BC7104205F2BEA00332D7E /* AuthPassButton.swift in Sources */,
+				C4C4A593208AA34B00AB6384 /* SettingCell.swift in Sources */,
 				C4E1127E20834B1700EE7DC4 /* CommentsCell.swift in Sources */,
 				C44D60B2205529C200A5C50F /* AuthViewController.swift in Sources */,
 				C49162242085E10300A95E07 /* AddCommentViewControllerDelegate.swift in Sources */,
 				C41B3CEE2072F64B00A2B652 /* AuthServiceImpl.swift in Sources */,
 				C42940CB20827D2B0026B2C3 /* CommentsResponse.swift in Sources */,
+				C4C4A58B208A9E7100AB6384 /* AccountPresentationModel.swift in Sources */,
 				C472A6BF205B16D500768585 /* PresentationModel.swift in Sources */,
 				C427F2E72088BDD2007D6C83 /* RatingService.swift in Sources */,
 				C41B3CFE2072F76B00A2B652 /* NewsRepsonse.swift in Sources */,
@@ -1381,6 +1424,7 @@
 				C48C71D22083811A007D984B /* CommentViewModel.swift in Sources */,
 				C42940C420827BA60026B2C3 /* GameInfoPresentationModel.swift in Sources */,
 				C463186C207964C700E14DAC /* UserDefaultsKeys.swift in Sources */,
+				C4C4A586208A919C00AB6384 /* UserCell.swift in Sources */,
 				C41B3CE82072F61600A2B652 /* GamesServiceImpl.swift in Sources */,
 				C42924B0205C81E700E6D568 /* RecoverViewController.swift in Sources */,
 				C4916228208624C600A95E07 /* UILabel+SetLineSpacing.swift in Sources */,

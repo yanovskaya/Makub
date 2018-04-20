@@ -158,7 +158,7 @@ final class RatingCell: UICollectionViewCell {
         case 1:
             color = PaletteColors.gold
         case 2:
-            color = PaletteColors.silver
+            color = PaletteColors.lightGray
         case 3:
             color = PaletteColors.bronze
         default:

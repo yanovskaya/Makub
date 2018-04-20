@@ -65,6 +65,10 @@ final class RatingViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         tabBarController?.delegate = self
+        if presentationModel.ratingViewModels.isEmpty {
+            bindEventsRating()
+            presentationModel.obtainRatingWithUser()
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {

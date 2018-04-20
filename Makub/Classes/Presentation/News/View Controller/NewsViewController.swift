@@ -72,6 +72,11 @@ final class NewsViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        tabBarController?.delegate = self
+        if presentationModel.newsViewModels.isEmpty {
+            bindEventsObtainNewsWithUser()
+            presentationModel.obtainNewsWithUser()
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
