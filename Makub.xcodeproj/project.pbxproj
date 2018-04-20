@@ -128,6 +128,8 @@
 		C4C259B62078CCDE00C0CDD4 /* OptionFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C259B52078CCDE00C0CDD4 /* OptionFilterCell.swift */; };
 		C4C259B82078DBEA00C0CDD4 /* FilterGamesOptions.plist in Resources */ = {isa = PBXBuildFile; fileRef = C4C259B72078DBEA00C0CDD4 /* FilterGamesOptions.plist */; };
 		C4C259BA2078DF4800C0CDD4 /* FilterGamesPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C259B92078DF4800C0CDD4 /* FilterGamesPresentationModel.swift */; };
+		C4C4A57B208A645700AB6384 /* Account.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4C4A57A208A645700AB6384 /* Account.storyboard */; };
+		C4C4A57D208A64C300AB6384 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C4A57C208A64C300AB6384 /* AccountViewController.swift */; };
 		C4D4E4EF20606FEF000A9216 /* RecoverPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D4E4EE20606FEF000A9216 /* RecoverPresentationModel.swift */; };
 		C4D4E4F22060860F000A9216 /* AuthRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D4E4F12060860F000A9216 /* AuthRouter.swift */; };
 		C4D4E4FA20618E63000A9216 /* RatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D4E4F920618E63000A9216 /* RatingViewController.swift */; };
@@ -276,6 +278,8 @@
 		C4C259B52078CCDE00C0CDD4 /* OptionFilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionFilterCell.swift; sourceTree = "<group>"; };
 		C4C259B72078DBEA00C0CDD4 /* FilterGamesOptions.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = FilterGamesOptions.plist; sourceTree = "<group>"; };
 		C4C259B92078DF4800C0CDD4 /* FilterGamesPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterGamesPresentationModel.swift; sourceTree = "<group>"; };
+		C4C4A57A208A645700AB6384 /* Account.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Account.storyboard; sourceTree = "<group>"; };
+		C4C4A57C208A64C300AB6384 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		C4D4E4EE20606FEF000A9216 /* RecoverPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPresentationModel.swift; sourceTree = "<group>"; };
 		C4D4E4F12060860F000A9216 /* AuthRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRouter.swift; sourceTree = "<group>"; };
 		C4D4E4F920618E63000A9216 /* RatingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingViewController.swift; sourceTree = "<group>"; };
@@ -807,6 +811,7 @@
 		C44D60C62055390F00A5C50F /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				C4C4A575208A640F00AB6384 /* Account */,
 				C491622920862DBC00A95E07 /* Tournaments */,
 				C41B3C1B2072187D00A2B652 /* Games */,
 				C4D4E4F820618E47000A9216 /* Rating */,
@@ -1007,6 +1012,23 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
+		C4C4A575208A640F00AB6384 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				C4C4A57A208A645700AB6384 /* Account.storyboard */,
+				C4C4A576208A641800AB6384 /* View Controller */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		C4C4A576208A641800AB6384 /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C4C4A57C208A64C300AB6384 /* AccountViewController.swift */,
+			);
+			path = "View Controller";
+			sourceTree = "<group>";
+		};
 		C4D4E4F0206085BD000A9216 /* Router */ = {
 			isa = PBXGroup;
 			children = (
@@ -1179,6 +1201,7 @@
 				C4C259B82078DBEA00C0CDD4 /* FilterGamesOptions.plist in Resources */,
 				C4D4E50020619339000A9216 /* Rating.storyboard in Resources */,
 				C414F0D520596DE8001961EC /* Roboto-Medium.otf in Resources */,
+				C4C4A57B208A645700AB6384 /* Account.storyboard in Resources */,
 				C414F0D720596DE8001961EC /* Roboto-Bold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1287,6 +1310,7 @@
 				C472A6BF205B16D500768585 /* PresentationModel.swift in Sources */,
 				C427F2E72088BDD2007D6C83 /* RatingService.swift in Sources */,
 				C41B3CFE2072F76B00A2B652 /* NewsRepsonse.swift in Sources */,
+				C4C4A57D208A64C300AB6384 /* AccountViewController.swift in Sources */,
 				C427F2E02088BC45007D6C83 /* Rating.swift in Sources */,
 				C4C259A82077662100C0CDD4 /* AddNewsViewControllerDelegate.swift in Sources */,
 				C4E1127C20834B0400EE7DC4 /* AddCommentCell.swift in Sources */,

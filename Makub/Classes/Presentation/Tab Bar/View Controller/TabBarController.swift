@@ -23,6 +23,7 @@ final class TabBarController: UITabBarController {
     private let newsStoryboard = UIStoryboard(with: StoryboardTitle.news)
     private let ratingStoryboard = UIStoryboard(with: StoryboardTitle.rating)
     private let gamesStoryboard = UIStoryboard(with: StoryboardTitle.games)
+    private let accountStoryboard = UIStoryboard(with: StoryboardTitle.account)
     
     // MARK: - ViewController lifecycle
     
@@ -49,7 +50,9 @@ final class TabBarController: UITabBarController {
         let gamesVC = gamesStoryboard.viewController(GamesViewController.self)
         gamesVC.tabBarItem = UITabBarItem(title: nil, image: gamesItem, tag: 2)
         
-        let controllerArray = [newsVC, ratingVC, gamesVC]
+        let accountVC = accountStoryboard.viewController(AccountViewController.self)
+        
+        let controllerArray = [newsVC, ratingVC, gamesVC, accountVC]
         viewControllers = controllerArray.map { UINavigationController(rootViewController: $0) }
     }
 }
