@@ -72,6 +72,8 @@ final class GameInfoViewController: UIViewController {
         presentationModel.changeStateHandler = { [weak self] status in
             switch status {
             case .loading:
+                PKHUD.sharedHUD.dimsBackground = false
+                PKHUD.sharedHUD.userInteractionOnUnderlyingViewsEnabled = true
                 DispatchQueue.main.async {
                     HUD.show(.progress)
                 }
