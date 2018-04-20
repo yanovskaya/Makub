@@ -31,6 +31,8 @@ final class RatingCell: UICollectionViewCell {
     @IBOutlet private var clubLabel: UILabel!
     @IBOutlet private var scoreLabel: UILabel!
     
+    @IBOutlet private var playerWidthConstraint: NSLayoutConstraint!
+    
     // MARK: - Private Properties
     
     private let indicator = UserIndicator()
@@ -108,8 +110,15 @@ final class RatingCell: UICollectionViewCell {
     
     func configureCellWidth(_ width: CGFloat) {
         let cellMargins: CGFloat = 5 * 2
-        let additionalMargin: CGFloat = 5
-        clubLabel.widthAnchor.constraint(equalToConstant: width / 2 - cellMargins - additionalMargin).isActive = true
+        var additionalMargin: CGFloat
+        if ratingPosition < 10 {
+            additionalMargin = 0
+        } else if ratingPosition < 100 {
+            additionalMargin = 3
+        } else {
+            additionalMargin = 5
+        }
+        playerWidthConstraint.constant = width / 2 - cellMargins - additionalMargin
     }
     
     // MARK: - Private Methods

@@ -61,11 +61,6 @@ final class GameInfoViewController: UIViewController {
         tabBarController?.tabBarItem.isEnabled = false
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        HUD.hide()
-    }
-    
     // MARK: - Private Methods
     
     private func bindEventsObtainGameInfo() {

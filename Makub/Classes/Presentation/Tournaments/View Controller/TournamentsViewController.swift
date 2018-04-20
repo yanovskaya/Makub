@@ -60,11 +60,6 @@ class TournamentsViewController: UIViewController {
         tabBarController?.delegate = self
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        HUD.hide()
-    }
-    
     // MARK: - Public Methods
     
     private func bindEventsObtainTournaments() {
