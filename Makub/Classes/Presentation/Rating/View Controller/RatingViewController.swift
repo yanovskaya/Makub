@@ -67,6 +67,11 @@ final class RatingViewController: UIViewController {
         tabBarController?.delegate = self
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        HUD.hide()
+    }
+    
     // MARK: - Private Methods
     
     private func bindEventsRating() {

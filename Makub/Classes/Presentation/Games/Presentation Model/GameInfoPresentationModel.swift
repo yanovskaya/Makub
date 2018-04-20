@@ -37,16 +37,14 @@ final class GameInfoPresentationModel: PresentationModel {
         group.enter()
         obtainUserInfo()
         
+        group.enter()
+        obtainComments()
+        
         if gameViewModel.stage != "0" {
             group.enter()
             obtainTournament()
         } else {
             tournamentViewModel = TournamentForGameViewModel(title: Constants.friendGame)
-        }
-        
-        if gameViewModel.comments != "0" {
-            group.enter()
-            obtainComments()
         }
         
         group.notify(queue: DispatchQueue.main) {
@@ -117,7 +115,7 @@ final class GameInfoPresentationModel: PresentationModel {
                 self.commentViewModels = model.comments.compactMap { CommentViewModel($0) }
                 self.group.leave()
             case .serviceFailure(let error):
-                self.error = error.code
+                self.group.leave()
             }
         }
     }
