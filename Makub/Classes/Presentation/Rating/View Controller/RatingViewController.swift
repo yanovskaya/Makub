@@ -25,7 +25,7 @@ final class RatingViewController: UIViewController {
     
     private enum LayoutConstants {
         static let leadingMargin: CGFloat = 5
-        static let topEdge: CGFloat = 10
+        static let topEdge: CGFloat = 8
         static let bottomEdge: CGFloat = 10
         static let cellSpacing: CGFloat = 3
     }
@@ -53,7 +53,6 @@ final class RatingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.isNavigationBarHidden = true
-        
         view.backgroundColor = PaletteColors.blueBackground
         indicatorView.backgroundColor = PaletteColors.blueTint
         indicatorView.clipsToBounds = true
@@ -74,7 +73,7 @@ final class RatingViewController: UIViewController {
         configureCollectionView()
         configureButtonText()
         bindEventsRating()
-        presentationModel.obtainRating()
+        presentationModel.obtainRatingWithUser()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -221,7 +220,12 @@ extension RatingViewController: UICollectionViewDataSource {
         let cellIdentifier = Constants.cellIdentifier
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? RatingCell else { return UICollectionViewCell() }
         cell.type = ratingType
-        cell.position = indexPath.row + 1
+        cell.ratingPosition = indexPath.row + 1
+        if viewModel.id == presentationModel.userViewModel.id {
+            cell.isUserRating = true
+        } else {
+            cell.isUserRating = false
+        }
         cell.configureCellWidth(view.frame.width)
         cell.configure(for: viewModel)
         cell.layoutIfNeeded()
@@ -245,7 +249,7 @@ extension RatingViewController: UICollectionViewDelegateFlowLayout {
 
 // MARK: - UITabBarControllerDelegate
 
-// scroll to top + hide !!!!!!
+/////// scroll to top + hide !!!!!!
 extension RatingViewController: UITabBarControllerDelegate {
     
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {

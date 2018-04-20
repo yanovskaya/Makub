@@ -20,8 +20,6 @@ final class NewsPresentationModel: PresentationModel {
     
     private let userService = ServiceLayer.shared.userService
     private let newsService = ServiceLayer.shared.newsService
-    
-    private var userCacheIsObtained = false
 
     private let group = DispatchGroup()
     private var error: Int!
@@ -30,8 +28,7 @@ final class NewsPresentationModel: PresentationModel {
     
     func obtainNewsWithUser() {
         group.enter()
-        obtainUserCache()
-        if !userCacheIsObtained { state = .loading }
+        state = .loading
         userService.obtainUserInfo(useCache: true) { result in
             switch result {
             case .serviceSuccess(let model):
@@ -123,22 +120,6 @@ final class NewsPresentationModel: PresentationModel {
                 self.obtainOnlyNews()
             case .serviceFailure(let error):
                 self.state = .error(code: error.code)
-            }
-        }
-    }
-    
-    // MARK: - Private Methods
-    
-    private func obtainUserCache() {
-        userService.obtainRealmCache(error: nil) { result in
-            switch result {
-            case .serviceSuccess(let model):
-                guard let model = model else { return }
-                self.userViewModel = UserViewModel(model)
-                self.state = .rich
-                self.userCacheIsObtained = true
-            case .serviceFailure:
-                break
             }
         }
     }

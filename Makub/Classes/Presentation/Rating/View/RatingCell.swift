@@ -24,7 +24,7 @@ final class RatingCell: UICollectionViewCell {
     
     // MARK: - IBOutlets
     
-    @IBOutlet private var borderView: UIView!
+    @IBOutlet private var backgroundBorderView: UIView!
     @IBOutlet private var playerImageView: UIImageView!
     @IBOutlet private var ratingPositionLabel: UILabel!
     @IBOutlet private var playerLabel: UILabel!
@@ -35,9 +35,16 @@ final class RatingCell: UICollectionViewCell {
     
     private let indicator = UserIndicator()
     var type: RatingType!
-    var position: Int! {
+    
+    var ratingPosition: Int! {
         didSet {
             configureBorder()
+        }
+    }
+    
+    var isUserRating: Bool! {
+        didSet {
+            configureColor()
         }
     }
     
@@ -46,15 +53,14 @@ final class RatingCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         configureFont()
-        configureColor()
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
         playerImageView.clipsToBounds = true
-        borderView.clipsToBounds = true
+        backgroundBorderView.clipsToBounds = true
         playerImageView.layer.cornerRadius = playerImageView.frame.width / 2
-        borderView.layer.cornerRadius = borderView.frame.width / 2
+        backgroundBorderView.layer.cornerRadius = backgroundBorderView.frame.width / 2
     }
     
     // MARK: - Prepare for Reuse
@@ -71,7 +77,7 @@ final class RatingCell: UICollectionViewCell {
     // MARK: - Public Methods
     
     func configure(for viewModel: RatingViewModel) {
-        ratingPositionLabel.text = "#" + String(position) 
+        ratingPositionLabel.text = "#" + String(ratingPosition) 
         playerLabel.text = viewModel.fullname
         clubLabel.text = viewModel.club
         
@@ -101,7 +107,7 @@ final class RatingCell: UICollectionViewCell {
     }
     
     func configureCellWidth(_ width: CGFloat) {
-        clubLabel.widthAnchor.constraint(equalToConstant: width / 2).isActive = true
+        clubLabel.widthAnchor.constraint(equalToConstant: width / 2 - 5).isActive = true
     }
     
     // MARK: - Private Methods
@@ -114,18 +120,30 @@ final class RatingCell: UICollectionViewCell {
     }
     
     private func configureColor() {
-        ratingPositionLabel.textColor = PaletteColors.darkGray
-        playerLabel.textColor = PaletteColors.darkGray
-        clubLabel.textColor = PaletteColors.textGray
-        ratingPositionLabel.textColor = PaletteColors.darkGray
-        scoreLabel.textColor = PaletteColors.darkGray
+        if isUserRating {
+            backgroundColor = PaletteColors.blueTint
+            backgroundBorderView.backgroundColor = PaletteColors.blueTint
+            ratingPositionLabel.textColor = .white
+            playerLabel.textColor = .white
+            clubLabel.textColor = .white
+            ratingPositionLabel.textColor = .white
+            scoreLabel.textColor = .white
+        } else {
+            backgroundColor = .white
+            backgroundBorderView.backgroundColor = .white
+            ratingPositionLabel.textColor = PaletteColors.darkGray
+            playerLabel.textColor = PaletteColors.darkGray
+            clubLabel.textColor = PaletteColors.textGray
+            ratingPositionLabel.textColor = PaletteColors.darkGray
+            scoreLabel.textColor = PaletteColors.darkGray
+        }
     }
     
     private func configureBorder() {
-        borderView.backgroundColor = .white
-        borderView.layer.borderWidth = 1.5
+        backgroundBorderView.backgroundColor = .white
+        backgroundBorderView.layer.borderWidth = 1.5
         var color: UIColor
-        switch position {
+        switch ratingPosition {
         case 1:
             color = PaletteColors.gold
         case 2:
@@ -135,6 +153,6 @@ final class RatingCell: UICollectionViewCell {
         default:
             color = PaletteColors.standardBorder
         }
-        borderView.layer.borderColor = color.cgColor
+        backgroundBorderView.layer.borderColor = color.cgColor
     }
 }

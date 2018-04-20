@@ -28,8 +28,6 @@ final class GameInfoPresentationModel: PresentationModel {
     private let gameInfoService = ServiceLayer.shared.gameInfoService
     private let userService = ServiceLayer.shared.userService
     
-    private var userCacheIsObtained = false
-    
     private let group = DispatchGroup()
     private var error: Int!
     

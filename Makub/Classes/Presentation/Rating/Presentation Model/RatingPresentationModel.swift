@@ -14,24 +14,30 @@ final class RatingPresentationModel: PresentationModel {
     // MARK: - Public Properties
     
     var ratingViewModels = [RatingViewModel]()
+    var userViewModel: UserViewModel!
     
     // MARK: - Private Properties
     
     private let ratingService = ServiceLayer.shared.ratingService
+    private let userService = ServiceLayer.shared.userService
+    
+    private let group = DispatchGroup()
+    private var error: Int!
     
     // MARK: - Public Methods
     
-    func obtainRating() {
-        state = .loading
-        ratingService.obtainRating(useCache: true) { result in
-            switch result {
-            case .serviceSuccess(let model):
-                guard let model = model else { return }
-                self.ratingViewModels = model.rating.compactMap { RatingViewModel($0) }
-                self.sortViewModels(type: .common)
+    func obtainRatingWithUser() {
+        group.enter()
+        obtainUserInfo()
+        
+        group.enter()
+        obtainRating()
+        
+        group.notify(queue: DispatchQueue.main) {
+            if self.error != nil {
+                self.state = .error(code: self.error)
+            } else {
                 self.state = .rich
-            case .serviceFailure(let error):
-                self.state = .error(code: error.code)
             }
         }
     }
@@ -68,6 +74,36 @@ final class RatingPresentationModel: PresentationModel {
                 return $0.fastRating > $1.fastRating
             case .veryFast:
                 return $0.veryFastRating > $1.veryFastRating
+            }
+        }
+    }
+    
+    private func obtainUserInfo() {
+        state = .loading
+        userService.obtainUserInfo(useCache: true) { result in
+            switch result {
+            case .serviceSuccess(let model):
+                guard let model = model else { return }
+                self.userViewModel = UserViewModel(model)
+                self.group.leave()
+            case .serviceFailure(let error):
+                self.error = error.code
+                self.group.leave()
+            }
+        }
+    }
+    
+    private func obtainRating() {
+        state = .loading
+        ratingService.obtainRating(useCache: true) { result in
+            switch result {
+            case .serviceSuccess(let model):
+                guard let model = model else { return }
+                self.ratingViewModels = model.rating.compactMap { RatingViewModel($0) }
+                self.sortViewModels(type: .common)
+                self.state = .rich
+            case .serviceFailure(let error):
+                self.state = .error(code: error.code)
             }
         }
     }
