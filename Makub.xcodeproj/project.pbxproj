@@ -139,6 +139,12 @@
 		C4C4A593208AA34B00AB6384 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C4A592208AA34B00AB6384 /* SettingCell.swift */; };
 		C4C4A597208ABA2900AB6384 /* ExitCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C4A596208ABA2900AB6384 /* ExitCell.swift */; };
 		C4C4A59A208AC01500AB6384 /* String+GetRomanRank.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C4A599208AC01500AB6384 /* String+GetRomanRank.swift */; };
+		C4C4A5A0208B5DCB00AB6384 /* GamesAchievementsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4C4A59F208B5DCB00AB6384 /* GamesAchievementsCell.xib */; };
+		C4C4A5A2208B5F2800AB6384 /* GamesAchievementsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C4A5A1208B5F2800AB6384 /* GamesAchievementsCell.swift */; };
+		C4C4A5A5208B5F7100AB6384 /* CupsAchievementsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C4A5A3208B5F7100AB6384 /* CupsAchievementsCell.swift */; };
+		C4C4A5A8208B5FD000AB6384 /* CupsAchievementsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4C4A5A7208B5FD000AB6384 /* CupsAchievementsCell.xib */; };
+		C4C4A5AB208B674E00AB6384 /* AccountRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C4A5AA208B674E00AB6384 /* AccountRouter.swift */; };
+		C4C4A5AD208B688800AB6384 /* AchievementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C4A5AC208B688800AB6384 /* AchievementsViewController.swift */; };
 		C4D4E4EF20606FEF000A9216 /* RecoverPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D4E4EE20606FEF000A9216 /* RecoverPresentationModel.swift */; };
 		C4D4E4F22060860F000A9216 /* AuthRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D4E4F12060860F000A9216 /* AuthRouter.swift */; };
 		C4D4E4FA20618E63000A9216 /* RatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D4E4F920618E63000A9216 /* RatingViewController.swift */; };
@@ -298,6 +304,12 @@
 		C4C4A592208AA34B00AB6384 /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
 		C4C4A596208ABA2900AB6384 /* ExitCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExitCell.swift; sourceTree = "<group>"; };
 		C4C4A599208AC01500AB6384 /* String+GetRomanRank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+GetRomanRank.swift"; sourceTree = "<group>"; };
+		C4C4A59F208B5DCB00AB6384 /* GamesAchievementsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GamesAchievementsCell.xib; sourceTree = "<group>"; };
+		C4C4A5A1208B5F2800AB6384 /* GamesAchievementsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesAchievementsCell.swift; sourceTree = "<group>"; };
+		C4C4A5A3208B5F7100AB6384 /* CupsAchievementsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CupsAchievementsCell.swift; sourceTree = "<group>"; };
+		C4C4A5A7208B5FD000AB6384 /* CupsAchievementsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CupsAchievementsCell.xib; sourceTree = "<group>"; };
+		C4C4A5AA208B674E00AB6384 /* AccountRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRouter.swift; sourceTree = "<group>"; };
+		C4C4A5AC208B688800AB6384 /* AchievementsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsViewController.swift; sourceTree = "<group>"; };
 		C4D4E4EE20606FEF000A9216 /* RecoverPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPresentationModel.swift; sourceTree = "<group>"; };
 		C4D4E4F12060860F000A9216 /* AuthRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRouter.swift; sourceTree = "<group>"; };
 		C4D4E4F920618E63000A9216 /* RatingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingViewController.swift; sourceTree = "<group>"; };
@@ -1036,6 +1048,7 @@
 			isa = PBXGroup;
 			children = (
 				C4C4A57A208A645700AB6384 /* Account.storyboard */,
+				C4C4A5A9208B673900AB6384 /* Router */,
 				C4C4A576208A641800AB6384 /* View Controller */,
 				C4C4A589208A9E5500AB6384 /* Presentation Model */,
 				C4C4A57E208A8C4900AB6384 /* View */,
@@ -1047,6 +1060,7 @@
 			isa = PBXGroup;
 			children = (
 				C4C4A57C208A64C300AB6384 /* AccountViewController.swift */,
+				C4C4A5AC208B688800AB6384 /* AchievementsViewController.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -1054,12 +1068,8 @@
 		C4C4A57E208A8C4900AB6384 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				C4C4A57F208A8CA900AB6384 /* UserCell.xib */,
-				C4C4A581208A8CC600AB6384 /* SettingCell.xib */,
-				C4C4A583208A8D1500AB6384 /* ExitCell.xib */,
-				C4C4A585208A919C00AB6384 /* UserCell.swift */,
-				C4C4A592208AA34B00AB6384 /* SettingCell.swift */,
-				C4C4A596208ABA2900AB6384 /* ExitCell.swift */,
+				C4C4A5AE208B6CA100AB6384 /* Account */,
+				C4C4A5AF208B6CB200AB6384 /* Achievements */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1078,6 +1088,38 @@
 				C4C4A599208AC01500AB6384 /* String+GetRomanRank.swift */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		C4C4A5A9208B673900AB6384 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				C4C4A5AA208B674E00AB6384 /* AccountRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		C4C4A5AE208B6CA100AB6384 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				C4C4A57F208A8CA900AB6384 /* UserCell.xib */,
+				C4C4A581208A8CC600AB6384 /* SettingCell.xib */,
+				C4C4A583208A8D1500AB6384 /* ExitCell.xib */,
+				C4C4A585208A919C00AB6384 /* UserCell.swift */,
+				C4C4A592208AA34B00AB6384 /* SettingCell.swift */,
+				C4C4A596208ABA2900AB6384 /* ExitCell.swift */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		C4C4A5AF208B6CB200AB6384 /* Achievements */ = {
+			isa = PBXGroup;
+			children = (
+				C4C4A59F208B5DCB00AB6384 /* GamesAchievementsCell.xib */,
+				C4C4A5A7208B5FD000AB6384 /* CupsAchievementsCell.xib */,
+				C4C4A5A1208B5F2800AB6384 /* GamesAchievementsCell.swift */,
+				C4C4A5A3208B5F7100AB6384 /* CupsAchievementsCell.swift */,
+			);
+			path = Achievements;
 			sourceTree = "<group>";
 		};
 		C4D4E4F0206085BD000A9216 /* Router */ = {
@@ -1234,6 +1276,7 @@
 				C41B3C1D2072189E00A2B652 /* Games.storyboard in Resources */,
 				C427F2DC2088B5E1007D6C83 /* RatingCell.xib in Resources */,
 				C491622D20862DEE00A95E07 /* Tournaments.storyboard in Resources */,
+				C4C4A5A0208B5DCB00AB6384 /* GamesAchievementsCell.xib in Resources */,
 				C44D60BA205529C200A5C50F /* LaunchScreen.storyboard in Resources */,
 				C44D60B7205529C200A5C50F /* Assets.xcassets in Resources */,
 				C4E1126F2082C59700EE7DC4 /* CommentsCell.xib in Resources */,
@@ -1243,6 +1286,7 @@
 				C427F2B220869DBC007D6C83 /* TournamentCell.xib in Resources */,
 				C4E1126B2082C56000EE7DC4 /* GameInfoCell.xib in Resources */,
 				C4C4A588208A9AA200AB6384 /* Settings.plist in Resources */,
+				C4C4A5A8208B5FD000AB6384 /* CupsAchievementsCell.xib in Resources */,
 				C4C4A584208A8D1500AB6384 /* ExitCell.xib in Resources */,
 				C4C4A582208A8CC600AB6384 /* SettingCell.xib in Resources */,
 				C4C259B42078CCCA00C0CDD4 /* OptionFilterCell.xib in Resources */,
@@ -1416,6 +1460,7 @@
 				C4A303F72066EAA4008BFE5E /* News.swift in Sources */,
 				C41B3C20207218CE00A2B652 /* GamesViewController.swift in Sources */,
 				C41B3CFC2072F74900A2B652 /* AuthResponse.swift in Sources */,
+				C4C4A5A2208B5F2800AB6384 /* GamesAchievementsCell.swift in Sources */,
 				C4C259B62078CCDE00C0CDD4 /* OptionFilterCell.swift in Sources */,
 				C42940C220827B060026B2C3 /* GameInfoViewController.swift in Sources */,
 				C4D4E4FE20618FA9000A9216 /* TabBarController.swift in Sources */,
@@ -1433,6 +1478,7 @@
 				C41B3CD72072F50000A2B652 /* Parser.swift in Sources */,
 				C427F2B420869ED0007D6C83 /* TournamentCell.swift in Sources */,
 				C41B3D002072F77A00A2B652 /* GamesResponse.swift in Sources */,
+				C4C4A5AB208B674E00AB6384 /* AccountRouter.swift in Sources */,
 				C408C8CF206D3E7A0053F057 /* AddNewsViewController.swift in Sources */,
 				C4C259A62076A3D000C0CDD4 /* DeleteNewsResponse.swift in Sources */,
 				C4D4E4FA20618E63000A9216 /* RatingViewController.swift in Sources */,
@@ -1445,6 +1491,7 @@
 				C4916228208624C600A95E07 /* UILabel+SetLineSpacing.swift in Sources */,
 				C44D60D22058061100A5C50F /* AuthTextField.swift in Sources */,
 				C41B3CD52072F4F500A2B652 /* RealmCache.swift in Sources */,
+				C4C4A5A5208B5F7100AB6384 /* CupsAchievementsCell.swift in Sources */,
 				C41B3C2C2072573600A2B652 /* Game.swift in Sources */,
 				C44D60EA2058573D00A5C50F /* UIFont+CustomFont.swift in Sources */,
 				C491621C2085314900A95E07 /* AddCommentViewController.swift in Sources */,
@@ -1456,6 +1503,7 @@
 				C4C259BA2078DF4800C0CDD4 /* FilterGamesPresentationModel.swift in Sources */,
 				C472A6D3205C7E8000768585 /* StoryboardTitle.swift in Sources */,
 				C427F2E52088BD9A007D6C83 /* RatingResponse.swift in Sources */,
+				C4C4A5AD208B688800AB6384 /* AchievementsViewController.swift in Sources */,
 				C4D4E4FC20618E8F000A9216 /* NewsViewController.swift in Sources */,
 				C463186A207944AD00E14DAC /* UIImage+DrawCircle.swift in Sources */,
 				C4C4A59A208AC01500AB6384 /* String+GetRomanRank.swift in Sources */,

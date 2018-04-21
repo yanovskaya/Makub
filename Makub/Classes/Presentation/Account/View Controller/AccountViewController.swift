@@ -34,7 +34,7 @@ final class AccountViewController: UICollectionViewController {
     
     // MARK: - Private Properties
 
-    private var settingsAreObtained = false
+    private let router = AccountRouter()
     
     // MARK: - ViewController lifecycle
     
@@ -55,7 +55,7 @@ final class AccountViewController: UICollectionViewController {
     // MARK: - UICollectionViewDataSource
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        if settingsAreObtained {
+        if presentationModel.userViewModel != nil {
             return 3
         } else {
             return 0
@@ -81,6 +81,12 @@ final class AccountViewController: UICollectionViewController {
         }
     }
     
+    // MARK: - UICollectionViewDelegate
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        router.showAchievementsVC(source: self, indexPath.row)
+    }
+    
     // MARK: - Private Methods
     
     private func bindEvents() {
@@ -91,7 +97,7 @@ final class AccountViewController: UICollectionViewController {
                 PKHUD.sharedHUD.userInteractionOnUnderlyingViewsEnabled = true
                 HUD.show(.progress)
             case .rich:
-                self?.settingsAreObtained = true
+                print(self?.presentationModel.userViewModel.achievements)
                 self?.collectionView?.reloadData()
                 HUD.hide()
             case .error (let code):
@@ -141,6 +147,7 @@ final class AccountViewController: UICollectionViewController {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? UserCell else { return UICollectionViewCell() }
         cell.configure(for: presentationModel.userViewModel)
         cell.configureCellWidth(view.frame.width)
+        cell.configureImage(type: .unfilled)
         return cell
     }
     

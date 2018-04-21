@@ -24,6 +24,7 @@ struct UserViewModel {
     let club: String
     let rankClassic: String?
     let rankFast: String?
+    var achievements = [String]()
     
     // MARK: - Initialization
     
@@ -31,6 +32,9 @@ struct UserViewModel {
         id = user.id
         club = user.club
         fullname = user.name + " " + user.surname
+        for achievemnet in user.dost {
+            achievements.append(achievemnet.name)
+        }
         if let rankClassic = user.razryad, rankClassic != "" {
             self.rankClassic = rankClassic.getRomanRank()
         } else {

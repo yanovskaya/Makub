@@ -9,6 +9,11 @@
 import Kingfisher
 import UIKit
 
+enum RankImage {
+    case unfilled
+    case filled
+}
+
 final class UserCell: UICollectionViewCell, ViewModelConfigurable {
     
     // MARK: - Constants
@@ -18,6 +23,7 @@ final class UserCell: UICollectionViewCell, ViewModelConfigurable {
         static let fast = "Б"
         static let userImage = "photo_default"
         static let rankImage = "rank"
+        static let rankFilledImage = "rank_filled"
     }
     
     private enum SizeConstants {
@@ -53,11 +59,6 @@ final class UserCell: UICollectionViewCell, ViewModelConfigurable {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        rankClassicImageView.image = UIImage(named: Constants.rankImage)?.withRenderingMode(.alwaysTemplate)
-        rankClassicImageView.tintColor = PaletteColors.lightGray
-        rankFastImageView.image = UIImage(named: Constants.rankImage)?.withRenderingMode(.alwaysTemplate)
-        rankFastImageView.tintColor = PaletteColors.lightGray
-        lineView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.2)
         
         configureColor()
         configureFont()
@@ -114,6 +115,33 @@ final class UserCell: UICollectionViewCell, ViewModelConfigurable {
         nameLabel.widthAnchor.constraint(equalToConstant: width - labelMargins).isActive = true
     }
     
+    func configureImage(type: RankImage) {
+        switch type {
+        case .unfilled:
+            rankClassicImageView.image = UIImage(named: Constants.rankImage)?.withRenderingMode(.alwaysTemplate)
+            rankFastImageView.image = UIImage(named: Constants.rankImage)?.withRenderingMode(.alwaysTemplate)
+            classicLabel.textColor = PaletteColors.lightGray
+            rankClassicLabel.textColor = PaletteColors.lightGray
+            fastLabel.textColor = PaletteColors.lightGray
+            rankFastLabel.textColor = PaletteColors.lightGray
+            rankFastLabel.font = UIFont.customFont(.robotoRegularFont(size: 11))
+            rankClassicLabel.font = UIFont.customFont(.robotoRegularFont(size: 11))
+            fastLabel.font = UIFont.customFont(.robotoRegularFont(size: 11))
+            classicLabel.font = UIFont.customFont(.robotoRegularFont(size: 11))
+        case .filled:
+            rankClassicImageView.image = UIImage(named: Constants.rankFilledImage)?.withRenderingMode(.alwaysTemplate)
+            rankFastImageView.image = UIImage(named: Constants.rankFilledImage)?.withRenderingMode(.alwaysTemplate)
+            classicLabel.textColor = .white
+            rankClassicLabel.textColor = .white
+            fastLabel.textColor = .white
+            rankFastLabel.textColor = .white
+            rankFastLabel.font = UIFont.customFont(.robotoBoldFont(size: 11))
+            rankClassicLabel.font = UIFont.customFont(.robotoBoldFont(size: 11))
+            fastLabel.font = UIFont.customFont(.robotoBoldFont(size: 11))
+            classicLabel.font = UIFont.customFont(.robotoBoldFont(size: 11))
+        }
+    }
+    
     // MARK: - Private Methods
     
     private func configureInitialText() {
@@ -122,21 +150,16 @@ final class UserCell: UICollectionViewCell, ViewModelConfigurable {
     }
     
     private func configureColor() {
-        classicLabel.textColor = PaletteColors.lightGray
-        rankClassicLabel.textColor = PaletteColors.lightGray
-        fastLabel.textColor = PaletteColors.lightGray
-        rankFastLabel.textColor = PaletteColors.lightGray
         nameLabel.textColor = PaletteColors.darkGray
         clubLabel.textColor = PaletteColors.textGray
+        rankFastImageView.tintColor = PaletteColors.lightGray
+        rankClassicImageView.tintColor = PaletteColors.lightGray
+        lineView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.2)
     }
     
     private func configureFont() {
         nameLabel.font = UIFont.customFont(.robotoMediumFont(size: 15))
         clubLabel.font = UIFont.customFont(.robotoRegularFont(size: 13))
-        rankFastLabel.font = UIFont.customFont(.robotoRegularFont(size: 11))
-        rankClassicLabel.font = UIFont.customFont(.robotoRegularFont(size: 11))
-        fastLabel.font = UIFont.customFont(.robotoRegularFont(size: 11))
-        classicLabel.font = UIFont.customFont(.robotoRegularFont(size: 11))
     }
     
     private func hideRank(_ rank: RankToHide) {
