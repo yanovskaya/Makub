@@ -84,7 +84,10 @@ final class AccountViewController: UICollectionViewController {
     // MARK: - UICollectionViewDelegate
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        router.showAchievementsVC(source: self, indexPath.row)
+        let section = indexPath.section
+        if section == 1 {
+            settingCell(collectionView, didSelectItemAt: indexPath)
+        }
     }
     
     // MARK: - Private Methods
@@ -97,7 +100,6 @@ final class AccountViewController: UICollectionViewController {
                 PKHUD.sharedHUD.userInteractionOnUnderlyingViewsEnabled = true
                 HUD.show(.progress)
             case .rich:
-                print(self?.presentationModel.userViewModel.achievements)
                 self?.collectionView?.reloadData()
                 HUD.hide()
             case .error (let code):
@@ -165,6 +167,14 @@ final class AccountViewController: UICollectionViewController {
         let cellIdentifier = Constants.exitCellId
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? ExitCell else { return UICollectionViewCell() }
         return cell
+    }
+    
+    // MARK: - didSelectItemAt Methods
+    
+    private func settingCell(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.row == 0 {
+            router.showAchievementsVC(source: self, indexPath.row)
+        }
     }
 }
 

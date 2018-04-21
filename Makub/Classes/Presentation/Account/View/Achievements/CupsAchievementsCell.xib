@@ -16,7 +16,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ps5-8T-H3u">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ps5-8T-H3u">
                     <rect key="frame" x="16" y="10" width="30" height="30"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="30" id="5Ns-Bx-b3S"/>
@@ -40,6 +40,10 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="achievementLabel" destination="Z4K-We-BRn" id="tA2-WE-Dwl"/>
+                <outlet property="cupImageView" destination="ps5-8T-H3u" id="M5s-eK-HtX"/>
+            </connections>
             <point key="canvasLocation" x="62.5" y="438"/>
         </view>
     </objects>

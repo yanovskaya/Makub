@@ -20,7 +20,8 @@ final class AccountRouter {
     /// Account -> Achievements.
     func showAchievementsVC(source accountViewController: AccountViewController, _ index: Int) {
         let achievementsViewController = accountStoryboard.viewController(AchievementsViewController.self)
-        achievementsViewController.userViewModel = accountViewController.presentationModel.userViewModel
+        achievementsViewController.presentationModel.userViewModel = accountViewController.presentationModel.userViewModel
+        achievementsViewController.presentationModel.title = accountViewController.presentationModel.settingModels[index]
         accountViewController.show(achievementsViewController, sender: self)
     }
 }

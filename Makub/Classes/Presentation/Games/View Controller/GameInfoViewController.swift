@@ -40,6 +40,8 @@ final class GameInfoViewController: UIViewController {
     
     private let router = GamesRouter()
     
+    private var gameInfoIsObtained = false
+    
     // MARK: - ViewController lifecycle
     
     override func viewDidLoad() {
@@ -76,6 +78,7 @@ final class GameInfoViewController: UIViewController {
                     HUD.show(.progress)
                 }
             case .rich:
+                self?.gameInfoIsObtained = true
                 self?.gameCollectionView.reloadData()
                 HUD.hide()
             case .error (let code):
@@ -141,7 +144,7 @@ final class GameInfoViewController: UIViewController {
 extension GameInfoViewController: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        if presentationModel.gameViewModel != nil {
+        if gameInfoIsObtained {
             if presentationModel.commentViewModels.count == 0 {
                 return 2
             } else {

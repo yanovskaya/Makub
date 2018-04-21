@@ -246,8 +246,12 @@
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
+                <outlet property="classicPositionLabel" destination="dPm-7l-srN" id="LQm-Fo-ds9"/>
+                <outlet property="commonPositionLabel" destination="fUQ-3r-g6K" id="GCU-Ow-QgU"/>
+                <outlet property="fastPositionLabel" destination="1of-eC-sfE" id="GRI-RW-LE2"/>
                 <outlet property="gamesStatisticsView" destination="EEg-by-xHe" id="zly-GH-5pA"/>
                 <outlet property="lineView" destination="3Tz-sT-s7c" id="xa5-6h-9fY"/>
+                <outlet property="veryFastPositionLabel" destination="XYx-wo-cPE" id="bur-6A-OBS"/>
             </connections>
             <point key="canvasLocation" x="53.5" y="205"/>
         </view>

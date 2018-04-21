@@ -145,6 +145,7 @@
 		C4C4A5A8208B5FD000AB6384 /* CupsAchievementsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4C4A5A7208B5FD000AB6384 /* CupsAchievementsCell.xib */; };
 		C4C4A5AB208B674E00AB6384 /* AccountRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C4A5AA208B674E00AB6384 /* AccountRouter.swift */; };
 		C4C4A5AD208B688800AB6384 /* AchievementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C4A5AC208B688800AB6384 /* AchievementsViewController.swift */; };
+		C4C4A5B1208B7C4300AB6384 /* AchievementsPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C4A5B0208B7C4300AB6384 /* AchievementsPresentationModel.swift */; };
 		C4D4E4EF20606FEF000A9216 /* RecoverPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D4E4EE20606FEF000A9216 /* RecoverPresentationModel.swift */; };
 		C4D4E4F22060860F000A9216 /* AuthRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D4E4F12060860F000A9216 /* AuthRouter.swift */; };
 		C4D4E4FA20618E63000A9216 /* RatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D4E4F920618E63000A9216 /* RatingViewController.swift */; };
@@ -310,6 +311,7 @@
 		C4C4A5A7208B5FD000AB6384 /* CupsAchievementsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CupsAchievementsCell.xib; sourceTree = "<group>"; };
 		C4C4A5AA208B674E00AB6384 /* AccountRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRouter.swift; sourceTree = "<group>"; };
 		C4C4A5AC208B688800AB6384 /* AchievementsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsViewController.swift; sourceTree = "<group>"; };
+		C4C4A5B0208B7C4300AB6384 /* AchievementsPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsPresentationModel.swift; sourceTree = "<group>"; };
 		C4D4E4EE20606FEF000A9216 /* RecoverPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPresentationModel.swift; sourceTree = "<group>"; };
 		C4D4E4F12060860F000A9216 /* AuthRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRouter.swift; sourceTree = "<group>"; };
 		C4D4E4F920618E63000A9216 /* RatingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingViewController.swift; sourceTree = "<group>"; };
@@ -1078,6 +1080,7 @@
 			isa = PBXGroup;
 			children = (
 				C4C4A58A208A9E7100AB6384 /* AccountPresentationModel.swift */,
+				C4C4A5B0208B7C4300AB6384 /* AchievementsPresentationModel.swift */,
 			);
 			path = "Presentation Model";
 			sourceTree = "<group>";
@@ -1420,6 +1423,7 @@
 				C408C8D1206D3F660053F057 /* NewsRouter.swift in Sources */,
 				C4540F93207B8CBD00EEC4A5 /* GamesCountResponse.swift in Sources */,
 				C4E112842083605D00EE7DC4 /* Comment.swift in Sources */,
+				C4C4A5B1208B7C4300AB6384 /* AchievementsPresentationModel.swift in Sources */,
 				C41B3D022072F78E00A2B652 /* AddNewsResponse.swift in Sources */,
 				C41B3C3D2072B12D00A2B652 /* GamesPresentationModel.swift in Sources */,
 				C4540F95207BEAA100EEC4A5 /* FilterViewControllerDelegate.swift in Sources */,

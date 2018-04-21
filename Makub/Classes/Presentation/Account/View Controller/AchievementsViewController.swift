@@ -6,6 +6,7 @@
 //  Copyright © 2018 Elena Yanovskaya. All rights reserved.
 //
 
+import PKHUD
 import UIKit
 
 final class AchievementsViewController: UICollectionViewController {
@@ -29,7 +30,7 @@ final class AchievementsViewController: UICollectionViewController {
     
     // MARK: - Public Properties
     
-    var userViewModel: UserViewModel!
+    let presentationModel = AchievementsPresentationModel()
     
     // MARK: - Private Properties
     
@@ -42,12 +43,18 @@ final class AchievementsViewController: UICollectionViewController {
         view.backgroundColor = PaletteColors.blueBackground
         configureCollectionView()
         configureNavigationBar()
+        bindEvents()
+        presentationModel.obtainRating()
     }
     
     // MARK: - UICollectionViewDataSource
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 3
+        if !presentationModel.ratingViewModels.isEmpty {
+            return 3
+        } else {
+            return 0
+        }
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -68,26 +75,23 @@ final class AchievementsViewController: UICollectionViewController {
     // MARK: - Private Methods
    
     private func bindEvents() {
-//        presentationModel.changeStateHandler = { [weak self] status in
-//            switch status {
-//            case .loading:
-//                PKHUD.sharedHUD.dimsBackground = false
-//                PKHUD.sharedHUD.userInteractionOnUnderlyingViewsEnabled = true
-//                HUD.show(.progress)
-//            case .rich:
-//                self?.settingsAreObtained = true
-//                self?.collectionView?.reloadData()
-//                HUD.hide()
-//            case .error (let code):
-//                switch code {
-//                case -1009, -1001:
-//                    HUD.show(.labeledError(title: ErrorDescription.title.rawValue, subtitle: ErrorDescription.network.rawValue))
-//                default:
-//                    HUD.show(.labeledError(title: ErrorDescription.title.rawValue, subtitle: ErrorDescription.server.rawValue))
-//                }
-//                HUD.hide(afterDelay: 1.0)
-//            }
-//        }
+        presentationModel.changeStateHandler = { [weak self] status in
+            switch status {
+            case .loading:
+                HUD.show(.progress)
+            case .rich:
+                self?.collectionView?.reloadData()
+                HUD.hide()
+            case .error (let code):
+                switch code {
+                case -1009, -1001:
+                    HUD.show(.labeledError(title: ErrorDescription.title.rawValue, subtitle: ErrorDescription.network.rawValue))
+                default:
+                    HUD.show(.labeledError(title: ErrorDescription.title.rawValue, subtitle: ErrorDescription.server.rawValue))
+                }
+                HUD.hide(afterDelay: 1.0)
+            }
+        }
     }
     
     private func configureNavigationBar() {
@@ -95,7 +99,7 @@ final class AchievementsViewController: UICollectionViewController {
         let titleTextAttributes: [NSAttributedStringKey: Any] = [NSAttributedStringKey.foregroundColor: PaletteColors.darkGray,
                                                                  NSAttributedStringKey.font: UIFont.customFont(.robotoMediumFont(size: 17))]
         navigationBar?.titleTextAttributes = titleTextAttributes
-        // navigationBar?.topItem?.title = Constants.title
+         navigationBar?.topItem?.title = presentationModel.title
         
         let backButtonItem = UIBarButtonItem(title: nil, style: .plain, target: self, action: nil)
         backButtonItem.image = UIImage(named: Constants.backImage)
@@ -119,8 +123,11 @@ final class AchievementsViewController: UICollectionViewController {
     
     private func userCell(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cellIdentifier = Constants.userCellId
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? UserCell else { return UICollectionViewCell() }
-        cell.configure(for: userViewModel)
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? UserCell,
+            let viewModel = presentationModel.userViewModel else {
+                return UICollectionViewCell()
+        }
+        cell.configure(for: viewModel)
         cell.configureCellWidth(view.frame.width)
         cell.configureImage(type: .filled)
         return cell
@@ -128,7 +135,11 @@ final class AchievementsViewController: UICollectionViewController {
     
     private func gamesCell(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cellIdentifier = Constants.gamesCellId
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? GamesAchievementsCell else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? GamesAchievementsCell,
+            let viewModel = presentationModel.userViewModel else {
+                return UICollectionViewCell()
+        }
+        cell.configure(for: viewModel)
         cell.configureCellWidth(view.frame.width)
         return cell
     }
@@ -136,6 +147,8 @@ final class AchievementsViewController: UICollectionViewController {
     private func cupsCell(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cellIdentifier = Constants.cupsCellId
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? CupsAchievementsCell else { return UICollectionViewCell() }
+        let achievement = presentationModel.userViewModel.achievements[indexPath.row]
+        cell.configure(for: achievement)
         return cell
     }
     

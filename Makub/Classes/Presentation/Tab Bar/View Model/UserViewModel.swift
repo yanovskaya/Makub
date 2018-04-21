@@ -26,6 +26,11 @@ struct UserViewModel {
     let rankFast: String?
     var achievements = [String]()
     
+    var commonPosition: String!
+    var classicPosition: String!
+    var fastPosition: String!
+    var veryFastPosition: String!
+    
     // MARK: - Initialization
     
     init(_ user: UserDecodable) {

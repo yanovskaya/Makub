@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SettingCell: UICollectionViewCell, ViewModelConfigurable {
+final class SettingCell: UICollectionViewCell, ViewModelConfigurable {
     
     // MARK: - Constants
     
@@ -58,6 +58,7 @@ class SettingCell: UICollectionViewCell, ViewModelConfigurable {
     }
     
     private func configureImageView() {
-        settingImageView.image = UIImage(named: Constants.settingImage)
+        settingImageView.image = UIImage(named: Constants.settingImage)?.withRenderingMode(.alwaysTemplate)
+        settingImageView.tintColor = PaletteColors.darkGray
     }
 }

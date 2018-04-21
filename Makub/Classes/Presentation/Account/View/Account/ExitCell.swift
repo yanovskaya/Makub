@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ExitCell: UICollectionViewCell {
+final class ExitCell: UICollectionViewCell {
     
     // MARK: - Constants
     
