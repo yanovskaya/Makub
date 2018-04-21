@@ -28,7 +28,7 @@ final class UserServiceImpl: UserService {
     
     private let sessionManager: SessionManager
     private let transport: Transport
-    private let parser = Parser<User>()
+    private let parser = Parser<UserDecodable>()
     private let realmCache = RealmCache<User>()
     
     // MARK: - Initialization
@@ -40,7 +40,7 @@ final class UserServiceImpl: UserService {
     
     // MARK: - Public Methods
     
-    func obtainUserInfo(useCache: Bool, completion: ((ServiceCallResult<User>) -> Void)?) {
+    func obtainUserInfo(useCache: Bool, completion: ((ServiceCallResult<UserDecodable>) -> Void)?) {
         guard let token = KeychainWrapper.standard.string(forKey: KeychainKeys.token) else {
             let error = NSError(domain: "", code: AdditionalErrors.tokenNotFound)
             completion?(ServiceCallResult.serviceFailure(error: error))
@@ -55,7 +55,19 @@ final class UserServiceImpl: UserService {
                 switch parseResult {
                 case .parserSuccess(let model):
                     if model.error == 0 {
-                        self.realmCache.refreshCache(model)
+                        let realm = User()
+                        realm.id = model.id
+                        realm.club = model.club
+                        realm.name = model.name
+                        realm.surname = model.surname
+                        realm.photo = model.photo
+                        realm.razryad = model.razryad
+                        realm.error = model.error
+                        realm.razryadFast = model.razryadFast
+                        for achievement in model.dost {
+                            realm.dost.append(achievement)
+                        }
+                        self.realmCache.refreshCache(realm)
                         completion?(ServiceCallResult.serviceSuccess(payload: model))
                     } else {
                         let error = NSError(domain: "", code: model.error)
@@ -78,9 +90,18 @@ final class UserServiceImpl: UserService {
         }
     }
     
-    func obtainRealmCache(error: NSError? = nil, completion: ((ServiceCallResult<User>) -> Void)?) {
+    func obtainRealmCache(error: NSError? = nil, completion: ((ServiceCallResult<UserDecodable>) -> Void)?) {
         if let userCache = self.realmCache.getCachedObject() {
-            completion?(ServiceCallResult.serviceSuccess(payload: userCache))
+            let model = UserDecodable(error: userCache.error,
+                                      id: userCache.id,
+                                      name: userCache.name,
+                                      surname: userCache.surname,
+                                      photo: userCache.photo,
+                                      razryad: userCache.razryad,
+                                      razryadFast: userCache.razryadFast,
+                                      club: userCache.club,
+                                      dost: Array(userCache.dost))
+            completion?(ServiceCallResult.serviceSuccess(payload: model))
         } else {
             completion?(ServiceCallResult.serviceFailure(error: NSError()))
         }

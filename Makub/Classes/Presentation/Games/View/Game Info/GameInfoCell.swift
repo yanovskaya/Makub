@@ -25,7 +25,7 @@ final class GameInfoCell: UICollectionViewCell, ViewModelConfigurable {
     private enum SizeConstants {
         static let photoWidth: CGFloat = 200
         static let photoHeight: CGFloat = 200
-        static let videoAspectRatio: CGFloat = 9/16
+        static let videoAspectRatio: CGFloat = 9 / 16
     }
     
     // MARK: - IBOutlets
@@ -200,8 +200,8 @@ final class GameInfoCell: UICollectionViewCell, ViewModelConfigurable {
         } else {
             size = 13
         }
-        player1Label.font = UIFont.customFont(.robotoRegularFont(size: size))
-        player2Label.font = UIFont.customFont(.robotoRegularFont(size: size))
+        player1Label.font = UIFont.customFont(.robotoMediumFont(size: size))
+        player2Label.font = UIFont.customFont(.robotoMediumFont(size: size))
     }
     
     private func configureScoreColor() {

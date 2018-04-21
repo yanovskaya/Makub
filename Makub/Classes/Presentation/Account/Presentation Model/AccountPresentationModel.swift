@@ -38,15 +38,10 @@ final class AccountPresentationModel: PresentationModel {
     // MARK: - Private Methods
     
     private func obtainSettings() {
-        print("here")
-        if let URL = Bundle.main.url(forResource: Constants.resource, withExtension: Constants.type) {
-            print("3")
-            if let settingsPlist = NSArray(contentsOf: URL) as? [String] {
-                print("e 1")
-                for settings in settingsPlist {
-                    print("e 2")
-                    settingModels.append(settings)
-                }
+        if let URL = Bundle.main.url(forResource: Constants.resource, withExtension: Constants.type),
+            let settingsPlist = NSArray(contentsOf: URL) as? [String] {
+            for settings in settingsPlist {
+                settingModels.append(settings)
             }
         }
     }

@@ -18,6 +18,7 @@ final class AccountViewController: UICollectionViewController {
         static let settingsImage = "settings"
         static let userCellId = String(describing: UserCell.self)
         static let settingCellId = String(describing: SettingCell.self)
+        static let exitCellId = String(describing: ExitCell.self)
     }
     
     private enum LayoutConstants {
@@ -39,6 +40,7 @@ final class AccountViewController: UICollectionViewController {
         
         collectionView?.register(UINib(nibName: Constants.userCellId, bundle: nil), forCellWithReuseIdentifier: Constants.userCellId)
         collectionView?.register(UINib(nibName: Constants.settingCellId, bundle: nil), forCellWithReuseIdentifier: Constants.settingCellId)
+        collectionView?.register(UINib(nibName: Constants.exitCellId, bundle: nil), forCellWithReuseIdentifier: Constants.exitCellId)
         
         let navigationBar = navigationController?.navigationBar
         navigationController?.navigationBar.shadowImage = UIImage(color: UIColor.white)
@@ -69,18 +71,18 @@ final class AccountViewController: UICollectionViewController {
         tabBarController?.delegate = self
     }
     
-    // MARK: UICollectionViewDataSource
+    // MARK: - UICollectionViewDataSource
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         if settingsAreObtained {
-            return 2
+            return 3
         } else {
             return 0
         }
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if section == 0 {
+        if section == 0 || section == 2 {
             return 1
         } else {
             return presentationModel.settingModels.count
@@ -92,14 +94,19 @@ final class AccountViewController: UICollectionViewController {
         if indexPath.section == 0 {
             let cellIdentifier = Constants.userCellId
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? UserCell else { return UICollectionViewCell() }
-    
+    cell.configure(for: presentationModel.userViewModel)
+            cell.configureCellWidth(view.frame.width)
         return cell
-        } else {
+        } else if indexPath.section == 1 {
             let cellIdentifier = Constants.settingCellId
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? SettingCell else { return UICollectionViewCell() }
             if indexPath.row + 1 == presentationModel.settingModels.count {
                 cell.configureSeperator(hide: true)
             }
+            return cell
+        } else {
+            let cellIdentifier = Constants.exitCellId
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? ExitCell else { return UICollectionViewCell() }
             return cell
         }
     }
@@ -136,7 +143,7 @@ extension AccountViewController: UICollectionViewDelegateFlowLayout {
         if section == 0 {
             return UIEdgeInsets(top: LayoutConstants.topEdge, left: 0, bottom: 0, right: 0)
         } else {
-            return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+            return UIEdgeInsets(top: 0, left: 0, bottom: LayoutConstants.bottomEdge, right: 0)
         }
     }
     

@@ -24,8 +24,8 @@ final class NewsCell: UICollectionViewCell, ViewModelConfigurable {
     }
     
     private enum SizeConstants {
-        static let photoWidth: CGFloat = 120
-        static let photoHeight: CGFloat = 120
+        static let photoWidth: CGFloat = 200
+        static let photoHeight: CGFloat = 200
         
         static let imageWidth: CGFloat = 501
         static let imageHeight: CGFloat = 1077

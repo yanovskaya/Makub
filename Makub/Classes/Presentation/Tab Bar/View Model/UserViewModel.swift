@@ -21,16 +21,30 @@ struct UserViewModel {
     let photoURL: String!
     let id: String
     let fullname: String
+    let club: String
+    let rankClassic: String?
+    let rankFast: String?
     
     // MARK: - Initialization
     
-    init(_ user: User) {
-        self.id = user.id
-        self.fullname = user.name + " " + user.surname
-        guard let photo = user.photo, photo != "" else {
-            self.photoURL = nil
-            return
+    init(_ user: UserDecodable) {
+        id = user.id
+        club = user.club
+        fullname = user.name + " " + user.surname
+        if let rankClassic = user.razryad, rankClassic != "" {
+            self.rankClassic = rankClassic.getRomanRank()
+        } else {
+            rankClassic = nil
         }
-        self.photoURL = (Constants.baseURL + photo).removeSpacesInURL()
+        if let rankFast = user.razryadFast, rankFast != "" {
+            self.rankFast = rankFast.getRomanRank()
+        } else {
+            rankFast = nil
+        }
+        if let photo = user.photo, photo != "" {
+            photoURL = (Constants.baseURL + photo).removeSpacesInURL()
+        } else {
+            photoURL = nil
+        }
     }
 }

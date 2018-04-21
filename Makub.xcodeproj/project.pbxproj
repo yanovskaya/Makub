@@ -137,6 +137,8 @@
 		C4C4A588208A9AA200AB6384 /* Settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = C4C4A587208A9AA200AB6384 /* Settings.plist */; };
 		C4C4A58B208A9E7100AB6384 /* AccountPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C4A58A208A9E7100AB6384 /* AccountPresentationModel.swift */; };
 		C4C4A593208AA34B00AB6384 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C4A592208AA34B00AB6384 /* SettingCell.swift */; };
+		C4C4A597208ABA2900AB6384 /* ExitCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C4A596208ABA2900AB6384 /* ExitCell.swift */; };
+		C4C4A59A208AC01500AB6384 /* String+GetRomanRank.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C4A599208AC01500AB6384 /* String+GetRomanRank.swift */; };
 		C4D4E4EF20606FEF000A9216 /* RecoverPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D4E4EE20606FEF000A9216 /* RecoverPresentationModel.swift */; };
 		C4D4E4F22060860F000A9216 /* AuthRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D4E4F12060860F000A9216 /* AuthRouter.swift */; };
 		C4D4E4FA20618E63000A9216 /* RatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D4E4F920618E63000A9216 /* RatingViewController.swift */; };
@@ -294,6 +296,8 @@
 		C4C4A587208A9AA200AB6384 /* Settings.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Settings.plist; sourceTree = "<group>"; };
 		C4C4A58A208A9E7100AB6384 /* AccountPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountPresentationModel.swift; sourceTree = "<group>"; };
 		C4C4A592208AA34B00AB6384 /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
+		C4C4A596208ABA2900AB6384 /* ExitCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExitCell.swift; sourceTree = "<group>"; };
+		C4C4A599208AC01500AB6384 /* String+GetRomanRank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+GetRomanRank.swift"; sourceTree = "<group>"; };
 		C4D4E4EE20606FEF000A9216 /* RecoverPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPresentationModel.swift; sourceTree = "<group>"; };
 		C4D4E4F12060860F000A9216 /* AuthRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRouter.swift; sourceTree = "<group>"; };
 		C4D4E4F920618E63000A9216 /* RatingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingViewController.swift; sourceTree = "<group>"; };
@@ -902,6 +906,7 @@
 			children = (
 				C45AC95C206617B200F9947F /* View Controller */,
 				C45AC9602066654A00F9947F /* View Model */,
+				C4C4A598208ABFF200AB6384 /* Helper */,
 			);
 			path = "Tab Bar";
 			sourceTree = "<group>";
@@ -1054,6 +1059,7 @@
 				C4C4A583208A8D1500AB6384 /* ExitCell.xib */,
 				C4C4A585208A919C00AB6384 /* UserCell.swift */,
 				C4C4A592208AA34B00AB6384 /* SettingCell.swift */,
+				C4C4A596208ABA2900AB6384 /* ExitCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1064,6 +1070,14 @@
 				C4C4A58A208A9E7100AB6384 /* AccountPresentationModel.swift */,
 			);
 			path = "Presentation Model";
+			sourceTree = "<group>";
+		};
+		C4C4A598208ABFF200AB6384 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				C4C4A599208AC01500AB6384 /* String+GetRomanRank.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		C4D4E4F0206085BD000A9216 /* Router */ = {
@@ -1384,6 +1398,7 @@
 				C427F2C62087AF9A007D6C83 /* TournamentsResponse.swift in Sources */,
 				C4D909972068196900DC3D6C /* NewsCell.swift in Sources */,
 				C472A6CA205C4F8100768585 /* ErrorDescription.swift in Sources */,
+				C4C4A597208ABA2900AB6384 /* ExitCell.swift in Sources */,
 				C42940C920827CF50026B2C3 /* GameInfoService.swift in Sources */,
 				C41B3CDB2072F53E00A2B652 /* ServiceLayer.swift in Sources */,
 				C491621E2085378600A95E07 /* String+CapitalizeFirstLetter.swift in Sources */,
@@ -1443,6 +1458,7 @@
 				C427F2E52088BD9A007D6C83 /* RatingResponse.swift in Sources */,
 				C4D4E4FC20618E8F000A9216 /* NewsViewController.swift in Sources */,
 				C463186A207944AD00E14DAC /* UIImage+DrawCircle.swift in Sources */,
+				C4C4A59A208AC01500AB6384 /* String+GetRomanRank.swift in Sources */,
 				C427F2CC2087B5A2007D6C83 /* TournamentViewModel.swift in Sources */,
 				C41B3C342072640100A2B652 /* Club.swift in Sources */,
 				C491622B20862DD500A95E07 /* TournamentsViewController.swift in Sources */,

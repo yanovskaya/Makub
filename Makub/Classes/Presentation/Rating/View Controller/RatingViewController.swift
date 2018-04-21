@@ -70,6 +70,8 @@ final class RatingViewController: UIViewController {
         ratingCollectionView.addGestureRecognizer(leftSwipe)
     }
     
+    //FIXME: refactoring
+    
     @objc func swipeLeft() {
         indicatorButtonLeadingConstraint.isActive = false
         var const: CGFloat
