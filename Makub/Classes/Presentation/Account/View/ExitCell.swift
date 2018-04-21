@@ -10,4 +10,28 @@ import UIKit
 
 class ExitCell: UICollectionViewCell {
     
+    // MARK: - Constants
+    
+    private enum Constants {
+        static let exit = "Выйти"
+    }
+    
+    // MARK: - IBOutlets
+    
+    @IBOutlet private var exitLabel: UILabel!
+    
+    // MARK: - View lifecycle
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+         configureLabel()
+    }
+    
+    // MARK: - Private Method
+    
+    private func configureLabel() {
+        exitLabel.text = Constants.exit
+        exitLabel.textColor = PaletteColors.exit
+        exitLabel.font = UIFont.customFont(.robotoMediumFont(size: 16))
+    }
 }

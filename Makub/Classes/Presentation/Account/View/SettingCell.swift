@@ -8,21 +8,56 @@
 
 import UIKit
 
-class SettingCell: UICollectionViewCell {
+class SettingCell: UICollectionViewCell, ViewModelConfigurable {
     
+    // MARK: - Constants
+    
+    private enum Constants {
+        static let settingImage = "newspaper"
+    }
+    
+    // MARK: - IBOutlets
+    
+    @IBOutlet private var settingLabel: UILabel!
+    @IBOutlet private var settingImageView: UIImageView!
     @IBOutlet private var lineView: UIView!
-    @IBOutlet var lineViewHeight: NSLayoutConstraint!
+    @IBOutlet private var lineViewHeight: NSLayoutConstraint!
+    
+    // MARK: - View lifecycle
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        lineView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.1)
+        configureColor()
+        configureFont()
+        configureImageView()
     }
     
-    func configureSeperator(hide: Bool = false) {
-        if hide {
+    // MARK: - Public Methods
+    
+    func configure(for viewModel: String) {
+        settingLabel.text = viewModel
+    }
+    
+    func configureSeperator(isHidden: Bool = false) {
+        if isHidden {
             lineViewHeight.constant = 0
         } else {
             lineViewHeight.constant = 1
         }
+    }
+    
+    // MARK: - Private Methods
+    
+    private func configureColor() {
+        lineView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.1)
+        settingLabel.textColor = PaletteColors.darkGray
+    }
+    
+    private func configureFont() {
+        settingLabel.font = UIFont.customFont(.robotoRegularFont(size: 16))
+    }
+    
+    private func configureImageView() {
+        settingImageView.image = UIImage(named: Constants.settingImage)
     }
 }

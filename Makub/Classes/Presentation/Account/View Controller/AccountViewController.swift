@@ -28,40 +28,21 @@ final class AccountViewController: UICollectionViewController {
         static let estimatedCellHeight: CGFloat = 114
     }
     
+    // MARK: - Public Properties
+    
     let presentationModel = AccountPresentationModel()
+    
+    // MARK: - Private Properties
 
     private var settingsAreObtained = false
+    
+    // MARK: - ViewController lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = PaletteColors.blueBackground
-        collectionView?.backgroundColor = .clear
-        navigationController?.isNavigationBarHidden = false
-        
-        collectionView?.register(UINib(nibName: Constants.userCellId, bundle: nil), forCellWithReuseIdentifier: Constants.userCellId)
-        collectionView?.register(UINib(nibName: Constants.settingCellId, bundle: nil), forCellWithReuseIdentifier: Constants.settingCellId)
-        collectionView?.register(UINib(nibName: Constants.exitCellId, bundle: nil), forCellWithReuseIdentifier: Constants.exitCellId)
-        
-        let navigationBar = navigationController?.navigationBar
-        navigationController?.navigationBar.shadowImage = UIImage(color: UIColor.white)
-        navigationController?.navigationBar.setBackgroundImage(UIImage(color: UIColor.white), for: .default)
-        navigationController?.navigationBar.isTranslucent = true
-        let titleTextAttributes: [NSAttributedStringKey: Any] = [NSAttributedStringKey.foregroundColor: PaletteColors.darkGray,
-                                                                 NSAttributedStringKey.font: UIFont.customFont(.robotoMediumFont(size: 17))]
-        
-        navigationBar?.titleTextAttributes = titleTextAttributes
-        navigationBar?.topItem?.title = Constants.title
-        let settingsButtonItem = UIBarButtonItem(title: nil, style: .plain, target: self, action: nil)
-        settingsButtonItem.image = UIImage(named: Constants.settingsImage)
-        settingsButtonItem.tintColor = PaletteColors.textGray
-        
-        navigationItem.rightBarButtonItem = settingsButtonItem
-        
-        guard let flowLayout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout else { return }
-        flowLayout.estimatedItemSize.width = view.frame.width
-        flowLayout.estimatedItemSize.height = LayoutConstants.estimatedCellHeight
-        
-        
+        configureNavigationBar()
+        configureCollectionView()
         bindEvents()
         presentationModel.obtainProfileWithSettings()
     }
@@ -90,26 +71,17 @@ final class AccountViewController: UICollectionViewController {
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        if indexPath.section == 0 {
-            let cellIdentifier = Constants.userCellId
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? UserCell else { return UICollectionViewCell() }
-    cell.configure(for: presentationModel.userViewModel)
-            cell.configureCellWidth(view.frame.width)
-        return cell
+        let section = indexPath.section
+        if section == 0 {
+            return userCell(collectionView, cellForItemAt: indexPath)
         } else if indexPath.section == 1 {
-            let cellIdentifier = Constants.settingCellId
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? SettingCell else { return UICollectionViewCell() }
-            if indexPath.row + 1 == presentationModel.settingModels.count {
-                cell.configureSeperator(hide: true)
-            }
-            return cell
+            return settingCell(collectionView, cellForItemAt: indexPath)
         } else {
-            let cellIdentifier = Constants.exitCellId
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? ExitCell else { return UICollectionViewCell() }
-            return cell
+            return exitCell(collectionView, cellForItemAt: indexPath)
         }
     }
+    
+    // MARK: - Private Methods
     
     private func bindEvents() {
         presentationModel.changeStateHandler = { [weak self] status in
@@ -132,6 +104,60 @@ final class AccountViewController: UICollectionViewController {
                 HUD.hide(afterDelay: 1.0)
             }
         }
+    }
+    
+    private func configureNavigationBar() {
+        navigationController?.isNavigationBarHidden = false
+        navigationController?.navigationBar.isTranslucent = true
+        let navigationBar = navigationController?.navigationBar
+        navigationController?.navigationBar.shadowImage = UIImage(color: UIColor.white)
+        navigationController?.navigationBar.setBackgroundImage(UIImage(color: UIColor.white), for: .default)
+        let titleTextAttributes: [NSAttributedStringKey: Any] = [NSAttributedStringKey.foregroundColor: PaletteColors.darkGray,
+                                                                 NSAttributedStringKey.font: UIFont.customFont(.robotoMediumFont(size: 17))]
+        navigationBar?.titleTextAttributes = titleTextAttributes
+        navigationBar?.topItem?.title = Constants.title
+        
+        let settingsButtonItem = UIBarButtonItem(title: nil, style: .plain, target: self, action: nil)
+        settingsButtonItem.image = UIImage(named: Constants.settingsImage)
+        settingsButtonItem.tintColor = PaletteColors.textGray
+        navigationItem.rightBarButtonItem = settingsButtonItem
+    }
+    
+    private func configureCollectionView() {
+        collectionView?.backgroundColor = .clear
+        collectionView?.register(UINib(nibName: Constants.userCellId, bundle: nil), forCellWithReuseIdentifier: Constants.userCellId)
+        collectionView?.register(UINib(nibName: Constants.settingCellId, bundle: nil), forCellWithReuseIdentifier: Constants.settingCellId)
+        collectionView?.register(UINib(nibName: Constants.exitCellId, bundle: nil), forCellWithReuseIdentifier: Constants.exitCellId)
+        
+        guard let flowLayout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout else { return }
+        flowLayout.estimatedItemSize.width = view.frame.width
+        flowLayout.estimatedItemSize.height = LayoutConstants.estimatedCellHeight
+    }
+    
+    // MARK: - CellForItemAt Methods
+    
+    private func userCell(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cellIdentifier = Constants.userCellId
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? UserCell else { return UICollectionViewCell() }
+        cell.configure(for: presentationModel.userViewModel)
+        cell.configureCellWidth(view.frame.width)
+        return cell
+    }
+    
+    private func settingCell(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cellIdentifier = Constants.settingCellId
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? SettingCell else { return UICollectionViewCell() }
+        if indexPath.row + 1 == presentationModel.settingModels.count {
+            cell.configureSeperator(isHidden: true)
+        }
+        cell.configure(for: presentationModel.settingModels[indexPath.row])
+        return cell
+    }
+    
+    private func exitCell(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cellIdentifier = Constants.exitCellId
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? ExitCell else { return UICollectionViewCell() }
+        return cell
     }
 }
 

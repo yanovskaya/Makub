@@ -40,4 +40,8 @@ struct PaletteColors {
     static let gold = UIColor(hex: "FFD700")
     static let bronze = UIColor(hex: "CD7F32")
     static let standardBorder = UIColor(hex: "EBEBEB")
+    
+    // MARK: - Account
+    
+    static let exit = UIColor(hex: "EC5B46")
 }

@@ -25,6 +25,11 @@ final class UserCell: UICollectionViewCell, ViewModelConfigurable {
         static let userHeight: CGFloat = 200
     }
     
+    private enum RankToHide {
+        case classic
+        case fast
+    }
+    
     // MARK: - IBOutlets
     
     @IBOutlet private var userImageView: UIImageView!
@@ -76,29 +81,20 @@ final class UserCell: UICollectionViewCell, ViewModelConfigurable {
     
     // MARK: - Public Methods
     
-    // FIXME: refactoring
     func configure(for viewModel: UserViewModel) {
         clubLabel.text = viewModel.club
         nameLabel.text = viewModel.fullname
         if let rankClassic = viewModel.rankClassic {
-            classicLabel.isHidden = false
-            rankClassicLabel.isHidden = false
-            rankClassicImageView.isHidden = false
+            unhideRank(.classic)
             rankClassicLabel.text = rankClassic
         } else {
-            classicLabel.isHidden = true
-            rankClassicLabel.isHidden = true
-            rankClassicImageView.isHidden = true
+            unhideRank(.classic)
         }
         if let rankFast = viewModel.rankFast {
-            fastLabel.isHidden = false
-            rankFastLabel.isHidden = false
-            rankFastImageView.isHidden = false
+            unhideRank(.fast)
             rankFastLabel.text = rankFast
         } else {
-            fastLabel.isHidden = true
-            rankFastLabel.isHidden = true
-            rankFastImageView.isHidden = true
+            hideRank(.fast)
         }
         if let photoURL = viewModel.photoURL {
             let sizeProcessor = ResizingImageProcessor(referenceSize: CGSize(width: SizeConstants.userWidth, height: SizeConstants.userHeight), mode: .aspectFill)
@@ -141,6 +137,32 @@ final class UserCell: UICollectionViewCell, ViewModelConfigurable {
         rankClassicLabel.font = UIFont.customFont(.robotoRegularFont(size: 11))
         fastLabel.font = UIFont.customFont(.robotoRegularFont(size: 11))
         classicLabel.font = UIFont.customFont(.robotoRegularFont(size: 11))
+    }
+    
+    private func hideRank(_ rank: RankToHide) {
+        switch rank {
+        case .classic:
+            classicLabel.isHidden = true
+            rankClassicLabel.isHidden = true
+            rankClassicImageView.isHidden = true
+        default:
+            fastLabel.isHidden = true
+            rankFastLabel.isHidden = true
+            rankFastImageView.isHidden = true
+        }
+    }
+    
+    private func unhideRank(_ rank: RankToHide) {
+        switch rank {
+        case .classic:
+            classicLabel.isHidden = false
+            rankClassicLabel.isHidden = false
+            rankClassicImageView.isHidden = false
+        default:
+            fastLabel.isHidden = false
+            rankFastLabel.isHidden = false
+            rankFastImageView.isHidden = false
+        }
     }
     
 }

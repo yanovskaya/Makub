@@ -215,6 +215,8 @@ final class GameInfoCell: UICollectionViewCell, ViewModelConfigurable {
     }
 }
 
+// MARK: - YouTubePlayerDelegate
+
 extension GameInfoCell: YouTubePlayerDelegate {
     
     func playerReady(_ videoPlayer: YouTubePlayerView) {

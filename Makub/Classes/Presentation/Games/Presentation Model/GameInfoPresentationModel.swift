@@ -114,7 +114,7 @@ final class GameInfoPresentationModel: PresentationModel {
                 guard let model = model else { return }
                 self.commentViewModels = model.comments.compactMap { CommentViewModel($0) }
                 self.group.leave()
-            case .serviceFailure(let error):
+            case .serviceFailure:
                 self.group.leave()
             }
         }

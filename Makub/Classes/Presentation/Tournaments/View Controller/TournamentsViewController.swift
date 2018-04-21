@@ -34,12 +34,9 @@ class TournamentsViewController: UIViewController {
     
     @IBOutlet private var gamesButtonItem: UIBarButtonItem!
     
-    // MARK: - Public Properties
-    
-    let presentationModel = TournamentsPresentationModel()
-    
     // MARK: - Private Properties
     
+    private let presentationModel = TournamentsPresentationModel()
     private var refreshControl = UIRefreshControl()
     
     // MARK: - ViewController lifecycle
