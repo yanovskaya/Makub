@@ -146,7 +146,7 @@ final class GameInfoCell: UICollectionViewCell, ViewModelConfigurable {
     }
     
     func configureCellWidth(_ width: CGFloat) {
-        blueView.widthAnchor.constraint(equalToConstant: width).isActive = true
+        widthAnchor.constraint(equalToConstant: width).isActive = true
     }
     
     // MARK: - Private Methods

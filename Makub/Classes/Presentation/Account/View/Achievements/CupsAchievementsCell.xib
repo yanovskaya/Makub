@@ -23,8 +23,8 @@
                         <constraint firstAttribute="width" secondItem="ps5-8T-H3u" secondAttribute="height" multiplier="1:1" id="KIr-GA-onG"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z4K-We-BRn">
-                    <rect key="frame" x="58" y="15" width="42" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z4K-We-BRn">
+                    <rect key="frame" x="57.5" y="15" width="301.5" height="20.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
@@ -33,10 +33,17 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="Z4K-We-BRn" firstAttribute="leading" secondItem="ps5-8T-H3u" secondAttribute="trailing" constant="12" id="7d3-91-5Wp"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="ps5-8T-H3u" secondAttribute="bottom" priority="999" constant="10" id="KCV-HW-4lD"/>
+                <constraint firstItem="Z4K-We-BRn" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" priority="249" constant="10" id="81F-j9-q5X"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="ps5-8T-H3u" secondAttribute="bottom" priority="999" constant="10" id="KCV-HW-4lD"/>
                 <constraint firstItem="ps5-8T-H3u" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="MMs-fZ-Pgq"/>
+                <constraint firstItem="ps5-8T-H3u" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" priority="249" constant="10" id="YyL-qj-Q56"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="Z4K-We-BRn" secondAttribute="bottom" priority="999" constant="10" id="Z1g-Mg-KU9"/>
                 <constraint firstItem="Z4K-We-BRn" firstAttribute="centerY" secondItem="ps5-8T-H3u" secondAttribute="centerY" id="Zd6-Bb-g6I"/>
-                <constraint firstItem="ps5-8T-H3u" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="ola-1a-5J2"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Z4K-We-BRn" secondAttribute="trailing" constant="16" id="fvZ-vj-acj"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Z4K-We-BRn" secondAttribute="bottom" priority="249" constant="10" id="gGg-wP-9bW"/>
+                <constraint firstItem="Z4K-We-BRn" firstAttribute="top" relation="greaterThanOrEqual" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="hSa-6W-AXH"/>
+                <constraint firstItem="ps5-8T-H3u" firstAttribute="top" relation="greaterThanOrEqual" secondItem="vUN-kp-3ea" secondAttribute="top" constant="10" id="ola-1a-5J2"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="ps5-8T-H3u" secondAttribute="bottom" priority="249" constant="10" id="xum-bc-BFZ"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>

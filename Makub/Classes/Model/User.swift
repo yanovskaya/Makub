@@ -20,6 +20,10 @@ final class User: Object {
     @objc dynamic var photo: String!
     @objc dynamic var razryad: String!
     @objc dynamic var razryadFast: String!
+    @objc dynamic var ratingOfPlayer: String! = nil
+    @objc dynamic var ratingFast: String! = nil
+    @objc dynamic var ratingVeryFast: String! = nil
+    @objc dynamic var ratingClassic: String! = nil
     @objc dynamic var club: String!
     var dost = List<Achievement>()
 }
@@ -33,6 +37,10 @@ struct UserDecodable: Decodable {
     let photo: String!
     let razryad: String!
     let razryadFast: String!
+    let ratingOfPlayer: String
+    let ratingFast: String
+    let ratingVeryFast: String
+    let ratingClassic: String
     let club: String!
     let win: Int
     let lose: Int

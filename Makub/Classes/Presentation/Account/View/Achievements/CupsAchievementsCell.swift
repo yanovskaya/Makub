@@ -9,13 +9,19 @@
 import UIKit
 
 final class CupsAchievementsCell: UICollectionViewCell {
+    
+    // MARK: - Constants
 
     private enum Constants {
         static let cupImage = "trophy"
     }
     
+    // MARK: - IBOutlets
+    
     @IBOutlet private var achievementLabel: UILabel!
     @IBOutlet private var cupImageView: UIImageView!
+    
+    // MARK: - View lifecycle
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,9 +29,17 @@ final class CupsAchievementsCell: UICollectionViewCell {
         configureLabel()
     }
     
+    // MARK: - Public Methods
+    
     func configure(for achievement: String) {
         achievementLabel.text = achievement
     }
+    
+    func configureCellWidth(_ width: CGFloat) {
+        widthAnchor.constraint(equalToConstant: width).isActive = true
+    }
+    
+    // MARK: - Private Methods
     
     private func configureImageView() {
         cupImageView.image = UIImage(named: Constants.cupImage)?.withRenderingMode(.alwaysTemplate)
@@ -33,7 +47,8 @@ final class CupsAchievementsCell: UICollectionViewCell {
     }
     
     private func configureLabel() {
-        achievementLabel.textColor = PaletteColors.darkGray
-        achievementLabel.font = UIFont.customFont(.robotoRegularFont(size: 16))
+        achievementLabel.textColor = PaletteColors.textGray
+        achievementLabel.font = UIFont.customFont(.robotoRegularFont(size: 15))
+        achievementLabel.setLineSpacing(lineSpacing: 4)
     }
 }

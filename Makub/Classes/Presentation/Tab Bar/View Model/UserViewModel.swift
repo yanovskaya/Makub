@@ -34,12 +34,21 @@ struct UserViewModel {
     var fastPosition: String!
     var veryFastPosition: String!
     
+    let commonRating: String
+    let fastRating: String
+    let veryFastRating: String
+    let classicRating: String
+    
     // MARK: - Initialization
     
     init(_ user: UserDecodable) {
         id = user.id
         club = user.club
         fullname = user.name + " " + user.surname
+        commonRating = user.ratingOfPlayer
+        fastRating = user.ratingFast
+        veryFastRating = user.ratingVeryFast
+        classicRating = user.ratingClassic
         win = user.win
         lose = user.lose
         games = lose + win

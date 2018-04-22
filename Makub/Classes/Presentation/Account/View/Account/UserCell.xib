@@ -24,16 +24,16 @@
                     </constraints>
                 </imageView>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="aqI-JM-qFW">
-                    <rect key="frame" x="104" y="28" width="42" height="44"/>
+                    <rect key="frame" x="104" y="28" width="193" height="44"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ie-hi-Kce">
-                            <rect key="frame" x="0.0" y="0.0" width="42" height="20.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="193" height="20.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EyY-MU-cYZ">
-                            <rect key="frame" x="0.0" y="23.5" width="42" height="20.5"/>
+                            <rect key="frame" x="0.0" y="23.5" width="193" height="20.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -100,6 +100,7 @@
                 <constraint firstItem="JaX-1Y-zdJ" firstAttribute="centerX" secondItem="wno-6s-Bka" secondAttribute="centerX" id="b3f-0Z-rOR"/>
                 <constraint firstItem="xuu-yg-Dzi" firstAttribute="height" secondItem="wno-6s-Bka" secondAttribute="height" id="e4M-tP-DyM"/>
                 <constraint firstItem="CYF-u5-SyX" firstAttribute="centerX" secondItem="wno-6s-Bka" secondAttribute="centerX" id="eN2-tQ-uxb"/>
+                <constraint firstItem="wno-6s-Bka" firstAttribute="leading" secondItem="aqI-JM-qFW" secondAttribute="trailing" constant="12" id="hmT-2w-sTc"/>
                 <constraint firstItem="4IN-sa-HvI" firstAttribute="centerX" secondItem="xuu-yg-Dzi" secondAttribute="centerX" id="nSW-Mh-4Rq"/>
                 <constraint firstItem="nLo-3d-RlD" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" priority="999" constant="20" id="r2S-4n-m22"/>
                 <constraint firstItem="xuu-yg-Dzi" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="wy9-Gu-weI"/>

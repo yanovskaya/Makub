@@ -23,7 +23,7 @@ final class AchievementsViewController: UICollectionViewController {
     private enum LayoutConstants {
         static let leadingMargin: CGFloat = 5
         static let topEdge: CGFloat = 10
-        static let bottomEdge: CGFloat = 10
+        static let bottomEdge: CGFloat = 15
         static let estimatedCellHeight: CGFloat = 114
         static let cellSpacing: CGFloat = 3
     }
@@ -99,9 +99,9 @@ final class AchievementsViewController: UICollectionViewController {
         let titleTextAttributes: [NSAttributedStringKey: Any] = [NSAttributedStringKey.foregroundColor: PaletteColors.darkGray,
                                                                  NSAttributedStringKey.font: UIFont.customFont(.robotoMediumFont(size: 17))]
         navigationBar?.titleTextAttributes = titleTextAttributes
-         navigationBar?.topItem?.title = presentationModel.title
+        title = presentationModel.title
         
-        let backButtonItem = UIBarButtonItem(title: nil, style: .plain, target: self, action: nil)
+        let backButtonItem = UIBarButtonItem(title: nil, style: .plain, target: self, action: #selector(backButtonTapped(sender:)))
         backButtonItem.image = UIImage(named: Constants.backImage)
         backButtonItem.tintColor = PaletteColors.textGray
         navigationItem.leftBarButtonItem = backButtonItem
@@ -117,6 +117,10 @@ final class AchievementsViewController: UICollectionViewController {
         guard let flowLayout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout else { return }
         flowLayout.estimatedItemSize.width = view.frame.width
         flowLayout.estimatedItemSize.height = LayoutConstants.estimatedCellHeight
+    }
+    
+    @objc private func backButtonTapped(sender: UIButton) {
+        navigationController?.popViewController(animated: true)
     }
     
     // MARK: - CellForItemAt Methods
@@ -149,6 +153,7 @@ final class AchievementsViewController: UICollectionViewController {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? CupsAchievementsCell else { return UICollectionViewCell() }
         let achievement = presentationModel.userViewModel.achievements[indexPath.row]
         cell.configure(for: achievement)
+        cell.configureCellWidth(view.frame.width)
         return cell
     }
     

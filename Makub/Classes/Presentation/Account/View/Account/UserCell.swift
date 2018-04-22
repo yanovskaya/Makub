@@ -111,8 +111,7 @@ final class UserCell: UICollectionViewCell, ViewModelConfigurable {
     }
     
     func configureCellWidth(_ width: CGFloat) {
-        let labelMargins: CGFloat = 170
-        nameLabel.widthAnchor.constraint(equalToConstant: width - labelMargins).isActive = true
+        widthAnchor.constraint(equalToConstant: width).isActive = true
     }
     
     func configureImage(type: RankImage) {
