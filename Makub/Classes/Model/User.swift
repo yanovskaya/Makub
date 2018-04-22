@@ -15,6 +15,8 @@ final class User: Object {
     @objc dynamic var id: String = ""
     @objc dynamic var name: String = ""
     @objc dynamic var surname: String = ""
+    @objc dynamic var win: Int = 0
+    @objc dynamic var lose: Int = 0
     @objc dynamic var photo: String!
     @objc dynamic var razryad: String!
     @objc dynamic var razryadFast: String!
@@ -32,6 +34,8 @@ struct UserDecodable: Decodable {
     let razryad: String!
     let razryadFast: String!
     let club: String!
+    let win: Int
+    let lose: Int
     let dost: [Achievement]
 }
 

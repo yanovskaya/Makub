@@ -55,15 +55,26 @@ final class GameInfoViewController: UIViewController {
         presentationModel.obtainGameInfo()
     }
     
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        if UIDevice.current.orientation.isLandscape {
+            print("Landscape")
+        } else {
+            print("Portrait")
+        }
+    }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         tabBarController?.delegate = self
         tabBarController?.tabBarItem.isEnabled = false
     }
-    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         HUD.hide()
+    }
+    
+    override var prefersStatusBarHidden: Bool {
+        return false
     }
     
     // MARK: - Private Methods

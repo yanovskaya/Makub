@@ -25,6 +25,9 @@ struct UserViewModel {
     let rankClassic: String?
     let rankFast: String?
     var achievements = [String]()
+    var games: Int
+    var win: Int
+    var lose: Int
     
     var commonPosition: String!
     var classicPosition: String!
@@ -37,6 +40,9 @@ struct UserViewModel {
         id = user.id
         club = user.club
         fullname = user.name + " " + user.surname
+        win = user.win
+        lose = user.lose
+        games = lose + win
         for achievemnet in user.dost {
             achievements.append(achievemnet.name)
         }

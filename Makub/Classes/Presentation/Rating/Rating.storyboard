@@ -69,6 +69,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="h53-6G-ehW" firstAttribute="top" secondItem="QEB-5o-fkH" secondAttribute="top" constant="20" id="ADW-C2-G1q"/>
                                     <constraint firstItem="QTd-Xn-vuj" firstAttribute="width" secondItem="H3K-ng-k4P" secondAttribute="width" id="Hxk-h0-qoX"/>
                                     <constraint firstAttribute="trailing" secondItem="h53-6G-ehW" secondAttribute="trailing" id="LfM-vH-vLa"/>
                                     <constraint firstItem="dwe-Y8-gNc" firstAttribute="leading" secondItem="QEB-5o-fkH" secondAttribute="leading" constant="12" id="M33-TX-vIs"/>
@@ -102,7 +103,6 @@
                             <constraint firstItem="TTf-FL-yYb" firstAttribute="trailing" secondItem="2RM-BE-IdT" secondAttribute="trailing" id="eCY-Iy-yJh"/>
                             <constraint firstItem="TTf-FL-yYb" firstAttribute="top" secondItem="QEB-5o-fkH" secondAttribute="bottom" id="nZn-w0-Xpw"/>
                             <constraint firstItem="TTf-FL-yYb" firstAttribute="leading" secondItem="2RM-BE-IdT" secondAttribute="leading" id="ntO-JC-5cS"/>
-                            <constraint firstItem="2RM-BE-IdT" firstAttribute="top" secondItem="h53-6G-ehW" secondAttribute="top" id="trd-VM-GJc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="2RM-BE-IdT"/>
                     </view>

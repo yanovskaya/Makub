@@ -99,6 +99,8 @@ final class UserServiceImpl: UserService {
                              razryad: realm.razryad,
                              razryadFast: realm.razryadFast,
                              club: realm.club,
+                             win: realm.win,
+                             lose: realm.lose,
                              dost: Array(realm.dost))
     }
     

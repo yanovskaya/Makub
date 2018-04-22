@@ -29,6 +29,8 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         setInitialVC()
         ImageCache.default.maxDiskCacheSize = 50 * 1024 * 1024
+       // application.isStatusBarHidden = false
+        application.statusBarStyle = .lightContent
         return true
     }
     
