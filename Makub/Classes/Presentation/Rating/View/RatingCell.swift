@@ -96,7 +96,6 @@ final class RatingCell: UICollectionViewCell {
             break
         }
         if let photoURL = viewModel.photoURL {
-            print(photoURL)
             let sizeProcessor = ResizingImageProcessor(referenceSize: CGSize(width: SizeConstants.userWidth, height: SizeConstants.userHeight), mode: .aspectFill)
             playerImageView.kf.indicatorType = .custom(indicator: indicator)
             playerImageView.kf.setImage(with: URL(string: photoURL), placeholder: nil, options: [.processor(sizeProcessor)], completionHandler: { (image, _, _, _) in

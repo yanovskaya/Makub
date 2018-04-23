@@ -122,6 +122,12 @@ final class UserServiceImpl: UserService {
         realm.razryad = model.razryad
         realm.error = model.error
         realm.razryadFast = model.razryadFast
+        realm.ratingFast = model.ratingFast
+        realm.ratingOfPlayer = model.ratingOfPlayer
+        realm.ratingClassic = model.ratingClassic
+        realm.ratingVeryFast = model.ratingVeryFast
+        realm.win = model.win
+        realm.lose = model.lose
         for achievement in model.dost {
             realm.dost.append(achievement)
         }

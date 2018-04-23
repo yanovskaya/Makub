@@ -7,6 +7,7 @@
 //
 
 import Kingfisher
+import RealmSwift
 import SwiftKeychainWrapper
 import UIKit
 

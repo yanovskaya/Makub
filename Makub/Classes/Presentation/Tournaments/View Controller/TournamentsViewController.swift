@@ -82,6 +82,9 @@ class TournamentsViewController: UIViewController {
                     HUD.show(.labeledError(title: ErrorDescription.title.rawValue, subtitle: ErrorDescription.server.rawValue))
                 }
                 HUD.hide(afterDelay: 1.0)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    self?.navigationController?.popViewController(animated: true)
+                }
             }
         }
     }

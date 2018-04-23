@@ -20,11 +20,11 @@ final class User: Object {
     @objc dynamic var photo: String!
     @objc dynamic var razryad: String!
     @objc dynamic var razryadFast: String!
-    @objc dynamic var ratingOfPlayer: String! = nil
-    @objc dynamic var ratingFast: String! = nil
-    @objc dynamic var ratingVeryFast: String! = nil
-    @objc dynamic var ratingClassic: String! = nil
-    @objc dynamic var club: String!
+    @objc dynamic var ratingOfPlayer: String = ""
+    @objc dynamic var ratingFast: String = ""
+    @objc dynamic var ratingVeryFast: String = ""
+    @objc dynamic var ratingClassic: String = ""
+    @objc dynamic var club: String = ""
     var dost = List<Achievement>()
 }
 
