@@ -167,7 +167,7 @@
                                 </items>
                             </navigationBar>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="t20-8B-IUj">
-                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <rect key="frame" x="0.0" y="65" width="320" height="503"/>
                                 <color key="backgroundColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="jMz-2C-pcA">
                                     <size key="itemSize" width="50" height="50"/>
@@ -189,7 +189,7 @@
                             <constraint firstItem="gzh-6m-a8N" firstAttribute="leading" secondItem="pmK-cJ-rWJ" secondAttribute="leading" id="cAi-WG-sMP"/>
                             <constraint firstItem="pmK-cJ-rWJ" firstAttribute="trailing" secondItem="gzh-6m-a8N" secondAttribute="trailing" id="kY1-rJ-T5Q"/>
                             <constraint firstItem="QWG-3q-Jsj" firstAttribute="top" secondItem="N0p-Hb-7mg" secondAttribute="top" constant="20" id="nrv-8X-j2v"/>
-                            <constraint firstItem="t20-8B-IUj" firstAttribute="top" secondItem="QWG-3q-Jsj" secondAttribute="bottom" id="sGU-Ip-3dC"/>
+                            <constraint firstItem="t20-8B-IUj" firstAttribute="top" secondItem="QWG-3q-Jsj" secondAttribute="bottom" constant="1" id="sGU-Ip-3dC"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pmK-cJ-rWJ"/>
                     </view>

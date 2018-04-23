@@ -43,12 +43,12 @@ final class CupsAchievementsCell: UICollectionViewCell {
     
     private func configureImageView() {
         cupImageView.image = UIImage(named: Constants.cupImage)?.withRenderingMode(.alwaysTemplate)
-        cupImageView.tintColor = PaletteColors.textGray
+        cupImageView.tintColor = PaletteColors.darkGray
     }
     
     private func configureLabel() {
         achievementLabel.textColor = PaletteColors.textGray
         achievementLabel.font = UIFont.customFont(.robotoRegularFont(size: 15))
-        achievementLabel.setLineSpacing(lineSpacing: 4)
+        achievementLabel.setLineSpacing(lineSpacing: 5)
     }
 }

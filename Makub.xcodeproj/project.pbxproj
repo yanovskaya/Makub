@@ -167,6 +167,13 @@
 		C4EFB7912089063000E6033B /* RatingPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4EFB7902089063000E6033B /* RatingPresentationModel.swift */; };
 		C4EFB794208906A800E6033B /* RatingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4EFB793208906A800E6033B /* RatingViewModel.swift */; };
 		C4EFB79720890A8300E6033B /* RatingType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4EFB79620890A8300E6033B /* RatingType.swift */; };
+		C4FBE22C208D492E00AD618D /* UserGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FBE22B208D492E00AD618D /* UserGameViewModel.swift */; };
+		C4FBE22E208D498200AD618D /* UserGamesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FBE22D208D498200AD618D /* UserGamesViewController.swift */; };
+		C4FBE231208D56A400AD618D /* String+GetCommentsCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FBE230208D56A400AD618D /* String+GetCommentsCount.swift */; };
+		C4FBE233208D57D000AD618D /* UserGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FBE232208D57D000AD618D /* UserGame.swift */; };
+		C4FBE239208D5E8D00AD618D /* UserGamesImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FBE238208D5E8D00AD618D /* UserGamesImpl.swift */; };
+		C4FBE23B208D5EB900AD618D /* UserGamesProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FBE23A208D5EB900AD618D /* UserGamesProtocol.swift */; };
+		C4FBE23D208D5F1500AD618D /* UserGamesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FBE23C208D5F1500AD618D /* UserGamesResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -333,6 +340,13 @@
 		C4EFB7902089063000E6033B /* RatingPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingPresentationModel.swift; sourceTree = "<group>"; };
 		C4EFB793208906A800E6033B /* RatingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingViewModel.swift; sourceTree = "<group>"; };
 		C4EFB79620890A8300E6033B /* RatingType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingType.swift; sourceTree = "<group>"; };
+		C4FBE22B208D492E00AD618D /* UserGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGameViewModel.swift; sourceTree = "<group>"; };
+		C4FBE22D208D498200AD618D /* UserGamesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGamesViewController.swift; sourceTree = "<group>"; };
+		C4FBE230208D56A400AD618D /* String+GetCommentsCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+GetCommentsCount.swift"; sourceTree = "<group>"; };
+		C4FBE232208D57D000AD618D /* UserGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGame.swift; sourceTree = "<group>"; };
+		C4FBE238208D5E8D00AD618D /* UserGamesImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGamesImpl.swift; sourceTree = "<group>"; };
+		C4FBE23A208D5EB900AD618D /* UserGamesProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGamesProtocol.swift; sourceTree = "<group>"; };
+		C4FBE23C208D5F1500AD618D /* UserGamesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGamesResponse.swift; sourceTree = "<group>"; };
 		FD91280B983360A8DBD4BDFC /* Pods_Makub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Makub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -476,6 +490,7 @@
 			isa = PBXGroup;
 			children = (
 				C41B3CDA2072F53E00A2B652 /* ServiceLayer.swift */,
+				C4FBE234208D5CE000AD618D /* User Games */,
 				C427F2E12088BCE9007D6C83 /* Rating */,
 				C427F2D12087C87D007D6C83 /* Clubs */,
 				C427F2C02087AF33007D6C83 /* Tournaments */,
@@ -837,6 +852,7 @@
 				C41B3C352072642000A2B652 /* Tournament.swift */,
 				C427F2DF2088BC45007D6C83 /* Rating.swift */,
 				C463186D207A0DE000E14DAC /* Filter.swift */,
+				C4FBE232208D57D000AD618D /* UserGame.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1053,7 +1069,9 @@
 				C4C4A5A9208B673900AB6384 /* Router */,
 				C4C4A576208A641800AB6384 /* View Controller */,
 				C4C4A589208A9E5500AB6384 /* Presentation Model */,
+				C4FBE22A208D491400AD618D /* View Model */,
 				C4C4A57E208A8C4900AB6384 /* View */,
+				C4FBE22F208D568300AD618D /* Helper */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -1063,6 +1081,7 @@
 			children = (
 				C4C4A57C208A64C300AB6384 /* AccountViewController.swift */,
 				C4C4A5AC208B688800AB6384 /* AchievementsViewController.swift */,
+				C4FBE22D208D498200AD618D /* UserGamesViewController.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -1204,6 +1223,48 @@
 				C4EFB79620890A8300E6033B /* RatingType.swift */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		C4FBE22A208D491400AD618D /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				C4FBE22B208D492E00AD618D /* UserGameViewModel.swift */,
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
+		C4FBE22F208D568300AD618D /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				C4FBE230208D56A400AD618D /* String+GetCommentsCount.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		C4FBE234208D5CE000AD618D /* User Games */ = {
+			isa = PBXGroup;
+			children = (
+				C4FBE235208D5CF300AD618D /* Protocol */,
+				C4FBE236208D5D0400AD618D /* Parser */,
+				C4FBE238208D5E8D00AD618D /* UserGamesImpl.swift */,
+			);
+			path = "User Games";
+			sourceTree = "<group>";
+		};
+		C4FBE235208D5CF300AD618D /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				C4FBE23A208D5EB900AD618D /* UserGamesProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		C4FBE236208D5D0400AD618D /* Parser */ = {
+			isa = PBXGroup;
+			children = (
+				C4FBE23C208D5F1500AD618D /* UserGamesResponse.swift */,
+			);
+			path = Parser;
 			sourceTree = "<group>";
 		};
 		C8FE19675A729A68973D7EBE /* Frameworks */ = {
@@ -1402,6 +1463,7 @@
 				C49162262086135D00A95E07 /* AddCommentResponse.swift in Sources */,
 				C41BE783206FE2FD00ED5826 /* String+RandomString.swift in Sources */,
 				C49162202085DED300A95E07 /* AddNewsPresentationModel.swift in Sources */,
+				C4FBE23B208D5EB900AD618D /* UserGamesProtocol.swift in Sources */,
 				C41B3CF72072F70A00A2B652 /* AuthService.swift in Sources */,
 				C4BC7104205F2BEA00332D7E /* AuthPassButton.swift in Sources */,
 				C4C4A593208AA34B00AB6384 /* SettingCell.swift in Sources */,
@@ -1449,9 +1511,11 @@
 				C4C4A597208ABA2900AB6384 /* ExitCell.swift in Sources */,
 				C42940C920827CF50026B2C3 /* GameInfoService.swift in Sources */,
 				C41B3CDB2072F53E00A2B652 /* ServiceLayer.swift in Sources */,
+				C4FBE231208D56A400AD618D /* String+GetCommentsCount.swift in Sources */,
 				C491621E2085378600A95E07 /* String+CapitalizeFirstLetter.swift in Sources */,
 				C427F2D02087BFD0007D6C83 /* TournamentPresentationModel.swift in Sources */,
 				C45AC9622066656100F9947F /* UserViewModel.swift in Sources */,
+				C4FBE239208D5E8D00AD618D /* UserGamesImpl.swift in Sources */,
 				C45AC967206671AF00F9947F /* NewsPresentationModel.swift in Sources */,
 				C472A6D1205C7E5900768585 /* Storyboard+GetViewController.swift in Sources */,
 				C4E1128020835B4600EE7DC4 /* GameInfoImpl.swift in Sources */,
@@ -1465,6 +1529,7 @@
 				C41B3C20207218CE00A2B652 /* GamesViewController.swift in Sources */,
 				C41B3CFC2072F74900A2B652 /* AuthResponse.swift in Sources */,
 				C4C4A5A2208B5F2800AB6384 /* GamesAchievementsCell.swift in Sources */,
+				C4FBE23D208D5F1500AD618D /* UserGamesResponse.swift in Sources */,
 				C4C259B62078CCDE00C0CDD4 /* OptionFilterCell.swift in Sources */,
 				C42940C220827B060026B2C3 /* GameInfoViewController.swift in Sources */,
 				C4D4E4FE20618FA9000A9216 /* TabBarController.swift in Sources */,
@@ -1482,6 +1547,7 @@
 				C41B3CD72072F50000A2B652 /* Parser.swift in Sources */,
 				C427F2B420869ED0007D6C83 /* TournamentCell.swift in Sources */,
 				C41B3D002072F77A00A2B652 /* GamesResponse.swift in Sources */,
+				C4FBE22C208D492E00AD618D /* UserGameViewModel.swift in Sources */,
 				C4C4A5AB208B674E00AB6384 /* AccountRouter.swift in Sources */,
 				C408C8CF206D3E7A0053F057 /* AddNewsViewController.swift in Sources */,
 				C4C259A62076A3D000C0CDD4 /* DeleteNewsResponse.swift in Sources */,
@@ -1497,6 +1563,7 @@
 				C41B3CD52072F4F500A2B652 /* RealmCache.swift in Sources */,
 				C4C4A5A5208B5F7100AB6384 /* CupsAchievementsCell.swift in Sources */,
 				C41B3C2C2072573600A2B652 /* Game.swift in Sources */,
+				C4FBE22E208D498200AD618D /* UserGamesViewController.swift in Sources */,
 				C44D60EA2058573D00A5C50F /* UIFont+CustomFont.swift in Sources */,
 				C491621C2085314900A95E07 /* AddCommentViewController.swift in Sources */,
 				C4EFB79720890A8300E6033B /* RatingType.swift in Sources */,
@@ -1507,6 +1574,7 @@
 				C4C259BA2078DF4800C0CDD4 /* FilterGamesPresentationModel.swift in Sources */,
 				C472A6D3205C7E8000768585 /* StoryboardTitle.swift in Sources */,
 				C427F2E52088BD9A007D6C83 /* RatingResponse.swift in Sources */,
+				C4FBE233208D57D000AD618D /* UserGame.swift in Sources */,
 				C4C4A5AD208B688800AB6384 /* AchievementsViewController.swift in Sources */,
 				C4D4E4FC20618E8F000A9216 /* NewsViewController.swift in Sources */,
 				C463186A207944AD00E14DAC /* UIImage+DrawCircle.swift in Sources */,

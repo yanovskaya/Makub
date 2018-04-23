@@ -101,9 +101,10 @@ final class RatingPresentationModel: PresentationModel {
                 guard let model = model else { return }
                 self.ratingViewModels = model.rating.compactMap { RatingViewModel($0) }
                 self.sortViewModels(type: .common)
-                self.state = .rich
+                self.group.leave()
             case .serviceFailure(let error):
                 self.state = .error(code: error.code)
+                self.group.leave()
             }
         }
     }

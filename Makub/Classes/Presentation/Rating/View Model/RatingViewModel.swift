@@ -54,7 +54,7 @@ final class RatingViewModel {
             classicRating = 0
         }
         if let photo = rating.photo, photo != "" {
-            self.photoURL = (Constants.baseURL + photo).removeSpacesInURL()
+            self.photoURL = (Constants.baseURL + photo).encodeInURL()
         } else {
             self.photoURL = nil
         }

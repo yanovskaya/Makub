@@ -42,7 +42,7 @@ final class GamesPresentationModel: PresentationModel {
     private let gamesService = ServiceLayer.shared.gamesService
     private let clubsService = ServiceLayer.shared.clubsService
     
-    private var fromIndex = 1
+    private var fromIndex = 0
     private var toIndex = 80
     private let count = 80
     
@@ -83,7 +83,7 @@ final class GamesPresentationModel: PresentationModel {
     }
     
     func refreshGames() {
-        fromIndex = 1
+        fromIndex = 0
         toIndex = 80
         gamesService.obtainGames(from: fromIndex, to: count, useCache: false) { result in
             switch result {
@@ -119,7 +119,7 @@ final class GamesPresentationModel: PresentationModel {
     private func obtainFilterGames(count: Int = 2000, parameters: [String: [String]]) {
         state = .loading
         filterParameters = parameters
-        gamesService.obtainGames(from: 1, to: count, useCache: true) { result in
+        gamesService.obtainGames(from: 0, to: count, useCache: true) { result in
             switch result {
             case .serviceSuccess(let model):
                 guard let model = model else { return }

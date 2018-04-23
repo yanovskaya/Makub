@@ -30,8 +30,7 @@ final class GameViewModel {
     let photo2URL: String!
     let playerTime: String
     let comments: String
-    
-    var type: String
+    let type: String
     var club: String!
     
     // MARK: - Initialization
@@ -53,13 +52,13 @@ final class GameViewModel {
             self.playerTime = ""
         }
         if let photo1 = game.photo1, photo1 != "" {
-            self.photo1URL = (Constants.baseURL + photo1).removeSpacesInURL()
+            self.photo1URL = (Constants.baseURL + photo1).encodeInURL()
         } else {
             self.photo1URL = nil
         }
         
         if let photo2 = game.photo2, photo2 != "" {
-            self.photo2URL = (Constants.baseURL + photo2).removeSpacesInURL()
+            self.photo2URL = (Constants.baseURL + photo2).encodeInURL()
         } else {
             self.photo2URL = nil
         }
@@ -76,5 +75,4 @@ final class GameViewModel {
             self.type = ""
         }
     }
-    
 }

@@ -10,7 +10,7 @@ import Foundation.NSString
 
 extension String {
     
-    func removeSpacesInURL() -> String {
-        return replacingOccurrences(of: " ", with: "%20", options: .literal, range: nil)
+    func encodeInURL() -> String {
+        return self.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed)!
     }
 }

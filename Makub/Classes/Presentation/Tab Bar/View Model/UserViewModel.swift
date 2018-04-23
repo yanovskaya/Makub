@@ -66,7 +66,7 @@ struct UserViewModel {
             rankFast = nil
         }
         if let photo = user.photo, photo != "" {
-            photoURL = (Constants.baseURL + photo).removeSpacesInURL()
+            photoURL = (Constants.baseURL + photo).encodeInURL()
         } else {
             photoURL = nil
         }

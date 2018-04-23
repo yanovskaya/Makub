@@ -71,13 +71,13 @@ final class NewsViewModel {
         }
         
         if let photo = news.photo, photo != "" {
-            self.photoURL = (Constants.baseURL + photo).removeSpacesInURL()
+            self.photoURL = (Constants.baseURL + photo).encodeInURL()
         } else {
             self.photoURL = nil
         }
         
         if let image = news.image, image != "" {
-            self.imageURL = (Constants.baseURL + image).removeSpacesInURL()
+            self.imageURL = (Constants.baseURL + image).encodeInURL()
         } else {
             self.imageURL = nil
         }

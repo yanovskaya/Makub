@@ -30,7 +30,7 @@ final class CommentViewModel {
         self.author = comment.name + " " + comment.surname
         
         if let photo = comment.photo, photo != "" {
-            self.photoURL = (Constants.baseURL + photo).removeSpacesInURL()
+            self.photoURL = (Constants.baseURL + photo).encodeInURL()
         } else {
             self.photoURL = nil
         }
