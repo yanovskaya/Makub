@@ -66,14 +66,14 @@ final class UserServiceImpl: UserService {
                     if useCache {
                         self.obtainRealmCache(error: error, completion: completion)
                     } else {
-                        completion?(ServiceCallResult.serviceFailure(error: NSError()))
+                        completion?(ServiceCallResult.serviceFailure(error: error))
                     }
                 }
             case .transportFailure(let error):
                 if useCache {
                     self.obtainRealmCache(error: error, completion: completion)
                 } else {
-                    completion?(ServiceCallResult.serviceFailure(error: NSError()))
+                    completion?(ServiceCallResult.serviceFailure(error: error))
                 }
             }
         }
@@ -84,7 +84,11 @@ final class UserServiceImpl: UserService {
             let model = convertToDecodable(realm: userCache)
             completion?(ServiceCallResult.serviceSuccess(payload: model))
         } else {
-            completion?(ServiceCallResult.serviceFailure(error: NSError()))
+            guard let error = error else {
+                completion?(ServiceCallResult.serviceFailure(error: NSError()))
+                return
+            }
+            completion?(ServiceCallResult.serviceFailure(error: error))
         }
     }
     

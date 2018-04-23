@@ -34,6 +34,7 @@ final class GameInfoPresentationModel: PresentationModel {
     // MARK: - Public Methods
     
     func obtainGameInfo() {
+        error = nil
         group.enter()
         obtainUserInfo()
         

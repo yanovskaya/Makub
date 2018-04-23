@@ -50,6 +50,10 @@ final class AccountViewController: UICollectionViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         tabBarController?.delegate = self
+        if presentationModel.userViewModel == nil {
+            bindEvents()
+            presentationModel.obtainProfileWithSettings()
+        }
     }
     
     // MARK: - UICollectionViewDataSource
@@ -103,6 +107,7 @@ final class AccountViewController: UICollectionViewController {
                 self?.collectionView?.reloadData()
                 HUD.hide()
             case .error (let code):
+                print(code)
                 switch code {
                 case -1009, -1001:
                     HUD.show(.labeledError(title: ErrorDescription.title.rawValue, subtitle: ErrorDescription.network.rawValue))

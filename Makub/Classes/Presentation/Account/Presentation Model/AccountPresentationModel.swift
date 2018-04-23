@@ -30,7 +30,9 @@ final class AccountPresentationModel: PresentationModel {
     // MARK: - Public Methods
     
     func obtainProfileWithSettings() {
-        obtainSettings()
+        if settingModels.isEmpty {
+            obtainSettings()
+        }
         obtainUserCache()
         obtainUserInfo()
     }

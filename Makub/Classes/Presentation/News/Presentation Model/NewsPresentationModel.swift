@@ -27,6 +27,7 @@ final class NewsPresentationModel: PresentationModel {
     // MARK: - Public Methods
     
     func obtainNewsWithUser() {
+        error = nil
         group.enter()
         state = .loading
         userService.obtainUserInfo(useCache: true) { result in

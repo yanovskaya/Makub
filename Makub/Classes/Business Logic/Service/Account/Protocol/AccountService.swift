@@ -1,5 +1,5 @@
 //
-//  UserGamesProtocol.swift
+//  AccountService.swift
 //  Makub
 //
 //  Created by Елена Яновская on 23.04.2018.
