@@ -7,3 +7,8 @@
 //
 
 import Foundation
+
+protocol AccountService: class {
+    
+    func obtainUserGames(from: Int, to: Int, useCache: Bool, completion: ((ServiceCallResult<UserGamesResponse>) -> Void)?)
+}

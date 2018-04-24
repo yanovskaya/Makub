@@ -80,6 +80,9 @@
 		C44D60D5205806BB00A5C50F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44D60D4205806BB00A5C50F /* Colors.swift */; };
 		C44D60D7205807F500A5C50F /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44D60D6205807F500A5C50F /* UIColor+Hex.swift */; };
 		C44D60EA2058573D00A5C50F /* UIFont+CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44D60E92058573D00A5C50F /* UIFont+CustomFont.swift */; };
+		C44ED7EA208F396100B8A642 /* UserCommentsCountResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44ED7E9208F396100B8A642 /* UserCommentsCountResponse.swift */; };
+		C44ED7EC208F397200B8A642 /* UserCommentsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44ED7EB208F397200B8A642 /* UserCommentsResponse.swift */; };
+		C44ED7EE208F602E00B8A642 /* UserComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44ED7ED208F602E00B8A642 /* UserComment.swift */; };
 		C4540F93207B8CBD00EEC4A5 /* GamesCountResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4540F92207B8CBD00EEC4A5 /* GamesCountResponse.swift */; };
 		C4540F95207BEAA100EEC4A5 /* FilterViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4540F94207BEAA100EEC4A5 /* FilterViewControllerDelegate.swift */; };
 		C4556B95205EC04D00D65DBD /* UIImage+ImageWithInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4556B94205EC04D00D65DBD /* UIImage+ImageWithInsets.swift */; };
@@ -253,6 +256,9 @@
 		C44D60D4205806BB00A5C50F /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		C44D60D6205807F500A5C50F /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		C44D60E92058573D00A5C50F /* UIFont+CustomFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+CustomFont.swift"; sourceTree = "<group>"; };
+		C44ED7E9208F396100B8A642 /* UserCommentsCountResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCommentsCountResponse.swift; sourceTree = "<group>"; };
+		C44ED7EB208F397200B8A642 /* UserCommentsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCommentsResponse.swift; sourceTree = "<group>"; };
+		C44ED7ED208F602E00B8A642 /* UserComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserComment.swift; sourceTree = "<group>"; };
 		C4540F92207B8CBD00EEC4A5 /* GamesCountResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesCountResponse.swift; sourceTree = "<group>"; };
 		C4540F94207BEAA100EEC4A5 /* FilterViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewControllerDelegate.swift; sourceTree = "<group>"; };
 		C4556B94205EC04D00D65DBD /* UIImage+ImageWithInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+ImageWithInsets.swift"; sourceTree = "<group>"; };
@@ -853,6 +859,7 @@
 				C427F2DF2088BC45007D6C83 /* Rating.swift */,
 				C463186D207A0DE000E14DAC /* Filter.swift */,
 				C4FBE232208D57D000AD618D /* UserGame.swift */,
+				C44ED7ED208F602E00B8A642 /* UserComment.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1263,6 +1270,8 @@
 			isa = PBXGroup;
 			children = (
 				C4FBE23C208D5F1500AD618D /* UserGamesResponse.swift */,
+				C44ED7E9208F396100B8A642 /* UserCommentsCountResponse.swift */,
+				C44ED7EB208F397200B8A642 /* UserCommentsResponse.swift */,
 			);
 			path = Parser;
 			sourceTree = "<group>";
@@ -1568,11 +1577,13 @@
 				C491621C2085314900A95E07 /* AddCommentViewController.swift in Sources */,
 				C4EFB79720890A8300E6033B /* RatingType.swift in Sources */,
 				C41B3D072072FDB800A2B652 /* String+SpacesInURL.swift in Sources */,
+				C44ED7EA208F396100B8A642 /* UserCommentsCountResponse.swift in Sources */,
 				C427F2CE2087B937007D6C83 /* String+DateConverter.swift in Sources */,
 				C44D60B0205529C100A5C50F /* AppDelegate.swift in Sources */,
 				C44D60CA20553B0100A5C50F /* User.swift in Sources */,
 				C4C259BA2078DF4800C0CDD4 /* FilterGamesPresentationModel.swift in Sources */,
 				C472A6D3205C7E8000768585 /* StoryboardTitle.swift in Sources */,
+				C44ED7EC208F397200B8A642 /* UserCommentsResponse.swift in Sources */,
 				C427F2E52088BD9A007D6C83 /* RatingResponse.swift in Sources */,
 				C4FBE233208D57D000AD618D /* UserGame.swift in Sources */,
 				C4C4A5AD208B688800AB6384 /* AchievementsViewController.swift in Sources */,
@@ -1583,6 +1594,7 @@
 				C41B3C342072640100A2B652 /* Club.swift in Sources */,
 				C491622B20862DD500A95E07 /* TournamentsViewController.swift in Sources */,
 				C4C259B22078CCB800C0CDD4 /* TitleFilterCell.swift in Sources */,
+				C44ED7EE208F602E00B8A642 /* UserComment.swift in Sources */,
 				C4EFB7912089063000E6033B /* RatingPresentationModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
