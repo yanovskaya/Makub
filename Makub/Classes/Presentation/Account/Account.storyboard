@@ -61,7 +61,7 @@
         <!--User Games View Controller-->
         <scene sceneID="b6y-MA-JWC">
             <objects>
-                <collectionViewController id="Din-dj-rBv" customClass="UserGamesViewController" customModule="Макуб" customModuleProvider="target" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="UserGamesViewController" id="Din-dj-rBv" customClass="UserGamesViewController" customModule="Макуб" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="DJl-oy-PnW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

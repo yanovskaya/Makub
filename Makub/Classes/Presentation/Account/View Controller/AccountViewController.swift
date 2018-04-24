@@ -178,6 +178,8 @@ final class AccountViewController: UICollectionViewController {
     private func settingCell(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.row == 0 {
             router.showAchievementsVC(source: self, indexPath.row)
+        } else if indexPath.row == 1 {
+            router.showUserGamesVC(source: self, indexPath.row)
         }
     }
 }

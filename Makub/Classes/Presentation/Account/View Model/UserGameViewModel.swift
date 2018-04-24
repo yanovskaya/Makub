@@ -44,7 +44,7 @@ final class UserGameViewModel {
             self.photoURL = nil
         }
         
-        if let video = game.video, video != "", video.count < 20 {
+        if let video = game.video, video != "", video != "0", video.count < 20 {
             self.video = video
         } else {
             self.video = nil

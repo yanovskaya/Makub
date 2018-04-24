@@ -24,4 +24,14 @@ final class AccountRouter {
         achievementsViewController.presentationModel.title = accountViewController.presentationModel.settingModels[index]
         accountViewController.show(achievementsViewController, sender: self)
     }
+    
+    /// Account -> UserGames.
+    func showUserGamesVC(source accountViewController: AccountViewController, _ index: Int) {
+        let userGamesViewController = accountStoryboard.viewController(UserGamesViewController.self)
+        userGamesViewController.presentationModel.userViewModel = accountViewController.presentationModel.userViewModel
+        userGamesViewController.presentationModel.title = accountViewController.presentationModel.settingModels[index]
+        accountViewController.show(userGamesViewController, sender: self)
+    }
+    
+    /// UserGames -> GameInfo.
 }
