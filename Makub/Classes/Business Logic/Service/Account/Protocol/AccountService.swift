@@ -11,4 +11,6 @@ import Foundation
 protocol AccountService: class {
     
     func obtainUserGames(from: Int, to: Int, useCache: Bool, completion: ((ServiceCallResult<UserGamesResponse>) -> Void)?)
+    func obtainUserCommentsCount(completion: ((ServiceCallResult<UserCommentsCountResponse>) -> Void)?)
+    func obtainUserComments(id: Int, from: Int, to: Int, useCache: Bool, completion: ((ServiceCallResult<UserCommentsResponse>) -> Void)?)
 }

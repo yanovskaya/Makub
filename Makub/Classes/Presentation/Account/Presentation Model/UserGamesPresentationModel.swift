@@ -29,7 +29,7 @@ final class UserGamesPresentationModel: PresentationModel {
     
     func obtainAllGames() {
         state = .loading
-        accountService.obtainUserGames(from: fromCount, to: toCount, useCache: true){ result in
+        accountService.obtainUserGames(from: fromCount, to: toCount, useCache: true) { result in
             switch result {
             case .serviceSuccess(let model):
                 guard let model = model else { return }
@@ -43,7 +43,7 @@ final class UserGamesPresentationModel: PresentationModel {
     
     func refreshAllGames() {
         state = .loading
-        accountService.obtainUserGames(from: fromCount, to: toCount, useCache: true){ result in
+        accountService.obtainUserGames(from: fromCount, to: toCount, useCache: false) { result in
             switch result {
             case .serviceSuccess(let model):
                 guard let model = model else { return }

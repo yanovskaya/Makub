@@ -33,5 +33,13 @@ final class AccountRouter {
         accountViewController.show(userGamesViewController, sender: self)
     }
     
+    /// Account -> Comments.
+    func showUserCommentsVC(source accountViewController: AccountViewController, _ index: Int) {
+        let userCommentsViewController = accountStoryboard.viewController(UserCommentsViewController.self)
+        userCommentsViewController.presentationModel.userViewModel = accountViewController.presentationModel.userViewModel
+        userCommentsViewController.presentationModel.title = accountViewController.presentationModel.settingModels[index]
+        accountViewController.show(userCommentsViewController, sender: self)
+    }
+    
     /// UserGames -> GameInfo.
 }

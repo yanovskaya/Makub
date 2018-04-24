@@ -1,21 +1,21 @@
 //
-//  UserGamesViewController.swift
+//  UserCommentsViewController.swift
 //  Makub
 //
-//  Created by Елена Яновская on 23.04.2018.
+//  Created by Елена Яновская on 24.04.2018.
 //  Copyright © 2018 Elena Yanovskaya. All rights reserved.
 //
 
 import PKHUD
 import UIKit
 
-class UserGamesViewController: UICollectionViewController {
-
+class UserCommentsViewController: UICollectionViewController {
+    
     // MARK: - Constants
     
     private enum Constants {
         static let backImage = "arrow_left"
-        static let cellIdentifier = String(describing: GamesCell.self)
+        static let cellIdentifier = String(describing: CommentsCell.self)
     }
     
     private enum LayoutConstants {
@@ -28,7 +28,7 @@ class UserGamesViewController: UICollectionViewController {
     
     // MARK: - Public Properties
     
-    let presentationModel = UserGamesPresentationModel()
+    let presentationModel = UserCommentsPresentationModel()
     
     // MARK: - Private Properties
     
@@ -42,28 +42,28 @@ class UserGamesViewController: UICollectionViewController {
         configureNavigationBar()
         configureCollectionView()
         bindEvents()
-        presentationModel.obtainAllGames()
+        presentationModel.obtainAllComments()
     }
-
+    
     // MARK: - UICollectionViewDataSource
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return presentationModel.gamesViewModels.count
+        return presentationModel.commentsViewModels.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let gamesViewModel = presentationModel.gamesViewModels[indexPath.row]
+        let commentsViewModel = presentationModel.commentsViewModels[indexPath.row]
         let cellIdentifier = Constants.cellIdentifier
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? GamesCell,
-        let userViewModel = presentationModel.userViewModel else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? CommentsCell else { return UICollectionViewCell() }
         
-        cell.configure(userViewModel: userViewModel, gameViewModel: gamesViewModel)
+        cell.configure(for: commentsViewModel)
+        cell.configureCellWidth(view.frame.width)
         cell.layoutIfNeeded()
         return cell
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-       // router.showGameInfoVC(source: self, indexPath.row)
+        // router.showGameInfoVC(source: self, indexPath.row)
     }
     
     // MARK: - Private Methods
@@ -136,7 +136,7 @@ class UserGamesViewController: UICollectionViewController {
     
     @objc private func refreshAllGames(_ refreshControl: UIRefreshControl) {
         bindEventsRefreshUserGames()
-        presentationModel.refreshAllGames()
+        presentationModel.refreshAllComments()
     }
     
     @objc private func backButtonTapped(sender: UIButton) {
@@ -146,7 +146,7 @@ class UserGamesViewController: UICollectionViewController {
 
 // MARK: - UICollectionViewDelegateFlowLayout
 
-extension UserGamesViewController: UICollectionViewDelegateFlowLayout {
+extension UserCommentsViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         if section == 0 {

@@ -27,6 +27,8 @@ final class AccountServiceImpl: AccountService {
     private enum EndPoint {
         static let games = "/my_games"
         static let gamesCount = "/my_games_count"
+        static let comments = "/all_player_comments"
+        static let commentsCount = "/all_player_comments_count"
     }
     
     // MARK: - Private Properties
@@ -97,7 +99,7 @@ final class AccountServiceImpl: AccountService {
             return
         }
         let parameters = [Constants.tokenParameter: token]
-        transport.request(method: .post, url: Constants.baseURL + EndPoint.gamesCount, parameters: parameters) { [unowned self] transportResult in
+        transport.request(method: .post, url: Constants.baseURL + EndPoint.commentsCount, parameters: parameters) { [unowned self] transportResult in
             switch transportResult {
             case .transportSuccess(let payload):
                 let resultBody = payload.resultBody
@@ -129,7 +131,7 @@ final class AccountServiceImpl: AccountService {
                           Constants.fromParameter: from,
                           Constants.toParameter: to,
                           Constants.idParameter: id] as [String: Any]
-        transport.request(method: .post, url: Constants.baseURL + EndPoint.games, parameters: parameters) { [unowned self] transportResult in
+        transport.request(method: .post, url: Constants.baseURL + EndPoint.comments, parameters: parameters) { [unowned self] transportResult in
             switch transportResult {
             case .transportSuccess(let payload):
                 let resultBody = payload.resultBody

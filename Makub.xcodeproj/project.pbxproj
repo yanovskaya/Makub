@@ -84,6 +84,8 @@
 		C44ED7EC208F397200B8A642 /* UserCommentsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44ED7EB208F397200B8A642 /* UserCommentsResponse.swift */; };
 		C44ED7EE208F602E00B8A642 /* UserComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44ED7ED208F602E00B8A642 /* UserComment.swift */; };
 		C44ED7F3208FB4BD00B8A642 /* UserGamesPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44ED7F2208FB4BD00B8A642 /* UserGamesPresentationModel.swift */; };
+		C44ED7F5208FC06700B8A642 /* UserCommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44ED7F4208FC06700B8A642 /* UserCommentsViewController.swift */; };
+		C44ED7F7208FD8CE00B8A642 /* UserCommentsPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44ED7F6208FD8CE00B8A642 /* UserCommentsPresentationModel.swift */; };
 		C4540F93207B8CBD00EEC4A5 /* GamesCountResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4540F92207B8CBD00EEC4A5 /* GamesCountResponse.swift */; };
 		C4540F95207BEAA100EEC4A5 /* FilterViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4540F94207BEAA100EEC4A5 /* FilterViewControllerDelegate.swift */; };
 		C4556B95205EC04D00D65DBD /* UIImage+ImageWithInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4556B94205EC04D00D65DBD /* UIImage+ImageWithInsets.swift */; };
@@ -261,6 +263,8 @@
 		C44ED7EB208F397200B8A642 /* UserCommentsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCommentsResponse.swift; sourceTree = "<group>"; };
 		C44ED7ED208F602E00B8A642 /* UserComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserComment.swift; sourceTree = "<group>"; };
 		C44ED7F2208FB4BD00B8A642 /* UserGamesPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGamesPresentationModel.swift; sourceTree = "<group>"; };
+		C44ED7F4208FC06700B8A642 /* UserCommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCommentsViewController.swift; sourceTree = "<group>"; };
+		C44ED7F6208FD8CE00B8A642 /* UserCommentsPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCommentsPresentationModel.swift; sourceTree = "<group>"; };
 		C4540F92207B8CBD00EEC4A5 /* GamesCountResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesCountResponse.swift; sourceTree = "<group>"; };
 		C4540F94207BEAA100EEC4A5 /* FilterViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewControllerDelegate.swift; sourceTree = "<group>"; };
 		C4556B94205EC04D00D65DBD /* UIImage+ImageWithInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+ImageWithInsets.swift"; sourceTree = "<group>"; };
@@ -1091,6 +1095,7 @@
 				C4C4A57C208A64C300AB6384 /* AccountViewController.swift */,
 				C4C4A5AC208B688800AB6384 /* AchievementsViewController.swift */,
 				C4FBE22D208D498200AD618D /* UserGamesViewController.swift */,
+				C44ED7F4208FC06700B8A642 /* UserCommentsViewController.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -1110,6 +1115,7 @@
 				C4C4A58A208A9E7100AB6384 /* AccountPresentationModel.swift */,
 				C4C4A5B0208B7C4300AB6384 /* AchievementsPresentationModel.swift */,
 				C44ED7F2208FB4BD00B8A642 /* UserGamesPresentationModel.swift */,
+				C44ED7F6208FD8CE00B8A642 /* UserCommentsPresentationModel.swift */,
 			);
 			path = "Presentation Model";
 			sourceTree = "<group>";
@@ -1523,6 +1529,7 @@
 				C4C4A597208ABA2900AB6384 /* ExitCell.swift in Sources */,
 				C42940C920827CF50026B2C3 /* GameInfoService.swift in Sources */,
 				C41B3CDB2072F53E00A2B652 /* ServiceLayer.swift in Sources */,
+				C44ED7F5208FC06700B8A642 /* UserCommentsViewController.swift in Sources */,
 				C4FBE231208D56A400AD618D /* String+GetCommentsCount.swift in Sources */,
 				C491621E2085378600A95E07 /* String+CapitalizeFirstLetter.swift in Sources */,
 				C427F2D02087BFD0007D6C83 /* TournamentPresentationModel.swift in Sources */,
@@ -1566,6 +1573,7 @@
 				C4C259A62076A3D000C0CDD4 /* DeleteNewsResponse.swift in Sources */,
 				C4D4E4FA20618E63000A9216 /* RatingViewController.swift in Sources */,
 				C48C71D22083811A007D984B /* CommentViewModel.swift in Sources */,
+				C44ED7F7208FD8CE00B8A642 /* UserCommentsPresentationModel.swift in Sources */,
 				C42940C420827BA60026B2C3 /* GameInfoPresentationModel.swift in Sources */,
 				C463186C207964C700E14DAC /* UserDefaultsKeys.swift in Sources */,
 				C4C4A586208A919C00AB6384 /* UserCell.swift in Sources */,

@@ -20,6 +20,7 @@ final class UserComment: Object, Decodable {
     @objc dynamic var commentTime: String! = nil
     @objc dynamic var opponentName: String! = nil
     @objc dynamic var opponentSurname: String! = nil
+    @objc dynamic var author: String! = nil
     @objc dynamic var authorName: String! = nil
     @objc dynamic var authorSurname: String! = nil
     @objc dynamic var commentPhoto: String! = nil

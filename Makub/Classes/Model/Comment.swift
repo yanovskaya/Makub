@@ -12,6 +12,7 @@ import RealmSwift
 final class Comment: Object, Decodable {
     
     @objc dynamic var id: String! = nil
+    @objc dynamic var gameId: String! = nil
     @objc dynamic var comment: String! = nil
     @objc dynamic var playerId: String! = nil
     @objc dynamic var time: String! = nil

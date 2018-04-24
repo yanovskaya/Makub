@@ -180,6 +180,8 @@ final class AccountViewController: UICollectionViewController {
             router.showAchievementsVC(source: self, indexPath.row)
         } else if indexPath.row == 1 {
             router.showUserGamesVC(source: self, indexPath.row)
+        } else if indexPath.row == 2 {
+            router.showUserCommentsVC(source: self, indexPath.row)
         }
     }
 }
