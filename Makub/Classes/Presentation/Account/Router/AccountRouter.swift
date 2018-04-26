@@ -51,8 +51,7 @@ final class AccountRouter {
     /// Account -> Edit Profile.
     func showEditProfileVC(source accountViewController: AccountViewController) {
         let editProfileViewController = accountStoryboard.viewController(EditProfileViewController.self)
-        //userCommentsViewController.presentationModel.userViewModel = accountViewController.presentationModel.userViewModel
-       // userCommentsViewController.presentationModel.title = accountViewController.presentationModel.settingModels[index]
+        editProfileViewController.presentationModel.userViewModel = accountViewController.presentationModel.userViewModel
         accountViewController.present(editProfileViewController, animated: true)
     }
     

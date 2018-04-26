@@ -6,6 +6,7 @@
 //  Copyright © 2018 Elena Yanovskaya. All rights reserved.
 //
 
+import Kingfisher
 import UIKit
 
 class EditProfileViewController: UIViewController {
@@ -19,7 +20,21 @@ class EditProfileViewController: UIViewController {
         static let changePasswordLabel = "Изменение пароля"
         static let newPasswordLabel = "Новый"
         static let newPasswordRepeatLabel = "Подтвердить"
+        static let userImage = "photo_default"
+        
+        static let cancel = "Отмена"
+        static let removePhoto = "Удалить"
+        static let chooseFromLibrary = "Выбрать из библиотеки"
+        static let takePhoto = "Сделать фото"
     }
+    
+    // MARK: - Public Properties
+    
+    let presentationModel = EditProfilePresentationModel()
+    
+    // MARK: - Private Property
+    
+    private let indicator = UserIndicator()
     
     // MARK: - IBOutlets
     
@@ -32,8 +47,7 @@ class EditProfileViewController: UIViewController {
     @IBOutlet private var newPasswordRepeatLabel: UILabel!
     @IBOutlet private var newPasswordRepeatTextField: UITextField!
     
-    @IBOutlet private var settingLineViews: [UIView]!
-    @IBOutlet private var userLineViews: [UIView]!
+    @IBOutlet private var lineViews: [UIView]!
     
     @IBOutlet private var navBackgroundView: UIView!
     @IBOutlet private var navigationBar: UINavigationBar!
@@ -46,19 +60,21 @@ class EditProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = PaletteColors.blueBackground
-        for lineView in userLineViews {
+        for lineView in lineViews {
             lineView.backgroundColor = PaletteColors.lineGray
         }
-        for lineView in settingLineViews {
-            lineView.backgroundColor = PaletteColors.lineGray
-        }
-        changePasswordLabel.text = Constants.changePasswordLabel
-        newPasswordLabel.text = Constants.newPasswordLabel
-        newPasswordRepeatLabel.text = Constants.newPasswordRepeatLabel
         configureNavigationBar()
         configureFont()
         configureColor()
-        hideKeyboardWhenTappedAround()
+        configureLabels()
+        configureImageView()
+        configureTextFields()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        profileImageView.clipsToBounds = true
+        profileImageView.layer.cornerRadius = profileImageView.frame.width / 2
     }
     
     // MARK: - Private Methods
@@ -85,7 +101,6 @@ class EditProfileViewController: UIViewController {
         doneButtonItem.setTitleTextAttributes(doneButtonAttributes, for: .selected)
         
         doneButtonItem.setTitleTextAttributes([NSAttributedStringKey.font: UIFont.customFont(.robotoBoldFont(size: 17))], for: .disabled)
-        
         doneButtonItem.isEnabled = false
     }
     
@@ -97,7 +112,6 @@ class EditProfileViewController: UIViewController {
         
         newPasswordRepeatLabel.font = UIFont.customFont(.robotoRegularFont(size: 16))
         newPasswordLabel.font = UIFont.customFont(.robotoRegularFont(size: 16))
-        
         changePasswordLabel.font = UIFont.customFont(.robotoRegularFont(size: 14))
     }
     
@@ -116,5 +130,71 @@ class EditProfileViewController: UIViewController {
         newPasswordLabel.textColor = PaletteColors.darkGray
         
         changePasswordLabel.textColor = PaletteColors.textGray
+    }
+    
+    private func configureLabels() {
+        changePasswordLabel.text = Constants.changePasswordLabel
+        newPasswordLabel.text = Constants.newPasswordLabel
+        newPasswordRepeatLabel.text = Constants.newPasswordRepeatLabel
+        
+        guard let viewModel = presentationModel.userViewModel else { return }
+        nameTextField.text = viewModel.name
+        surnameTextField.text = viewModel.surname
+    }
+    
+    private func configureImageView() {
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageViewTapped))
+        profileImageView.addGestureRecognizer(tapGestureRecognizer)
+        guard let viewModel = presentationModel.userViewModel else { return }
+        if let photoURL = viewModel.photoURL {
+            profileImageView.kf.indicatorType = .custom(indicator: indicator)
+            profileImageView.kf.setImage(with: URL(string: photoURL), placeholder: nil, options: nil, completionHandler: { (image, _, _, _) in
+                if image == nil {
+                    self.profileImageView.image = UIImage(named: Constants.userImage)
+                }
+            })
+        } else {
+            self.profileImageView.image = UIImage(named: Constants.userImage)
+        }
+    }
+    
+    private func configureTextFields() {
+        hideKeyboardWhenTappedAround()
+        nameTextField.delegate = self
+        surnameTextField.delegate = self
+        newPasswordTextField.delegate = self
+        newPasswordRepeatTextField.delegate = self
+    }
+    
+    @objc private func imageViewTapped() {
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let libraryAction = UIAlertAction(title: Constants.chooseFromLibrary, style: .default) { _ in
+        }
+        let cancelAction = UIAlertAction(title: Constants.cancel, style: .cancel)
+        let cameraAction = UIAlertAction(title: Constants.takePhoto, style: .default)
+        alertController.addAction(libraryAction)
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            alertController.addAction(cameraAction)
+        }
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    // MARK: - IBActions
+    
+    @IBAction private func cancelButtonTapped(_ sender: Any) {
+        dismiss(animated: true)
+    }
+    
+}
+
+extension EditProfileViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        if textField == newPasswordTextField {
+            newPasswordRepeatTextField.becomeFirstResponder()
+        }
+        return true
     }
 }

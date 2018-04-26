@@ -136,7 +136,7 @@
                                                 <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                             </textField>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="olr-us-Wuy" userLabel="User Line View">
                                                 <rect key="frame" x="0.0" y="27" width="271" height="1"/>
@@ -150,7 +150,7 @@
                                                 <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                             </textField>
                                         </subviews>
                                         <constraints>
@@ -195,12 +195,12 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jed-Mi-CbP">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="•" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jed-Mi-CbP">
                                         <rect key="frame" x="74" y="14" width="281" height="17"/>
                                         <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="next" secureTextEntry="YES"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4M5-MD-5Fz">
                                         <rect key="frame" x="16" y="60" width="42" height="20.5"/>
@@ -208,12 +208,12 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JRr-HA-b6e">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="•" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JRr-HA-b6e">
                                         <rect key="frame" x="74" y="60" width="281" height="20.5"/>
                                         <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
                                     </textField>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wUK-gB-29b" userLabel="2 Set Line View">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="1"/>
@@ -270,7 +270,11 @@
                                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                         <items>
                                             <navigationItem title="Title" id="xmu-Xb-y5W">
-                                                <barButtonItem key="leftBarButtonItem" title="Item" id="xMn-Xg-QdF"/>
+                                                <barButtonItem key="leftBarButtonItem" title="Item" id="xMn-Xg-QdF">
+                                                    <connections>
+                                                        <action selector="cancelButtonTapped:" destination="MA1-C2-vdr" id="7ke-s3-zze"/>
+                                                    </connections>
+                                                </barButtonItem>
                                                 <barButtonItem key="rightBarButtonItem" title="Item" id="vTn-NR-VMn"/>
                                             </navigationItem>
                                         </items>
@@ -314,11 +318,12 @@
                         <outlet property="newPasswordTextField" destination="Jed-Mi-CbP" id="F9F-fr-nZN"/>
                         <outlet property="profileImageView" destination="8N9-O2-rI8" id="6Yi-iZ-fgx"/>
                         <outlet property="surnameTextField" destination="jRR-72-Boc" id="SoD-nN-fXQ"/>
-                        <outletCollection property="settingLineViews" destination="wUK-gB-29b" collectionClass="NSMutableArray" id="Qqy-oL-wg5"/>
-                        <outletCollection property="settingLineViews" destination="20E-zR-gwo" collectionClass="NSMutableArray" id="vDo-F3-N2c"/>
-                        <outletCollection property="settingLineViews" destination="2F4-xu-151" collectionClass="NSMutableArray" id="2P8-ol-KIr"/>
-                        <outletCollection property="userLineViews" destination="olr-us-Wuy" collectionClass="NSMutableArray" id="XB0-MZ-k0k"/>
-                        <outletCollection property="userLineViews" destination="kF6-J5-vOj" collectionClass="NSMutableArray" id="QHB-sy-5t5"/>
+                        <outletCollection property="lineViews" destination="olr-us-Wuy" collectionClass="NSMutableArray" id="hdX-jF-LFn"/>
+                        <outletCollection property="lineViews" destination="kF6-J5-vOj" collectionClass="NSMutableArray" id="VeT-jM-na9"/>
+                        <outletCollection property="lineViews" destination="JRr-HA-b6e" collectionClass="NSMutableArray" id="v9v-cv-jGb"/>
+                        <outletCollection property="lineViews" destination="2F4-xu-151" collectionClass="NSMutableArray" id="gQr-1Z-hgC"/>
+                        <outletCollection property="lineViews" destination="wUK-gB-29b" collectionClass="NSMutableArray" id="n7w-g5-vEH"/>
+                        <outletCollection property="lineViews" destination="20E-zR-gwo" collectionClass="NSMutableArray" id="z34-fU-CkN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Xb-VG-IOl" userLabel="First Responder" sceneMemberID="firstResponder"/>

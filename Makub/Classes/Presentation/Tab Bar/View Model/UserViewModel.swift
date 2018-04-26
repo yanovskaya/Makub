@@ -21,6 +21,8 @@ struct UserViewModel {
     let photoURL: String!
     let id: String
     let fullname: String
+    let name: String
+    let surname: String
     let club: String
     let rankClassic: String?
     let rankFast: String?
@@ -43,6 +45,8 @@ struct UserViewModel {
     
     init(_ user: UserDecodable) {
         id = user.id
+        name = user.name
+        surname = user.surname
         fullname = user.name + " " + user.surname
         commonRating = user.ratingOfPlayer
         fastRating = user.ratingFast

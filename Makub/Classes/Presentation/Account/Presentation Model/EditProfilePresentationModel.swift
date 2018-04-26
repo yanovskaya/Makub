@@ -7,3 +7,10 @@
 //
 
 import Foundation
+
+final class EditProfilePresentationModel: PresentationModel {
+    
+    // MARK: - Public Properties
+    
+    var userViewModel: UserViewModel!
+}

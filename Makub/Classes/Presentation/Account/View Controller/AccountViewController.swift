@@ -169,7 +169,9 @@ final class AccountViewController: UICollectionViewController {
     }
     
     @objc private func settingsButtonItemTapped() {
-        router.showEditProfileVC(source: self)
+        if presentationModel.userViewModel != nil {
+            router.showEditProfileVC(source: self)
+        }
     }
     
     // MARK: - CellForItemAt Methods

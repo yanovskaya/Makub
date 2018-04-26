@@ -25,9 +25,8 @@ final class AddNewsViewController: UIViewController {
         static let pkhudSubtitle = "Публикуем новость"
         
         static let cancel = "Отмена"
-        static let noSources = "Нет доступных источников для выбора фото"
         static let chooseFromLibrary = "Выбрать из библиотеки"
-        static let takePhoto = "Сфотографировать"
+        static let takePhoto = "Сделать фото"
         
         static let attachButton = "paperclip"
         static let removeButton = "close"

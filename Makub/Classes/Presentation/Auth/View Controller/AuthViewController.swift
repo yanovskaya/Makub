@@ -184,5 +184,4 @@ extension AuthViewController: UITextFieldDelegate {
         }
         return true
     }
-    
 }
