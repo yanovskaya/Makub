@@ -31,7 +31,8 @@ final class User: Object {
     @objc dynamic var ratingFast: String = ""
     @objc dynamic var ratingVeryFast: String = ""
     @objc dynamic var ratingClassic: String = ""
-    @objc dynamic var club: String = ""
+    @objc dynamic var club: String!
+    
     var dost = List<Achievement>()
 }
 
@@ -53,7 +54,7 @@ struct UserDecodable: Decodable {
     let ratingFast: String
     let ratingVeryFast: String
     let ratingClassic: String
-    var club: String! = ""
+    let club: String!
     let win: Int
     let lose: Int
     let dost: [Achievement]

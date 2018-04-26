@@ -137,6 +137,9 @@ final class UserServiceImpl: UserService {
         realm.ratingVeryFast = model.ratingVeryFast
         realm.win = model.win
         realm.lose = model.lose
+        if let club = model.club {
+            realm.club = club
+        }
         for achievement in model.dost {
             realm.dost.append(achievement)
         }

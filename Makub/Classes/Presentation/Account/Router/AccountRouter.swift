@@ -48,6 +48,14 @@ final class AccountRouter {
         accountViewController.show(userCommentsViewController, sender: self)
     }
     
+    /// Account -> Edit Profile.
+    func showEditProfileVC(source accountViewController: AccountViewController) {
+        let editProfileViewController = accountStoryboard.viewController(EditProfileViewController.self)
+        //userCommentsViewController.presentationModel.userViewModel = accountViewController.presentationModel.userViewModel
+       // userCommentsViewController.presentationModel.title = accountViewController.presentationModel.settingModels[index]
+        accountViewController.present(editProfileViewController, animated: true)
+    }
+    
     /// Exit.
     func exitToAuthorization() {
         removeAllStorage()

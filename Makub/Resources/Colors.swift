@@ -40,5 +40,4 @@ struct PaletteColors {
     // MARK: - Account
     
     static let exit = UIColor(hex: "EC5B46")
-    static let lineDarkGray = UIColor(hex: "CDCED2")
 }

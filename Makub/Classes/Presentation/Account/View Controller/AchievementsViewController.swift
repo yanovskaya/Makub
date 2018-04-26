@@ -47,6 +47,11 @@ final class AchievementsViewController: UICollectionViewController {
         presentationModel.obtainRating()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        HUD.hide()
+    }
+    
     // MARK: - UICollectionViewDataSource
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -78,7 +83,9 @@ final class AchievementsViewController: UICollectionViewController {
         presentationModel.changeStateHandler = { [weak self] status in
             switch status {
             case .loading:
-                HUD.show(.progress)
+                DispatchQueue.main.async {
+                    HUD.show(.progress)
+                }
             case .rich:
                 self?.collectionView?.reloadData()
                 HUD.hide()
@@ -104,7 +111,7 @@ final class AchievementsViewController: UICollectionViewController {
         navigationBar?.titleTextAttributes = titleTextAttributes
         title = presentationModel.title
         
-        let backButtonItem = UIBarButtonItem(title: nil, style: .plain, target: self, action: #selector(backButtonTapped(sender:)))
+        let backButtonItem = UIBarButtonItem(title: nil, style: .plain, target: self, action: #selector(backButtonTapped))
         backButtonItem.image = UIImage(named: Constants.backImage)
         backButtonItem.tintColor = PaletteColors.textGray
         navigationItem.leftBarButtonItem = backButtonItem
@@ -122,7 +129,7 @@ final class AchievementsViewController: UICollectionViewController {
         flowLayout.estimatedItemSize.height = LayoutConstants.estimatedCellHeight
     }
     
-    @objc private func backButtonTapped(sender: UIButton) {
+    @objc private func backButtonTapped() {
         navigationController?.popViewController(animated: true)
     }
     

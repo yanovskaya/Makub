@@ -58,6 +58,11 @@ final class AccountViewController: UICollectionViewController {
         }
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        HUD.hide()
+    }
+    
     // MARK: - UICollectionViewDataSource
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -133,7 +138,7 @@ final class AccountViewController: UICollectionViewController {
         navigationBar?.titleTextAttributes = titleTextAttributes
         navigationBar?.topItem?.title = Constants.title
         
-        let settingsButtonItem = UIBarButtonItem(title: nil, style: .plain, target: self, action: nil)
+        let settingsButtonItem = UIBarButtonItem(title: nil, style: .plain, target: self, action: #selector(settingsButtonItemTapped))
         settingsButtonItem.image = UIImage(named: Constants.settingsImage)
         settingsButtonItem.tintColor = PaletteColors.textGray
         navigationItem.rightBarButtonItem = settingsButtonItem
@@ -161,6 +166,10 @@ final class AccountViewController: UICollectionViewController {
         alertController.addAction(cancelAction)
         
         present(alertController, animated: true, completion: nil)
+    }
+    
+    @objc private func settingsButtonItemTapped() {
+        router.showEditProfileVC(source: self)
     }
     
     // MARK: - CellForItemAt Methods
