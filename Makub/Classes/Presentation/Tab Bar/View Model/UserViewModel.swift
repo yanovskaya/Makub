@@ -43,7 +43,6 @@ struct UserViewModel {
     
     init(_ user: UserDecodable) {
         id = user.id
-        club = user.club
         fullname = user.name + " " + user.surname
         commonRating = user.ratingOfPlayer
         fastRating = user.ratingFast
@@ -52,6 +51,11 @@ struct UserViewModel {
         win = user.win
         lose = user.lose
         games = lose + win
+        if let club = user.club {
+            self.club = club
+        } else {
+            self.club = ""
+        }
         for achievemnet in user.dost {
             achievements.append(achievemnet.name)
         }

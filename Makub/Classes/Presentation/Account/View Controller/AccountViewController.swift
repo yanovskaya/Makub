@@ -15,6 +15,8 @@ final class AccountViewController: UICollectionViewController {
     
     private enum Constants {
         static let title = "Личный кабинет"
+        static let exitAction = "Выйти"
+        static let cancelAction = "Отмена"
         static let settingsImage = "settings"
         static let userCellId = String(describing: UserCell.self)
         static let settingCellId = String(describing: SettingCell.self)
@@ -91,6 +93,8 @@ final class AccountViewController: UICollectionViewController {
         let section = indexPath.section
         if section == 1 {
             settingCell(collectionView, didSelectItemAt: indexPath)
+        } else if section == 2 {
+            exitButtonSelected()
         }
     }
     
@@ -120,10 +124,10 @@ final class AccountViewController: UICollectionViewController {
     
     private func configureNavigationBar() {
         navigationController?.isNavigationBarHidden = false
-        navigationController?.navigationBar.isTranslucent = true
         let navigationBar = navigationController?.navigationBar
-        navigationController?.navigationBar.shadowImage = UIImage(color: UIColor.white)
-        navigationController?.navigationBar.setBackgroundImage(UIImage(color: UIColor.white), for: .default)
+        navigationBar?.isTranslucent = false
+        navigationBar?.shadowImage = UIImage(color: UIColor.white)
+        navigationBar?.setBackgroundImage(UIImage(color: UIColor.white), for: .default)
         let titleTextAttributes: [NSAttributedStringKey: Any] = [NSAttributedStringKey.foregroundColor: PaletteColors.darkGray,
                                                                  NSAttributedStringKey.font: UIFont.customFont(.robotoMediumFont(size: 17))]
         navigationBar?.titleTextAttributes = titleTextAttributes
@@ -144,6 +148,19 @@ final class AccountViewController: UICollectionViewController {
         guard let flowLayout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout else { return }
         flowLayout.estimatedItemSize.width = view.frame.width
         flowLayout.estimatedItemSize.height = LayoutConstants.estimatedCellHeight
+    }
+    
+    private func exitButtonSelected() {
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let deleteAction = UIAlertAction(title: Constants.exitAction, style: .destructive) { _ in
+            self.router.exitToAuthorization()
+        }
+        let cancelAction = UIAlertAction(title: Constants.cancelAction, style: .cancel)
+        
+        alertController.addAction(deleteAction)
+        alertController.addAction(cancelAction)
+        
+        present(alertController, animated: true, completion: nil)
     }
     
     // MARK: - CellForItemAt Methods
@@ -176,11 +193,12 @@ final class AccountViewController: UICollectionViewController {
     // MARK: - didSelectItemAt Methods
     
     private func settingCell(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if indexPath.row == 0 {
+        switch indexPath.row {
+        case 0:
             router.showAchievementsVC(source: self, indexPath.row)
-        } else if indexPath.row == 1 {
+        case 1:
             router.showUserGamesVC(source: self, indexPath.row)
-        } else if indexPath.row == 2 {
+        default:
             router.showUserCommentsVC(source: self, indexPath.row)
         }
     }

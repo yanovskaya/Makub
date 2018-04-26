@@ -32,7 +32,11 @@ final class RatingViewModel {
     init(_ rating: Rating) {
         id = rating.id
         fullname = rating.name + " " + rating.surname
-        club = rating.club
+        if let club = rating.club {
+            self.club = club
+        } else {
+            club = ""
+        }
         if let commonRating = Int(rating.ratingOfPlayer) {
             self.commonRating = commonRating
         } else {

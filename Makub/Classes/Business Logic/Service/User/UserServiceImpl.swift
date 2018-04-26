@@ -99,6 +99,11 @@ final class UserServiceImpl: UserService {
                              id: realm.id,
                              name: realm.name,
                              surname: realm.surname,
+                             facebook: realm.facebook,
+                             telegram: realm.telegram,
+                             vk: realm.vk,
+                             instagram: realm.instagram,
+                             twitter: realm.twitter,
                              photo: realm.photo,
                              razryad: realm.razryad,
                              razryadFast: realm.razryadFast,
@@ -115,7 +120,11 @@ final class UserServiceImpl: UserService {
     private func convertToRealm(decodable model: UserDecodable) -> User {
         let realm = User()
         realm.id = model.id
-        realm.club = model.club
+        realm.facebook = model.facebook
+        realm.vk = model.vk
+        realm.twitter = model.twitter
+        realm.instagram = model.instagram
+        realm.telegram = model.telegram
         realm.name = model.name
         realm.surname = model.surname
         realm.photo = model.photo

@@ -308,7 +308,9 @@ extension NewsViewController: UICollectionViewDataSource {
             collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? NewsCell else { return UICollectionViewCell() }
         let viewModel = filteredNews[indexPath.row]
         cell.configure(for: viewModel)
-        cell.configureMoreButton(userId: presentationModel.userViewModel.id)
+        if let userViewModel = presentationModel.userViewModel {
+            cell.configureMoreButton(userId: userViewModel.id)
+        }
         cell.configureCellWidth(view.frame.width)
         cell.delegate = self
         cell.contentView.isUserInteractionEnabled = false

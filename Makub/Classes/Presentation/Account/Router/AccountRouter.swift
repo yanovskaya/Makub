@@ -7,13 +7,20 @@
 //
 
 import Foundation
+import RealmSwift
+import SwiftKeychainWrapper
 import UIKit
 
 final class AccountRouter {
     
     // MARK: - Private Properties
-    
+
+    private let authStoryboard = UIStoryboard(with: StoryboardTitle.auth)
     private let accountStoryboard = UIStoryboard(with: StoryboardTitle.account)
+    
+    private var realm: Realm? {
+        return try? Realm()
+    }
     
     // MARK: - Public Methods
 
@@ -41,5 +48,27 @@ final class AccountRouter {
         accountViewController.show(userCommentsViewController, sender: self)
     }
     
+    /// Exit.
+    func exitToAuthorization() {
+        removeAllStorage()
+        let navigationController = UINavigationController()
+        let authViewController = authStoryboard.viewController(AuthViewController.self)
+        navigationController.viewControllers = [authViewController]
+        UIView.transition(with: UIApplication.shared.keyWindow!, duration: 0.5, options: .transitionFlipFromRight, animations: {
+            UIApplication.shared.keyWindow?.rootViewController = navigationController
+        })
+    }
+    
     /// UserGames -> GameInfo.
+    
+    // MARK: - Private Methods
+    
+    private func removeAllStorage() {
+        KeychainWrapper.standard.removeAllKeys()
+        do {
+            try? realm?.write {
+                realm?.deleteAll()
+            }
+        }
+    }
 }

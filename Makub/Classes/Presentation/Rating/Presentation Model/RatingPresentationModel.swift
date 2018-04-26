@@ -100,8 +100,7 @@ final class RatingPresentationModel: PresentationModel {
                 guard let model = model else { return }
                 self.userViewModel = UserViewModel(model)
                 self.group.leave()
-            case .serviceFailure(let error):
-                self.error = error.code
+            case .serviceFailure:
                 self.group.leave()
             }
         }
