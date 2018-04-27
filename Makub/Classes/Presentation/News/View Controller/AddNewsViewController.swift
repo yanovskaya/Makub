@@ -6,7 +6,6 @@
 //  Copyright © 2018 Elena Yanovskaya. All rights reserved.
 //
 
-import FDTake
 import Kingfisher
 import Photos
 import PKHUD
@@ -25,11 +24,11 @@ final class AddNewsViewController: UIViewController {
         static let pkhudSubtitle = "Публикуем новость"
         
         static let cancel = "Отмена"
+        static let removePhoto = "Удалить"
         static let chooseFromLibrary = "Выбрать из библиотеки"
         static let takePhoto = "Сделать фото"
         
         static let attachButton = "paperclip"
-        static let removeButton = "close"
         static let userImage = "photo_default"
     }
     
@@ -40,7 +39,6 @@ final class AddNewsViewController: UIViewController {
     @IBOutlet private var doneButtonItem: UIBarButtonItem!
     
     @IBOutlet private var attachButton: UIButton!
-    @IBOutlet private var removeButton: UIButton!
     
     @IBOutlet private var authorImageView: UIImageView!
     @IBOutlet private var authorLabel: UILabel!
@@ -51,7 +49,6 @@ final class AddNewsViewController: UIViewController {
     
     @IBOutlet private var heightImageView: NSLayoutConstraint!
     @IBOutlet private var heightTextView: NSLayoutConstraint!
-    @IBOutlet private var heightRemoveButton: NSLayoutConstraint!
     
     // MARK: - Public Properties
     
@@ -61,21 +58,15 @@ final class AddNewsViewController: UIViewController {
     
     // MARK: - Private Properties
     
-    private var fdTakeController = FDTakeController()
-    
     private let indicator = UserIndicator()
     
     private var imageToAttach: UIImage? {
         didSet {
             if imageToAttach != nil {
                 attachButton.tintColor = PaletteColors.blueTint
-                heightRemoveButton.isActive = false
-                removeButton.setImage(UIImage(named: Constants.removeButton), for: .normal)
                 previewImageView.image = imageToAttach
             } else {
-                attachButton.tintColor = PaletteColors.darkGray
-                removeButton.setImage(nil, for: .normal)
-                heightRemoveButton.isActive = true
+                attachButton.tintColor = PaletteColors.textGray
                 previewImageView.image = nil
                 newsTextView.becomeFirstResponder()
             }
@@ -89,8 +80,6 @@ final class AddNewsViewController: UIViewController {
         view.backgroundColor = .white
         
         configureNavigationItems()
-        configureFdTakeController()
-        configureRemoveButton()
         configureAttachButton()
         configureTextView()
         configureTextField()
@@ -168,13 +157,8 @@ final class AddNewsViewController: UIViewController {
     
     private func configureAttachButton() {
         attachButton.setImage(UIImage(named: Constants.attachButton), for: .normal)
-        attachButton.tintColor = PaletteColors.darkGray
+        attachButton.tintColor = PaletteColors.textGray
         attachButton.setTitle("", for: .normal)
-    }
-    
-    private func configureRemoveButton() {
-        removeButton.tintColor = .lightGray
-        removeButton.setTitle("", for: .normal)
     }
     
     private func configureAuthorView() {
@@ -189,16 +173,6 @@ final class AddNewsViewController: UIViewController {
         authorLabel.font = UIFont.customFont(.robotoBoldFont(size: 16))
         authorLabel.text = viewModel.fullname
         authorLabel.textColor = PaletteColors.darkGray
-    }
-    
-    private func configureFdTakeController() {
-        fdTakeController.cancelText = Constants.cancel
-        fdTakeController.takePhotoText = Constants.takePhoto
-        fdTakeController.chooseFromLibraryText = Constants.chooseFromLibrary
-        fdTakeController.allowsVideo = false
-        fdTakeController.didGetPhoto = { [unowned self] (image, _) in
-            self.imageToAttach = image
-        }
     }
     
     @objc private func keyboardWillShow(_ notification: Notification) {
@@ -232,11 +206,32 @@ final class AddNewsViewController: UIViewController {
     
     
     @IBAction func attachButtonTapped(_ sender: Any) {
-        fdTakeController.present()
-    }
-    
-    @IBAction func removeButtonTapped(_ sender: Any) {
-        imageToAttach = nil
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let libraryAction = UIAlertAction(title: Constants.chooseFromLibrary, style: .default) { _ in
+            imagePickerController.sourceType = .photoLibrary
+            self.present(imagePickerController, animated: true, completion: nil)
+        }
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            alertController.addAction(libraryAction)
+        }
+        let cameraAction = UIAlertAction(title: Constants.takePhoto, style: .default) { _ in
+            imagePickerController.sourceType = .camera
+            self.present(imagePickerController, animated: true, completion: nil)
+        }
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            alertController.addAction(cameraAction)
+        }
+        let removeAction = UIAlertAction(title: Constants.removePhoto, style: .destructive) { _ in
+            self.imageToAttach = nil
+        }
+        if imageToAttach != nil {
+            alertController.addAction(removeAction)
+        }
+        let cancelAction = UIAlertAction(title: Constants.cancel, style: .cancel)
+        alertController.addAction(cancelAction)
+        present(alertController, animated: true, completion: nil)
     }
     
 }
@@ -263,5 +258,21 @@ extension AddNewsViewController: UITextViewDelegate {
             return
         }
         doneButtonItem.isEnabled = !text.removeBlankText().isEmpty
+    }
+}
+
+// MARK: - UIImagePickerControllerDelegate, UINavigationControllerDelegate
+
+extension AddNewsViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String: Any]) {
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            imageToAttach = image
+        }
+        dismiss(animated: true, completion: nil)
     }
 }

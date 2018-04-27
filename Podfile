@@ -10,7 +10,6 @@ target 'Makub' do
   pod 'RealmSwift'
   pod 'Kingfisher'
   pod 'HidingNavigationBar'
-  pod 'FDTake'
   pod 'UILoadControl'
   pod 'YouTubePlayer'
 end

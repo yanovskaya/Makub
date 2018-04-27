@@ -1,14 +1,13 @@
 PODS:
   - Alamofire (4.7.2)
-  - FDTake (2.0.0)
   - HidingNavigationBar (2.0.1)
   - Kingfisher (4.7.0)
   - PKHUD (5.0.0)
-  - Realm (3.4.0):
-    - Realm/Headers (= 3.4.0)
-  - Realm/Headers (3.4.0)
-  - RealmSwift (3.4.0):
-    - Realm (= 3.4.0)
+  - Realm (3.5.0):
+    - Realm/Headers (= 3.5.0)
+  - Realm/Headers (3.5.0)
+  - RealmSwift (3.5.0):
+    - Realm (= 3.5.0)
   - SwiftKeychainWrapper (3.0.1)
   - SwiftLint (0.25.1)
   - UILoadControl (2.1.0)
@@ -16,7 +15,6 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
-  - FDTake
   - HidingNavigationBar
   - Kingfisher
   - PKHUD
@@ -29,7 +27,6 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Alamofire
-    - FDTake
     - HidingNavigationBar
     - Kingfisher
     - PKHUD
@@ -42,17 +39,16 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
-  FDTake: 21152c660ddf075a859f86af83f9d17dc4b5a539
   HidingNavigationBar: 82c06978041080f0e4d97095563414a4367b71c6
   Kingfisher: da6b005aa96d37698e3e4f1ccfe96a5b9bbf27d6
   PKHUD: 3c001512c6e002091184197a8de7a20420786e3b
-  Realm: 9527c7baa2260f3a3aad6823d2d71cafff9b046b
-  RealmSwift: f40a747beaea1cadde7dcef41ee5a34b3001677b
+  Realm: 0378021c424e4e2bd6a0e63b27881e929d9b9ad1
+  RealmSwift: 3322562622fda2ad596985ead4d8d8be30cf838c
   SwiftKeychainWrapper: 38952a3636320ae61bad3513cadd870929de7a4a
   SwiftLint: ce933681be10c3266e82576dad676fa815a602e9
   UILoadControl: e742ddbe4c67ba1f13b00b7d462d4141307d021f
   YouTubePlayer: 028451f6772f372d4759866db99824c676ac1473
 
-PODFILE CHECKSUM: e934167795fb46a54466c8d88707adda79a432ad
+PODFILE CHECKSUM: d8efb2d65a7f0bbd77249f28b340030668543619
 
 COCOAPODS: 1.5.0
