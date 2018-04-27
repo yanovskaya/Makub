@@ -20,6 +20,7 @@ final class NewsPresentationModel: PresentationModel {
     
     private let userService = ServiceLayer.shared.userService
     private let newsService = ServiceLayer.shared.newsService
+    private var userCacheIsObtained = false
 
     private let group = DispatchGroup()
     private var error: Int!
@@ -30,15 +31,9 @@ final class NewsPresentationModel: PresentationModel {
         error = nil
         group.enter()
         state = .loading
-        userService.obtainUserInfo(useCache: true) { result in
-            switch result {
-            case .serviceSuccess(let model):
-                guard let model = model else { return }
-                self.userViewModel = UserViewModel(model)
-                self.group.leave()
-            case .serviceFailure:
-                self.group.leave()
-            }
+        obtainUserCache()
+        if !userCacheIsObtained {
+            obtainUser()
         }
         
         group.enter()
@@ -62,34 +57,19 @@ final class NewsPresentationModel: PresentationModel {
                 self.state = .rich
             }
         }
+        if userCacheIsObtained {
+            obtainUser()
+        }
     }
     
     func refreshNewsWithUser() {
         self.error = nil
+        self.userCacheIsObtained = false
         group.enter()
-        userService.obtainUserInfo(useCache: false) { result in
-            switch result {
-            case .serviceSuccess(let model):
-                guard let model = model else { return }
-                self.userViewModel = UserViewModel(model)
-                self.group.leave()
-            case .serviceFailure:
-                self.group.leave()
-            }
-        }
+        obtainUser()
         
         group.enter()
-        newsService.obtainNews(useCache: false) { result in
-            switch result {
-            case .serviceSuccess(let model):
-                guard let model = model else { return }
-                self.newsViewModels = model.news.compactMap { NewsViewModel($0) }
-                self.group.leave()
-            case .serviceFailure:
-                self.state = .error(code: 1)
-                self.group.leave()
-            }
-        }
+        obtainNews()
         
         group.notify(queue: DispatchQueue.main) {
             if self.error == nil {
@@ -124,4 +104,52 @@ final class NewsPresentationModel: PresentationModel {
         }
     }
     
+    // MARK: - Private Methods
+    
+    private func obtainUserCache() {
+        userService.obtainRealmCache(error: nil) { result in
+            switch result {
+            case .serviceSuccess(let model):
+                guard let model = model else { return }
+                self.userViewModel = UserViewModel(model)
+                self.group.leave()
+                self.userCacheIsObtained = true
+            case .serviceFailure:
+                self.group.leave()
+            }
+        }
+    }
+    
+    private func obtainUser() {
+        userService.obtainUserInfo(useCache: false) { result in
+            switch result {
+            case .serviceSuccess(let model):
+                guard let model = model else { return }
+                self.userViewModel = UserViewModel(model)
+                if self.userCacheIsObtained {
+                    self.state = .rich
+                } else {
+                    self.group.leave()
+                }
+            case .serviceFailure:
+                if !self.userCacheIsObtained {
+                    self.group.leave()
+                }
+            }
+        }
+    }
+    
+    private func obtainNews() {
+        newsService.obtainNews(useCache: false) { result in
+            switch result {
+            case .serviceSuccess(let model):
+                guard let model = model else { return }
+                self.newsViewModels = model.news.compactMap { NewsViewModel($0) }
+                self.group.leave()
+            case .serviceFailure(let error):
+                self.state = .error(code: error.code)
+                self.group.leave()
+            }
+        }
+    }
 }

@@ -167,15 +167,30 @@ class EditProfileViewController: UIViewController {
     }
     
     @objc private func imageViewTapped() {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let libraryAction = UIAlertAction(title: Constants.chooseFromLibrary, style: .default) { _ in
+            imagePickerController.sourceType = .photoLibrary
+            self.present(imagePickerController, animated: true, completion: nil)
         }
-        let cancelAction = UIAlertAction(title: Constants.cancel, style: .cancel)
-        let cameraAction = UIAlertAction(title: Constants.takePhoto, style: .default)
-        alertController.addAction(libraryAction)
+        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            alertController.addAction(libraryAction)
+        }
+        let cameraAction = UIAlertAction(title: Constants.takePhoto, style: .default) { _ in
+            imagePickerController.sourceType = .camera
+            self.present(imagePickerController, animated: true, completion: nil)
+        }
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             alertController.addAction(cameraAction)
         }
+        let removeAction = UIAlertAction(title: Constants.removePhoto, style: .destructive) { _ in
+            self.profileImageView.image = UIImage(named: Constants.userImage)
+        }
+        if profileImageView.image != UIImage(named: Constants.userImage) {
+            alertController.addAction(removeAction)
+        }
+        let cancelAction = UIAlertAction(title: Constants.cancel, style: .cancel)
         alertController.addAction(cancelAction)
         present(alertController, animated: true, completion: nil)
     }
@@ -188,6 +203,8 @@ class EditProfileViewController: UIViewController {
     
 }
 
+// MARK: UITextFieldDelegate
+
 extension EditProfileViewController: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -196,5 +213,21 @@ extension EditProfileViewController: UITextFieldDelegate {
             newPasswordRepeatTextField.becomeFirstResponder()
         }
         return true
+    }
+}
+
+// MARK: UIImagePickerControllerDelegate, UINavigationControllerDelegate
+
+extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String: Any]) {
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            profileImageView.image = image
+        }
+        dismiss(animated: true, completion: nil)
     }
 }

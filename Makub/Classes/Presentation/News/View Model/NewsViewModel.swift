@@ -45,7 +45,9 @@ final class NewsViewModel {
             self.text = ""
         }
         
-        if let date = news.date {
+        if let date = news.date.dateConverter()?.0 {
+            self.date = date
+        } else if let date = news.date {
             self.date = date
         } else {
             self.date = ""

@@ -292,7 +292,7 @@ extension NewsViewController: UICollectionViewDataSource {
         }
     }
     
-    func addNewsCell(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    private func addNewsCell(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
          let cellIdentifier = Constants.addNewsCellId
         guard let cell =
             collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? AddNewsCell else { return UICollectionViewCell() }
@@ -302,16 +302,16 @@ extension NewsViewController: UICollectionViewDataSource {
         return cell
     }
     
-    func newsCell(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    private func newsCell(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cellIdentifier = Constants.newsCellId
         guard let cell =
             collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? NewsCell else { return UICollectionViewCell() }
         let viewModel = filteredNews[indexPath.row]
+        cell.configureCellWidth(view.frame.width)
         cell.configure(for: viewModel)
         if let userViewModel = presentationModel.userViewModel {
             cell.configureMoreButton(userId: userViewModel.id)
         }
-        cell.configureCellWidth(view.frame.width)
         cell.delegate = self
         cell.contentView.isUserInteractionEnabled = false
         cell.layoutIfNeeded()
