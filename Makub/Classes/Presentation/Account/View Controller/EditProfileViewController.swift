@@ -161,9 +161,13 @@ class EditProfileViewController: UIViewController {
     private func configureTextFields() {
         hideKeyboardWhenTappedAround()
         nameTextField.delegate = self
+        nameTextField.addTarget(self, action: #selector(editingChanged), for: .editingChanged)
         surnameTextField.delegate = self
+        surnameTextField.addTarget(self, action: #selector(editingChanged), for: .editingChanged)
         newPasswordTextField.delegate = self
+        newPasswordTextField.addTarget(self, action: #selector(editingChanged), for: .editingChanged)
         newPasswordRepeatTextField.delegate = self
+        newPasswordRepeatTextField.addTarget(self, action: #selector(editingChanged), for: .editingChanged)
     }
     
     @objc private func imageViewTapped() {
@@ -186,6 +190,11 @@ class EditProfileViewController: UIViewController {
         }
         let removeAction = UIAlertAction(title: Constants.removePhoto, style: .destructive) { _ in
             self.profileImageView.image = UIImage(named: Constants.userImage)
+            if self.presentationModel.userViewModel.photoURL == nil {
+                self.doneButtonItem.isEnabled = false
+            } else {
+                self.doneButtonItem.isEnabled = true
+            }
         }
         if profileImageView.image != UIImage(named: Constants.userImage) {
             alertController.addAction(removeAction)
@@ -193,6 +202,33 @@ class EditProfileViewController: UIViewController {
         let cancelAction = UIAlertAction(title: Constants.cancel, style: .cancel)
         alertController.addAction(cancelAction)
         present(alertController, animated: true, completion: nil)
+    }
+    
+    @objc private func editingChanged() {
+        guard
+            let name = nameTextField.text,
+            let surname = surnameTextField.text,
+            let password = newPasswordTextField.text,
+            let repeatPassword = newPasswordRepeatTextField.text
+            else {
+                doneButtonItem.isEnabled = false
+                return
+        }
+        let viewModel = presentationModel.userViewModel
+        if name != viewModel?.name {
+            doneButtonItem.isEnabled = true
+        }
+        if surname != viewModel?.surname {
+            doneButtonItem.isEnabled = true
+        }
+        if !password.isEmpty && !repeatPassword.isEmpty {
+            doneButtonItem.isEnabled = true
+        }
+        if name == viewModel?.name,
+            surname == viewModel?.surname,
+            password.isEmpty || repeatPassword.isEmpty {
+            doneButtonItem.isEnabled = false
+        }
     }
     
     // MARK: - IBActions
@@ -227,6 +263,7 @@ extension EditProfileViewController: UIImagePickerControllerDelegate, UINavigati
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String: Any]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
             profileImageView.image = image
+            doneButtonItem.isEnabled = true
         }
         dismiss(animated: true, completion: nil)
     }

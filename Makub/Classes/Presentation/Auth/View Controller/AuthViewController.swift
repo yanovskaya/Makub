@@ -82,6 +82,7 @@ final class AuthViewController: UIViewController {
                 HUD.show(.progress)
             case .rich:
                 HUD.hide()
+                self.router.showTabBar()
             case .error (let code):
                 switch code {
                 case -1009, -1001:
@@ -161,10 +162,7 @@ final class AuthViewController: UIViewController {
     @IBAction private func loginButtonTapped(_ sender: Any) {
         guard let username = usernameTextField.text?.removeWhitespaces(),
             let password = passwordTextField.text else { return }
-        presentationModel.authorizeUser(inputValues: [username, password]) {
-            [unowned self] in
-            self.router.showTabBar()
-        }
+        presentationModel.authorizeUser(inputValues: [username, password])
     }
     
     @IBAction private func forgotButtonTapped(_ sender: Any) {

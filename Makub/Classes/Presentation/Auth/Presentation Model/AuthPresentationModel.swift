@@ -16,13 +16,12 @@ final class AuthPresentationModel: PresentationModel {
     
     // MARK: - Public Methods
     
-    func authorizeUser(inputValues: [String], completion: @escaping () -> Void) {
+    func authorizeUser(inputValues: [String]) {
         state = .loading
         authorizationService.authorizeUser(inputValues: inputValues) { result in
             switch result {
             case .serviceSuccess:
                 self.state = .rich
-                completion()
             case .serviceFailure(let error):
                 self.state = .error(code: error.code)
             }

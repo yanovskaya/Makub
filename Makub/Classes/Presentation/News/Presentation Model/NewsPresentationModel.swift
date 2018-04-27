@@ -115,7 +115,7 @@ final class NewsPresentationModel: PresentationModel {
                 self.group.leave()
                 self.userCacheIsObtained = true
             case .serviceFailure:
-                self.group.leave()
+                break
             }
         }
     }
