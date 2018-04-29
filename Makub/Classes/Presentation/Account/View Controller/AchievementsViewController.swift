@@ -63,7 +63,11 @@ final class AchievementsViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        if section == 0 || section == 1 {
+            return 1
+        } else {
+            return presentationModel.userViewModel.achievements.count
+        }
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

@@ -30,10 +30,9 @@ final class TabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tabBar.barTintColor = .white
-        tabBar.tintColor = PaletteColors.blueTint
         navigationController?.isNavigationBarHidden = true
         createTabBarController()
+        configureTabBar()
     }
 
     // MARK: - Private Properties
@@ -57,5 +56,15 @@ final class TabBarController: UITabBarController {
         
         let controllerArray = [newsVC, ratingVC, gamesVC, accountVC]
         viewControllers = controllerArray.map { UINavigationController(rootViewController: $0) }
+    }
+    
+    private func configureTabBar() {
+        let topBorder = CALayer()
+        topBorder.frame = CGRect(x: 0.0, y: 0.0, width: view.frame.size.width, height: 0.5)
+        topBorder.backgroundColor = UIColor.lightGray.withAlphaComponent(0.4).cgColor
+        tabBar.layer.addSublayer(topBorder)
+        tabBar.clipsToBounds = true
+        tabBar.barTintColor = .white
+        tabBar.tintColor = PaletteColors.blueTint
     }
 }
