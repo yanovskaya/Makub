@@ -170,7 +170,7 @@ final class GamesPresentationModel: PresentationModel {
         state = .rich
     }
     
-    private func obtainClubs(completion: (() -> Void)? = nil) {
+    private func obtainClubs() {
         obtainClubsCache()
         if !clubsCacheIsObtained { state = .loading }
         clubsService.obtainClubs(useCache: true) { result in
@@ -180,7 +180,6 @@ final class GamesPresentationModel: PresentationModel {
                 self.clubViewModels = model.clubs.compactMap { ClubViewModel($0) }
                 self.configureClubName()
                 self.state = .rich
-                completion?()
             case .serviceFailure(let error):
                 self.state = .error(code: error.code)
             }

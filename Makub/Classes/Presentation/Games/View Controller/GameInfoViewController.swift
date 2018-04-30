@@ -178,7 +178,7 @@ extension GameInfoViewController: UICollectionViewDataSource {
         }
     }
     
-    func gameInfoCell(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    private func gameInfoCell(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cellIdentifier = Constants.gameInfoCellId
         guard let cell =
             collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? GameInfoCell,
@@ -196,7 +196,7 @@ extension GameInfoViewController: UICollectionViewDataSource {
         return cell
     }
     
-    func addCommentCell(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    private func addCommentCell(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cellIdentifier = Constants.addCommentCellId
         guard let cell =
             collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? AddCommentCell,
@@ -208,7 +208,7 @@ extension GameInfoViewController: UICollectionViewDataSource {
         return cell
     }
     
-    func commentsCell(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    private func commentsCell(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cellIdentifier = Constants.commentsCellId
         guard let cell =
             collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? CommentsCell else { return UICollectionViewCell() }

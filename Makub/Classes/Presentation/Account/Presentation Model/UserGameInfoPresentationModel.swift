@@ -1,56 +1,53 @@
 //
-//  GameInfoPresentationModel.swift
+//  UserGameInfoPresentationModel.swift
 //  Makub
 //
-//  Created by Елена Яновская on 14.04.2018.
+//  Created by Елена Яновская on 30.04.2018.
 //  Copyright © 2018 Elena Yanovskaya. All rights reserved.
 //
 
 import Foundation
 
-final class GameInfoPresentationModel: PresentationModel {
+final class UserGameInfoPresentationModel: PresentationModel {
     
     // MARK: - Constants
     
     private enum Constants {
         static let friendGame = "Товарищеский матч"
+        static let interClub = "Межклубный"
     }
     
     // MARK: - Public Properties
     
-    var gameViewModel: GameViewModel!
+    var gameId: String!
+    var gameViewModel: UserGameViewModel!
     var gameInfoViewModel: GameInfoViewModel!
     var tournamentViewModel: TournamentForGameViewModel!
     var commentViewModels = [CommentViewModel]()
+    var clubViewModels = [ClubViewModel]()
     var userViewModel: UserViewModel!
     
     // MARK: - Private Properties
     
     private let gameInfoService = ServiceLayer.shared.gameInfoService
     private let userService = ServiceLayer.shared.userService
+    private let clubsService = ServiceLayer.shared.clubsService
     
     private let group = DispatchGroup()
     private var error: Int!
+    
+    private var clubsCacheIsObtained = false
     
     // MARK: - Public Methods
     
     func obtainGame() {
         error = nil
-        group.enter()
-        obtainUserInfo()
         
         group.enter()
         obtainGameInfo()
         
         group.enter()
         obtainComments()
-        
-        if gameViewModel.stage != "0" {
-            group.enter()
-            obtainTournament()
-        } else {
-            tournamentViewModel = TournamentForGameViewModel(title: Constants.friendGame)
-        }
         
         group.notify(queue: DispatchQueue.main) {
             if self.error != nil {
@@ -101,8 +98,15 @@ final class GameInfoPresentationModel: PresentationModel {
             case .serviceSuccess(let model):
                 guard let model = model else { return }
                 self.gameInfoViewModel = GameInfoViewModel(model)
-                self.group.leave()
-            case .serviceFailure:
+                self.obtainClubs()
+                if self.gameInfoViewModel.stage != "0" {
+                    self.group.enter()
+                    self.obtainTournament()
+                } else {
+                    self.tournamentViewModel = TournamentForGameViewModel(title: Constants.friendGame)
+                }
+            case .serviceFailure(let error):
+                self.error = error.code
                 self.group.leave()
             }
         }
@@ -110,7 +114,7 @@ final class GameInfoPresentationModel: PresentationModel {
     
     private func obtainTournament() {
         state = .loading
-        guard let stage = Int(gameViewModel.stage) else { return }
+        guard let stage = Int(gameInfoViewModel.stage) else { return }
         gameInfoService.obtainTournament(stage: stage) { result in
             switch result {
             case .serviceSuccess(let model):
@@ -119,6 +123,7 @@ final class GameInfoPresentationModel: PresentationModel {
                 self.group.leave()
             case .serviceFailure(let error):
                 self.error = error.code
+                self.group.leave()
             }
         }
     }
@@ -135,6 +140,46 @@ final class GameInfoPresentationModel: PresentationModel {
             case .serviceFailure:
                 self.group.leave()
             }
+        }
+    }
+    
+    private func obtainClubs() {
+        obtainClubsCache()
+        if !clubsCacheIsObtained { state = .loading }
+        clubsService.obtainClubs(useCache: true) { result in
+            switch result {
+            case .serviceSuccess(let model):
+                guard let model = model else { return }
+                self.clubViewModels = model.clubs.compactMap { ClubViewModel($0) }
+                self.group.leave()
+                self.configureClubName()
+            case .serviceFailure(let error):
+                self.error = error.code
+                self.group.leave()
+            }
+        }
+    }
+    
+    private func obtainClubsCache() {
+        clubsService.obtainClubsRealmCache(error: nil) { result in
+            switch result {
+            case .serviceSuccess(let model):
+                guard let model = model else { return }
+                self.clubViewModels = model.clubs.compactMap { ClubViewModel($0) }
+                self.configureClubName()
+                self.clubsCacheIsObtained = true
+            case .serviceFailure:
+                break
+            }
+        }
+    }
+    
+    private func configureClubName() {
+        for clubViewModel in self.clubViewModels where clubViewModel.id == gameInfoViewModel.clubId {
+            gameInfoViewModel.club = clubViewModel.name
+        }
+        if gameInfoViewModel.clubId == "0" {
+            gameInfoViewModel.club = Constants.interClub
         }
     }
 }

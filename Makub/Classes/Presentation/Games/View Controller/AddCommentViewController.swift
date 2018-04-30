@@ -18,7 +18,7 @@ final class AddCommentViewController: UIViewController {
         static let cancelButtonItem = "Отмена"
         static let doneButtonItem = "Готово"
         static let pkhudTitle = "Подождите"
-        static let pkhudSubtitle = "Публикуем новость"
+        static let pkhudSubtitle = "Публикуем комментарий"
         
         static let userImage = "photo_default"
     }

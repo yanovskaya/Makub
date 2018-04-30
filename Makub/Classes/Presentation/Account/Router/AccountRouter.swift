@@ -17,6 +17,7 @@ final class AccountRouter {
 
     private let authStoryboard = UIStoryboard(with: StoryboardTitle.auth)
     private let accountStoryboard = UIStoryboard(with: StoryboardTitle.account)
+    private let gamesStoryboard = UIStoryboard(with: StoryboardTitle.games)
     
     private var realm: Realm? {
         return try? Realm()
@@ -67,6 +68,23 @@ final class AccountRouter {
     }
     
     /// UserGames -> GameInfo.
+    
+    func showUserGameInfoVC(source userGamesViewController: UserGamesViewController, _ index: Int) {
+        let userGameInfoViewController = accountStoryboard.viewController(UserGameInfoViewController.self)
+        userGameInfoViewController.presentationModel.userViewModel = userGamesViewController.presentationModel.userViewModel
+        userGameInfoViewController.presentationModel.gameViewModel = userGamesViewController.presentationModel.gamesViewModels[index]
+        userGamesViewController.show(userGameInfoViewController, sender: self)
+    }
+    
+    /// GameInfo -> AddComment.
+    func presentAddCommentVC(source userGameInfoViewController: UserGameInfoViewController) {
+        let addCommentViewController = gamesStoryboard.viewController(AddCommentViewController.self)
+        let presentationModel = userGameInfoViewController.presentationModel
+        addCommentViewController.presentationModel.userViewModel = presentationModel.userViewModel
+        addCommentViewController.presentationModel.gameInfoViewModel = presentationModel.gameInfoViewModel
+        addCommentViewController.delegate = userGameInfoViewController
+        userGameInfoViewController.present(addCommentViewController, animated: true)
+    }
     
     // MARK: - Private Methods
     

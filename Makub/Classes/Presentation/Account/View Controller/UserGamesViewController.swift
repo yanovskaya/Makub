@@ -67,8 +67,10 @@ class UserGamesViewController: UICollectionViewController {
         return cell
     }
     
+    // MARK: - UICollectionViewDelegate
+    
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-       // router.showGameInfoVC(source: self, indexPath.row)
+        router.showUserGameInfoVC(source: self, indexPath.row)
     }
     
     // MARK: - Private Methods

@@ -30,9 +30,10 @@ final class GameInfoViewModel {
     let photo2URL: String!
     let playerTime: String
     let type: String
+    let club1: String
+    let club2: String
     
-    var club1: String!
-    var club2: String!
+    var club: String!
     
     // MARK: - Initialization
     

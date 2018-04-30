@@ -70,6 +70,8 @@
 		C42940CB20827D2B0026B2C3 /* CommentsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42940CA20827D2B0026B2C3 /* CommentsResponse.swift */; };
 		C42D95602097282500772D70 /* GameInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42D955F2097282500772D70 /* GameInfo.swift */; };
 		C42D9562209735DA00772D70 /* GameInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42D9561209735DA00772D70 /* GameInfoViewModel.swift */; };
+		C42D95642097432C00772D70 /* UserGameInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42D95632097432C00772D70 /* UserGameInfoViewController.swift */; };
+		C42D9566209743E900772D70 /* UserGameInfoPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42D9565209743E900772D70 /* UserGameInfoPresentationModel.swift */; };
 		C430FD05208103240019D9CE /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C430FD04208103240019D9CE /* Auth.storyboard */; };
 		C430FD0820822A390019D9CE /* ClubsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C430FD0720822A390019D9CE /* ClubsResponse.swift */; };
 		C430FD0A20822EA10019D9CE /* ClubViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C430FD0920822EA10019D9CE /* ClubViewModel.swift */; };
@@ -251,6 +253,8 @@
 		C42940CA20827D2B0026B2C3 /* CommentsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsResponse.swift; sourceTree = "<group>"; };
 		C42D955F2097282500772D70 /* GameInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfo.swift; sourceTree = "<group>"; };
 		C42D9561209735DA00772D70 /* GameInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfoViewModel.swift; sourceTree = "<group>"; };
+		C42D95632097432C00772D70 /* UserGameInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGameInfoViewController.swift; sourceTree = "<group>"; };
+		C42D9565209743E900772D70 /* UserGameInfoPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGameInfoPresentationModel.swift; sourceTree = "<group>"; };
 		C430FD04208103240019D9CE /* Auth.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		C430FD0720822A390019D9CE /* ClubsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubsResponse.swift; sourceTree = "<group>"; };
 		C430FD0920822EA10019D9CE /* ClubViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubViewModel.swift; sourceTree = "<group>"; };
@@ -1107,6 +1111,7 @@
 				C4FBE22D208D498200AD618D /* UserGamesViewController.swift */,
 				C44ED7F4208FC06700B8A642 /* UserCommentsViewController.swift */,
 				C44ED7F82090583400B8A642 /* EditProfileViewController.swift */,
+				C42D95632097432C00772D70 /* UserGameInfoViewController.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -1128,6 +1133,7 @@
 				C44ED7F2208FB4BD00B8A642 /* UserGamesPresentationModel.swift */,
 				C44ED7F6208FD8CE00B8A642 /* UserCommentsPresentationModel.swift */,
 				C44ED7FA2092099400B8A642 /* EditProfilePresentationModel.swift */,
+				C42D9565209743E900772D70 /* UserGameInfoPresentationModel.swift */,
 			);
 			path = "Presentation Model";
 			sourceTree = "<group>";
@@ -1525,6 +1531,7 @@
 				C463186E207A0DE000E14DAC /* Filter.swift in Sources */,
 				C472A6C3205B174000768585 /* AuthPresentationModel.swift in Sources */,
 				C49162222085E0CE00A95E07 /* AddCommentPresentationModel.swift in Sources */,
+				C42D9566209743E900772D70 /* UserGameInfoPresentationModel.swift in Sources */,
 				C4C259AE2078242400C0CDD4 /* UserIndicator.swift in Sources */,
 				C41B3CEC2072F63900A2B652 /* UserServiceImpl.swift in Sources */,
 				C46318682079422F00E14DAC /* NSObject+Fill.swift in Sources */,
@@ -1567,6 +1574,7 @@
 				C42940C220827B060026B2C3 /* GameInfoViewController.swift in Sources */,
 				C4D4E4FE20618FA9000A9216 /* TabBarController.swift in Sources */,
 				C4E1128220835B6100EE7DC4 /* TournamentResponse.swift in Sources */,
+				C42D95642097432C00772D70 /* UserGameInfoViewController.swift in Sources */,
 				C44ED7FB2092099400B8A642 /* EditProfilePresentationModel.swift in Sources */,
 				C4D4E4EF20606FEF000A9216 /* RecoverPresentationModel.swift in Sources */,
 				C40EDD7420648EF000338300 /* UIImage+FromColor.swift in Sources */,

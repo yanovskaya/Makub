@@ -330,19 +330,30 @@
             </objects>
             <point key="canvasLocation" x="3118" y="221"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="7BQ-PG-0cD">
+        <!--User Game Info View Controller-->
+        <scene sceneID="XXc-yy-mVX">
             <objects>
-                <viewController id="UAl-Or-opc" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="XcF-l8-Enl">
+                <collectionViewController storyboardIdentifier="UserGameInfoViewController" id="yjc-Rr-yDo" customClass="UserGameInfoViewController" customModule="Макуб" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="fFx-fi-El6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="iDh-UL-j6r"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QB8-Pj-amO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <color key="backgroundColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tDM-Gg-ZHz">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells/>
+                        <connections>
+                            <outlet property="dataSource" destination="yjc-Rr-yDo" id="Y2g-UB-YUz"/>
+                            <outlet property="delegate" destination="yjc-Rr-yDo" id="1Nf-KM-rnc"/>
+                        </connections>
+                    </collectionView>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fCE-yt-bAI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="3943" y="230"/>
         </scene>
     </scenes>
 </document>

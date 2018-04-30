@@ -101,8 +101,55 @@ final class GameInfoCell: UICollectionViewCell, ViewModelConfigurable {
         
         let player1Count = viewModel.player1.count
         let player2Count = viewModel.player2.count
-        configureSizeLabel(sum: player1Count + player2Count,
-                           characters: max(player1Count, player2Count))
+        configureSizeLabel(characters: max(player1Count, player2Count))
+        
+        let sizeProcessor = ResizingImageProcessor(referenceSize: CGSize(width: SizeConstants.photoWidth, height: SizeConstants.photoHeight), mode: .aspectFill)
+        
+        if let photo1URL = viewModel.photo1URL {
+            photo1ImageView.kf.indicatorType = .custom(indicator: indicator)
+            photo1ImageView.kf.setImage(with: URL(string: photo1URL), placeholder: nil, options: [.processor(sizeProcessor)], completionHandler: { (image, _, _, _) in
+                if image == nil {
+                    self.photo1ImageView.image = UIImage(named: Constants.userImage)
+                }
+            })
+        } else {
+            photo1ImageView.image = UIImage(named: Constants.userImage)
+        }
+        
+        if let photo2URL = viewModel.photo2URL {
+            photo2ImageView.kf.indicatorType = .custom(indicator: indicator)
+            photo2ImageView.kf.setImage(with: URL(string: photo2URL), placeholder: nil, options: [.processor(sizeProcessor)], completionHandler: { (image, _, _, _) in
+                if image == nil {
+                    self.photo2ImageView.image = UIImage(named: Constants.userImage)
+                }
+            })
+        } else {
+            photo2ImageView.image = UIImage(named: Constants.userImage)
+        }
+        
+        if let video = viewModel.video {
+            spinner.startAnimating()
+            gameVideoPlayer.loadVideoID(video)
+            let height = frame.width * SizeConstants.videoAspectRatio
+            gameVideoPlayerHeight.constant = height
+        } else {
+            gameVideoPlayerHeight.constant = 0
+        }
+    }
+    
+    func configure(viewModel: GameInfoViewModel) {
+        dateLabel.text = viewModel.playerTime
+        clubLabel.text = viewModel.club
+        firstPlayerWon = viewModel.score1 > viewModel.score2
+        score1Label.text = viewModel.score1
+        score2Label.text = viewModel.score2
+        
+        player1Label.text = viewModel.player1
+        player2Label.text = viewModel.player2
+        
+        let player1Count = viewModel.player1.count
+        let player2Count = viewModel.player2.count
+        configureSizeLabel(characters: max(player1Count, player2Count))
         
         let sizeProcessor = ResizingImageProcessor(referenceSize: CGSize(width: SizeConstants.photoWidth, height: SizeConstants.photoHeight), mode: .aspectFill)
         
@@ -159,6 +206,8 @@ final class GameInfoCell: UICollectionViewCell, ViewModelConfigurable {
         let ratio: CGFloat = 2 / 5
         club1Label.widthAnchor.constraint(equalToConstant: width * ratio).isActive = true
         club2Label.widthAnchor.constraint(equalToConstant: width * ratio).isActive = true
+        player1Label.widthAnchor.constraint(equalToConstant: width * ratio).isActive = true
+        player2Label.widthAnchor.constraint(equalToConstant: width * ratio).isActive = true
     }
     
     // MARK: - Private Methods
@@ -205,16 +254,14 @@ final class GameInfoCell: UICollectionViewCell, ViewModelConfigurable {
         lineView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.2)
     }
     
-    private func configureSizeLabel(sum: Int, characters: Int) {
+    private func configureSizeLabel(characters: Int) {
         let size: CGFloat
         if characters < 15 {
             size = 16
-        } else if characters < 18 {
+        } else  if characters < 18 {
             size = 15
-        } else if characters < 22, sum < 34 {
-            size = 14
         } else {
-            size = 13
+            size = 14
         }
         player1Label.font = UIFont.customFont(.robotoMediumFont(size: size))
         player2Label.font = UIFont.customFont(.robotoMediumFont(size: size))
