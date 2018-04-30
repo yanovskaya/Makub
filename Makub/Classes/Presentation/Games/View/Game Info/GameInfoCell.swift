@@ -44,6 +44,9 @@ final class GameInfoCell: UICollectionViewCell, ViewModelConfigurable {
     @IBOutlet private var tournamentLabel: UILabel!
     @IBOutlet private var descriptionLabel: UILabel!
     
+    @IBOutlet private var club1Label: UILabel!
+    @IBOutlet private var club2Label: UILabel!
+    
     @IBOutlet private var videoContainerView: UIView!
     @IBOutlet private var blueView: UIView!
     @IBOutlet private var lineView: UIView!
@@ -135,6 +138,11 @@ final class GameInfoCell: UICollectionViewCell, ViewModelConfigurable {
         }
     }
     
+    func configureClubs(viewModel: GameInfoViewModel) {
+        club1Label.text = viewModel.club1
+        club2Label.text = viewModel.club2
+    }
+    
     func configureTournament(for viewModel: TournamentForGameViewModel) {
         tournamentLabel.text = viewModel.tournament
         if let description = viewModel.description {
@@ -147,6 +155,10 @@ final class GameInfoCell: UICollectionViewCell, ViewModelConfigurable {
     
     func configureCellWidth(_ width: CGFloat) {
         widthAnchor.constraint(equalToConstant: width).isActive = true
+        
+        let ratio: CGFloat = 2 / 5
+        club1Label.widthAnchor.constraint(equalToConstant: width * ratio).isActive = true
+        club2Label.widthAnchor.constraint(equalToConstant: width * ratio).isActive = true
     }
     
     // MARK: - Private Methods
@@ -167,6 +179,8 @@ final class GameInfoCell: UICollectionViewCell, ViewModelConfigurable {
     private func configureFont() {
         dateLabel.font = UIFont.customFont(.robotoRegularFont(size: 12))
         clubLabel.font = UIFont.customFont(.robotoRegularFont(size: 13))
+        club1Label.font = UIFont.customFont(.robotoRegularFont(size: 12))
+        club2Label.font = UIFont.customFont(.robotoRegularFont(size: 12))
         tournamentLabel.font = UIFont.customFont(.robotoRegularFont(size: 16))
         descriptionLabel.font = UIFont.customFont(.robotoRegularFont(size: 15))
         score1Label.font = UIFont.customFont(.robotoRegularFont(size: 25))
@@ -184,6 +198,8 @@ final class GameInfoCell: UICollectionViewCell, ViewModelConfigurable {
         tournamentLabel.textColor = PaletteColors.darkGray
         dateLabel.textColor = PaletteColors.textGray
         clubLabel.textColor = PaletteColors.textGray
+        club1Label.textColor = PaletteColors.textGray
+        club2Label.textColor = PaletteColors.textGray
         descriptionLabel.textColor = PaletteColors.textGray
         colonLabel.textColor = PaletteColors.textGray
         lineView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.2)

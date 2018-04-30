@@ -19,6 +19,7 @@ final class GameInfoPresentationModel: PresentationModel {
     // MARK: - Public Properties
     
     var gameViewModel: GameViewModel!
+    var gameInfoViewModel: GameInfoViewModel!
     var tournamentViewModel: TournamentForGameViewModel!
     var commentViewModels = [CommentViewModel]()
     var userViewModel: UserViewModel!
@@ -33,10 +34,13 @@ final class GameInfoPresentationModel: PresentationModel {
     
     // MARK: - Public Methods
     
-    func obtainGameInfo() {
+    func obtainGame() {
         error = nil
         group.enter()
         obtainUserInfo()
+        
+        group.enter()
+        obtainGameInfo()
         
         group.enter()
         obtainComments()
@@ -85,6 +89,20 @@ final class GameInfoPresentationModel: PresentationModel {
                 self.group.leave()
             case .serviceFailure(let error):
                 self.error = error.code
+                self.group.leave()
+            }
+        }
+    }
+    
+    private func obtainGameInfo() {
+        guard let gameId = Int(gameViewModel.id) else { return }
+        gameInfoService.obtainGameInfo(gameId: gameId) { result in
+            switch result {
+            case .serviceSuccess(let model):
+                guard let model = model else { return }
+                self.gameInfoViewModel = GameInfoViewModel(model)
+                self.group.leave()
+            case .serviceFailure:
                 self.group.leave()
             }
         }

@@ -52,7 +52,7 @@ final class GameInfoViewController: UIViewController {
         configureCollectionView()
         
         bindEventsObtainGameInfo()
-        presentationModel.obtainGameInfo()
+        presentationModel.obtainGame()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -183,12 +183,14 @@ extension GameInfoViewController: UICollectionViewDataSource {
         guard let cell =
             collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? GameInfoCell,
             let gameViewModel = presentationModel.gameViewModel,
-            let tournamentViewModel = presentationModel.tournamentViewModel else {
+            let tournamentViewModel = presentationModel.tournamentViewModel,
+            let gameInfoViewModel = presentationModel.gameInfoViewModel else {
                 return UICollectionViewCell()
         }
         cell.contentView.isUserInteractionEnabled = false
         cell.configureCellWidth(view.frame.width)
         cell.configure(for: gameViewModel)
+        cell.configureClubs(viewModel: gameInfoViewModel)
         cell.configureTournament(for: tournamentViewModel)
         cell.layoutIfNeeded()
         return cell
