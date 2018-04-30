@@ -128,15 +128,14 @@ final class AccountViewController: UICollectionViewController {
     }
     
     private func configureNavigationBar() {
-        navigationController?.isNavigationBarHidden = false
-        let navigationBar = navigationController?.navigationBar
-        navigationBar?.isTranslucent = false
-        navigationBar?.shadowImage = UIImage(color: UIColor.white)
-        navigationBar?.setBackgroundImage(UIImage(color: UIColor.white), for: .default)
+        guard let navigationBar = navigationController?.navigationBar else { return }
+        navigationBar.isTranslucent = false
+        navigationBar.shadowImage = UIImage(color: UIColor.white)
+        navigationBar.setBackgroundImage(UIImage(color: UIColor.white), for: .default)
         let titleTextAttributes: [NSAttributedStringKey: Any] = [NSAttributedStringKey.foregroundColor: PaletteColors.darkGray,
                                                                  NSAttributedStringKey.font: UIFont.customFont(.robotoMediumFont(size: 17))]
-        navigationBar?.titleTextAttributes = titleTextAttributes
-        navigationBar?.topItem?.title = Constants.title
+        navigationBar.titleTextAttributes = titleTextAttributes
+        navigationBar.topItem?.title = Constants.title
         
         let settingsButtonItem = UIBarButtonItem(title: nil, style: .plain, target: self, action: #selector(settingsButtonItemTapped))
         settingsButtonItem.image = UIImage(named: Constants.settingsImage)

@@ -109,10 +109,10 @@ final class AchievementsViewController: UICollectionViewController {
     }
     
     private func configureNavigationBar() {
-        let navigationBar = navigationController?.navigationBar
         let titleTextAttributes: [NSAttributedStringKey: Any] = [NSAttributedStringKey.foregroundColor: PaletteColors.darkGray,
                                                                  NSAttributedStringKey.font: UIFont.customFont(.robotoMediumFont(size: 17))]
-        navigationBar?.titleTextAttributes = titleTextAttributes
+        guard let navigationBar = navigationController?.navigationBar else { return }
+        navigationBar.titleTextAttributes = titleTextAttributes
         title = presentationModel.title
         
         let backButtonItem = UIBarButtonItem(title: nil, style: .plain, target: self, action: #selector(backButtonTapped))

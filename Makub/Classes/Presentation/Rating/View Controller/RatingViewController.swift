@@ -32,7 +32,6 @@ final class RatingViewController: UIViewController {
     
     // MARK: - IBOutlets
     
-    @IBOutlet private var navigationBar: UINavigationBar!
     @IBOutlet private var indicatorView: UIView!
     @IBOutlet private var commonButton: UIButton!
     @IBOutlet private var classicButton: UIButton!
@@ -142,9 +141,9 @@ final class RatingViewController: UIViewController {
     // MARK: - Private Methods
     
     private func configureNavigationBar() {
-        navigationController?.isNavigationBarHidden = true
         let titleTextAttributes: [NSAttributedStringKey: Any] = [NSAttributedStringKey.foregroundColor: PaletteColors.darkGray,
                                                                  NSAttributedStringKey.font: UIFont.customFont(.robotoMediumFont(size: 17))]
+        guard let navigationBar = navigationController?.navigationBar else { return }
         navigationBar.titleTextAttributes = titleTextAttributes
         navigationBar.topItem?.title = Constants.title
         navigationBar.shadowImage = UIImage(color: UIColor.white)

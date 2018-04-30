@@ -21,6 +21,7 @@ final class UserGameInfoViewController: UICollectionViewController {
     }
     
     private enum LayoutConstants {
+        static let topEdge: CGFloat = 5
         static let bottomEdge: CGFloat = 5
         static let cellSpacing: CGFloat = 3
     }
@@ -180,12 +181,12 @@ final class UserGameInfoViewController: UICollectionViewController {
         navigationController?.interactivePopGestureRecognizer?.delegate = nil
         let titleTextAttributes: [NSAttributedStringKey: Any] = [NSAttributedStringKey.foregroundColor: PaletteColors.darkGray,
                                                                  NSAttributedStringKey.font: UIFont.customFont(.robotoMediumFont(size: 17))]
-        let navigationBar = navigationController?.navigationBar
+        guard let navigationBar = navigationController?.navigationBar else { return }
         let backButtonItem = UIBarButtonItem(title: nil, style: .plain, target: self, action: #selector(backButtonTapped))
         navigationItem.leftBarButtonItem = backButtonItem
-        navigationBar?.titleTextAttributes = titleTextAttributes
+        navigationBar.titleTextAttributes = titleTextAttributes
         title = Constants.title
-        navigationBar?.setBackgroundImage(UIImage(color: UIColor.white), for: .default)
+        navigationBar.setBackgroundImage(UIImage(color: UIColor.white), for: .default)
         backButtonItem.image = UIImage(named: Constants.backButtonImage)
         backButtonItem.tintColor = PaletteColors.darkGray
     }
@@ -211,7 +212,9 @@ final class UserGameInfoViewController: UICollectionViewController {
 extension UserGameInfoViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        if section != 1 {
+        if section == 0 {
+            return UIEdgeInsets(top: LayoutConstants.topEdge, left: 0, bottom: LayoutConstants.bottomEdge, right: 0)
+        } else if section != 1 {
             return UIEdgeInsets(top: 0, left: 0, bottom: LayoutConstants.bottomEdge, right: 0)
         } else {
             return UIEdgeInsets(top: 0, left: 0, bottom: LayoutConstants.cellSpacing, right: 0)

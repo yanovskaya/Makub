@@ -30,7 +30,6 @@ final class TabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.isNavigationBarHidden = true
         createTabBarController()
         configureTabBar()
     }

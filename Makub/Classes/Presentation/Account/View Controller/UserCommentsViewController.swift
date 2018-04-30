@@ -119,10 +119,10 @@ class UserCommentsViewController: UICollectionViewController {
     }
     
     private func configureNavigationBar() {
-        let navigationBar = navigationController?.navigationBar
+        guard let navigationBar = navigationController?.navigationBar else { return }
         let titleTextAttributes: [NSAttributedStringKey: Any] = [NSAttributedStringKey.foregroundColor: PaletteColors.darkGray,
                                                                  NSAttributedStringKey.font: UIFont.customFont(.robotoMediumFont(size: 17))]
-        navigationBar?.titleTextAttributes = titleTextAttributes
+        navigationBar.titleTextAttributes = titleTextAttributes
         title = presentationModel.title
         
         let backButtonItem = UIBarButtonItem(title: nil, style: .plain, target: self, action: #selector(backButtonTapped))

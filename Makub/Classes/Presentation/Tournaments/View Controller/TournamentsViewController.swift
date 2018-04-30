@@ -27,12 +27,7 @@ class TournamentsViewController: UIViewController {
     }
 
     // MARK: - IBOutlets
-    
-    @IBOutlet private var navBackgroundView: UIView!
-    @IBOutlet private var navigationBar: UINavigationBar!
     @IBOutlet private var tournamentsCollectionView: UICollectionView!
-    
-    @IBOutlet private var gamesButtonItem: UIBarButtonItem!
     
     // MARK: - Private Properties
     
@@ -110,18 +105,19 @@ class TournamentsViewController: UIViewController {
     // MARK: - Private Methods
     
     private func configureNavigationBar() {
-        navigationController?.isNavigationBarHidden = true
-        navBackgroundView.backgroundColor = .white
         let titleTextAttributes: [NSAttributedStringKey: Any] = [NSAttributedStringKey.foregroundColor: PaletteColors.darkGray,
                                                                  NSAttributedStringKey.font: UIFont.customFont(.robotoMediumFont(size: 17))]
+        guard let navigationBar = navigationController?.navigationBar else { return }
         navigationBar.titleTextAttributes = titleTextAttributes
-        navigationBar.topItem?.title = Constants.title
+        title = Constants.title
         navigationBar.shadowImage = UIImage(color: UIColor.white)
         navigationBar.setBackgroundImage(UIImage(color: UIColor.white), for: .default)
         
+        let gamesButtonItem = UIBarButtonItem(title: nil, style: .plain, target: self, action: #selector(gamesItemTapped))
         gamesButtonItem.image = UIImage(named: Constants.gamesImage)
         gamesButtonItem.imageInsets = UIEdgeInsets(top: 2, left: 0, bottom: 0, right: 5)
         gamesButtonItem.tintColor = PaletteColors.darkGray
+        navigationItem.leftBarButtonItem = gamesButtonItem
     }
     
     private func configureCollectionView() {
@@ -152,9 +148,7 @@ class TournamentsViewController: UIViewController {
         dismiss(animated: false)
     }
     
-    // MARK: - IBActions
-    
-    @IBAction private func gamesItemTapped(_ sender: Any) {
+    @objc private func gamesItemTapped() {
         routeBack()
     }
 }

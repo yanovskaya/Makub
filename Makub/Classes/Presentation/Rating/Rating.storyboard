@@ -18,10 +18,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QEB-5o-fkH">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="98"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="34"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="dwe-Y8-gNc">
-                                        <rect key="frame" x="12" y="64" width="351" height="30"/>
+                                        <rect key="frame" x="12" y="0.0" width="351" height="30"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H3K-ng-k4P">
                                                 <rect key="frame" x="0.0" y="0.0" width="88" height="30"/>
@@ -54,35 +54,26 @@
                                         </subviews>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QTd-Xn-vuj">
-                                        <rect key="frame" x="12" y="95" width="88" height="3"/>
+                                        <rect key="frame" x="12" y="31" width="88" height="3"/>
                                         <color key="backgroundColor" red="0.0" green="0.32852089410000002" blue="0.57488495110000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="3" id="yW4-Kt-2DV"/>
                                         </constraints>
                                     </view>
-                                    <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h53-6G-ehW">
-                                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                                        <items>
-                                            <navigationItem title="Title" id="m4D-gX-ZXI"/>
-                                        </items>
-                                    </navigationBar>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="h53-6G-ehW" firstAttribute="top" secondItem="QEB-5o-fkH" secondAttribute="top" constant="20" id="ADW-C2-G1q"/>
+                                    <constraint firstItem="dwe-Y8-gNc" firstAttribute="centerX" secondItem="QEB-5o-fkH" secondAttribute="centerX" id="6AL-Qe-lkh"/>
                                     <constraint firstItem="QTd-Xn-vuj" firstAttribute="width" secondItem="H3K-ng-k4P" secondAttribute="width" id="Hxk-h0-qoX"/>
-                                    <constraint firstAttribute="trailing" secondItem="h53-6G-ehW" secondAttribute="trailing" id="LfM-vH-vLa"/>
                                     <constraint firstItem="dwe-Y8-gNc" firstAttribute="leading" secondItem="QEB-5o-fkH" secondAttribute="leading" constant="12" id="M33-TX-vIs"/>
                                     <constraint firstItem="QTd-Xn-vuj" firstAttribute="top" secondItem="dwe-Y8-gNc" secondAttribute="bottom" constant="1" id="PPE-cx-Fro"/>
                                     <constraint firstItem="QTd-Xn-vuj" firstAttribute="leading" secondItem="H3K-ng-k4P" secondAttribute="leading" id="TEe-73-e3x"/>
-                                    <constraint firstItem="dwe-Y8-gNc" firstAttribute="centerX" secondItem="h53-6G-ehW" secondAttribute="centerX" id="WJd-QJ-WR6"/>
-                                    <constraint firstItem="h53-6G-ehW" firstAttribute="leading" secondItem="QEB-5o-fkH" secondAttribute="leading" id="m9J-tg-P5R"/>
+                                    <constraint firstItem="dwe-Y8-gNc" firstAttribute="top" secondItem="QEB-5o-fkH" secondAttribute="top" id="eLA-Jr-gMn"/>
                                     <constraint firstAttribute="bottom" secondItem="QTd-Xn-vuj" secondAttribute="bottom" id="s8G-vz-Dcg"/>
-                                    <constraint firstItem="dwe-Y8-gNc" firstAttribute="top" secondItem="h53-6G-ehW" secondAttribute="bottom" id="vaB-05-jmg"/>
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="TTf-FL-yYb">
-                                <rect key="frame" x="0.0" y="98" width="375" height="569"/>
+                                <rect key="frame" x="0.0" y="34" width="375" height="633"/>
                                 <color key="backgroundColor" red="0.45138680930000002" green="0.99309605359999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="qSH-s8-U2F">
                                     <size key="itemSize" width="50" height="50"/>
@@ -112,7 +103,6 @@
                         <outlet property="fastButton" destination="NK1-f6-cEF" id="Itt-Ay-JO3"/>
                         <outlet property="indicatorButtonLeadingConstraint" destination="TEe-73-e3x" id="EHT-eZ-qem"/>
                         <outlet property="indicatorView" destination="QTd-Xn-vuj" id="clt-9r-C5e"/>
-                        <outlet property="navigationBar" destination="h53-6G-ehW" id="YhO-Xw-0pM"/>
                         <outlet property="ratingCollectionView" destination="TTf-FL-yYb" id="8pe-hR-n9T"/>
                         <outlet property="veryFastButton" destination="Cnc-WI-Ip6" id="tls-71-xbo"/>
                     </connections>
