@@ -15,7 +15,7 @@ class TournamentsViewController: UIViewController {
     
     private enum Constants {
         static let title = "Все турниры"
-        static let gamesImage = "fighting"
+        static let gamesImage = "fighting_big"
         static let cellIdentifier = String(describing: TournamentCell.self)
     }
     
