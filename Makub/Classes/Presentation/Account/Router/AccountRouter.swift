@@ -72,8 +72,17 @@ final class AccountRouter {
     func showUserGameInfoVC(source userGamesViewController: UserGamesViewController, _ index: Int) {
         let userGameInfoViewController = accountStoryboard.viewController(UserGameInfoViewController.self)
         userGameInfoViewController.presentationModel.userViewModel = userGamesViewController.presentationModel.userViewModel
-        userGameInfoViewController.presentationModel.gameViewModel = userGamesViewController.presentationModel.gamesViewModels[index]
+        userGameInfoViewController.presentationModel.gameId = userGamesViewController.presentationModel.gamesViewModels[index].id
         userGamesViewController.show(userGameInfoViewController, sender: self)
+    }
+    
+    /// UserComments -> GameInfo.
+    
+    func showUserGameInfoVCFromComments(source userCommentsViewController: UserCommentsViewController, _ index: Int) {
+        let userGameInfoViewController = accountStoryboard.viewController(UserGameInfoViewController.self)
+        userGameInfoViewController.presentationModel.userViewModel = userCommentsViewController.presentationModel.userViewModel
+        userGameInfoViewController.presentationModel.gameId = userCommentsViewController.presentationModel.commentsViewModels[index].gameId
+        userCommentsViewController.show(userGameInfoViewController, sender: self)
     }
     
     /// GameInfo -> AddComment.

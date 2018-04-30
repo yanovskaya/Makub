@@ -20,7 +20,6 @@ final class UserGameInfoPresentationModel: PresentationModel {
     // MARK: - Public Properties
     
     var gameId: String!
-    var gameViewModel: UserGameViewModel!
     var gameInfoViewModel: GameInfoViewModel!
     var tournamentViewModel: TournamentForGameViewModel!
     var commentViewModels = [CommentViewModel]()
@@ -60,7 +59,7 @@ final class UserGameInfoPresentationModel: PresentationModel {
     
     func obtainOnlyComments() {
         state = .loading
-        guard let gameId = Int(gameViewModel.id) else { return }
+        guard let gameId = Int(gameId) else { return }
         gameInfoService.obtainComments(gameId: gameId) { result in
             switch result {
             case .serviceSuccess(let model):
@@ -92,7 +91,7 @@ final class UserGameInfoPresentationModel: PresentationModel {
     }
     
     private func obtainGameInfo() {
-        guard let gameId = Int(gameViewModel.id) else { return }
+        guard let gameId = Int(gameId) else { return }
         gameInfoService.obtainGameInfo(gameId: gameId) { result in
             switch result {
             case .serviceSuccess(let model):
@@ -130,7 +129,7 @@ final class UserGameInfoPresentationModel: PresentationModel {
     
     private func obtainComments() {
         state = .loading
-        guard let gameId = Int(gameViewModel.id) else { return }
+        guard let gameId = Int(gameId) else { return }
         gameInfoService.obtainComments(gameId: gameId) { result in
             switch result {
             case .serviceSuccess(let model):
