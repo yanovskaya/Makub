@@ -105,6 +105,7 @@ class TournamentsViewController: UIViewController {
     // MARK: - Private Methods
     
     private func configureNavigationBar() {
+        navigationController?.isNavigationBarHidden = false
         let titleTextAttributes: [NSAttributedStringKey: Any] = [NSAttributedStringKey.foregroundColor: PaletteColors.darkGray,
                                                                  NSAttributedStringKey.font: UIFont.customFont(.robotoMediumFont(size: 17))]
         guard let navigationBar = navigationController?.navigationBar else { return }

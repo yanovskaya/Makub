@@ -28,6 +28,9 @@ final class GameInfoViewController: UIViewController {
     
     // MARK: - IBOutlets
     
+    @IBOutlet private var navBackgroundView: UIView!
+    @IBOutlet private var navigationBar: UINavigationBar!
+    @IBOutlet private var backButtonItem: UIBarButtonItem!
     @IBOutlet private var gameCollectionView: UICollectionView!
     
     // MARK: - Public Properties
@@ -55,8 +58,8 @@ final class GameInfoViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
+        UIApplication.shared.statusBarView?.backgroundColor = .clear
         tabBarController?.delegate = self
-        tabBarController?.tabBarItem.isEnabled = false
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -112,14 +115,13 @@ final class GameInfoViewController: UIViewController {
         navigationController?.interactivePopGestureRecognizer?.delegate = nil
         let titleTextAttributes: [NSAttributedStringKey: Any] = [NSAttributedStringKey.foregroundColor: PaletteColors.darkGray,
                                                                  NSAttributedStringKey.font: UIFont.customFont(.robotoMediumFont(size: 17))]
-        
-        guard let navigationBar = navigationController?.navigationBar else { return }
         navigationBar.titleTextAttributes = titleTextAttributes
-        title = Constants.title
-        let backButtonItem = UIBarButtonItem(title: nil, style: .plain, target: self, action: #selector(backButtonTapped))
+        navigationBar.topItem?.title = Constants.title
+        navigationBar.setBackgroundImage(UIImage(color: UIColor.white), for: .default)
+        navigationBar.shadowImage = UIImage(color: .white)
+        navBackgroundView.backgroundColor = .white
         backButtonItem.image = UIImage(named: Constants.backButtonImage)
         backButtonItem.tintColor = PaletteColors.darkGray
-        navigationItem.leftBarButtonItem = backButtonItem
     }
     
     private func configureCollectionView() {
@@ -135,7 +137,9 @@ final class GameInfoViewController: UIViewController {
         flowLayout.estimatedItemSize.width = view.frame.width
     }
     
-    @objc private func backButtonTapped() {
+    // MARK: - IBAction
+    
+    @IBAction private func backButtonTapped(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
 }

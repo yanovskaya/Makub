@@ -72,6 +72,7 @@ final class RatingViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         tabBarController?.delegate = self
+        UIApplication.shared.statusBarView?.backgroundColor = .white
         if presentationModel.ratingViewModels.isEmpty {
             bindEventsRating()
             presentationModel.obtainRatingWithUser()
@@ -141,6 +142,7 @@ final class RatingViewController: UIViewController {
     // MARK: - Private Methods
     
     private func configureNavigationBar() {
+        navigationController?.isNavigationBarHidden = false
         let titleTextAttributes: [NSAttributedStringKey: Any] = [NSAttributedStringKey.foregroundColor: PaletteColors.darkGray,
                                                                  NSAttributedStringKey.font: UIFont.customFont(.robotoMediumFont(size: 17))]
         guard let navigationBar = navigationController?.navigationBar else { return }

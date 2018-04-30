@@ -52,6 +52,7 @@ final class AccountViewController: UICollectionViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         tabBarController?.delegate = self
+        UIApplication.shared.statusBarView?.backgroundColor = .white
         if presentationModel.userViewModel == nil {
             bindEvents()
             presentationModel.obtainProfileWithSettings()
@@ -128,6 +129,7 @@ final class AccountViewController: UICollectionViewController {
     }
     
     private func configureNavigationBar() {
+        navigationController?.isNavigationBarHidden = false
         guard let navigationBar = navigationController?.navigationBar else { return }
         navigationBar.isTranslucent = false
         navigationBar.shadowImage = UIImage(color: UIColor.white)

@@ -20,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="QxD-fG-A70">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" red="0.46202266219999999" green="0.83828371759999998" blue="1" alpha="0.35999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xEz-es-aBO">
                                     <size key="itemSize" width="50" height="50"/>
@@ -34,7 +34,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="gUe-FZ-ngV" firstAttribute="bottom" secondItem="QxD-fG-A70" secondAttribute="bottom" id="ccD-WP-XlS"/>
-                            <constraint firstItem="QxD-fG-A70" firstAttribute="top" secondItem="Aby-3z-Kci" secondAttribute="top" id="k5A-Vv-VV8"/>
+                            <constraint firstItem="QxD-fG-A70" firstAttribute="top" secondItem="gUe-FZ-ngV" secondAttribute="top" id="k5A-Vv-VV8"/>
                             <constraint firstItem="QxD-fG-A70" firstAttribute="leading" secondItem="gUe-FZ-ngV" secondAttribute="leading" id="q7c-k2-JSe"/>
                             <constraint firstItem="gUe-FZ-ngV" firstAttribute="trailing" secondItem="QxD-fG-A70" secondAttribute="trailing" id="w8c-WZ-0eO"/>
                         </constraints>

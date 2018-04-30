@@ -73,6 +73,7 @@ final class NewsViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         tabBarController?.delegate = self
+        UIApplication.shared.statusBarView?.backgroundColor = .white
         if presentationModel.newsViewModels.isEmpty {
             bindEventsObtainNewsWithUser()
             presentationModel.obtainNewsWithUser()
@@ -175,6 +176,7 @@ final class NewsViewController: UIViewController {
     }
     
     private func configureNavigationController() {
+        navigationController?.isNavigationBarHidden = false
         navigationItem.titleView = navigationSearchBar
         navigationController?.navigationBar.shadowImage = UIImage(color: UIColor.white)
         navigationController?.navigationBar.setBackgroundImage(UIImage(color: UIColor.white), for: .default)
@@ -359,9 +361,9 @@ extension NewsViewController: UITabBarControllerDelegate {
     
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         if tabBarController.selectedIndex == 0 {
-            let indexPath = IndexPath(item: 0, section: 0)
+            let topPoint = CGPoint(x: 0, y: 0)
+            newsCollectionView.setContentOffset(topPoint, animated: true)
             hidingNavBarManager?.shouldScrollToTop()
-            newsCollectionView.scrollToItem(at: indexPath, at: .top, animated: true)
         }
     }
 }
