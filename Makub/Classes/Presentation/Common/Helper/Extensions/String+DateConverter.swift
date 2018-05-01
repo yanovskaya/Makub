@@ -18,32 +18,39 @@ extension String {
     // MARK: - Public Method
     
     func dateConverter() -> (String, TimePeriod)? {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
         
-        guard let convertedDate = dateFormatter.date(from: self) else { return nil }
-        dateFormatter.dateFormat = "dd.MM.yyyy"
-        let dateForNowString = dateFormatter.string(from: Date())
-        guard let dateForNowConverted = dateFormatter.date(from: dateForNowString) else { return nil }
-        let components = Calendar.current.dateComponents([.year, .day], from: convertedDate, to: dateForNowConverted)
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        guard let convertedDate = formatter.date(from: self) else { return nil }
+
+        let dateForNowString = formatter.string(from: Date())
+        guard let dateForNowConverted = formatter.date(from: dateForNowString) else { return nil }
+
+        let components = Calendar.current.dateComponents([.year, .day, .month], from: convertedDate, to: dateForNowConverted)
         guard let day = components.day else { return nil }
+        guard let month = components.month else { return nil }
+
         let fixedYear = Calendar.current.component(.year, from: convertedDate)
         let currentYear = Calendar.current.component(.year, from: dateForNowConverted)
         let fixedMonth = Calendar.current.component(.month, from: convertedDate)
-        if fixedYear != currentYear {
-            dateFormatter.dateFormat = "dd.MM.yyyy"
-            return (dateFormatter.string(from: convertedDate), .past)
-        } else if day == 0 {
+
+        if fixedYear > currentYear {
+            formatter.dateFormat = "dd.MM.yyyy"
+            return (formatter.string(from: convertedDate), .future)
+        } else if fixedYear < currentYear {
+            formatter.dateFormat = "dd.MM.yyyy"
+            return (formatter.string(from: convertedDate), .past)
+        } else if day == 0 && month == 0 {
             return ("Cегодня", .future)
-        } else if day == -1 {
+        } else if day == -1 && month == 0 {
             return ("Завтра", .future)
         } else {
-            dateFormatter.dateFormat = "dd"
+            formatter.dateFormat = "dd"
             let month = getMonth(num: fixedMonth)
             if day > 0 {
-            return (dateFormatter.string(from: convertedDate) + " " + month, .past)
+            return (formatter.string(from: convertedDate) + " " + month, .past)
             } else {
-                 return (dateFormatter.string(from: convertedDate) + " " + month, .future)
+                 return (formatter.string(from: convertedDate) + " " + month, .future)
             }
         }
     }
