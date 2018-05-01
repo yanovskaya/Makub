@@ -72,6 +72,7 @@
 		C42D9562209735DA00772D70 /* GameInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42D9561209735DA00772D70 /* GameInfoViewModel.swift */; };
 		C42D95642097432C00772D70 /* UserGameInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42D95632097432C00772D70 /* UserGameInfoViewController.swift */; };
 		C42D9566209743E900772D70 /* UserGameInfoPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42D9565209743E900772D70 /* UserGameInfoPresentationModel.swift */; };
+		C42D95842098A72700772D70 /* MakubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42D95832098A72700772D70 /* MakubTests.swift */; };
 		C430FD05208103240019D9CE /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C430FD04208103240019D9CE /* Auth.storyboard */; };
 		C430FD0820822A390019D9CE /* ClubsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C430FD0720822A390019D9CE /* ClubsResponse.swift */; };
 		C430FD0A20822EA10019D9CE /* ClubViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C430FD0920822EA10019D9CE /* ClubViewModel.swift */; };
@@ -188,6 +189,16 @@
 		C4FBE23D208D5F1500AD618D /* UserGamesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FBE23C208D5F1500AD618D /* UserGamesResponse.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		C42D95862098A72700772D70 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C44D60A4205529C100A5C50F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C44D60AB205529C100A5C50F;
+			remoteInfo = Makub;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		25B33F5602AEBC76325DB113 /* Pods-Makub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Makub.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Makub/Pods-Makub.debug.xcconfig"; sourceTree = "<group>"; };
 		AD3835C1372474B08AEF32EE /* Pods-Makub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Makub.release.xcconfig"; path = "Pods/Target Support Files/Pods-Makub/Pods-Makub.release.xcconfig"; sourceTree = "<group>"; };
@@ -255,6 +266,9 @@
 		C42D9561209735DA00772D70 /* GameInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfoViewModel.swift; sourceTree = "<group>"; };
 		C42D95632097432C00772D70 /* UserGameInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGameInfoViewController.swift; sourceTree = "<group>"; };
 		C42D9565209743E900772D70 /* UserGameInfoPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGameInfoPresentationModel.swift; sourceTree = "<group>"; };
+		C42D95812098A72700772D70 /* MakubTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MakubTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C42D95832098A72700772D70 /* MakubTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakubTests.swift; sourceTree = "<group>"; };
+		C42D95852098A72700772D70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C430FD04208103240019D9CE /* Auth.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		C430FD0720822A390019D9CE /* ClubsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubsResponse.swift; sourceTree = "<group>"; };
 		C430FD0920822EA10019D9CE /* ClubViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubViewModel.swift; sourceTree = "<group>"; };
@@ -375,6 +389,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		C42D957E2098A72700772D70 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C44D60A9205529C100A5C50F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -805,10 +826,20 @@
 			path = Parser;
 			sourceTree = "<group>";
 		};
+		C42D95822098A72700772D70 /* MakubTests */ = {
+			isa = PBXGroup;
+			children = (
+				C42D95832098A72700772D70 /* MakubTests.swift */,
+				C42D95852098A72700772D70 /* Info.plist */,
+			);
+			path = MakubTests;
+			sourceTree = "<group>";
+		};
 		C44D60A3205529C100A5C50F = {
 			isa = PBXGroup;
 			children = (
 				C44D60AE205529C100A5C50F /* Makub */,
+				C42D95822098A72700772D70 /* MakubTests */,
 				C44D60AD205529C100A5C50F /* Products */,
 				098B841B262CEA2D15B352A5 /* Pods */,
 				C8FE19675A729A68973D7EBE /* Frameworks */,
@@ -819,6 +850,7 @@
 			isa = PBXGroup;
 			children = (
 				C44D60AC205529C100A5C50F /* Макуб.app */,
+				C42D95812098A72700772D70 /* MakubTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1314,6 +1346,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		C42D95802098A72700772D70 /* MakubTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C42D958A2098A72700772D70 /* Build configuration list for PBXNativeTarget "MakubTests" */;
+			buildPhases = (
+				C42D957D2098A72700772D70 /* Sources */,
+				C42D957E2098A72700772D70 /* Frameworks */,
+				C42D957F2098A72700772D70 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C42D95872098A72700772D70 /* PBXTargetDependency */,
+			);
+			name = MakubTests;
+			productName = MakubTests;
+			productReference = C42D95812098A72700772D70 /* MakubTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		C44D60AB205529C100A5C50F /* Makub */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C44D60BE205529C200A5C50F /* Build configuration list for PBXNativeTarget "Makub" */;
@@ -1340,10 +1390,15 @@
 		C44D60A4205529C100A5C50F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0920;
+				LastSwiftUpdateCheck = 0930;
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Elena Yanovskaya";
 				TargetAttributes = {
+					C42D95802098A72700772D70 = {
+						CreatedOnToolsVersion = 9.3;
+						ProvisioningStyle = Automatic;
+						TestTargetID = C44D60AB205529C100A5C50F;
+					};
 					C44D60AB205529C100A5C50F = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
@@ -1364,11 +1419,19 @@
 			projectRoot = "";
 			targets = (
 				C44D60AB205529C100A5C50F /* Makub */,
+				C42D95802098A72700772D70 /* MakubTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		C42D957F2098A72700772D70 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C44D60AA205529C100A5C50F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1477,6 +1540,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		C42D957D2098A72700772D70 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C42D95842098A72700772D70 /* MakubTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C44D60A8205529C100A5C50F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1635,6 +1706,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		C42D95872098A72700772D70 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C44D60AB205529C100A5C50F /* Makub */;
+			targetProxy = C42D95862098A72700772D70 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		C44D60B8205529C200A5C50F /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -1647,6 +1726,40 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		C42D95882098A72700772D70 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 383575UEP3;
+				INFOPLIST_FILE = MakubTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "-.MakubTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Макуб.app/Макуб";
+			};
+			name = Debug;
+		};
+		C42D95892098A72700772D70 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 383575UEP3;
+				INFOPLIST_FILE = MakubTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "-.MakubTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Макуб.app/Макуб";
+			};
+			name = Release;
+		};
 		C44D60BC205529C200A5C50F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1766,7 +1879,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = JHLX4XGDFC;
+				DEVELOPMENT_TEAM = 383575UEP3;
 				INFOPLIST_FILE = "$(SRCROOT)/Makub/Supporting files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1783,7 +1896,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = JHLX4XGDFC;
+				DEVELOPMENT_TEAM = 383575UEP3;
 				INFOPLIST_FILE = "$(SRCROOT)/Makub/Supporting files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1797,6 +1910,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		C42D958A2098A72700772D70 /* Build configuration list for PBXNativeTarget "MakubTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C42D95882098A72700772D70 /* Debug */,
+				C42D95892098A72700772D70 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C44D60A7205529C100A5C50F /* Build configuration list for PBXProject "Makub" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
