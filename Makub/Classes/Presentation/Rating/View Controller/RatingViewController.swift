@@ -72,7 +72,6 @@ final class RatingViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         tabBarController?.delegate = self
-        UIApplication.shared.statusBarView?.backgroundColor = .white
         if presentationModel.ratingViewModels.isEmpty {
             bindEventsRating()
             presentationModel.obtainRatingWithUser()
@@ -90,8 +89,6 @@ final class RatingViewController: UIViewController {
         presentationModel.changeStateHandler = { [weak self] status in
             switch status {
             case .loading:
-                PKHUD.sharedHUD.dimsBackground = false
-                PKHUD.sharedHUD.userInteractionOnUnderlyingViewsEnabled = true
                 HUD.show(.progress)
             case .rich:
                 self?.ratingCollectionView.reloadData()

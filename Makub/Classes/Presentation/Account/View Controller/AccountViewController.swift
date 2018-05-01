@@ -110,8 +110,6 @@ final class AccountViewController: UICollectionViewController {
         presentationModel.changeStateHandler = { [weak self] status in
             switch status {
             case .loading:
-                PKHUD.sharedHUD.dimsBackground = false
-                PKHUD.sharedHUD.userInteractionOnUnderlyingViewsEnabled = true
                 HUD.show(.progress)
             case .rich:
                 self?.collectionView?.reloadData()
@@ -157,6 +155,7 @@ final class AccountViewController: UICollectionViewController {
     }
     
     private func exitButtonSelected() {
+        UIApplication.shared.statusBarView?.backgroundColor = .clear
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let deleteAction = UIAlertAction(title: Constants.exitAction, style: .destructive) { _ in
             self.router.exitToAuthorization()

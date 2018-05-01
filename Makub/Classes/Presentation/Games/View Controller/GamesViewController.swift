@@ -56,6 +56,7 @@ final class GamesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = PaletteColors.blueBackground
+        UIApplication.shared.statusBarView?.backgroundColor = .clear
         
         configureNavigationBar()
         configureCollectionView()
@@ -66,6 +67,7 @@ final class GamesViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         tabBarController?.delegate = self
+        UIApplication.shared.statusBarView?.backgroundColor = .white
         if presentationModel.gamesViewModels.isEmpty {
             bindEventsObtainGames()
             presentationModel.obtainGamesWithClubs()
@@ -83,8 +85,6 @@ final class GamesViewController: UIViewController {
         presentationModel.changeStateHandler = { [weak self] status in
             switch status {
             case .loading:
-                PKHUD.sharedHUD.dimsBackground = false
-                PKHUD.sharedHUD.userInteractionOnUnderlyingViewsEnabled = true
                 HUD.show(.progress)
             case .rich:
                 self?.gamesCollectionView.reloadData()
@@ -107,8 +107,6 @@ final class GamesViewController: UIViewController {
         presentationModel.changeStateHandler = { [weak self] status in
             switch status {
             case .loading:
-                PKHUD.sharedHUD.dimsBackground = false
-                PKHUD.sharedHUD.userInteractionOnUnderlyingViewsEnabled = true
                 HUD.show(.labeledProgress(title: Constants.pkhudTitle, subtitle: Constants.pkhudSubtitle))
             case .rich:
                 self?.gamesCollectionView.reloadData()

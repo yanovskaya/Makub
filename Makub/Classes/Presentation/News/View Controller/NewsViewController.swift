@@ -54,6 +54,7 @@ final class NewsViewController: UIViewController {
         super.viewDidLoad()
         filteredNews = presentationModel.newsViewModels
         view.backgroundColor = PaletteColors.blueBackground
+        configurePKHUD()
         
         configureNavigationController()
         configureCollectionView()
@@ -91,8 +92,6 @@ final class NewsViewController: UIViewController {
         presentationModel.changeStateHandler = { [weak self] status in
             switch status {
             case .loading:
-                PKHUD.sharedHUD.dimsBackground = false
-                PKHUD.sharedHUD.userInteractionOnUnderlyingViewsEnabled = true
                 HUD.show(.progress)
             case .rich:
                 self?.filteredNews = (self?.presentationModel.newsViewModels)!
@@ -173,6 +172,11 @@ final class NewsViewController: UIViewController {
                 break
             }
         }
+    }
+    
+    private func configurePKHUD() {
+        PKHUD.sharedHUD.dimsBackground = false
+        PKHUD.sharedHUD.userInteractionOnUnderlyingViewsEnabled = true
     }
     
     private func configureNavigationController() {

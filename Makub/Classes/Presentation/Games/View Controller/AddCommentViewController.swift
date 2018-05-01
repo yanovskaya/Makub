@@ -64,8 +64,6 @@ final class AddCommentViewController: UIViewController {
         presentationModel.changeStateHandler = { status in
             switch status {
             case .loading:
-                PKHUD.sharedHUD.dimsBackground = true
-                PKHUD.sharedHUD.userInteractionOnUnderlyingViewsEnabled = false
                 HUD.show(.labeledProgress(title: Constants.pkhudTitle, subtitle: Constants.pkhudSubtitle))
             case .rich:
                 HUD.hide()

@@ -57,7 +57,7 @@ class TournamentsViewController: UIViewController {
         HUD.hide()
     }
     
-    // MARK: - Public Methods
+    // MARK: - Private Methods
     
     private func bindEventsObtainTournaments() {
         presentationModel.changeStateHandler = { [weak self] status in
@@ -101,8 +101,6 @@ class TournamentsViewController: UIViewController {
             }
         }
     }
-    
-    // MARK: - Private Methods
     
     private func configureNavigationBar() {
         navigationController?.isNavigationBarHidden = false

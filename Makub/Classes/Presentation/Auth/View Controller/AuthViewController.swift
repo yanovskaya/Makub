@@ -50,6 +50,7 @@ final class AuthViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configurePKHUD()
         bindEvents()
         
         hideKeyboardWhenTappedAround()
@@ -67,6 +68,7 @@ final class AuthViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         navigationController?.setNavigationBarHidden(true, animated: true)
+        UIApplication.shared.statusBarView?.backgroundColor = .clear
         usernameTextField.text = ""
         passwordTextField.text = ""
     }
@@ -77,8 +79,6 @@ final class AuthViewController: UIViewController {
         presentationModel.changeStateHandler = { status in
             switch status {
             case .loading:
-                PKHUD.sharedHUD.dimsBackground = true
-                PKHUD.sharedHUD.userInteractionOnUnderlyingViewsEnabled = false
                 HUD.show(.progress)
             case .rich:
                 HUD.hide()
@@ -95,6 +95,11 @@ final class AuthViewController: UIViewController {
                 HUD.hide(afterDelay: 1.0)
             }
         }
+    }
+    
+    private func configurePKHUD() {
+        PKHUD.sharedHUD.dimsBackground = false
+        PKHUD.sharedHUD.userInteractionOnUnderlyingViewsEnabled = false
     }
     
     private func configureBackgroundImage() {
