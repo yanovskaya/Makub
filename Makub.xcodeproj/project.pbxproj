@@ -72,7 +72,8 @@
 		C42D9562209735DA00772D70 /* GameInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42D9561209735DA00772D70 /* GameInfoViewModel.swift */; };
 		C42D95642097432C00772D70 /* UserGameInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42D95632097432C00772D70 /* UserGameInfoViewController.swift */; };
 		C42D9566209743E900772D70 /* UserGameInfoPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42D9565209743E900772D70 /* UserGameInfoPresentationModel.swift */; };
-		C42D95842098A72700772D70 /* StringConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42D95832098A72700772D70 /* StringConverterTests.swift */; };
+		C42D95842098A72700772D70 /* StringTimeConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42D95832098A72700772D70 /* StringTimeConverterTests.swift */; };
+		C42D959B209A2D4100772D70 /* StringDateConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42D959A209A2D4100772D70 /* StringDateConverterTests.swift */; };
 		C430FD05208103240019D9CE /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C430FD04208103240019D9CE /* Auth.storyboard */; };
 		C430FD0820822A390019D9CE /* ClubsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C430FD0720822A390019D9CE /* ClubsResponse.swift */; };
 		C430FD0A20822EA10019D9CE /* ClubViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C430FD0920822EA10019D9CE /* ClubViewModel.swift */; };
@@ -267,8 +268,9 @@
 		C42D95632097432C00772D70 /* UserGameInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGameInfoViewController.swift; sourceTree = "<group>"; };
 		C42D9565209743E900772D70 /* UserGameInfoPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGameInfoPresentationModel.swift; sourceTree = "<group>"; };
 		C42D95812098A72700772D70 /* MakubTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MakubTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C42D95832098A72700772D70 /* StringConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringConverterTests.swift; sourceTree = "<group>"; };
+		C42D95832098A72700772D70 /* StringTimeConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringTimeConverterTests.swift; sourceTree = "<group>"; };
 		C42D95852098A72700772D70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C42D959A209A2D4100772D70 /* StringDateConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringDateConverterTests.swift; sourceTree = "<group>"; };
 		C430FD04208103240019D9CE /* Auth.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		C430FD0720822A390019D9CE /* ClubsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubsResponse.swift; sourceTree = "<group>"; };
 		C430FD0920822EA10019D9CE /* ClubViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubViewModel.swift; sourceTree = "<group>"; };
@@ -829,7 +831,8 @@
 		C42D95822098A72700772D70 /* MakubTests */ = {
 			isa = PBXGroup;
 			children = (
-				C42D95832098A72700772D70 /* StringConverterTests.swift */,
+				C42D95832098A72700772D70 /* StringTimeConverterTests.swift */,
+				C42D959A209A2D4100772D70 /* StringDateConverterTests.swift */,
 				C42D95852098A72700772D70 /* Info.plist */,
 			);
 			path = MakubTests;
@@ -1544,7 +1547,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C42D95842098A72700772D70 /* StringConverterTests.swift in Sources */,
+				C42D95842098A72700772D70 /* StringTimeConverterTests.swift in Sources */,
+				C42D959B209A2D4100772D70 /* StringDateConverterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1739,7 +1743,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Макуб.app/Макуб";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Makub.app/Makub";
 			};
 			name = Debug;
 		};
@@ -1756,7 +1760,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Макуб.app/Макуб";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Makub.app/Makub";
 			};
 			name = Release;
 		};
