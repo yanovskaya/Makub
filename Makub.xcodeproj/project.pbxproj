@@ -72,7 +72,7 @@
 		C42D9562209735DA00772D70 /* GameInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42D9561209735DA00772D70 /* GameInfoViewModel.swift */; };
 		C42D95642097432C00772D70 /* UserGameInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42D95632097432C00772D70 /* UserGameInfoViewController.swift */; };
 		C42D9566209743E900772D70 /* UserGameInfoPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42D9565209743E900772D70 /* UserGameInfoPresentationModel.swift */; };
-		C42D95842098A72700772D70 /* MakubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42D95832098A72700772D70 /* MakubTests.swift */; };
+		C42D95842098A72700772D70 /* StringConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42D95832098A72700772D70 /* StringConverterTests.swift */; };
 		C430FD05208103240019D9CE /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C430FD04208103240019D9CE /* Auth.storyboard */; };
 		C430FD0820822A390019D9CE /* ClubsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C430FD0720822A390019D9CE /* ClubsResponse.swift */; };
 		C430FD0A20822EA10019D9CE /* ClubViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C430FD0920822EA10019D9CE /* ClubViewModel.swift */; };
@@ -267,12 +267,12 @@
 		C42D95632097432C00772D70 /* UserGameInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGameInfoViewController.swift; sourceTree = "<group>"; };
 		C42D9565209743E900772D70 /* UserGameInfoPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGameInfoPresentationModel.swift; sourceTree = "<group>"; };
 		C42D95812098A72700772D70 /* MakubTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MakubTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		C42D95832098A72700772D70 /* MakubTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakubTests.swift; sourceTree = "<group>"; };
+		C42D95832098A72700772D70 /* StringConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringConverterTests.swift; sourceTree = "<group>"; };
 		C42D95852098A72700772D70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C430FD04208103240019D9CE /* Auth.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		C430FD0720822A390019D9CE /* ClubsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubsResponse.swift; sourceTree = "<group>"; };
 		C430FD0920822EA10019D9CE /* ClubViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubViewModel.swift; sourceTree = "<group>"; };
-		C44D60AC205529C100A5C50F /* Макуб.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Макуб.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C44D60AC205529C100A5C50F /* Makub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Makub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C44D60AF205529C100A5C50F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C44D60B1205529C200A5C50F /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		C44D60B6205529C200A5C50F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -829,7 +829,7 @@
 		C42D95822098A72700772D70 /* MakubTests */ = {
 			isa = PBXGroup;
 			children = (
-				C42D95832098A72700772D70 /* MakubTests.swift */,
+				C42D95832098A72700772D70 /* StringConverterTests.swift */,
 				C42D95852098A72700772D70 /* Info.plist */,
 			);
 			path = MakubTests;
@@ -849,7 +849,7 @@
 		C44D60AD205529C100A5C50F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C44D60AC205529C100A5C50F /* Макуб.app */,
+				C44D60AC205529C100A5C50F /* Makub.app */,
 				C42D95812098A72700772D70 /* MakubTests.xctest */,
 			);
 			name = Products;
@@ -1381,7 +1381,7 @@
 			);
 			name = Makub;
 			productName = Makub;
-			productReference = C44D60AC205529C100A5C50F /* Макуб.app */;
+			productReference = C44D60AC205529C100A5C50F /* Makub.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1544,7 +1544,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C42D95842098A72700772D70 /* MakubTests.swift in Sources */,
+				C42D95842098A72700772D70 /* StringConverterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1884,7 +1884,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = .Makub;
-				PRODUCT_NAME = "Макуб";
+				PRODUCT_NAME = Makub;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1901,7 +1901,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = .Makub;
-				PRODUCT_NAME = "Макуб";
+				PRODUCT_NAME = Makub;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

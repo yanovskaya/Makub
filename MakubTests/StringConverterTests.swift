@@ -1,15 +1,15 @@
 //
-//  MakubTests.swift
-//  MakubTests
+//  StringConverterTests.swift
+//  StringConverterTests
 //
 //  Created by Елена Яновская on 01.05.2018.
 //  Copyright © 2018 Elena Yanovskaya. All rights reserved.
 //
 
 import XCTest
-@testable import Макуб
+@testable import Makub
 
-final class MakubTests: XCTestCase {
+final class StringConverterTests: XCTestCase {
     
     func testTimeConverter() {
         let minute: TimeInterval = 60
