@@ -86,6 +86,7 @@ final class RecoverViewController: UIViewController {
             case .loading:
                 HUD.show(.progress)
             case .rich:
+                self.updateContent()
                 HUD.show(.success)
                 HUD.hide(afterDelay: 0.4)
             case .error (let code):
@@ -194,10 +195,7 @@ final class RecoverViewController: UIViewController {
     
     @IBAction private func recoverButtonTapped(_ sender: Any) {
         guard let email = emailTextField.text?.removeWhitespaces() else { return }
-        presentationModel.recoverPassword(email: email) {
-            [unowned self] in
-            self.updateContent()
-        }
+        presentationModel.recoverPassword(email: email)
     }
     
 }

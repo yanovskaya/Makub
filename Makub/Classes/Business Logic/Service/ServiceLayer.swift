@@ -29,7 +29,7 @@ final class ServiceLayer {
     private init() {
         requestSessionManager = {
             let configuration = URLSessionConfiguration.default
-            configuration.timeoutIntervalForRequest = 15
+            configuration.timeoutIntervalForRequest = 20
             return SessionManager(configuration: configuration)
         }()
         uploadSessionManager = {

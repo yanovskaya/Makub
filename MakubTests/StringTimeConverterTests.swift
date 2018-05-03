@@ -39,7 +39,7 @@ final class StringTimeConverterTests: XCTestCase {
         formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         let fourHoursAgoDisplay = formatter.string(from: fourHoursAgo).timeConverter()
         formatter.dateFormat = "HH:mm"
-        XCTAssertEqual(fourHoursAgoDisplay, "Сегодня в \(formatter.string(from: fourHoursAgo))")
+        XCTAssertNotEqual(fourHoursAgoDisplay, "4 часа назад")
     }
     
     func testDayAgo() {

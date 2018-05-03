@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0133FA4162EDEEAA9FE3135C /* Pods_Makub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD91280B983360A8DBD4BDFC /* Pods_Makub.framework */; };
+		9B19A66C19FF5656554FC1A9 /* Pods_MakubTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DFA04958E6A756BDD96FF65 /* Pods_MakubTests.framework */; };
 		C408C8CF206D3E7A0053F057 /* AddNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C408C8CE206D3E7A0053F057 /* AddNewsViewController.swift */; };
 		C408C8D1206D3F660053F057 /* NewsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C408C8D0206D3F660053F057 /* NewsRouter.swift */; };
 		C40EDD7420648EF000338300 /* UIImage+FromColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40EDD7320648EF000338300 /* UIImage+FromColor.swift */; };
@@ -74,6 +75,7 @@
 		C42D9566209743E900772D70 /* UserGameInfoPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42D9565209743E900772D70 /* UserGameInfoPresentationModel.swift */; };
 		C42D95842098A72700772D70 /* StringTimeConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42D95832098A72700772D70 /* StringTimeConverterTests.swift */; };
 		C42D959B209A2D4100772D70 /* StringDateConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42D959A209A2D4100772D70 /* StringDateConverterTests.swift */; };
+		C42D959D209A480000772D70 /* TransportTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42D959C209A480000772D70 /* TransportTests.swift */; };
 		C430FD05208103240019D9CE /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C430FD04208103240019D9CE /* Auth.storyboard */; };
 		C430FD0820822A390019D9CE /* ClubsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C430FD0720822A390019D9CE /* ClubsResponse.swift */; };
 		C430FD0A20822EA10019D9CE /* ClubViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C430FD0920822EA10019D9CE /* ClubViewModel.swift */; };
@@ -202,6 +204,9 @@
 
 /* Begin PBXFileReference section */
 		25B33F5602AEBC76325DB113 /* Pods-Makub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Makub.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Makub/Pods-Makub.debug.xcconfig"; sourceTree = "<group>"; };
+		2F43183DE3B6285D2FBF8CF6 /* Pods-MakubTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MakubTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MakubTests/Pods-MakubTests.release.xcconfig"; sourceTree = "<group>"; };
+		6DFA04958E6A756BDD96FF65 /* Pods_MakubTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MakubTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E834EE6435D78B732F43A7B /* Pods-MakubTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MakubTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MakubTests/Pods-MakubTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AD3835C1372474B08AEF32EE /* Pods-Makub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Makub.release.xcconfig"; path = "Pods/Target Support Files/Pods-Makub/Pods-Makub.release.xcconfig"; sourceTree = "<group>"; };
 		C408C8CE206D3E7A0053F057 /* AddNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewsViewController.swift; sourceTree = "<group>"; };
 		C408C8D0206D3F660053F057 /* NewsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsRouter.swift; sourceTree = "<group>"; };
@@ -271,6 +276,7 @@
 		C42D95832098A72700772D70 /* StringTimeConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringTimeConverterTests.swift; sourceTree = "<group>"; };
 		C42D95852098A72700772D70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C42D959A209A2D4100772D70 /* StringDateConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringDateConverterTests.swift; sourceTree = "<group>"; };
+		C42D959C209A480000772D70 /* TransportTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportTests.swift; sourceTree = "<group>"; };
 		C430FD04208103240019D9CE /* Auth.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		C430FD0720822A390019D9CE /* ClubsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubsResponse.swift; sourceTree = "<group>"; };
 		C430FD0920822EA10019D9CE /* ClubViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubViewModel.swift; sourceTree = "<group>"; };
@@ -395,6 +401,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B19A66C19FF5656554FC1A9 /* Pods_MakubTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,6 +421,8 @@
 			children = (
 				25B33F5602AEBC76325DB113 /* Pods-Makub.debug.xcconfig */,
 				AD3835C1372474B08AEF32EE /* Pods-Makub.release.xcconfig */,
+				7E834EE6435D78B732F43A7B /* Pods-MakubTests.debug.xcconfig */,
+				2F43183DE3B6285D2FBF8CF6 /* Pods-MakubTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -831,6 +840,7 @@
 		C42D95822098A72700772D70 /* MakubTests */ = {
 			isa = PBXGroup;
 			children = (
+				C42D959C209A480000772D70 /* TransportTests.swift */,
 				C42D95832098A72700772D70 /* StringTimeConverterTests.swift */,
 				C42D959A209A2D4100772D70 /* StringDateConverterTests.swift */,
 				C42D95852098A72700772D70 /* Info.plist */,
@@ -998,7 +1008,6 @@
 			children = (
 				C45AC95C206617B200F9947F /* View Controller */,
 				C45AC9602066654A00F9947F /* View Model */,
-				C4C4A598208ABFF200AB6384 /* Helper */,
 			);
 			path = "Tab Bar";
 			sourceTree = "<group>";
@@ -1173,14 +1182,6 @@
 			path = "Presentation Model";
 			sourceTree = "<group>";
 		};
-		C4C4A598208ABFF200AB6384 /* Helper */ = {
-			isa = PBXGroup;
-			children = (
-				C4C4A599208AC01500AB6384 /* String+GetRomanRank.swift */,
-			);
-			path = Helper;
-			sourceTree = "<group>";
-		};
 		C4C4A5A9208B673900AB6384 /* Router */ = {
 			isa = PBXGroup;
 			children = (
@@ -1305,6 +1306,7 @@
 		C4FBE22F208D568300AD618D /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				C4C4A599208AC01500AB6384 /* String+GetRomanRank.swift */,
 				C4FBE230208D56A400AD618D /* String+GetCommentsCount.swift */,
 			);
 			path = Helper;
@@ -1342,6 +1344,7 @@
 			isa = PBXGroup;
 			children = (
 				FD91280B983360A8DBD4BDFC /* Pods_Makub.framework */,
+				6DFA04958E6A756BDD96FF65 /* Pods_MakubTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1353,9 +1356,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C42D958A2098A72700772D70 /* Build configuration list for PBXNativeTarget "MakubTests" */;
 			buildPhases = (
+				A84C8F9563A2192A590A988E /* [CP] Check Pods Manifest.lock */,
 				C42D957D2098A72700772D70 /* Sources */,
 				C42D957E2098A72700772D70 /* Frameworks */,
 				C42D957F2098A72700772D70 /* Resources */,
+				9F6064FD6EA48B1BC3504721 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1508,6 +1513,44 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Makub/Pods-Makub-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		9F6064FD6EA48B1BC3504721 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MakubTests/Pods-MakubTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MakubTests/Pods-MakubTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A84C8F9563A2192A590A988E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MakubTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 		C4F242032059DCBC007E8A16 /* Swiftlint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1547,6 +1590,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C42D959D209A480000772D70 /* TransportTests.swift in Sources */,
 				C42D95842098A72700772D70 /* StringTimeConverterTests.swift in Sources */,
 				C42D959B209A2D4100772D70 /* StringDateConverterTests.swift in Sources */,
 			);
@@ -1732,6 +1776,7 @@
 /* Begin XCBuildConfiguration section */
 		C42D95882098A72700772D70 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7E834EE6435D78B732F43A7B /* Pods-MakubTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -1749,6 +1794,7 @@
 		};
 		C42D95892098A72700772D70 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2F43183DE3B6285D2FBF8CF6 /* Pods-MakubTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_OBJC_WEAK = YES;

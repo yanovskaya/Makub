@@ -10,7 +10,7 @@ import Foundation.NSString
 
 extension String {
     
-    func getRomanRank() -> String {
+    func getRomanRank() -> String? {
         switch self {
         case "1":
             return "I"
@@ -20,8 +20,10 @@ extension String {
             return "III"
         case "4":
             return "IV"
+        case "5":
+            return "IV"
         default:
-            return "V"
+            return nil
             
         }
     }
