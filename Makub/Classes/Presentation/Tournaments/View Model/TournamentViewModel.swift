@@ -23,6 +23,9 @@ final class TournamentViewModel {
     // MARK: - Initialization
     
     init(_ tournament: Tournament) {
+        status = tournament.status.getStatus()
+        type = tournament.type.getType()
+        
         if let description = tournament.smalldesc, description != "" {
             name = tournament.name.capitalizeFirstLetter()
             self.description = description.capitalizeFirstLetter()
@@ -35,8 +38,6 @@ final class TournamentViewModel {
         } else {
             self.place = nil
         }
-        status = tournament.status.getStatus()
-        type = tournament.type.getType()
         if let date = tournament.date.dateConverter() {
             (self.date, self.period) = date
         } else {
@@ -45,6 +46,7 @@ final class TournamentViewModel {
         }
     }
     
+    // Моковый инициализатор.
     init(desc: Bool, date: Bool) {
         name = "Турнир года"
         var dd: String

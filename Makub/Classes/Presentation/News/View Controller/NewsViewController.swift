@@ -54,8 +54,8 @@ final class NewsViewController: UIViewController {
         super.viewDidLoad()
         filteredNews = presentationModel.newsViewModels
         view.backgroundColor = PaletteColors.blueBackground
-        configurePKHUD()
         
+        configurePKHUD()
         configureNavigationController()
         configureCollectionView()
         configureNavigationSearchBar()

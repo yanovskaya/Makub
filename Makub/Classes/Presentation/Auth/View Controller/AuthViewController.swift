@@ -54,9 +54,6 @@ final class AuthViewController: UIViewController {
         bindEvents()
         
         hideKeyboardWhenTappedAround()
-        usernameTextField.delegate = self
-        passwordTextField.delegate = self
-        
         configureBackgroundImage()
         configureImageView()
         configureTextFields()
@@ -120,6 +117,9 @@ final class AuthViewController: UIViewController {
     }
     
     private func configureTextFields() {
+        usernameTextField.delegate = self
+        passwordTextField.delegate = self
+        
         usernameTextField.placeholder = Constants.usernamePlaceholder
         passwordTextField.placeholder = Constants.passwordPlaceholder
         

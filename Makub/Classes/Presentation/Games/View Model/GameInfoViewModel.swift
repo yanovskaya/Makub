@@ -47,6 +47,7 @@ final class GameInfoViewModel {
         self.stage = game.stage
         self.club1 = game.club1
         self.club2 = game.club2
+        type = (game.type != nil) ? game.type.getType() : ""
         
         if let time = game.playTime.timeConverter() {
             self.playerTime = time
@@ -69,12 +70,6 @@ final class GameInfoViewModel {
             self.video = video
         } else {
             self.video = nil
-        }
-        
-        if let type = game.type {
-            self.type = type.getType()
-        } else {
-            self.type = ""
         }
     }
 }

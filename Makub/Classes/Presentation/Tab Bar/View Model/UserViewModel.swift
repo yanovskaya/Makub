@@ -55,14 +55,10 @@ struct UserViewModel {
         win = user.win
         lose = user.lose
         games = lose + win
-        if let club = user.club {
-            self.club = club
-        } else {
-            self.club = ""
-        }
-        for achievemnet in user.dost {
-            achievements.append(achievemnet.name)
-        }
+        achievements = user.dost.compactMap { $0.name }
+        
+        self.club = (user.club != nil) ? user.club : ""
+        
         if let rankClassic = user.razryad, rankClassic != "" {
             self.rankClassic = rankClassic.getRomanRank()
         } else {

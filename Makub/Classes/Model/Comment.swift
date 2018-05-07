@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import RealmSwift
 
 struct Comment: Decodable {
     

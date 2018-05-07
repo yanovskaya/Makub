@@ -56,13 +56,10 @@ final class RecoverViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.setNavigationBarHidden(true, animated: false)
         configureFakeNavigationBar()
-        
         bindEvents()
         
         hideKeyboardWhenTappedAround()
-        emailTextField.delegate = self
         
         configureImage()
         configureTitleLabel()
@@ -138,9 +135,10 @@ final class RecoverViewController: UIViewController {
     }
     
     private func configureTextField() {
+        emailTextField.delegate = self
+
         let gray = UIColor.gray
         let darkGray = PaletteColors.darkGray
-        
         emailTextField.placeholder = Constants.emailPlaceholder
         emailTextField.attributedPlaceholder = NSAttributedString(string: emailTextField.placeholder!, attributes: [NSAttributedStringKey.foregroundColor: gray])
         
@@ -158,6 +156,7 @@ final class RecoverViewController: UIViewController {
         backButton.tintColor = PaletteColors.darkGray
         
         navigationController?.interactivePopGestureRecognizer?.delegate = nil
+        navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     private func enableRecoverButton() {

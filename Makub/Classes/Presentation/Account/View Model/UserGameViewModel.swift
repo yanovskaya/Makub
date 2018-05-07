@@ -37,6 +37,7 @@ final class UserGameViewModel {
         self.player = game.name + " " + game.surname
         self.comments = game.comments
         self.commentsDescription = game.comments.getCommentsCount()
+        type = (game.gameType != nil) ? game.gameType.getType() : ""
         
         if let photo = game.photo, photo != "" {
             self.photoURL = (Constants.baseURL + photo).encodeInURL()
@@ -48,12 +49,6 @@ final class UserGameViewModel {
             self.video = video
         } else {
             self.video = nil
-        }
-        
-        if let type = game.gameType {
-            self.type = type.getType()
-        } else {
-            self.type = ""
         }
     }
 }
