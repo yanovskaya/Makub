@@ -186,7 +186,7 @@ final class UserGameInfoViewController: UICollectionViewController {
         title = Constants.title
         navigationBar.setBackgroundImage(UIImage(color: UIColor.white), for: .default)
         backButtonItem.image = UIImage(named: Constants.backButtonImage)
-        backButtonItem.tintColor = PaletteColors.darkGray
+        backButtonItem.tintColor = PaletteColors.textGray
     }
     
     private func configureCollectionView() {

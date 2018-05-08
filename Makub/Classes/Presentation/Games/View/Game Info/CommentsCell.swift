@@ -28,7 +28,6 @@ final class CommentsCell: UICollectionViewCell, ViewModelConfigurable {
     @IBOutlet private var authorLabel: UILabel!
     @IBOutlet private var commentLabel: UILabel!
     @IBOutlet private var dateLabel: UILabel!
-    @IBOutlet private var moreButton: UIButton!
     
     // MARK: - Private Property
     

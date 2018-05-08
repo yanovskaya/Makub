@@ -13,7 +13,7 @@
         <!--Games View Controller-->
         <scene sceneID="D6r-Fd-1ta">
             <objects>
-                <viewController storyboardIdentifier="GamesViewController" id="hKz-Og-i5b" customClass="GamesViewController" customModule="Макуб" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GamesViewController" id="hKz-Og-i5b" customClass="GamesViewController" customModule="Makub" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="g9G-pY-U2O">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -29,11 +29,6 @@
                                 <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                                 <items>
                                     <navigationItem title="Title" id="lH6-mB-gsR">
-                                        <barButtonItem key="leftBarButtonItem" title="Item" id="DVP-aM-lJY">
-                                            <connections>
-                                                <action selector="tournamentItemTapped:" destination="hKz-Og-i5b" id="Lw2-eP-PNO"/>
-                                            </connections>
-                                        </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Item" id="Qle-uw-l9w">
                                             <connections>
                                                 <action selector="filterButtonItemTapped:" destination="hKz-Og-i5b" id="AfB-aH-m3z"/>
@@ -74,7 +69,6 @@
                         <outlet property="gamesCollectionView" destination="D5y-tR-vwi" id="HBg-fc-89z"/>
                         <outlet property="navBackgroundView" destination="HpP-w4-Efg" id="xIA-52-wn0"/>
                         <outlet property="navigationBar" destination="Qkt-O0-bER" id="p7G-yw-IKx"/>
-                        <outlet property="tournamentsButtonItem" destination="DVP-aM-lJY" id="erA-fq-nW3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NX3-Ur-NFp" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -84,7 +78,7 @@
         <!--Filter Games View Controller-->
         <scene sceneID="TI4-6l-HGz">
             <objects>
-                <viewController storyboardIdentifier="FilterGamesViewController" id="9XH-FP-7Tz" customClass="FilterGamesViewController" customModule="Макуб" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FilterGamesViewController" id="9XH-FP-7Tz" customClass="FilterGamesViewController" customModule="Makub" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nV6-mt-PYK">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -142,7 +136,7 @@
         <!--Game Info View Controller-->
         <scene sceneID="9tP-vy-i80">
             <objects>
-                <viewController storyboardIdentifier="GameInfoViewController" id="SqM-nQ-MBx" customClass="GameInfoViewController" customModule="Макуб" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GameInfoViewController" id="SqM-nQ-MBx" customClass="GameInfoViewController" customModule="Makub" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="N0p-Hb-7mg">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -207,7 +201,7 @@
         <!--Add Comment View Controller-->
         <scene sceneID="f5p-7U-vqg">
             <objects>
-                <viewController storyboardIdentifier="AddCommentViewController" id="bkt-aS-44I" customClass="AddCommentViewController" customModule="Макуб" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddCommentViewController" id="bkt-aS-44I" customClass="AddCommentViewController" customModule="Makub" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="m5x-7D-tJW">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

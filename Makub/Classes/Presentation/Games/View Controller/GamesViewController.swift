@@ -34,7 +34,6 @@ final class GamesViewController: UIViewController {
     // MARK: - IBOutlets
     
     @IBOutlet private var navigationBar: UINavigationBar!
-    @IBOutlet private var tournamentsButtonItem: UIBarButtonItem!
     @IBOutlet private var filterButtonItem: UIBarButtonItem!
     @IBOutlet private var navBackgroundView: UIView!
     
@@ -191,10 +190,6 @@ final class GamesViewController: UIViewController {
         filterButtonItem.image = UIImage(named: Constants.filterImage)
         filterButtonItem.imageInsets = UIEdgeInsets(top: 2, left: 0, bottom: 0, right: 5)
         filterButtonItem.tintColor = PaletteColors.darkGray
-        
-        tournamentsButtonItem.image = UIImage(named: Constants.tournamentImage)
-        tournamentsButtonItem.imageInsets = UIEdgeInsets(top: 2, left: 0, bottom: 0, right: 5)
-        tournamentsButtonItem.tintColor = PaletteColors.darkGray
     }
     
     private func configureCollectionView() {

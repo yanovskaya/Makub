@@ -119,7 +119,7 @@ final class GameInfoViewController: UIViewController {
         navigationBar.shadowImage = UIImage(color: .white)
         navBackgroundView.backgroundColor = .white
         backButtonItem.image = UIImage(named: Constants.backButtonImage)
-        backButtonItem.tintColor = PaletteColors.darkGray
+        backButtonItem.tintColor = PaletteColors.textGray
     }
     
     private func configureCollectionView() {

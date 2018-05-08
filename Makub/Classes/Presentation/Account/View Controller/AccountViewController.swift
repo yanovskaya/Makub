@@ -136,11 +136,6 @@ final class AccountViewController: UICollectionViewController {
                                                                  NSAttributedStringKey.font: UIFont.customFont(.robotoMediumFont(size: 17))]
         navigationBar.titleTextAttributes = titleTextAttributes
         navigationBar.topItem?.title = Constants.title
-        
-        let settingsButtonItem = UIBarButtonItem(title: nil, style: .plain, target: self, action: #selector(settingsButtonItemTapped))
-        settingsButtonItem.image = UIImage(named: Constants.settingsImage)
-        settingsButtonItem.tintColor = PaletteColors.textGray
-        navigationItem.rightBarButtonItem = settingsButtonItem
     }
     
     private func configureCollectionView() {
