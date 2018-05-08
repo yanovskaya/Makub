@@ -28,9 +28,6 @@ final class GameInfoViewController: UIViewController {
     
     // MARK: - IBOutlets
     
-    @IBOutlet private var navBackgroundView: UIView!
-    @IBOutlet private var navigationBar: UINavigationBar!
-    @IBOutlet private var backButtonItem: UIBarButtonItem!
     @IBOutlet private var gameCollectionView: UICollectionView!
     
     // MARK: - Public Properties
@@ -111,15 +108,19 @@ final class GameInfoViewController: UIViewController {
     
     private func configureNavigationBar() {
         navigationController?.interactivePopGestureRecognizer?.delegate = nil
+        guard let navigationBar = navigationController?.navigationBar else { return }
         let titleTextAttributes: [NSAttributedStringKey: Any] = [NSAttributedStringKey.foregroundColor: PaletteColors.darkGray,
                                                                  NSAttributedStringKey.font: UIFont.customFont(.robotoMediumFont(size: 17))]
         navigationBar.titleTextAttributes = titleTextAttributes
         navigationBar.topItem?.title = Constants.title
+        navigationBar.shadowImage = UIImage(color: UIColor.white)
         navigationBar.setBackgroundImage(UIImage(color: UIColor.white), for: .default)
-        navigationBar.shadowImage = UIImage(color: .white)
-        navBackgroundView.backgroundColor = .white
+        
+        let backButtonItem = UIBarButtonItem(title: nil, style: .plain, target: self, action: #selector(backButtonTapped))
         backButtonItem.image = UIImage(named: Constants.backButtonImage)
-        backButtonItem.tintColor = PaletteColors.textGray
+        backButtonItem.tintColor = PaletteColors.darkGray
+        title = Constants.title
+        navigationItem.leftBarButtonItem = backButtonItem
     }
     
     private func configureCollectionView() {

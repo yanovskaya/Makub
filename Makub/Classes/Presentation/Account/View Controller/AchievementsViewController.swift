@@ -117,7 +117,7 @@ final class AchievementsViewController: UICollectionViewController {
         
         let backButtonItem = UIBarButtonItem(title: nil, style: .plain, target: self, action: #selector(backButtonTapped))
         backButtonItem.image = UIImage(named: Constants.backImage)
-        backButtonItem.tintColor = PaletteColors.textGray
+        backButtonItem.tintColor = PaletteColors.darkGray
         navigationItem.leftBarButtonItem = backButtonItem
         navigationController?.interactivePopGestureRecognizer?.delegate = nil
     }
