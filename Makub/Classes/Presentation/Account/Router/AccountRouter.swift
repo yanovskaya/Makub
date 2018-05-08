@@ -98,7 +98,7 @@ final class AccountRouter {
     // MARK: - Private Methods
     
     private func removeAllStorage() {
-        //KeychainWrapper.standard.removeAllKeys()
+        KeychainWrapper.standard.removeAllKeys()
         do {
             try? realm?.write {
                 realm?.deleteAll()

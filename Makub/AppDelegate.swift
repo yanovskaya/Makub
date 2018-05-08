@@ -50,26 +50,19 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         let token = KeychainWrapper.standard.string(forKey: KeychainKeys.token)
         let wasLaunchBefore = UserDefaults.standard.bool(forKey: UserDefaultsKeys.wasLaunchBefore)
         
-        if token == nil {
-            KeychainWrapper.standard.set("efe39a92a8e703322c2fb187180b9b59", forKey: KeychainKeys.token)
-        }
-        
         // Токена нет и приложение до этого не запускалось.
         if token == nil && !wasLaunchBefore {
-            
             UserDefaults.standard.set(true, forKey: UserDefaultsKeys.wasLaunchBefore)
             navigationController.viewControllers = [authViewController]
             window?.rootViewController = navigationController
             
             // Токен есть и приложение до этого не запускалось.
         } else if !wasLaunchBefore {
-            //KeychainWrapper.standard.removeAllKeys()
-//            UserDefaults.standard.set(true, forKey: UserDefaultsKeys.wasLaunchBefore)
-//            navigationController.viewControllers = [authViewController]
-//            window?.rootViewController = navigationController
-            
+            KeychainWrapper.standard.removeAllKeys()
+            UserDefaults.standard.set(true, forKey: UserDefaultsKeys.wasLaunchBefore)
             navigationController.viewControllers = [authViewController]
             window?.rootViewController = navigationController
+            
             
             // Токена нет и приложение до этого запускалось.
         } else if token == nil, wasLaunchBefore {
