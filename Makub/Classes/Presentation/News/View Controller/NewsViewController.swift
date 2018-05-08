@@ -41,7 +41,7 @@ final class NewsViewController: UIViewController {
     // MARK: - Private Properties
     
     private var navigationSearchBar = UISearchBar()
-    private weak var hidingNavBarManager: HidingNavigationBarManager?
+    private var hidingNavBarManager: HidingNavigationBarManager?
     
     private let refreshControl = UIRefreshControl()
     private let router = NewsRouter()
@@ -180,10 +180,10 @@ final class NewsViewController: UIViewController {
     }
     
     private func configureNavigationController() {
-        navigationController?.isNavigationBarHidden = false
+        navigationController!.isNavigationBarHidden = false
         navigationItem.titleView = navigationSearchBar
-        navigationController?.navigationBar.shadowImage = UIImage(color: UIColor.white)
-        navigationController?.navigationBar.setBackgroundImage(UIImage(color: UIColor.white), for: .default)
+        navigationController!.navigationBar.shadowImage = UIImage(color: UIColor.white)
+        navigationController!.navigationBar.setBackgroundImage(UIImage(color: UIColor.white), for: .default)
         
         hidingNavBarManager = HidingNavigationBarManager(viewController: self, scrollView: newsCollectionView)
         hidingNavBarManager?.refreshControl = refreshControl
@@ -365,9 +365,9 @@ extension NewsViewController: UITabBarControllerDelegate {
     
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         if tabBarController.selectedIndex == 0 {
-            let topPoint = CGPoint(x: 0, y: 0)
-            newsCollectionView.setContentOffset(topPoint, animated: true)
+            let indexPath = IndexPath(row: 0, section: 0)
             hidingNavBarManager?.shouldScrollToTop()
+            newsCollectionView.scrollToItem(at: indexPath, at: .top, animated: true)
         }
     }
 }
