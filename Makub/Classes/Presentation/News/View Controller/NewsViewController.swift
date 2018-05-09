@@ -68,6 +68,7 @@ final class NewsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        configureHidingNavigationBar()
         hidingNavBarManager?.viewWillAppear(animated)
     }
     
@@ -83,6 +84,7 @@ final class NewsViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        hidingNavBarManager = nil
         HUD.hide()
     }
     
@@ -193,6 +195,11 @@ final class NewsViewController: UIViewController {
         navigationSearchBar.backgroundImage = UIImage(color: .clear)
         navigationSearchBar.searchBarStyle = .minimal
         navigationSearchBar.placeholder = Constants.searchBarPlaceholder
+    }
+    
+    private func configureHidingNavigationBar() {
+        hidingNavBarManager = HidingNavigationBarManager(viewController: self, scrollView: newsCollectionView)
+        hidingNavBarManager?.refreshControl = refreshControl
     }
     
     private func configureSearchBar() {
