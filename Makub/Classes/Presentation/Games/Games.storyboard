@@ -56,26 +56,53 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cg2-UJ-pZx">
-                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                                <rect key="frame" x="0.0" y="86" width="320" height="482"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uoh-bx-j8e">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w0A-YG-9nh">
+                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                                <items>
+                                    <navigationItem title="Title" id="EbY-PP-Lty">
+                                        <barButtonItem key="rightBarButtonItem" title="Item" id="3Ve-Gu-0gt">
+                                            <connections>
+                                                <action selector="doneButtonTapped:" destination="9XH-FP-7Tz" id="ItF-1n-Kno"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="uoh-bx-j8e" firstAttribute="leading" secondItem="nqj-g2-6If" secondAttribute="leading" id="1zV-uq-0Uk"/>
                             <constraint firstItem="cg2-UJ-pZx" firstAttribute="leading" secondItem="nqj-g2-6If" secondAttribute="leading" id="D8M-SQ-fGt"/>
-                            <constraint firstItem="cg2-UJ-pZx" firstAttribute="top" secondItem="nqj-g2-6If" secondAttribute="top" id="LTf-6q-K0f"/>
+                            <constraint firstItem="cg2-UJ-pZx" firstAttribute="top" secondItem="w0A-YG-9nh" secondAttribute="bottom" constant="22" id="SjP-AU-5D1"/>
+                            <constraint firstAttribute="trailing" secondItem="w0A-YG-9nh" secondAttribute="trailing" id="X97-7z-gXk"/>
+                            <constraint firstItem="uoh-bx-j8e" firstAttribute="bottom" secondItem="w0A-YG-9nh" secondAttribute="bottom" id="ZcD-NF-rDn"/>
                             <constraint firstItem="nqj-g2-6If" firstAttribute="bottom" secondItem="cg2-UJ-pZx" secondAttribute="bottom" id="aUX-Pq-sJj"/>
+                            <constraint firstItem="uoh-bx-j8e" firstAttribute="top" secondItem="nV6-mt-PYK" secondAttribute="top" id="bGP-y1-gKW"/>
+                            <constraint firstItem="w0A-YG-9nh" firstAttribute="leading" secondItem="nV6-mt-PYK" secondAttribute="leading" id="cvU-dN-pcT"/>
+                            <constraint firstItem="w0A-YG-9nh" firstAttribute="top" secondItem="nqj-g2-6If" secondAttribute="top" id="qjC-JV-kMV"/>
+                            <constraint firstItem="uoh-bx-j8e" firstAttribute="trailing" secondItem="nqj-g2-6If" secondAttribute="trailing" id="re1-hv-vlq"/>
+                            <constraint firstAttribute="bottom" secondItem="w0A-YG-9nh" secondAttribute="bottom" constant="504" id="tDF-w1-gAT"/>
                             <constraint firstItem="nqj-g2-6If" firstAttribute="trailing" secondItem="cg2-UJ-pZx" secondAttribute="trailing" id="vTN-oi-jGc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nqj-g2-6If"/>
                     </view>
                     <connections>
+                        <outlet property="doneButtonItem" destination="3Ve-Gu-0gt" id="WGB-hW-qaE"/>
                         <outlet property="filterTableView" destination="cg2-UJ-pZx" id="RdH-Q5-s9m"/>
+                        <outlet property="navBackgroundView" destination="uoh-bx-j8e" id="Jcn-jj-Cri"/>
+                        <outlet property="navigationBar" destination="w0A-YG-9nh" id="VNw-Pw-w23"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ww1-rF-JG5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="14" y="107"/>
+            <point key="canvasLocation" x="13.125" y="106.69014084507042"/>
         </scene>
         <!--Game Info View Controller-->
         <scene sceneID="9tP-vy-i80">

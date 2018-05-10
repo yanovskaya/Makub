@@ -176,7 +176,7 @@ final class AccountViewController: UICollectionViewController {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? UserCell else { return UICollectionViewCell() }
         cell.configure(for: presentationModel.userViewModel)
         cell.configureCellWidth(view.frame.width)
-        cell.configureImage(type: .unfilled)
+        cell.configureImage()
         return cell
     }
     

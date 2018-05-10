@@ -9,11 +9,6 @@
 import Kingfisher
 import UIKit
 
-enum RankImage {
-    case unfilled
-    case filled
-}
-
 final class UserCell: UICollectionViewCell, ViewModelConfigurable {
     
     // MARK: - Constants
@@ -23,7 +18,6 @@ final class UserCell: UICollectionViewCell, ViewModelConfigurable {
         static let fast = "Б"
         static let userImage = "photo_default"
         static let rankImage = "rank"
-        static let rankFilledImage = "rank_filled"
     }
     
     private enum SizeConstants {
@@ -114,31 +108,17 @@ final class UserCell: UICollectionViewCell, ViewModelConfigurable {
         widthAnchor.constraint(equalToConstant: width).isActive = true
     }
     
-    func configureImage(type: RankImage) {
-        switch type {
-        case .unfilled:
-            rankClassicImageView.image = UIImage(named: Constants.rankImage)?.withRenderingMode(.alwaysTemplate)
-            rankFastImageView.image = UIImage(named: Constants.rankImage)?.withRenderingMode(.alwaysTemplate)
-            classicLabel.textColor = PaletteColors.lightGray
-            rankClassicLabel.textColor = PaletteColors.lightGray
-            fastLabel.textColor = PaletteColors.lightGray
-            rankFastLabel.textColor = PaletteColors.lightGray
-            rankFastLabel.font = UIFont.customFont(.robotoRegularFont(size: 11))
-            rankClassicLabel.font = UIFont.customFont(.robotoRegularFont(size: 11))
-            fastLabel.font = UIFont.customFont(.robotoRegularFont(size: 11))
-            classicLabel.font = UIFont.customFont(.robotoRegularFont(size: 11))
-        case .filled:
-            rankClassicImageView.image = UIImage(named: Constants.rankFilledImage)?.withRenderingMode(.alwaysTemplate)
-            rankFastImageView.image = UIImage(named: Constants.rankFilledImage)?.withRenderingMode(.alwaysTemplate)
-            classicLabel.textColor = .white
-            rankClassicLabel.textColor = .white
-            fastLabel.textColor = .white
-            rankFastLabel.textColor = .white
-            rankFastLabel.font = UIFont.customFont(.robotoBoldFont(size: 11))
-            rankClassicLabel.font = UIFont.customFont(.robotoBoldFont(size: 11))
-            fastLabel.font = UIFont.customFont(.robotoBoldFont(size: 11))
-            classicLabel.font = UIFont.customFont(.robotoBoldFont(size: 11))
-        }
+    func configureImage() {
+        rankClassicImageView.image = UIImage(named: Constants.rankImage)?.withRenderingMode(.alwaysTemplate)
+        rankFastImageView.image = UIImage(named: Constants.rankImage)?.withRenderingMode(.alwaysTemplate)
+        classicLabel.textColor = PaletteColors.lightGray
+        rankClassicLabel.textColor = PaletteColors.lightGray
+        fastLabel.textColor = PaletteColors.lightGray
+        rankFastLabel.textColor = PaletteColors.lightGray
+        rankFastLabel.font = UIFont.customFont(.robotoRegularFont(size: 11))
+        rankClassicLabel.font = UIFont.customFont(.robotoRegularFont(size: 11))
+        fastLabel.font = UIFont.customFont(.robotoRegularFont(size: 11))
+        classicLabel.font = UIFont.customFont(.robotoRegularFont(size: 11))
     }
     
     // MARK: - Private Methods

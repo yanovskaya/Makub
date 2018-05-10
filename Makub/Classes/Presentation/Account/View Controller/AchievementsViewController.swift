@@ -147,7 +147,7 @@ final class AchievementsViewController: UICollectionViewController {
         }
         cell.configure(for: viewModel)
         cell.configureCellWidth(view.frame.width)
-        cell.configureImage(type: .filled)
+        cell.configureImage()
         return cell
     }
     
