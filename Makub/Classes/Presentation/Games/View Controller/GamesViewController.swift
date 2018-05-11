@@ -186,7 +186,7 @@ final class GamesViewController: UIViewController {
         navigationBar.titleTextAttributes = titleTextAttributes
         navigationBar.topItem?.title = Constants.title
         
-        let filterButtonItem = UIBarButtonItem(title: nil, style: .plain, target: self, action: #selector(filterButtonItemTapped))
+        filterButtonItem = UIBarButtonItem(title: nil, style: .plain, target: self, action: #selector(filterButtonItemTapped))
         filterButtonItem.image = UIImage(named: Constants.filterImage)
         filterButtonItem.imageInsets = UIEdgeInsets(top: 2, left: 0, bottom: 0, right: 5)
         filterButtonItem.tintColor = PaletteColors.darkGray

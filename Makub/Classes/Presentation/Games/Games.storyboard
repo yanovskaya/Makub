@@ -56,7 +56,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cg2-UJ-pZx">
-                                <rect key="frame" x="0.0" y="86" width="320" height="482"/>
+                                <rect key="frame" x="0.0" y="66" width="320" height="502"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uoh-bx-j8e">
@@ -80,7 +80,7 @@
                         <constraints>
                             <constraint firstItem="uoh-bx-j8e" firstAttribute="leading" secondItem="nqj-g2-6If" secondAttribute="leading" id="1zV-uq-0Uk"/>
                             <constraint firstItem="cg2-UJ-pZx" firstAttribute="leading" secondItem="nqj-g2-6If" secondAttribute="leading" id="D8M-SQ-fGt"/>
-                            <constraint firstItem="cg2-UJ-pZx" firstAttribute="top" secondItem="w0A-YG-9nh" secondAttribute="bottom" constant="22" id="SjP-AU-5D1"/>
+                            <constraint firstItem="cg2-UJ-pZx" firstAttribute="top" secondItem="w0A-YG-9nh" secondAttribute="bottom" constant="2" id="SjP-AU-5D1"/>
                             <constraint firstAttribute="trailing" secondItem="w0A-YG-9nh" secondAttribute="trailing" id="X97-7z-gXk"/>
                             <constraint firstItem="uoh-bx-j8e" firstAttribute="bottom" secondItem="w0A-YG-9nh" secondAttribute="bottom" id="ZcD-NF-rDn"/>
                             <constraint firstItem="nqj-g2-6If" firstAttribute="bottom" secondItem="cg2-UJ-pZx" secondAttribute="bottom" id="aUX-Pq-sJj"/>
@@ -88,7 +88,6 @@
                             <constraint firstItem="w0A-YG-9nh" firstAttribute="leading" secondItem="nV6-mt-PYK" secondAttribute="leading" id="cvU-dN-pcT"/>
                             <constraint firstItem="w0A-YG-9nh" firstAttribute="top" secondItem="nqj-g2-6If" secondAttribute="top" id="qjC-JV-kMV"/>
                             <constraint firstItem="uoh-bx-j8e" firstAttribute="trailing" secondItem="nqj-g2-6If" secondAttribute="trailing" id="re1-hv-vlq"/>
-                            <constraint firstAttribute="bottom" secondItem="w0A-YG-9nh" secondAttribute="bottom" constant="504" id="tDF-w1-gAT"/>
                             <constraint firstItem="nqj-g2-6If" firstAttribute="trailing" secondItem="cg2-UJ-pZx" secondAttribute="trailing" id="vTN-oi-jGc"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="nqj-g2-6If"/>
