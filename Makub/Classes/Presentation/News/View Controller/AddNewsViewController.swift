@@ -202,7 +202,6 @@ final class AddNewsViewController: UIViewController {
         }
     }
     
-    
     @IBAction func attachButtonTapped(_ sender: Any) {
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self

@@ -59,6 +59,7 @@ final class NewsViewController: UIViewController {
         configureNavigationController()
         configureCollectionView()
         configureNavigationSearchBar()
+        configureHidingNavigationBar()
         configureSearchBar()
         
         hideSearchKeyboardWhenTappedAround()
@@ -68,7 +69,6 @@ final class NewsViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        configureHidingNavigationBar()
         hidingNavBarManager?.viewWillAppear(animated)
     }
     
@@ -84,7 +84,6 @@ final class NewsViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        hidingNavBarManager = nil
         HUD.hide()
     }
     
@@ -405,5 +404,12 @@ extension NewsViewController: AddNewsViewControllerDelegate {
     func addNewsToCollectionView() {
         bindEventsObtainOnlyNews()
         presentationModel.obtainOnlyNews()
+    }
+}
+
+extension NewsViewController: AccountViewControllerDelegate {
+    
+    func exitToAuthorization() {
+        hidingNavBarManager = nil
     }
 }

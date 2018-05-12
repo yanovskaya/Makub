@@ -106,6 +106,7 @@
 		C463186C207964C700E14DAC /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = C463186B207964C700E14DAC /* UserDefaultsKeys.swift */; };
 		C463186E207A0DE000E14DAC /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C463186D207A0DE000E14DAC /* Filter.swift */; };
 		C4631870207A100600E14DAC /* FilterGamesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C463186F207A100600E14DAC /* FilterGamesViewModel.swift */; };
+		C46BD27E20A73C6200F35C31 /* AccountViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46BD27D20A73C6200F35C31 /* AccountViewControllerDelegate.swift */; };
 		C472A6BF205B16D500768585 /* PresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472A6BE205B16D500768585 /* PresentationModel.swift */; };
 		C472A6C3205B174000768585 /* AuthPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472A6C2205B174000768585 /* AuthPresentationModel.swift */; };
 		C472A6C8205C4D5300768585 /* String+RemoveWhitespaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472A6C7205C4D5300768585 /* String+RemoveWhitespaces.swift */; };
@@ -309,6 +310,7 @@
 		C463186B207964C700E14DAC /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
 		C463186D207A0DE000E14DAC /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		C463186F207A100600E14DAC /* FilterGamesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterGamesViewModel.swift; sourceTree = "<group>"; };
+		C46BD27D20A73C6200F35C31 /* AccountViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewControllerDelegate.swift; sourceTree = "<group>"; };
 		C472A6BE205B16D500768585 /* PresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationModel.swift; sourceTree = "<group>"; };
 		C472A6C2205B174000768585 /* AuthPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPresentationModel.swift; sourceTree = "<group>"; };
 		C472A6C7205C4D5300768585 /* String+RemoveWhitespaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+RemoveWhitespaces.swift"; sourceTree = "<group>"; };
@@ -1308,6 +1310,7 @@
 			children = (
 				C4C4A599208AC01500AB6384 /* String+GetRomanRank.swift */,
 				C4FBE230208D56A400AD618D /* String+GetCommentsCount.swift */,
+				C46BD27D20A73C6200F35C31 /* AccountViewControllerDelegate.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -1665,6 +1668,7 @@
 				C472A6CA205C4F8100768585 /* ErrorDescription.swift in Sources */,
 				C4C4A597208ABA2900AB6384 /* ExitCell.swift in Sources */,
 				C42940C920827CF50026B2C3 /* GameInfoService.swift in Sources */,
+				C46BD27E20A73C6200F35C31 /* AccountViewControllerDelegate.swift in Sources */,
 				C42D95602097282500772D70 /* GameInfo.swift in Sources */,
 				C41B3CDB2072F53E00A2B652 /* ServiceLayer.swift in Sources */,
 				C44ED7F5208FC06700B8A642 /* UserCommentsViewController.swift in Sources */,

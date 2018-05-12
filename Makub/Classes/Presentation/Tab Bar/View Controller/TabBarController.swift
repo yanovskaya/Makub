@@ -52,6 +52,7 @@ final class TabBarController: UITabBarController {
         let accountItem = UIImage(named: Constants.accountImage)?.imageWithInsets(insets: UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0))
         let accountVC = accountStoryboard.viewController(AccountViewController.self)
         accountVC.tabBarItem = UITabBarItem(title: nil, image: accountItem, tag: 3)
+        accountVC.delegate = newsVC
         
         let controllerArray = [newsVC, ratingVC, gamesVC, accountVC]
         viewControllers = controllerArray.map { UINavigationController(rootViewController: $0) }

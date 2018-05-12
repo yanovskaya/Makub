@@ -33,6 +33,7 @@ final class AccountViewController: UICollectionViewController {
     // MARK: - Public Properties
     
     let presentationModel = AccountPresentationModel()
+    weak var delegate: AccountViewControllerDelegate?
     
     // MARK: - Private Properties
 
@@ -153,6 +154,7 @@ final class AccountViewController: UICollectionViewController {
         UIApplication.shared.statusBarView?.backgroundColor = .clear
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let deleteAction = UIAlertAction(title: Constants.exitAction, style: .destructive) { _ in
+            self.delegate?.exitToAuthorization()
             self.router.exitToAuthorization()
         }
         let cancelAction = UIAlertAction(title: Constants.cancelAction, style: .cancel)
