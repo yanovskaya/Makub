@@ -12,7 +12,4 @@ protocol GamesService: class {
     
     func obtainGames(from: Int, to: Int, useCache: Bool, completion: ((ServiceCallResult<GamesResponse>) -> Void)?)
     func obtainGamesCount(completion: ((ServiceCallResult<GamesCountResponse>) -> Void)?)
-    
-    func obtainClubs(useCache: Bool, completion: ((ServiceCallResult<ClubsResponse>) -> Void)?)
-    func obtainClubsRealmCache(error: NSError?, completion: ((ServiceCallResult<ClubsResponse>) -> Void)?)
 }

@@ -15,7 +15,6 @@ final class FilterGamesViewController: UIViewController {
     
     private enum Constants {
         static let title = "Фильтр"
-        static let cancelButtonItem = "Отмена"
         static let doneButtonItem = "Готово"
         
         static let filterImage = "filter"
@@ -34,7 +33,7 @@ final class FilterGamesViewController: UIViewController {
     
     // MARK: - Public Properties
     
-    weak var delegate: FilterGamesViewControllerDelegate?
+    weak var delegate: FilterViewControllerDelegate?
     
     let presentationModel = FilterGamesPresentationModel()
     var chosenOptions: [IndexPath]!
@@ -57,14 +56,14 @@ final class FilterGamesViewController: UIViewController {
         configureNavigationItems()
         
         configureSelectedOptions()
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        HUD.hide()
+        stopBindEvents()
     }
     
     // MARK: - Private Methods
+    
+    private func stopBindEvents() {
+        presentationModel.changeStateHandler = { _ in }
+    }
 
     private func configureTableView() {
         navBackgroundView.backgroundColor = .white
@@ -127,9 +126,9 @@ final class FilterGamesViewController: UIViewController {
     @IBAction func doneButtonTapped(_ sender: Any) {
         defineFilterIsSet()
         if filterIsSet {
-        delegate?.obtainAllGames(parameters: presentationModel.prepareFilterConditions(for: chosenOptions))
+            delegate?.obtainAllItems(parameters: presentationModel.prepareFilterConditions(for: chosenOptions))
         } else {
-            delegate?.showGamesWithNoFilter()
+            delegate?.showItemsWithNoFilter()
         }
         delegate?.saveChosenOptions(chosenOptions)
         dismiss(animated: true)

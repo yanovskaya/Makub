@@ -18,6 +18,10 @@ final class ServiceLayer {
     let newsService: NewsService
     let gamesService: GamesService
     let gameInfoService: GameInfoService
+    let tournamentsService: TournamentsService
+    let clubsService: ClubsService
+    let ratingService: RatingService
+    let accountService: AccountService
     
     let requestSessionManager: SessionManager
     let uploadSessionManager: SessionManager
@@ -25,7 +29,7 @@ final class ServiceLayer {
     private init() {
         requestSessionManager = {
             let configuration = URLSessionConfiguration.default
-            configuration.timeoutIntervalForRequest = 15
+            configuration.timeoutIntervalForRequest = 20
             return SessionManager(configuration: configuration)
         }()
         uploadSessionManager = {
@@ -40,6 +44,10 @@ final class ServiceLayer {
                                       uploadSessionManager: uploadSessionManager)
         gamesService = GamesServiceImpl(sessionManager: requestSessionManager)
         gameInfoService = GameInfoServiceImpl(sessionManager: requestSessionManager)
+        tournamentsService = TournamentsServiceImpl(sessionManager: requestSessionManager)
+        clubsService = ClubsServiceImpl(sessionManager: requestSessionManager)
+        ratingService = RatingServiceImpl(sessionManager: requestSessionManager)
+        accountService = AccountServiceImpl(sessionManager: requestSessionManager)
     }
     
 }

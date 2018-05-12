@@ -23,8 +23,9 @@ final class GamesPresentationModel: PresentationModel {
         
         static let tournamentKey = "Турнир"
         static let friendGame = "Товарищеский матч"
-        static let interClub = "Межклубный"
         static let tournament = "Турнир"
+        
+        static let interClub = "Межклубный"
     }
     
     // MARK: - Public Properties
@@ -39,8 +40,9 @@ final class GamesPresentationModel: PresentationModel {
     // MARK: - Private Properties
     
     private let gamesService = ServiceLayer.shared.gamesService
+    private let clubsService = ServiceLayer.shared.clubsService
     
-    private var fromIndex = 1
+    private var fromIndex = 0
     private var toIndex = 80
     private let count = 80
     
@@ -72,35 +74,23 @@ final class GamesPresentationModel: PresentationModel {
                 guard let model = model else { return }
                 let moreViewModels = model.games.compactMap { GameViewModel($0) }
                 self.gamesViewModels += moreViewModels
-                for gameViewModel in self.gamesViewModels {
-                    for clubViewModel in self.clubViewModels where gameViewModel.clubId == clubViewModel.id {
-                        gameViewModel.club = clubViewModel.name
-                    }
-                }
+                self.configureClubName()
                 self.state = .rich
             case .serviceFailure:
                 self.state = .error(code: 1)
             }
         }
-        
     }
     
     func refreshGames() {
-        fromIndex = 1
+        fromIndex = 0
         toIndex = 80
         gamesService.obtainGames(from: fromIndex, to: count, useCache: false) { result in
             switch result {
             case .serviceSuccess(let model):
                 guard let model = model else { return }
                 self.gamesViewModels = model.games.compactMap { GameViewModel($0) }
-                for gameViewModel in self.gamesViewModels {
-                    for clubViewModel in self.clubViewModels where gameViewModel.clubId == clubViewModel.id {
-                        gameViewModel.club = clubViewModel.name
-                    }
-                    if gameViewModel.clubId == "0" {
-                        gameViewModel.club = Constants.interClub
-                    }
-                }
+                self.configureClubName()
                 self.state = .rich
             case .serviceFailure:
                 self.state = .error(code: 1)
@@ -129,16 +119,12 @@ final class GamesPresentationModel: PresentationModel {
     private func obtainFilterGames(count: Int = 2000, parameters: [String: [String]]) {
         state = .loading
         filterParameters = parameters
-        gamesService.obtainGames(from: 1, to: count, useCache: true) { result in
+        gamesService.obtainGames(from: 0, to: count, useCache: true) { result in
             switch result {
             case .serviceSuccess(let model):
                 guard let model = model else { return }
                 self.gamesViewModels = model.games.compactMap { GameViewModel($0) }
-                for gameViewModel in self.gamesViewModels {
-                    for clubViewModel in self.clubViewModels where gameViewModel.clubId == clubViewModel.id {
-                        gameViewModel.club = clubViewModel.name
-                    }
-                }
+                self.configureClubName()
                 self.filterAllGamesViewModels()
             case .serviceFailure(let error):
                 self.state = .error(code: error.code)
@@ -184,24 +170,16 @@ final class GamesPresentationModel: PresentationModel {
         state = .rich
     }
     
-    private func obtainClubs(completion: (() -> Void)? = nil) {
+    private func obtainClubs() {
         obtainClubsCache()
         if !clubsCacheIsObtained { state = .loading }
-        gamesService.obtainClubs(useCache: true) { result in
+        clubsService.obtainClubs(useCache: true) { result in
             switch result {
             case .serviceSuccess(let model):
                 guard let model = model else { return }
                 self.clubViewModels = model.clubs.compactMap { ClubViewModel($0) }
-                for gameViewModel in self.gamesViewModels {
-                    for clubViewModel in self.clubViewModels where clubViewModel.id == gameViewModel.clubId {
-                        gameViewModel.club = clubViewModel.name
-                    }
-                    if gameViewModel.clubId == "0" {
-                        gameViewModel.club = Constants.interClub
-                    }
-                }
+                self.configureClubName()
                 self.state = .rich
-                completion?()
             case .serviceFailure(let error):
                 self.state = .error(code: error.code)
             }
@@ -209,19 +187,12 @@ final class GamesPresentationModel: PresentationModel {
     }
     
     private func obtainClubsCache() {
-        gamesService.obtainClubsRealmCache(error: nil) { result in
+        clubsService.obtainClubsRealmCache(error: nil) { result in
             switch result {
             case .serviceSuccess(let model):
                 guard let model = model else { return }
                 self.clubViewModels = model.clubs.compactMap { ClubViewModel($0) }
-                for gameViewModel in self.gamesViewModels {
-                    for clubViewModel in self.clubViewModels where gameViewModel.clubId == clubViewModel.id {
-                        gameViewModel.club = clubViewModel.name
-                    }
-                    if gameViewModel.clubId == "0" {
-                        gameViewModel.club = Constants.interClub
-                    }
-                }
+                self.configureClubName()
                 self.state = .rich
                 self.clubsCacheIsObtained = true
             case .serviceFailure:
@@ -230,4 +201,14 @@ final class GamesPresentationModel: PresentationModel {
         }
     }
     
+    private func configureClubName() {
+        for gameViewModel in self.gamesViewModels {
+            for clubViewModel in self.clubViewModels where clubViewModel.id == gameViewModel.clubId {
+                gameViewModel.club = clubViewModel.name
+            }
+            if gameViewModel.clubId == "0" {
+                gameViewModel.club = Constants.interClub
+            }
+        }
+    }
 }

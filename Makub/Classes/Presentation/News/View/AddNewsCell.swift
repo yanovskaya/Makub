@@ -19,8 +19,8 @@ final class AddNewsCell: UICollectionViewCell, ViewModelConfigurable {
     }
     
     private enum SizeConstants {
-        static let userWidth: CGFloat = 135
-        static let userHeight: CGFloat = 135
+        static let userWidth: CGFloat = 200
+        static let userHeight: CGFloat = 200
     }
     
     // MARK: - IBOutlets
@@ -83,5 +83,4 @@ final class AddNewsCell: UICollectionViewCell, ViewModelConfigurable {
         addNewsLabel.text = Constants.addNewsLabel
         addNewsLabel.textColor = PaletteColors.textGray
     }
-    
 }

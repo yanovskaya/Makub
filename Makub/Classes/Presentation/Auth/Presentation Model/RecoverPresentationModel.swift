@@ -16,13 +16,12 @@ final class RecoverPresentationModel: PresentationModel {
     
     // MARK: - Public Methods
     
-    func recoverPassword(email: String, completion: @escaping () -> Void) {
+    func recoverPassword(email: String) {
         state = .loading
         authService.recoverPassword(email: email) { result in
             switch result {
             case .serviceSuccess:
                 self.state = .rich
-                completion()
             case .serviceFailure(let error):
                 self.state = .error(code: error.code)
             }

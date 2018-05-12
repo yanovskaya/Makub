@@ -11,32 +11,42 @@ import Foundation.NSString
 extension String {
     
     func timeConverter() -> String? {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        guard let convertedDate = formatter.date(from: self) else { return nil }
+        let secondsAgo = Int(Date().timeIntervalSince(convertedDate))
+        let minute = 60
+        let hour = 60 * minute
+        let day = 24 * hour
         
-        guard let convertedDate = dateFormatter.date(from: self) else { return nil }
-        let dateForNow = Date()
-        let components = Calendar.current.dateComponents([.day, .hour, .minute], from: convertedDate, to: dateForNow)
-        guard let day = components.day,
-            let hour = components.hour,
-            let minute = components.minute else { return nil }
         let currentHour = Calendar.current.component(.hour, from: Date())
         let fixedHour = Calendar.current.component(.hour, from: convertedDate)
-        if day > 1 || (currentHour < fixedHour && day > 0) {
-            dateFormatter.dateFormat = "dd.MM.yyyy"
-            return dateFormatter.string(from: convertedDate)
-        } else if day > 0 || (currentHour < fixedHour) {
-            dateFormatter.dateFormat = "HH:mm"
-            return "Вчера в" + " " + dateFormatter.string(from: convertedDate)
-        } else if hour > 3 {
-            dateFormatter.dateFormat = "HH:mm"
-            return "Cегодня в" + " " + dateFormatter.string(from: convertedDate)
-        } else if hour > 1 {
-            return String(hour) + " " + "часа назад"
-        } else if hour == 1 {
+        let currentMinute = Calendar.current.component(.minute, from: Date())
+        let fixedMinute = Calendar.current.component(.minute, from: convertedDate)
+        let currentSecond = Calendar.current.component(.second, from: Date())
+        let fixedSecond = Calendar.current.component(.second, from: convertedDate)
+        
+        if secondsAgo < minute {
+            return "\(secondsAgo) секунд назад"
+        } else if secondsAgo < hour {
+            return "\(secondsAgo / minute) минут назад"
+        } else if secondsAgo < hour * 2 {
             return "Час назад"
+        } else if secondsAgo < hour * 4 {
+            return "\(secondsAgo / hour) часа назад"
+        } else if secondsAgo < day && (currentHour > fixedHour ||
+            (currentHour == fixedHour && currentMinute > fixedMinute)
+            || (currentHour == fixedHour && currentMinute == fixedMinute && currentSecond > fixedSecond)) {
+            formatter.dateFormat = "HH:mm"
+            return "Сегодня в \(formatter.string(from: convertedDate))"
+        } else if secondsAgo == day || (secondsAgo < day * 2 && (currentHour > fixedHour ||
+            (currentHour == fixedHour && currentMinute > fixedMinute)
+            || (currentHour == fixedHour && currentMinute == fixedMinute && currentSecond > fixedSecond))) {
+            formatter.dateFormat = "HH:mm"
+            return "Вчера в \(formatter.string(from: convertedDate))"
         } else {
-            return String(minute) + " " + "мин назад"
+            formatter.dateFormat = "dd.MM.yyyy"
+            return formatter.string(from: convertedDate)
         }
     }
 }

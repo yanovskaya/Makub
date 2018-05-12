@@ -7,15 +7,15 @@
 //
 
 import Foundation
-import RealmSwift
 
-final class Comment: Object, Decodable {
+struct Comment: Decodable {
     
-    @objc dynamic var id: String! = nil
-    @objc dynamic var comment: String! = nil
-    @objc dynamic var playerId: String! = nil
-    @objc dynamic var time: String! = nil
-    @objc dynamic var name: String! = nil
-    @objc dynamic var surname: String! = nil
-    @objc dynamic var photo: String! = nil
+    let id: String
+    let gameId: String
+    let comment: String
+    let playerId: String
+    let time: String!
+    let name: String
+    let surname: String
+    let photo: String!
 }

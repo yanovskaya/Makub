@@ -10,7 +10,11 @@ target 'Makub' do
   pod 'RealmSwift'
   pod 'Kingfisher'
   pod 'HidingNavigationBar'
-  pod 'FDTake'
   pod 'UILoadControl'
   pod 'YouTubePlayer'
+end
+
+target 'MakubTests' do
+    pod 'Alamofire'
+    pod 'SwiftKeychainWrapper'
 end

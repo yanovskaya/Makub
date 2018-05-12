@@ -50,12 +50,10 @@ final class AuthViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        configurePKHUD()
         bindEvents()
         
         hideKeyboardWhenTappedAround()
-        usernameTextField.delegate = self
-        passwordTextField.delegate = self
-        
         configureBackgroundImage()
         configureImageView()
         configureTextFields()
@@ -67,6 +65,7 @@ final class AuthViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         navigationController?.setNavigationBarHidden(true, animated: true)
+        UIApplication.shared.statusBarView?.backgroundColor = .clear
         usernameTextField.text = ""
         passwordTextField.text = ""
     }
@@ -77,11 +76,10 @@ final class AuthViewController: UIViewController {
         presentationModel.changeStateHandler = { status in
             switch status {
             case .loading:
-                PKHUD.sharedHUD.dimsBackground = true
-                PKHUD.sharedHUD.userInteractionOnUnderlyingViewsEnabled = false
                 HUD.show(.progress)
             case .rich:
                 HUD.hide()
+                self.router.showTabBar()
             case .error (let code):
                 switch code {
                 case -1009, -1001:
@@ -94,6 +92,11 @@ final class AuthViewController: UIViewController {
                 HUD.hide(afterDelay: 1.0)
             }
         }
+    }
+    
+    private func configurePKHUD() {
+        PKHUD.sharedHUD.dimsBackground = false
+        PKHUD.sharedHUD.userInteractionOnUnderlyingViewsEnabled = false
     }
     
     private func configureBackgroundImage() {
@@ -114,6 +117,9 @@ final class AuthViewController: UIViewController {
     }
     
     private func configureTextFields() {
+        usernameTextField.delegate = self
+        passwordTextField.delegate = self
+        
         usernameTextField.placeholder = Constants.usernamePlaceholder
         passwordTextField.placeholder = Constants.passwordPlaceholder
         
@@ -161,10 +167,7 @@ final class AuthViewController: UIViewController {
     @IBAction private func loginButtonTapped(_ sender: Any) {
         guard let username = usernameTextField.text?.removeWhitespaces(),
             let password = passwordTextField.text else { return }
-        presentationModel.authorizeUser(inputValues: [username, password]) {
-            [unowned self] in
-            self.router.showTabBar()
-        }
+        presentationModel.authorizeUser(inputValues: [username, password])
     }
     
     @IBAction private func forgotButtonTapped(_ sender: Any) {
@@ -184,5 +187,4 @@ extension AuthViewController: UITextFieldDelegate {
         }
         return true
     }
-    
 }

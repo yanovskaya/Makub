@@ -18,6 +18,7 @@ final class GamesViewController: UIViewController {
         static let title = "Все игры"
         static let pkhudTitle = "Подождите"
         static let pkhudSubtitle = "Идет фильтрация"
+        static let tournamentImage = "trophy"
         static let filterImage = "filter"
         static let cellIdentifier = String(describing: GamesCell.self)
     }
@@ -32,11 +33,6 @@ final class GamesViewController: UIViewController {
     
     // MARK: - IBOutlets
     
-    @IBOutlet private var navigationBar: UINavigationBar!
-    @IBOutlet private var tournamentsButtonItem: UIBarButtonItem!
-    @IBOutlet private var filterButtonItem: UIBarButtonItem!
-    @IBOutlet private var navBackgroundView: UIView!
-    
     @IBOutlet private var gamesCollectionView: UICollectionView!
     
     // MARK: - Public Properties
@@ -50,11 +46,14 @@ final class GamesViewController: UIViewController {
     private var filterDataIsObtained = false
     private let router = GamesRouter()
     
+    private var filterButtonItem: UIBarButtonItem!
+    
     // MARK: - ViewController lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = PaletteColors.blueBackground
+        UIApplication.shared.statusBarView?.backgroundColor = .clear
         
         configureNavigationBar()
         configureCollectionView()
@@ -65,6 +64,11 @@ final class GamesViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         tabBarController?.delegate = self
+        UIApplication.shared.statusBarView?.backgroundColor = .white
+        if presentationModel.gamesViewModels.isEmpty {
+            bindEventsObtainGames()
+            presentationModel.obtainGamesWithClubs()
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -117,7 +121,7 @@ final class GamesViewController: UIViewController {
                 self?.gamesCollectionView.loadControl = UILoadControl(target: self, action: #selector(self?.obtainMoreGames(sender:)))
                 self?.presentationModel.chosenOptions = []
                 DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                    self?.stopBindEvents()
+                    self?.bindRichEvent()
                     self?.presentationModel.obtainGamesWithClubs()
                 }
             }
@@ -160,7 +164,7 @@ final class GamesViewController: UIViewController {
         }
     }
     
-    private func stopBindEvents() {
+    private func bindRichEvent() {
         presentationModel.changeStateHandler = { [weak self] status in
             switch status {
             case .rich:
@@ -172,20 +176,21 @@ final class GamesViewController: UIViewController {
     }
     
     private func configureNavigationBar() {
-        navigationController?.isNavigationBarHidden = true
-        navBackgroundView.backgroundColor = .white
+        navigationController?.isNavigationBarHidden = false
+        guard let navigationBar = navigationController?.navigationBar else { return }
+        navigationBar.isTranslucent = false
+        navigationBar.shadowImage = UIImage(color: UIColor.white)
+        navigationBar.setBackgroundImage(UIImage(color: UIColor.white), for: .default)
         let titleTextAttributes: [NSAttributedStringKey: Any] = [NSAttributedStringKey.foregroundColor: PaletteColors.darkGray,
                                                                  NSAttributedStringKey.font: UIFont.customFont(.robotoMediumFont(size: 17))]
         navigationBar.titleTextAttributes = titleTextAttributes
         navigationBar.topItem?.title = Constants.title
-        navigationBar.shadowImage = UIImage(color: UIColor.white)
-        navigationBar.setBackgroundImage(UIImage(color: UIColor.white), for: .default)
         
+        filterButtonItem = UIBarButtonItem(title: nil, style: .plain, target: self, action: #selector(filterButtonItemTapped))
         filterButtonItem.image = UIImage(named: Constants.filterImage)
         filterButtonItem.imageInsets = UIEdgeInsets(top: 2, left: 0, bottom: 0, right: 5)
         filterButtonItem.tintColor = PaletteColors.darkGray
-        
-        tournamentsButtonItem.title = ""
+        navigationItem.rightBarButtonItem = filterButtonItem
     }
     
     private func configureCollectionView() {
@@ -217,14 +222,17 @@ final class GamesViewController: UIViewController {
         }
     }
     
-    // MARK: - IBActions
-    
-    @IBAction func filterButtonItemTapped(_ sender: Any) {
+    @objc func filterButtonItemTapped() {
         if filterDataIsObtained {
             router.presentFilterGamesVC(source: self)
         }
     }
     
+    // MARK: - IBActions
+    
+    @IBAction func tournamentItemTapped(_ sender: Any) {
+        router.showTournamentsVC(source: self)
+    }
 }
 
 // MARK: - UICollectionViewDataSource
@@ -285,9 +293,9 @@ extension GamesViewController: UIScrollViewDelegate {
 
 // MARK: - FilterGamesViewControllerDelegate
 
-extension GamesViewController: FilterGamesViewControllerDelegate {
+extension GamesViewController: FilterViewControllerDelegate {
     
-    func obtainAllGames(parameters: [String: [String]]) {
+    func obtainAllItems(parameters: [String: [String]]) {
         bindEventsObtainFilteredGames()
         let topPoint = CGPoint(x: 0, y: 0)
         gamesCollectionView.setContentOffset(topPoint, animated: true)
@@ -298,7 +306,7 @@ extension GamesViewController: FilterGamesViewControllerDelegate {
         gamesCollectionView.loadControl?.removeFromSuperview()
     }
     
-    func showGamesWithNoFilter() {
+    func showItemsWithNoFilter() {
         if refreshControl.superview == nil || gamesCollectionView.loadControl?.superview == nil {
             let topPoint = CGPoint(x: 0, y: 0)
             gamesCollectionView.setContentOffset(topPoint, animated: true)

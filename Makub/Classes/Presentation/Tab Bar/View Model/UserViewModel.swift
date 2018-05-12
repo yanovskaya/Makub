@@ -21,16 +21,58 @@ struct UserViewModel {
     let photoURL: String!
     let id: String
     let fullname: String
+    let name: String
+    let surname: String
+    let club: String
+    let rankClassic: String?
+    let rankFast: String?
+    var achievements = [String]()
+    var games: Int
+    var win: Int
+    var lose: Int
+    
+    var commonPosition: String!
+    var classicPosition: String!
+    var fastPosition: String!
+    var veryFastPosition: String!
+    
+    let commonRating: String
+    let fastRating: String
+    let veryFastRating: String
+    let classicRating: String
     
     // MARK: - Initialization
     
-    init(_ user: User) {
-        self.id = user.id
-        self.fullname = user.name + " " + user.surname
-        guard let photo = user.photo, photo != "" else {
-            self.photoURL = nil
-            return
+    init(_ user: UserDecodable) {
+        id = user.id
+        name = user.name
+        surname = user.surname
+        fullname = user.name + " " + user.surname
+        commonRating = user.ratingOfPlayer
+        fastRating = user.ratingFast
+        veryFastRating = user.ratingVeryFast
+        classicRating = user.ratingClassic
+        win = user.win
+        lose = user.lose
+        games = lose + win
+        achievements = user.dost.compactMap { $0.name }
+        
+        self.club = (user.club != nil) ? user.club : ""
+        
+        if let rankClassic = user.razryad, rankClassic != "" {
+            self.rankClassic = rankClassic.getRomanRank()
+        } else {
+            rankClassic = nil
         }
-        self.photoURL = (Constants.baseURL + photo).removeSpacesInURL()
+        if let rankFast = user.razryadFast, rankFast != "" {
+            self.rankFast = rankFast.getRomanRank()
+        } else {
+            rankFast = nil
+        }
+        if let photo = user.photo, photo != "" {
+            photoURL = (Constants.baseURL + photo).encodeInURL()
+        } else {
+            photoURL = nil
+        }
     }
 }

@@ -19,13 +19,13 @@ final class NewsCell: UICollectionViewCell, ViewModelConfigurable {
     }
     
     private enum LayoutConstants {
-        static let bottomImageDistance: CGFloat = 198
-        static let bottomDistance: CGFloat = 20
+        static let imageDistance: CGFloat = 15
+        static let minImageDistance: CGFloat = 5
     }
     
     private enum SizeConstants {
-        static let photoWidth: CGFloat = 120
-        static let photoHeight: CGFloat = 120
+        static let photoWidth: CGFloat = 200
+        static let photoHeight: CGFloat = 200
         
         static let imageWidth: CGFloat = 501
         static let imageHeight: CGFloat = 1077
@@ -44,8 +44,7 @@ final class NewsCell: UICollectionViewCell, ViewModelConfigurable {
     @IBOutlet private var lineView: UIView!
     
     @IBOutlet private var heightIllustrationImageView: NSLayoutConstraint!
-    
-    @IBOutlet private var bottomDistance: NSLayoutConstraint!
+    @IBOutlet private var imageDistance: NSLayoutConstraint!
     
     // MARK: - Public Properties
     
@@ -62,7 +61,6 @@ final class NewsCell: UICollectionViewCell, ViewModelConfigurable {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
         moreButton.isHidden = true
         configureLayout()
         configureFont()
@@ -98,17 +96,17 @@ final class NewsCell: UICollectionViewCell, ViewModelConfigurable {
         
         if let imageURL = viewModel.imageURL {
             heightIllustrationImageView.constant = heightIllustrationImageViewConstant
-            bottomDistance.constant = LayoutConstants.bottomImageDistance
+            imageDistance.constant = LayoutConstants.imageDistance
             let sizeProcessor = ResizingImageProcessor(referenceSize: CGSize(width: SizeConstants.imageWidth, height: SizeConstants.imageHeight), mode: .aspectFill)
             illustrationImageView.kf.indicatorType = .activity
             illustrationImageView.kf.setImage(with: URL(string: imageURL), placeholder: nil, options: [.processor(sizeProcessor)], completionHandler: { (image, _, _, _) in
                 if image == nil {
-                    self.bottomDistance.constant = LayoutConstants.bottomDistance
                     self.heightIllustrationImageView.constant = 0
+                    self.imageDistance.constant = LayoutConstants.minImageDistance
                 }
             })
         } else {
-            bottomDistance.constant = LayoutConstants.bottomDistance
+            self.imageDistance.constant = LayoutConstants.minImageDistance
             heightIllustrationImageView.constant = 0
         }
         if let photoURL = viewModel.photoURL {
@@ -134,9 +132,7 @@ final class NewsCell: UICollectionViewCell, ViewModelConfigurable {
     }
     
     func configureCellWidth(_ width: CGFloat) {
-        let leftOffset: CGFloat = 25
-        let rightOffset: CGFloat = 20
-        descriptionLabel.widthAnchor.constraint(equalToConstant: width - (leftOffset + rightOffset)).isActive = true
+        widthAnchor.constraint(equalToConstant: width).isActive = true
         
         let imageOffset: CGFloat = 16
         heightIllustrationImageViewConstant = (width - imageOffset) / 3 * 2

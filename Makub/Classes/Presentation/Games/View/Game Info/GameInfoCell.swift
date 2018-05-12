@@ -18,9 +18,14 @@ final class GameInfoCell: UICollectionViewCell, ViewModelConfigurable {
         static let userImage = "photo_default"
     }
     
+    private enum LayoutConstants {
+        static let bottomTournamentLabel: CGFloat = -16
+    }
+    
     private enum SizeConstants {
         static let photoWidth: CGFloat = 200
         static let photoHeight: CGFloat = 200
+        static let videoAspectRatio: CGFloat = 9 / 16
     }
     
     // MARK: - IBOutlets
@@ -38,6 +43,9 @@ final class GameInfoCell: UICollectionViewCell, ViewModelConfigurable {
     @IBOutlet private var player2Label: UILabel!
     @IBOutlet private var tournamentLabel: UILabel!
     @IBOutlet private var descriptionLabel: UILabel!
+    
+    @IBOutlet private var club1Label: UILabel!
+    @IBOutlet private var club2Label: UILabel!
     
     @IBOutlet private var videoContainerView: UIView!
     @IBOutlet private var blueView: UIView!
@@ -93,8 +101,7 @@ final class GameInfoCell: UICollectionViewCell, ViewModelConfigurable {
         
         let player1Count = viewModel.player1.count
         let player2Count = viewModel.player2.count
-        configureSizeLabel(sum: player1Count + player2Count,
-                           characters: max(player1Count, player2Count))
+        configureSizeLabel(characters: max(player1Count, player2Count))
         
         let sizeProcessor = ResizingImageProcessor(referenceSize: CGSize(width: SizeConstants.photoWidth, height: SizeConstants.photoHeight), mode: .aspectFill)
         
@@ -123,25 +130,84 @@ final class GameInfoCell: UICollectionViewCell, ViewModelConfigurable {
         if let video = viewModel.video {
             spinner.startAnimating()
             gameVideoPlayer.loadVideoID(video)
-            let height = frame.width / 16 * 9
+            let height = frame.width * SizeConstants.videoAspectRatio
             gameVideoPlayerHeight.constant = height
         } else {
             gameVideoPlayerHeight.constant = 0
         }
     }
     
-    func configureTournament(for viewModel: TournamentViewModel) {
+    func configure(viewModel: GameInfoViewModel) {
+        dateLabel.text = viewModel.playerTime
+        clubLabel.text = viewModel.club
+        firstPlayerWon = viewModel.score1 > viewModel.score2
+        score1Label.text = viewModel.score1
+        score2Label.text = viewModel.score2
+        
+        player1Label.text = viewModel.player1
+        player2Label.text = viewModel.player2
+        
+        let player1Count = viewModel.player1.count
+        let player2Count = viewModel.player2.count
+        configureSizeLabel(characters: max(player1Count, player2Count))
+        
+        let sizeProcessor = ResizingImageProcessor(referenceSize: CGSize(width: SizeConstants.photoWidth, height: SizeConstants.photoHeight), mode: .aspectFill)
+        
+        if let photo1URL = viewModel.photo1URL {
+            photo1ImageView.kf.indicatorType = .custom(indicator: indicator)
+            photo1ImageView.kf.setImage(with: URL(string: photo1URL), placeholder: nil, options: [.processor(sizeProcessor)], completionHandler: { (image, _, _, _) in
+                if image == nil {
+                    self.photo1ImageView.image = UIImage(named: Constants.userImage)
+                }
+            })
+        } else {
+            photo1ImageView.image = UIImage(named: Constants.userImage)
+        }
+        
+        if let photo2URL = viewModel.photo2URL {
+            photo2ImageView.kf.indicatorType = .custom(indicator: indicator)
+            photo2ImageView.kf.setImage(with: URL(string: photo2URL), placeholder: nil, options: [.processor(sizeProcessor)], completionHandler: { (image, _, _, _) in
+                if image == nil {
+                    self.photo2ImageView.image = UIImage(named: Constants.userImage)
+                }
+            })
+        } else {
+            photo2ImageView.image = UIImage(named: Constants.userImage)
+        }
+        
+        if let video = viewModel.video {
+            spinner.startAnimating()
+            gameVideoPlayer.loadVideoID(video)
+            let height = frame.width * SizeConstants.videoAspectRatio
+            gameVideoPlayerHeight.constant = height
+        } else {
+            gameVideoPlayerHeight.constant = 0
+        }
+    }
+    
+    func configureClubs(viewModel: GameInfoViewModel) {
+        club1Label.text = viewModel.club1
+        club2Label.text = viewModel.club2
+    }
+    
+    func configureTournament(for viewModel: TournamentForGameViewModel) {
         tournamentLabel.text = viewModel.tournament
         if let description = viewModel.description {
             descriptionLabel.text = description
         } else {
             descriptionLabel.removeFromSuperview()
-            tournamentLabel.bottomAnchor.constraint(equalTo: blueView.bottomAnchor, constant: -1 * 16).isActive = true
+            tournamentLabel.bottomAnchor.constraint(equalTo: blueView.bottomAnchor, constant: LayoutConstants.bottomTournamentLabel).isActive = true
         }
     }
     
     func configureCellWidth(_ width: CGFloat) {
-        blueView.widthAnchor.constraint(equalToConstant: width).isActive = true
+        widthAnchor.constraint(equalToConstant: width).isActive = true
+        
+        let ratio: CGFloat = 2 / 5
+        club1Label.widthAnchor.constraint(equalToConstant: width * ratio).isActive = true
+        club2Label.widthAnchor.constraint(equalToConstant: width * ratio).isActive = true
+        player1Label.widthAnchor.constraint(equalToConstant: width * ratio).isActive = true
+        player2Label.widthAnchor.constraint(equalToConstant: width * ratio).isActive = true
     }
     
     // MARK: - Private Methods
@@ -162,6 +228,8 @@ final class GameInfoCell: UICollectionViewCell, ViewModelConfigurable {
     private func configureFont() {
         dateLabel.font = UIFont.customFont(.robotoRegularFont(size: 12))
         clubLabel.font = UIFont.customFont(.robotoRegularFont(size: 13))
+        club1Label.font = UIFont.customFont(.robotoRegularFont(size: 12))
+        club2Label.font = UIFont.customFont(.robotoRegularFont(size: 12))
         tournamentLabel.font = UIFont.customFont(.robotoRegularFont(size: 16))
         descriptionLabel.font = UIFont.customFont(.robotoRegularFont(size: 15))
         score1Label.font = UIFont.customFont(.robotoRegularFont(size: 25))
@@ -179,24 +247,24 @@ final class GameInfoCell: UICollectionViewCell, ViewModelConfigurable {
         tournamentLabel.textColor = PaletteColors.darkGray
         dateLabel.textColor = PaletteColors.textGray
         clubLabel.textColor = PaletteColors.textGray
+        club1Label.textColor = PaletteColors.textGray
+        club2Label.textColor = PaletteColors.textGray
         descriptionLabel.textColor = PaletteColors.textGray
         colonLabel.textColor = PaletteColors.textGray
         lineView.backgroundColor = UIColor.lightGray.withAlphaComponent(0.2)
     }
     
-    private func configureSizeLabel(sum: Int, characters: Int) {
+    private func configureSizeLabel(characters: Int) {
         let size: CGFloat
         if characters < 15 {
             size = 16
-        } else if characters < 18 {
+        } else  if characters < 18 {
             size = 15
-        } else if characters < 22, sum < 34 {
-            size = 14
         } else {
-            size = 13
+            size = 14
         }
-        player1Label.font = UIFont.customFont(.robotoRegularFont(size: size))
-        player2Label.font = UIFont.customFont(.robotoRegularFont(size: size))
+        player1Label.font = UIFont.customFont(.robotoMediumFont(size: size))
+        player2Label.font = UIFont.customFont(.robotoMediumFont(size: size))
     }
     
     private func configureScoreColor() {
@@ -209,6 +277,8 @@ final class GameInfoCell: UICollectionViewCell, ViewModelConfigurable {
         }
     }
 }
+
+// MARK: - YouTubePlayerDelegate
 
 extension GameInfoCell: YouTubePlayerDelegate {
     

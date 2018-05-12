@@ -13,4 +13,6 @@ enum StoryboardTitle: String {
     case rating = "Rating"
     case news = "News"
     case games = "Games"
+    case tournaments = "Tournaments"
+    case account = "Account"
 }

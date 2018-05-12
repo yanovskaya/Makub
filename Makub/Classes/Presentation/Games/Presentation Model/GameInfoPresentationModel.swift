@@ -19,7 +19,8 @@ final class GameInfoPresentationModel: PresentationModel {
     // MARK: - Public Properties
     
     var gameViewModel: GameViewModel!
-    var tournamentViewModel: TournamentViewModel!
+    var gameInfoViewModel: GameInfoViewModel!
+    var tournamentViewModel: TournamentForGameViewModel!
     var commentViewModels = [CommentViewModel]()
     var userViewModel: UserViewModel!
     
@@ -28,27 +29,27 @@ final class GameInfoPresentationModel: PresentationModel {
     private let gameInfoService = ServiceLayer.shared.gameInfoService
     private let userService = ServiceLayer.shared.userService
     
-    private var userCacheIsObtained = false
-    
     private let group = DispatchGroup()
     private var error: Int!
     
     // MARK: - Public Methods
     
-    func obtainGameInfo() {
+    func obtainGame() {
+        error = nil
         group.enter()
         obtainUserInfo()
+        
+        group.enter()
+        obtainGameInfo()
+        
+        group.enter()
+        obtainComments()
         
         if gameViewModel.stage != "0" {
             group.enter()
             obtainTournament()
         } else {
-            tournamentViewModel = TournamentViewModel(title: Constants.friendGame)
-        }
-        
-        if gameViewModel.comments != "0" {
-            group.enter()
-            obtainComments()
+            tournamentViewModel = TournamentForGameViewModel(title: Constants.friendGame)
         }
         
         group.notify(queue: DispatchQueue.main) {
@@ -93,6 +94,20 @@ final class GameInfoPresentationModel: PresentationModel {
         }
     }
     
+    private func obtainGameInfo() {
+        guard let gameId = Int(gameViewModel.id) else { return }
+        gameInfoService.obtainGameInfo(gameId: gameId) { result in
+            switch result {
+            case .serviceSuccess(let model):
+                guard let model = model else { return }
+                self.gameInfoViewModel = GameInfoViewModel(model)
+                self.group.leave()
+            case .serviceFailure:
+                self.group.leave()
+            }
+        }
+    }
+    
     private func obtainTournament() {
         state = .loading
         guard let stage = Int(gameViewModel.stage) else { return }
@@ -100,11 +115,10 @@ final class GameInfoPresentationModel: PresentationModel {
             switch result {
             case .serviceSuccess(let model):
                 guard let model = model else { return }
-                self.tournamentViewModel = TournamentViewModel(model.tournament)
+                self.tournamentViewModel = TournamentForGameViewModel(model.tournament)
                 self.group.leave()
             case .serviceFailure(let error):
                 self.error = error.code
-                self.group.leave()
             }
         }
     }
@@ -118,8 +132,8 @@ final class GameInfoPresentationModel: PresentationModel {
                 guard let model = model else { return }
                 self.commentViewModels = model.comments.compactMap { CommentViewModel($0) }
                 self.group.leave()
-            case .serviceFailure(let error):
-                self.error = error.code
+            case .serviceFailure:
+                self.group.leave()
             }
         }
     }

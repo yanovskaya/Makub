@@ -13,7 +13,7 @@ final class FilterGamesPresentationModel: PresentationModel {
     // MARK: - Constants
     
     private enum Constants {
-        static let resource = "FilterOptions"
+        static let resource = "FilterGamesOptions"
         static let type = "plist"
         
         static let clubKey = "Клуб"

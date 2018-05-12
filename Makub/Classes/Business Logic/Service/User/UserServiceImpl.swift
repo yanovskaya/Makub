@@ -28,7 +28,7 @@ final class UserServiceImpl: UserService {
     
     private let sessionManager: SessionManager
     private let transport: Transport
-    private let parser = Parser<User>()
+    private let parser = Parser<UserDecodable>()
     private let realmCache = RealmCache<User>()
     
     // MARK: - Initialization
@@ -40,7 +40,7 @@ final class UserServiceImpl: UserService {
     
     // MARK: - Public Methods
     
-    func obtainUserInfo(useCache: Bool, completion: ((ServiceCallResult<User>) -> Void)?) {
+    func obtainUserInfo(useCache: Bool, completion: ((ServiceCallResult<UserDecodable>) -> Void)?) {
         guard let token = KeychainWrapper.standard.string(forKey: KeychainKeys.token) else {
             let error = NSError(domain: "", code: AdditionalErrors.tokenNotFound)
             completion?(ServiceCallResult.serviceFailure(error: error))
@@ -55,7 +55,8 @@ final class UserServiceImpl: UserService {
                 switch parseResult {
                 case .parserSuccess(let model):
                     if model.error == 0 {
-                        self.realmCache.refreshCache(model)
+                        let realm = self.convertToRealm(decodable: model)
+                        self.realmCache.refreshCache(realm)
                         completion?(ServiceCallResult.serviceSuccess(payload: model))
                     } else {
                         let error = NSError(domain: "", code: model.error)
@@ -65,25 +66,83 @@ final class UserServiceImpl: UserService {
                     if useCache {
                         self.obtainRealmCache(error: error, completion: completion)
                     } else {
-                        completion?(ServiceCallResult.serviceFailure(error: NSError()))
+                        completion?(ServiceCallResult.serviceFailure(error: error))
                     }
                 }
             case .transportFailure(let error):
                 if useCache {
                     self.obtainRealmCache(error: error, completion: completion)
                 } else {
-                    completion?(ServiceCallResult.serviceFailure(error: NSError()))
+                    completion?(ServiceCallResult.serviceFailure(error: error))
                 }
             }
         }
     }
     
-    func obtainRealmCache(error: NSError? = nil, completion: ((ServiceCallResult<User>) -> Void)?) {
+    func obtainRealmCache(error: NSError? = nil, completion: ((ServiceCallResult<UserDecodable>) -> Void)?) {
         if let userCache = self.realmCache.getCachedObject() {
-            completion?(ServiceCallResult.serviceSuccess(payload: userCache))
+            let model = convertToDecodable(realm: userCache)
+            completion?(ServiceCallResult.serviceSuccess(payload: model))
         } else {
-            completion?(ServiceCallResult.serviceFailure(error: NSError()))
+            guard let error = error else {
+                completion?(ServiceCallResult.serviceFailure(error: NSError()))
+                return
+            }
+            completion?(ServiceCallResult.serviceFailure(error: error))
         }
     }
     
+     // MARK: - Private Methods
+    
+    private func convertToDecodable(realm: User) -> UserDecodable {
+        return UserDecodable(error: realm.error,
+                             id: realm.id,
+                             name: realm.name,
+                             surname: realm.surname,
+                             facebook: realm.facebook,
+                             telegram: realm.telegram,
+                             vk: realm.vk,
+                             instagram: realm.instagram,
+                             twitter: realm.twitter,
+                             photo: realm.photo,
+                             razryad: realm.razryad,
+                             razryadFast: realm.razryadFast,
+                             ratingOfPlayer: realm.ratingOfPlayer,
+                             ratingFast: realm.ratingFast,
+                             ratingVeryFast: realm.ratingVeryFast,
+                             ratingClassic: realm.ratingClassic,
+                             club: realm.club,
+                             win: realm.win,
+                             lose: realm.lose,
+                             dost: Array(realm.dost))
+    }
+    
+    private func convertToRealm(decodable model: UserDecodable) -> User {
+        let realm = User()
+        realm.id = model.id
+        realm.facebook = model.facebook
+        realm.vk = model.vk
+        realm.twitter = model.twitter
+        realm.instagram = model.instagram
+        realm.telegram = model.telegram
+        realm.name = model.name
+        realm.surname = model.surname
+        realm.photo = model.photo
+        realm.razryad = model.razryad
+        realm.error = model.error
+        realm.razryadFast = model.razryadFast
+        realm.ratingFast = model.ratingFast
+        realm.ratingOfPlayer = model.ratingOfPlayer
+        realm.ratingClassic = model.ratingClassic
+        realm.ratingVeryFast = model.ratingVeryFast
+        realm.win = model.win
+        realm.lose = model.lose
+        if let club = model.club {
+            realm.club = club
+        }
+        for achievement in model.dost {
+            realm.dost.append(achievement)
+        }
+        return realm
+    }
 }

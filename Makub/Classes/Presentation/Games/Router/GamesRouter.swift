@@ -14,6 +14,7 @@ final class GamesRouter {
     // MARK: - Private Properties
     
     private let gamesStoryboard = UIStoryboard(with: StoryboardTitle.games)
+    private let tournamentsStoryboard = UIStoryboard(with: StoryboardTitle.tournaments)
     
     // MARK: - Public Methods
     
@@ -41,6 +42,18 @@ final class GamesRouter {
         addCommentViewController.presentationModel.gameViewModel = presentationModel.gameViewModel
         addCommentViewController.delegate = gameInfoViewController
         gameInfoViewController.present(addCommentViewController, animated: true)
+    }
+    
+    /// Games -> Tournaments.
+    func showTournamentsVC(source gamesViewController: GamesViewController) {
+    let tournamentsViewController = tournamentsStoryboard.viewController(TournamentsViewController.self)
+    let transition = CATransition()
+    transition.type = kCATransitionReveal
+    transition.subtype = kCATransitionFromLeft
+    transition.duration = 0.4
+    transition.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+    gamesViewController.navigationController?.view.layer.add(transition, forKey: nil)
+        gamesViewController.navigationController?.pushViewController(tournamentsViewController, animated: false)
     }
     
 }

@@ -10,6 +10,8 @@ import Foundation
 
 protocol GameInfoService: class {
     
+    func obtainGameInfo(gameId: Int, completion: ((ServiceCallResult<GameInfo>) -> Void)?)
+    
     func obtainComments(gameId: Int, completion: ((ServiceCallResult<CommentsResponse>) -> Void)?)
     
     func obtainTournament(stage: Int, completion: ((ServiceCallResult<TournamentResponse>) -> Void)?)

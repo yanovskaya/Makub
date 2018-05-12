@@ -11,17 +11,8 @@ import Foundation
 struct AuthResponse: Decodable {
     let error: Int
     let token: String!
-    
-    private enum CodingKeys: String, CodingKey {
-        case error
-        case token
-    }
 }
 
 struct RecoverResponse: Decodable {
     let error: Int
-    
-    private enum CodingKeys: String, CodingKey {
-        case error
-    }
 }
