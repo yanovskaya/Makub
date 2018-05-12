@@ -165,7 +165,10 @@ final class RatingViewController: UIViewController {
         indicatorView.backgroundColor = PaletteColors.blueTint
         indicatorView.clipsToBounds = true
         indicatorView.layer.cornerRadius = 5
-        indicatorView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        
+        if #available(iOS 11.0, *) {
+            indicatorView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        }
     }
     
     private func configureButtons() {
