@@ -32,35 +32,17 @@ final class NewsViewModel {
     
     init(_ news: News) {
         self.id = news.id
+        authorId = (news.author != nil) ? news.author : ""
+        text = (news.text != nil) ? news.text.removeTags() : ""
+        title = (news.title != nil) ? news.title : ""
+        tag = (news.tag != nil) ? news.tag : ""
         
-        if let authorId = news.author {
-            self.authorId = authorId
-        } else {
-            self.authorId = ""
-        }
-        
-        if let text = news.text {
-            self.text = text.removeTags()
-        } else {
-            self.text = ""
-        }
-        
-        if let date = news.date {
+        if let date = news.date.dateConverter()?.0 {
+            self.date = date
+        } else if let date = news.date {
             self.date = date
         } else {
             self.date = ""
-        }
-        
-        if let title = news.title {
-            self.title = title
-        } else {
-            self.title = ""
-        }
-        
-        if let tag = news.tag {
-            self.tag = tag
-        } else {
-            self.tag = ""
         }
         
         if let name = news.name,
@@ -71,13 +53,13 @@ final class NewsViewModel {
         }
         
         if let photo = news.photo, photo != "" {
-            self.photoURL = (Constants.baseURL + photo).removeSpacesInURL()
+            self.photoURL = (Constants.baseURL + photo).encodeInURL()
         } else {
             self.photoURL = nil
         }
         
         if let image = news.image, image != "" {
-            self.imageURL = (Constants.baseURL + image).removeSpacesInURL()
+            self.imageURL = (Constants.baseURL + image).encodeInURL()
         } else {
             self.imageURL = nil
         }

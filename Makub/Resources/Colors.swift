@@ -14,6 +14,8 @@ struct PaletteColors {
     
     static var darkGray = UIColor(hex: "303030")
     static let textGray = UIColor(hex: "72757F")
+    static let lineGray = UIColor(hex: "EBEBEB")
+    static let lightGray = UIColor(hex: "C0C0C0")
     
     // MARK: - Auth
     
@@ -25,10 +27,6 @@ struct PaletteColors {
     static let blueBackground = UIColor(hex: "F7F9FC")
     static let blueTint = UIColor(hex: "5BABFF")
     
-    // MARK: - News
-    
-    static let searchBar = UIColor(hex: "EBEBEB")
-    
     // MARK: - Games
     
     static let winColor = UIColor(hex: "42CF42")
@@ -36,9 +34,10 @@ struct PaletteColors {
     
     // MARK: - Rating
     
-    static let lightGray = UIColor(hex: "C0C0C0")
     static let gold = UIColor(hex: "FFD700")
-    static let silver = UIColor(hex: "C0C0C0")
     static let bronze = UIColor(hex: "CD7F32")
-    static let standardBorder = UIColor(hex: "EBEBEB")
+    
+    // MARK: - Account
+    
+    static let exit = UIColor(hex: "EC5B46")
 }

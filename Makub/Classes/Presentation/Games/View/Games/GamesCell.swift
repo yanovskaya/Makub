@@ -25,7 +25,7 @@ final class GamesCell: UICollectionViewCell, ViewModelConfigurable {
     
     // MARK: - IBOutlets
     
-    @IBOutlet private var clubLabel: UILabel!
+    @IBOutlet private var additionalInfoLabel: UILabel!
     @IBOutlet private var typeLabel: UILabel!
     @IBOutlet private var videoImageView: UIImageView!
     
@@ -71,7 +71,7 @@ final class GamesCell: UICollectionViewCell, ViewModelConfigurable {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        clubLabel.text = nil
+        additionalInfoLabel.text = nil
         typeLabel.text = nil
         player1Label.text = nil
         player2Label.text = nil
@@ -91,7 +91,7 @@ final class GamesCell: UICollectionViewCell, ViewModelConfigurable {
         score2Label.text = viewModel.score2
         player1Label.text = viewModel.player1
         player2Label.text = viewModel.player2
-        clubLabel.text = viewModel.club
+        additionalInfoLabel.text = viewModel.club
         
         let sizeProcessor = ResizingImageProcessor(referenceSize: CGSize(width: SizeConstants.photoWidth, height: SizeConstants.photoHeight), mode: .aspectFill)
         
@@ -135,6 +135,57 @@ final class GamesCell: UICollectionViewCell, ViewModelConfigurable {
         }
     }
     
+    func configure(userViewModel: UserViewModel, gameViewModel: UserGameViewModel) {
+        firstPlayerWon = gameViewModel.ourScore > gameViewModel.hisScore
+        typeLabel.text = gameViewModel.type
+        score1Label.text = gameViewModel.ourScore
+        score2Label.text = gameViewModel.hisScore
+        player1Label.text = userViewModel.fullname
+        player2Label.text = gameViewModel.player
+        additionalInfoLabel.text = gameViewModel.commentsDescription
+        
+        let sizeProcessor = ResizingImageProcessor(referenceSize: CGSize(width: SizeConstants.photoWidth, height: SizeConstants.photoHeight), mode: .aspectFill)
+        
+        if let photo1URL = userViewModel.photoURL {
+            photo1ImageView.kf.indicatorType = .custom(indicator: indicator)
+            photo1ImageView.kf.setImage(with: URL(string: photo1URL), placeholder: nil, options: [.processor(sizeProcessor)], completionHandler: { (image, _, _, _) in
+                if image == nil {
+                    self.photo1ImageView.image = UIImage(named: Constants.userImage)
+                }
+            })
+        } else {
+            photo1ImageView.image = UIImage(named: Constants.userImage)
+        }
+        
+        if let photo2URL = gameViewModel.photoURL {
+            photo2ImageView.kf.indicatorType = .custom(indicator: indicator)
+            photo2ImageView.kf.setImage(with: URL(string: photo2URL), placeholder: nil, options: [.processor(sizeProcessor)], completionHandler: { (image, _, _, _) in
+                if image == nil {
+                    self.photo2ImageView.image = UIImage(named: Constants.userImage)
+                }
+            })
+        } else {
+            photo2ImageView.image = UIImage(named: Constants.userImage)
+        }
+        
+        if gameViewModel.video != nil {
+            videoImageView.tintColor = PaletteColors.textGray
+            videoImageView.image = UIImage(named: Constants.videoImage)?.withRenderingMode(.alwaysTemplate)
+            videoImageView.isHidden = false
+            
+            centerVideoImageView.isActive = true
+            widthVideoImageView.constant = 20
+            leadingVideoImageView.constant = 8
+        } else {
+            videoImageView.removeConstraints([leadingVideoImageView])
+            videoImageView.isHidden = true
+            centerVideoImageView.isActive = false
+            
+            leadingVideoImageView.constant = 0
+            widthVideoImageView.constant = 0
+        }
+    }
+    
     // MARK: - Private Methods
     
     private func configureFont() {
@@ -143,14 +194,14 @@ final class GamesCell: UICollectionViewCell, ViewModelConfigurable {
         typeLabel.font = UIFont.customFont(.robotoRegularFont(size: 11))
         score1Label.font = UIFont.customFont(.robotoMediumFont(size: 23))
         score2Label.font = UIFont.customFont(.robotoMediumFont(size: 23))
-        clubLabel.font = UIFont.customFont(.robotoRegularFont(size: 11))
+        additionalInfoLabel.font = UIFont.customFont(.robotoRegularFont(size: 11))
     }
     
     private func configureColor() {
         player1Label.textColor = PaletteColors.darkGray
         player2Label.textColor = PaletteColors.darkGray
         typeLabel.textColor = PaletteColors.textGray
-        clubLabel.textColor = PaletteColors.textGray
+        additionalInfoLabel.textColor = PaletteColors.textGray
     }
     
     private func configureScoreColor() {

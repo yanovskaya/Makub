@@ -28,7 +28,6 @@ final class CommentsCell: UICollectionViewCell, ViewModelConfigurable {
     @IBOutlet private var authorLabel: UILabel!
     @IBOutlet private var commentLabel: UILabel!
     @IBOutlet private var dateLabel: UILabel!
-    @IBOutlet private var moreButton: UIButton!
     
     // MARK: - Private Property
     
@@ -69,8 +68,7 @@ final class CommentsCell: UICollectionViewCell, ViewModelConfigurable {
     }
     
     func configureCellWidth(_ width: CGFloat) {
-        let offsets: CGFloat = 2 * 16
-        commentLabel.widthAnchor.constraint(equalToConstant: width - offsets).isActive = true
+        widthAnchor.constraint(equalToConstant: width).isActive = true
     }
     
     // MARK: - Private Methods

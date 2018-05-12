@@ -35,7 +35,7 @@ final class TournamentsPresentationModel: PresentationModel {
         tournamentsService.obtainTournaments(useCache: true, from: fromIndex, count: count) { result in
             switch result {
             case .serviceSuccess(let model):
-                guard let model = model else { return }
+                // guard let model = model else { return }
                 //self.tournamentsViewModels = model.tournaments.compactMap { TournamentViewModel($0) }
                 // моковый объект
                 self.tournamentsViewModels = [TournamentViewModel(desc: true, date: true),

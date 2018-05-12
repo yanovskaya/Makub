@@ -29,9 +29,8 @@ final class GameViewModel {
     let photo1URL: String!
     let photo2URL: String!
     let playerTime: String
-    let comments: String
-    
-    var type: String
+    let comments: String!
+    let type: String
     var club: String!
     
     // MARK: - Initialization
@@ -41,11 +40,12 @@ final class GameViewModel {
         self.score1 = game.score1
         self.score2 = game.score2
         self.clubId = game.clubId
+        self.stage = game.stage
+        self.comments = game.comments
         self.player1 = game.name1 + " " + game.surname1
         self.player2 = game.name2 + " " + game.surname2
         
-        self.stage = game.stage
-        self.comments = game.comments
+        type = (game.type != nil) ? game.type.getType() : ""
         
         if let time = game.playTime.timeConverter() {
             self.playerTime = time
@@ -53,28 +53,21 @@ final class GameViewModel {
             self.playerTime = ""
         }
         if let photo1 = game.photo1, photo1 != "" {
-            self.photo1URL = (Constants.baseURL + photo1).removeSpacesInURL()
+            self.photo1URL = (Constants.baseURL + photo1).encodeInURL()
         } else {
             self.photo1URL = nil
         }
         
         if let photo2 = game.photo2, photo2 != "" {
-            self.photo2URL = (Constants.baseURL + photo2).removeSpacesInURL()
+            self.photo2URL = (Constants.baseURL + photo2).encodeInURL()
         } else {
             self.photo2URL = nil
         }
         
-        if let video = game.video, video != "", video.count < 20 {
+        if let video = game.video, video != "", video != "0", video.count < 20 {
             self.video = video
         } else {
             self.video = nil
         }
-        
-        if let type = game.type {
-            self.type = type.getType()
-        } else {
-            self.type = ""
-        }
     }
-    
 }

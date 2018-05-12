@@ -32,7 +32,8 @@ final class RatingViewModel {
     init(_ rating: Rating) {
         id = rating.id
         fullname = rating.name + " " + rating.surname
-        club = rating.club
+        club = (rating.club != nil) ? rating.club : ""
+        
         if let commonRating = Int(rating.ratingOfPlayer) {
             self.commonRating = commonRating
         } else {
@@ -54,7 +55,7 @@ final class RatingViewModel {
             classicRating = 0
         }
         if let photo = rating.photo, photo != "" {
-            self.photoURL = (Constants.baseURL + photo).removeSpacesInURL()
+            self.photoURL = (Constants.baseURL + photo).encodeInURL()
         } else {
             self.photoURL = nil
         }

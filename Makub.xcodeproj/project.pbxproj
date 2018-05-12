@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0133FA4162EDEEAA9FE3135C /* Pods_Makub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD91280B983360A8DBD4BDFC /* Pods_Makub.framework */; };
+		9B19A66C19FF5656554FC1A9 /* Pods_MakubTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DFA04958E6A756BDD96FF65 /* Pods_MakubTests.framework */; };
 		C408C8CF206D3E7A0053F057 /* AddNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C408C8CE206D3E7A0053F057 /* AddNewsViewController.swift */; };
 		C408C8D1206D3F660053F057 /* NewsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C408C8D0206D3F660053F057 /* NewsRouter.swift */; };
 		C40EDD7420648EF000338300 /* UIImage+FromColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40EDD7320648EF000338300 /* UIImage+FromColor.swift */; };
@@ -68,6 +69,13 @@
 		C42940C420827BA60026B2C3 /* GameInfoPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42940C320827BA60026B2C3 /* GameInfoPresentationModel.swift */; };
 		C42940C920827CF50026B2C3 /* GameInfoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42940C820827CF50026B2C3 /* GameInfoService.swift */; };
 		C42940CB20827D2B0026B2C3 /* CommentsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42940CA20827D2B0026B2C3 /* CommentsResponse.swift */; };
+		C42D95602097282500772D70 /* GameInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42D955F2097282500772D70 /* GameInfo.swift */; };
+		C42D9562209735DA00772D70 /* GameInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42D9561209735DA00772D70 /* GameInfoViewModel.swift */; };
+		C42D95642097432C00772D70 /* UserGameInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42D95632097432C00772D70 /* UserGameInfoViewController.swift */; };
+		C42D9566209743E900772D70 /* UserGameInfoPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42D9565209743E900772D70 /* UserGameInfoPresentationModel.swift */; };
+		C42D95842098A72700772D70 /* StringTimeConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42D95832098A72700772D70 /* StringTimeConverterTests.swift */; };
+		C42D959B209A2D4100772D70 /* StringDateConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42D959A209A2D4100772D70 /* StringDateConverterTests.swift */; };
+		C42D959D209A480000772D70 /* TransportTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C42D959C209A480000772D70 /* TransportTests.swift */; };
 		C430FD05208103240019D9CE /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C430FD04208103240019D9CE /* Auth.storyboard */; };
 		C430FD0820822A390019D9CE /* ClubsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C430FD0720822A390019D9CE /* ClubsResponse.swift */; };
 		C430FD0A20822EA10019D9CE /* ClubViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C430FD0920822EA10019D9CE /* ClubViewModel.swift */; };
@@ -80,6 +88,14 @@
 		C44D60D5205806BB00A5C50F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44D60D4205806BB00A5C50F /* Colors.swift */; };
 		C44D60D7205807F500A5C50F /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44D60D6205807F500A5C50F /* UIColor+Hex.swift */; };
 		C44D60EA2058573D00A5C50F /* UIFont+CustomFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44D60E92058573D00A5C50F /* UIFont+CustomFont.swift */; };
+		C44ED7EA208F396100B8A642 /* UserCommentsCountResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44ED7E9208F396100B8A642 /* UserCommentsCountResponse.swift */; };
+		C44ED7EC208F397200B8A642 /* UserCommentsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44ED7EB208F397200B8A642 /* UserCommentsResponse.swift */; };
+		C44ED7EE208F602E00B8A642 /* UserComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44ED7ED208F602E00B8A642 /* UserComment.swift */; };
+		C44ED7F3208FB4BD00B8A642 /* UserGamesPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44ED7F2208FB4BD00B8A642 /* UserGamesPresentationModel.swift */; };
+		C44ED7F5208FC06700B8A642 /* UserCommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44ED7F4208FC06700B8A642 /* UserCommentsViewController.swift */; };
+		C44ED7F7208FD8CE00B8A642 /* UserCommentsPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44ED7F6208FD8CE00B8A642 /* UserCommentsPresentationModel.swift */; };
+		C44ED7F92090583400B8A642 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44ED7F82090583400B8A642 /* EditProfileViewController.swift */; };
+		C44ED7FB2092099400B8A642 /* EditProfilePresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44ED7FA2092099400B8A642 /* EditProfilePresentationModel.swift */; };
 		C4540F93207B8CBD00EEC4A5 /* GamesCountResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4540F92207B8CBD00EEC4A5 /* GamesCountResponse.swift */; };
 		C4540F95207BEAA100EEC4A5 /* FilterViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4540F94207BEAA100EEC4A5 /* FilterViewControllerDelegate.swift */; };
 		C4556B95205EC04D00D65DBD /* UIImage+ImageWithInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4556B94205EC04D00D65DBD /* UIImage+ImageWithInsets.swift */; };
@@ -90,6 +106,7 @@
 		C463186C207964C700E14DAC /* UserDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = C463186B207964C700E14DAC /* UserDefaultsKeys.swift */; };
 		C463186E207A0DE000E14DAC /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C463186D207A0DE000E14DAC /* Filter.swift */; };
 		C4631870207A100600E14DAC /* FilterGamesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C463186F207A100600E14DAC /* FilterGamesViewModel.swift */; };
+		C46BD27E20A73C6200F35C31 /* AccountViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46BD27D20A73C6200F35C31 /* AccountViewControllerDelegate.swift */; };
 		C472A6BF205B16D500768585 /* PresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472A6BE205B16D500768585 /* PresentationModel.swift */; };
 		C472A6C3205B174000768585 /* AuthPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472A6C2205B174000768585 /* AuthPresentationModel.swift */; };
 		C472A6C8205C4D5300768585 /* String+RemoveWhitespaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = C472A6C7205C4D5300768585 /* String+RemoveWhitespaces.swift */; };
@@ -128,6 +145,24 @@
 		C4C259B62078CCDE00C0CDD4 /* OptionFilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C259B52078CCDE00C0CDD4 /* OptionFilterCell.swift */; };
 		C4C259B82078DBEA00C0CDD4 /* FilterGamesOptions.plist in Resources */ = {isa = PBXBuildFile; fileRef = C4C259B72078DBEA00C0CDD4 /* FilterGamesOptions.plist */; };
 		C4C259BA2078DF4800C0CDD4 /* FilterGamesPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C259B92078DF4800C0CDD4 /* FilterGamesPresentationModel.swift */; };
+		C4C4A57B208A645700AB6384 /* Account.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4C4A57A208A645700AB6384 /* Account.storyboard */; };
+		C4C4A57D208A64C300AB6384 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C4A57C208A64C300AB6384 /* AccountViewController.swift */; };
+		C4C4A580208A8CA900AB6384 /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4C4A57F208A8CA900AB6384 /* UserCell.xib */; };
+		C4C4A582208A8CC600AB6384 /* SettingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4C4A581208A8CC600AB6384 /* SettingCell.xib */; };
+		C4C4A584208A8D1500AB6384 /* ExitCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4C4A583208A8D1500AB6384 /* ExitCell.xib */; };
+		C4C4A586208A919C00AB6384 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C4A585208A919C00AB6384 /* UserCell.swift */; };
+		C4C4A588208A9AA200AB6384 /* Settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = C4C4A587208A9AA200AB6384 /* Settings.plist */; };
+		C4C4A58B208A9E7100AB6384 /* AccountPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C4A58A208A9E7100AB6384 /* AccountPresentationModel.swift */; };
+		C4C4A593208AA34B00AB6384 /* SettingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C4A592208AA34B00AB6384 /* SettingCell.swift */; };
+		C4C4A597208ABA2900AB6384 /* ExitCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C4A596208ABA2900AB6384 /* ExitCell.swift */; };
+		C4C4A59A208AC01500AB6384 /* String+GetRomanRank.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C4A599208AC01500AB6384 /* String+GetRomanRank.swift */; };
+		C4C4A5A0208B5DCB00AB6384 /* GamesAchievementsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4C4A59F208B5DCB00AB6384 /* GamesAchievementsCell.xib */; };
+		C4C4A5A2208B5F2800AB6384 /* GamesAchievementsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C4A5A1208B5F2800AB6384 /* GamesAchievementsCell.swift */; };
+		C4C4A5A5208B5F7100AB6384 /* CupsAchievementsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C4A5A3208B5F7100AB6384 /* CupsAchievementsCell.swift */; };
+		C4C4A5A8208B5FD000AB6384 /* CupsAchievementsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4C4A5A7208B5FD000AB6384 /* CupsAchievementsCell.xib */; };
+		C4C4A5AB208B674E00AB6384 /* AccountRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C4A5AA208B674E00AB6384 /* AccountRouter.swift */; };
+		C4C4A5AD208B688800AB6384 /* AchievementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C4A5AC208B688800AB6384 /* AchievementsViewController.swift */; };
+		C4C4A5B1208B7C4300AB6384 /* AchievementsPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4C4A5B0208B7C4300AB6384 /* AchievementsPresentationModel.swift */; };
 		C4D4E4EF20606FEF000A9216 /* RecoverPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D4E4EE20606FEF000A9216 /* RecoverPresentationModel.swift */; };
 		C4D4E4F22060860F000A9216 /* AuthRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D4E4F12060860F000A9216 /* AuthRouter.swift */; };
 		C4D4E4FA20618E63000A9216 /* RatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D4E4F920618E63000A9216 /* RatingViewController.swift */; };
@@ -143,16 +178,36 @@
 		C4E1127A20834AF100EE7DC4 /* GameInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E1127920834AF100EE7DC4 /* GameInfoCell.swift */; };
 		C4E1127C20834B0400EE7DC4 /* AddCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E1127B20834B0400EE7DC4 /* AddCommentCell.swift */; };
 		C4E1127E20834B1700EE7DC4 /* CommentsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E1127D20834B1700EE7DC4 /* CommentsCell.swift */; };
-		C4E1128020835B4600EE7DC4 /* GameInfoImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E1127F20835B4600EE7DC4 /* GameInfoImpl.swift */; };
+		C4E1128020835B4600EE7DC4 /* GameInfoServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E1127F20835B4600EE7DC4 /* GameInfoServiceImpl.swift */; };
 		C4E1128220835B6100EE7DC4 /* TournamentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E1128120835B6100EE7DC4 /* TournamentResponse.swift */; };
 		C4E112842083605D00EE7DC4 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4E112832083605D00EE7DC4 /* Comment.swift */; };
 		C4EFB7912089063000E6033B /* RatingPresentationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4EFB7902089063000E6033B /* RatingPresentationModel.swift */; };
 		C4EFB794208906A800E6033B /* RatingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4EFB793208906A800E6033B /* RatingViewModel.swift */; };
 		C4EFB79720890A8300E6033B /* RatingType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4EFB79620890A8300E6033B /* RatingType.swift */; };
+		C4FBE22C208D492E00AD618D /* UserGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FBE22B208D492E00AD618D /* UserGameViewModel.swift */; };
+		C4FBE22E208D498200AD618D /* UserGamesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FBE22D208D498200AD618D /* UserGamesViewController.swift */; };
+		C4FBE231208D56A400AD618D /* String+GetCommentsCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FBE230208D56A400AD618D /* String+GetCommentsCount.swift */; };
+		C4FBE233208D57D000AD618D /* UserGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FBE232208D57D000AD618D /* UserGame.swift */; };
+		C4FBE239208D5E8D00AD618D /* AccountServiceImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FBE238208D5E8D00AD618D /* AccountServiceImpl.swift */; };
+		C4FBE23B208D5EB900AD618D /* AccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FBE23A208D5EB900AD618D /* AccountService.swift */; };
+		C4FBE23D208D5F1500AD618D /* UserGamesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4FBE23C208D5F1500AD618D /* UserGamesResponse.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C42D95862098A72700772D70 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C44D60A4205529C100A5C50F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C44D60AB205529C100A5C50F;
+			remoteInfo = Makub;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		25B33F5602AEBC76325DB113 /* Pods-Makub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Makub.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Makub/Pods-Makub.debug.xcconfig"; sourceTree = "<group>"; };
+		2F43183DE3B6285D2FBF8CF6 /* Pods-MakubTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MakubTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MakubTests/Pods-MakubTests.release.xcconfig"; sourceTree = "<group>"; };
+		6DFA04958E6A756BDD96FF65 /* Pods_MakubTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MakubTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E834EE6435D78B732F43A7B /* Pods-MakubTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MakubTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MakubTests/Pods-MakubTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AD3835C1372474B08AEF32EE /* Pods-Makub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Makub.release.xcconfig"; path = "Pods/Target Support Files/Pods-Makub/Pods-Makub.release.xcconfig"; sourceTree = "<group>"; };
 		C408C8CE206D3E7A0053F057 /* AddNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewsViewController.swift; sourceTree = "<group>"; };
 		C408C8D0206D3F660053F057 /* NewsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsRouter.swift; sourceTree = "<group>"; };
@@ -214,10 +269,19 @@
 		C42940C320827BA60026B2C3 /* GameInfoPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfoPresentationModel.swift; sourceTree = "<group>"; };
 		C42940C820827CF50026B2C3 /* GameInfoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfoService.swift; sourceTree = "<group>"; };
 		C42940CA20827D2B0026B2C3 /* CommentsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsResponse.swift; sourceTree = "<group>"; };
+		C42D955F2097282500772D70 /* GameInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfo.swift; sourceTree = "<group>"; };
+		C42D9561209735DA00772D70 /* GameInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfoViewModel.swift; sourceTree = "<group>"; };
+		C42D95632097432C00772D70 /* UserGameInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGameInfoViewController.swift; sourceTree = "<group>"; };
+		C42D9565209743E900772D70 /* UserGameInfoPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGameInfoPresentationModel.swift; sourceTree = "<group>"; };
+		C42D95812098A72700772D70 /* MakubTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MakubTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C42D95832098A72700772D70 /* StringTimeConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringTimeConverterTests.swift; sourceTree = "<group>"; };
+		C42D95852098A72700772D70 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C42D959A209A2D4100772D70 /* StringDateConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringDateConverterTests.swift; sourceTree = "<group>"; };
+		C42D959C209A480000772D70 /* TransportTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransportTests.swift; sourceTree = "<group>"; };
 		C430FD04208103240019D9CE /* Auth.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		C430FD0720822A390019D9CE /* ClubsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubsResponse.swift; sourceTree = "<group>"; };
 		C430FD0920822EA10019D9CE /* ClubViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubViewModel.swift; sourceTree = "<group>"; };
-		C44D60AC205529C100A5C50F /* Макуб.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Макуб.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C44D60AC205529C100A5C50F /* Makub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Makub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C44D60AF205529C100A5C50F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C44D60B1205529C200A5C50F /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		C44D60B6205529C200A5C50F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -228,6 +292,14 @@
 		C44D60D4205806BB00A5C50F /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		C44D60D6205807F500A5C50F /* UIColor+Hex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Hex.swift"; sourceTree = "<group>"; };
 		C44D60E92058573D00A5C50F /* UIFont+CustomFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+CustomFont.swift"; sourceTree = "<group>"; };
+		C44ED7E9208F396100B8A642 /* UserCommentsCountResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCommentsCountResponse.swift; sourceTree = "<group>"; };
+		C44ED7EB208F397200B8A642 /* UserCommentsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCommentsResponse.swift; sourceTree = "<group>"; };
+		C44ED7ED208F602E00B8A642 /* UserComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserComment.swift; sourceTree = "<group>"; };
+		C44ED7F2208FB4BD00B8A642 /* UserGamesPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGamesPresentationModel.swift; sourceTree = "<group>"; };
+		C44ED7F4208FC06700B8A642 /* UserCommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCommentsViewController.swift; sourceTree = "<group>"; };
+		C44ED7F6208FD8CE00B8A642 /* UserCommentsPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCommentsPresentationModel.swift; sourceTree = "<group>"; };
+		C44ED7F82090583400B8A642 /* EditProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
+		C44ED7FA2092099400B8A642 /* EditProfilePresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfilePresentationModel.swift; sourceTree = "<group>"; };
 		C4540F92207B8CBD00EEC4A5 /* GamesCountResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesCountResponse.swift; sourceTree = "<group>"; };
 		C4540F94207BEAA100EEC4A5 /* FilterViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewControllerDelegate.swift; sourceTree = "<group>"; };
 		C4556B94205EC04D00D65DBD /* UIImage+ImageWithInsets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+ImageWithInsets.swift"; sourceTree = "<group>"; };
@@ -238,6 +310,7 @@
 		C463186B207964C700E14DAC /* UserDefaultsKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsKeys.swift; sourceTree = "<group>"; };
 		C463186D207A0DE000E14DAC /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		C463186F207A100600E14DAC /* FilterGamesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterGamesViewModel.swift; sourceTree = "<group>"; };
+		C46BD27D20A73C6200F35C31 /* AccountViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewControllerDelegate.swift; sourceTree = "<group>"; };
 		C472A6BE205B16D500768585 /* PresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationModel.swift; sourceTree = "<group>"; };
 		C472A6C2205B174000768585 /* AuthPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPresentationModel.swift; sourceTree = "<group>"; };
 		C472A6C7205C4D5300768585 /* String+RemoveWhitespaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+RemoveWhitespaces.swift"; sourceTree = "<group>"; };
@@ -276,6 +349,24 @@
 		C4C259B52078CCDE00C0CDD4 /* OptionFilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionFilterCell.swift; sourceTree = "<group>"; };
 		C4C259B72078DBEA00C0CDD4 /* FilterGamesOptions.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = FilterGamesOptions.plist; sourceTree = "<group>"; };
 		C4C259B92078DF4800C0CDD4 /* FilterGamesPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterGamesPresentationModel.swift; sourceTree = "<group>"; };
+		C4C4A57A208A645700AB6384 /* Account.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Account.storyboard; sourceTree = "<group>"; };
+		C4C4A57C208A64C300AB6384 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		C4C4A57F208A8CA900AB6384 /* UserCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
+		C4C4A581208A8CC600AB6384 /* SettingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingCell.xib; sourceTree = "<group>"; };
+		C4C4A583208A8D1500AB6384 /* ExitCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExitCell.xib; sourceTree = "<group>"; };
+		C4C4A585208A919C00AB6384 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		C4C4A587208A9AA200AB6384 /* Settings.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Settings.plist; sourceTree = "<group>"; };
+		C4C4A58A208A9E7100AB6384 /* AccountPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountPresentationModel.swift; sourceTree = "<group>"; };
+		C4C4A592208AA34B00AB6384 /* SettingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCell.swift; sourceTree = "<group>"; };
+		C4C4A596208ABA2900AB6384 /* ExitCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExitCell.swift; sourceTree = "<group>"; };
+		C4C4A599208AC01500AB6384 /* String+GetRomanRank.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+GetRomanRank.swift"; sourceTree = "<group>"; };
+		C4C4A59F208B5DCB00AB6384 /* GamesAchievementsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GamesAchievementsCell.xib; sourceTree = "<group>"; };
+		C4C4A5A1208B5F2800AB6384 /* GamesAchievementsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamesAchievementsCell.swift; sourceTree = "<group>"; };
+		C4C4A5A3208B5F7100AB6384 /* CupsAchievementsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CupsAchievementsCell.swift; sourceTree = "<group>"; };
+		C4C4A5A7208B5FD000AB6384 /* CupsAchievementsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CupsAchievementsCell.xib; sourceTree = "<group>"; };
+		C4C4A5AA208B674E00AB6384 /* AccountRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRouter.swift; sourceTree = "<group>"; };
+		C4C4A5AC208B688800AB6384 /* AchievementsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsViewController.swift; sourceTree = "<group>"; };
+		C4C4A5B0208B7C4300AB6384 /* AchievementsPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsPresentationModel.swift; sourceTree = "<group>"; };
 		C4D4E4EE20606FEF000A9216 /* RecoverPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecoverPresentationModel.swift; sourceTree = "<group>"; };
 		C4D4E4F12060860F000A9216 /* AuthRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthRouter.swift; sourceTree = "<group>"; };
 		C4D4E4F920618E63000A9216 /* RatingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingViewController.swift; sourceTree = "<group>"; };
@@ -291,16 +382,31 @@
 		C4E1127920834AF100EE7DC4 /* GameInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfoCell.swift; sourceTree = "<group>"; };
 		C4E1127B20834B0400EE7DC4 /* AddCommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCommentCell.swift; sourceTree = "<group>"; };
 		C4E1127D20834B1700EE7DC4 /* CommentsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsCell.swift; sourceTree = "<group>"; };
-		C4E1127F20835B4600EE7DC4 /* GameInfoImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfoImpl.swift; sourceTree = "<group>"; };
+		C4E1127F20835B4600EE7DC4 /* GameInfoServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfoServiceImpl.swift; sourceTree = "<group>"; };
 		C4E1128120835B6100EE7DC4 /* TournamentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TournamentResponse.swift; sourceTree = "<group>"; };
 		C4E112832083605D00EE7DC4 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		C4EFB7902089063000E6033B /* RatingPresentationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingPresentationModel.swift; sourceTree = "<group>"; };
 		C4EFB793208906A800E6033B /* RatingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingViewModel.swift; sourceTree = "<group>"; };
 		C4EFB79620890A8300E6033B /* RatingType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingType.swift; sourceTree = "<group>"; };
+		C4FBE22B208D492E00AD618D /* UserGameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGameViewModel.swift; sourceTree = "<group>"; };
+		C4FBE22D208D498200AD618D /* UserGamesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGamesViewController.swift; sourceTree = "<group>"; };
+		C4FBE230208D56A400AD618D /* String+GetCommentsCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+GetCommentsCount.swift"; sourceTree = "<group>"; };
+		C4FBE232208D57D000AD618D /* UserGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGame.swift; sourceTree = "<group>"; };
+		C4FBE238208D5E8D00AD618D /* AccountServiceImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountServiceImpl.swift; sourceTree = "<group>"; };
+		C4FBE23A208D5EB900AD618D /* AccountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountService.swift; sourceTree = "<group>"; };
+		C4FBE23C208D5F1500AD618D /* UserGamesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGamesResponse.swift; sourceTree = "<group>"; };
 		FD91280B983360A8DBD4BDFC /* Pods_Makub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Makub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		C42D957E2098A72700772D70 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9B19A66C19FF5656554FC1A9 /* Pods_MakubTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C44D60A9205529C100A5C50F /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -317,6 +423,8 @@
 			children = (
 				25B33F5602AEBC76325DB113 /* Pods-Makub.debug.xcconfig */,
 				AD3835C1372474B08AEF32EE /* Pods-Makub.release.xcconfig */,
+				7E834EE6435D78B732F43A7B /* Pods-MakubTests.debug.xcconfig */,
+				2F43183DE3B6285D2FBF8CF6 /* Pods-MakubTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -412,6 +520,7 @@
 				C430FD0920822EA10019D9CE /* ClubViewModel.swift */,
 				C48C71CF208380F0007D984B /* TournamentForGameViewModel.swift */,
 				C48C71D12083811A007D984B /* CommentViewModel.swift */,
+				C42D9561209735DA00772D70 /* GameInfoViewModel.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -440,6 +549,7 @@
 			isa = PBXGroup;
 			children = (
 				C41B3CDA2072F53E00A2B652 /* ServiceLayer.swift */,
+				C4FBE234208D5CE000AD618D /* Account */,
 				C427F2E12088BCE9007D6C83 /* Rating */,
 				C427F2D12087C87D007D6C83 /* Clubs */,
 				C427F2C02087AF33007D6C83 /* Tournaments */,
@@ -706,7 +816,7 @@
 			children = (
 				C42940C620827CD20026B2C3 /* Protocol */,
 				C42940C720827CD90026B2C3 /* Parser */,
-				C4E1127F20835B4600EE7DC4 /* GameInfoImpl.swift */,
+				C4E1127F20835B4600EE7DC4 /* GameInfoServiceImpl.swift */,
 			);
 			path = "Game Info";
 			sourceTree = "<group>";
@@ -729,10 +839,22 @@
 			path = Parser;
 			sourceTree = "<group>";
 		};
+		C42D95822098A72700772D70 /* MakubTests */ = {
+			isa = PBXGroup;
+			children = (
+				C42D959C209A480000772D70 /* TransportTests.swift */,
+				C42D95832098A72700772D70 /* StringTimeConverterTests.swift */,
+				C42D959A209A2D4100772D70 /* StringDateConverterTests.swift */,
+				C42D95852098A72700772D70 /* Info.plist */,
+			);
+			path = MakubTests;
+			sourceTree = "<group>";
+		};
 		C44D60A3205529C100A5C50F = {
 			isa = PBXGroup;
 			children = (
 				C44D60AE205529C100A5C50F /* Makub */,
+				C42D95822098A72700772D70 /* MakubTests */,
 				C44D60AD205529C100A5C50F /* Products */,
 				098B841B262CEA2D15B352A5 /* Pods */,
 				C8FE19675A729A68973D7EBE /* Frameworks */,
@@ -742,7 +864,8 @@
 		C44D60AD205529C100A5C50F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C44D60AC205529C100A5C50F /* Макуб.app */,
+				C44D60AC205529C100A5C50F /* Makub.app */,
+				C42D95812098A72700772D70 /* MakubTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -785,6 +908,7 @@
 			children = (
 				C44D60BB205529C200A5C50F /* Info.plist */,
 				C4C259B72078DBEA00C0CDD4 /* FilterGamesOptions.plist */,
+				C4C4A587208A9AA200AB6384 /* Settings.plist */,
 			);
 			path = "Supporting files";
 			sourceTree = "<group>";
@@ -795,11 +919,14 @@
 				C44D60C920553B0100A5C50F /* User.swift */,
 				C4A303F62066EAA4008BFE5E /* News.swift */,
 				C41B3C2B2072573600A2B652 /* Game.swift */,
-				C463186D207A0DE000E14DAC /* Filter.swift */,
 				C4E112832083605D00EE7DC4 /* Comment.swift */,
 				C41B3C332072640100A2B652 /* Club.swift */,
 				C41B3C352072642000A2B652 /* Tournament.swift */,
 				C427F2DF2088BC45007D6C83 /* Rating.swift */,
+				C463186D207A0DE000E14DAC /* Filter.swift */,
+				C4FBE232208D57D000AD618D /* UserGame.swift */,
+				C44ED7ED208F602E00B8A642 /* UserComment.swift */,
+				C42D955F2097282500772D70 /* GameInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -807,6 +934,7 @@
 		C44D60C62055390F00A5C50F /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				C4C4A575208A640F00AB6384 /* Account */,
 				C491622920862DBC00A95E07 /* Tournaments */,
 				C41B3C1B2072187D00A2B652 /* Games */,
 				C4D4E4F820618E47000A9216 /* Rating */,
@@ -1007,6 +1135,87 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
+		C4C4A575208A640F00AB6384 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				C4C4A57A208A645700AB6384 /* Account.storyboard */,
+				C4C4A5A9208B673900AB6384 /* Router */,
+				C4C4A576208A641800AB6384 /* View Controller */,
+				C4C4A589208A9E5500AB6384 /* Presentation Model */,
+				C4FBE22A208D491400AD618D /* View Model */,
+				C4C4A57E208A8C4900AB6384 /* View */,
+				C4FBE22F208D568300AD618D /* Helper */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		C4C4A576208A641800AB6384 /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				C4C4A57C208A64C300AB6384 /* AccountViewController.swift */,
+				C4C4A5AC208B688800AB6384 /* AchievementsViewController.swift */,
+				C4FBE22D208D498200AD618D /* UserGamesViewController.swift */,
+				C44ED7F4208FC06700B8A642 /* UserCommentsViewController.swift */,
+				C44ED7F82090583400B8A642 /* EditProfileViewController.swift */,
+				C42D95632097432C00772D70 /* UserGameInfoViewController.swift */,
+			);
+			path = "View Controller";
+			sourceTree = "<group>";
+		};
+		C4C4A57E208A8C4900AB6384 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C4C4A5AE208B6CA100AB6384 /* Account */,
+				C4C4A5AF208B6CB200AB6384 /* Achievements */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		C4C4A589208A9E5500AB6384 /* Presentation Model */ = {
+			isa = PBXGroup;
+			children = (
+				C4C4A58A208A9E7100AB6384 /* AccountPresentationModel.swift */,
+				C4C4A5B0208B7C4300AB6384 /* AchievementsPresentationModel.swift */,
+				C44ED7F2208FB4BD00B8A642 /* UserGamesPresentationModel.swift */,
+				C44ED7F6208FD8CE00B8A642 /* UserCommentsPresentationModel.swift */,
+				C44ED7FA2092099400B8A642 /* EditProfilePresentationModel.swift */,
+				C42D9565209743E900772D70 /* UserGameInfoPresentationModel.swift */,
+			);
+			path = "Presentation Model";
+			sourceTree = "<group>";
+		};
+		C4C4A5A9208B673900AB6384 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				C4C4A5AA208B674E00AB6384 /* AccountRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		C4C4A5AE208B6CA100AB6384 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				C4C4A57F208A8CA900AB6384 /* UserCell.xib */,
+				C4C4A581208A8CC600AB6384 /* SettingCell.xib */,
+				C4C4A583208A8D1500AB6384 /* ExitCell.xib */,
+				C4C4A585208A919C00AB6384 /* UserCell.swift */,
+				C4C4A592208AA34B00AB6384 /* SettingCell.swift */,
+				C4C4A596208ABA2900AB6384 /* ExitCell.swift */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		C4C4A5AF208B6CB200AB6384 /* Achievements */ = {
+			isa = PBXGroup;
+			children = (
+				C4C4A59F208B5DCB00AB6384 /* GamesAchievementsCell.xib */,
+				C4C4A5A7208B5FD000AB6384 /* CupsAchievementsCell.xib */,
+				C4C4A5A1208B5F2800AB6384 /* GamesAchievementsCell.swift */,
+				C4C4A5A3208B5F7100AB6384 /* CupsAchievementsCell.swift */,
+			);
+			path = Achievements;
+			sourceTree = "<group>";
+		};
 		C4D4E4F0206085BD000A9216 /* Router */ = {
 			isa = PBXGroup;
 			children = (
@@ -1088,10 +1297,57 @@
 			path = Helper;
 			sourceTree = "<group>";
 		};
+		C4FBE22A208D491400AD618D /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+				C4FBE22B208D492E00AD618D /* UserGameViewModel.swift */,
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
+		C4FBE22F208D568300AD618D /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				C4C4A599208AC01500AB6384 /* String+GetRomanRank.swift */,
+				C4FBE230208D56A400AD618D /* String+GetCommentsCount.swift */,
+				C46BD27D20A73C6200F35C31 /* AccountViewControllerDelegate.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		C4FBE234208D5CE000AD618D /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				C4FBE235208D5CF300AD618D /* Protocol */,
+				C4FBE236208D5D0400AD618D /* Parser */,
+				C4FBE238208D5E8D00AD618D /* AccountServiceImpl.swift */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		C4FBE235208D5CF300AD618D /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				C4FBE23A208D5EB900AD618D /* AccountService.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		C4FBE236208D5D0400AD618D /* Parser */ = {
+			isa = PBXGroup;
+			children = (
+				C4FBE23C208D5F1500AD618D /* UserGamesResponse.swift */,
+				C44ED7E9208F396100B8A642 /* UserCommentsCountResponse.swift */,
+				C44ED7EB208F397200B8A642 /* UserCommentsResponse.swift */,
+			);
+			path = Parser;
+			sourceTree = "<group>";
+		};
 		C8FE19675A729A68973D7EBE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				FD91280B983360A8DBD4BDFC /* Pods_Makub.framework */,
+				6DFA04958E6A756BDD96FF65 /* Pods_MakubTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1099,6 +1355,26 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		C42D95802098A72700772D70 /* MakubTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C42D958A2098A72700772D70 /* Build configuration list for PBXNativeTarget "MakubTests" */;
+			buildPhases = (
+				A84C8F9563A2192A590A988E /* [CP] Check Pods Manifest.lock */,
+				C42D957D2098A72700772D70 /* Sources */,
+				C42D957E2098A72700772D70 /* Frameworks */,
+				C42D957F2098A72700772D70 /* Resources */,
+				9F6064FD6EA48B1BC3504721 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C42D95872098A72700772D70 /* PBXTargetDependency */,
+			);
+			name = MakubTests;
+			productName = MakubTests;
+			productReference = C42D95812098A72700772D70 /* MakubTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		C44D60AB205529C100A5C50F /* Makub */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C44D60BE205529C200A5C50F /* Build configuration list for PBXNativeTarget "Makub" */;
@@ -1116,7 +1392,7 @@
 			);
 			name = Makub;
 			productName = Makub;
-			productReference = C44D60AC205529C100A5C50F /* Макуб.app */;
+			productReference = C44D60AC205529C100A5C50F /* Makub.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1125,10 +1401,15 @@
 		C44D60A4205529C100A5C50F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0920;
+				LastSwiftUpdateCheck = 0930;
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Elena Yanovskaya";
 				TargetAttributes = {
+					C42D95802098A72700772D70 = {
+						CreatedOnToolsVersion = 9.3;
+						ProvisioningStyle = Automatic;
+						TestTargetID = C44D60AB205529C100A5C50F;
+					};
 					C44D60AB205529C100A5C50F = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
@@ -1149,11 +1430,19 @@
 			projectRoot = "";
 			targets = (
 				C44D60AB205529C100A5C50F /* Makub */,
+				C42D95802098A72700772D70 /* MakubTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		C42D957F2098A72700772D70 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C44D60AA205529C100A5C50F /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1161,6 +1450,7 @@
 				C41B3C1D2072189E00A2B652 /* Games.storyboard in Resources */,
 				C427F2DC2088B5E1007D6C83 /* RatingCell.xib in Resources */,
 				C491622D20862DEE00A95E07 /* Tournaments.storyboard in Resources */,
+				C4C4A5A0208B5DCB00AB6384 /* GamesAchievementsCell.xib in Resources */,
 				C44D60BA205529C200A5C50F /* LaunchScreen.storyboard in Resources */,
 				C44D60B7205529C200A5C50F /* Assets.xcassets in Resources */,
 				C4E1126F2082C59700EE7DC4 /* CommentsCell.xib in Resources */,
@@ -1169,16 +1459,22 @@
 				C4E1126D2082C58400EE7DC4 /* AddCommentCell.xib in Resources */,
 				C427F2B220869DBC007D6C83 /* TournamentCell.xib in Resources */,
 				C4E1126B2082C56000EE7DC4 /* GameInfoCell.xib in Resources */,
+				C4C4A588208A9AA200AB6384 /* Settings.plist in Resources */,
+				C4C4A5A8208B5FD000AB6384 /* CupsAchievementsCell.xib in Resources */,
+				C4C4A584208A8D1500AB6384 /* ExitCell.xib in Resources */,
+				C4C4A582208A8CC600AB6384 /* SettingCell.xib in Resources */,
 				C4C259B42078CCCA00C0CDD4 /* OptionFilterCell.xib in Resources */,
 				C4C259B02078CCA200C0CDD4 /* TitleFilterCell.xib in Resources */,
 				C414F0D820596DE8001961EC /* Roboto-Regular.otf in Resources */,
 				C430FD05208103240019D9CE /* Auth.storyboard in Resources */,
 				C4D4E5022061934F000A9216 /* News.storyboard in Resources */,
+				C4C4A580208A8CA900AB6384 /* UserCell.xib in Resources */,
 				C41B3C2520721D2300A2B652 /* GamesCell.xib in Resources */,
 				C4A30404206709DF008BFE5E /* NewsCell.xib in Resources */,
 				C4C259B82078DBEA00C0CDD4 /* FilterGamesOptions.plist in Resources */,
 				C4D4E50020619339000A9216 /* Rating.storyboard in Resources */,
 				C414F0D520596DE8001961EC /* Roboto-Medium.otf in Resources */,
+				C4C4A57B208A645700AB6384 /* Account.storyboard in Resources */,
 				C414F0D720596DE8001961EC /* Roboto-Bold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1194,7 +1490,6 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Makub/Pods-Makub-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/FDTake/FDTake.framework",
 				"${BUILT_PRODUCTS_DIR}/HidingNavigationBar/HidingNavigationBar.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/PKHUD/PKHUD.framework",
@@ -1207,7 +1502,6 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FDTake.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HidingNavigationBar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PKHUD.framework",
@@ -1220,6 +1514,44 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Makub/Pods-Makub-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9F6064FD6EA48B1BC3504721 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MakubTests/Pods-MakubTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftKeychainWrapper/SwiftKeychainWrapper.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftKeychainWrapper.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MakubTests/Pods-MakubTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A84C8F9563A2192A590A988E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MakubTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C4F242032059DCBC007E8A16 /* Swiftlint */ = {
@@ -1257,10 +1589,21 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		C42D957D2098A72700772D70 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C42D959D209A480000772D70 /* TransportTests.swift in Sources */,
+				C42D95842098A72700772D70 /* StringTimeConverterTests.swift in Sources */,
+				C42D959B209A2D4100772D70 /* StringDateConverterTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		C44D60A8205529C100A5C50F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C42D9562209735DA00772D70 /* GameInfoViewModel.swift in Sources */,
 				C427F2C42087AF80007D6C83 /* TournamentsService.swift in Sources */,
 				C427F2D52087C8B1007D6C83 /* ClubsServiceImpl.swift in Sources */,
 				C430FD0A20822EA10019D9CE /* ClubViewModel.swift in Sources */,
@@ -1277,16 +1620,20 @@
 				C49162262086135D00A95E07 /* AddCommentResponse.swift in Sources */,
 				C41BE783206FE2FD00ED5826 /* String+RandomString.swift in Sources */,
 				C49162202085DED300A95E07 /* AddNewsPresentationModel.swift in Sources */,
+				C4FBE23B208D5EB900AD618D /* AccountService.swift in Sources */,
 				C41B3CF72072F70A00A2B652 /* AuthService.swift in Sources */,
 				C4BC7104205F2BEA00332D7E /* AuthPassButton.swift in Sources */,
+				C4C4A593208AA34B00AB6384 /* SettingCell.swift in Sources */,
 				C4E1127E20834B1700EE7DC4 /* CommentsCell.swift in Sources */,
 				C44D60B2205529C200A5C50F /* AuthViewController.swift in Sources */,
 				C49162242085E10300A95E07 /* AddCommentViewControllerDelegate.swift in Sources */,
 				C41B3CEE2072F64B00A2B652 /* AuthServiceImpl.swift in Sources */,
 				C42940CB20827D2B0026B2C3 /* CommentsResponse.swift in Sources */,
+				C4C4A58B208A9E7100AB6384 /* AccountPresentationModel.swift in Sources */,
 				C472A6BF205B16D500768585 /* PresentationModel.swift in Sources */,
 				C427F2E72088BDD2007D6C83 /* RatingService.swift in Sources */,
 				C41B3CFE2072F76B00A2B652 /* NewsRepsonse.swift in Sources */,
+				C4C4A57D208A64C300AB6384 /* AccountViewController.swift in Sources */,
 				C427F2E02088BC45007D6C83 /* Rating.swift in Sources */,
 				C4C259A82077662100C0CDD4 /* AddNewsViewControllerDelegate.swift in Sources */,
 				C4E1127C20834B0400EE7DC4 /* AddCommentCell.swift in Sources */,
@@ -1295,6 +1642,7 @@
 				C408C8D1206D3F660053F057 /* NewsRouter.swift in Sources */,
 				C4540F93207B8CBD00EEC4A5 /* GamesCountResponse.swift in Sources */,
 				C4E112842083605D00EE7DC4 /* Comment.swift in Sources */,
+				C4C4A5B1208B7C4300AB6384 /* AchievementsPresentationModel.swift in Sources */,
 				C41B3D022072F78E00A2B652 /* AddNewsResponse.swift in Sources */,
 				C41B3C3D2072B12D00A2B652 /* GamesPresentationModel.swift in Sources */,
 				C4540F95207BEAA100EEC4A5 /* FilterViewControllerDelegate.swift in Sources */,
@@ -1305,6 +1653,7 @@
 				C463186E207A0DE000E14DAC /* Filter.swift in Sources */,
 				C472A6C3205B174000768585 /* AuthPresentationModel.swift in Sources */,
 				C49162222085E0CE00A95E07 /* AddCommentPresentationModel.swift in Sources */,
+				C42D9566209743E900772D70 /* UserGameInfoPresentationModel.swift in Sources */,
 				C4C259AE2078242400C0CDD4 /* UserIndicator.swift in Sources */,
 				C41B3CEC2072F63900A2B652 /* UserServiceImpl.swift in Sources */,
 				C46318682079422F00E14DAC /* NSObject+Fill.swift in Sources */,
@@ -1317,27 +1666,39 @@
 				C427F2C62087AF9A007D6C83 /* TournamentsResponse.swift in Sources */,
 				C4D909972068196900DC3D6C /* NewsCell.swift in Sources */,
 				C472A6CA205C4F8100768585 /* ErrorDescription.swift in Sources */,
+				C4C4A597208ABA2900AB6384 /* ExitCell.swift in Sources */,
 				C42940C920827CF50026B2C3 /* GameInfoService.swift in Sources */,
+				C46BD27E20A73C6200F35C31 /* AccountViewControllerDelegate.swift in Sources */,
+				C42D95602097282500772D70 /* GameInfo.swift in Sources */,
 				C41B3CDB2072F53E00A2B652 /* ServiceLayer.swift in Sources */,
+				C44ED7F5208FC06700B8A642 /* UserCommentsViewController.swift in Sources */,
+				C4FBE231208D56A400AD618D /* String+GetCommentsCount.swift in Sources */,
 				C491621E2085378600A95E07 /* String+CapitalizeFirstLetter.swift in Sources */,
 				C427F2D02087BFD0007D6C83 /* TournamentPresentationModel.swift in Sources */,
 				C45AC9622066656100F9947F /* UserViewModel.swift in Sources */,
+				C4FBE239208D5E8D00AD618D /* AccountServiceImpl.swift in Sources */,
 				C45AC967206671AF00F9947F /* NewsPresentationModel.swift in Sources */,
 				C472A6D1205C7E5900768585 /* Storyboard+GetViewController.swift in Sources */,
-				C4E1128020835B4600EE7DC4 /* GameInfoImpl.swift in Sources */,
+				C4E1128020835B4600EE7DC4 /* GameInfoServiceImpl.swift in Sources */,
 				C49EF4C820790E2800906664 /* NSDictionary+Parse.swift in Sources */,
 				C48C71D0208380F0007D984B /* TournamentForGameViewModel.swift in Sources */,
 				C427F2C82087AFC7007D6C83 /* TournamentsServiceImpl.swift in Sources */,
 				C41B3C272072561000A2B652 /* GamesCell.swift in Sources */,
+				C44ED7F3208FB4BD00B8A642 /* UserGamesPresentationModel.swift in Sources */,
 				C4D4E4F22060860F000A9216 /* AuthRouter.swift in Sources */,
 				C4C259A42076981000C0CDD4 /* NewsCellDelegate.swift in Sources */,
+				C44ED7F92090583400B8A642 /* EditProfileViewController.swift in Sources */,
 				C4A303F72066EAA4008BFE5E /* News.swift in Sources */,
 				C41B3C20207218CE00A2B652 /* GamesViewController.swift in Sources */,
 				C41B3CFC2072F74900A2B652 /* AuthResponse.swift in Sources */,
+				C4C4A5A2208B5F2800AB6384 /* GamesAchievementsCell.swift in Sources */,
+				C4FBE23D208D5F1500AD618D /* UserGamesResponse.swift in Sources */,
 				C4C259B62078CCDE00C0CDD4 /* OptionFilterCell.swift in Sources */,
 				C42940C220827B060026B2C3 /* GameInfoViewController.swift in Sources */,
 				C4D4E4FE20618FA9000A9216 /* TabBarController.swift in Sources */,
 				C4E1128220835B6100EE7DC4 /* TournamentResponse.swift in Sources */,
+				C42D95642097432C00772D70 /* UserGameInfoViewController.swift in Sources */,
+				C44ED7FB2092099400B8A642 /* EditProfilePresentationModel.swift in Sources */,
 				C4D4E4EF20606FEF000A9216 /* RecoverPresentationModel.swift in Sources */,
 				C40EDD7420648EF000338300 /* UIImage+FromColor.swift in Sources */,
 				C41B3C362072642000A2B652 /* Tournament.swift in Sources */,
@@ -1351,39 +1712,59 @@
 				C41B3CD72072F50000A2B652 /* Parser.swift in Sources */,
 				C427F2B420869ED0007D6C83 /* TournamentCell.swift in Sources */,
 				C41B3D002072F77A00A2B652 /* GamesResponse.swift in Sources */,
+				C4FBE22C208D492E00AD618D /* UserGameViewModel.swift in Sources */,
+				C4C4A5AB208B674E00AB6384 /* AccountRouter.swift in Sources */,
 				C408C8CF206D3E7A0053F057 /* AddNewsViewController.swift in Sources */,
 				C4C259A62076A3D000C0CDD4 /* DeleteNewsResponse.swift in Sources */,
 				C4D4E4FA20618E63000A9216 /* RatingViewController.swift in Sources */,
 				C48C71D22083811A007D984B /* CommentViewModel.swift in Sources */,
+				C44ED7F7208FD8CE00B8A642 /* UserCommentsPresentationModel.swift in Sources */,
 				C42940C420827BA60026B2C3 /* GameInfoPresentationModel.swift in Sources */,
 				C463186C207964C700E14DAC /* UserDefaultsKeys.swift in Sources */,
+				C4C4A586208A919C00AB6384 /* UserCell.swift in Sources */,
 				C41B3CE82072F61600A2B652 /* GamesServiceImpl.swift in Sources */,
 				C42924B0205C81E700E6D568 /* RecoverViewController.swift in Sources */,
 				C4916228208624C600A95E07 /* UILabel+SetLineSpacing.swift in Sources */,
 				C44D60D22058061100A5C50F /* AuthTextField.swift in Sources */,
 				C41B3CD52072F4F500A2B652 /* RealmCache.swift in Sources */,
+				C4C4A5A5208B5F7100AB6384 /* CupsAchievementsCell.swift in Sources */,
 				C41B3C2C2072573600A2B652 /* Game.swift in Sources */,
+				C4FBE22E208D498200AD618D /* UserGamesViewController.swift in Sources */,
 				C44D60EA2058573D00A5C50F /* UIFont+CustomFont.swift in Sources */,
 				C491621C2085314900A95E07 /* AddCommentViewController.swift in Sources */,
 				C4EFB79720890A8300E6033B /* RatingType.swift in Sources */,
 				C41B3D072072FDB800A2B652 /* String+SpacesInURL.swift in Sources */,
+				C44ED7EA208F396100B8A642 /* UserCommentsCountResponse.swift in Sources */,
 				C427F2CE2087B937007D6C83 /* String+DateConverter.swift in Sources */,
 				C44D60B0205529C100A5C50F /* AppDelegate.swift in Sources */,
 				C44D60CA20553B0100A5C50F /* User.swift in Sources */,
 				C4C259BA2078DF4800C0CDD4 /* FilterGamesPresentationModel.swift in Sources */,
 				C472A6D3205C7E8000768585 /* StoryboardTitle.swift in Sources */,
+				C44ED7EC208F397200B8A642 /* UserCommentsResponse.swift in Sources */,
 				C427F2E52088BD9A007D6C83 /* RatingResponse.swift in Sources */,
+				C4FBE233208D57D000AD618D /* UserGame.swift in Sources */,
+				C4C4A5AD208B688800AB6384 /* AchievementsViewController.swift in Sources */,
 				C4D4E4FC20618E8F000A9216 /* NewsViewController.swift in Sources */,
 				C463186A207944AD00E14DAC /* UIImage+DrawCircle.swift in Sources */,
+				C4C4A59A208AC01500AB6384 /* String+GetRomanRank.swift in Sources */,
 				C427F2CC2087B5A2007D6C83 /* TournamentViewModel.swift in Sources */,
 				C41B3C342072640100A2B652 /* Club.swift in Sources */,
 				C491622B20862DD500A95E07 /* TournamentsViewController.swift in Sources */,
 				C4C259B22078CCB800C0CDD4 /* TitleFilterCell.swift in Sources */,
+				C44ED7EE208F602E00B8A642 /* UserComment.swift in Sources */,
 				C4EFB7912089063000E6033B /* RatingPresentationModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C42D95872098A72700772D70 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C44D60AB205529C100A5C50F /* Makub */;
+			targetProxy = C42D95862098A72700772D70 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		C44D60B8205529C200A5C50F /* LaunchScreen.storyboard */ = {
@@ -1397,6 +1778,42 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		C42D95882098A72700772D70 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7E834EE6435D78B732F43A7B /* Pods-MakubTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 383575UEP3;
+				INFOPLIST_FILE = MakubTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "-.MakubTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Makub.app/Makub";
+			};
+			name = Debug;
+		};
+		C42D95892098A72700772D70 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2F43183DE3B6285D2FBF8CF6 /* Pods-MakubTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 383575UEP3;
+				INFOPLIST_FILE = MakubTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "-.MakubTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Makub.app/Makub";
+			};
+			name = Release;
+		};
 		C44D60BC205529C200A5C50F /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1516,12 +1933,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = JHLX4XGDFC;
+				DEVELOPMENT_TEAM = 4RWLL37A47;
 				INFOPLIST_FILE = "$(SRCROOT)/Makub/Supporting files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "-.Makub";
-				PRODUCT_NAME = "Макуб";
+				PRODUCT_BUNDLE_IDENTIFIER = styleru.Makub;
+				PRODUCT_NAME = Makub;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1533,12 +1950,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = JHLX4XGDFC;
+				DEVELOPMENT_TEAM = 4RWLL37A47;
 				INFOPLIST_FILE = "$(SRCROOT)/Makub/Supporting files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "-.Makub";
-				PRODUCT_NAME = "Макуб";
+				PRODUCT_BUNDLE_IDENTIFIER = styleru.Makub;
+				PRODUCT_NAME = Makub;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1547,6 +1964,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		C42D958A2098A72700772D70 /* Build configuration list for PBXNativeTarget "MakubTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C42D95882098A72700772D70 /* Debug */,
+				C42D95892098A72700772D70 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C44D60A7205529C100A5C50F /* Build configuration list for PBXProject "Makub" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

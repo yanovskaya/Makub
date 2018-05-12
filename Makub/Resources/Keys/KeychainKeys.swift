@@ -10,4 +10,5 @@ import Foundation
 
 enum KeychainKeys {
     static let token = "token"
+    static let pass = "pass"
 }

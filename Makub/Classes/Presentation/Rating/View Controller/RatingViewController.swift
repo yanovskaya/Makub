@@ -32,7 +32,6 @@ final class RatingViewController: UIViewController {
     
     // MARK: - IBOutlets
     
-    @IBOutlet private var navigationBar: UINavigationBar!
     @IBOutlet private var indicatorView: UIView!
     @IBOutlet private var commonButton: UIButton!
     @IBOutlet private var classicButton: UIButton!
@@ -60,11 +59,23 @@ final class RatingViewController: UIViewController {
         configureButtons()
         bindEventsRating()
         presentationModel.obtainRatingWithUser()
+        
+        let rightSwipe = UISwipeGestureRecognizer(target: self, action: #selector(swipeRight))
+        rightSwipe.direction = UISwipeGestureRecognizerDirection.right
+        ratingCollectionView.addGestureRecognizer(rightSwipe)
+        
+        let leftSwipe = UISwipeGestureRecognizer(target: self, action: #selector(swipeLeft))
+        leftSwipe.direction = UISwipeGestureRecognizerDirection.left
+        ratingCollectionView.addGestureRecognizer(leftSwipe)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         tabBarController?.delegate = self
+        if presentationModel.ratingViewModels.isEmpty {
+            bindEventsRating()
+            presentationModel.obtainRatingWithUser()
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -78,8 +89,6 @@ final class RatingViewController: UIViewController {
         presentationModel.changeStateHandler = { [weak self] status in
             switch status {
             case .loading:
-                PKHUD.sharedHUD.dimsBackground = false
-                PKHUD.sharedHUD.userInteractionOnUnderlyingViewsEnabled = true
                 HUD.show(.progress)
             case .rich:
                 self?.ratingCollectionView.reloadData()
@@ -130,9 +139,10 @@ final class RatingViewController: UIViewController {
     // MARK: - Private Methods
     
     private func configureNavigationBar() {
-        navigationController?.isNavigationBarHidden = true
+        navigationController?.isNavigationBarHidden = false
         let titleTextAttributes: [NSAttributedStringKey: Any] = [NSAttributedStringKey.foregroundColor: PaletteColors.darkGray,
                                                                  NSAttributedStringKey.font: UIFont.customFont(.robotoMediumFont(size: 17))]
+        guard let navigationBar = navigationController?.navigationBar else { return }
         navigationBar.titleTextAttributes = titleTextAttributes
         navigationBar.topItem?.title = Constants.title
         navigationBar.shadowImage = UIImage(color: UIColor.white)
@@ -180,9 +190,69 @@ final class RatingViewController: UIViewController {
         ratingCollectionView.setContentOffset(topPoint, animated: true)
     }
     
+    private func moveIndicator(constant: CGFloat, button: UIButton) {
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 1, initialSpringVelocity: 20, animations: ({
+            self.indicatorView.frame.origin.x = constant + 12
+            self.commonButton.tintColor = PaletteColors.lightGray
+            self.classicButton.tintColor = PaletteColors.lightGray
+            self.fastButton.tintColor = PaletteColors.lightGray
+            self.veryFastButton.tintColor = PaletteColors.lightGray
+            button.tintColor = PaletteColors.blueTint
+            
+            self.bindEventsSort()
+            self.presentationModel.sortRating(for: self.ratingType)
+        }))
+    }
+    
     @objc private func refreshRating(_ refreshControl: UIRefreshControl) {
         bindEventsRefreshRating()
         presentationModel.refreshRating(type: ratingType)
+    }
+    
+    @objc private func swipeLeft() {
+        indicatorButtonLeadingConstraint.isActive = false
+        var constant: CGFloat
+        var button: UIButton
+        switch ratingType {
+        case .common:
+            constant = classicButton.frame.origin.x
+            button = classicButton
+            ratingType = .classic
+        case .classic:
+            constant = fastButton.frame.origin.x
+            button = fastButton
+            ratingType = .fast
+        case .fast:
+            constant = veryFastButton.frame.origin.x
+            button = veryFastButton
+            ratingType = .veryFast
+        case .veryFast:
+            return
+        }
+        moveIndicator(constant: constant, button: button)
+    }
+    
+    @objc private func swipeRight() {
+        indicatorButtonLeadingConstraint.isActive = false
+        var constant: CGFloat
+        var button: UIButton
+        switch ratingType {
+        case .fast:
+            constant = classicButton.frame.origin.x
+            button = classicButton
+            ratingType = .classic
+        case .veryFast:
+            constant = fastButton.frame.origin.x
+            button = fastButton
+            ratingType = .fast
+        case .classic:
+            constant = commonButton.frame.origin.x
+            button = commonButton
+            ratingType = .common
+        case .common:
+            return
+        }
+        moveIndicator(constant: constant, button: button)
     }
     
     // MARK: - IBAction

@@ -27,6 +27,7 @@ final class RatingPresentationModel: PresentationModel {
     // MARK: - Public Methods
     
     func obtainRatingWithUser() {
+        error = nil
         group.enter()
         obtainUserInfo()
         
@@ -43,6 +44,11 @@ final class RatingPresentationModel: PresentationModel {
     }
     
     func refreshRating(type: RatingType = .common) {
+        self.error = nil
+        group.enter()
+        obtainUserInfo()
+        
+        group.enter()
         ratingService.obtainRating(useCache: true) { result in
             switch result {
             case .serviceSuccess(let model):
@@ -52,6 +58,14 @@ final class RatingPresentationModel: PresentationModel {
                 self.state = .rich
             case .serviceFailure(let error):
                 self.state = .error(code: error.code)
+            }
+        }
+        
+        group.notify(queue: DispatchQueue.main) {
+            if self.error != nil {
+                self.state = .error(code: self.error)
+            } else {
+                self.state = .rich
             }
         }
     }
@@ -86,8 +100,7 @@ final class RatingPresentationModel: PresentationModel {
                 guard let model = model else { return }
                 self.userViewModel = UserViewModel(model)
                 self.group.leave()
-            case .serviceFailure(let error):
-                self.error = error.code
+            case .serviceFailure:
                 self.group.leave()
             }
         }
@@ -101,9 +114,10 @@ final class RatingPresentationModel: PresentationModel {
                 guard let model = model else { return }
                 self.ratingViewModels = model.rating.compactMap { RatingViewModel($0) }
                 self.sortViewModels(type: .common)
-                self.state = .rich
+                self.group.leave()
             case .serviceFailure(let error):
-                self.state = .error(code: error.code)
+                self.error = error.code
+                self.group.leave()
             }
         }
     }

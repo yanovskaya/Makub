@@ -16,6 +16,7 @@ final class TabBarController: UITabBarController {
         static var newsImage = "newspaper"
         static var ratingImage = "star"
         static var gamesImage = "fighting"
+        static var accountImage = "menu"
     }
     
     // MARK: - Private Properties
@@ -23,15 +24,14 @@ final class TabBarController: UITabBarController {
     private let newsStoryboard = UIStoryboard(with: StoryboardTitle.news)
     private let ratingStoryboard = UIStoryboard(with: StoryboardTitle.rating)
     private let gamesStoryboard = UIStoryboard(with: StoryboardTitle.games)
+    private let accountStoryboard = UIStoryboard(with: StoryboardTitle.account)
     
     // MARK: - ViewController lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tabBar.barTintColor = .white
-        tabBar.tintColor = PaletteColors.blueTint
-        navigationController?.isNavigationBarHidden = true
         createTabBarController()
+        configureTabBar()
     }
 
     // MARK: - Private Properties
@@ -49,7 +49,22 @@ final class TabBarController: UITabBarController {
         let gamesVC = gamesStoryboard.viewController(GamesViewController.self)
         gamesVC.tabBarItem = UITabBarItem(title: nil, image: gamesItem, tag: 2)
         
-        let controllerArray = [newsVC, ratingVC, gamesVC]
+        let accountItem = UIImage(named: Constants.accountImage)?.imageWithInsets(insets: UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0))
+        let accountVC = accountStoryboard.viewController(AccountViewController.self)
+        accountVC.tabBarItem = UITabBarItem(title: nil, image: accountItem, tag: 3)
+        accountVC.delegate = newsVC
+        
+        let controllerArray = [newsVC, ratingVC, gamesVC, accountVC]
         viewControllers = controllerArray.map { UINavigationController(rootViewController: $0) }
+    }
+    
+    private func configureTabBar() {
+        let topBorder = CALayer()
+        topBorder.frame = CGRect(x: 0.0, y: 0.0, width: view.frame.size.width, height: 0.5)
+        topBorder.backgroundColor = UIColor.lightGray.withAlphaComponent(0.4).cgColor
+        tabBar.layer.addSublayer(topBorder)
+        tabBar.clipsToBounds = true
+        tabBar.barTintColor = .white
+        tabBar.tintColor = PaletteColors.blueTint
     }
 }

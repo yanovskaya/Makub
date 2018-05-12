@@ -14,7 +14,7 @@
         <!--News View Controller-->
         <scene sceneID="AdP-PS-BSK">
             <objects>
-                <viewController storyboardIdentifier="NewsViewController" id="CKn-zy-h9n" customClass="NewsViewController" customModule="Макуб" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NewsViewController" id="CKn-zy-h9n" customClass="NewsViewController" customModule="Makub" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Aby-3z-Kci">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -34,7 +34,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="gUe-FZ-ngV" firstAttribute="bottom" secondItem="QxD-fG-A70" secondAttribute="bottom" id="ccD-WP-XlS"/>
-                            <constraint firstItem="QxD-fG-A70" firstAttribute="top" secondItem="Aby-3z-Kci" secondAttribute="top" id="k5A-Vv-VV8"/>
+                            <constraint firstItem="QxD-fG-A70" firstAttribute="top" secondItem="Aby-3z-Kci" secondAttribute="top" id="fhG-5M-3g1"/>
                             <constraint firstItem="QxD-fG-A70" firstAttribute="leading" secondItem="gUe-FZ-ngV" secondAttribute="leading" id="q7c-k2-JSe"/>
                             <constraint firstItem="gUe-FZ-ngV" firstAttribute="trailing" secondItem="QxD-fG-A70" secondAttribute="trailing" id="w8c-WZ-0eO"/>
                         </constraints>
@@ -51,7 +51,7 @@
         <!--Add News View Controller-->
         <scene sceneID="kMH-8q-6U6">
             <objects>
-                <viewController storyboardIdentifier="AddNewsViewController" id="CJn-v0-QGP" customClass="AddNewsViewController" customModule="Макуб" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddNewsViewController" id="CJn-v0-QGP" customClass="AddNewsViewController" customModule="Makub" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="K3G-Es-8FB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -99,16 +99,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ejT-jY-MAj">
-                                <rect key="frame" x="367" y="122" width="0.0" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" id="YB2-Lh-1lU"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="removeButtonTapped:" destination="CJn-v0-QGP" eventType="touchUpInside" id="uVz-pr-wi8"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="G8u-Ez-7vj">
                                 <rect key="frame" x="25" y="514" width="325" height="128"/>
                                 <constraints>
@@ -145,8 +135,6 @@
                         <color key="backgroundColor" red="0.83741801979999997" green="0.83743780850000005" blue="0.83742713930000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="SzL-A4-rQC" firstAttribute="top" secondItem="1ZE-bU-PcY" secondAttribute="bottom" id="2Ll-nB-zah"/>
-                            <constraint firstItem="tZv-yI-LYh" firstAttribute="trailing" secondItem="ejT-jY-MAj" secondAttribute="trailing" constant="8" id="3u6-2E-eVL"/>
-                            <constraint firstItem="SzL-A4-rQC" firstAttribute="top" secondItem="ejT-jY-MAj" secondAttribute="bottom" constant="3" id="4oi-Fr-BEo"/>
                             <constraint firstItem="G8u-Ez-7vj" firstAttribute="leading" secondItem="tZv-yI-LYh" secondAttribute="leading" constant="25" id="5mV-Ab-4yU"/>
                             <constraint firstItem="pBa-O9-quZ" firstAttribute="trailing" secondItem="tZv-yI-LYh" secondAttribute="trailing" id="8Rw-9r-7Er"/>
                             <constraint firstItem="QhZ-JX-VEt" firstAttribute="top" secondItem="K3G-Es-8FB" secondAttribute="topMargin" id="CY4-Im-HXn"/>
@@ -156,13 +144,13 @@
                             <constraint firstItem="1ZE-bU-PcY" firstAttribute="top" secondItem="pBa-O9-quZ" secondAttribute="bottom" id="Mll-vg-BQ0"/>
                             <constraint firstItem="QhZ-JX-VEt" firstAttribute="trailing" secondItem="tZv-yI-LYh" secondAttribute="trailing" id="PdB-Zd-EUR"/>
                             <constraint firstItem="pBa-O9-quZ" firstAttribute="top" secondItem="QhZ-JX-VEt" secondAttribute="bottom" constant="1" id="R2M-5z-Ma2"/>
-                            <constraint firstItem="ejT-jY-MAj" firstAttribute="leading" secondItem="qoZ-9u-y5Z" secondAttribute="trailing" constant="5" id="U6e-lt-SXg"/>
                             <constraint firstItem="qoZ-9u-y5Z" firstAttribute="leading" secondItem="1ZE-bU-PcY" secondAttribute="trailing" constant="8" id="cN1-Oz-CUF"/>
                             <constraint firstItem="G8u-Ez-7vj" firstAttribute="centerX" secondItem="tZv-yI-LYh" secondAttribute="centerX" id="dhP-gP-9KC"/>
                             <constraint firstItem="SzL-A4-rQC" firstAttribute="leading" secondItem="tZv-yI-LYh" secondAttribute="leading" id="oJL-4e-vbA"/>
                             <constraint firstItem="tZv-yI-LYh" firstAttribute="trailing" secondItem="SzL-A4-rQC" secondAttribute="trailing" id="p6X-iF-8Ch"/>
                             <constraint firstItem="QhZ-JX-VEt" firstAttribute="leading" secondItem="tZv-yI-LYh" secondAttribute="leading" id="tQ9-Qz-Suh"/>
                             <constraint firstItem="1ZE-bU-PcY" firstAttribute="leading" secondItem="tZv-yI-LYh" secondAttribute="leading" constant="25" id="uVU-jB-AcS"/>
+                            <constraint firstItem="tZv-yI-LYh" firstAttribute="trailing" secondItem="qoZ-9u-y5Z" secondAttribute="trailing" constant="13" id="zLJ-ax-KhU"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tZv-yI-LYh"/>
                     </view>
@@ -173,12 +161,10 @@
                         <outlet property="cancelButtonItem" destination="at6-WU-baz" id="MYJ-di-0BS"/>
                         <outlet property="doneButtonItem" destination="hsF-I0-xzE" id="3Zk-Sp-cFr"/>
                         <outlet property="heightImageView" destination="2Nd-MV-9fw" id="PoE-ZJ-laK"/>
-                        <outlet property="heightRemoveButton" destination="YB2-Lh-1lU" id="RHK-2b-Val"/>
                         <outlet property="heightTextView" destination="4jE-AP-UDw" id="JXv-Zg-Qca"/>
                         <outlet property="navigationBar" destination="QhZ-JX-VEt" id="9Tg-vC-7DU"/>
                         <outlet property="newsTextView" destination="SzL-A4-rQC" id="Ndd-zs-4KE"/>
                         <outlet property="previewImageView" destination="G8u-Ez-7vj" id="fcD-wA-OiU"/>
-                        <outlet property="removeButton" destination="ejT-jY-MAj" id="73y-Hf-99s"/>
                         <outlet property="titleTextField" destination="1ZE-bU-PcY" id="a3U-zA-SPb"/>
                     </connections>
                 </viewController>

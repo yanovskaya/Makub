@@ -1,5 +1,5 @@
 //
-//  GameInfoImpl.swift
+//  GameInfoServiceImpl.swift
 //  Makub
 //
 //  Created by Елена Яновская on 15.04.2018.
@@ -19,7 +19,7 @@ final class GameInfoServiceImpl: GameInfoService {
         static let baseURL = "https://makub.ru/api"
         static let tokenParameter = "token"
         static let gameIdParameter = "game_id"
-        static let stageParameter = "id"
+        static let idParameter = "id"
         static let playerIdParameter = "player_id"
         static let commentParameter = "comment"
     }
@@ -28,6 +28,7 @@ final class GameInfoServiceImpl: GameInfoService {
         static let tournament = "/tournament_by_stage"
         static let comments = "/get_comments"
         static let addComment = "/add_comment"
+        static let gameInfo = "/get_game_info"
     }
     
     // MARK: - Private Properties
@@ -37,6 +38,7 @@ final class GameInfoServiceImpl: GameInfoService {
     private let commentsParser = Parser<CommentsResponse>()
     private let tournamentParser = Parser<TournamentResponse>()
     private let addCommentParser = Parser<AddCommentResponse>()
+    private let gameInfoParser = Parser<GameInfo>()
     
     // MARK: - Initialization
     
@@ -46,6 +48,31 @@ final class GameInfoServiceImpl: GameInfoService {
     }
     
     // MARK: - Public Methods
+    
+    func obtainGameInfo(gameId: Int, completion: ((ServiceCallResult<GameInfo>) -> Void)?) {
+        guard let token = KeychainWrapper.standard.string(forKey: KeychainKeys.token) else {
+            let error = NSError(domain: "", code: AdditionalErrors.tokenNotFound)
+            completion?(ServiceCallResult.serviceFailure(error: error))
+            return
+        }
+        let parameters = [Constants.tokenParameter: token,
+                          Constants.idParameter: gameId] as [String: Any]
+        transport.request(method: .post, url: Constants.baseURL + EndPoint.gameInfo, parameters: parameters) { [unowned self] transportResult in
+            switch transportResult {
+            case .transportSuccess(let payload):
+                let resultBody = payload.resultBody
+                let parseResult = self.gameInfoParser.parse(from: resultBody)
+                switch parseResult {
+                case .parserSuccess(let model):
+                    completion?(ServiceCallResult.serviceSuccess(payload: model))
+                case .parserFailure(let error):
+                    completion?(ServiceCallResult.serviceFailure(error: error))
+                }
+            case .transportFailure(let error):
+                completion?(ServiceCallResult.serviceFailure(error: error))
+            }
+        }
+    }
     
     func obtainComments(gameId: Int, completion: ((ServiceCallResult<CommentsResponse>) -> Void)?) {
         guard let token = KeychainWrapper.standard.string(forKey: KeychainKeys.token) else {
@@ -84,7 +111,7 @@ final class GameInfoServiceImpl: GameInfoService {
             return
         }
         let parameters = [Constants.tokenParameter: token,
-                          Constants.stageParameter: stage] as [String: Any]
+                          Constants.idParameter: stage] as [String: Any]
         transport.request(method: .post, url: Constants.baseURL + EndPoint.tournament, parameters: parameters) { [unowned self] transportResult in
             switch transportResult {
             case .transportSuccess(let payload):

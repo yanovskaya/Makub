@@ -10,6 +10,12 @@ import Kingfisher
 import SwiftKeychainWrapper
 import UIKit
 
+extension UIApplication {
+    var statusBarView: UIView? {
+        return value(forKey: "statusBar") as? UIView
+    }
+}
+
 @UIApplicationMain
 final class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -24,6 +30,10 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         return authStoryboard.viewController(AuthViewController.self)
     }
 
+    private var statusBarView: UIView? {
+        return value(forKey: "statusBar") as? UIView
+    }
+    
     // MARK: - App lifecycle
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {

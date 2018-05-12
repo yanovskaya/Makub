@@ -15,7 +15,6 @@ final class FilterGamesViewController: UIViewController {
     
     private enum Constants {
         static let title = "Фильтр"
-        static let cancelButtonItem = "Отмена"
         static let doneButtonItem = "Готово"
         
         static let filterImage = "filter"

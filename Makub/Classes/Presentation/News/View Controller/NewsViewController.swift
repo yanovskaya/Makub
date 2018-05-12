@@ -41,7 +41,7 @@ final class NewsViewController: UIViewController {
     // MARK: - Private Properties
     
     private var navigationSearchBar = UISearchBar()
-    private weak var hidingNavBarManager: HidingNavigationBarManager?
+    private var hidingNavBarManager: HidingNavigationBarManager?
     
     private let refreshControl = UIRefreshControl()
     private let router = NewsRouter()
@@ -55,9 +55,11 @@ final class NewsViewController: UIViewController {
         filteredNews = presentationModel.newsViewModels
         view.backgroundColor = PaletteColors.blueBackground
         
+        configurePKHUD()
         configureNavigationController()
         configureCollectionView()
         configureNavigationSearchBar()
+        configureHidingNavigationBar()
         configureSearchBar()
         
         hideSearchKeyboardWhenTappedAround()
@@ -72,6 +74,12 @@ final class NewsViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        tabBarController?.delegate = self
+        UIApplication.shared.statusBarView?.backgroundColor = .white
+        if presentationModel.newsViewModels.isEmpty {
+            bindEventsObtainNewsWithUser()
+            presentationModel.obtainNewsWithUser()
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -85,8 +93,6 @@ final class NewsViewController: UIViewController {
         presentationModel.changeStateHandler = { [weak self] status in
             switch status {
             case .loading:
-                PKHUD.sharedHUD.dimsBackground = false
-                PKHUD.sharedHUD.userInteractionOnUnderlyingViewsEnabled = true
                 HUD.show(.progress)
             case .rich:
                 self?.filteredNews = (self?.presentationModel.newsViewModels)!
@@ -169,10 +175,16 @@ final class NewsViewController: UIViewController {
         }
     }
     
+    private func configurePKHUD() {
+        PKHUD.sharedHUD.dimsBackground = false
+        PKHUD.sharedHUD.userInteractionOnUnderlyingViewsEnabled = true
+    }
+    
     private func configureNavigationController() {
+        navigationController!.isNavigationBarHidden = false
         navigationItem.titleView = navigationSearchBar
-        navigationController?.navigationBar.shadowImage = UIImage(color: UIColor.white)
-        navigationController?.navigationBar.setBackgroundImage(UIImage(color: UIColor.white), for: .default)
+        navigationController!.navigationBar.shadowImage = UIImage(color: UIColor.white)
+        navigationController!.navigationBar.setBackgroundImage(UIImage(color: UIColor.white), for: .default)
         
         hidingNavBarManager = HidingNavigationBarManager(viewController: self, scrollView: newsCollectionView)
         hidingNavBarManager?.refreshControl = refreshControl
@@ -182,6 +194,11 @@ final class NewsViewController: UIViewController {
         navigationSearchBar.backgroundImage = UIImage(color: .clear)
         navigationSearchBar.searchBarStyle = .minimal
         navigationSearchBar.placeholder = Constants.searchBarPlaceholder
+    }
+    
+    private func configureHidingNavigationBar() {
+        hidingNavBarManager = HidingNavigationBarManager(viewController: self, scrollView: newsCollectionView)
+        hidingNavBarManager?.refreshControl = refreshControl
     }
     
     private func configureSearchBar() {
@@ -287,7 +304,7 @@ extension NewsViewController: UICollectionViewDataSource {
         }
     }
     
-    func addNewsCell(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    private func addNewsCell(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
          let cellIdentifier = Constants.addNewsCellId
         guard let cell =
             collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? AddNewsCell else { return UICollectionViewCell() }
@@ -297,14 +314,16 @@ extension NewsViewController: UICollectionViewDataSource {
         return cell
     }
     
-    func newsCell(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    private func newsCell(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cellIdentifier = Constants.newsCellId
         guard let cell =
             collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? NewsCell else { return UICollectionViewCell() }
         let viewModel = filteredNews[indexPath.row]
-        cell.configure(for: viewModel)
-        cell.configureMoreButton(userId: presentationModel.userViewModel.id)
         cell.configureCellWidth(view.frame.width)
+        cell.configure(for: viewModel)
+        if let userViewModel = presentationModel.userViewModel {
+            cell.configureMoreButton(userId: userViewModel.id)
+        }
         cell.delegate = self
         cell.contentView.isUserInteractionEnabled = false
         cell.layoutIfNeeded()
@@ -352,7 +371,7 @@ extension NewsViewController: UITabBarControllerDelegate {
     
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         if tabBarController.selectedIndex == 0 {
-            let indexPath = IndexPath(item: 0, section: 0)
+            let indexPath = IndexPath(row: 0, section: 0)
             hidingNavBarManager?.shouldScrollToTop()
             newsCollectionView.scrollToItem(at: indexPath, at: .top, animated: true)
         }
@@ -385,5 +404,12 @@ extension NewsViewController: AddNewsViewControllerDelegate {
     func addNewsToCollectionView() {
         bindEventsObtainOnlyNews()
         presentationModel.obtainOnlyNews()
+    }
+}
+
+extension NewsViewController: AccountViewControllerDelegate {
+    
+    func exitToAuthorization() {
+        hidingNavBarManager = nil
     }
 }

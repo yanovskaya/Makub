@@ -21,6 +21,7 @@ final class ServiceLayer {
     let tournamentsService: TournamentsService
     let clubsService: ClubsService
     let ratingService: RatingService
+    let accountService: AccountService
     
     let requestSessionManager: SessionManager
     let uploadSessionManager: SessionManager
@@ -28,7 +29,7 @@ final class ServiceLayer {
     private init() {
         requestSessionManager = {
             let configuration = URLSessionConfiguration.default
-            configuration.timeoutIntervalForRequest = 15
+            configuration.timeoutIntervalForRequest = 20
             return SessionManager(configuration: configuration)
         }()
         uploadSessionManager = {
@@ -46,6 +47,7 @@ final class ServiceLayer {
         tournamentsService = TournamentsServiceImpl(sessionManager: requestSessionManager)
         clubsService = ClubsServiceImpl(sessionManager: requestSessionManager)
         ratingService = RatingServiceImpl(sessionManager: requestSessionManager)
+        accountService = AccountServiceImpl(sessionManager: requestSessionManager)
     }
     
 }

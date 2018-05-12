@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -14,7 +13,7 @@
         <!--Auth View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="AuthViewController" id="BYZ-38-t0r" customClass="AuthViewController" customModule="Макуб" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AuthViewController" id="BYZ-38-t0r" customClass="AuthViewController" customModule="Makub" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -22,7 +21,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WnN-DC-hds">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3aY-A9-Ipn" customClass="AuthTextField" customModule="Макуб" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3aY-A9-Ipn" customClass="AuthTextField" customModule="Makub" customModuleProvider="target">
                                 <rect key="frame" x="25" y="213" width="270" height="40"/>
                                 <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -33,7 +32,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next" textContentType="username"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="feX-yF-5j2" customClass="AuthTextField" customModule="Макуб" customModuleProvider="target">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="feX-yF-5j2" customClass="AuthTextField" customModule="Makub" customModuleProvider="target">
                                 <rect key="frame" x="25" y="268" width="270" height="40"/>
                                 <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="textColor"/>
@@ -48,7 +47,7 @@
                                     <constraint firstAttribute="width" priority="249" constant="169" id="i9o-ia-mUc"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cz0-gt-Zxb" customClass="AuthPassButton" customModule="Макуб" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cz0-gt-Zxb" customClass="AuthPassButton" customModule="Makub" customModuleProvider="target">
                                 <rect key="frame" x="25" y="378" width="270" height="40"/>
                                 <color key="backgroundColor" red="0.55634254220000001" green="0.97934550050000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
@@ -108,32 +107,32 @@
         <!--Recover View Controller-->
         <scene sceneID="Pk8-hI-Tes">
             <objects>
-                <viewController storyboardIdentifier="RecoverViewController" id="Huz-0W-3qi" customClass="RecoverViewController" customModule="Макуб" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RecoverViewController" id="Huz-0W-3qi" customClass="RecoverViewController" customModule="Makub" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZmL-n2-lnS">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="j1m-h4-tPz">
-                                <rect key="frame" x="115" y="58" width="90" height="90"/>
+                                <rect key="frame" x="115" y="78" width="90" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="90" id="L8k-Wh-zBt"/>
                                     <constraint firstAttribute="width" secondItem="j1m-h4-tPz" secondAttribute="height" multiplier="1:1" id="fqR-5n-dMh"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="alf-8m-hYg">
-                                <rect key="frame" x="139" y="164" width="42" height="21"/>
+                                <rect key="frame" x="139" y="184" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3eR-0I-u5e">
-                                <rect key="frame" x="35" y="196" width="250" height="20.5"/>
+                                <rect key="frame" x="35" y="216" width="250" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u9E-UY-CeE" customClass="AuthTextField" customModule="Макуб" customModuleProvider="target">
-                                <rect key="frame" x="25" y="236.5" width="270" height="40"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u9E-UY-CeE" customClass="AuthTextField" customModule="Makub" customModuleProvider="target">
+                                <rect key="frame" x="25" y="256.5" width="270" height="40"/>
                                 <color key="backgroundColor" red="0.92143100499999997" green="0.92145264149999995" blue="0.92144101860000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="veT-lS-1Bu"/>
@@ -142,8 +141,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="done" textContentType="email"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JbV-WW-9IU" customClass="AuthPassButton" customModule="Макуб" customModuleProvider="target">
-                                <rect key="frame" x="25" y="300.5" width="270" height="44"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JbV-WW-9IU" customClass="AuthPassButton" customModule="Makub" customModuleProvider="target">
+                                <rect key="frame" x="25" y="320.5" width="270" height="44"/>
                                 <color key="backgroundColor" red="0.24313725490196078" green="1" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="Yb4-pP-bpL"/>
@@ -160,10 +159,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qQh-l9-obg">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="50"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X5o-fv-wpx">
-                                        <rect key="frame" x="16" y="30" width="46" height="30"/>
+                                        <rect key="frame" x="16" y="10" width="46" height="30"/>
                                         <state key="normal" title="Button"/>
                                         <connections>
                                             <action selector="backButtonTapped:" destination="Huz-0W-3qi" eventType="touchUpInside" id="Y2m-y6-shq"/>
@@ -173,9 +172,9 @@
                                 <color key="backgroundColor" red="0.66422420739999999" green="0.66424006219999998" blue="0.66423153879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="KWL-RH-EdF"/>
+                                    <constraint firstItem="X5o-fv-wpx" firstAttribute="centerY" secondItem="qQh-l9-obg" secondAttribute="centerY" id="PtF-Dc-UQp"/>
                                     <constraint firstItem="X5o-fv-wpx" firstAttribute="leading" secondItem="qQh-l9-obg" secondAttribute="leading" constant="16" id="SXn-GQ-Vca"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="X5o-fv-wpx" secondAttribute="trailing" constant="20" symbolic="YES" id="VP3-0c-dPk"/>
-                                    <constraint firstItem="X5o-fv-wpx" firstAttribute="top" secondItem="qQh-l9-obg" secondAttribute="top" constant="30" id="q2R-Xk-jty"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -193,7 +192,7 @@
                             <constraint firstItem="cb6-0t-WJc" firstAttribute="centerX" secondItem="VOF-av-Glo" secondAttribute="centerX" id="SFO-ye-T1U"/>
                             <constraint firstItem="VOF-av-Glo" firstAttribute="trailing" secondItem="qQh-l9-obg" secondAttribute="trailing" id="SLX-bX-5x5"/>
                             <constraint firstItem="alf-8m-hYg" firstAttribute="top" secondItem="j1m-h4-tPz" secondAttribute="bottom" constant="16" id="YG6-V6-Nya"/>
-                            <constraint firstItem="qQh-l9-obg" firstAttribute="top" secondItem="ZmL-n2-lnS" secondAttribute="top" id="f4J-o6-RsD"/>
+                            <constraint firstItem="qQh-l9-obg" firstAttribute="top" secondItem="VOF-av-Glo" secondAttribute="top" id="f4J-o6-RsD"/>
                             <constraint firstItem="3eR-0I-u5e" firstAttribute="centerX" secondItem="alf-8m-hYg" secondAttribute="centerX" id="mlt-Fk-PVC"/>
                             <constraint firstItem="u9E-UY-CeE" firstAttribute="top" secondItem="3eR-0I-u5e" secondAttribute="bottom" constant="20" id="oZM-kS-kRs"/>
                             <constraint firstItem="JbV-WW-9IU" firstAttribute="top" secondItem="u9E-UY-CeE" secondAttribute="bottom" constant="24" id="u2y-K2-rO5"/>

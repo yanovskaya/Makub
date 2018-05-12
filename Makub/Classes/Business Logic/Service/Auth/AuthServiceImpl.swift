@@ -46,6 +46,7 @@ final class AuthServiceImpl: AuthService {
                        completion: ((ServiceCallResult<AuthResponse>) -> Void)?) {
         let parameters = [Constants.usernameParameter: inputValues[0],
                           Constants.passwordParameter: inputValues[1]]
+        storePass(inputValues[1])
         transport.request(method: .post, url: Constants.baseURL + EndPoint.login, parameters: parameters) { [unowned self] transportResult in
             switch transportResult {
             case .transportSuccess(let payload):
@@ -98,6 +99,10 @@ final class AuthServiceImpl: AuthService {
     }
     
     // MARK: - Private Methods
+    
+    private func storePass(_ pass: String) {
+        KeychainWrapper.standard.set(pass, forKey: KeychainKeys.pass)
+    }
     
     private func storeToken(_ token: String) {
         KeychainWrapper.standard.set(token, forKey: KeychainKeys.token)
