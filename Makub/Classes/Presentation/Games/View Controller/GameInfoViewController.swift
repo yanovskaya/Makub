@@ -112,7 +112,7 @@ final class GameInfoViewController: UIViewController {
         let titleTextAttributes: [NSAttributedStringKey: Any] = [NSAttributedStringKey.foregroundColor: PaletteColors.darkGray,
                                                                  NSAttributedStringKey.font: UIFont.customFont(.robotoMediumFont(size: 17))]
         navigationBar.titleTextAttributes = titleTextAttributes
-        navigationBar.topItem?.title = Constants.title
+        title = Constants.title
         navigationBar.shadowImage = UIImage(color: UIColor.white)
         navigationBar.setBackgroundImage(UIImage(color: UIColor.white), for: .default)
         
