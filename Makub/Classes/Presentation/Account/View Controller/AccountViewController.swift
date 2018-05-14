@@ -157,7 +157,9 @@ final class AccountViewController: UICollectionViewController {
             self.delegate?.exitToAuthorization()
             self.router.exitToAuthorization()
         }
-        let cancelAction = UIAlertAction(title: Constants.cancelAction, style: .cancel)
+        let cancelAction = UIAlertAction(title: Constants.cancelAction, style: .cancel) { _ in
+             UIApplication.shared.statusBarView?.backgroundColor = .white
+        }
         
         alertController.addAction(deleteAction)
         alertController.addAction(cancelAction)

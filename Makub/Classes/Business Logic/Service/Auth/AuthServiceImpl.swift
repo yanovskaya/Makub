@@ -73,8 +73,13 @@ final class AuthServiceImpl: AuthService {
     }
     
     func recoverPassword(email: String, completion: ((ServiceCallResult<RecoverResponse>) -> Void)?) {
-        let parameters = [Constants.emailParameter: email]
-        transport.request(method: .post, url: Constants.baseURL + EndPoint.login, parameters: parameters) { [unowned self] transportResult in
+        let parameters: [String: String]
+        if let email = email.removingPercentEncoding {
+            parameters = [Constants.emailParameter: email]
+        } else {
+            parameters = [Constants.emailParameter: email]
+        }
+        transport.request(method: .post, url: Constants.baseURL + EndPoint.recover, parameters: parameters) { [unowned self] transportResult in
             switch transportResult {
             case .transportSuccess(let payload):
                 let resultBody = payload.resultBody
@@ -84,8 +89,6 @@ final class AuthServiceImpl: AuthService {
                     if model.error == 1 {
                         completion?(ServiceCallResult.serviceSuccess(payload: nil))
                     } else {
-                        // заглушка для тестирования
-                        // completion?(ServiceCallResult.serviceSuccess(payload: nil))
                         let error = NSError(domain: "", code: model.error)
                         completion?(ServiceCallResult.serviceFailure(error: error))
                     }

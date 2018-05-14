@@ -86,6 +86,16 @@ final class AddNewsViewController: UIViewController {
         configureAuthorView()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+         UIApplication.shared.statusBarView?.backgroundColor = .clear
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        UIApplication.shared.statusBarView?.backgroundColor = .white
+    }
+    
     // MARK: - Private Methods
     
     private func bindEvents() {
