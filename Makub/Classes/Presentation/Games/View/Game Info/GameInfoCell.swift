@@ -204,10 +204,11 @@ final class GameInfoCell: UICollectionViewCell, ViewModelConfigurable {
         widthAnchor.constraint(equalToConstant: width).isActive = true
         
         let ratio: CGFloat = 2 / 5
-        club1Label.widthAnchor.constraint(equalToConstant: width * ratio).isActive = true
-        club2Label.widthAnchor.constraint(equalToConstant: width * ratio).isActive = true
-        player1Label.widthAnchor.constraint(equalToConstant: width * ratio).isActive = true
-        player2Label.widthAnchor.constraint(equalToConstant: width * ratio).isActive = true
+        let newWidth = width * ratio
+        club1Label.widthAnchor.constraint(equalToConstant: newWidth).isActive = true
+        club2Label.widthAnchor.constraint(equalToConstant: newWidth).isActive = true
+        player1Label.widthAnchor.constraint(equalToConstant: newWidth).isActive = true
+        player2Label.widthAnchor.constraint(equalToConstant: newWidth).isActive = true
     }
     
     // MARK: - Private Methods

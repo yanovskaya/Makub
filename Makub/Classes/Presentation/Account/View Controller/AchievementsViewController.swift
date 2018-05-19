@@ -167,7 +167,6 @@ final class AchievementsViewController: UICollectionViewController {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? CupsAchievementsCell else { return UICollectionViewCell() }
         let achievement = presentationModel.userViewModel.achievements[indexPath.row]
         cell.configure(for: achievement)
-        cell.configureCellWidth(view.frame.width)
         return cell
     }
     

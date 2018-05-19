@@ -35,10 +35,6 @@ final class CupsAchievementsCell: UICollectionViewCell {
         achievementLabel.text = achievement
     }
     
-    func configureCellWidth(_ width: CGFloat) {
-        widthAnchor.constraint(equalToConstant: width).isActive = true
-    }
-    
     // MARK: - Private Methods
     
     private func configureImageView() {

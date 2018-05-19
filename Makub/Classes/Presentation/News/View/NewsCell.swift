@@ -132,8 +132,6 @@ final class NewsCell: UICollectionViewCell, ViewModelConfigurable {
     }
     
     func configureCellWidth(_ width: CGFloat) {
-        widthAnchor.constraint(equalToConstant: width).isActive = true
-        
         let imageOffset: CGFloat = 16
         heightIllustrationImageViewConstant = (width - imageOffset) / 3 * 2
     }
