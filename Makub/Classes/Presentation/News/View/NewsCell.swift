@@ -139,7 +139,7 @@ final class NewsCell: UICollectionViewCell, ViewModelConfigurable {
     // MARK: - Private Methods
     
     private func configureLayout() {
-        self.contentView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.translatesAutoresizingMaskIntoConstraints = false
         let screenWidth = UIScreen.main.bounds.size.width
         widthAnchor.constraint(equalToConstant: screenWidth).isActive = true
     }

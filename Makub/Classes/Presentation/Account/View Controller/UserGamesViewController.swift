@@ -35,6 +35,8 @@ class UserGamesViewController: UICollectionViewController {
     private var refreshControl = UIRefreshControl()
     private let router = AccountRouter()
     
+    // MARK: - ViewController lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = PaletteColors.blueBackground
